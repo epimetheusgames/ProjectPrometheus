@@ -1,1 +1,1 @@
-# OGPC-Season-17
+# OGPC Season 17
