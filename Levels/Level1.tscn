@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://surlffyhcnfl"]
+
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/PlaceHolder32x32.png" id="1_t8g8p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1mqme"]
+texture = ExtResource("1_t8g8p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_s8m0k"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.243137, 0.254902, 0.909804, 1)
+sources/0 = SubResource("TileSetAtlasSource_1mqme")
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_s8m0k")
+cell_quadrant_size = 32
+format = 2
