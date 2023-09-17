@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3kum2xov23jg"]
+
+[sub_resource type="Curve" id="Curve_x5ce8"]
+min_value = -10.0
+max_value = 10.0
+_data = [Vector2(0, -0.105263), 0.0, 0.0, 0, 0, Vector2(1, 1.57896), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_27ip7"]
+curve = SubResource("Curve_x5ce8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12ys7"]
+emission_shape = 3
+emission_box_extents = Vector3(700, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_curve = SubResource("CurveTexture_27ip7")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Gradient" id="Gradient_8ci5c"]
+offsets = PackedFloat32Array(0, 0.780645)
+colors = PackedColorArray(0.635294, 0.635294, 0.635294, 0.12549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pm1g8"]
+gradient = SubResource("Gradient_8ci5c")
+width = 5
+fill = 1
+fill_from = Vector2(0.519658, 0.5)
+fill_to = Vector2(0.547009, 1)
+
+[node name="Rain" type="Node2D"]
+editor_description = "More of a rain overlaw without the splash effects."
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(570, -89)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_12ys7")
+texture = SubResource("GradientTexture2D_pm1g8")
+lifetime = 10.0
+explosiveness = 0.08
+fixed_fps = 60
+collision_base_size = 0.0
+trail_enabled = true
+trail_lifetime = 5.0
+trail_sections = 5
+trail_section_subdivisions = 5
