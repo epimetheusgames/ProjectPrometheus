@@ -20,9 +20,6 @@ func _physics_process(_delta):
 	# Apply gravity
 	velocity.y += gravity
 	
-	# Add velocity to position.
-	position += velocity
-	
 	# Apply keyboard inputs.
 	velocity.x += getInputVelocity()
 	if checkJump() and canJump():
@@ -30,4 +27,7 @@ func _physics_process(_delta):
 	
 	# Collisions.
 	move_and_slide()
+	
+	# Add velocity to position.
+	position += velocity
 	
