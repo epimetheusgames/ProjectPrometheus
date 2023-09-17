@@ -41,7 +41,7 @@ func _on_drop_change_timer_timeout():
 func _on_end_melody_start_timer_timeout():
 	increase_orbitvel = true
 	$FallingParticles.emitting = true
-	$FallingParticles.process_material.orbit_velocity_max = 0.05
+	$FallingParticles.process_material.orbit_velocity_max = 0.05  
 	$FallingParticles2.emitting = false
 	$FallingParticles3.emitting = false
 
