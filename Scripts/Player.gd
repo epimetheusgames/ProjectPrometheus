@@ -30,4 +30,6 @@ func _physics_process(_delta):
 	
 	# Add velocity to position.
 	position += velocity
-	
+
+func _on_area_2d_area_entered(area):
+	position = get_parent().get_parent().get_node("RespawnPos").position

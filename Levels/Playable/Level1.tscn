@@ -46,3 +46,11 @@ motion_mirroring = Vector2(1135, 950)
 scale = Vector2(35.505, 30)
 texture = ExtResource("3_3cm3h")
 centered = false
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(-565, 111, 5274, 70, 1964, 561)
+
+[node name="RespawnPos" type="Node2D" parent="."]
+position = Vector2(4, -91)
