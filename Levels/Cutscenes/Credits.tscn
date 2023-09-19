@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://claejn8lfpglk"]
+[gd_scene load_steps=46 format=3 uid="uid://claejn8lfpglk"]
 
 [ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_ipxi3"]
 [ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audio/Subway-VIP.ogg" id="2_n8254"]
@@ -29,6 +29,9 @@ sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 collision_mode = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lbx0w"]
+blend_mode = 1
+
 [sub_resource type="Curve" id="Curve_5ybs7"]
 min_value = -10.0
 max_value = 10.0
@@ -45,8 +48,8 @@ particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 20.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 750.0
-initial_velocity_max = 1200.0
+initial_velocity_min = 300.0
+initial_velocity_max = 750.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_curve = SubResource("CurveTexture_eso3b")
@@ -54,14 +57,16 @@ hue_variation_min = -0.05
 hue_variation_max = 0.05
 
 [sub_resource type="Gradient" id="Gradient_d3i88"]
-colors = PackedColorArray(0.95, 0, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.354839, 1)
+colors = PackedColorArray(1, 0.313726, 0.247059, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_76602"]
 gradient = SubResource("Gradient_d3i88")
-width = 12
+width = 8
+height = 8
 fill = 1
-fill_from = Vector2(0.34188, 0.504274)
-fill_to = Vector2(0.463303, 0.279817)
+fill_from = Vector2(0.486239, 0.518349)
+fill_to = Vector2(0.46789, 0.0779817)
 
 [sub_resource type="Curve" id="Curve_xqfyj"]
 min_value = -10.0
@@ -141,6 +146,10 @@ fill = 1
 fill_from = Vector2(0.34188, 0.504274)
 fill_to = Vector2(0.463303, 0.279817)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l4lh1"]
+blend_mode = 1
+light_mode = 1
+
 [sub_resource type="Curve" id="Curve_6iou5"]
 min_value = -10.0
 max_value = 10.0
@@ -152,7 +161,7 @@ curve = SubResource("Curve_6iou5")
 
 [sub_resource type="Gradient" id="Gradient_7g2yj"]
 offsets = PackedFloat32Array(0.251852, 0.533333, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0518519, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.47451, 1, 1, 1, 0.0518519, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lnvep"]
 gradient = SubResource("Gradient_7g2yj")
@@ -161,13 +170,13 @@ gradient = SubResource("Gradient_7g2yj")
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 particle_flag_disable_z = true
-spread = 46.0
-gravity = Vector3(0, 1000, 0)
+spread = 70.0
+gravity = Vector3(0, 0, 0)
 initial_velocity_min = 500.0
-initial_velocity_max = 500.0
+initial_velocity_max = 700.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-damping_min = 200.0
+damping_min = 100.0
 damping_max = 1000.0
 angle_curve = SubResource("CurveTexture_20uti")
 color_ramp = SubResource("GradientTexture1D_lnvep")
@@ -186,18 +195,21 @@ fill = 1
 fill_from = Vector2(0.513761, 0.495413)
 fill_to = Vector2(0.555046, 0.302752)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fgw6o"]
+blend_mode = 1
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sl6ai"]
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 particle_flag_disable_z = true
 direction = Vector3(-1, 0, 0)
-spread = 46.0
-gravity = Vector3(0, 1000, 0)
+spread = 70.0
+gravity = Vector3(0, 0, 0)
 initial_velocity_min = 500.0
-initial_velocity_max = 500.0
+initial_velocity_max = 700.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-damping_min = 200.0
+damping_min = 100.0
 damping_max = 1000.0
 angle_curve = SubResource("CurveTexture_20uti")
 color_ramp = SubResource("GradientTexture1D_lnvep")
@@ -301,19 +313,20 @@ color = Color(0, 0, 0, 1)
 
 [node name="Drop" parent="Rain" index="0"]
 process_material = SubResource("ParticleProcessMaterial_tytg3")
-explosiveness = 0.0
 
 [node name="FallingParticles" type="GPUParticles2D" parent="."]
 editor_description = "This is "
+material = SubResource("CanvasItemMaterial_lbx0w")
 position = Vector2(662, -89)
 emitting = false
-amount = 500
+amount = 300
 process_material = SubResource("ParticleProcessMaterial_tuxj5")
 texture = SubResource("GradientTexture2D_76602")
 lifetime = 10.0
 fixed_fps = 60
 collision_base_size = 0.0
-trail_lifetime = 0.01
+trail_enabled = true
+trail_lifetime = 0.1
 trail_sections = 2
 trail_section_subdivisions = 1
 
@@ -368,6 +381,7 @@ trail_section_subdivisions = 1
 
 [node name="LeftExplosions" type="GPUParticles2D" parent="."]
 editor_description = "This is "
+material = SubResource("CanvasItemMaterial_l4lh1")
 position = Vector2(-3, 343)
 emitting = false
 amount = 200
@@ -385,6 +399,7 @@ trail_section_subdivisions = 50
 
 [node name="RightExplosions" type="GPUParticles2D" parent="."]
 editor_description = "This is "
+material = SubResource("CanvasItemMaterial_fgw6o")
 position = Vector2(1180, 310)
 emitting = false
 amount = 200

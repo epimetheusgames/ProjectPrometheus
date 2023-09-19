@@ -3,15 +3,15 @@ extends Node2D
 var increase_orbitvel = false
 
 func _ready():
-	$FallingParticles.emitting = true
+	$FallingParticles.process_material.angular_velocity_max = 200
+	$FallingParticles.process_material.spread = 40
 	
 func _process(_delta):
 	if increase_orbitvel:
 		$FallingParticles.process_material.orbit_velocity_max += 0.003
 
 func _on_start_timer_timeout():
-	$FallingParticles.process_material.angular_velocity_max = 200
-	$FallingParticles.process_material.spread = 40
+	$FallingParticles.emitting = true
 	$Music.play()
 
 func _on_left_beat_timer_timeout():
