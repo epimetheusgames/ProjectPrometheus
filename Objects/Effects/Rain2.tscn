@@ -45,7 +45,6 @@ amount = 50
 process_material = SubResource("ParticleProcessMaterial_12ys7")
 texture = SubResource("GradientTexture2D_pm1g8")
 lifetime = 10.0
-explosiveness = 0.08
 fixed_fps = 60
 collision_base_size = 0.0
 trail_enabled = true

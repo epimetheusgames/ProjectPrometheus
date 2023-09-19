@@ -66,7 +66,6 @@ sub_emitter = NodePath("../Splash")
 process_material = SubResource("ParticleProcessMaterial_564g1")
 texture = SubResource("GradientTexture2D_pm1g8")
 lifetime = 10.0
-explosiveness = 0.08
 fixed_fps = 60
 collision_base_size = 0.0
 trail_lifetime = 5.0

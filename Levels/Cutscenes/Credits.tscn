@@ -301,10 +301,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="Drop" parent="Rain" index="0"]
 process_material = SubResource("ParticleProcessMaterial_tytg3")
+explosiveness = 0.0
 
 [node name="FallingParticles" type="GPUParticles2D" parent="."]
 editor_description = "This is "
-position = Vector2(570, -89)
+position = Vector2(662, -89)
 emitting = false
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_tuxj5")
