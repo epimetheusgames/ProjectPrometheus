@@ -26,9 +26,13 @@ func _on_drop_lead_up_timer_timeout():
 
 func _on_just_before_drop_timer_timeout():
 	$FallingParticles4.emitting = true
+	$LeftExplosions.amount += 1
+	$RightExplosions.amount += 1
 	
 func _on_drop_timer_timeout():
 	$FallingParticles2.emitting = true
+	$LeftExplosions2.emitting = true
+	$RightExplosions2.emitting = true
 
 func _on_drop_change_timer_timeout():
 	$FallingParticles3.emitting = true

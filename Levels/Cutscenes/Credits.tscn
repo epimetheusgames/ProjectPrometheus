@@ -401,7 +401,7 @@ trail_section_subdivisions = 50
 
 [node name="RightExplosions2" type="GPUParticles2D" parent="."]
 editor_description = "This is "
-position = Vector2(834, 347)
+position = Vector2(1156, 339)
 emitting = false
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_17qq8")
@@ -439,6 +439,8 @@ amount = 32
 process_material = SubResource("ParticleProcessMaterial_wscvo")
 texture = SubResource("GradientTexture2D_l3buc")
 lifetime = 20.0
+
+[node name="Text" type="Node2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_n8254")
