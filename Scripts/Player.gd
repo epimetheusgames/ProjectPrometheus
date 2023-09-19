@@ -24,12 +24,12 @@ func _physics_process(_delta):
 	velocity.x += getInputVelocity()
 	if checkJump() and canJump():
 		velocity.y = -jump_vel
+		
+	# Add velocity to position.
+	position += velocity
 	
 	# Collisions.
 	move_and_slide()
-	
-	# Add velocity to position.
-	position += velocity
 
 func _on_area_2d_area_entered(area):
 	position = get_parent().get_parent().get_node("RespawnPos").position
