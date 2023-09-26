@@ -27,7 +27,7 @@ collision_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_8ci5c"]
 offsets = PackedFloat32Array(0, 0.780645)
-colors = PackedColorArray(0.635294, 0.635294, 0.635294, 0.168627, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pm1g8"]
 gradient = SubResource("Gradient_8ci5c")
@@ -65,7 +65,7 @@ amount = 700
 sub_emitter = NodePath("../Splash")
 process_material = SubResource("ParticleProcessMaterial_564g1")
 texture = SubResource("GradientTexture2D_pm1g8")
-lifetime = 10.0
+lifetime = 100.0
 fixed_fps = 60
 collision_base_size = 0.0
 trail_lifetime = 5.0

@@ -312,6 +312,7 @@ color = Color(0, 0, 0, 1)
 [node name="Rain" parent="." instance=ExtResource("2_nj5qs")]
 
 [node name="Drop" parent="Rain" index="0"]
+sub_emitter = NodePath("")
 process_material = SubResource("ParticleProcessMaterial_tytg3")
 
 [node name="FallingParticles" type="GPUParticles2D" parent="."]
