@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coj721dy08538"
-path="res://.godot/imported/MetalTilesetCenter.png-0427aa540497fcb4bd6acaf7afddf5c1.ctex"
+uid="uid://o7rsjjitakox"
+path="res://.godot/imported/TileMapMetal.png-a61a3bb23009a3281b5934b4be8561d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/MetalTilesetCenter.png"
-dest_files=["res://.godot/imported/MetalTilesetCenter.png-0427aa540497fcb4bd6acaf7afddf5c1.ctex"]
+source_file="res://Assets/Images/TileMapMetal.png"
+dest_files=["res://.godot/imported/TileMapMetal.png-a61a3bb23009a3281b5934b4be8561d2.ctex"]
 
 [params]
 
