@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk8o56bdo51ex"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/SaveLoadFramework.gd" id="1_7se8a"]
+[ext_resource type="PackedScene" uid="uid://bqj7x37f41rx1" path="res://Objects/FrameworkNodes/Menu.tscn" id="2_6xv50"]
+
+[node name="SaveLoadFramework" type="Node2D"]
+editor_description = "This should be the root scene of the project."
+script = ExtResource("1_7se8a")
+
+[node name="Menu" parent="." instance=ExtResource("2_6xv50")]

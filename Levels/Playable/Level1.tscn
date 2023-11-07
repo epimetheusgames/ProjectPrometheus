@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://surlffyhcnfl"]
+[gd_scene load_steps=9 format=3 uid="uid://surlffyhcnfl"]
 
 [ext_resource type="Texture2D" uid="uid://um0gdcgiwjtd" path="res://Assets/Images/Tileset.png" id="1_d6rci"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/LevelFramework.gd.gd" id="1_qid82"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="2_aucrc"]
 [ext_resource type="Texture2D" uid="uid://o7rsjjitakox" path="res://Assets/Images/TileMapMetal.png" id="2_qwfxt"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/PlaceHolder32x32.png" id="3_3cm3h"]
@@ -972,6 +973,7 @@ sources/0 = SubResource("TileSetAtlasSource_1mqme")
 sources/3 = SubResource("TileSetAtlasSource_j7r4s")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_qid82")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s8m0k")

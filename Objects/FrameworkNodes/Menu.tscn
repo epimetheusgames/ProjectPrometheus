@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqj7x37f41rx1"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egmb5"]
+
+[node name="Menu" type="Node2D"]
+editor_description = "This scene should include the UI for the main menu."
+script = ExtResource("1_egmb5")

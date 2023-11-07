@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://claejn8lfpglk"]
 
-[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1_ipxi3"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/Credits.gd" id="1_ty6cr"]
 [ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audio/Subway-VIP.ogg" id="2_n8254"]
 [ext_resource type="PackedScene" uid="uid://ucrfo18juupk" path="res://Objects/Effects/Rain.tscn" id="2_nj5qs"]
 
@@ -302,7 +302,7 @@ fill_from = Vector2(0.53211, 0.5)
 fill_to = Vector2(0.605505, 0.40367)
 
 [node name="Credits" type="Node2D"]
-script = ExtResource("1_ipxi3")
+script = ExtResource("1_ty6cr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1173.0
