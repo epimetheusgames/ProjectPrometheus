@@ -5,3 +5,13 @@
 [node name="Menu" type="Node2D"]
 editor_description = "This scene should include the UI for the main menu."
 script = ExtResource("1_egmb5")
+
+[node name="SpinBox" type="SpinBox" parent="."]
+offset_left = 897.0
+offset_top = 493.0
+offset_right = 1073.0
+offset_bottom = 615.0
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+prefix = "Slot Num:"

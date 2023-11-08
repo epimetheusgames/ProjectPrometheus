@@ -12,18 +12,21 @@ const level_node_names = [
 	"Level1",
 ]
 
-func _ready():
-	save_data(0, 1)
-	start_game(1)
+const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
 
 # Save game via its respective slot.
 func save_game(content, save_num):
-	var file = FileAccess.open("user://save_" + save_num.to_string() + ".json", FileAccess.WRITE)
+	var file = FileAccess.open("user://save_" + str(save_num) + ".json", FileAccess.WRITE)
 	file.store_string(content)
 
 # Load game via its respective 
 func load_game(load_num):
-	var file = FileAccess.open("user://save_" + load_num.to_string() + ".json", FileAccess.READ)
+	var file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
+	
+	if not file:
+		save_data(0, load_num)
+		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
+	
 	var content = file.get_as_text()
 	return content
 
@@ -43,18 +46,23 @@ func load_data(slot):
 	# I edited it a bit.
 	if error == OK:
 		var data_received = json.data
+		print(data_received)
 		return data_received[0]
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
 func start_game(slot):
 	var current_level = load_data(slot)
-	var level_loaded = preloaded_levels[current_level].instanciate()
+	var level_loaded = preloaded_levels[current_level].instantiate()
 	level_loaded.slot = slot
-	get_node("Menu").deactivate()
+	get_node("Menu").queue_free()
 	add_child(level_loaded)
 	
 func exit_to_menu(level, slot):
 	save_data(level, slot)
 	get_node(level_node_names[level]).free()
-	get_node("Menu").activate()
+	add_child(menu.instantiate())
+
+func switch_to_level(level, slot):
+	exit_to_menu(level, slot)
+	start_game(slot)

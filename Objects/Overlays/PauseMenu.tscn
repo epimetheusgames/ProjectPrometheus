@@ -8,20 +8,20 @@ script = ExtResource("1_0l5na")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -30.0
 offset_top = -27.0
-offset_right = 1172.0
-offset_bottom = 666.0
+offset_right = 1933.0
+offset_bottom = 1219.0
 color = Color(0, 0, 0, 0.372549)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 516.0
-offset_top = 246.0
-offset_right = 602.0
-offset_bottom = 272.0
+offset_left = 893.0
+offset_top = 566.0
+offset_right = 979.0
+offset_bottom = 592.0
 text = "SPACE EXIT"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 511.0
-offset_top = 171.0
-offset_right = 767.0
-offset_bottom = 255.0
+offset_left = 888.0
+offset_top = 491.0
+offset_right = 1144.0
+offset_bottom = 575.0
 text = "ESC RESUME"
