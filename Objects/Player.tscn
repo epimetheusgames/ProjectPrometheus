@@ -17,7 +17,6 @@ script = ExtResource("1_71342")
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_7fkxw")
 speed = 0.15
-jump_vel = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(16, 16)
