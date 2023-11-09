@@ -984,6 +984,10 @@ layer_0/tile_data = PackedInt32Array(0, 589824, 3, 1, 589824, 3, 2, 589824, 3, 4
 [node name="Player" parent="." instance=ExtResource("2_aucrc")]
 position = Vector2(-42, -84)
 
+[node name="Player" parent="Player" index="0"]
+friction_force = 1.2
+air_friction_force = 1.01
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]

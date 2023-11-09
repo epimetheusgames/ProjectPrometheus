@@ -4,10 +4,11 @@ extends CharacterBody2D
 @export var speed = 0.2
 @export var jump_vel = 10
 @export var gravity = 0.5
-@export var friction_force = 1.1
-@export var air_friction_force = 1.15
+@export var friction_force = 1.2
+@export var air_friction_force = 1.01
 @export var max_speed = 5
 @export var max_air_speed = 4.5
+var dont_apply_friction = false
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
@@ -19,7 +20,8 @@ func getInputVelocity(can_jump):
 	
 	if abs(velocity.x) < max_movement_speed:
 		return input_direction * speed
-	return 0
+		
+	return (abs(velocity.x) - max_movement_speed) * -input_direction
 	
 func checkJump():
 	return Input.is_action_just_pressed("jump")
@@ -30,6 +32,7 @@ func canJump():
 func _physics_process(_delta):
 	# Apply gravity
 	velocity.y += gravity
+	dont_apply_friction = false
 	
 	# Apply keyboard inputs.
 	var can_jump = canJump()
@@ -38,9 +41,12 @@ func _physics_process(_delta):
 	if checkJump() and canJump():
 		velocity.y = -jump_vel
 		
+	if abs(velocity.x) >= max_speed:
+		velocity.x -= 0.001
+		
 	if input_velocity == 0 || (can_jump && ((input_velocity > 0 && velocity.x < 0) || (input_velocity < 0 && velocity.x > 0))):
-		if can_jump:
-			velocity.x /= friction_force	
+		if can_jump && (abs(velocity.x) != max_speed && Input.get_axis("left", "right") == 0):
+			velocity.x /= friction_force
 		else:
 			velocity.x /= air_friction_force
 		

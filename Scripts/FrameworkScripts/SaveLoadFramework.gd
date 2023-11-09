@@ -1,8 +1,7 @@
 extends Node2D
 # Save load framework should be the root node of the main menu.
-# It should have a child named Menu, which has a function called
-# deactivate() that will completely hide and deactivate the menu.
-# Per vis versa, it should have an activate() funciton.
+# It should have a child named Menu, which holds the UI of the
+# menu.
 
 const preloaded_levels = [
 	preload("res://Levels/Playable/Level1.tscn"),
