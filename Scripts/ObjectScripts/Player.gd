@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
 # Speed multiplier for the player
-@export var speed = 0.4
+@export var speed = 0.2
 @export var jump_vel = 6
 @export var gravity = 0.5
 @export var friction_force = 1.2
 @export var air_friction_force = 1.01
 @export var max_speed = 3
 @export var max_air_speed = 4.5
-@export var jump_push_force = 0.2
+@export var jump_push_force = 0.225
 @export var speed_hard_cap = 3.5
+@export var jump_speed_boost = 1.1
 var dont_apply_friction = false
 
 # Figure out the velocity based on the inputs.
@@ -41,6 +42,7 @@ func _physics_process(_delta):
 	var input_velocity = getInputVelocity(can_jump)
 	velocity.x += input_velocity
 	if checkJump() and canJump():
+		velocity.x *= jump_speed_boost
 		velocity.y = -jump_vel
 		
 	# If the player is holding the jump button, apply a slight upwards push.

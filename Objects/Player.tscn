@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
 [ext_resource type="PackedScene" uid="uid://dbql3q4vummfw" path="res://Objects/Overlays/PauseMenu.tscn" id="2_g88ux"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/PlaceHolder1-1.png" id="3_n86bg"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="3_n86bg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvpqa"]
 size = Vector2(32, 32)

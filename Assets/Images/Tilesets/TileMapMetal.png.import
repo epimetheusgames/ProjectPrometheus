@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nitrc8bfqdmv"
-path="res://.godot/imported/TileMapMetalNonTransparent.png-dcd2c4f179f48073e317d2eabc669734.ctex"
+uid="uid://bnb4wia4rgoxk"
+path="res://.godot/imported/TileMapMetal.png-53524d11a614b481d9a2c77391a08125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/TileMapMetalNonTransparent.png"
-dest_files=["res://.godot/imported/TileMapMetalNonTransparent.png-dcd2c4f179f48073e317d2eabc669734.ctex"]
+source_file="res://Assets/Images/Tilesets/TileMapMetal.png"
+dest_files=["res://.godot/imported/TileMapMetal.png-53524d11a614b481d9a2c77391a08125.ctex"]
 
 [params]
 

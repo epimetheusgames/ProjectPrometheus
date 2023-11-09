@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://surlffyhcnfl"]
+[gd_scene load_steps=5 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/LevelFramework.gd.gd" id="1_qid82"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="2_7t30y"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="2_aucrc"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/PlaceHolder1-1.png" id="5_war7x"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="4_mopu4"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_qid82")
@@ -17,11 +17,6 @@ layer_0/tile_data = PackedInt32Array(0, 589824, 3, 1, 589824, 3, 2, 589824, 3, 4
 [node name="Player" parent="." instance=ExtResource("2_aucrc")]
 position = Vector2(-42, -84)
 
-[node name="Player" parent="Player" index="0"]
-jump_vel = 6
-friction_force = 1.2
-air_friction_force = 1.01
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -31,7 +26,7 @@ motion_mirroring = Vector2(960, 960)
 
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2(30, 30)
-texture = ExtResource("5_war7x")
+texture = ExtResource("4_mopu4")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]

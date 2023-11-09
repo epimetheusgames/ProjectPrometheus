@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o7rsjjitakox"
-path="res://.godot/imported/TileMapMetal.png-a61a3bb23009a3281b5934b4be8561d2.ctex"
+uid="uid://dcfkiv764iaqk"
+path="res://.godot/imported/PlaceHolder1-1.png-e83c42b22e085609ba1947d13e7ada2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/TileMapMetal.png"
-dest_files=["res://.godot/imported/TileMapMetal.png-a61a3bb23009a3281b5934b4be8561d2.ctex"]
+source_file="res://Assets/Images/Objects/PlaceHolder1-1.png"
+dest_files=["res://.godot/imported/PlaceHolder1-1.png-e83c42b22e085609ba1947d13e7ada2b.ctex"]
 
 [params]
 
