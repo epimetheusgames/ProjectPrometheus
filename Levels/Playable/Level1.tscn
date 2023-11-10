@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=9 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/LevelFramework.gd.gd" id="1_qid82"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="2_7t30y"]
@@ -73,6 +73,12 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nneak"]
+size = Vector2(2277.5, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ao7e"]
+size = Vector2(61, 469)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_qid82")
 
@@ -112,5 +118,17 @@ polygon = PackedVector2Array(-4722, 145, 5803, 61, 1964, 561)
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(112, -456)
+shape = SubResource("RectangleShape2D_nneak")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1245, -209)
+shape = SubResource("RectangleShape2D_6ao7e")
 
 [editable path="Player"]

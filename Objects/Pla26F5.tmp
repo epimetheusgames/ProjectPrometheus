@@ -36,6 +36,10 @@ texture = ExtResource("3_tijrl")
 position = Vector2(17.5, 17.5)
 shape = SubResource("RectangleShape2D_7c12t")
 
+[node name="PauseMenu" parent="Player" instance=ExtResource("2_g88ux")]
+position = Vector2(-487, -295)
+scale = Vector2(0.5, 0.5)
+
 [node name="CoyoteJumpTimer" type="Timer" parent="Player"]
 wait_time = 0.02
 one_shot = true
@@ -43,16 +47,12 @@ one_shot = true
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
+[node name="CameraColider" type="CharacterBody2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("5_gvxec")
 
-[node name="CameraHitbox" type="CollisionShape2D" parent="Camera/CameraCollider"]
+[node name="CameraHitbox" type="CollisionShape2D" parent="CameraColider"]
 shape = SubResource("RectangleShape2D_shfyb")
-
-[node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
-position = Vector2(-487, -295)
-scale = Vector2(0.5, 0.5)
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]

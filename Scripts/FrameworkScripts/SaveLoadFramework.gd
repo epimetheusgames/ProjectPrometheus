@@ -1,3 +1,4 @@
+
 extends Node2D
 # Save load framework should be the root node of the main menu.
 # It should have a child named Menu, which holds the UI of the
