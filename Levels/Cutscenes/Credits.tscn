@@ -502,6 +502,10 @@ wait_time = 86.2
 one_shot = true
 autostart = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(587, 332)
+zoom = Vector2(1.648, 1.648)
+
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="LeftBeatTimer" to="." method="_on_left_beat_timer_timeout"]
 [connection signal="timeout" from="DropLeadUpTimer" to="." method="_on_drop_lead_up_timer_timeout"]
