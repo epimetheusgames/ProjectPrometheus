@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=37 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bwrbubeu2hism" path="res://Assets/Images/Objects/CharacterSpritesheet.png" id="3_tijrl"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraColider.gd" id="5_gvxec"]
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="5_w8eax"]
+[ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
+[ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(299, 150)
@@ -125,6 +127,99 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ed8f"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxe4s"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct6ro"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14o4o"]
+atlas = ExtResource("8_aa0ad")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83q08"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ypi"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0fov"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x513"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_328me"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xogro"]
+atlas = ExtResource("7_6p2gh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeeve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ed8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxe4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct6ro")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_14o4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83q08")
+}],
+"loop": false,
+"name": &"EndMoving",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ypi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0fov")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x513")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_328me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xogro")
+}],
+"loop": false,
+"name": &"StartMoving",
+"speed": 10.0
+}]
+
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -159,15 +254,22 @@ position = Vector2(-17, -17)
 position = Vector2(16.5, 19)
 shape = SubResource("RectangleShape2D_7c12t")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_xb43y")
 animation = &"StartWalk"
 autoplay = "Walking"
+
+[node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_xeeve")
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CoyoteJumpTimer" type="Timer" parent="Player"]
 wait_time = 0.02
 one_shot = true
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
-[connection signal="animation_finished" from="Player/AnimatedSprite2D" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]

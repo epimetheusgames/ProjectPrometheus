@@ -14,6 +14,7 @@ extends CharacterBody2D
 var dont_apply_friction = false
 var could_jump = false
 var just_jumped = false
+var wasnt_moving = false
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
@@ -64,19 +65,6 @@ func _physics_process(_delta):
 	if abs(velocity.x) > speed_hard_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
 		
-	# Set player to be in the direction that it's moving.
-	if Input.is_action_pressed("left"):
-		$AnimatedSprite2D.scale.x = -1
-	elif Input.is_action_pressed("right"):
-		$AnimatedSprite2D.scale.x = 1
-	else:
-		#Reusing code here.
-		$AnimatedSprite2D.play("Idle")
-		
-	# Play start walk animation when left or right is pressed.
-	if Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right"):
-		$AnimatedSprite2D.play("StartWalk")
-		
 	# Apply friction.
 	if input_velocity == 0:
 		# Don't apply friction if the player is moving.
@@ -84,6 +72,31 @@ func _physics_process(_delta):
 			velocity.x /= friction_force
 		else:
 			velocity.x /= air_friction_force
+		
+	# Set player to be in the direction that it's moving.
+	if Input.is_action_pressed("left"):
+		$PlayerAnimation.scale.x = -1
+		$AntennaAnimation.scale.x = -1
+	elif Input.is_action_pressed("right"):
+		$PlayerAnimation.scale.x = 1
+		$AntennaAnimation.scale.x = 1
+	else:
+		#Reusing code here.
+		$PlayerAnimation.play("Idle")
+		
+	# Play start walk animation when left or right is pressed.
+	var direction_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
+	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
+	if direction_pressed && !both_pressed:
+		$PlayerAnimation.play("StartWalk")
+		
+	if both_pressed:
+		$PlayerAnimation.play("Idle")
+	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && $PlayerAnimation.animation == "Idle":
+		$PlayerAnimation.play("StartWalk")
+		
+	if wasnt_moving && !(velocity.x < 0.05 && velocity.x > -0.05) && $AntennaAnimation.animation == "Idle":
+		$AntennaAnimation.play("StartMoving")
 		
 	# Add velocity to position.
 	position += velocity
@@ -96,6 +109,12 @@ func _physics_process(_delta):
 		could_jump = true
 	else:
 		could_jump = false
+		
+	if (velocity.x < 2 && velocity.x > -2):
+		if $AntennaAnimation.animation == "Moving":
+			$AntennaAnimation.play("EndMoving")
+		
+		wasnt_moving = true
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
@@ -104,5 +123,11 @@ func _on_area_2d_area_entered(area):
 
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
-	if $AnimatedSprite2D.animation == "StartWalk":
-		$AnimatedSprite2D.play("Walking")
+	if $PlayerAnimation.animation == "StartWalk":
+		$PlayerAnimation.play("Walking")
+
+func _on_antenna_animation_animation_finished():
+	if $AntennaAnimation.animation == "EndMoving":
+		$AntennaAnimation.play("Idle")
+	if $AntennaAnimation.animation == "StartMoving":
+		$AntennaAnimation.play("Moving")
