@@ -67,8 +67,15 @@ func _physics_process(_delta):
 	# Set player to be in the direction that it's moving.
 	if Input.is_action_pressed("left"):
 		$AnimatedSprite2D.scale.x = -1
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right"):
 		$AnimatedSprite2D.scale.x = 1
+	else:
+		#Reusing code here.
+		$AnimatedSprite2D.play("Idle")
+		
+	# Play start walk animation when left or right is pressed.
+	if Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right"):
+		$AnimatedSprite2D.play("StartWalk")
 		
 	# Apply friction.
 	if input_velocity == 0:
@@ -90,6 +97,12 @@ func _physics_process(_delta):
 	else:
 		could_jump = false
 
+# If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
 	if area.name == "DeathZone":
 		position = get_parent().get_parent().get_node("RespawnPos").position
+
+# If start walk animation finishes, play walking animation.
+func _on_animated_sprite_2d_animation_finished():
+	if $AnimatedSprite2D.animation == "StartWalk":
+		$AnimatedSprite2D.play("Walking")
