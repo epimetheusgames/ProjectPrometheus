@@ -90,11 +90,13 @@ func _physics_process(_delta):
 	if direction_pressed && !both_pressed:
 		$PlayerAnimation.play("StartWalk")
 		
+	# Play animations for walking.
 	if both_pressed:
 		$PlayerAnimation.play("Idle")
 	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && $PlayerAnimation.animation == "Idle":
 		$PlayerAnimation.play("StartWalk")
 		
+	# If the player starts moving, play the antenna's start moving animation.
 	if wasnt_moving && !(velocity.x < 0.05 && velocity.x > -0.05) && $AntennaAnimation.animation == "Idle":
 		$AntennaAnimation.play("StartMoving")
 		
@@ -109,7 +111,8 @@ func _physics_process(_delta):
 		could_jump = true
 	else:
 		could_jump = false
-		
+	
+	# If the antenna is moving and needs to stop, set it to end moving.
 	if (velocity.x < 2 && velocity.x > -2):
 		if $AntennaAnimation.animation == "Moving":
 			$AntennaAnimation.play("EndMoving")
@@ -126,6 +129,8 @@ func _on_animated_sprite_2d_animation_finished():
 	if $PlayerAnimation.animation == "StartWalk":
 		$PlayerAnimation.play("Walking")
 
+# If the animation for ending movement is finished, switch to idle, if the
+# animation for starting movement is finished, start moving.
 func _on_antenna_animation_animation_finished():
 	if $AntennaAnimation.animation == "EndMoving":
 		$AntennaAnimation.play("Idle")

@@ -261,7 +261,7 @@ animation = &"StartWalk"
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(-2, 0)
+position = Vector2(-2, 1)
 sprite_frames = SubResource("SpriteFrames_xeeve")
 animation = &"Idle"
 autoplay = "Idle"
