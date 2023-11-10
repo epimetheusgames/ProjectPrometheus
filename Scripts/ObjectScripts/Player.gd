@@ -64,6 +64,12 @@ func _physics_process(_delta):
 	if abs(velocity.x) > speed_hard_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
 		
+	# Set player to be in the direction that it's moving.
+	if Input.is_action_pressed("left"):
+		$AnimatedSprite2D.scale.x = -1
+	if Input.is_action_pressed("right"):
+		$AnimatedSprite2D.scale.x = 1
+		
 	# Apply friction.
 	if input_velocity == 0:
 		# Don't apply friction if the player is moving.

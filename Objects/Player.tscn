@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=13 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -6,14 +6,43 @@
 [ext_resource type="Texture2D" uid="uid://bwrbubeu2hism" path="res://Assets/Images/Objects/CharacterSpritesheet.png" id="3_tijrl"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraColider.gd" id="5_gvxec"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qa4h"]
+atlas = ExtResource("3_tijrl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2xn7"]
+atlas = ExtResource("3_tijrl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04l4b"]
+atlas = ExtResource("3_tijrl")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xb43y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qa4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2xn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04l4b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.5
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvpqa"]
-size = Vector2(18, 29)
+size = Vector2(15, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
 size = Vector2(11, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
-size = Vector2(480, 270)
+size = Vector2(299, 150)
 
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
@@ -22,13 +51,15 @@ script = ExtResource("1_71342")
 script = ExtResource("2_7fkxw")
 speed = 0.15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(16, 17.5)
-shape = SubResource("RectangleShape2D_vvpqa")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(15.5, 16.5)
+sprite_frames = SubResource("SpriteFrames_xb43y")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="PlaceHolder32x32" type="Sprite2D" parent="Player"]
-position = Vector2(16, 16)
-texture = ExtResource("3_tijrl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(16.5, 17.5)
+shape = SubResource("RectangleShape2D_vvpqa")
 
 [node name="Area2D" type="Area2D" parent="Player"]
 
@@ -41,7 +72,7 @@ wait_time = 0.02
 one_shot = true
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(5, 5)
 
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
@@ -49,6 +80,7 @@ collision_mask = 2
 script = ExtResource("5_gvxec")
 
 [node name="CameraHitbox" type="CollisionShape2D" parent="Camera/CameraCollider"]
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_shfyb")
 
 [node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
