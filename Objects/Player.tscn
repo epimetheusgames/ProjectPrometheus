@@ -252,10 +252,10 @@ speed = 0.15
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_c4gj0")
 
-[node name="Area2D" type="Area2D" parent="Player"]
+[node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHurtbox"]
 position = Vector2(16.5, 19)
 shape = SubResource("RectangleShape2D_7c12t")
 
@@ -275,6 +275,6 @@ autoplay = "Idle"
 wait_time = 0.02
 one_shot = true
 
-[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]

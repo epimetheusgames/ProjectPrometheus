@@ -6,10 +6,12 @@ extends Node2D
 
 const preloaded_levels = [
 	preload("res://Levels/Playable/Level1.tscn"),
+	preload("res://Levels/Playable/Level2.tscn"),
 ]
 
 const level_node_names = [
 	"Level1",
+	"Level2",
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
@@ -63,6 +65,7 @@ func exit_to_menu(level, slot):
 	get_node(level_node_names[level]).free()
 	add_child(menu.instantiate())
 
-func switch_to_level(level, slot):
-	exit_to_menu(level, slot)
+func switch_to_level(switch_level, current_level, slot):
+	exit_to_menu(current_level, slot)
+	save_data(switch_level, slot)
 	start_game(slot)

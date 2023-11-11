@@ -74,6 +74,7 @@ func _physics_process(_delta):
 		else:
 			velocity.x /= air_friction_force
 	
+	# If the player hits the ground, apply a slight decrement to the velocity.
 	if was_in_air && can_jump:
 		velocity.x /= 1.15
 		
