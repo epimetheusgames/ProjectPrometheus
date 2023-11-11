@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var jump_speed_boost = 1.1
 var dont_apply_friction = false
 var could_jump = false
+var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
 
@@ -72,6 +73,9 @@ func _physics_process(_delta):
 			velocity.x /= friction_force
 		else:
 			velocity.x /= air_friction_force
+	
+	if was_in_air && can_jump:
+		velocity.x /= 1.15
 		
 	# Add velocity to position.
 	position += velocity
@@ -96,6 +100,15 @@ func _physics_process(_delta):
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
 	if direction_just_pressed && !both_pressed:
 		$PlayerAnimation.play("StartWalk")
+		
+	# You cannot walk in the air, in the future add an anim for this.
+	if !can_jump:
+		$PlayerAnimation.play("InAir")
+		
+	# If you were in the air but hit the ground, go back to walking without 
+	# start walk anim.
+	if can_jump && $PlayerAnimation.animation == "InAir":
+		$PlayerAnimation.play("Walking")
 		
 	# Play animations for walking.
 	if both_pressed:
@@ -131,6 +144,13 @@ func _physics_process(_delta):
 		
 	if !direction_pressed:
 		wasnt_moving = true
+	else:
+		wasnt_moving = false
+		
+	if !can_jump:
+		was_in_air = true
+	else:
+		was_in_air = false
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):

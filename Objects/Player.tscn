@@ -30,6 +30,10 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("5_w8eax")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ws0j"]
+atlas = ExtResource("3_tijrl")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjf5l"]
 atlas = ExtResource("3_tijrl")
 region = Rect2(0, 0, 32, 32)
@@ -37,10 +41,6 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m50yx"]
 atlas = ExtResource("3_tijrl")
 region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ljt6c"]
-atlas = ExtResource("3_tijrl")
-region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhsuv"]
 atlas = ExtResource("3_tijrl")
@@ -88,13 +88,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8ws0j")
+}],
+"loop": true,
+"name": &"InAir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vjf5l")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m50yx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ljt6c")
 }],
 "loop": false,
 "name": &"StartWalk",
