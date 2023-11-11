@@ -73,6 +73,12 @@ func _physics_process(_delta):
 		else:
 			velocity.x /= air_friction_force
 		
+	# Add velocity to position.
+	position += velocity
+	
+	# Collisions.
+	move_and_slide()
+		
 	# Set player to be in the direction that it's moving.
 	if Input.is_action_pressed("left"):
 		$PlayerAnimation.scale.x = -1
@@ -85,26 +91,25 @@ func _physics_process(_delta):
 		$PlayerAnimation.play("Idle")
 		
 	# Play start walk animation when left or right is pressed.
-	var direction_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
+	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
+	var direction_pressed = Input.is_action_pressed("left") || Input.is_action_pressed("right")
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
-	if direction_pressed && !both_pressed:
+	if direction_just_pressed && !both_pressed:
 		$PlayerAnimation.play("StartWalk")
 		
 	# Play animations for walking.
 	if both_pressed:
 		$PlayerAnimation.play("Idle")
-	elif (Input.is_action_pressed("left") || Input.is_action_pressed("right")) && $PlayerAnimation.animation == "Idle":
+	elif direction_pressed && $PlayerAnimation.animation == "Idle":
 		$PlayerAnimation.play("StartWalk")
 		
 	# If the player starts moving, play the antenna's start moving animation.
-	if wasnt_moving && !(velocity.x < 0.05 && velocity.x > -0.05) && $AntennaAnimation.animation == "Idle":
+	if direction_just_pressed && !(velocity.x < 0.1 && velocity.x > -0.1) && $AntennaAnimation.animation == "Idle":
 		$AntennaAnimation.play("StartMoving")
 		
-	# Add velocity to position.
-	position += velocity
-	
-	# Collisions.
-	move_and_slide()
+	# Sometimes the antenna can be stuck in Idle for whatever reason.
+	if (velocity.x > 2 || velocity.x < -2) && $AntennaAnimation.animation == "Idle":
+		$AntennaAnimation.play("StartMoving")
 	
 	# For coyote jumping, check if we can jump.
 	if can_jump && !just_jumped:
@@ -116,7 +121,15 @@ func _physics_process(_delta):
 	if (velocity.x < 2 && velocity.x > -2):
 		if $AntennaAnimation.animation == "Moving":
 			$AntennaAnimation.play("EndMoving")
+	
+	# If the antenna animation stops moving but a direction is still pressed,
+	# (e.g. the player is still moving), presumably because the player turned
+	# around, set the animation back to moving, else it would have to complete
+	# the entire EndMoving animation before going back. In the future, maybe 
+	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
+		$AntennaAnimation.play("Moving")
 		
+	if !direction_pressed:
 		wasnt_moving = true
 
 # If the player enters a death zone, respawn it.
