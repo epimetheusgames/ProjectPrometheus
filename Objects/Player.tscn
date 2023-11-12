@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=46 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheetAir.png" id="6_t7han"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
+[ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="8_pyipo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(299, 150)
@@ -54,6 +55,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m50yx"]
 atlas = ExtResource("3_tijrl")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfwef"]
+atlas = ExtResource("8_pyipo")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhsuv"]
 atlas = ExtResource("3_tijrl")
@@ -141,6 +146,14 @@ animations = [{
 "loop": false,
 "name": &"StartWalk",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfwef")
+}],
+"loop": false,
+"name": &"SwitchDirections",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -262,6 +275,26 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvq35"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_max = 34.22
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+
+[sub_resource type="Gradient" id="Gradient_vup00"]
+colors = PackedColorArray(0.400698, 0.400698, 0.400698, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxmpe"]
+gradient = SubResource("Gradient_vup00")
+width = 1
+height = 1
+
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -299,7 +332,7 @@ shape = SubResource("RectangleShape2D_7c12t")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_xb43y")
-animation = &"Landing"
+animation = &"SwitchDirections"
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
@@ -311,6 +344,13 @@ autoplay = "Idle"
 [node name="CoyoteJumpTimer" type="Timer" parent="Player"]
 wait_time = 0.07
 one_shot = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]
+position = Vector2(-2, 16)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_nvq35")
+texture = SubResource("GradientTexture2D_vxmpe")
 
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]

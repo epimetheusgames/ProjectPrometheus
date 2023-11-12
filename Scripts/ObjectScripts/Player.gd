@@ -16,6 +16,7 @@ var could_jump = false
 var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
+var previous_direction = 0
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
@@ -34,7 +35,7 @@ func checkJump():
 	return Input.is_action_just_pressed("jump")
 	
 func canJump():
-	return is_on_floor() || $CoyoteJumpTimer.time_left > 0
+	return is_on_floor()
 
 func _physics_process(_delta):
 	# Apply gravity
@@ -49,7 +50,7 @@ func _physics_process(_delta):
 	velocity.x += input_velocity
 	
 	# Check if we can jump
-	if checkJump() and can_jump:
+	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
 		just_jumped = true
 		velocity.x *= jump_speed_boost
 		velocity.y = -jump_vel
@@ -83,14 +84,28 @@ func _physics_process(_delta):
 	
 	# Collisions.
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		$GPUParticles2D.emitting = false
+		
+		if collision && collision.get_collider() is TileMap:
+			if collision.get_collider().name == "Gravel" && (velocity.x > 1 || velocity.x < -1):
+				$GPUParticles2D.emitting = true
 		
 	# Set player to be in the direction that it's moving.
 	if Input.is_action_pressed("left"):
 		$PlayerAnimation.scale.x = -1
 		$AntennaAnimation.scale.x = -1
+		
+		if previous_direction == 1:
+			$PlayerAnimation.play("SwitchDirections")
 	elif Input.is_action_pressed("right"):
 		$PlayerAnimation.scale.x = 1
 		$AntennaAnimation.scale.x = 1
+		
+		if previous_direction == -1:
+			$PlayerAnimation.play("SwitchDirections")
 	elif $PlayerAnimation.animation != "Landing":
 		#Reusing code here.
 		$PlayerAnimation.play("Idle")
@@ -99,11 +114,11 @@ func _physics_process(_delta):
 	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
 	var direction_pressed = Input.is_action_pressed("left") || Input.is_action_pressed("right")
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
-	if direction_just_pressed && !both_pressed:
+	if direction_just_pressed && !both_pressed && $PlayerAnimation.animation != "SwitchDirections":
 		$PlayerAnimation.play("StartWalk")
 		
 	# You cannot walk in the air, in the future add an anim for this.
-	if !can_jump && velocity.y > 3:
+	if !can_jump && velocity.y > 2:
 		if velocity.y < 0:
 			$PlayerAnimation.play("InAirUp")
 		if velocity.y > 0:
@@ -111,7 +126,6 @@ func _physics_process(_delta):
 		
 	# If you were in the air but hit the ground, go back to walking without 
 	# start walk anim.
-	print($PlayerAnimation.animation)
 	if was_in_air && $PlayerAnimation.animation == "InAirDown":
 		$PlayerAnimation.play("Landing")
 		
@@ -128,12 +142,6 @@ func _physics_process(_delta):
 	# Sometimes the antenna can be stuck in Idle for whatever reason.
 	if (velocity.x > 2 || velocity.x < -2) && $AntennaAnimation.animation == "Idle":
 		$AntennaAnimation.play("StartMoving")
-	
-	# For coyote jumping, check if we can jump.
-	if can_jump && !just_jumped:
-		could_jump = true
-	else:
-		could_jump = false
 	
 	# If the antenna is moving and needs to stop, set it to end moving.
 	if (velocity.x < 2 && velocity.x > -2):
@@ -156,6 +164,17 @@ func _physics_process(_delta):
 		was_in_air = true
 	else:
 		was_in_air = false
+	
+	# For coyote jumping, check if we can jump.
+	if can_jump && !just_jumped:
+		could_jump = true
+	else:
+		could_jump = false
+		
+	if Input.is_action_pressed("left"):
+		previous_direction = -1
+	elif Input.is_action_pressed("right"):
+		previous_direction = 1
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
@@ -166,6 +185,8 @@ func _on_area_2d_area_entered(area):
 func _on_animated_sprite_2d_animation_finished():
 	if $PlayerAnimation.animation == "StartWalk" || $PlayerAnimation.animation == "Landing":
 		$PlayerAnimation.play("Walking")
+	if $PlayerAnimation.animation == "SwitchDirections":
+		$PlayerAnimation.play("StartWalk")
 
 # If the animation for ending movement is finished, switch to idle, if the
 # animation for starting movement is finished, start moving.

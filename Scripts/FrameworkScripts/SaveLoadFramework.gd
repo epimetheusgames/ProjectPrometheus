@@ -5,13 +5,17 @@ extends Node2D
 # menu.
 
 const preloaded_levels = [
-	preload("res://Levels/Playable/Level1.tscn"),
-	preload("res://Levels/Playable/Level2.tscn"),
+	[
+		preload("res://Levels/Playable/Level1/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level2/Floor1.tscn"),
+	],
 ]
 
 const level_node_names = [
-	"Level1",
-	"Level2",
+	["Level1",],
+	["Level2",],
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
@@ -26,15 +30,15 @@ func load_game(load_num):
 	var file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	if not file:
-		save_data(0, load_num)
+		save_data(0, 0, load_num)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	var content = file.get_as_text()
 	return content
 
 # Convert level to json and save in respective slot.
-func save_data(level, slot):
-	var data = [level]
+func save_data(level, floor, slot):
+	var data = [level, floor]
 	var json_data = JSON.stringify(data)
 	save_game(json_data, slot)
 	
@@ -48,24 +52,25 @@ func load_data(slot):
 	# I edited it a bit.
 	if error == OK:
 		var data_received = json.data
-		print(data_received)
-		return data_received[0]
+		return data_received
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
 func start_game(slot):
-	var current_level = load_data(slot)
-	var level_loaded = preloaded_levels[current_level].instantiate()
+	var level_data = load_data(slot)
+	var current_level = level_data[0]
+	var level_floor = level_data[1]
+	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
 	level_loaded.slot = slot
 	get_node("Menu").queue_free()
 	add_child(level_loaded)
 	
-func exit_to_menu(level, slot):
-	save_data(level, slot)
-	get_node(level_node_names[level]).free()
+func exit_to_menu(level, floor, slot):
+	save_data(level, floor, slot)
+	get_node(level_node_names[level][floor]).queue_free()
 	add_child(menu.instantiate())
 
-func switch_to_level(switch_level, current_level, slot):
-	exit_to_menu(current_level, slot)
-	save_data(switch_level, slot)
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, slot):
+	exit_to_menu(current_level, current_floor, slot)
+	save_data(switch_level, current_floor, slot)
 	start_game(slot)
