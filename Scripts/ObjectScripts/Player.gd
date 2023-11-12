@@ -76,7 +76,7 @@ func _physics_process(_delta):
 	
 	# If the player hits the ground, apply a slight decrement to the velocity.
 	if was_in_air && can_jump:
-		velocity.x /= 1.15
+		velocity.x /= 1.3
 		
 	# Add velocity to position.
 	position += velocity
@@ -91,7 +91,7 @@ func _physics_process(_delta):
 	elif Input.is_action_pressed("right"):
 		$PlayerAnimation.scale.x = 1
 		$AntennaAnimation.scale.x = 1
-	else:
+	elif $PlayerAnimation.animation != "Landing":
 		#Reusing code here.
 		$PlayerAnimation.play("Idle")
 		
@@ -103,13 +103,17 @@ func _physics_process(_delta):
 		$PlayerAnimation.play("StartWalk")
 		
 	# You cannot walk in the air, in the future add an anim for this.
-	if !can_jump:
-		$PlayerAnimation.play("InAir")
+	if !can_jump && velocity.y > 3:
+		if velocity.y < 0:
+			$PlayerAnimation.play("InAirUp")
+		if velocity.y > 0:
+			$PlayerAnimation.play("InAirDown")
 		
 	# If you were in the air but hit the ground, go back to walking without 
 	# start walk anim.
-	if can_jump && $PlayerAnimation.animation == "InAir":
-		$PlayerAnimation.play("Walking")
+	print($PlayerAnimation.animation)
+	if was_in_air && $PlayerAnimation.animation == "InAirDown":
+		$PlayerAnimation.play("Landing")
 		
 	# Play animations for walking.
 	if both_pressed:
@@ -160,7 +164,7 @@ func _on_area_2d_area_entered(area):
 
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
-	if $PlayerAnimation.animation == "StartWalk":
+	if $PlayerAnimation.animation == "StartWalk" || $PlayerAnimation.animation == "Landing":
 		$PlayerAnimation.play("Walking")
 
 # If the animation for ending movement is finished, switch to idle, if the
