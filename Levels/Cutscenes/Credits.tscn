@@ -1,8 +1,8 @@
 [gd_scene load_steps=46 format=3 uid="uid://claejn8lfpglk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/Credits.gd" id="1_ty6cr"]
-[ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audio/Subway-VIP.ogg" id="2_n8254"]
 [ext_resource type="PackedScene" uid="uid://ucrfo18juupk" path="res://Objects/Effects/Rain.tscn" id="2_nj5qs"]
+[ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audio/Music/Subway-VIP.ogg" id="3_8gexv"]
 
 [sub_resource type="Curve" id="Curve_vw2dj"]
 min_value = -10.0
@@ -460,7 +460,7 @@ lifetime = 20.0
 [node name="Text" type="Node2D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_n8254")
+stream = ExtResource("3_8gexv")
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 3.0

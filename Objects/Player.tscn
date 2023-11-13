@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=77 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://btg3fhef4j5qn" path="res://Assets/Images/Objects/CharacterSpritesheetRockets.png" id="13_431dv"]
 [ext_resource type="Texture2D" uid="uid://cmyvexa2xj6h" path="res://Assets/Images/Objects/CharacterSplitRockets.png" id="15_w8lg5"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
+[ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
+[ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
+[ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(299, 150)
@@ -575,7 +578,22 @@ process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = ExtResource("18_6ibhy")
 lifetime = 0.4
 
+[node name="MetalWalk1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 16)
+stream = ExtResource("19_4311v")
+
+[node name="MetalWalk2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 16)
+stream = ExtResource("20_kii0g")
+
+[node name="MetalWalkBoots1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 16)
+stream = ExtResource("21_44at1")
+
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]
+[connection signal="finished" from="MetalWalk1" to="Player" method="_on_metal_walk_1_finished"]
+[connection signal="finished" from="MetalWalk2" to="Player" method="_on_metal_walk_2_finished"]
+[connection signal="finished" from="MetalWalkBoots1" to="Player" method="_on_metal_walk_boots_1_finished"]

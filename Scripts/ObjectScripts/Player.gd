@@ -90,13 +90,35 @@ func _physics_process(_delta):
 	# Collisions.
 	move_and_slide()
 	
+	if get_parent().get_node("MetalWalkBoots1").playing && !current_ability == "RocketBoost":
+		get_parent().get_node("MetalWalk1").play()
+		get_parent().get_node("MetalWalkBoots1").stop()
+	if get_parent().get_node("MetalWalk1").playing && current_ability == "RocketBoost":
+		get_parent().get_node("MetalWalkBoots1").play()
+		get_parent().get_node("MetalWalk1").stop()
+	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		$GravelWalkingParticles.emitting = false
+		var play_metal_walk = false
 		
 		if collision && collision.get_collider() is TileMap:
-			if collision.get_collider().name == "Gravel" && (velocity.x > 1 || velocity.x < -1):
-				$GravelWalkingParticles.emitting = true
+			if (velocity.x > 1 || velocity.x < -1):
+				if collision.get_collider().name == "Gravel":
+					$GravelWalkingParticles.emitting = true
+				if collision.get_collider().name == "Ingame":
+					play_metal_walk = true
+					
+					if get_parent().get_node("MetalWalk1").playing == false && get_parent().get_node("MetalWalk2").playing == false && get_parent().get_node("MetalWalkBoots1").playing == false:
+						if current_ability == "RocketBoost":
+							get_parent().get_node("MetalWalkBoots1").play()
+						else: 
+							get_parent().get_node("MetalWalk1").play()
+		
+		if !play_metal_walk:
+			get_parent().get_node("MetalWalk1").playing = false
+			get_parent().get_node("MetalWalk2").playing = false
+			get_parent().get_node("MetalWalkBoots1").playing = false
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
 		# Set player to be in the direction that it's moving.
@@ -158,7 +180,7 @@ func _physics_process(_delta):
 		
 	# If you were in the air but hit the ground, go back to walking without 
 	# start walk anim.
-	if was_in_air && $PlayerAnimation.animation == "InAirDown":
+	if was_in_air && ($PlayerAnimation.animation == "InAirDown" || $PlayerAnimation.animation == "InAirDownRockets"):
 		$PlayerAnimation.play("Landing")
 				
 		if current_ability == "RocketBoost":
@@ -244,3 +266,12 @@ func _on_antenna_animation_animation_finished():
 		$AntennaAnimation.play("Idle")
 	if $AntennaAnimation.animation == "StartMoving":
 		$AntennaAnimation.play("Moving")
+
+func _on_metal_walk_1_finished():
+	get_parent().get_node("MetalWalk2").play()
+	
+func _on_metal_walk_2_finished():
+	get_parent().get_node("MetalWalk1").play()
+
+func _on_metal_walk_boots_1_finished():
+	get_parent().get_node("MetalWalkBoots1").play()
