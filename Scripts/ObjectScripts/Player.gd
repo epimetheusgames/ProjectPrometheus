@@ -119,6 +119,11 @@ func _physics_process(_delta):
 			get_parent().get_node("MetalWalk1").playing = false
 			get_parent().get_node("MetalWalk2").playing = false
 			get_parent().get_node("MetalWalkBoots1").playing = false
+			
+	if !can_jump:
+		get_parent().get_node("MetalWalk1").playing = false
+		get_parent().get_node("MetalWalk2").playing = false
+		get_parent().get_node("MetalWalkBoots1").playing = false
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
 		# Set player to be in the direction that it's moving.
