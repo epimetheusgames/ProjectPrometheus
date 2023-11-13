@@ -1,10 +1,12 @@
-[gd_scene load_steps=46 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=48 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
 [ext_resource type="PackedScene" uid="uid://dbql3q4vummfw" path="res://Objects/Overlays/PauseMenu.tscn" id="2_g88ux"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraCollider.gd" id="2_mi2af"]
 [ext_resource type="Texture2D" uid="uid://bwrbubeu2hism" path="res://Assets/Images/Objects/CharacterSpritesheet.png" id="3_tijrl"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraColider.gd" id="5_gvxec"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="4_phy7p"]
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="5_w8eax"]
 [ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheetAir.png" id="6_t7han"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
@@ -304,7 +306,7 @@ zoom = Vector2(5, 5)
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("5_gvxec")
+script = ExtResource("2_mi2af")
 
 [node name="CameraHitbox" type="CollisionShape2D" parent="Camera/CameraCollider"]
 position = Vector2(0.5, -1)
@@ -313,6 +315,21 @@ shape = SubResource("RectangleShape2D_shfyb")
 [node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
 position = Vector2(-470, -271)
 scale = Vector2(0.5, 0.5)
+
+[node name="AbilityManager" type="Node2D" parent="Camera"]
+script = ExtResource("4_ctc4a")
+
+[node name="RocketBoots" type="Sprite2D" parent="Camera/AbilityManager"]
+position = Vector2(130, 54)
+texture = ExtResource("4_phy7p")
+
+[node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager"]
+position = Vector2(98, 54)
+texture = ExtResource("4_phy7p")
+
+[node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
+wait_time = 10.0
+autostart = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("2_7fkxw")
@@ -345,13 +362,14 @@ autoplay = "Idle"
 wait_time = 0.07
 one_shot = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Player"]
+[node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-2, 16)
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = SubResource("GradientTexture2D_vxmpe")
 
+[connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]

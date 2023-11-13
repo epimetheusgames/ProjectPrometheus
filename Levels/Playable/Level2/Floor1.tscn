@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cl4n2wee540av"]
 
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/LevelFramework.gd.gd" id="1_yvuyr"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_uo251"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t1fj3"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_kpwbc"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_p35p0"]
@@ -84,7 +84,7 @@ size = Vector2(359, 396)
 size = Vector2(1898, 130)
 
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_yvuyr")
+script = ExtResource("1_uo251")
 level = 1
 
 [node name="Decorations" type="TileMap" parent="."]

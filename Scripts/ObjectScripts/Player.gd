@@ -2,21 +2,26 @@ extends CharacterBody2D
 
 # Speed multiplier for the player
 @export var speed = 0.2
-@export var jump_vel = 6
+@export var jump_vel = 4
+@export var rocket_jump_vel = 6
 @export var gravity = 0.5
 @export var friction_force = 1.2
 @export var air_friction_force = 1.01
 @export var max_speed = 3
 @export var max_air_speed = 4.5
 @export var jump_push_force = 0.225
+@export var rocket_jump_push_force = 0.3
 @export var speed_hard_cap = 3.5
 @export var jump_speed_boost = 1.1
+
 var dont_apply_friction = false
 var could_jump = false
 var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
 var previous_direction = 0
+
+var current_ability = "Weapon"
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
@@ -53,7 +58,7 @@ func _physics_process(_delta):
 	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
 		just_jumped = true
 		velocity.x *= jump_speed_boost
-		velocity.y = -jump_vel
+		velocity.y = -jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel
 		
 	# Implement coyote jumping system.
 	if could_jump && !can_jump:
@@ -61,7 +66,7 @@ func _physics_process(_delta):
 		
 	# If the player is holding the jump button, apply a slight upwards push.
 	if Input.is_action_pressed("jump"):
-		velocity.y -= jump_push_force
+		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
 		
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap:
@@ -87,28 +92,29 @@ func _physics_process(_delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		$GPUParticles2D.emitting = false
+		$GravelWalkingParticles.emitting = false
 		
 		if collision && collision.get_collider() is TileMap:
 			if collision.get_collider().name == "Gravel" && (velocity.x > 1 || velocity.x < -1):
-				$GPUParticles2D.emitting = true
+				$GravelWalkingParticles.emitting = true
 		
-	# Set player to be in the direction that it's moving.
-	if Input.is_action_pressed("left"):
-		$PlayerAnimation.scale.x = -1
-		$AntennaAnimation.scale.x = -1
-		
-		if previous_direction == 1:
-			$PlayerAnimation.play("SwitchDirections")
-	elif Input.is_action_pressed("right"):
-		$PlayerAnimation.scale.x = 1
-		$AntennaAnimation.scale.x = 1
-		
-		if previous_direction == -1:
-			$PlayerAnimation.play("SwitchDirections")
-	elif $PlayerAnimation.animation != "Landing":
-		#Reusing code here.
-		$PlayerAnimation.play("Idle")
+	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
+		# Set player to be in the direction that it's moving.
+		if Input.is_action_pressed("left"):
+			$PlayerAnimation.scale.x = -1
+			$AntennaAnimation.scale.x = -1
+			
+			if previous_direction == 1:
+				$PlayerAnimation.play("SwitchDirections")
+		elif Input.is_action_pressed("right"):
+			$PlayerAnimation.scale.x = 1
+			$AntennaAnimation.scale.x = 1
+			
+			if previous_direction == -1:
+				$PlayerAnimation.play("SwitchDirections")
+		elif $PlayerAnimation.animation != "Landing":
+			#Reusing code here.
+			$PlayerAnimation.play("Idle")
 		
 	# Play start walk animation when left or right is pressed.
 	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
@@ -171,10 +177,11 @@ func _physics_process(_delta):
 	else:
 		could_jump = false
 		
-	if Input.is_action_pressed("left"):
-		previous_direction = -1
-	elif Input.is_action_pressed("right"):
-		previous_direction = 1
+	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
+		if Input.is_action_pressed("left"):
+			previous_direction = -1
+		elif Input.is_action_pressed("right"):
+			previous_direction = 1
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
