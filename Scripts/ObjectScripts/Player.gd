@@ -179,9 +179,13 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
 		$FireParticlesBootsLeft.emitting = true
 		$FireParticlesBootsRight.emitting = true
+		
+		if get_parent().get_node("RocketBoost").playing == false:
+			get_parent().get_node("RocketBoost").play()
 	else:
 		$FireParticlesBootsLeft.emitting = false
 		$FireParticlesBootsRight.emitting = false
+		get_parent().get_node("RocketBoost").playing = false
 		
 	# Play start walk animation when left or right is pressed.
 	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
@@ -304,3 +308,6 @@ func _on_metal_walk_2_finished():
 
 func _on_metal_walk_boots_1_finished():
 	get_parent().get_node("MetalWalkBoots1").play()
+
+func _on_rocket_boost_finished():
+	get_parent().get_node("RocketBoost").play()

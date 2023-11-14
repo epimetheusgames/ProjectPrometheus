@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=36 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
 [ext_resource type="SpriteFrames" uid="uid://cisystpdr0v7w" path="res://Objects/StaticObjects/PlayerType3.tres" id="8_y1jek"]
+[ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
@@ -261,7 +262,12 @@ volume_db = 7.0
 stream = ExtResource("21_44at1")
 volume_db = 2.0
 
+[node name="RocketBoost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_de7xa")
+pitch_scale = 1.74
+
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]
+[connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]
