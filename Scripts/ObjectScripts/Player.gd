@@ -142,11 +142,12 @@ func _physics_process(_delta):
 				get_parent().get_node("MetalWalk1").volume_db -= 1
 				get_parent().get_node("MetalWalk2").volume_db -= 1
 				get_parent().get_node("MetalWalkBoots1").volume_db -= 1
-			
+	
 	if !can_jump:
-		get_parent().get_node("MetalWalk1").playing = false
-		get_parent().get_node("MetalWalk2").playing = false
-		get_parent().get_node("MetalWalkBoots1").playing = false
+		if get_parent().get_node("MetalWalk1").volume_db > -20:
+			get_parent().get_node("MetalWalk1").volume_db -= 1
+			get_parent().get_node("MetalWalk2").volume_db -= 1
+			get_parent().get_node("MetalWalkBoots1").volume_db -= 1
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
 		# Set player to be in the direction that it's moving.
