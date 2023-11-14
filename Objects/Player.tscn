@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=73 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -7,11 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://bwrbubeu2hism" path="res://Assets/Images/Objects/CharacterSpritesheet.png" id="3_tijrl"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="4_phy7p"]
+[ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/RocketBootsIcon.png" id="5_2fpqi"]
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="5_w8eax"]
 [ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheetAir.png" id="6_t7han"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
 [ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="8_pyipo"]
+[ext_resource type="Texture2D" uid="uid://bw1mqmcbonj07" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRockets.png" id="9_sbrwa"]
+[ext_resource type="Texture2D" uid="uid://di37e3ncb5f7s" path="res://Assets/Images/Objects/CharacterSpritesheetAirRockets.png" id="11_sjk4t"]
+[ext_resource type="Texture2D" uid="uid://btg3fhef4j5qn" path="res://Assets/Images/Objects/CharacterSpritesheetRockets.png" id="13_431dv"]
+[ext_resource type="Texture2D" uid="uid://cmyvexa2xj6h" path="res://Assets/Images/Objects/CharacterSplitRockets.png" id="15_w8lg5"]
+[ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(299, 150)
@@ -34,20 +40,48 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("5_w8eax")
 region = Rect2(0, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbw3c"]
+atlas = ExtResource("9_sbrwa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4ipe"]
+atlas = ExtResource("9_sbrwa")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yowuf"]
+atlas = ExtResource("9_sbrwa")
+region = Rect2(0, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa2ct"]
 atlas = ExtResource("6_t7han")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xemq8"]
+atlas = ExtResource("11_sjk4t")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lodw3"]
 atlas = ExtResource("6_t7han")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd63l"]
+atlas = ExtResource("11_sjk4t")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub2nb"]
 atlas = ExtResource("6_t7han")
 region = Rect2(0, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh6m5"]
+atlas = ExtResource("11_sjk4t")
+region = Rect2(0, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oh8m"]
 atlas = ExtResource("6_t7han")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y22p"]
+atlas = ExtResource("11_sjk4t")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjf5l"]
@@ -58,8 +92,20 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("3_tijrl")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh4kx"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ko87"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hfwef"]
 atlas = ExtResource("8_pyipo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb7r3"]
+atlas = ExtResource("15_w8lg5")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhsuv"]
@@ -90,6 +136,34 @@ region = Rect2(0, 224, 32, 32)
 atlas = ExtResource("3_tijrl")
 region = Rect2(0, 256, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pg52"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ae64"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeeh6"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai54i"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo0h7"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2taa"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqpc"]
+atlas = ExtResource("13_431dv")
+region = Rect2(0, 256, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xb43y"]
 animations = [{
 "frames": [{
@@ -108,10 +182,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kbw3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4ipe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yowuf")
+}],
+"loop": true,
+"name": &"IdleRockets",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xa2ct")
 }],
 "loop": true,
 "name": &"InAirDown",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xemq8")
+}],
+"loop": true,
+"name": &"InAirDownRockets",
 "speed": 5.0
 }, {
 "frames": [{
@@ -124,6 +220,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nd63l")
+}],
+"loop": true,
+"name": &"InAirUpRockets",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ub2nb")
 }],
 "loop": false,
@@ -132,10 +236,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bh6m5")
+}],
+"loop": false,
+"name": &"LandingRockets",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7oh8m")
 }],
 "loop": false,
 "name": &"StartJump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y22p")
+}],
+"loop": false,
+"name": &"StartJumpRockets",
 "speed": 5.0
 }, {
 "frames": [{
@@ -151,10 +271,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xh4kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ko87")
+}],
+"loop": false,
+"name": &"StartWalkRockets",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hfwef")
 }],
 "loop": false,
 "name": &"SwitchDirections",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb7r3")
+}],
+"loop": false,
+"name": &"SwitchDirectionsRockets",
 "speed": 8.0
 }, {
 "frames": [{
@@ -181,6 +320,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walking",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pg52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ae64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeeh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai54i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo0h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2taa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqpc")
+}],
+"loop": true,
+"name": &"WalkingRockets",
 "speed": 15.0
 }]
 
@@ -277,20 +442,34 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_xg2ih"]
+offsets = PackedFloat32Array(0, 0.197279, 0.326531, 0.707483, 0.965986)
+colors = PackedColorArray(0.137255, 0.129412, 1, 1, 1, 1, 1, 1, 1, 0.773333, 0.15, 1, 0.670588, 0, 0, 0.654902, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3yeic"]
+gradient = SubResource("Gradient_xg2ih")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvq35"]
+lifetime_randomness = 0.26
 emission_shape = 3
-emission_box_extents = Vector3(10, 1, 1)
+emission_box_extents = Vector3(2, 1, 1)
 particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-gravity = Vector3(0, 98, 0)
-initial_velocity_max = 34.22
+direction = Vector3(0, 2, 0)
+spread = 28.96
+gravity = Vector3(0, 500, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_min = -720.0
 angle_max = 720.0
+scale_min = 0.0
+scale_max = 0.8
+color = Color(1, 1, 1, 0.607843)
+color_ramp = SubResource("GradientTexture1D_3yeic")
 
 [sub_resource type="Gradient" id="Gradient_vup00"]
-colors = PackedColorArray(0.400698, 0.400698, 0.400698, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vxmpe"]
 gradient = SubResource("Gradient_vup00")
@@ -320,11 +499,11 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("4_ctc4a")
 
 [node name="RocketBoots" type="Sprite2D" parent="Camera/AbilityManager"]
-position = Vector2(130, 54)
-texture = ExtResource("4_phy7p")
+position = Vector2(182, 98)
+texture = ExtResource("5_2fpqi")
 
 [node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager"]
-position = Vector2(98, 54)
+position = Vector2(174, 90)
 texture = ExtResource("4_phy7p")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
@@ -349,7 +528,7 @@ shape = SubResource("RectangleShape2D_7c12t")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_xb43y")
-animation = &"SwitchDirections"
+animation = &"StartJump"
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
@@ -368,6 +547,24 @@ emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = SubResource("GradientTexture2D_vxmpe")
+
+[node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
+position = Vector2(-5.5, 15)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_nvq35")
+texture = ExtResource("18_6ibhy")
+lifetime = 0.4
+
+[node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
+position = Vector2(3.5, 15)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_nvq35")
+texture = ExtResource("18_6ibhy")
+lifetime = 0.4
 
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]

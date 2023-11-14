@@ -62,7 +62,7 @@ func _physics_process(_delta):
 		
 	# Implement coyote jumping system.
 	if could_jump && !can_jump:
-		$CoyoteJumpTimer.start()
+		$CoyoteJumpTimer.start() 
 		
 	# If the player is holding the jump button, apply a slight upwards push.
 	if Input.is_action_pressed("jump"):
@@ -106,40 +106,75 @@ func _physics_process(_delta):
 			
 			if previous_direction == 1:
 				$PlayerAnimation.play("SwitchDirections")
+				
+				if current_ability == "RocketBoost":
+					$PlayerAnimation.play("SwitchDirectionsRockets")
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
 			
 			if previous_direction == -1:
 				$PlayerAnimation.play("SwitchDirections")
-		elif $PlayerAnimation.animation != "Landing":
+				
+				if current_ability == "RocketBoost":
+					$PlayerAnimation.play("SwitchDirectionsRockets")
+		elif $PlayerAnimation.animation != "Landing" && $PlayerAnimation.animation != "LandingRockets":
 			#Reusing code here.
 			$PlayerAnimation.play("Idle")
+				
+			if current_ability == "RocketBoost":
+				$PlayerAnimation.play("IdleRockets")
+	
+	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
+		$FireParticlesBootsLeft.emitting = true
+		$FireParticlesBootsRight.emitting = true
+	else:
+		$FireParticlesBootsLeft.emitting = false
+		$FireParticlesBootsRight.emitting = false
 		
 	# Play start walk animation when left or right is pressed.
 	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
 	var direction_pressed = Input.is_action_pressed("left") || Input.is_action_pressed("right")
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
-	if direction_just_pressed && !both_pressed && $PlayerAnimation.animation != "SwitchDirections":
+	if (direction_just_pressed && !both_pressed && ($PlayerAnimation.animation != "SwitchDirections" &&
+		$PlayerAnimation.animation != "SwitchDirectionsRockets")):
 		$PlayerAnimation.play("StartWalk")
+				
+		if current_ability == "RocketBoost":
+			$PlayerAnimation.play("StartWalkRockets")
 		
 	# You cannot walk in the air, in the future add an anim for this.
 	if !can_jump && velocity.y > 2:
 		if velocity.y < 0:
 			$PlayerAnimation.play("InAirUp")
+				
+			if current_ability == "RocketBoost":
+				$PlayerAnimation.play("InAirUpRockets")
 		if velocity.y > 0:
 			$PlayerAnimation.play("InAirDown")
+				
+			if current_ability == "RocketBoost":
+				$PlayerAnimation.play("InAirDownRockets")
 		
 	# If you were in the air but hit the ground, go back to walking without 
 	# start walk anim.
 	if was_in_air && $PlayerAnimation.animation == "InAirDown":
 		$PlayerAnimation.play("Landing")
+				
+		if current_ability == "RocketBoost":
+			$PlayerAnimation.play("LandingRockets")
 		
 	# Play animations for walking.
 	if both_pressed:
 		$PlayerAnimation.play("Idle")
+				
+		if current_ability == "RocketBoost":
+			$PlayerAnimation.play("IdleRockets")
 	elif direction_pressed && $PlayerAnimation.animation == "Idle":
 		$PlayerAnimation.play("StartWalk")
+				
+		if current_ability == "RocketBoost":
+			$PlayerAnimation.play("StartWalkRockets")
 		
 	# If the player starts moving, play the antenna's start moving animation.
 	if direction_just_pressed && !(velocity.x < 0.1 && velocity.x > -0.1) && $AntennaAnimation.animation == "Idle":
@@ -192,8 +227,15 @@ func _on_area_2d_area_entered(area):
 func _on_animated_sprite_2d_animation_finished():
 	if $PlayerAnimation.animation == "StartWalk" || $PlayerAnimation.animation == "Landing":
 		$PlayerAnimation.play("Walking")
+				
+	if current_ability == "RocketBoost" && ($PlayerAnimation.animation == "StartWalkRockets" || $PlayerAnimation.animation == "LandingRockets"):
+		$PlayerAnimation.play("WalkingRockets")
+			
 	if $PlayerAnimation.animation == "SwitchDirections":
 		$PlayerAnimation.play("StartWalk")
+				
+	if current_ability == "RocketBoost" && $PlayerAnimation.animation == "SwitchDirectionsRockets":
+		$PlayerAnimation.play("StartWalkRockets")
 
 # If the animation for ending movement is finished, switch to idle, if the
 # animation for starting movement is finished, start moving.
