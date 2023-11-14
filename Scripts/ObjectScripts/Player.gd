@@ -125,6 +125,12 @@ func _physics_process(_delta):
 				if collision.get_collider().name == "Ingame":
 					play_metal_walk = true
 					
+					if get_parent().get_node("MetalWalk1").volume_db < 7:
+						get_parent().get_node("MetalWalk1").volume_db += 1
+						get_parent().get_node("MetalWalk2").volume_db += 1
+					if get_parent().get_node("MetalWalkBoots1").volume_db < 2:
+						get_parent().get_node("MetalWalkBoots1").volume_db += 1
+					
 					if get_parent().get_node("MetalWalk1").playing == false && get_parent().get_node("MetalWalk2").playing == false && get_parent().get_node("MetalWalkBoots1").playing == false:
 						if current_ability == "RocketBoost":
 							get_parent().get_node("MetalWalkBoots1").play()
@@ -132,9 +138,10 @@ func _physics_process(_delta):
 							get_parent().get_node("MetalWalk1").play()
 		
 		if !play_metal_walk:
-			get_parent().get_node("MetalWalk1").playing = false
-			get_parent().get_node("MetalWalk2").playing = false
-			get_parent().get_node("MetalWalkBoots1").playing = false
+			if get_parent().get_node("MetalWalk1").volume_db > -20:
+				get_parent().get_node("MetalWalk1").volume_db -= 1
+				get_parent().get_node("MetalWalk2").volume_db -= 1
+				get_parent().get_node("MetalWalkBoots1").volume_db -= 1
 			
 	if !can_jump:
 		get_parent().get_node("MetalWalk1").playing = false
