@@ -1,18 +1,18 @@
 extends CharacterBody2D
 
 # Speed multiplier for the player
-@export var speed = 0.2
-@export var jump_vel = 4
-@export var rocket_jump_vel = 6
-@export var gravity = 0.5
-@export var friction_force = 1.2
-@export var air_friction_force = 1.01
-@export var max_speed = 3
-@export var max_air_speed = 4.5
-@export var jump_push_force = 0.225
-@export var rocket_jump_push_force = 0.3
-@export var speed_hard_cap = 3.5
-@export var jump_speed_boost = 1.1
+var speed = 0.2
+var jump_vel = 4
+var rocket_jump_vel = 6
+var gravity = 0.5
+var friction_force = 1.2
+var air_friction_force = 1.01
+var max_speed = 3
+var max_air_speed = 4.5
+var jump_push_force = 0.225
+var rocket_jump_push_force = 0.3
+var speed_hard_cap = 3.5
+var jump_speed_boost = 1.1
 
 var dont_apply_friction = false
 var could_jump = false
@@ -20,8 +20,24 @@ var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
 var previous_direction = 0
+var character_type = 0
 
 var current_ability = "Weapon"
+
+func _ready():
+	var player_type_1 = preload("res://Objects/StaticObjects/PlayerType1.tres")
+	var player_type_2 = preload("res://Objects/StaticObjects/PlayerType2.tres")
+	var player_type_3 = preload("res://Objects/StaticObjects/PlayerType3.tres")
+	var player_type_4 = preload("res://Objects/StaticObjects/PlayerType4.tres")
+	
+	if character_type == 1:
+		$PlayerAnimation.sprite_frames = player_type_1
+	if character_type == 2:
+		$PlayerAnimation.sprite_frames = player_type_2
+	if character_type == 3:
+		$PlayerAnimation.sprite_frames = player_type_3
+	if character_type == 4:
+		$PlayerAnimation.sprite_frames = player_type_4
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):

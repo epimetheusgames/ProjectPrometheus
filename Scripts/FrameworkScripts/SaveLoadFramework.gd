@@ -56,12 +56,13 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
-func start_game(slot):
+func start_game(slot, player_type):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
 	level_loaded.slot = slot
+	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	get_node("Menu").queue_free()
 	add_child(level_loaded)
 	
@@ -70,7 +71,7 @@ func exit_to_menu(level, floor, slot):
 	get_node(level_node_names[level][floor]).queue_free()
 	add_child(menu.instantiate())
 
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, slot):
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot):
 	exit_to_menu(current_level, current_floor, slot)
 	save_data(switch_level, current_floor, slot)
-	start_game(slot)
+	start_game(slot, player_type)

@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dh70krarnsqvn"]
+
+[ext_resource type="Texture2D" uid="uid://c54eonppf3043" path="res://Assets/Images/Objects/CharacterSpritesheetIdleType2.png" id="1_72r7g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lld1j"]
+atlas = ExtResource("1_72r7g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfb3t"]
+atlas = ExtResource("1_72r7g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n81vf"]
+atlas = ExtResource("1_72r7g")
+region = Rect2(0, 64, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lld1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfb3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n81vf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.5
+}]

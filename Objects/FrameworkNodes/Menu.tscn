@@ -15,3 +15,13 @@ min_value = 1.0
 max_value = 5.0
 value = 1.0
 prefix = "Slot Num:"
+
+[node name="SpinBox2" type="SpinBox" parent="."]
+offset_left = 1085.0
+offset_top = 492.0
+offset_right = 1261.0
+offset_bottom = 614.0
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+prefix = "Character Num:"

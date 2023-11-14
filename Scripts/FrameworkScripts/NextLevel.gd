@@ -13,4 +13,4 @@ func _on_area_entered(area):
 		else:
 			floor_next += 1
 			
-		get_parent().get_parent().switch_to_level(level_next, floor_next, level, floor, get_parent().slot)
+		get_parent().get_parent().switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot)
