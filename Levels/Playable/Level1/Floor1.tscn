@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=14 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="4_w7uqh"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="6_hjtfi"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="8_garwo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_s7twi")
@@ -150,6 +151,12 @@ script = ExtResource("6_hjtfi")
 position = Vector2(1151, -157)
 shape = SubResource("RectangleShape2D_ibm2f")
 
+[node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_garwo")
+volume_db = -8.69
+autoplay = true
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
+[connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
