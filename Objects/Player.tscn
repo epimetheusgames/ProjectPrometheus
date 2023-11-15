@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=40 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -162,6 +162,40 @@ scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
 color_ramp = SubResource("GradientTexture1D_3yeic")
 
+[sub_resource type="Curve" id="Curve_ujcq6"]
+min_value = -1024.0
+max_value = 359.9
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1024), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_crxpj"]
+curve = SubResource("Curve_ujcq6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b5ksw"]
+lifetime_randomness = 0.01
+emission_shape = 3
+emission_box_extents = Vector3(1, 9, 1)
+direction = Vector3(0, -1, 0)
+spread = 77.22
+gravity = Vector3(0, 50, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+radial_accel_min = 2.1
+radial_accel_max = 6.31
+angle_max = 90.0
+angle_curve = SubResource("CurveTexture_crxpj")
+turbulence_noise_strength = 0.0
+
+[sub_resource type="Gradient" id="Gradient_mguwx"]
+offsets = PackedFloat32Array(0.419355, 0.458065, 0.464516, 1)
+colors = PackedColorArray(0.490196, 0.976471, 1, 1, 0, 0, 1, 1, 0.843289, 0.871216, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_liocv"]
+gradient = SubResource("Gradient_mguwx")
+width = 1
+height = 1
+fill_to = Vector2(0.115385, 0.551282)
+
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -178,7 +212,7 @@ position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_shfyb")
 
 [node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
-position = Vector2(-470, -271)
+position = Vector2(-470, -278)
 scale = Vector2(0.5, 0.5)
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
@@ -219,7 +253,7 @@ position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_c4gj0")
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
-position = Vector2(-17, -17)
+position = Vector2(-19, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHurtbox"]
 position = Vector2(16.5, 19)
@@ -264,6 +298,13 @@ amount = 800
 process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = ExtResource("18_6ibhy")
 lifetime = 0.4
+
+[node name="SparkParticles" type="GPUParticles2D" parent="Player"]
+position = Vector2(-11, -11)
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_b5ksw")
+texture = SubResource("GradientTexture2D_liocv")
+trail_section_subdivisions = 10
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")

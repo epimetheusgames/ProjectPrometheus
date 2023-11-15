@@ -154,7 +154,7 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("left"):
 			$PlayerAnimation.scale.x = -1
 			$AntennaAnimation.scale.x = -1
-			
+			$SparkParticles.position.x = 7
 			if previous_direction == 1:
 				$PlayerAnimation.play("SwitchDirections")
 				
@@ -163,6 +163,7 @@ func _physics_process(_delta):
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
+			$SparkParticles.position.x = -11
 			
 			if previous_direction == -1:
 				$PlayerAnimation.play("SwitchDirections")
