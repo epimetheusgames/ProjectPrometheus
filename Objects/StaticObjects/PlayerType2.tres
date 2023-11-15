@@ -267,7 +267,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"SwitchDirections",
-"speed": 15.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,7 +275,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"SwitchDirectionsRockets",
-"speed": 15.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
