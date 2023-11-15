@@ -41,16 +41,19 @@ func _ready():
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
-	var input_direction = Input.get_axis("left", "right")
-	var max_movement_speed = max_speed
-	
-	if !can_jump:
-		max_movement_speed = max_air_speed
-	
-	if abs(velocity.x) < max_movement_speed:
-		return input_direction * speed
+	if $PlayerAnimation.animation != "AttackSword":
+		var input_direction = Input.get_axis("left", "right")
+		var max_movement_speed = max_speed
 		
-	return (abs(velocity.x) - max_movement_speed) * -input_direction
+		if !can_jump:
+			max_movement_speed = max_air_speed
+		
+		if abs(velocity.x) < max_movement_speed:
+			return input_direction * speed
+			
+		return (abs(velocity.x) - max_movement_speed) * -input_direction
+	
+	return 0
 	
 func checkJump():
 	return Input.is_action_just_pressed("jump")
@@ -86,6 +89,7 @@ func _physics_process(_delta):
 		
 	if Input.is_action_just_pressed("attack") && current_ability == "Weapon":
 		$PlayerAnimation.play("AttackSword")
+		velocity.x = 0
 		
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap:
@@ -313,7 +317,7 @@ func _on_animated_sprite_2d_animation_finished():
 		$PlayerAnimation.play("StartWalkSword")
 	
 	if $PlayerAnimation.animation == "AttackSword":
-		$PlayerAnimation.play("IdleSword")
+		$PlayerAnimation.play("StartWalkSword")
 
 # If the animation for ending movement is finished, switch to idle, if the
 # animation for starting movement is finished, start moving.
