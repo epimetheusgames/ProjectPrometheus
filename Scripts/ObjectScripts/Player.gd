@@ -84,6 +84,9 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("jump"):
 		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
 		
+	if Input.is_action_just_pressed("attack") && current_ability == "Weapon":
+		$PlayerAnimation.play("AttackSword")
+		
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
@@ -154,7 +157,7 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("left"):
 			$PlayerAnimation.scale.x = -1
 			$AntennaAnimation.scale.x = -1
-			$SparkParticles.position.x = 7
+			#$SparkParticles.position.x = 7
 			if previous_direction == 1:
 				$PlayerAnimation.play("SwitchDirections")
 				
@@ -163,19 +166,23 @@ func _physics_process(_delta):
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
-			$SparkParticles.position.x = -11
+			#$SparkParticles.position.x = -11
 			
 			if previous_direction == -1:
 				$PlayerAnimation.play("SwitchDirections")
 				
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
-		elif $PlayerAnimation.animation != "Landing" && $PlayerAnimation.animation != "LandingRockets":
+		elif $PlayerAnimation.animation != "Landing" && $PlayerAnimation.animation != "LandingRockets" && $PlayerAnimation.animation != "AttackSword":
 			#Reusing code here.
-			$PlayerAnimation.play("Idle")
-				
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
+				
+			elif current_ability == "Weapon":
+				$PlayerAnimation.play("IdleSword")
+				
+			else:
+				$PlayerAnimation.play("Idle")
 	
 	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
 		$FireParticlesBootsLeft.emitting = true
@@ -198,6 +205,9 @@ func _physics_process(_delta):
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("StartWalkRockets")
+				
+		if current_ability == "Weapon":
+			$PlayerAnimation.play("StartWalkSword")
 		
 	# You cannot walk in the air, in the future add an anim for this.
 	if !can_jump && velocity.y > 2:
@@ -231,6 +241,9 @@ func _physics_process(_delta):
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("StartWalkRockets")
+				
+		if current_ability == "Weapon":
+			$PlayerAnimation.play("StartWalkSword")
 		
 	# If the player starts moving, play the antenna's start moving animation.
 	if direction_just_pressed && !(velocity.x < 0.1 && velocity.x > -0.1) && $AntennaAnimation.animation == "Idle":
@@ -286,12 +299,21 @@ func _on_animated_sprite_2d_animation_finished():
 				
 	if current_ability == "RocketBoost" && ($PlayerAnimation.animation == "StartWalkRockets" || $PlayerAnimation.animation == "LandingRockets"):
 		$PlayerAnimation.play("WalkingRockets")
+				
+	if current_ability == "Weapon" && ($PlayerAnimation.animation == "StartWalkSword" || $PlayerAnimation.animation == "LandingSword"):
+		$PlayerAnimation.play("WalkingSword")
 			
 	if $PlayerAnimation.animation == "SwitchDirections":
 		$PlayerAnimation.play("StartWalk")
 				
 	if current_ability == "RocketBoost" && $PlayerAnimation.animation == "SwitchDirectionsRockets":
 		$PlayerAnimation.play("StartWalkRockets")
+				
+	if current_ability == "Weapon" && $PlayerAnimation.animation == "SwitchDirectionsSword":
+		$PlayerAnimation.play("StartWalkSword")
+	
+	if $PlayerAnimation.animation == "AttackSword":
+		$PlayerAnimation.play("IdleSword")
 
 # If the animation for ending movement is finished, switch to idle, if the
 # animation for starting movement is finished, start moving.

@@ -328,4 +328,9 @@ animations = [{
 "loop": true,
 "name": &"WalkingRockets",
 "speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
