@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy1jq84e4ww4"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
+[ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
+[ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/DroneTurret1.png" id="4_sscxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]
+atlas = ExtResource("2_vtjwx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b36qc"]
+atlas = ExtResource("2_vtjwx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1na2"]
+atlas = ExtResource("2_vtjwx")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6eb2"]
+atlas = ExtResource("2_vtjwx")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okakp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b36qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1na2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6eb2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[node name="DroneManager" type="Node2D"]
+script = ExtResource("1_rkyvx")
+
+[node name="DroneSpritesheet" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okakp")
+animation = &"Idle"
+frame_progress = 0.423627
+
+[node name="DroneHinge2" type="Line2D" parent="."]
+points = PackedVector2Array(0, 1, -4, 8)
+width = 2.0
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="DroneHinge3" type="Line2D" parent="."]
+points = PackedVector2Array(-9, 11, -4, 8)
+width = 2.0
+default_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="DroneTurret1" type="Sprite2D" parent="."]
+position = Vector2(-10, 11)
+rotation = 1.5708
+texture = ExtResource("4_sscxf")

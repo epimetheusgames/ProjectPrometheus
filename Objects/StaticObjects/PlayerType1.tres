@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=64 format=3 uid="uid://ccgutb3w6122l"]
+[gd_resource type="SpriteFrames" load_steps=65 format=3 uid="uid://ccgutb3w6122l"]
 
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="1_502da"]
 [ext_resource type="Texture2D" uid="uid://c1c8cxahrnqb1" path="res://Assets/Images/Objects/CharacterSpritesheetAttackMele.png" id="1_qd3iq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="7_a1qxt"]
 [ext_resource type="Texture2D" uid="uid://cmyvexa2xj6h" path="res://Assets/Images/Objects/CharacterSplitRockets.png" id="8_adppp"]
 [ext_resource type="Texture2D" uid="uid://ultydr24v1sv" path="res://Assets/Images/Objects/CharacterSpritesheetMele.png" id="8_vjrwe"]
+[ext_resource type="Texture2D" uid="uid://biw7rpa6mvcyb" path="res://Assets/Images/Objects/CharacterSplitSword.png" id="12_0tule"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5pes"]
 atlas = ExtResource("1_qd3iq")
@@ -309,7 +310,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"InAirUp",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -398,6 +399,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"SwitchDirectionsRockets",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0tule")
+}],
+"loop": false,
+"name": &"SwitchDirectionsSword",
 "speed": 8.0
 }, {
 "frames": [{

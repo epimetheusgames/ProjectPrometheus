@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=36 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
 
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="8_wr6dv"]
- 
+
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
@@ -164,28 +164,6 @@ scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
 color_ramp = SubResource("GradientTexture1D_3yeic")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gm0ch"]
-lifetime_randomness = 0.07
-emission_shape = 3
-emission_box_extents = Vector3(1, 7, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, -20, 0)
-gravity = Vector3(0, 60, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 20.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-turbulence_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_rchkp"]
-offsets = PackedFloat32Array(0.354839, 0.425806, 0.509677, 0.548387, 0.658065, 1)
-colors = PackedColorArray(0.426758, 0.903539, 1, 1, 0.950566, 0.949902, 0.365334, 1, 0.752154, 0.932341, 0.605738, 1, 0, 0, 0, 1, 0.672789, 0.925316, 0.701899, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_35vm5"]
-gradient = SubResource("Gradient_rchkp")
-width = 1
-height = 1
-
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -254,6 +232,7 @@ position = Vector2(-2, 0)
  
 sprite_frames = ExtResource("8_wr6dv")
 animation = &"Idle"
+
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
@@ -289,12 +268,6 @@ amount = 800
 process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = ExtResource("18_6ibhy")
 lifetime = 0.4
-
-[node name="SparkParticles" type="GPUParticles2D" parent="Player"]
-position = Vector2(-11, -11)
-amount = 3
-process_material = SubResource("ParticleProcessMaterial_gm0ch")
-texture = SubResource("GradientTexture2D_35vm5")
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
