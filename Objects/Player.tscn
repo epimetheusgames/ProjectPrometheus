@@ -187,7 +187,7 @@ height = 1
 script = ExtResource("1_71342")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(2, 2)
 
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
@@ -225,9 +225,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="DarkOverlay" type="ColorRect" parent="Camera"]
-offset_left = -282.0
+offset_left = -281.0
 offset_top = -200.0
-offset_right = 255.0
+offset_right = 256.0
 offset_bottom = 188.0
 color = Color(0, 0, 0, 0)
 

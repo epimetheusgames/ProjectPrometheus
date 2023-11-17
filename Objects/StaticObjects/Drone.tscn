@@ -43,16 +43,19 @@ animations = [{
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
-[node name="DroneTurret1" type="Sprite2D" parent="."]
+[node name="DronePatrolPoints" type="Line2D" parent="."]
+points = PackedVector2Array(551, 176, 300, 20, 67, 166)
+width = 2.0
+
+[node name="Drone" type="Node2D" parent="."]
+
+[node name="DroneTurret1" type="Sprite2D" parent="Drone"]
 position = Vector2(0, 1)
 rotation = 1.5708
 texture = ExtResource("4_sscxf")
 
-[node name="DroneSpritesheet" type="AnimatedSprite2D" parent="."]
+[node name="DroneSpritesheet" type="AnimatedSprite2D" parent="Drone"]
 sprite_frames = SubResource("SpriteFrames_okakp")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.423627
-
-[node name="DronePatrolPoints" type="Line2D" parent="."]
-points = PackedVector2Array(551, 176, 300, 20, 67, 166)
