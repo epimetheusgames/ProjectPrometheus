@@ -68,7 +68,7 @@ func start_game(slot, player_type):
 	
 func exit_to_menu(level, floor, slot):
 	save_data(level, floor, slot)
-	get_node(level_node_names[level][floor]).queue_free()
+	get_children()[0].queue_free()
 	add_child(menu.instantiate())
 
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot):

@@ -187,7 +187,7 @@ height = 1
 script = ExtResource("1_71342")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
@@ -262,6 +262,9 @@ autoplay = "Idle"
 wait_time = 0.07
 one_shot = true
 
+[node name="BulletHurtCooldown" type="Timer" parent="Player"]
+one_shot = true
+
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-2, 16)
 emitting = false
@@ -314,4 +317,5 @@ pitch_scale = 1.74
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]
+[connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]

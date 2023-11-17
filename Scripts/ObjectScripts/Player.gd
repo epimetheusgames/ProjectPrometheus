@@ -308,7 +308,16 @@ func _physics_process(_delta):
 func _on_area_2d_area_entered(area):
 	if area.name == "DeathZone":
 		position = get_parent().get_parent().get_node("RespawnPos").position
-
+	if area.name == "BulletHurter":
+		area.get_parent().queue_free()
+		
+		if $BulletHurtCooldown.time_left > 0:
+			get_parent().get_parent().get_node("NextLevel").add_levels(0)
+		else:
+			$BulletHurtCooldown.start()
+			$PlayerAnimation.modulate.g = 0
+			$PlayerAnimation.modulate.b = 0
+			
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
 	if $PlayerAnimation.animation == "StartWalk" || $PlayerAnimation.animation == "Landing":
@@ -357,3 +366,7 @@ func _on_metal_walk_boots_1_finished():
 
 func _on_rocket_boost_finished():
 	get_parent().get_node("RocketBoost").play()
+
+func _on_bullet_hurt_cooldown_timeout():
+	$PlayerAnimation.modulate.g = 1
+	$PlayerAnimation.modulate.b = 1
