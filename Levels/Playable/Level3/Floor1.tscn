@@ -138,6 +138,7 @@ shape = SubResource("RectangleShape2D_gan1j")
 position = Vector2(-879, -312)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 points = PackedVector2Array(0, 139, 0, 213, 410, 215, 417, -108, 298, -90, 293, 0, 140, 9)
 
 [node name="NextLevel" type="Area2D" parent="."]
