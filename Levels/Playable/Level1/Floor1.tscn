@@ -140,18 +140,18 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(112, -457)
+position = Vector2(265, -1661)
 shape = SubResource("RectangleShape2D_nneak")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1245, -209)
+position = Vector2(-1667, -1667)
 shape = SubResource("RectangleShape2D_6ao7e")
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("7_kr20f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1151, -157)
+position = Vector2(43, -123)
 shape = SubResource("RectangleShape2D_ibm2f")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -163,7 +163,7 @@ autoplay = true
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
 position = Vector2(0, 2)
-points = PackedVector2Array(-164, -13, -433, -14, -548, -89, -613, -87, -682, -15, -613, -104, -545, -112, -498, -90, -475, -58, -436, -38, -355, -32, 68, -87, 172, -266, 263, -324, 415, -331, 514, -339, 564, -296, 574, -228, 633, -172, 652, -131, 760, -123, 804, -246, 760, -315, 685, -345, 587, -376, 183, -328, 111, -118, -192, -80, -405, -86, -310, -301, -623, -309, -638, -198, -701, -198)
+points = PackedVector2Array(-346, -13, -433, -14, -548, -89, -613, -87, -682, -15, -613, -104, -545, -112, -498, -90, -475, -58, -436, -38, -355, -32, 68, -87, 172, -266, 263, -324, 415, -331, 514, -339, 564, -296, 574, -228, 633, -172, 652, -131, 760, -123, 804, -246, 760, -315, 685, -345, 587, -376, 183, -328, 111, -118, -192, -80, -405, -86, -310, -301, -623, -309, -638, -198, -701, -198)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

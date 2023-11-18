@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=13 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_cdmjk"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_i1qh4"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="6_o30v6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_s7twi")
@@ -83,6 +84,9 @@ size = Vector2(359, 396)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyf0v"]
 size = Vector2(1898, 130)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhb4s"]
+size = Vector2(141, 84)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ci8yo")
 level = 1
@@ -139,5 +143,14 @@ shape = SubResource("RectangleShape2D_pe4af")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-751, 73)
 shape = SubResource("RectangleShape2D_nyf0v")
+
+[node name="NextLevel" type="Area2D" parent="."]
+script = ExtResource("6_o30v6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(-53.5, -72)
+shape = SubResource("RectangleShape2D_mhb4s")
+
+[connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
 [editable path="Player"]

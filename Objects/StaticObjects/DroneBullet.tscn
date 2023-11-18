@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpqs3h031dhae"]
+[gd_scene load_steps=7 format=3 uid="uid://bpqs3h031dhae"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_d5t2o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
 radius = 2.54951
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4quri"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 3, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 20, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+
+[sub_resource type="Gradient" id="Gradient_74hgf"]
+colors = PackedColorArray(0.59, 0.4307, 0.4307, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0l7vx"]
+gradient = SubResource("Gradient_74hgf")
+width = 1
+height = 1
 
 [node name="DroneBullet" type="Node2D"]
 script = ExtResource("1_50na5")
@@ -24,5 +42,11 @@ shape = SubResource("CircleShape2D_j4cqu")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2.5, 2.5)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4quri")
+texture = SubResource("GradientTexture2D_0l7vx")
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

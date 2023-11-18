@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
-size = Vector2(299, 150)
+size = Vector2(478, 269)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4gj0"]
 size = Vector2(18, 30)
@@ -187,7 +187,7 @@ height = 1
 script = ExtResource("1_71342")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
@@ -195,7 +195,7 @@ collision_mask = 2
 script = ExtResource("2_mi2af")
 
 [node name="CameraHitbox" type="CollisionShape2D" parent="Camera/CameraCollider"]
-position = Vector2(0.5, -1)
+position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_shfyb")
 
 [node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
@@ -214,7 +214,7 @@ position = Vector2(174, 90)
 texture = ExtResource("4_phy7p")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [node name="FadinWaitTimer" type="Timer" parent="Camera/AbilityManager"]
@@ -263,6 +263,10 @@ wait_time = 0.07
 one_shot = true
 
 [node name="BulletHurtCooldown" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="BulletBadHurtcooldown" type="Timer" parent="Player"]
+wait_time = 3.0
 one_shot = true
 
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
@@ -318,4 +322,5 @@ pitch_scale = 1.74
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]
 [connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
+[connection signal="timeout" from="Player/BulletBadHurtcooldown" to="Player" method="_on_bullet_bad_hurtcooldown_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]

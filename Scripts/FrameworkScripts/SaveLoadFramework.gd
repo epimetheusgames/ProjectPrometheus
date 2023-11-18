@@ -11,6 +11,9 @@ const preloaded_levels = [
 	[
 		preload("res://Levels/Playable/Level2/Floor1.tscn"),
 	],
+	[
+		preload("res://Levels/Playable/Level3/Floor1.tscn"),
+	],
 ]
 
 const level_node_names = [
@@ -64,7 +67,7 @@ func start_game(slot, player_type):
 	level_loaded.slot = slot
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	get_node("Menu").queue_free()
-	add_child(level_loaded)
+	call_deferred("add_child", level_loaded)
 	
 func exit_to_menu(level, floor, slot):
 	save_data(level, floor, slot)

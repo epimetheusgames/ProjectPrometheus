@@ -188,9 +188,7 @@ func _physics_process(_delta):
 			$PlayerAnimation.animation != "LandingRockets" && 
 			$PlayerAnimation.animation != "AttackSword" && 
 			$PlayerAnimation.animation != "StartJump" && 
-			$PlayerAnimation.animation != "StartJumpRockets" && 
-			(($PlayerAnimation.animation != "InAirUp" && 
-			$PlayerAnimation.animation != "InAirUpRockets") || can_jump)):
+			$PlayerAnimation.animation != "StartJumpRockets"):
 			#Reusing code here.
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -200,6 +198,20 @@ func _physics_process(_delta):
 				
 			else:
 				$PlayerAnimation.play("Idle")
+				
+	
+		if (($PlayerAnimation.animation == "InAirUp" || 
+			$PlayerAnimation.animation == "InAirUpRockets") && can_jump):
+			
+			if current_ability == "RocketBoost":
+				$PlayerAnimation.play("IdleRockets")
+				
+			elif current_ability == "Weapon":
+				$PlayerAnimation.play("IdleSword")
+				
+			else:
+				$PlayerAnimation.play("Idle")
+			
 	
 	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
 		$FireParticlesBootsLeft.emitting = true
@@ -253,7 +265,7 @@ func _physics_process(_delta):
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("IdleRockets")
-	elif direction_pressed && $PlayerAnimation.animation == "Idle":
+	elif direction_pressed && ($PlayerAnimation.animation == "Idle" ||$PlayerAnimation.animation == "IdleRockets" ||$PlayerAnimation.animation == "IdleSword"):
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
@@ -307,16 +319,20 @@ func _physics_process(_delta):
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
 	if area.name == "DeathZone":
-		position = get_parent().get_parent().get_node("RespawnPos").position
+		get_parent().get_parent().get_node("NextLevel").add_levels(0)
 	if area.name == "BulletHurter":
 		area.get_parent().queue_free()
 		
-		if $BulletHurtCooldown.time_left > 0:
+		if $BulletBadHurtcooldown.time_left > 0:
 			get_parent().get_parent().get_node("NextLevel").add_levels(0)
-		else:
-			$BulletHurtCooldown.start()
+		elif $BulletHurtCooldown.time_left > 0:
+			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0
 			$PlayerAnimation.modulate.b = 0
+		else:
+			$BulletHurtCooldown.start()
+			$PlayerAnimation.modulate.g = 0.8
+			$PlayerAnimation.modulate.b = 0.6
 			
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
@@ -368,5 +384,10 @@ func _on_rocket_boost_finished():
 	get_parent().get_node("RocketBoost").play()
 
 func _on_bullet_hurt_cooldown_timeout():
+	if $BulletBadHurtcooldown.time_left == 0:
+		$PlayerAnimation.modulate.g = 1
+		$PlayerAnimation.modulate.b = 1
+
+func _on_bullet_bad_hurtcooldown_timeout():
 	$PlayerAnimation.modulate.g = 1
 	$PlayerAnimation.modulate.b = 1
