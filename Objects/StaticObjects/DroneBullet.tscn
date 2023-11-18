@@ -1,23 +1,29 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpqs3h031dhae"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_d5t2o"]
+[ext_resource type="Texture2D" uid="uid://cxeppn50cjf01" path="res://Assets/Images/Objects/DroneBullet.png" id="2_6g3vu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
 radius = 2.54951
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4quri"]
 emission_shape = 3
-emission_box_extents = Vector3(3, 3, 1)
+emission_box_extents = Vector3(3, 5, 1)
 particle_flag_disable_z = true
+spread = 89.11
 gravity = Vector3(0, 20, 0)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
 hue_variation_min = -0.02
 hue_variation_max = 0.02
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 10.0
 
 [sub_resource type="Gradient" id="Gradient_74hgf"]
-colors = PackedColorArray(0.59, 0.4307, 0.4307, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.3074, 0.53, 0.53, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0l7vx"]
 gradient = SubResource("Gradient_74hgf")
@@ -26,11 +32,6 @@ height = 1
 
 [node name="DroneBullet" type="Node2D"]
 script = ExtResource("1_50na5")
-
-[node name="BulletSprite" type="Sprite2D" parent="."]
-position = Vector2(2.5, 2.5)
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("1_d5t2o")
 
 [node name="BulletHurter" type="Area2D" parent="."]
 
@@ -48,5 +49,11 @@ position = Vector2(2.5, 2.5)
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_4quri")
 texture = SubResource("GradientTexture2D_0l7vx")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+modulate = Color(0.639216, 1, 0.917647, 1)
+position = Vector2(2.5, 2.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_6g3vu")
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -170,20 +170,28 @@ func _physics_process(_delta):
 			$AntennaAnimation.scale.x = -1
 			$SparkParticles.position.x = 7
 			if previous_direction == 1:
-				$PlayerAnimation.play("SwitchDirections")
-				
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
+					
+				if current_ability == "Weapon":
+					$PlayerAnimation.play("SwitchDirectionsSword")
+				
+				else:
+					$PlayerAnimation.play("SwitchDirections")
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
 			$SparkParticles.position.x = -11
 			
 			if previous_direction == -1:
-				$PlayerAnimation.play("SwitchDirections")
-				
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
+				
+				elif current_ability == "Weapon":
+					$PlayerAnimation.play("SwitchDirectionsSword")
+				
+				else:
+					$PlayerAnimation.play("SwitchDirections")
 		elif ($PlayerAnimation.animation != "Landing" && 
 			$PlayerAnimation.animation != "LandingRockets" && 
 			$PlayerAnimation.animation != "AttackSword" && 
@@ -229,7 +237,8 @@ func _physics_process(_delta):
 	var direction_pressed = Input.is_action_pressed("left") || Input.is_action_pressed("right")
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
 	if (direction_just_pressed && !both_pressed && ($PlayerAnimation.animation != "SwitchDirections" &&
-		$PlayerAnimation.animation != "SwitchDirectionsRockets")):
+		$PlayerAnimation.animation != "SwitchDirectionsRockets" &&
+		$PlayerAnimation.animation != "SwitchDirectionSword")):
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
