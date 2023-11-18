@@ -82,6 +82,9 @@ func _physics_process(_delta):
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("StartJumpRockets")
+				
+		if current_ability == "Weapon":
+			$PlayerAnimation.play("StartJumpSword")
 		
 	# Implement coyote jumping system.
 	if could_jump && !can_jump:
@@ -194,9 +197,11 @@ func _physics_process(_delta):
 					$PlayerAnimation.play("SwitchDirections")
 		elif ($PlayerAnimation.animation != "Landing" && 
 			$PlayerAnimation.animation != "LandingRockets" && 
+			$PlayerAnimation.animation != "LandingSword" && 
 			$PlayerAnimation.animation != "AttackSword" && 
 			$PlayerAnimation.animation != "StartJump" && 
-			$PlayerAnimation.animation != "StartJumpRockets"):
+			$PlayerAnimation.animation != "StartJumpRockets" && 
+			$PlayerAnimation.animation != "StartJumpSword"):
 			#Reusing code here.
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -209,7 +214,8 @@ func _physics_process(_delta):
 				
 	
 		if (($PlayerAnimation.animation == "InAirUp" || 
-			$PlayerAnimation.animation == "InAirUpRockets") && can_jump):
+			$PlayerAnimation.animation == "InAirUpRockets" ||
+			$PlayerAnimation.animation == "InAirUpSword") && can_jump):
 			
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -253,19 +259,30 @@ func _physics_process(_delta):
 				
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("InAirUpRockets")
+				
+			if current_ability == "Weapon":
+				$PlayerAnimation.play("InAirUpSword")
 		if velocity.y > 0 && current_ability == "RocketBoost":
 			$PlayerAnimation.play("InAirDown")
 				
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("InAirDownRockets")
+				
+			if current_ability == "Weapon":
+				$PlayerAnimation.play("InAirDownSword")
 		
 	# If you were in the air but hit the ground, go back to walking without 
 	# start walk anim.
-	if was_in_air && can_jump && ($PlayerAnimation.animation == "InAirDown" || $PlayerAnimation.animation == "InAirDownRockets"):
+	if was_in_air && can_jump && ($PlayerAnimation.animation == "InAirDown"
+								  || $PlayerAnimation.animation == "InAirDownRockets"
+								  || $PlayerAnimation.animation == "InAirDownSword"):
 		$PlayerAnimation.play("Landing")
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("LandingRockets")
+				
+		if current_ability == "Weapon":
+			$PlayerAnimation.play("LandingSword")
 		
 	# Play animations for walking.
 	if both_pressed:
@@ -373,6 +390,9 @@ func _on_animated_sprite_2d_animation_finished():
 				
 	if current_ability == "RocketBoost" && $PlayerAnimation.animation == "StartJumpRockets":
 		$PlayerAnimation.play("InAirUpRockets")
+				
+	if current_ability == "Weapon" && $PlayerAnimation.animation == "StartJumpSword":
+		$PlayerAnimation.play("InAirUpSword")
 
 # If the animation for ending movement is finished, switch to idle, if the
 # animation for starting movement is finished, start moving.

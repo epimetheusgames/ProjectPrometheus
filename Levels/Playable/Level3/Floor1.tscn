@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=14 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pcvgh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_n578r"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="6_pm7tb"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_nkvx3"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="9_6biff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_pcvgh")
@@ -180,7 +181,13 @@ position = Vector2(-3789, -2240)
 visible = false
 points = PackedVector2Array(-2, 730, 48, 756, 248, 740, 501, 737, 984, 736, 1147, 752, 1777, 753, 2267, 751, 2541, 723, 3181, 692, 3454, 648, 3627, 419, 3657, -364)
 
+[node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6biff")
+volume_db = -8.69
+autoplay = true
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
+[connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
