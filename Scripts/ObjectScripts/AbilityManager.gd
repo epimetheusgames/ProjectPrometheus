@@ -35,6 +35,7 @@ func _process(delta):
 
 func _on_fadin_wait_timer_timeout():
 	fading_in = false
+	get_parent().get_parent().get_node("Player").get_node("SparkParticles").emitting = true
 
 func _on_fadin_half_wait_timer_timeout():
 	if ability_index == 0:

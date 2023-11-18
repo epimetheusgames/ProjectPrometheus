@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=45 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -162,26 +162,75 @@ scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
 color_ramp = SubResource("GradientTexture1D_3yeic")
 
+[sub_resource type="Gradient" id="Gradient_2eo0n"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4hmds"]
+gradient = SubResource("Gradient_2eo0n")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rwevm"]
 lifetime_randomness = 0.07
 emission_shape = 3
 emission_box_extents = Vector3(1, 7, 1)
 particle_flag_disable_z = true
 direction = Vector3(0, -20, 0)
-gravity = Vector3(0, 60, 0)
-initial_velocity_min = 20.0
-initial_velocity_max = 20.0
+gravity = Vector3(0, 80, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+damping_min = 31.683
+damping_max = 31.683
+color_ramp = SubResource("GradientTexture1D_4hmds")
 turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 5.8
+turbulence_noise_speed = Vector3(-1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_at02u"]
-colors = PackedColorArray(0.427451, 0.901961, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eo1li"]
 gradient = SubResource("Gradient_at02u")
 width = 1
 height = 1
+
+[sub_resource type="Gradient" id="Gradient_05jlk"]
+offsets = PackedFloat32Array(0, 0.346939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pjexw"]
+gradient = SubResource("Gradient_05jlk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ase3h"]
+lifetime_randomness = 0.07
+emission_shape = 1
+emission_sphere_radius = 10.0
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("GradientTexture1D_pjexw")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 7.1
+turbulence_noise_speed = Vector3(-1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
+gradient = SubResource("Gradient_at02u")
+width = 2
+height = 2
 
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
@@ -295,9 +344,20 @@ lifetime = 0.4
 
 [node name="SparkParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-11, -11)
-amount = 3
+emitting = false
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_rwevm")
 texture = SubResource("GradientTexture2D_eo1li")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.68
+
+[node name="PlayerAmbianceParticles" type="GPUParticles2D" parent="Player"]
+position = Vector2(-11, -11)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_ase3h")
+texture = SubResource("GradientTexture2D_ia288")
+lifetime = 20.0
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
