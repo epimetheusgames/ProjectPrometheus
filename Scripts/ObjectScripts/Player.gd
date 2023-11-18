@@ -172,8 +172,8 @@ func _physics_process(_delta):
 			if previous_direction == 1:
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
-					
-				if current_ability == "Weapon":
+				
+				elif current_ability == "Weapon":
 					$PlayerAnimation.play("SwitchDirectionsSword")
 				
 				else:
@@ -220,7 +220,6 @@ func _physics_process(_delta):
 			else:
 				$PlayerAnimation.play("Idle")
 			
-	
 	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
 		$FireParticlesBootsLeft.emitting = true
 		$FireParticlesBootsRight.emitting = true
@@ -238,7 +237,7 @@ func _physics_process(_delta):
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
 	if (direction_just_pressed && !both_pressed && ($PlayerAnimation.animation != "SwitchDirections" &&
 		$PlayerAnimation.animation != "SwitchDirectionsRockets" &&
-		$PlayerAnimation.animation != "SwitchDirectionSword")):
+		$PlayerAnimation.animation != "SwitchDirectionsSword")):
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
@@ -247,7 +246,7 @@ func _physics_process(_delta):
 		if current_ability == "Weapon":
 			$PlayerAnimation.play("StartWalkSword")
 		
-	# You cannot walk in the air, in the future add an anim for this.
+	# You cannot walk in the air.
 	if !can_jump && velocity.y > 2:
 		if velocity.y < 0:
 			$PlayerAnimation.play("InAirUp")
@@ -274,7 +273,10 @@ func _physics_process(_delta):
 				
 		if current_ability == "RocketBoost":
 			$PlayerAnimation.play("IdleRockets")
-	elif direction_pressed && ($PlayerAnimation.animation == "Idle" ||$PlayerAnimation.animation == "IdleRockets" ||$PlayerAnimation.animation == "IdleSword"):
+				
+		if current_ability == "Weapon":
+			$PlayerAnimation.play("IdleSword")
+	elif direction_pressed && ($PlayerAnimation.animation == "Idle" ||$PlayerAnimation.animation == "IdleRockets" || $PlayerAnimation.animation == "IdleSword"):
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
