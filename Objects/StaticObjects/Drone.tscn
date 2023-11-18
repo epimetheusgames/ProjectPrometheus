@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=14 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
@@ -40,6 +40,35 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_2j5lc"]
+offsets = PackedFloat32Array(0, 0.255208, 0.46875, 0.723958, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_inqbl"]
+gradient = SubResource("Gradient_2j5lc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76aea"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 31.51
+initial_velocity_max = 80.29
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = -0.1
+linear_accel_max = 7.0
+color_ramp = SubResource("GradientTexture1D_inqbl")
+turbulence_enabled = true
+turbulence_noise_scale = 4.8
+
+[sub_resource type="Gradient" id="Gradient_0awkx"]
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5bk6"]
+gradient = SubResource("Gradient_0awkx")
+width = 1
+
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
@@ -59,6 +88,14 @@ sprite_frames = SubResource("SpriteFrames_okakp")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.423627
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Drone"]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_76aea")
+texture = SubResource("GradientTexture1D_q5bk6")
+lifetime = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+local_coords = true
 
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 2.0
