@@ -60,6 +60,18 @@ func checkJump():
 	
 func canJump():
 	return is_on_floor()
+	
+func jump():
+	just_jumped = true
+	velocity.x *= jump_speed_boost
+	velocity.y = -jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel
+	$PlayerAnimation.play("StartJump")
+			
+	if current_ability == "RocketBoost":
+		$PlayerAnimation.play("StartJumpRockets")
+			
+	if current_ability == "Weapon":
+		$PlayerAnimation.play("StartJumpSword")
 
 func _physics_process(_delta):
 	# Apply gravity
@@ -75,16 +87,7 @@ func _physics_process(_delta):
 	
 	# Check if we can jump
 	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
-		just_jumped = true
-		velocity.x *= jump_speed_boost
-		velocity.y = -jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel
-		$PlayerAnimation.play("StartJump")
-				
-		if current_ability == "RocketBoost":
-			$PlayerAnimation.play("StartJumpRockets")
-				
-		if current_ability == "Weapon":
-			$PlayerAnimation.play("StartJumpSword")
+		jump()
 		
 	# Implement coyote jumping system.
 	if could_jump && !can_jump:
@@ -348,8 +351,9 @@ func _physics_process(_delta):
 func _on_area_2d_area_entered(area):
 	if area.name == "DeathZone":
 		get_parent().get_parent().get_node("NextLevel").restart_level()
-	if area.name == "BulletHurter":
-		area.get_parent().queue_free()
+	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
+		if area.name == "BulletHurter":
+			area.get_parent().queue_free()
 		
 		if $BulletBadHurtcooldown.time_left > 0:
 			get_parent().get_parent().get_node("NextLevel").restart_level()

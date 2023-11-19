@@ -76,5 +76,5 @@ func exit_to_menu(level, floor, slot):
 
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot):
 	exit_to_menu(current_level, current_floor, slot)
-	save_data(switch_level, current_floor, slot)
+	save_data(switch_level, switch_floor, slot)
 	start_game(slot, player_type)
