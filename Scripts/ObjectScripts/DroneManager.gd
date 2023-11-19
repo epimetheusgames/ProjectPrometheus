@@ -35,6 +35,11 @@ func _process(delta):
 				get_parent().add_child(new_drone)
 		else:
 			queue_free()
+			
+	$PlayerRaycast.position = $Drone.position
+	$PlayerRaycast.target_position = player.position - position
+	$Line2D.points[0] = $PlayerRaycast.position
+	$Line2D.points[1] = $PlayerRaycast.target_position
 	
 	if player.current_ability == "Weapon" && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
@@ -48,16 +53,19 @@ func _on_rapid_bullet_cooldown_timeout():
 	var player = get_parent().get_node("Player").get_node("Player")
 	
 	if player.current_ability == "Weapon" && ($Drone.position + position).distance_to(player.position) < 200:
-		var direction_to_player = (player.position - (position + $Drone.position)).normalized()
+		var player_cast = $PlayerRaycast.get_collider()
+		print(player_cast.name if player_cast != null else 0)
+		if player_cast != null && player_cast.name == "Player":
+			var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 
-		if rapid_bullet_num < 2:
-			rapid_bullet_num += 1
-			$RapidBulletCooldown.start()
-		else:
-			rapid_bullet_num = 0
-			$BulletCooldown.start()
-			
-		var bullet_to_add = loaded_bullet.instantiate()
-		bullet_to_add.position = position + $Drone.position
-		bullet_to_add.velocity = direction_to_player * 5
-		get_parent().add_child(bullet_to_add)
+			if rapid_bullet_num < 2:
+				rapid_bullet_num += 1
+				$RapidBulletCooldown.start()
+			else:
+				rapid_bullet_num = 0
+				$BulletCooldown.start()
+				
+			var bullet_to_add = loaded_bullet.instantiate()
+			bullet_to_add.position = position + $Drone.position
+			bullet_to_add.velocity = direction_to_player * 5
+			get_parent().add_child(bullet_to_add)

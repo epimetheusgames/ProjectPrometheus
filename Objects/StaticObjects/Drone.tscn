@@ -106,5 +106,12 @@ autostart = true
 wait_time = 0.4
 one_shot = true
 
+[node name="PlayerRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 49)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="RapidBulletCooldown" to="." method="_on_rapid_bullet_cooldown_timeout"]

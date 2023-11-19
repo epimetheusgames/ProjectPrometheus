@@ -17,13 +17,18 @@ func _process(delta):
 	
 	if left_collision != null && direction == -speed:
 		direction = speed
-		$DrillSprite.scale.x = 1
+		$DrillAnimation.scale.x = 1
 	elif right_collision != null && direction == speed:
 		direction = -speed
-		$DrillSprite.scale.x = -1
+		$DrillAnimation.scale.x = -1
 	
 	if down_collision != null || down_collision_2 != null:
 		velocity.y = -0.05
+		$DrillAnimation.animation = "Idle"
+	elif direction != 0:
+		$DrillAnimation.animation = "Moving"
+	else:
+		$DrillAnimation.animation = "Idle"
 		
 	position += velocity
 

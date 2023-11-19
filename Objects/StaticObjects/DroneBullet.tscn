@@ -68,4 +68,5 @@ position = Vector2(2.5, 2.5)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_6g3vu")
 
+[connection signal="body_entered" from="BulletHurter" to="." method="_on_bullet_hurter_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
