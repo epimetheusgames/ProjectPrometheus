@@ -87,3 +87,7 @@ func _on_area_2d_body_exited(body):
 	if body.name != "Player":
 		$Drone/DroneSpritesheet.visible = true
 		$Drone/DroneOutlineSpritesheet.visible = false
+
+func _on_drone_hurtbox_area_entered(area):
+	if area.name == "PlayerBulletHurter":
+		queue_free()

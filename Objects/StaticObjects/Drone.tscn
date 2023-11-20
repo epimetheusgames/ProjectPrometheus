@@ -158,6 +158,11 @@ local_coords = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_cp6ji")
 
+[node name="DroneHurtbox" type="Area2D" parent="Drone"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drone/DroneHurtbox"]
+polygon = PackedVector2Array(6, 3, 18, -3, 18, -10, -21, -10, -21, -2, -6, 3)
+
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
@@ -169,5 +174,6 @@ one_shot = true
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Drone/DroneHurtbox" to="." method="_on_drone_hurtbox_area_entered"]
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="RapidBulletCooldown" to="." method="_on_rapid_bullet_cooldown_timeout"]

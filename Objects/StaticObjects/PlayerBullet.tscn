@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dn1vatgdq214p"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerBulletManager.gd" id="1_des1p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63qep"]
+radius = 2.54951
+
+[sub_resource type="Gradient" id="Gradient_55v1o"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wl5md"]
+gradient = SubResource("Gradient_55v1o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ak2wy"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 5, 1)
+particle_flag_disable_z = true
+spread = 89.11
+gravity = Vector3(0, 20, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 19.8
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("GradientTexture1D_wl5md")
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 10.0
+
+[sub_resource type="Gradient" id="Gradient_552lm"]
+offsets = PackedFloat32Array(0.00598802, 1)
+colors = PackedColorArray(0.278245, 0.485025, 0.225336, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fjh61"]
+gradient = SubResource("Gradient_552lm")
+width = 1
+height = 1
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_358aq"]
+load_path = "res://.godot/imported/DroneBullet.png-0837aace0ff8c6d0711a741410be7ff2.ctex"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_des1p")
+
+[node name="PlayerBulletHurter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBulletHurter"]
+position = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_63qep")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2.5, 2.5)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_ak2wy")
+texture = SubResource("GradientTexture2D_fjh61")
+lifetime = 2.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+modulate = Color(0.537255, 0.780392, 0.580392, 1)
+position = Vector2(2.5, 2.5)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("CompressedTexture2D_358aq")

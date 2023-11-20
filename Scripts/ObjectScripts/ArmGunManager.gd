@@ -5,6 +5,8 @@ var active = false
 
 func _process(delta):
 	if active:
+		visible = true
+		
 		var mouse_pos = get_viewport().get_mouse_position() - Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 		
 		$Line2D.points[2].x = mouse_pos.x / 100 + (mouse_pos.y / 80) - 20
