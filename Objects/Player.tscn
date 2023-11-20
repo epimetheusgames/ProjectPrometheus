@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=47 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/RocketBootsIcon.png" id="5_2fpqi"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="SpriteFrames" uid="uid://ccgutb3w6122l" path="res://Objects/StaticObjects/PlayerType1.tres" id="8_n44rb"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
@@ -266,7 +267,7 @@ position = Vector2(174, 90)
 texture = ExtResource("4_phy7p")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
-wait_time = 20.0
+wait_time = 5.0
 autostart = true
 
 [node name="FadinWaitTimer" type="Timer" parent="Camera/AbilityManager"]
@@ -277,6 +278,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="DarkOverlay" type="ColorRect" parent="Camera"]
+z_index = 3
 offset_left = -281.0
 offset_top = -200.0
 offset_right = 256.0
@@ -284,8 +286,16 @@ offset_bottom = 188.0
 color = Color(0, 0, 0, 0)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-z_index = 2
+z_index = 4
 script = ExtResource("2_7fkxw")
+
+[node name="ArmGunManager" type="Node2D" parent="Player"]
+script = ExtResource("8_bsb7n")
+
+[node name="Line2D" type="Line2D" parent="Player/ArmGunManager"]
+points = PackedVector2Array(-10, 1, -20, -9, -10, -23, 15, -22)
+width = 1.0
+default_color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-2, 1)

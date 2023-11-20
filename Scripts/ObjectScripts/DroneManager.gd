@@ -42,9 +42,9 @@ func _process(delta):
 	if player.current_ability == "Weapon" && ($Drone.position + position).distance_to(player.position) < 200:
 		if player_cast == null || player_cast.name == "Player":
 			$AttackLine.visible = true
-			$AttackLine.points[1] = player.position - position
+			$AttackLine.points[1] = (player.position - position)
 		else:
-			$AttackLine.points[1] = $Drone/PlayerRaycast.get_collision_point() - position
+			$AttackLine.points[1] = ($Drone/PlayerRaycast.get_collision_point() - position)
 	else:
 		$AttackLine.visible = false
 	
@@ -77,3 +77,13 @@ func _on_rapid_bullet_cooldown_timeout():
 			get_parent().add_child(bullet_to_add)
 		else:
 			$RapidBulletCooldown.start()
+
+func _on_area_2d_body_entered(body):
+	if body.name != "Player":
+		$Drone/DroneSpritesheet.visible = false
+		$Drone/DroneOutlineSpritesheet.visible = true
+
+func _on_area_2d_body_exited(body):
+	if body.name != "Player":
+		$Drone/DroneSpritesheet.visible = true
+		$Drone/DroneOutlineSpritesheet.visible = false

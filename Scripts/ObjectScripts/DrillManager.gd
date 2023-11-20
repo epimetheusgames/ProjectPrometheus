@@ -24,11 +24,11 @@ func _process(delta):
 	
 	if down_collision != null || down_collision_2 != null:
 		velocity.y = -0.05
-		$DrillAnimation.animation = "Idle"
+		$DrillAnimation.play("Moving")
 	elif direction != 0:
-		$DrillAnimation.animation = "Moving"
+		$DrillAnimation.play("Moving")
 	else:
-		$DrillAnimation.animation = "Idle"
+		$DrillAnimation.play("Idle")
 		
 	position += velocity
 
