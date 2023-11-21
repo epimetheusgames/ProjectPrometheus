@@ -267,7 +267,7 @@ position = Vector2(174, 90)
 texture = ExtResource("4_phy7p")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
-wait_time = 5.0
+wait_time = 20.0
 autostart = true
 
 [node name="FadinWaitTimer" type="Timer" parent="Camera/AbilityManager"]
