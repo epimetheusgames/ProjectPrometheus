@@ -4,6 +4,7 @@ var current_line_point = 0
 var movement_velocity = Vector2.ZERO
 var rapid_bullet_num = 0
 var player_previous_ability = ""
+var can_play_target_lost = false
 
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
@@ -42,7 +43,12 @@ func _process(delta):
 	$AttackLine.points[0] = $Drone.position
 	var player_cast = $Drone/PlayerRaycast.get_collider()
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
-		if (player_previous_ability != "Weapon" && player_previous_ability != "ArmGun"):
+		if $TargetFoundTimer.time_left == 0:
+			$TargetFoundTimer.start()
+		
+		if (player_previous_ability != "Weapon" && player_previous_ability != "ArmGun" &&
+			$WeaponDetected.playing == false && $TargetLost.playing == false &&
+			$TargetFoundCooldown.time_left == 0):
 			$WeaponDetected.play()
 		
 		if player_cast == null || player_cast.name == "Player":
@@ -53,6 +59,13 @@ func _process(delta):
 		
 		player_previous_ability = player.current_ability
 	else:
+		if (player_previous_ability == "Weapon" || player_previous_ability == "ArmGun"):
+			$TargetFoundCooldown.start()
+			
+			if can_play_target_lost:
+				can_play_target_lost = false
+				$TargetLost.play()
+		
 		$AttackLine.visible = false
 		player_previous_ability = "NoDistance"
 	
@@ -104,3 +117,6 @@ func _on_drone_hurtbox_area_entered(area):
 		dead_drone.set_queued_pos = true
 		get_parent().call_deferred("add_child", dead_drone)
 		queue_free()
+
+func _on_target_found_timer_timeout():
+	can_play_target_lost = true

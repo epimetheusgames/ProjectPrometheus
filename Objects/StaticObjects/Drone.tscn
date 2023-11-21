@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=24 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
 [ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/DroneOutlineSpritesheet.png" id="4_nmpt3"]
 [ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/DroneTurret1.png" id="4_sscxf"]
 [ext_resource type="AudioStream" uid="uid://d4nthu86q6uxm" path="res://Assets/Audio/Voicelines/DroneWeaponryDetected.wav" id="5_p507l"]
+[ext_resource type="AudioStream" uid="uid://fh8eo7kvv0cr" path="res://Assets/Audio/Voicelines/DroneTargetLost.wav" id="6_82qmh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]
 atlas = ExtResource("2_vtjwx")
@@ -182,12 +183,28 @@ autostart = true
 wait_time = 0.4
 one_shot = true
 
+[node name="TargetFoundTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="TargetFoundCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [node name="WeaponDetected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_p507l")
-volume_db = 5.0
+max_distance = 1000.0
+panning_strength = 0.5
+
+[node name="TargetLost" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_82qmh")
+volume_db = 1.0
+max_distance = 1000.0
+panning_strength = 0.5
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="Drone/DroneHurtbox" to="." method="_on_drone_hurtbox_area_entered"]
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="RapidBulletCooldown" to="." method="_on_rapid_bullet_cooldown_timeout"]
+[connection signal="timeout" from="TargetFoundTimer" to="." method="_on_target_found_timer_timeout"]
