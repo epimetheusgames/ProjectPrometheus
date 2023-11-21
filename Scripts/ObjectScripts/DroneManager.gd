@@ -5,6 +5,7 @@ var movement_velocity = Vector2.ZERO
 var rapid_bullet_num = 0
 
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
+@onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @export var velocity_smoothing = 0.01
 
 func smooth(a, b, smoothing):
@@ -90,4 +91,7 @@ func _on_area_2d_body_exited(body):
 
 func _on_drone_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
+		var dead_drone = loaded_physics_drone.instantiate()
+		dead_drone.queued_position = $Drone.position
+		get_parent().call_deferred("add_child", dead_drone)
 		queue_free()

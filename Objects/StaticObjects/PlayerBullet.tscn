@@ -32,7 +32,7 @@ turbulence_noise_scale = 10.0
 
 [sub_resource type="Gradient" id="Gradient_552lm"]
 offsets = PackedFloat32Array(0.00598802, 1)
-colors = PackedColorArray(0.278245, 0.485025, 0.225336, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.37, 0.853, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fjh61"]
 gradient = SubResource("Gradient_552lm")
@@ -65,7 +65,10 @@ lifetime = 2.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-modulate = Color(0.537255, 0.780392, 0.580392, 1)
+modulate = Color(0, 0.784314, 0.980392, 1)
 position = Vector2(2.5, 2.5)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("CompressedTexture2D_358aq")
+
+[connection signal="area_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_area_entered"]
+[connection signal="body_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_body_entered"]

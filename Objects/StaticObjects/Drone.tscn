@@ -161,7 +161,7 @@ shape = SubResource("RectangleShape2D_cp6ji")
 [node name="DroneHurtbox" type="Area2D" parent="Drone"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drone/DroneHurtbox"]
-polygon = PackedVector2Array(6, 3, 18, -3, 18, -10, -21, -10, -21, -2, -6, 3)
+polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
 
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 1.5

@@ -5,11 +5,15 @@ var direction = Vector2.ZERO
 
 func _process(delta):
 	position += direction * velocity * (delta * 60)
-	rotation = atan2(velocity.y, velocity.x) + (1.0/2.0 * PI)
+	rotation = atan2(direction.y, direction.x) + (1.0/2.0 * PI)
 
 func _on_despawn_timer_timeout():
 	queue_free()
 
-func _on_bullet_hurter_body_entered(body):
+func _on_player_bullet_hurter_body_entered(body):
 	if body.name != "Player":
+		queue_free()
+
+func _on_player_bullet_hurter_area_entered(area):
+	if area.name == "DroneHurtbox":
 		queue_free()
