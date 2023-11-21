@@ -3,6 +3,7 @@ extends Node2D
 var current_line_point = 0
 var movement_velocity = Vector2.ZERO
 var rapid_bullet_num = 0
+var player_previous_ability = ""
 
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
@@ -41,13 +42,19 @@ func _process(delta):
 	$AttackLine.points[0] = $Drone.position
 	var player_cast = $Drone/PlayerRaycast.get_collider()
 	if player.current_ability == "Weapon" && ($Drone.position + position).distance_to(player.position) < 200:
+		if player_previous_ability != "Weapon":
+			$WeaponDetected.play()
+		
 		if player_cast == null || player_cast.name == "Player":
 			$AttackLine.visible = true
 			$AttackLine.points[1] = (player.position - position)
 		else:
 			$AttackLine.points[1] = ($Drone/PlayerRaycast.get_collision_point() - position)
+		
+		player_previous_ability = player.current_ability
 	else:
 		$AttackLine.visible = false
+		player_previous_ability = "NoDistance"
 	
 	if player.current_ability == "Weapon" && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
@@ -80,18 +87,20 @@ func _on_rapid_bullet_cooldown_timeout():
 			$RapidBulletCooldown.start()
 
 func _on_area_2d_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" && body.name != "DroneHitbox":
 		$Drone/DroneSpritesheet.visible = false
 		$Drone/DroneOutlineSpritesheet.visible = true
 
 func _on_area_2d_body_exited(body):
-	if body.name != "Player":
+	if body.name != "Player" && body.name != "DroneHitbox":
 		$Drone/DroneSpritesheet.visible = true
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
 		var dead_drone = loaded_physics_drone.instantiate()
-		dead_drone.queued_position = $Drone.position
+		dead_drone.queued_position = $Drone.position + position
+		dead_drone.queued_rotation = $Drone.rotation
+		dead_drone.set_queued_pos = true
 		get_parent().call_deferred("add_child", dead_drone)
 		queue_free()

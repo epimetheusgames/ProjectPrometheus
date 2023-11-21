@@ -104,6 +104,8 @@ func _physics_process(_delta):
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
+	if abs(velocity.y) > rocket_jump_vel + 1:
+		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# Apply friction.
 	if input_velocity == 0:

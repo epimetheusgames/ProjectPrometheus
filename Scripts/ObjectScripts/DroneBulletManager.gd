@@ -11,5 +11,5 @@ func _on_despawn_timer_timeout():
 	queue_free()
 
 func _on_bullet_hurter_body_entered(body):
-	if body.name != "Player":
+	if body.name != "Player" && body.name != "DroneHitbox":
 		queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
 [ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/DroneOutlineSpritesheet.png" id="4_nmpt3"]
 [ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/DroneTurret1.png" id="4_sscxf"]
+[ext_resource type="AudioStream" uid="uid://d4nthu86q6uxm" path="res://Assets/Audio/Voicelines/DroneWeaponryDetected.wav" id="5_p507l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]
 atlas = ExtResource("2_vtjwx")
@@ -109,6 +110,9 @@ width = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp6ji"]
 size = Vector2(4, 2)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jc72"]
+size = Vector2(18, 7)
+
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
@@ -163,6 +167,12 @@ shape = SubResource("RectangleShape2D_cp6ji")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drone/DroneHurtbox"]
 polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
 
+[node name="DroneHitbox" type="CharacterBody2D" parent="Drone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/DroneHitbox"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_4jc72")
+
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
@@ -171,6 +181,10 @@ autostart = true
 [node name="RapidBulletCooldown" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="WeaponDetected" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p507l")
+volume_db = 5.0
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]
