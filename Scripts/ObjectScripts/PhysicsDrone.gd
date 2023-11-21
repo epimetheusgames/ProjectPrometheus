@@ -9,8 +9,8 @@ func _integrate_forces(state):
 		state.transform = Transform2D(queued_rotation, queued_position)
 		set_queued_pos = false
 
-func _process(delta):
-	modulate.a -= delta * 0.2
-	
-	if modulate.a <= 0:
-		queue_free()
+func _on_despawn_timer_timeout():
+	queue_free()
+
+func _on_ground_fall_timer_timeout():
+	$CollisionPolygon2D.disabled = true

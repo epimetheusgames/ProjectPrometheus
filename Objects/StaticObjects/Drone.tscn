@@ -173,6 +173,7 @@ polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/DroneHitbox"]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_4jc72")
+disabled = true
 
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 1.5
@@ -191,16 +192,12 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[node name="WeaponDetected" type="AudioStreamPlayer2D" parent="."]
+[node name="WeaponDetected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_p507l")
-max_distance = 1000.0
-panning_strength = 0.5
 
-[node name="TargetLost" type="AudioStreamPlayer2D" parent="."]
+[node name="TargetLost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_82qmh")
 volume_db = 1.0
-max_distance = 1000.0
-panning_strength = 0.5
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]

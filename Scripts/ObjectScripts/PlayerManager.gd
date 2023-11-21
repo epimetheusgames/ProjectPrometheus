@@ -8,3 +8,5 @@ func _process(delta):
 	$Camera.position += ($Camera/CameraCollider.position - $Camera.position) * 0.1
 	
 	var player_vel = 0
+	
+	$PointLight2D.position = $Player.position

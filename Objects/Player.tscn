@@ -21,7 +21,7 @@
 size = Vector2(478, 269)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4gj0"]
-size = Vector2(18, 30)
+size = Vector2(18, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
 size = Vector2(9, 20)
@@ -298,7 +298,7 @@ width = 1.0
 default_color = Color(0.415686, 0.415686, 0.415686, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-2, 1)
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_c4gj0")
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
@@ -387,6 +387,8 @@ volume_db = 2.0
 [node name="RocketBoost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_de7xa")
 pitch_scale = 1.74
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
 
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
