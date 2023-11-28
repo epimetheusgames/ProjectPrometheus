@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=30 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="SpriteFrames" uid="uid://dh70krarnsqvn" path="res://Objects/StaticObjects/PlayerType2.tres" id="9_duh2l"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
-[ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
@@ -119,123 +118,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ws7le"]
-emission_shape = 3
-emission_box_extents = Vector3(10, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-gravity = Vector3(0, 98, 0)
-initial_velocity_max = 39.6
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-
-[sub_resource type="Gradient" id="Gradient_vup00"]
-colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxmpe"]
-gradient = SubResource("Gradient_vup00")
-width = 1
-height = 1
-
-[sub_resource type="Gradient" id="Gradient_xg2ih"]
-offsets = PackedFloat32Array(0, 0.197279, 0.326531, 0.707483, 0.965986)
-colors = PackedColorArray(0.137255, 0.129412, 1, 1, 1, 1, 1, 1, 1, 0.773333, 0.15, 1, 0.670588, 0, 0, 0.654902, 1, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3yeic"]
-gradient = SubResource("Gradient_xg2ih")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvq35"]
-lifetime_randomness = 0.26
-emission_shape = 3
-emission_box_extents = Vector3(2, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, 2, 0)
-spread = 28.96
-gravity = Vector3(0, 500, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 200.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = -720.0
-angle_max = 720.0
-scale_min = 0.0
-scale_max = 0.8
-color = Color(1, 1, 1, 0.607843)
-color_ramp = SubResource("GradientTexture1D_3yeic")
-
-[sub_resource type="Gradient" id="Gradient_sgf2g"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wdwm"]
-gradient = SubResource("Gradient_sgf2g")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iukvx"]
-lifetime_randomness = 0.07
-emission_shape = 3
-emission_box_extents = Vector3(1, 7, 1)
-particle_flag_disable_z = true
-direction = Vector3(0, -20, 0)
-gravity = Vector3(0, 80, 0)
-initial_velocity_min = 60.0
-initial_velocity_max = 60.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-tangential_accel_min = 100.0
-tangential_accel_max = 100.0
-damping_min = 31.683
-damping_max = 31.683
-color_ramp = SubResource("GradientTexture1D_1wdwm")
-turbulence_enabled = true
-turbulence_noise_strength = 0.0
-turbulence_noise_scale = 5.8
-turbulence_noise_speed = Vector3(-1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_u60xr"]
-colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq6ji"]
-gradient = SubResource("Gradient_u60xr")
-width = 1
-height = 1
-
-[sub_resource type="Gradient" id="Gradient_05jlk"]
-offsets = PackedFloat32Array(0, 0.346939, 1)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pjexw"]
-gradient = SubResource("Gradient_05jlk")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ase3h"]
-lifetime_randomness = 0.07
-emission_shape = 1
-emission_sphere_radius = 10.0
-particle_flag_disable_z = true
-direction = Vector3(0, -20, 0)
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 400.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-tangential_accel_min = -100.0
-tangential_accel_max = 100.0
-angle_min = -720.0
-angle_max = 720.0
-color_ramp = SubResource("GradientTexture1D_pjexw")
-hue_variation_min = -0.01
-hue_variation_max = 0.01
-turbulence_enabled = true
-turbulence_noise_strength = 0.0
-turbulence_noise_scale = 7.1
-turbulence_noise_speed = Vector3(-1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_at02u"]
-colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
-gradient = SubResource("Gradient_at02u")
-width = 2
-height = 2
-
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -330,47 +212,6 @@ one_shot = true
 [node name="BulletBadHurtcooldown" type="Timer" parent="Player"]
 wait_time = 3.0
 one_shot = true
-
-[node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
-position = Vector2(-2, 16)
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_ws7le")
-texture = SubResource("GradientTexture2D_vxmpe")
-
-[node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
-position = Vector2(-5.5, 15)
-scale = Vector2(0.5, 0.5)
-emitting = false
-amount = 800
-process_material = SubResource("ParticleProcessMaterial_nvq35")
-texture = ExtResource("18_6ibhy")
-lifetime = 0.4
-
-[node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
-position = Vector2(3.5, 15)
-scale = Vector2(0.5, 0.5)
-emitting = false
-amount = 800
-process_material = SubResource("ParticleProcessMaterial_nvq35")
-texture = ExtResource("18_6ibhy")
-lifetime = 0.4
-
-[node name="SparkParticles" type="GPUParticles2D" parent="Player"]
-position = Vector2(-11, -11)
-emitting = false
-amount = 30
-process_material = SubResource("ParticleProcessMaterial_iukvx")
-texture = SubResource("GradientTexture2D_uq6ji")
-lifetime = 5.0
-one_shot = true
-explosiveness = 0.68
-
-[node name="PlayerAmbianceParticles" type="GPUParticles2D" parent="Player"]
-position = Vector2(-11, -9)
-amount = 15
-process_material = SubResource("ParticleProcessMaterial_ase3h")
-texture = SubResource("GradientTexture2D_ia288")
-lifetime = 20.0
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")

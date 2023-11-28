@@ -134,13 +134,10 @@ func _physics_process(_delta):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		$GravelWalkingParticles.emitting = false
 		var play_metal_walk = false
 		
 		if collision && collision.get_collider() is TileMap:
 			if (velocity.x > 1 || velocity.x < -1):
-				if collision.get_collider().name == "Gravel":
-					$GravelWalkingParticles.emitting = true
 				if collision.get_collider().name == "Ingame":
 					play_metal_walk = true
 					
@@ -176,7 +173,6 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("left"):
 			$PlayerAnimation.scale.x = -1
 			$AntennaAnimation.scale.x = -1
-			$SparkParticles.position.x = 7
 			if previous_direction == 1:
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
@@ -189,7 +185,6 @@ func _physics_process(_delta):
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
-			$SparkParticles.position.x = -11
 			
 			if previous_direction == -1:
 				if current_ability == "RocketBoost":
@@ -232,14 +227,9 @@ func _physics_process(_delta):
 				$PlayerAnimation.play("Idle")
 			
 	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
-		$FireParticlesBootsLeft.emitting = true
-		$FireParticlesBootsRight.emitting = true
-		
 		if get_parent().get_node("RocketBoost").playing == false:
 			get_parent().get_node("RocketBoost").play()
 	else:
-		$FireParticlesBootsLeft.emitting = false
-		$FireParticlesBootsRight.emitting = false
 		get_parent().get_node("RocketBoost").playing = false
 		
 	# Play start walk animation when left or right is pressed.
