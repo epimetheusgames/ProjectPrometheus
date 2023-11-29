@@ -292,7 +292,8 @@ offset_left = -234.0
 offset_top = -131.0
 offset_right = -194.0
 offset_bottom = -108.0
-text = "FPS: 10"
+text = "FPS: Calculating ...
+"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 4
@@ -384,18 +385,22 @@ lifetime = 20.0
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
 volume_db = 7.0
+bus = &"SFX"
 
 [node name="MetalWalk2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_kii0g")
 volume_db = 7.0
+bus = &"SFX"
 
 [node name="MetalWalkBoots1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_44at1")
 volume_db = 2.0
+bus = &"SFX"
 
 [node name="RocketBoost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_de7xa")
 pitch_scale = 1.74
+bus = &"SFX"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 

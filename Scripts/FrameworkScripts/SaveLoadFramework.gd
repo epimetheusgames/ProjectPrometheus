@@ -33,8 +33,9 @@ func load_game(load_num):
 	var file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	if not file:
-		if load_num == "global":
-			return "[false]"
+		if str(load_num) == "global":
+			save_game("[false, 0, 0]", "global")
+			return load_game("global")
 		
 		save_data(0, 0, load_num)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)

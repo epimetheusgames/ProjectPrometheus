@@ -33,3 +33,44 @@ offset_right = 1078.0
 offset_bottom = 667.0
 text = "Efficient Rendering
 (Visual defficiencies)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 345.0
+offset_top = 326.0
+offset_right = 838.0
+offset_bottom = 773.0
+text = "CLICK HERE"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+offset_left = 888.0
+offset_top = 462.0
+offset_right = 1245.0
+offset_bottom = 483.0
+min_value = -30.0
+max_value = 6.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1023.0
+offset_top = 440.0
+offset_right = 1132.0
+offset_bottom = 466.0
+text = "Music Volume
+"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+offset_left = 887.0
+offset_top = 417.0
+offset_right = 1244.0
+offset_bottom = 438.0
+min_value = -30.0
+max_value = 6.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1022.0
+offset_top = 395.0
+offset_right = 1131.0
+offset_bottom = 421.0
+text = "SFX Volume
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
