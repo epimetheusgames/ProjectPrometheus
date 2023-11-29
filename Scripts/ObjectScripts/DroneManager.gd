@@ -116,7 +116,7 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter":
+	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox":
 		var dead_drone = loaded_physics_drone.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation

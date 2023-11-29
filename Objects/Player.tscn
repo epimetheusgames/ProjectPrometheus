@@ -184,7 +184,6 @@ tangential_accel_max = 100.0
 damping_min = 31.683
 damping_max = 31.683
 color_ramp = SubResource("GradientTexture1D_1wdwm")
-turbulence_enabled = true
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 5.8
 turbulence_noise_speed = Vector3(-1, 1, 0)

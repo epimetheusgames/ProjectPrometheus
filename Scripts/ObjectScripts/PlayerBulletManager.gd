@@ -4,10 +4,6 @@ var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 
 var graphics_efficiency = false
-
-func _ready():
-	if graphics_efficiency:
-		$GPUParticles2D.queue_free()
 		
 func _process(delta):
 	position += direction * velocity * (delta * 60)
