@@ -10,7 +10,7 @@ var air_friction_force = 1.01
 var max_speed = 3
 var max_air_speed = 4.5
 var jump_push_force = 0.225
-var rocket_jump_push_force = 0.3
+var rocket_jump_push_force = 0.32
 var speed_hard_cap = 3.5
 var jump_speed_boost = 1.1
 

@@ -50,8 +50,10 @@ func _on_fadin_half_wait_timer_timeout():
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalk")
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = true
 		$RocketBoots.visible = false
+		$ArmGun.visible = true
 	if ability_index == 3:
 		get_parent().get_parent().get_node("Player").current_ability = "RocketBoost"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkRockets")
-		$RocketBoots.visible = true
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = false
+		$RocketBoots.visible = true
+		$ArmGun.visible = false

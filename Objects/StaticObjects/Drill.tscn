@@ -41,10 +41,10 @@ animations = [{
 size = Vector2(32, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxb5c"]
-size = Vector2(15, 32)
+size = Vector2(8, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dncpn"]
-size = Vector2(17, 32)
+size = Vector2(8, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ihfj"]
 size = Vector2(30, 31)
@@ -80,11 +80,11 @@ position = Vector2(16, -2.5)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(39.5, 16)
+position = Vector2(36, 16)
 shape = SubResource("RectangleShape2D_bxb5c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(-8.5, 16)
+position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

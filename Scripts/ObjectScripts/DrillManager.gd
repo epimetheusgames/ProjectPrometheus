@@ -1,10 +1,17 @@
 extends Node2D
 
-var speed = 0.5
-var direction = speed
+@export var start_direction = 1
+@onready var speed = 0.5
+@onready var direction = speed * start_direction
 var gravity = 0.5
 var velocity = Vector2.ZERO
 
+func _ready():
+	if direction == speed:
+		$DrillAnimation.scale.x = 1
+	elif direction == -speed:
+		$DrillAnimation.scale.x = -1
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	velocity.x = direction 
@@ -15,10 +22,10 @@ func _process(delta):
 	var down_collision = $RayCastDown.get_collider()
 	var down_collision_2 = $RayCastDown2.get_collider()
 	
-	if left_collision != null && direction == -speed:
+	if left_collision != null && left_collision.name != "Player" && direction == -speed:
 		direction = speed
 		$DrillAnimation.scale.x = 1
-	elif right_collision != null && direction == speed:
+	elif right_collision != null && right_collision.name != "Player" && direction == speed:
 		direction = -speed
 		$DrillAnimation.scale.x = -1
 	
@@ -34,8 +41,8 @@ func _process(delta):
 
 func _on_jump_hurt_box_area_entered(area):
 	if area.name == "PlayerHurtbox":
-		area.get_parent().jump_vel = 8
-		area.get_parent().rocket_jump_vel = 8
+		area.get_parent().jump_vel = 5
+		area.get_parent().rocket_jump_vel = 5
 		area.get_parent().velocity.x = -area.get_parent().velocity.x
 		
 		if area.get_parent().velocity.x > 0:
