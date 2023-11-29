@@ -100,6 +100,7 @@ func _on_rapid_bullet_cooldown_timeout():
 			var bullet_to_add = loaded_bullet.instantiate()
 			bullet_to_add.position = position + $Drone.position
 			bullet_to_add.velocity = direction_to_player * 5
+			bullet_to_add.graphics_efficiency = graphics_efficiency
 			get_parent().add_child(bullet_to_add)
 		else:
 			$RapidBulletCooldown.start()

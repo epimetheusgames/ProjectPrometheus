@@ -1,7 +1,12 @@
 extends Node2D
 
 
+var graphics_efficiency = false
 var velocity = Vector2.ZERO
+
+func _ready():
+	if graphics_efficiency:
+		$GPUParticles2D.queue_free()
 
 func _process(delta):
 	position += velocity

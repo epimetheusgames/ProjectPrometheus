@@ -30,7 +30,7 @@ func _process(delta):
 	else:
 		$DrillAnimation.play("Idle")
 		
-	position += velocity
+	position += velocity * delta * 60
 
 func _on_jump_hurt_box_area_entered(area):
 	if area.name == "PlayerHurtbox":

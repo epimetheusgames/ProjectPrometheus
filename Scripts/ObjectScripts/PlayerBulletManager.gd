@@ -3,6 +3,12 @@ extends Node2D
 var velocity = Vector2.ZERO
 var direction = Vector2.ZERO
 
+var graphics_efficiency = false
+
+func _ready():
+	if graphics_efficiency:
+		$GPUParticles2D.queue_free()
+		
 func _process(delta):
 	position += direction * velocity * (delta * 60)
 	rotation = atan2(direction.y, direction.x) + (1.0/2.0 * PI)

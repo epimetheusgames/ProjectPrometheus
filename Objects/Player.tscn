@@ -1,8 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=48 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
 [ext_resource type="PackedScene" uid="uid://dbql3q4vummfw" path="res://Objects/Overlays/PauseMenu.tscn" id="2_g88ux"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerCamera.gd" id="2_hyv1c"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraCollider.gd" id="2_mi2af"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="4_phy7p"]
@@ -241,6 +242,7 @@ script = ExtResource("1_71342")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+script = ExtResource("2_hyv1c")
 
 [node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
 collision_layer = 2
@@ -284,6 +286,13 @@ offset_top = -200.0
 offset_right = 256.0
 offset_bottom = 188.0
 color = Color(0, 0, 0, 0)
+
+[node name="FPSCounter" type="Label" parent="Camera"]
+offset_left = -234.0
+offset_top = -131.0
+offset_right = -194.0
+offset_bottom = -108.0
+text = "FPS: 10"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 4

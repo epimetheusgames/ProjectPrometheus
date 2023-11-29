@@ -28,6 +28,7 @@ func _process(delta):
 			bullet.position = get_parent().position + $Line2D.points[3]
 			bullet.direction = mouse_direction
 			bullet.velocity = 7
+			bullet.graphics_efficiency = get_parent().get_parent().graphics_efficiency
 			get_parent().get_parent().add_child(bullet)
 	else:
 		visible = false
