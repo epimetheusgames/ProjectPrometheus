@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
 [ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/DroneOutlineSpritesheet.png" id="4_nmpt3"]
 [ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/DroneTurret1.png" id="4_sscxf"]
+[ext_resource type="AudioStream" uid="uid://bjwlgs3fjyivv" path="res://Assets/Audio/SFX/DroneGunLoad.wav" id="5_hte47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]
 atlas = ExtResource("2_vtjwx")
@@ -191,9 +192,13 @@ wait_time = 10.0
 one_shot = true
 
 [node name="WeaponDetected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hte47")
+volume_db = 5.0
 
 [node name="TargetLost" type="AudioStreamPlayer" parent="."]
 volume_db = 1.0
+
+[node name="WeaponDetected2" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]

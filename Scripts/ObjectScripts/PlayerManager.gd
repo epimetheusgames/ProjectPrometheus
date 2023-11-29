@@ -1,6 +1,13 @@
 extends Node2D
 
 var target_zoom = Vector2.ZERO
+@onready var graphics_efficiency = get_parent().graphics_efficiency
+
+func _ready():
+	if graphics_efficiency:
+		$Player/GravelWalkingParticles.queue_free()
+		$Player/SparkParticles.queue_free()
+		$Player/PlayerAmbianceParticles.queue_free()
 
 func _process(delta):
 	# Camera follows player.

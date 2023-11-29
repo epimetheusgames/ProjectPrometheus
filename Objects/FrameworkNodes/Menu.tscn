@@ -25,3 +25,11 @@ min_value = 1.0
 max_value = 4.0
 value = 1.0
 prefix = "Character Num:"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+offset_left = 893.0
+offset_top = 610.0
+offset_right = 1078.0
+offset_bottom = 667.0
+text = "Efficient Rendering
+(Visual defficiencies)"

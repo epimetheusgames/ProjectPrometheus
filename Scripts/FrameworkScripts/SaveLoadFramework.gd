@@ -33,6 +33,9 @@ func load_game(load_num):
 	var file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	if not file:
+		if load_num == "global":
+			return "[false]"
+		
 		save_data(0, 0, load_num)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
@@ -59,12 +62,13 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
-func start_game(slot, player_type):
+func start_game(slot, player_type, graphics_efficiency):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
 	level_loaded.slot = slot
+	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	get_node("Menu").queue_free()
 	call_deferred("add_child", level_loaded)
@@ -74,7 +78,7 @@ func exit_to_menu(level, floor, slot):
 	get_children()[0].queue_free()
 	add_child(menu.instantiate())
 
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot):
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency):
 	exit_to_menu(current_level, current_floor, slot)
 	save_data(switch_level, switch_floor, slot)
-	start_game(slot, player_type)
+	start_game(slot, player_type, graphics_efficiency)

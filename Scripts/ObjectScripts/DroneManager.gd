@@ -8,10 +8,15 @@ var can_play_target_lost = false
 
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
+@onready var graphics_efficiency = get_parent().graphics_efficiency
 @export var velocity_smoothing = 0.01
 
 func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
+	
+func _ready():
+	if graphics_efficiency:
+		$Drone/GPUParticles2D.queue_free()
 
 func _process(delta):
 	var player = get_parent().get_node("Player").get_node("Player")
