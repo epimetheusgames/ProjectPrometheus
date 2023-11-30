@@ -12,7 +12,6 @@ var max_air_speed = 4.5
 var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
-var jump_speed_boost = 1.1
 
 var dont_apply_friction = false
 var could_jump = false
@@ -63,7 +62,6 @@ func canJump():
 	
 func jump():
 	just_jumped = true
-	velocity.x *= jump_speed_boost
 	velocity.y = -jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel
 	$PlayerAnimation.play("StartJump")
 			
@@ -362,6 +360,9 @@ func _on_area_2d_area_entered(area):
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
+		elif area.name == "JumpHurtBox":
+			if area.get_parent().health <= 0:
+				return
 		
 		if $BulletBadHurtcooldown.time_left > 0:
 			get_parent().get_parent().get_node("NextLevel").restart_level()

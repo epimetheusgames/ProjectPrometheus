@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var start_direction = 1
+@export var health = 3
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
 var gravity = 0.5
@@ -37,10 +38,17 @@ func _process(delta):
 	else:
 		$DrillAnimation.play("Idle")
 		
-	position += velocity * (delta * 60)
+	if health > 0:
+		position += velocity * (delta * 60)
 
 func _on_jump_hurt_box_area_entered(area):
-	if area.name == "PlayerHurtbox":
+	var no_damage = false
+	
+	if area.name == "PlayerHurtbox" && health > 0:
+		if area.get_parent().get_node("NewDashCooldown").time_left > 0:
+			health -= 1
+			no_damage = true
+		
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5
 		area.get_parent().velocity.x = -area.get_parent().velocity.x
