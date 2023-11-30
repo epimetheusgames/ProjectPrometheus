@@ -9,8 +9,8 @@ func _ready():
 
 func _process(delta):
 	# Camera follows player.
-	$Camera/CameraCollider.position += ($Player.position - $Camera/CameraCollider.position) * 0.05
-	$Camera.position += ($Camera/CameraCollider.position - $Camera.position) * 0.1
+	$Camera/CameraCollider.position += ($Player.position - $Camera/CameraCollider.position) * 0.05 * (delta * 60)
+	$Camera.position += ($Camera/CameraCollider.position - $Camera.position) * 0.1 * (delta * 60)
 	
 	var player_vel = 0
 	

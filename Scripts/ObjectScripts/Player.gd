@@ -11,7 +11,7 @@ var max_speed = 3
 var max_air_speed = 4.5
 var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
-var speed_hard_cap = 3.5
+var speed_hard_cap = 5
 var jump_speed_boost = 1.1
 
 var dont_apply_friction = false
@@ -97,9 +97,12 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("jump"):
 		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
 		
-	if Input.is_action_just_pressed("attack") && current_ability == "Weapon":
+	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
 		$PlayerAnimation.play("AttackSword")
-		velocity.x = 0
+		$DashStopCooldown.start()
+		$NewDashCooldown.start()
+		
+		velocity.x = previous_direction * 5
 		
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap:
@@ -431,3 +434,6 @@ func _on_bullet_hurt_cooldown_timeout():
 func _on_bullet_bad_hurtcooldown_timeout():
 	$PlayerAnimation.modulate.g = 1
 	$PlayerAnimation.modulate.b = 1
+
+func _on_dash_stop_cooldown_timeout():
+	velocity.x = 0

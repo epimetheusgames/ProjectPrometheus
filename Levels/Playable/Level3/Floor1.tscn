@@ -261,6 +261,12 @@ position = Vector2(-879, -312)
 visible = false
 points = PackedVector2Array(0, 98, 0, 213, 410, 215, 416, -114, 249, -116)
 
+[node name="WeaponDetected" parent="DroneManager" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager" index="8"]
+bus = &"Master"
+
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("7_nkvx3")
 
@@ -275,12 +281,24 @@ position = Vector2(555, -77)
 visible = false
 points = PackedVector2Array(-196, -2, -199, 47, -281, 48, -353, -1, -506, -2, -510, 51, -785, -11, -857, -53, -932, -142, -931, -246, 205, -303)
 
+[node name="WeaponDetected" parent="DroneManager2" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager2" index="8"]
+bus = &"Master"
+
 [node name="DroneManager3" parent="." instance=ExtResource("6_pm7tb")]
 position = Vector2(-1321, -207)
 
 [node name="DronePatrolPoints" parent="DroneManager3" index="1"]
 visible = false
 points = PackedVector2Array(162, 0, 249, 0, 259, -160, 412, -199, 431, -305, 492, -348, 493, -405, 420, -406, 403, -323, 392, -232, 263, -222, 258, -267, 248, -406, 199, -447, 109, -402, -559, -425, -571, -337, -1204, -332, -1252, -396, -2904, -432, -2126, 167, -1734, 168, -1732, -301, -1434, -288, -1107, -279, -574, -278, -576, -10)
+
+[node name="WeaponDetected" parent="DroneManager3" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager3" index="8"]
+bus = &"Master"
 
 [node name="DroneManager4" parent="." instance=ExtResource("6_pm7tb")]
 position = Vector2(-3375, -1168)
@@ -290,12 +308,24 @@ visible = false
 position = Vector2(1, 5)
 points = PackedVector2Array(0, 81, 0, 327, -27, 271, -46, 321, -67, 329, -88, 307, -95, 277, -99, 315, -185, 310, -207, 263, -227, 301, -245, 308, -280, 353, -275, 278, -288, -30, -3, -28)
 
+[node name="WeaponDetected" parent="DroneManager4" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager4" index="8"]
+bus = &"Master"
+
 [node name="DroneManager5" parent="." instance=ExtResource("6_pm7tb")]
 position = Vector2(-3789, -2240)
 
 [node name="DronePatrolPoints" parent="DroneManager5" index="1"]
 visible = false
 points = PackedVector2Array(-2, 730, 48, 756, 248, 740, 501, 737, 984, 736, 1147, 752, 1777, 753, 2267, 751, 2541, 723, 3181, 692, 3454, 648, 3627, 419, 3657, -364)
+
+[node name="WeaponDetected" parent="DroneManager5" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager5" index="8"]
+bus = &"Master"
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_6biff")
@@ -309,6 +339,12 @@ position = Vector2(-4399, -995)
 [node name="DronePatrolPoints" parent="DroneManager6" index="1"]
 position = Vector2(-6, -18)
 points = PackedVector2Array(178, -67, 245, -32, 361, -49, 483, -67, 617, -71, 572, -153, 541, -140, 517, -156, 498, -174, 503, -200, 511, -246, 487, -315, 491, -487, 462, -497, 429, -443, -50, -426)
+
+[node name="WeaponDetected" parent="DroneManager6" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager6" index="8"]
+bus = &"Master"
 
 [node name="Drill" parent="." instance=ExtResource("11_n8qbk")]
 position = Vector2(165, -67)
@@ -332,7 +368,7 @@ texture = ExtResource("13_w48jd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ck8fg")
 autoplay = true
 bus = &"Music"

@@ -5,7 +5,7 @@ var graphics_efficiency = false
 var velocity = Vector2.ZERO
 
 func _process(delta):
-	position += velocity
+	position += velocity * (delta * 60)
 	rotation = atan2(velocity.y, velocity.x) + (1.0/2.0 * PI)
 
 func _on_despawn_timer_timeout():

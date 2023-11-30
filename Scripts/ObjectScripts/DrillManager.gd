@@ -14,7 +14,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity.x = direction 
+	velocity.x = direction
 	velocity.y += gravity
 	
 	var left_collision = $RayCastLeft.get_collider()
@@ -37,7 +37,7 @@ func _process(delta):
 	else:
 		$DrillAnimation.play("Idle")
 		
-	position += velocity * delta * 60
+	position += velocity * (delta * 60)
 
 func _on_jump_hurt_box_area_entered(area):
 	if area.name == "PlayerHurtbox":
