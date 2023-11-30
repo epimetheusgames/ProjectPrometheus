@@ -17,6 +17,9 @@ func _on_abililty_switch_timer_timeout():
 	fading_in = true
 
 func _process(delta):
+	get_parent().get_parent().get_node("Player").current_ability = "Grapple"
+	get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = true
+	$ArmGun.visible = false
 	if switching_ability && fading_in:
 		if get_parent().get_node("DarkOverlay").color.a < 0.7:
 			get_parent().get_node("DarkOverlay").color.a += 0.5 * delta
