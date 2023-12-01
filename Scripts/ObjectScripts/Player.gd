@@ -13,6 +13,8 @@ var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
 
+var grappling_effects = false
+var grappling_no_speed_cap = false
 var dont_apply_friction = false
 var could_jump = false
 var was_in_air = false
@@ -72,8 +74,9 @@ func jump():
 		$PlayerAnimation.play("StartJumpSword")
 
 func _physics_process(_delta):
-	# Apply gravity
-	velocity.y += gravity
+	# Apply gravity if not grappling
+	if !grappling_effects:
+		velocity.y += gravity
 	
 	dont_apply_friction = false
 	just_jumped = false
@@ -103,9 +106,9 @@ func _physics_process(_delta):
 		velocity.x = previous_direction * 5
 		
 	# Hard cap the speed to supress speed glitches.
-	if abs(velocity.x) > speed_hard_cap:
+	if abs(velocity.x) > speed_hard_cap && !grappling_no_speed_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
-	if abs(velocity.y) > rocket_jump_vel + 1:
+	if abs(velocity.y) > rocket_jump_vel + 1 && !grappling_no_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# Apply friction.

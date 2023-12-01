@@ -1,7 +1,7 @@
 extends Node2D
 
-var start_zoom = $Camera.zoom
-var target_zoom = $Camera.zoom
+@onready var start_zoom = $Camera.zoom
+@onready var target_zoom = $Camera.zoom
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 
 func _ready():

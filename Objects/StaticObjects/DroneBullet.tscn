@@ -60,7 +60,7 @@ lifetime = 2.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.576471, 0.509804, 1)
+modulate = Color(1, 0.619608, 0.560784, 1)
 position = Vector2(2.5, 2.5)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_6g3vu")

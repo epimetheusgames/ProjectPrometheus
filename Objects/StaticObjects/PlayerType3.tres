@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=64 format=3 uid="uid://cisystpdr0v7w"]
+[gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://cisystpdr0v7w"]
 
 [ext_resource type="Texture2D" uid="uid://br43g7g6x55hu" path="res://Assets/Images/Objects/CharacterSpritesheetIdleType3.png" id="1_qa02n"]
+[ext_resource type="Texture2D" uid="uid://bfjgy5gdghrn0" path="res://Assets/Images/Objects/CharacterSpritesheetAttackMeleType3.png" id="1_x73e4"]
 [ext_resource type="Texture2D" uid="uid://m4jh4mc0q1fl" path="res://Assets/Images/Objects/CharacterSpritesheetType3.png" id="2_pmyv7"]
 [ext_resource type="Texture2D" uid="uid://bo876qtbapi7u" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRocketsType3.png" id="2_qtxr2"]
 [ext_resource type="Texture2D" uid="uid://xkhb5wasca7j" path="res://Assets/Images/Objects/CharacterSpritesheetIdleSwordType3.png" id="3_3qhud"]
@@ -12,6 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://bubv7d2ut3ppa" path="res://Assets/Images/Objects/CharacterSplitRocketsType3.png" id="8_kn5aj"]
 [ext_resource type="Texture2D" uid="uid://mwn8ekix3uoe" path="res://Assets/Images/Objects/CharacterSpritesheetSwordType3.png" id="9_k2n7p"]
 [ext_resource type="Texture2D" uid="uid://dnx0dune6tkon" path="res://Assets/Images/Objects/CharacterSplitSwordType3.png" id="12_qdb0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4agp"]
+atlas = ExtResource("1_x73e4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrn5d"]
+atlas = ExtResource("1_x73e4")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q37br"]
+atlas = ExtResource("1_x73e4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd14c"]
+atlas = ExtResource("1_x73e4")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exh1c"]
+atlas = ExtResource("1_x73e4")
+region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwto7"]
 atlas = ExtResource("1_qa02n")
@@ -219,6 +240,26 @@ region = Rect2(0, 256, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4agp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrn5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q37br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd14c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exh1c")
+}],
+"loop": true,
+"name": &"AttackSword",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gwto7")
