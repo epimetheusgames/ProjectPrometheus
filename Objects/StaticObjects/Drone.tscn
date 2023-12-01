@@ -88,13 +88,13 @@ gradient = SubResource("Gradient_2j5lc")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76aea"]
 particle_flag_disable_z = true
 spread = 180.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 31.51
 initial_velocity_max = 80.29
 angular_velocity_min = -400.0
 angular_velocity_max = 400.0
 orbit_velocity_min = -0.1
 orbit_velocity_max = -0.1
+gravity = Vector3(0, 0, 0)
 linear_accel_max = 7.0
 color_ramp = SubResource("GradientTexture1D_inqbl")
 turbulence_enabled = true
