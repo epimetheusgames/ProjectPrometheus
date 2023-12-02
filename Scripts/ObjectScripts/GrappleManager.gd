@@ -9,19 +9,20 @@ var hook
 
 func _physics_process(delta):
 	if active && grapling:
-		if hooked:
+		if hooked && hook:
 			$GrappleBody.hooked = true
 			$GrappleBody.position = hook.position - get_parent().position
 			
 			get_parent().velocity += (hook.position - get_parent().position).normalized()
 			get_parent().grappling_effects = true
+		else:
+			hook = null
 		
 		visible = true 
 		
-		if Input.is_action_just_pressed("mouse_click"):
+		if Input.is_action_just_released("mouse_click"):
 			grapling = false
 			hooked = false
-			hook = null
 			$GrappleBody.hooked = false
 			
 			get_parent().velocity *= exit_grapple_vel_mult
@@ -35,6 +36,8 @@ func _physics_process(delta):
 		$GrappleRope.visible = true
 		$LinePorabola.visible = false
 	elif active:
+		hook = null
+		hooked = false
 		$GrappleBody.position = Vector2.ZERO
 		$GrappleBody.velocity = Vector2.ZERO
 		
