@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_released("ui_accept") and showing:
 		# Exit to menu, don't question it.
-		get_parent().get_parent().get_parent().get_parent().exit_to_menu(get_parent().get_parent().get_parent().level, get_parent().get_parent().get_parent().floor, get_parent().get_parent().get_parent().slot)
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").exit_to_menu(get_parent().get_parent().get_parent().level, get_parent().get_parent().get_parent().floor, get_parent().get_parent().get_parent().slot)
 		
 	# Open and close options menu.
 	if Input.is_action_just_pressed("esc"):

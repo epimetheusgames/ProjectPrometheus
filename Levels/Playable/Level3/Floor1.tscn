@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=28 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="2_d4qao"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="13_w48jd"]
 [ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="16_ck8fg"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_6jcrf"]
+[ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_pcvgh")
@@ -377,6 +378,9 @@ bus = &"Music"
 
 [node name="GrappleHook" parent="." instance=ExtResource("17_6jcrf")]
 position = Vector2(-496, -124)
+
+[node name="Floodlight" parent="." instance=ExtResource("18_dmsa8")]
+position = Vector2(-651, -128)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

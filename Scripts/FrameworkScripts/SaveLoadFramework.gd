@@ -22,6 +22,7 @@ const level_node_names = [
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
+var current_level_name = ""
 
 # Save game via its respective slot.
 func save_game(content, save_num):
@@ -72,11 +73,11 @@ func start_game(slot, player_type, graphics_efficiency):
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	get_node("Menu").queue_free()
-	call_deferred("add_child", level_loaded)
+	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
 func exit_to_menu(level, floor, slot):
 	save_data(level, floor, slot)
-	get_children()[0].queue_free()
+	get_parent().get_node("Level").get_children()[0].queue_free()
 	add_child(menu.instantiate())
 
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency):

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm566haiwff2j"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjx55"]
+load_path = "res://.godot/imported/Floodlight.png-b92191f7853602fc7291ba710616aa01.ctex"
+
+[node name="Floodlight" type="Node2D"]
+
+[node name="FloodlightSprite" type="Sprite2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+position = Vector2(28, 16)
+texture = SubResource("CompressedTexture2D_cjx55")

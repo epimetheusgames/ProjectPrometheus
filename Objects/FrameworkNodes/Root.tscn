@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbf3m5eyfx455"]
+
+[ext_resource type="PackedScene" uid="uid://dk8o56bdo51ex" path="res://Objects/FrameworkNodes/SaveLoadFramework.tscn" id="1_kbqhr"]
+
+[node name="Root" type="Node"]
+
+[node name="SaveLoadFramework" parent="." instance=ExtResource("1_kbqhr")]
+
+[node name="Level" type="Node2D" parent="."]
