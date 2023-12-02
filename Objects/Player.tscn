@@ -301,9 +301,9 @@ one_shot = true
 
 [node name="DarkOverlay" type="ColorRect" parent="Camera"]
 offset_left = -285.0
-offset_top = -202.0
+offset_top = -200.0
 offset_right = 252.0
-offset_bottom = 186.0
+offset_bottom = 188.0
 color = Color(0, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
@@ -352,9 +352,6 @@ default_color = Color(0.560784, 0.560784, 0.560784, 1)
 
 [node name="NoSpeedCapTimer" type="Timer" parent="Player/GrappleManager"]
 wait_time = 0.5
-one_shot = true
-
-[node name="CooldownTimer" type="Timer" parent="Player/GrappleManager"]
 one_shot = true
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]

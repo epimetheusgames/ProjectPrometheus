@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw17c"]
 size = Vector2(24, 24)
 
-[node name="GrappleHook" type="Node2D"]
+[node name="GrappleHook" type="Node2D" groups=["hooks"]]
 script = ExtResource("1_x5bcy")
 
 [node name="Area2D" type="Area2D" parent="."]

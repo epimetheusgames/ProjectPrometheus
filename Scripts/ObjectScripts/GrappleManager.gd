@@ -7,6 +7,18 @@ var hook
 @export var exit_grapple_vel_mult = 1.5
 @export var porab_line_length = 300
 
+func calc_closest_hook():
+	var closest_hook = null
+	var closest_distance = 9999999999
+	
+	for hook in get_tree().get_nodes_in_group("hooks"):
+		var distance = hook.position.distance_to(get_parent().position)
+		if distance < closest_distance:
+			closest_hook = hook
+			closest_distance = distance
+	
+	return closest_hook
+
 func _physics_process(delta):
 	if active && grapling:
 		if hooked && hook:
@@ -44,14 +56,11 @@ func _physics_process(delta):
 		$GrappleRope.visible = false
 		$LinePorabola.visible = true
 		
-		var mouse_direction = (((get_viewport().get_mouse_position() - 
-								Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)) +
-								(get_parent().get_parent().get_node("Camera").get_node("CameraCollider").position - 
-								get_parent().position) * 3) / 3).normalized()
+		var mouse_direction = (calc_closest_hook().position - get_parent().position).normalized()
 		$LinePorabola.points[0] = Vector2.ZERO
 		$LinePorabola.points[1] = mouse_direction * 10000
 		
-		if Input.is_action_just_pressed("mouse_click") && $CooldownTimer.time_left == 0:
+		if Input.is_action_just_pressed("mouse_click"):
 			grapling = true
 			
 			$GrappleBody.velocity = mouse_direction * 15
