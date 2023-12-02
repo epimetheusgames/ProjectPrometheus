@@ -24,6 +24,10 @@ const level_node_names = [
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
 var current_level_name = ""
 
+func _process(delta):
+	while len(get_parent().get_node("Level").get_children()) > 1:
+		get_parent().get_node("Levels").get_children()[-1].free()
+
 # Save game via its respective slot.
 func save_game(content, save_num):
 	var file = FileAccess.open("user://save_" + str(save_num) + ".json", FileAccess.WRITE)

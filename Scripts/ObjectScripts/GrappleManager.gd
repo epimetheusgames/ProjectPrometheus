@@ -21,6 +21,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("mouse_click"):
 			grapling = false
 			hooked = false
+			hook = null
 			$GrappleBody.hooked = false
 			
 			get_parent().velocity *= exit_grapple_vel_mult
@@ -40,15 +41,12 @@ func _physics_process(delta):
 		$GrappleRope.visible = false
 		$LinePorabola.visible = true
 		
-		# Calc shot porab
-		var mouse_direction = (get_viewport().get_mouse_position() - Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y)).normalized()
-		var pos = Vector2.ZERO
-		var shot_velocity = mouse_direction * 15 # the velocity of the shot
-
-		for i in range(porab_line_length):
-			$LinePorabola.set_point_position(i, pos)
-			shot_velocity.y += $GrappleBody.gravity * delta * 60
-			pos += shot_velocity
+		var mouse_direction = (((get_viewport().get_mouse_position() - 
+								Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)) +
+								(get_parent().get_parent().get_node("Camera").get_node("CameraCollider").position - 
+								get_parent().position) * 3) / 3).normalized()
+		$LinePorabola.points[0] = Vector2.ZERO
+		$LinePorabola.points[1] = mouse_direction * 10000
 		
 		if Input.is_action_just_pressed("mouse_click") && $CooldownTimer.time_left == 0:
 			grapling = true

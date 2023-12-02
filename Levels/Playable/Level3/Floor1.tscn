@@ -392,9 +392,6 @@ position = Vector2(-3802, -924)
 [node name="GrappleHook3" parent="." instance=ExtResource("17_6jcrf")]
 position = Vector2(-3846, -1004)
 
-[node name="GrappleHook4" parent="." instance=ExtResource("17_6jcrf")]
-position = Vector2(-3836, -1104)
-
 [node name="GrappleHook5" parent="." instance=ExtResource("17_6jcrf")]
 position = Vector2(-3933, -1241)
 
@@ -402,7 +399,7 @@ position = Vector2(-3933, -1241)
 position = Vector2(-3780, -1431)
 
 [node name="GrappleHook7" parent="." instance=ExtResource("17_6jcrf")]
-position = Vector2(-3781, -1180)
+position = Vector2(-3841, -1176)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
