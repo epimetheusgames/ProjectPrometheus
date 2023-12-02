@@ -370,6 +370,7 @@ position = Vector2(-3488, -800)
 texture = ExtResource("13_w48jd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ck8fg")
@@ -379,8 +380,29 @@ bus = &"Music"
 [node name="GrappleHook" parent="." instance=ExtResource("17_6jcrf")]
 position = Vector2(-496, -124)
 
-[node name="Floodlight" parent="." instance=ExtResource("18_dmsa8")]
-position = Vector2(-651, -128)
+[node name="Floodlight5" parent="." instance=ExtResource("18_dmsa8")]
+position = Vector2(-3324, -832)
+
+[node name="Floodlight2" parent="." instance=ExtResource("18_dmsa8")]
+position = Vector2(-3226, -832)
+
+[node name="GrappleHook2" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3802, -924)
+
+[node name="GrappleHook3" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3846, -1004)
+
+[node name="GrappleHook4" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3836, -1104)
+
+[node name="GrappleHook5" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3933, -1241)
+
+[node name="GrappleHook6" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3780, -1431)
+
+[node name="GrappleHook7" parent="." instance=ExtResource("17_6jcrf")]
+position = Vector2(-3781, -1180)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

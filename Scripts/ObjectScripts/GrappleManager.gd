@@ -56,8 +56,10 @@ func _physics_process(delta):
 			$GrappleBody.velocity = mouse_direction * 15
 			
 	if active:
+		visible = true
 		get_parent().get_parent().target_zoom = Vector2(3, 3)
 	else:
+		visible = false
 		get_parent().get_parent().target_zoom = get_parent().get_parent().start_zoom
 
 func _on_no_speed_cap_timer_timeout():
