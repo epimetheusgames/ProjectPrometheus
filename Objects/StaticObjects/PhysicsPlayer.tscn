@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://crc87c2fbl217"]
+
+[ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="1_lrump"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/RigidBodyExtensions.gd" id="1_vj1c0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrd03"]
+size = Vector2(14, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msms3"]
+size = Vector2(0, 0)
+
+[node name="PhysicsPlayerManager" type="Node2D"]
+
+[node name="PhysicsPlayer" type="RigidBody2D" parent="."]
+script = ExtResource("1_vj1c0")
+
+[node name="CharacterSplit" type="Sprite2D" parent="PhysicsPlayer"]
+position = Vector2(7, 13)
+texture = ExtResource("1_lrump")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsPlayer"]
+position = Vector2(7, 14.5)
+shape = SubResource("RectangleShape2D_mrd03")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("../PhysicsPlayer")
+node_b = NodePath("../ConnectTo")
+bias = 0.9
+stiffness = 64.0
+damping = 16.0
+
+[node name="ConnectTo" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConnectTo"]
+shape = SubResource("RectangleShape2D_msms3")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://btl0cv6b8cmh"]
+[gd_scene load_steps=5 format=3 uid="uid://btl0cv6b8cmh"]
 
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_owqy1"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleHook.gd" id="1_x5bcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw17c"]
 size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpmw8"]
+size = Vector2(8, 8)
 
 [node name="GrappleHook" type="Node2D" groups=["hooks"]]
 script = ExtResource("1_x5bcy")
@@ -17,5 +20,10 @@ shape = SubResource("RectangleShape2D_sw17c")
 [node name="PlaceHolder1-1" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_owqy1")
+
+[node name="PlayerConnecter" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerConnecter"]
+shape = SubResource("RectangleShape2D_rpmw8")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

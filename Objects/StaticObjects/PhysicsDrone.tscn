@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://oujsu8od0ngr"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/PhysicsDrone.gd" id="1_b40p3"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/RigidBodyExtensions.gd" id="1_dduql"]
 [ext_resource type="SpriteFrames" uid="uid://0omx2eusg4oo" path="res://Objects/StaticObjects/DroneDead.tres" id="2_ergh3"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_b40p3")
+script = ExtResource("1_dduql")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_ergh3")
 autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-6, 2, 6, 2, 11, -7, 11, -9, -11, -9, -11, -7)
+polygon = PackedVector2Array(-6, 2, 6, 2, 11, -9, -11, -9)
 
 [node name="GroundFallTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -4,43 +4,78 @@ var active = false
 var grapling = false
 var hooked = false
 var hook
+var air_grapling = false
+var was_hooked = false
+var grapple_lock_rope_len = -1
 @export var exit_grapple_vel_mult = 1.5
 @export var porab_line_length = 300
+@export var max_hook_dist = 350
 
 func calc_closest_hook():
 	var closest_hook = null
 	var closest_distance = 9999999999
 	
-	for hook in get_tree().get_nodes_in_group("hooks"):
-		var distance = hook.position.distance_to(get_parent().position)
+	for test_hook in get_tree().get_nodes_in_group("hooks"):
+		var distance = test_hook.position.distance_to(get_parent().position)
 		if distance < closest_distance:
-			closest_hook = hook
+			closest_hook = test_hook
 			closest_distance = distance
 	
 	return closest_hook
 
 func _physics_process(delta):
+	if get_parent().is_on_floor():
+		if air_grapling:
+			grapling = false
+			hooked = false
+			hook = null
+		air_grapling = false
+		get_parent().disable_speed_cap = false
+		get_parent().low_gravity = false
+	
 	if active && grapling:
+		if hooked && hook && air_grapling:
+			get_parent().disable_speed_cap = true
+			get_parent().low_gravity = true
+			
+			# Transfer downwards energy into sideways energy when swinging.
+			# Credit to the swing() function at 21:30 from https://www.youtube.com/watch?v=EDOLMZg-loQ
+			# This uses math that is way over my head. Literally magic.
+			var radius = get_parent().position - hook.position
+			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
+			var rad_vel = cos(angle) * get_parent().velocity.length()
+			get_parent().velocity += radius.normalized() * -rad_vel
+			# End code I did not make.
+			
+			if hook.position.distance_to(get_parent().position) > grapple_lock_rope_len:
+				get_parent().position = hook.position + (get_parent().position - hook.position).normalized() * grapple_lock_rope_len
+		
+		else:
+			get_parent().disable_speed_cap = false
+			get_parent().low_gravity = false
+		
 		if hooked && hook:
 			$GrappleBody.hooked = true
 			$GrappleBody.position = hook.position - get_parent().position
 			
-			get_parent().velocity += (hook.position - get_parent().position).normalized()
-			get_parent().grappling_effects = true
+			if !air_grapling:
+				get_parent().velocity += (hook.position - get_parent().position).normalized()
+				get_parent().grappling_effects = true
 		else:
 			hook = null
 		
 		visible = true 
 		
 		if Input.is_action_just_released("mouse_click"):
+			if air_grapling:
+				get_parent().velocity *= 2
+			
+			get_parent().disable_speed_cap = false
+			get_parent().low_gravity = false
 			grapling = false
 			hooked = false
+			air_grapling = false
 			$GrappleBody.hooked = false
-			
-			get_parent().velocity *= exit_grapple_vel_mult
-			get_parent().grappling_no_speed_cap = true
-			get_parent().grappling_effects = false
-			$NoSpeedCapTimer.start()
 			
 		$GrappleRope.points[0] = Vector2.ZERO 
 		$GrappleRope.points[1] = $GrappleBody.position
@@ -50,20 +85,35 @@ func _physics_process(delta):
 	elif active:
 		hook = null
 		hooked = false
+		air_grapling = false
+		get_parent().disable_speed_cap = false
+		get_parent().grappling_effects = false
+		get_parent().low_gravity = false
 		$GrappleBody.position = Vector2.ZERO
 		$GrappleBody.velocity = Vector2.ZERO
 		
 		$GrappleRope.visible = false
 		$LinePorabola.visible = true
 		
-		var mouse_direction = (calc_closest_hook().position - get_parent().position).normalized()
-		$LinePorabola.points[0] = Vector2.ZERO
-		$LinePorabola.points[1] = mouse_direction * 10000
+		var closest_hook = calc_closest_hook()
 		
-		if Input.is_action_just_pressed("mouse_click"):
-			grapling = true
+		var closest_hook_dist = null
+		if closest_hook:
+			closest_hook_dist = closest_hook.position.distance_to(get_parent().position)
+		
+		if closest_hook && closest_hook_dist < max_hook_dist:
+			var mouse_direction = (closest_hook.position - get_parent().position).normalized()
+			$LinePorabola.points[0] = Vector2.ZERO
+			$LinePorabola.points[1] = mouse_direction * 10000
 			
-			$GrappleBody.velocity = mouse_direction * 15
+			if Input.is_action_just_pressed("mouse_click"):
+				grapling = true
+				
+				if !get_parent().is_on_floor():
+					air_grapling = true
+					grapple_lock_rope_len = closest_hook_dist
+				
+				$GrappleBody.velocity = mouse_direction * 15
 			
 	if active:
 		visible = true
@@ -71,7 +121,9 @@ func _physics_process(delta):
 	else:
 		visible = false
 		get_parent().get_parent().target_zoom = get_parent().get_parent().start_zoom
-
-func _on_no_speed_cap_timer_timeout():
-	get_parent().grappling_no_speed_cap = false
+		
+	if hooked:
+		was_hooked = true
+	else:
+		was_hooked = false
 

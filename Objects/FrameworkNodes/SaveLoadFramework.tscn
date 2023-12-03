@@ -6,10 +6,9 @@
 [sub_resource type="Environment" id="Environment_80h8x"]
 background_mode = 3
 glow_enabled = true
-glow_levels/1 = 0.1
 glow_levels/3 = 0.1
-glow_levels/5 = 0.5
-glow_levels/7 = 1.0
+glow_levels/5 = 0.25
+glow_levels/7 = 2.0
 glow_intensity = 1.45
 glow_blend_mode = 1
 glow_hdr_scale = 1.0
