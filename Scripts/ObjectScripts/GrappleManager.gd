@@ -67,8 +67,11 @@ func _physics_process(delta):
 		visible = true 
 		
 		if Input.is_action_just_released("mouse_click"):
-			if air_grapling:
-				get_parent().velocity *= 2
+			if hook:
+				if !air_grapling:
+					get_parent().velocity = (hook.position - get_parent().position).normalized() * 5
+				if air_grapling:
+					get_parent().velocity *= 3
 			
 			get_parent().disable_speed_cap = false
 			get_parent().low_gravity = false
