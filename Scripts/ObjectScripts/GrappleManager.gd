@@ -59,7 +59,7 @@ func _physics_process(delta):
 			$GrappleBody.position = hook.position - get_parent().position
 			
 			if !air_grapling:
-				get_parent().velocity += (hook.position - get_parent().position).normalized()
+				get_parent().velocity += (hook.position - get_parent().position).normalized() / 2
 				get_parent().grappling_effects = true
 		else:
 			hook = null
