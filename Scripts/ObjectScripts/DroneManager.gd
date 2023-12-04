@@ -23,7 +23,7 @@ func _process(delta):
 	
 	var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 	var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y)
-	$Drone/DroneTurret1.rotation = direction_to_player_radians - $Drone.rotation
+	$Drone/Turret.rotation = direction_to_player_radians - $Drone.rotation
 	
 	var direction_to_next_point = ($DronePatrolPoints.points[current_line_point] - $Drone.position).normalized() * delta * 60
 

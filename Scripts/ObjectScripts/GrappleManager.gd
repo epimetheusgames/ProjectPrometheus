@@ -123,6 +123,7 @@ func _physics_process(delta):
 		get_parent().get_parent().target_zoom = Vector2(3, 3)
 	else:
 		visible = false
+		get_parent().grappling_effects = false
 		get_parent().get_parent().target_zoom = get_parent().get_parent().start_zoom
 		
 	if hooked:

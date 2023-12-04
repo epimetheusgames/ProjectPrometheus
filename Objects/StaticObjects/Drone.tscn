@@ -130,11 +130,6 @@ width = 2.0
 [node name="PlayerRaycast" type="RayCast2D" parent="Drone"]
 target_position = Vector2(0, 49)
 
-[node name="DroneTurret1" type="Sprite2D" parent="Drone"]
-position = Vector2(0, 1)
-rotation = 1.5708
-texture = ExtResource("4_sscxf")
-
 [node name="DroneSpritesheet" type="AnimatedSprite2D" parent="Drone"]
 sprite_frames = SubResource("SpriteFrames_okakp")
 animation = &"Idle"
@@ -173,6 +168,11 @@ polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_4jc72")
 disabled = true
+
+[node name="Turret" type="Sprite2D" parent="Drone"]
+position = Vector2(0, 1)
+rotation = 1.5708
+texture = ExtResource("4_sscxf")
 
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 1.5

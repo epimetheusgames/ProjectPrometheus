@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvftqxgnkhk7v"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/WallTurret.gd" id="1_xu3ei"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="2_sp4yx"]
+
+[node name="WallTurret" type="Node2D"]
+script = ExtResource("1_xu3ei")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 6)
+scale = Vector2(1, 0.375)
+texture = ExtResource("2_sp4yx")
+
+[node name="Turret" type="Sprite2D" parent="."]
+position = Vector2(5, 12)
+scale = Vector2(0.09375, 0.09375)
+texture = ExtResource("2_sp4yx")
+
+[node name="NewBulletTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
