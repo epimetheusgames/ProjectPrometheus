@@ -263,7 +263,6 @@ position = Vector2(4, -91)
 position = Vector2(-879, -312)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="1"]
-visible = false
 points = PackedVector2Array(0, 98, 0, 213, 410, 215, 416, -114, 249, -116)
 
 [node name="WeaponDetected" parent="DroneManager" index="7"]
@@ -477,10 +476,6 @@ position = Vector2(-4289, -975)
 
 [node name="WallTurret9" parent="." instance=ExtResource("19_oxovb")]
 position = Vector2(-3872, -1229)
-scale = Vector2(-1, 1)
-
-[node name="WallTurret10" parent="." instance=ExtResource("19_oxovb")]
-position = Vector2(-2784, -1562)
 scale = Vector2(-1, 1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]

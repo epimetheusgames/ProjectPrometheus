@@ -364,6 +364,8 @@ func _physics_process(_delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	
+	return
 	if area.name == "DeathZone":
 		get_parent().get_parent().get_node("NextLevel").restart_level()
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
