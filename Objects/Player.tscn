@@ -311,7 +311,7 @@ script = ExtResource("2_7fkxw")
 script = ExtResource("8_bsb7n")
 
 [node name="Line2D" type="Line2D" parent="Player/ArmGunManager"]
-points = PackedVector2Array(-10, 1, -20, -9, -10, -23, 15, -22)
+points = PackedVector2Array(-10, 1, -19, -5, -10, -21, 15, -22)
 width = 1.0
 default_color = Color(0.415686, 0.415686, 0.415686, 1)
 
@@ -352,6 +352,7 @@ position = Vector2(-2, 0)
 sprite_frames = ExtResource("13_v3tig")
 animation = &"AttackSword"
 autoplay = "Walking"
+frame_progress = 0.677901
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 1)

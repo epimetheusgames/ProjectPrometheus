@@ -1,20 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvftqxgnkhk7v"]
+[gd_scene load_steps=4 format=3 uid="uid://dvftqxgnkhk7v"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/WallTurret.gd" id="1_xu3ei"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="2_sp4yx"]
+[ext_resource type="Texture2D" uid="uid://bl4p4t31t2ite" path="res://Assets/Images/Objects/WallTurretMount.png" id="2_pbs04"]
+[ext_resource type="Texture2D" uid="uid://cvo1usbf0e31y" path="res://Assets/Images/Objects/WallTurretHead.png" id="3_buj7f"]
 
 [node name="WallTurret" type="Node2D"]
 script = ExtResource("1_xu3ei")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 6)
-scale = Vector2(1, 0.375)
-texture = ExtResource("2_sp4yx")
+position = Vector2(7, 6)
+texture = ExtResource("2_pbs04")
 
 [node name="Turret" type="Sprite2D" parent="."]
-position = Vector2(5, 12)
-scale = Vector2(0.09375, 0.09375)
-texture = ExtResource("2_sp4yx")
+position = Vector2(11, 9)
+texture = ExtResource("3_buj7f")
 
 [node name="NewBulletTimer" type="Timer" parent="."]
 wait_time = 0.2
