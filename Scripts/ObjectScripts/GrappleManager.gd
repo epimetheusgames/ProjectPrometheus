@@ -35,6 +35,10 @@ func _physics_process(delta):
 	
 	if active && grapling:
 		if hooked && hook && air_grapling:
+			if !was_hooked:
+				var closest_hook_dist = calc_closest_hook().position.distance_to(get_parent().position)
+				grapple_lock_rope_len = closest_hook_dist
+			
 			get_parent().disable_speed_cap = true
 			get_parent().low_gravity = true
 			
@@ -114,7 +118,6 @@ func _physics_process(delta):
 				
 				if !get_parent().is_on_floor():
 					air_grapling = true
-					grapple_lock_rope_len = closest_hook_dist
 				
 				$GrappleBody.velocity = mouse_direction * 15
 			

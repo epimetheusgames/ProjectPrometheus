@@ -352,7 +352,7 @@ position = Vector2(-2, 0)
 sprite_frames = ExtResource("13_v3tig")
 animation = &"AttackSword"
 autoplay = "Walking"
-frame_progress = 0.677901
+frame_progress = 0.205807
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 1)

@@ -14,6 +14,8 @@ var flight_index = 0
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 @export var velocity_smoothing = 0.01
+@export var big_drone = false
+@export var speed = 1.0
 
 func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
@@ -40,9 +42,9 @@ func calculate_flight_frame():
 
 	movement_velocity = Vector2(smooth(movement_velocity.x, direction_to_next_point.x, velocity_smoothing * 1.5),
 								smooth(movement_velocity.y, direction_to_next_point.y / 1.5, velocity_smoothing))
-	
-	flight_position += movement_velocity
-	flight_rotation = movement_velocity.x / 3
+								
+	flight_position += movement_velocity * speed
+	flight_rotation = movement_velocity.x / (3 if !big_drone else 15)
 	
 	if flight_position.distance_to($DronePatrolPoints.points[current_line_point]) < 30:
 		if current_line_point < $DronePatrolPoints.points.size() - 1:
@@ -53,9 +55,10 @@ func calculate_flight_frame():
 func _process(delta):
 	var player = get_parent().get_node("Player").get_node("Player")
 	
-	var direction_to_player = (player.position - (position + $Drone.position)).normalized()
-	var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y)
-	$Drone/Turret.rotation = direction_to_player_radians - $Drone.rotation
+	if !big_drone:
+		var direction_to_player = (player.position - (position + $Drone.position)).normalized()
+		var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y)
+		$Drone/Turret.rotation = direction_to_player_radians - $Drone.rotation
 	
 	if int(flight_index) >= len(precalculated_flight_path):
 		queue_free()
@@ -68,13 +71,13 @@ func _process(delta):
 		if current_line_point < $DronePatrolPoints.points.size() - 1:
 			current_line_point += 1
 			
-			if current_line_point == 1:
+			if current_line_point == 1 && !big_drone:
 				var new_drone = duplicate()
 				new_drone.get_node("Drone").position = Vector2.ZERO
 				new_drone.precalculated_flight_path = precalculated_flight_path
 				get_parent().add_child(new_drone)
 
-	if $Drone/VisibleOnScreenNotifier2D.is_on_screen():
+	if !big_drone && $Drone/VisibleOnScreenNotifier2D.is_on_screen():
 		$Drone/PlayerRaycast.target_position = player.position - position - $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		var player_cast = $Drone/PlayerRaycast.get_collider()
@@ -105,7 +108,7 @@ func _process(delta):
 			$AttackLine.visible = false
 			player_previous_ability = "NoDistance"
 	
-	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
+	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
 		
 func _on_bullet_cooldown_timeout():
@@ -118,7 +121,7 @@ func _on_rapid_bullet_cooldown_timeout():
 	
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
 		var player_cast = $Drone/PlayerRaycast.get_collider()
-		if player_cast == null || player_cast.name == "Player":
+		if player_cast == null || player_cast.name == "Player" && !big_drone:
 			var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 
 			if rapid_bullet_num < 2:
@@ -147,7 +150,7 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox":
+	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" && !big_drone:
 		var dead_drone = loaded_physics_drone.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
