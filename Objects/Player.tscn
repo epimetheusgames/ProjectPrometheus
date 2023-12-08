@@ -379,6 +379,9 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="StunTimer" type="Timer" parent="Player"]
+one_shot = true
+
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-2, 16)
 emitting = false
@@ -454,4 +457,5 @@ pitch_scale = 1.74
 [connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
 [connection signal="timeout" from="Player/BulletBadHurtcooldown" to="Player" method="_on_bullet_bad_hurtcooldown_timeout"]
 [connection signal="timeout" from="Player/DashStopCooldown" to="Player" method="_on_dash_stop_cooldown_timeout"]
+[connection signal="timeout" from="Player/StunTimer" to="Player" method="_on_stun_timer_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]

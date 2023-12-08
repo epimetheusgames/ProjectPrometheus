@@ -82,5 +82,6 @@ mouse_click={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 anti_aliasing/quality/msaa_2d=2
 viewport/hdr_2d=true

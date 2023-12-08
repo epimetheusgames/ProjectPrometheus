@@ -4,6 +4,8 @@ extends Node2D
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 
+@export var shoot_velocity = 0
+
 func _process(delta):
 	if $Sprite2D.scale.x == -1:
 		$Turret.scale.y = -1
@@ -21,6 +23,6 @@ func _process(delta):
 		
 		var bullet_to_add = loaded_bullet.instantiate()
 		bullet_to_add.position = (position + $Turret.position * scale)
-		bullet_to_add.velocity = direction_to_player * 3
+		bullet_to_add.velocity = direction_to_player * shoot_velocity
 		bullet_to_add.graphics_efficiency = graphics_efficiency
 		get_parent().add_child(bullet_to_add)

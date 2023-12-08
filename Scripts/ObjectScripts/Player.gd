@@ -13,6 +13,7 @@ var max_air_speed = 4.5
 var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
+var stunned = false
 
 var disable_speed_cap = false
 var low_gravity = false
@@ -90,10 +91,11 @@ func _physics_process(_delta):
 	# Apply keyboard inputs.
 	var can_jump = canJump()
 	var input_velocity = getInputVelocity(can_jump)
-	velocity.x += input_velocity
+	if !stunned:
+		velocity.x += input_velocity
 	
 	# Check if we can jump
-	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
+	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0) && !stunned:
 		jump()
 		
 	# Implement coyote jumping system.
@@ -101,10 +103,10 @@ func _physics_process(_delta):
 		$CoyoteJumpTimer.start() 
 		
 	# If the player is holding the jump button, apply a slight upwards push.
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") && !stunned:
 		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
 		
-	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
+	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !stunned:
 		$PlayerAnimation.play("AttackSword")
 		$DashStopCooldown.start()
 		$NewDashCooldown.start()
@@ -302,7 +304,7 @@ func _physics_process(_delta):
 		if current_ability == "Weapon":
 			$PlayerAnimation.play("LandingSword")
 		
-	# Play animations for walking.
+	# Play animations for walking.var active = false
 	if both_pressed:
 		$PlayerAnimation.play("Idle")
 				
@@ -365,13 +367,15 @@ func _physics_process(_delta):
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
 	
-	return
 	if area.name == "DeathZone":
 		get_parent().get_parent().get_node("NextLevel").restart_level()
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
 		elif area.name == "JumpHurtBox":
+			$StunTimer.start()
+			stunned = true
+			
 			if area.get_parent().health <= 0:
 				return
 		
@@ -449,3 +453,6 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
+
+func _on_stun_timer_timeout():
+	stunned = false
