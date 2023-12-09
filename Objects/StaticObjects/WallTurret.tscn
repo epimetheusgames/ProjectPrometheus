@@ -6,7 +6,7 @@
 
 [node name="WallTurret" type="Node2D"]
 script = ExtResource("1_xu3ei")
-shoot_velocity = 2.0
+shoot_velocity = 6.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 6)
@@ -17,5 +17,5 @@ position = Vector2(11, 9)
 texture = ExtResource("3_buj7f")
 
 [node name="NewBulletTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.8
 one_shot = true

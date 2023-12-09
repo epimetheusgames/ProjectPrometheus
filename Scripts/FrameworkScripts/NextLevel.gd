@@ -20,9 +20,9 @@ func add_level():
 		
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency)
 
-func restart_level():
+func restart_level(respawn_pos, respawn_ability):
 	var level = get_parent().level
 	var floor = get_parent().floor
 	var graphics_efficiency = get_parent().graphics_efficiency
 		
-	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency)
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, respawn_pos, respawn_ability)

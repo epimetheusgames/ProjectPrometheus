@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://kupdltxkw0wt"]
+
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_83nyy"]
+
+[node name="Checkpoint" type="Node2D"]
+
+[node name="CheckpointSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_83nyy")
+
+[node name="CheckpointCollision" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CheckpointCollision"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

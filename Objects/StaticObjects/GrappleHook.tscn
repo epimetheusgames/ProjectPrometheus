@@ -18,6 +18,7 @@ script = ExtResource("1_x5bcy")
 shape = SubResource("RectangleShape2D_sw17c")
 
 [node name="PlaceHolder1-1" type="Sprite2D" parent="."]
+self_modulate = Color(3, 3, 3, 1)
 position = Vector2(-1, -4)
 texture = ExtResource("2_c6k1s")
 

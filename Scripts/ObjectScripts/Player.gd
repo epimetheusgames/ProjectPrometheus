@@ -29,6 +29,9 @@ var character_type = 0
 
 var current_ability = "Weapon"
 
+@onready var respawn_pos = position
+@onready var respawn_ability = current_ability
+
 func _ready():
 	var player_type_1 = preload("res://Objects/StaticObjects/PlayerType1.tres")
 	var player_type_2 = preload("res://Objects/StaticObjects/PlayerType2.tres")
@@ -366,9 +369,11 @@ func _physics_process(_delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
-	
+	if area.name == "CheckpointCollision":
+		respawn_pos = position
+		respawn_ability = current_ability
 	if area.name == "DeathZone":
-		get_parent().get_parent().get_node("NextLevel").restart_level()
+		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, current_ability)
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
@@ -380,7 +385,7 @@ func _on_area_2d_area_entered(area):
 				return
 		
 		if $BulletBadHurtcooldown.time_left > 0:
-			get_parent().get_parent().get_node("NextLevel").restart_level()
+			get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, current_ability)
 		elif $BulletHurtCooldown.time_left > 0:
 			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0

@@ -29,6 +29,10 @@ window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/black/OGPC 17 Movies/MovieFile.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
