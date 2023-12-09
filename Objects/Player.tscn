@@ -350,9 +350,10 @@ shape = SubResource("RectangleShape2D_7c12t")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 0)
 sprite_frames = ExtResource("13_v3tig")
-animation = &"AttackSword"
+animation = &"WalkingSword"
 autoplay = "Walking"
-frame_progress = 0.205807
+frame = 6
+frame_progress = 0.848145
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 1)
@@ -380,7 +381,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="StunTimer" type="Timer" parent="Player"]
-one_shot = true
 
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-2, 16)

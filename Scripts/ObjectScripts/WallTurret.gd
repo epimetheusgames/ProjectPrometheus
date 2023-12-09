@@ -4,7 +4,7 @@ extends Node2D
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 
-@export var shoot_velocity = 0
+@export var shoot_velocity = 0.0
 
 func _process(delta):
 	if $Sprite2D.scale.x == -1:

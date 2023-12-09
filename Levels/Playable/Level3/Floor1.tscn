@@ -493,7 +493,11 @@ position = Vector2(14, 10)
 position = Vector2(-823, -596)
 
 [node name="WallTurret6" parent="." instance=ExtResource("19_oxovb")]
-position = Vector2(-951, -858)
+position = Vector2(-983, -696)
+shoot_velocity = 1.0
+
+[node name="Sprite2D" parent="WallTurret6" index="0"]
+scale = Vector2(-1, 1)
 
 [node name="WallTurret7" parent="." instance=ExtResource("19_oxovb")]
 position = Vector2(-1920, -860)
