@@ -489,5 +489,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkingSword",
-"speed": 8.0
+"speed": 15.0
 }]

@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
-[ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="13_v3tig"]
+[ext_resource type="SpriteFrames" uid="uid://dh70krarnsqvn" path="res://Objects/StaticObjects/PlayerType2.tres" id="13_sg7q5"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
@@ -349,11 +349,9 @@ shape = SubResource("RectangleShape2D_7c12t")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 0)
-sprite_frames = ExtResource("13_v3tig")
-animation = &"WalkingSword"
+sprite_frames = ExtResource("13_sg7q5")
+animation = &"Walking"
 autoplay = "Walking"
-frame = 6
-frame_progress = 0.848145
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 1)
