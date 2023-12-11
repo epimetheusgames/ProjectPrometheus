@@ -7,6 +7,8 @@ var player_previous_ability = ""
 var can_play_target_lost = false
 var precalculated_flight_path = null
 var flight_index = 0
+var fly_to_correct = false
+var temp_disabled = false
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -63,8 +65,18 @@ func _process(delta):
 	if int(flight_index) >= len(precalculated_flight_path):
 		queue_free()
 	else:
-		$Drone.position = precalculated_flight_path[int(flight_index)][0]
-		$Drone.rotation = precalculated_flight_path[int(flight_index)][1]
+		if !fly_to_correct:
+			$Drone.position = precalculated_flight_path[int(flight_index)][0]
+			$Drone.rotation = precalculated_flight_path[int(flight_index)][1]
+		else:
+			temp_disabled = false
+			$Drone.visible = true
+			$Drone.position += (precalculated_flight_path[int(flight_index)][0] - $Drone.position).normalized() * speed
+			$Drone.rotation -= $Drone.rotation * 0.1
+			
+			if $Drone.position.distance_to(precalculated_flight_path[int(flight_index)][0]) < 3:
+				fly_to_correct = false
+		
 		flight_index += delta * 60
 	
 	if $Drone.position.distance_to($DronePatrolPoints.points[current_line_point]) < 30:
@@ -75,9 +87,11 @@ func _process(delta):
 				var new_drone = duplicate()
 				new_drone.get_node("Drone").position = Vector2.ZERO
 				new_drone.precalculated_flight_path = precalculated_flight_path
+				new_drone.get_node("AttackLine").points[0] = Vector2.ZERO
+				new_drone.get_node("AttackLine").points[1] = Vector2.ZERO
 				get_parent().add_child(new_drone)
 
-	if !big_drone && $Drone/VisibleOnScreenNotifier2D.is_on_screen():
+	if !big_drone && $Drone/VisibleOnScreenNotifier2D.is_on_screen() && !temp_disabled:
 		$Drone/PlayerRaycast.target_position = player.position - position - $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		var player_cast = $Drone/PlayerRaycast.get_collider()
@@ -150,16 +164,20 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" && !big_drone:
+	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" && !big_drone && !temp_disabled:
 		var dead_drone = loaded_physics_drone.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
 		dead_drone.set_queued_pos = true
-		get_parent().call_deferred("add_child", dead_drone)
-		queue_free()
+		if area.name == "PlayerHurtbox":
+			call_deferred("add_child", dead_drone)
+			$Drone.visible = false
+			fly_to_correct = false
+			temp_disabled = true
+		if area.name == "PlayerBulletHurter":
+			dead_drone.no_respawn = true
+			get_parent().call_deferred("add_child", dead_drone)
+			queue_free()
 
 func _on_target_found_timer_timeout():
 	can_play_target_lost = true
-
-func _on_visible_on_screen_notifier_2d_screen_entered():
-	pass # Replace with function body.

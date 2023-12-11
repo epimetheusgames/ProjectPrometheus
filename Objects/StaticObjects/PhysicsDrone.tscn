@@ -16,12 +16,12 @@ autoplay = "default"
 polygon = PackedVector2Array(-6, 2, 6, 2, 11, -9, -11, -9)
 
 [node name="GroundFallTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 one_shot = true
 autostart = true
 
