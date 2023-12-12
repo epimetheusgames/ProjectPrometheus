@@ -16,7 +16,7 @@ autoplay = "default"
 polygon = PackedVector2Array(-6, 2, 6, 2, 11, -9, -11, -9)
 
 [node name="GroundFallTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
@@ -25,5 +25,11 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
+[node name="StartFlyingTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="GroundFallTimer" to="." method="_on_ground_fall_timer_timeout"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="StartFlyingTimer" to="." method="_on_start_flying_timer_timeout"]

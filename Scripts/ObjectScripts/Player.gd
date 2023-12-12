@@ -13,7 +13,6 @@ var max_air_speed = 4.5
 var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
-var stunned = false
 
 var disable_speed_cap = false
 var low_gravity = false
@@ -94,11 +93,10 @@ func _physics_process(_delta):
 	# Apply keyboard inputs.
 	var can_jump = canJump()
 	var input_velocity = getInputVelocity(can_jump)
-	if !stunned:
-		velocity.x += input_velocity
+	velocity.x += input_velocity
 	
 	# Check if we can jump
-	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0) && !stunned:
+	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
 		jump()
 		
 	# Implement coyote jumping system.
@@ -106,10 +104,10 @@ func _physics_process(_delta):
 		$CoyoteJumpTimer.start() 
 		
 	# If the player is holding the jump button, apply a slight upwards push.
-	if Input.is_action_pressed("jump") && !stunned:
+	if Input.is_action_pressed("jump"):
 		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
 		
-	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !stunned:
+	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
 		$PlayerAnimation.play("AttackSword")
 		$DashStopCooldown.start()
 		$NewDashCooldown.start()
@@ -373,19 +371,16 @@ func _on_area_2d_area_entered(area):
 		respawn_pos = position
 		respawn_ability = current_ability
 	if area.name == "DeathZone":
-		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, current_ability)
+		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
 		elif area.name == "JumpHurtBox":
-			$StunTimer.start()
-			stunned = true
-			
 			if area.get_parent().health <= 0:
 				return
 		
 		if $BulletBadHurtcooldown.time_left > 0:
-			get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, current_ability)
+			get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 		elif $BulletHurtCooldown.time_left > 0:
 			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0
@@ -458,6 +453,3 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
-
-func _on_stun_timer_timeout():
-	stunned = false

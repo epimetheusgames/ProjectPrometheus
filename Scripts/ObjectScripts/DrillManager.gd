@@ -15,30 +15,30 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity.x = direction
-	velocity.y += gravity
-	
-	var left_collision = $RayCastLeft.get_collider()
-	var right_collision = $RayCastRight.get_collider()
-	var down_collision = $RayCastDown.get_collider()
-	var down_collision_2 = $RayCastDown2.get_collider()
-	
-	if left_collision != null && left_collision.name != "Player" && direction == -speed:
-		direction = speed
-		$DrillAnimation.scale.x = 1
-	elif right_collision != null && right_collision.name != "Player" && direction == speed:
-		direction = -speed
-		$DrillAnimation.scale.x = -1
-	
-	if down_collision != null || down_collision_2 != null:
-		velocity.y = -0.05
-		$DrillAnimation.play("Moving")
-	elif direction != 0:
-		$DrillAnimation.play("Moving")
-	else:
-		$DrillAnimation.play("Idle")
-		
 	if health > 0:
+		velocity.x = direction
+		velocity.y += gravity
+		
+		var left_collision = $RayCastLeft.get_collider()
+		var right_collision = $RayCastRight.get_collider()
+		var down_collision = $RayCastDown.get_collider()
+		var down_collision_2 = $RayCastDown2.get_collider()
+		
+		if left_collision != null && left_collision.name != "Player" && direction == -speed:
+			direction = speed
+			$DrillAnimation.scale.x = 1
+		elif right_collision != null && right_collision.name != "Player" && direction == speed:
+			direction = -speed
+			$DrillAnimation.scale.x = -1
+		
+		if down_collision != null || down_collision_2 != null:
+			velocity.y = -0.05
+			$DrillAnimation.play("Moving")
+		elif direction != 0:
+			$DrillAnimation.play("Moving")
+		else:
+			$DrillAnimation.play("Idle")
+			
 		position += velocity * (delta * 60)
 
 func _on_jump_hurt_box_area_entered(area):

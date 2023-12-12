@@ -11,13 +11,15 @@ func _integrate_forces(state):
 		set_queued_pos = false
 
 func _on_ground_fall_timer_timeout():
+	if no_respawn:
+		$CollisionPolygon2D.disabled = true
+
+func _on_despawn_timer_timeout():
+	queue_free()
+
+func _on_start_flying_timer_timeout():
 	if !no_respawn:
 		get_parent().get_node("Drone").position = position
 		get_parent().get_node("Drone").rotation = rotation
 		get_parent().fly_to_correct = true
 		queue_free()
-	else:
-		$CollisionPolygon2D.disabled = true
-
-func _on_despawn_timer_timeout():
-	queue_free()
