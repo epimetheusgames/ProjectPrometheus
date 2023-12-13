@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=22 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_cdmjk"]
-[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="3_d6b66"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_i1qh4"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="6_o30v6"]
@@ -83,46 +82,9 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxdxs"]
-texture = ExtResource("3_d6b66")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
 [sub_resource type="TileSet" id="TileSet_wmhgc"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nxdxs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyq6k"]
 size = Vector2(375, 110)
@@ -319,6 +281,7 @@ rotation = 1.5708
 
 [node name="Checkpoint" parent="." instance=ExtResource("14_rnqkd")]
 position = Vector2(497, -336)
+player_checkpoint_item = "ArmGun"
 
 [node name="DroneManager2" parent="." instance=ExtResource("11_jybpi")]
 position = Vector2(1230, -832)
@@ -333,6 +296,14 @@ position = Vector2(713, -406)
 
 [node name="GrappleHook4" parent="." instance=ExtResource("13_7jma7")]
 position = Vector2(520, -956)
+
+[node name="PropDoorFaceForward2" type="Sprite2D" parent="."]
+position = Vector2(645, -97)
+texture = ExtResource("7_3hgyk")
+
+[node name="PropBench2" type="Sprite2D" parent="."]
+position = Vector2(719, -80)
+texture = ExtResource("8_2pue3")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

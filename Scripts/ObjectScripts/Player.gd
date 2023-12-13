@@ -369,7 +369,7 @@ func _physics_process(_delta):
 func _on_area_2d_area_entered(area):
 	if area.name == "CheckpointCollision":
 		respawn_pos = position
-		respawn_ability = current_ability
+		respawn_ability = area.get_parent().player_checkpoint_item
 	if area.name == "DeathZone":
 		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":

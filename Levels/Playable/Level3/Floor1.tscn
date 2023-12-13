@@ -494,6 +494,7 @@ points = PackedVector2Array(2, 140, -555, 144, 251, 153, 83, -213)
 
 [node name="Checkpoint" parent="." instance=ExtResource("21_o2r4d")]
 position = Vector2(-3717, -784)
+player_checkpoint_item = "Grapple"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

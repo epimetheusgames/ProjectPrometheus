@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kupdltxkw0wt"]
+[gd_scene load_steps=3 format=3 uid="uid://kupdltxkw0wt"]
 
 [ext_resource type="Texture2D" uid="uid://dg073mshtjt4t" path="res://Assets/Images/Objects/CheckpointSpriteOff.png" id="1_5psfo"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Checkpoint.gd" id="1_tbvqf"]
 
 [node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_tbvqf")
 
 [node name="CheckpointCollision" type="Area2D" parent="."]
 
