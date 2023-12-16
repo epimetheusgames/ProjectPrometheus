@@ -14,6 +14,7 @@ var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
 
+var grappling = false
 var disable_speed_cap = false
 var low_gravity = false
 var physics_player = false
@@ -370,6 +371,7 @@ func _on_area_2d_area_entered(area):
 	if area.name == "CheckpointCollision":
 		respawn_pos = position
 		respawn_ability = area.get_parent().player_checkpoint_item
+		area.get_parent().activate()
 	if area.name == "DeathZone":
 		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":

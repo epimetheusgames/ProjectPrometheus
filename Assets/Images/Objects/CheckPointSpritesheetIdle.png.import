@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg073mshtjt4t"
-path="res://.godot/imported/CheckpointSpriteOff.png-cd1fd75f1d69576cbd1b884664965478.ctex"
+uid="uid://cof13d5o5elum"
+path="res://.godot/imported/CheckPointSpritesheetIdle.png-3ba8681615bae8dbe8d802fc16e28a24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Objects/CheckpointSpriteOff.png"
-dest_files=["res://.godot/imported/CheckpointSpriteOff.png-cd1fd75f1d69576cbd1b884664965478.ctex"]
+source_file="res://Assets/Images/Objects/CheckPointSpritesheetIdle.png"
+dest_files=["res://.godot/imported/CheckPointSpritesheetIdle.png-3ba8681615bae8dbe8d802fc16e28a24.ctex"]
 
 [params]
 

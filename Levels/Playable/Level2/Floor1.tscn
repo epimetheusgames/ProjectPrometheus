@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=24 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_cdmjk"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="3_d6b66"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_i1qh4"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="6_o30v6"]
@@ -82,9 +83,38 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrhx4"]
+texture = ExtResource("3_d6b66")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_wmhgc"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_hrhx4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyq6k"]
 size = Vector2(375, 110)
@@ -117,7 +147,7 @@ z_index = 1
 tile_set = SubResource("TileSet_wmhgc")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -3997815, 65536, 0, -3932279, 65536, 0, -3866743, 65536, 0, -3801207, 65536, 0, -3735671, 65536, 0, -3670135, 65536, 0, -3604599, 65536, 0, -3539063, 65536, 0, -3473527, 65536, 0, -3407991, 65536, 0, -3342455, 65536, 0, -3276919, 65536, 0, -3211383, 65536, 0, -3145847, 65536, 0, -1835146, 0, 0, -1835145, 0, 0, -1835144, 0, 0, -1835143, 0, 0, -2228357, 0, 0, -2228356, 0, 0, -2228362, 0, 0, -2228361, 0, 0, -2228360, 0, 0, -2228359, 0, 0, -2228358, 0, 0, -2556042, 131072, 0, -2556041, 131072, 0, -2556040, 131072, 0, -2556039, 131072, 0, -2556038, 131072, 0, -2556037, 131072, 0, 65517, 196608, 0, 131053, 196608, 0, 196589, 196608, 0, 262125, 196608, 0, 327661, 196608, 0, -1376258, 196608, 0, -1310722, 196608, 0, -1245186, 196608, 0, -1179650, 196608, 0, -1114114, 196608, 0, -1048578, 196608, 0, -983042, 196608, 0, -917506, 196608, 0)
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -3997815, 65536, 0, -3932279, 65536, 0, -3866743, 65536, 0, -3801207, 65536, 0, -3735671, 65536, 0, -3670135, 65536, 0, -3604599, 65536, 0, -3539063, 65536, 0, -3473527, 65536, 0, -3407991, 65536, 0, -3342455, 65536, 0, -3276919, 65536, 0, -3211383, 65536, 0, -3145847, 65536, 0, -1835146, 0, 0, -1835145, 0, 0, -1835144, 0, 0, -1835143, 0, 0, -2228357, 0, 0, -2228356, 0, 0, -2228362, 0, 0, -2228361, 0, 0, -2228360, 0, 0, -2228359, 0, 0, -2228358, 0, 0, -2556042, 131072, 0, -2556041, 131072, 0, -2556040, 131072, 0, -2556039, 131072, 0, -2556038, 131072, 0, -2556037, 131072, 0, 327661, 65537, 0, -1376258, 65537, 0, -1310722, 65537, 0, -1245186, 65537, 0, -1179650, 65537, 0, -1114114, 65537, 0, -1048578, 65537, 0, -983042, 65537, 0, -917506, 65537, 0, 65517, 65537, 0, 131053, 65537, 0, 196589, 65537, 0, 262125, 65537, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("3_cdmjk")

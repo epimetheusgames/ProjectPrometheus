@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://ccgutb3w6122l"]
+[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://ccgutb3w6122l"]
 
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="1_502da"]
 [ext_resource type="Texture2D" uid="uid://c1c8cxahrnqb1" path="res://Assets/Images/Objects/CharacterSpritesheetAttackMele.png" id="1_qd3iq"]
 [ext_resource type="Texture2D" uid="uid://bw1mqmcbonj07" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRockets.png" id="2_76mma"]
+[ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/PlayerSpritesheetGrappleHangeAllTypes.png" id="2_tkjl7"]
 [ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheetAir.png" id="3_2nnvv"]
 [ext_resource type="Texture2D" uid="uid://h0shb6q52fd4" path="res://Assets/Images/Objects/CharacterSpritesheetIdleMele.png" id="3_j112u"]
 [ext_resource type="Texture2D" uid="uid://di37e3ncb5f7s" path="res://Assets/Images/Objects/CharacterSpritesheetAirRockets.png" id="4_ag13h"]
@@ -34,6 +35,10 @@ region = Rect2(0, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_twqi2"]
 atlas = ExtResource("1_qd3iq")
 region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxka0"]
+atlas = ExtResource("2_tkjl7")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2o2k"]
 atlas = ExtResource("1_502da")
@@ -256,6 +261,14 @@ animations = [{
 "loop": false,
 "name": &"AttackSword",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxka0")
+}],
+"loop": true,
+"name": &"GrappleHang",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

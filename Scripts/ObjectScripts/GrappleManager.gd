@@ -62,6 +62,13 @@ func _physics_process(delta):
 			$GrappleBody.hooked = true
 			$GrappleBody.position = hook.position - get_parent().position
 			
+			get_parent().get_node("PlayerAnimation").play("GrappleHang") 
+			
+			if hook.position.x - get_parent().position.x < 0:
+				get_parent().get_node("PlayerAnimation").scale.x = -1
+			if hook.position.x - get_parent().position.x > 0:
+				get_parent().get_node("PlayerAnimation").scale.x = 1
+			
 			if !air_grapling:
 				get_parent().velocity += (hook.position - get_parent().position).normalized() / 2
 				get_parent().grappling_effects = true

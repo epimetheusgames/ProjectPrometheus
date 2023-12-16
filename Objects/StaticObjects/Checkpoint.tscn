@@ -1,7 +1,112 @@
-[gd_scene load_steps=3 format=3 uid="uid://kupdltxkw0wt"]
+[gd_scene load_steps=19 format=3 uid="uid://kupdltxkw0wt"]
 
-[ext_resource type="Texture2D" uid="uid://dg073mshtjt4t" path="res://Assets/Images/Objects/CheckpointSpriteOff.png" id="1_5psfo"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Checkpoint.gd" id="1_tbvqf"]
+[ext_resource type="Texture2D" uid="uid://cof13d5o5elum" path="res://Assets/Images/Objects/CheckPointSpritesheetIdle.png" id="2_b1qk7"]
+[ext_resource type="Texture2D" uid="uid://bg0eg3feit3db" path="res://Assets/Images/Objects/CheckpointSpriteActivated.png" id="2_pw7os"]
+[ext_resource type="Texture2D" uid="uid://bla8q71fc7pye" path="res://Assets/Images/Objects/CheckpointSpriteActivating.png" id="3_xcj7a"]
+[ext_resource type="AudioStream" uid="uid://cvwu22yaeeft0" path="res://Assets/Audio/SFX/CheckpointActivated.wav" id="5_g77by"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x18n4"]
+atlas = ExtResource("2_pw7os")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d00qd"]
+atlas = ExtResource("3_xcj7a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7adj8"]
+atlas = ExtResource("3_xcj7a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_betkq"]
+atlas = ExtResource("3_xcj7a")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdn2c"]
+atlas = ExtResource("3_xcj7a")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eakfd"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1u85"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujkie"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tojfi"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxvhq"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vynm2"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx2ux"]
+atlas = ExtResource("2_b1qk7")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk4nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x18n4")
+}],
+"loop": true,
+"name": &"Activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d00qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7adj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_betkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdn2c")
+}],
+"loop": false,
+"name": &"Activating",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eakfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1u85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujkie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tojfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxvhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vynm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx2ux")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.5
+}]
 
 [node name="Checkpoint" type="Node2D"]
 script = ExtResource("1_tbvqf")
@@ -11,5 +116,14 @@ script = ExtResource("1_tbvqf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CheckpointCollision"]
 polygon = PackedVector2Array(-7, -7, 7, -7, 7, 16, -7, 16)
 
-[node name="CheckpointSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_5psfo")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gk4nx")
+animation = &"Activating"
+autoplay = "Idle"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_g77by")
+bus = &"SFX"
+
+[connection signal="area_entered" from="CheckpointCollision" to="." method="_on_checkpoint_collision_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
