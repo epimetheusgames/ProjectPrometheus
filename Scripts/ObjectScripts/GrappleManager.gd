@@ -9,7 +9,7 @@ var was_hooked = false
 var grapple_lock_rope_len = -1
 @export var exit_grapple_vel_mult = 1.5
 @export var porab_line_length = 300
-@export var max_hook_dist = 350
+@export var max_hook_dist = 300
 
 func calc_closest_hook():
 	var closest_hook = null
