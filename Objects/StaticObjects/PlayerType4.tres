@@ -1,9 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=66 format=3 uid="uid://ppqwdqxml1ls"]
+[gd_resource type="SpriteFrames" load_steps=76 format=3 uid="uid://ppqwdqxml1ls"]
 
 [ext_resource type="Texture2D" uid="uid://di65hcv7fbbtj" path="res://Assets/Images/Objects/CharacterSpritesheetIdleType4.png" id="1_faqjp"]
 [ext_resource type="Texture2D" uid="uid://cm03ti3a35obe" path="res://Assets/Images/Objects/CharacterSpritesheetAttackMeleType4.png" id="1_t7qto"]
+[ext_resource type="Texture2D" uid="uid://b2bsqxv6pog21" path="res://Assets/Images/Objects/CharacterSpritesheetClimbing.png" id="2_e56m7"]
 [ext_resource type="Texture2D" uid="uid://c0thivsh77t50" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRocketsType4.png" id="2_egpqd"]
 [ext_resource type="Texture2D" uid="uid://dh6eajbwcmghg" path="res://Assets/Images/Objects/CharacterSpritesheetAirType4.png" id="3_brsof"]
+[ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/PlayerSpritesheetGrappleHangeAllTypes.png" id="3_hsgy1"]
 [ext_resource type="Texture2D" uid="uid://chx1nfbxo6c5e" path="res://Assets/Images/Objects/CharacterSpritesheetAirRocketsType4.png" id="4_mbrpi"]
 [ext_resource type="Texture2D" uid="uid://bldnmoxta45f3" path="res://Assets/Images/Objects/CharacterSpritesheetIdleSwordType4.png" id="4_txohv"]
 [ext_resource type="Texture2D" uid="uid://c3j5rjb2f7bnw" path="res://Assets/Images/Objects/CharacterSpritesheetType4.png" id="5_qm8l8"]
@@ -32,6 +34,26 @@ region = Rect2(0, 128, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmp4r"]
 atlas = ExtResource("1_t7qto")
 region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otkdc"]
+atlas = ExtResource("2_e56m7")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25nya"]
+atlas = ExtResource("2_e56m7")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1a6x"]
+atlas = ExtResource("2_e56m7")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57yyo"]
+atlas = ExtResource("2_e56m7")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwdfk"]
+atlas = ExtResource("3_hsgy1")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7j0nu"]
 atlas = ExtResource("1_faqjp")
@@ -132,6 +154,18 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_85bvg"]
 atlas = ExtResource("5_uq28e")
 region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tfjc"]
+atlas = ExtResource("12_0gu2r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2lmn"]
+atlas = ExtResource("12_0gu2r")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bepxr"]
+atlas = ExtResource("12_0gu2r")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjnmg"]
 atlas = ExtResource("7_wjxwq")
@@ -246,6 +280,31 @@ animations = [{
 "loop": true,
 "name": &"AttackSword",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otkdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25nya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1a6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57yyo")
+}],
+"loop": true,
+"name": &"Climbing",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwdfk")
+}],
+"loop": true,
+"name": &"GrappleHang",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -405,6 +464,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"StartWalkRockets",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tfjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2lmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bepxr")
+}],
+"loop": false,
+"name": &"StartWalkSword",
 "speed": 15.0
 }, {
 "frames": [{

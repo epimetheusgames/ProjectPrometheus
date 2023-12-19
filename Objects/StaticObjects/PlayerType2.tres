@@ -1,8 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=63 format=3 uid="uid://dh70krarnsqvn"]
+[gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://dh70krarnsqvn"]
 
+[ext_resource type="Texture2D" uid="uid://b2bsqxv6pog21" path="res://Assets/Images/Objects/CharacterSpritesheetClimbing.png" id="1_4ad3s"]
 [ext_resource type="Texture2D" uid="uid://c54eonppf3043" path="res://Assets/Images/Objects/CharacterSpritesheetIdleType2.png" id="1_72r7g"]
 [ext_resource type="Texture2D" uid="uid://dqa336om8w4ml" path="res://Assets/Images/Objects/CharacterSpritesheetType2.png" id="2_6fghm"]
 [ext_resource type="Texture2D" uid="uid://c70kyoweeuhkr" path="res://Assets/Images/Objects/CharacterSpritesheetAirType2.png" id="2_lkd8n"]
+[ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/PlayerSpritesheetGrappleHangeAllTypes.png" id="2_ptawt"]
 [ext_resource type="Texture2D" uid="uid://3bocuhg5bgrg" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRocketsType2.png" id="2_yrbwd"]
 [ext_resource type="Texture2D" uid="uid://bqyrlcf4cpxjg" path="res://Assets/Images/Objects/CharacterSpritesheetIdleSwordType2.png" id="3_vcn6a"]
 [ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="3_wm4pg"]
@@ -11,6 +13,26 @@
 [ext_resource type="Texture2D" uid="uid://bqx7jnj27245s" path="res://Assets/Images/Objects/CharacterSpritesheetRocketsType2.png" id="6_bwihs"]
 [ext_resource type="Texture2D" uid="uid://pnieqfj3k2bo" path="res://Assets/Images/Objects/CharacterSpritesheetSwordType2.png" id="8_cinwy"]
 [ext_resource type="Texture2D" uid="uid://biw7rpa6mvcyb" path="res://Assets/Images/Objects/CharacterSplitSword.png" id="11_bsrgu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bmiw"]
+atlas = ExtResource("1_4ad3s")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oipx"]
+atlas = ExtResource("1_4ad3s")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54npa"]
+atlas = ExtResource("1_4ad3s")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrx1f"]
+atlas = ExtResource("1_4ad3s")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3thqc"]
+atlas = ExtResource("2_ptawt")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lld1j"]
 atlas = ExtResource("1_72r7g")
@@ -218,6 +240,31 @@ region = Rect2(0, 256, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bmiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oipx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54npa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrx1f")
+}],
+"loop": true,
+"name": &"Climbing",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3thqc")
+}],
+"loop": true,
+"name": &"GrappleHang",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lld1j")

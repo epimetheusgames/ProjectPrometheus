@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://ccgutb3w6122l"]
+[gd_resource type="SpriteFrames" load_steps=77 format=3 uid="uid://ccgutb3w6122l"]
 
 [ext_resource type="Texture2D" uid="uid://croigxpfiqt5v" path="res://Assets/Images/Objects/CharacterSpritesheetIdle.png" id="1_502da"]
 [ext_resource type="Texture2D" uid="uid://c1c8cxahrnqb1" path="res://Assets/Images/Objects/CharacterSpritesheetAttackMele.png" id="1_qd3iq"]
 [ext_resource type="Texture2D" uid="uid://bw1mqmcbonj07" path="res://Assets/Images/Objects/CharacterSpritesheetIdleRockets.png" id="2_76mma"]
+[ext_resource type="Texture2D" uid="uid://b2bsqxv6pog21" path="res://Assets/Images/Objects/CharacterSpritesheetClimbing.png" id="2_86mwi"]
 [ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/PlayerSpritesheetGrappleHangeAllTypes.png" id="2_tkjl7"]
 [ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheetAir.png" id="3_2nnvv"]
 [ext_resource type="Texture2D" uid="uid://h0shb6q52fd4" path="res://Assets/Images/Objects/CharacterSpritesheetIdleMele.png" id="3_j112u"]
@@ -35,6 +36,22 @@ region = Rect2(0, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_twqi2"]
 atlas = ExtResource("1_qd3iq")
 region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gov1k"]
+atlas = ExtResource("2_86mwi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adpv4"]
+atlas = ExtResource("2_86mwi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai4a0"]
+atlas = ExtResource("2_86mwi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5si3n"]
+atlas = ExtResource("2_86mwi")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxka0"]
 atlas = ExtResource("2_tkjl7")
@@ -261,6 +278,23 @@ animations = [{
 "loop": false,
 "name": &"AttackSword",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gov1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adpv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai4a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5si3n")
+}],
+"loop": true,
+"name": &"Climbing",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -13,6 +13,8 @@ var max_air_speed = 4.5
 var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
+var previous_direction = 0
+var character_type = 0
 
 var in_second_ladder_area = false
 var in_ladder_area = false
@@ -27,8 +29,7 @@ var could_jump = false
 var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
-var previous_direction = 0
-var character_type = 0
+var was_climbing = false
 
 var current_ability = "Weapon"
 
@@ -125,6 +126,9 @@ func _physics_process(_delta):
 			$FireParticlesBootsLeft.emitting = false
 			$FireParticlesBootsRight.emitting = false
 			climbing = true
+			
+			if !was_climbing:
+				$PlayerAnimation.play("Climbing")
 		
 	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
 		$PlayerAnimation.play("AttackSword")
@@ -205,13 +209,16 @@ func _physics_process(_delta):
 			get_parent().get_node("MetalWalkBoots1").volume_db -= 1
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
+		
 		# Set player to be in the direction that it's moving.
 		if Input.is_action_pressed("left"):
 			$PlayerAnimation.scale.x = -1
 			$AntennaAnimation.scale.x = -1
+			
 			if !get_parent().graphics_efficiency:
 				$SparkParticles.position.x = 7
-			if previous_direction == 1:
+				
+			if previous_direction == 1 && $PlayerAnimation.animation != "Climbing":
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
 				
@@ -220,13 +227,14 @@ func _physics_process(_delta):
 				
 				else:
 					$PlayerAnimation.play("SwitchDirections")
+					
 		elif Input.is_action_pressed("right"):
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
 			if !get_parent().graphics_efficiency:
 				$SparkParticles.position.x = -11
 			
-			if previous_direction == -1:
+			if previous_direction == -1 && $PlayerAnimation.animation != "Climbing":
 				if current_ability == "RocketBoost":
 					$PlayerAnimation.play("SwitchDirectionsRockets")
 				
@@ -235,13 +243,15 @@ func _physics_process(_delta):
 				
 				else:
 					$PlayerAnimation.play("SwitchDirections")
+					
 		elif ($PlayerAnimation.animation != "Landing" && 
 			$PlayerAnimation.animation != "LandingRockets" && 
 			$PlayerAnimation.animation != "LandingSword" && 
 			$PlayerAnimation.animation != "AttackSword" && 
 			$PlayerAnimation.animation != "StartJump" && 
 			$PlayerAnimation.animation != "StartJumpRockets" && 
-			$PlayerAnimation.animation != "StartJumpSword"):
+			$PlayerAnimation.animation != "StartJumpSword" &&
+			$PlayerAnimation.animation != "Climbing"):
 			#Reusing code here.
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -252,10 +262,10 @@ func _physics_process(_delta):
 			else:
 				$PlayerAnimation.play("Idle")
 				
-	
 		if (($PlayerAnimation.animation == "InAirUp" || 
 			$PlayerAnimation.animation == "InAirUpRockets" ||
-			$PlayerAnimation.animation == "InAirUpSword") && can_jump):
+			$PlayerAnimation.animation == "InAirUpSword") &&
+			$PlayerAnimation.animation != "Climbing" && can_jump):
 			
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -325,7 +335,7 @@ func _physics_process(_delta):
 			$PlayerAnimation.play("LandingSword")
 		
 	# Play animations for walking.var active = false
-	if both_pressed:
+	if both_pressed && $PlayerAnimation.animation != "Climbing":
 		$PlayerAnimation.play("Idle")
 				
 		if current_ability == "RocketBoost":
@@ -333,7 +343,7 @@ func _physics_process(_delta):
 				
 		if current_ability == "Weapon":
 			$PlayerAnimation.play("IdleSword")
-	elif direction_pressed && ($PlayerAnimation.animation == "Idle" ||$PlayerAnimation.animation == "IdleRockets" || $PlayerAnimation.animation == "IdleSword"):
+	elif direction_pressed && ($PlayerAnimation.animation == "Idle" ||$PlayerAnimation.animation == "IdleRockets" || $PlayerAnimation.animation == "IdleSword" && $PlayerAnimation.animation != "Climbing"):
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
@@ -362,15 +372,9 @@ func _physics_process(_delta):
 	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
 		$AntennaAnimation.play("Moving")
 		
-	if !direction_pressed:
-		wasnt_moving = true
-	else:
-		wasnt_moving = false
-		
-	if !can_jump:
-		was_in_air = true
-	else:
-		was_in_air = false
+	wasnt_moving = !direction_pressed
+	was_in_air = !can_jump
+	was_climbing = climbing
 	
 	# For coyote jumping, check if we can jump.
 	if can_jump && !just_jumped:
