@@ -14,6 +14,9 @@ var jump_push_force = 0.225
 var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
 
+var in_second_ladder_area = false
+var in_ladder_area = false
+var climbing = false
 var grappling = false
 var disable_speed_cap = false
 var low_gravity = false
@@ -85,8 +88,11 @@ func _physics_process(_delta):
 		return
 	
 	# Apply gravity if not grappling
-	if !grappling_effects:
+	if !grappling_effects && !climbing:
 		velocity.y += gravity
+		
+	if in_ladder_area:
+		velocity.y /= 1.5
 	
 	dont_apply_friction = false
 	just_jumped = false
@@ -98,7 +104,11 @@ func _physics_process(_delta):
 	
 	# Check if we can jump
 	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
-		jump()
+		if !in_ladder_area:
+			jump()
+			
+	if Input.is_action_pressed("down") && climbing:
+		velocity.y += jump_push_force
 		
 	# Implement coyote jumping system.
 	if could_jump && !can_jump:
@@ -106,7 +116,15 @@ func _physics_process(_delta):
 		
 	# If the player is holding the jump button, apply a slight upwards push.
 	if Input.is_action_pressed("jump"):
-		velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
+		if !climbing:
+			velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
+		else:
+			velocity.y -= jump_push_force
+			
+		if in_ladder_area:
+			$FireParticlesBootsLeft.emitting = false
+			$FireParticlesBootsRight.emitting = false
+			climbing = true
 		
 	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
 		$PlayerAnimation.play("AttackSword")
@@ -248,11 +266,11 @@ func _physics_process(_delta):
 			else:
 				$PlayerAnimation.play("Idle")
 			
-	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump:
+	if Input.is_action_pressed("jump") && current_ability == "RocketBoost" && !can_jump && !climbing:
 		$FireParticlesBootsLeft.emitting = true
 		$FireParticlesBootsRight.emitting = true
 		
-		if get_parent().get_node("RocketBoost").playing == false:
+		if get_parent().get_node("RocketBoost").playing == false && !climbing:
 			get_parent().get_node("RocketBoost").play()
 	else:
 		$FireParticlesBootsLeft.emitting = false
@@ -368,6 +386,11 @@ func _physics_process(_delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	if area.name == "LadderClimbArea":
+		if in_ladder_area:
+			in_second_ladder_area = true
+		
+		in_ladder_area = true
 	if area.name == "CheckpointCollision":
 		respawn_pos = position
 		respawn_ability = area.get_parent().player_checkpoint_item
@@ -391,6 +414,15 @@ func _on_area_2d_area_entered(area):
 			$BulletHurtCooldown.start()
 			$PlayerAnimation.modulate.g = 0.8
 			$PlayerAnimation.modulate.b = 0.6
+			
+func _on_player_hurtbox_area_exited(area):
+	if area.name == "LadderClimbArea":
+		if in_second_ladder_area:
+			in_second_ladder_area = false
+		else:
+			in_ladder_area = false
+			climbing = false
+			jump()
 			
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
@@ -455,3 +487,4 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
+

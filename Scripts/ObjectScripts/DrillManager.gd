@@ -26,9 +26,13 @@ func _process(delta):
 		
 		if left_collision != null && left_collision.name != "Player" && direction == -speed:
 			direction = speed
+			$JumpHurtBox/CollisionShape2D2.disabled = false
+			$JumpHurtBox/CollisionShape2D3.disabled = false
 			$DrillAnimation.scale.x = 1
 		elif right_collision != null && right_collision.name != "Player" && direction == speed:
 			direction = -speed
+			$JumpHurtBox/CollisionShape2D2.disabled = false
+			$JumpHurtBox/CollisionShape2D3.disabled = false
 			$DrillAnimation.scale.x = -1
 		
 		if down_collision != null || down_collision_2 != null:
@@ -37,6 +41,9 @@ func _process(delta):
 		elif direction != 0:
 			$DrillAnimation.play("Moving")
 		else:
+			$DrillAnimation.play("Idle")
+			
+		if health <= 0:
 			$DrillAnimation.play("Idle")
 			
 		position += velocity * (delta * 60)

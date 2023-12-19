@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpe1"]
-size = Vector2(32, 5)
+size = Vector2(20, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxb5c"]
 size = Vector2(8, 32)
@@ -55,7 +55,7 @@ script = ExtResource("1_axli8")
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 12)
 sprite_frames = SubResource("SpriteFrames_jwq1i")
-animation = &"Moving"
+animation = &"Idle"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(16, 16)
@@ -76,7 +76,7 @@ target_position = Vector2(0, 16)
 [node name="JumpHurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(16, -2.5)
+position = Vector2(22, -2.5)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
