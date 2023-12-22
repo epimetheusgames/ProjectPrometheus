@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/PauseMenu.gd" id="1_0l5na"]
 
 [node name="PauseMenu" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_0l5na")
 
 [node name="ColorRect" type="ColorRect" parent="."]

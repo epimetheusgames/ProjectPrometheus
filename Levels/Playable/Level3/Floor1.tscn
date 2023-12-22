@@ -197,6 +197,9 @@ shape = SubResource("RectangleShape2D_3voqy")
 
 [node name="Player" parent="." instance=ExtResource("4_r1rf1")]
 
+[node name="PauseMenu" parent="Player/Camera" index="1"]
+process_mode = 3
+
 [node name="PointLight2D" parent="Player" index="6"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
