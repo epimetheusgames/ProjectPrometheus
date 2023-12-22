@@ -7,6 +7,9 @@ var fading_in = false
 const ability_max = 3
 
 
+func _ready():
+	$TickerMask/Ticker.rotation = -((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60)
+
 func _on_abililty_switch_timer_timeout():
 	if ability_index < ability_max:
 		ability_index += 1
@@ -17,6 +20,9 @@ func _on_abililty_switch_timer_timeout():
 	fading_in = true
 
 func _process(delta):
+	$TickerMask/Ticker.rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60)
+	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
+	
 	if switching_ability && fading_in:
 		if get_parent().get_node("DarkOverlay").color.a < 0.7:
 			get_parent().get_node("DarkOverlay").color.a += 0.5 * delta
@@ -38,21 +44,14 @@ func _on_fadin_half_wait_timer_timeout():
 		get_parent().get_parent().get_node("Player").current_ability = "Weapon"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkSword")
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = false
-		$RocketBoots.visible = false
-		$Weapon.visible = true
 	if ability_index == 1:
 		get_parent().get_parent().get_node("Player").current_ability = "RocketBoost"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkRockets")
-		$RocketBoots.visible = true
-		$Weapon.visible = false
 	if ability_index == 2:
 		get_parent().get_parent().get_node("Player").current_ability = "ArmGun"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalk")
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = true
-		$RocketBoots.visible = false
-		$ArmGun.visible = true
 	if ability_index == 3:
 		get_parent().get_parent().get_node("Player").current_ability = "Grapple"
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = true
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = false
-		$ArmGun.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=60 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/RocketBootsIcon.png" id="5_2fpqi"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/AntennaSpritesheetLeft.png" id="7_6p2gh"]
 [ext_resource type="Texture2D" uid="uid://cr2610b268u2o" path="res://Assets/Images/Objects/Sword_Icon_Sprite.png" id="7_cocna"]
+[ext_resource type="Texture2D" uid="uid://duef5w4d6i5lt" path="res://Assets/Images/Objects/TickerBackgroundMask.png" id="7_es82s"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/AntennaSpritesheetRight.png" id="8_aa0ad"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
+[ext_resource type="Texture2D" uid="uid://chbgvy50r01t1" path="res://Assets/Images/Objects/TickerSpritesheet.png" id="9_l4wr6"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="13_2tixx"]
@@ -23,6 +25,53 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4rsve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuv2x"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2t503"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuv2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yu0f"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sydkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yu0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f857k"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlsj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f857k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
@@ -252,30 +301,58 @@ shape = SubResource("RectangleShape2D_shfyb")
 position = Vector2(-470, -271)
 scale = Vector2(0.5, 0.5)
 
+[node name="DarkOverlay" type="ColorRect" parent="Camera"]
+offset_left = -285.0
+offset_top = -200.0
+offset_right = 252.0
+offset_bottom = 188.0
+color = Color(0, 0, 0, 0)
+
 [node name="AbilityManager" type="Node2D" parent="Camera"]
-scale = Vector2(2, 2)
+z_index = 5
+position = Vector2(-150, 48)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("4_ctc4a")
 
-[node name="AbilityOverlay" type="ColorRect" parent="Camera/AbilityManager"]
-offset_left = 86.5
-offset_top = 34.0
-offset_right = 116.5
-offset_bottom = 64.0
-color = Color(0.364706, 0.258824, 0.235294, 0.580392)
+[node name="TickerMask" type="Sprite2D" parent="Camera/AbilityManager"]
+clip_children = 2
+z_index = 1
+material = SubResource("CanvasItemMaterial_4rsve")
+position = Vector2(99.9999, 47.5)
+texture = ExtResource("7_es82s")
+region_rect = Rect2(0, 0, 100, 100)
 
-[node name="RocketBoots" type="Sprite2D" parent="Camera/AbilityManager"]
-visible = false
-position = Vector2(101, 49.5)
-texture = ExtResource("5_2fpqi")
+[node name="TickerBackground" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(5.08626e-05, 0.999947)
+sprite_frames = SubResource("SpriteFrames_2t503")
 
-[node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager"]
-position = Vector2(101, 49.5)
+[node name="Line2D" type="Line2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(-99.9999, -47.5001)
+points = PackedVector2Array(100, 30.5, 100, 52.5)
+width = 1.0
+default_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[node name="Ticker" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(0.500051, 19.9999)
+sprite_frames = SubResource("SpriteFrames_sydkl")
+
+[node name="Item" type="Node2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(-1.60933e-06, 20)
+
+[node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(0, -20)
+rotation = -0.785398
+scale = Vector2(1, 1)
 texture = ExtResource("7_cocna")
 
-[node name="ArmGun" type="Sprite2D" parent="Camera/AbilityManager"]
-visible = false
-position = Vector2(101, 49.5)
-texture = ExtResource("4_phy7p")
+[node name="Boots" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(-20, 0)
+rotation = 4.71239
+texture = ExtResource("5_2fpqi")
+
+[node name="TickerRing" type="AnimatedSprite2D" parent="Camera/AbilityManager"]
+position = Vector2(100, 48.5)
+sprite_frames = SubResource("SpriteFrames_nlsj1")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
 wait_time = 20.0
@@ -287,13 +364,6 @@ one_shot = true
 [node name="FadinHalfWaitTimer" type="Timer" parent="Camera/AbilityManager"]
 wait_time = 0.5
 one_shot = true
-
-[node name="DarkOverlay" type="ColorRect" parent="Camera"]
-offset_left = -285.0
-offset_top = -200.0
-offset_right = 252.0
-offset_bottom = 188.0
-color = Color(0, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
 offset_left = -234.0
