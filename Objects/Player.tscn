@@ -308,63 +308,6 @@ offset_right = 252.0
 offset_bottom = 188.0
 color = Color(0, 0, 0, 0)
 
-[node name="AbilityManager" type="Node2D" parent="Camera"]
-z_index = 5
-position = Vector2(-150, 48)
-scale = Vector2(1.5, 1.5)
-script = ExtResource("4_ctc4a")
-
-[node name="TickerMask" type="Sprite2D" parent="Camera/AbilityManager"]
-clip_children = 2
-z_index = 1
-material = SubResource("CanvasItemMaterial_4rsve")
-position = Vector2(99.9999, 47.5)
-texture = ExtResource("7_es82s")
-region_rect = Rect2(0, 0, 100, 100)
-
-[node name="TickerBackground" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
-position = Vector2(5.08626e-05, 0.999947)
-sprite_frames = SubResource("SpriteFrames_2t503")
-
-[node name="Line2D" type="Line2D" parent="Camera/AbilityManager/TickerMask"]
-position = Vector2(-99.9999, -47.5001)
-points = PackedVector2Array(100, 30.5, 100, 52.5)
-width = 1.0
-default_color = Color(0.631373, 0.631373, 0.631373, 1)
-
-[node name="Ticker" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
-position = Vector2(0.500051, 19.9999)
-sprite_frames = SubResource("SpriteFrames_sydkl")
-
-[node name="Item" type="Node2D" parent="Camera/AbilityManager/TickerMask"]
-position = Vector2(-1.60933e-06, 20)
-
-[node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
-position = Vector2(0, -20)
-rotation = -0.785398
-scale = Vector2(1, 1)
-texture = ExtResource("7_cocna")
-
-[node name="Boots" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
-position = Vector2(-20, 0)
-rotation = 4.71239
-texture = ExtResource("5_2fpqi")
-
-[node name="TickerRing" type="AnimatedSprite2D" parent="Camera/AbilityManager"]
-position = Vector2(100, 48.5)
-sprite_frames = SubResource("SpriteFrames_nlsj1")
-
-[node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
-wait_time = 20.0
-autostart = true
-
-[node name="FadinWaitTimer" type="Timer" parent="Camera/AbilityManager"]
-one_shot = true
-
-[node name="FadinHalfWaitTimer" type="Timer" parent="Camera/AbilityManager"]
-wait_time = 0.5
-one_shot = true
-
 [node name="FPSCounter" type="Label" parent="Camera"]
 offset_left = -234.0
 offset_top = -131.0
@@ -372,6 +315,69 @@ offset_right = -194.0
 offset_bottom = -108.0
 text = "FPS: Calculating ...
 "
+
+[node name="Control" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AbilityManager" type="Node2D" parent="Camera/Control"]
+z_index = 5
+position = Vector2(-150, 48)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("4_ctc4a")
+
+[node name="TickerMask" type="Sprite2D" parent="Camera/Control/AbilityManager"]
+clip_children = 2
+z_index = 1
+material = SubResource("CanvasItemMaterial_4rsve")
+position = Vector2(99.9999, 47.5)
+texture = ExtResource("7_es82s")
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="TickerBackground" type="AnimatedSprite2D" parent="Camera/Control/AbilityManager/TickerMask"]
+position = Vector2(5.08626e-05, 0.999947)
+sprite_frames = SubResource("SpriteFrames_2t503")
+
+[node name="Line2D" type="Line2D" parent="Camera/Control/AbilityManager/TickerMask"]
+position = Vector2(-99.9999, -47.5001)
+points = PackedVector2Array(100, 30.5, 100, 52.5)
+width = 1.0
+default_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[node name="Ticker" type="AnimatedSprite2D" parent="Camera/Control/AbilityManager/TickerMask"]
+position = Vector2(0.500051, 19.9999)
+sprite_frames = SubResource("SpriteFrames_sydkl")
+
+[node name="Item" type="Node2D" parent="Camera/Control/AbilityManager/TickerMask"]
+position = Vector2(-1.60933e-06, 20)
+
+[node name="Weapon" type="Sprite2D" parent="Camera/Control/AbilityManager/TickerMask/Item"]
+position = Vector2(0, -20)
+rotation = -0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("7_cocna")
+
+[node name="Boots" type="Sprite2D" parent="Camera/Control/AbilityManager/TickerMask/Item"]
+position = Vector2(-20, 0)
+rotation = 4.71239
+texture = ExtResource("5_2fpqi")
+
+[node name="TickerRing" type="AnimatedSprite2D" parent="Camera/Control/AbilityManager"]
+position = Vector2(100, 48.5)
+sprite_frames = SubResource("SpriteFrames_nlsj1")
+
+[node name="AbililtySwitchTimer" type="Timer" parent="Camera/Control/AbilityManager"]
+wait_time = 20.0
+autostart = true
+
+[node name="FadinWaitTimer" type="Timer" parent="Camera/Control/AbilityManager"]
+one_shot = true
+
+[node name="FadinHalfWaitTimer" type="Timer" parent="Camera/Control/AbilityManager"]
+wait_time = 0.5
+one_shot = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 4
@@ -515,9 +521,9 @@ pitch_scale = 1.74
 
 [node name="PhysicsPlayerContainer" type="Node" parent="."]
 
-[connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
-[connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
-[connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/Control/AbilityManager/AbililtySwitchTimer" to="Camera/Control/AbilityManager" method="_on_abililty_switch_timer_timeout"]
+[connection signal="timeout" from="Camera/Control/AbilityManager/FadinWaitTimer" to="Camera/Control/AbilityManager" method="_on_fadin_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/Control/AbilityManager/FadinHalfWaitTimer" to="Camera/Control/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Player/PlayerHurtbox" to="Player" method="_on_player_hurtbox_area_exited"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
