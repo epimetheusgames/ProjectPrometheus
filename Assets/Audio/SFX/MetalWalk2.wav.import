@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ci3s1ff1pp2l2"
-path="res://.godot/imported/MetalWalk2.wav-b3e4088349428035ce2ef2f35aaf9739.sample"
+path="res://.godot/imported/MetalWalk2.wav-1c63b8682e1c6158214efe64041cafd4.sample"
 
 [deps]
 
-source_file="res://Assets/Audios/SFX/MetalWalk2.wav"
-dest_files=["res://.godot/imported/MetalWalk2.wav-b3e4088349428035ce2ef2f35aaf9739.sample"]
+source_file="res://Assets/Audio/SFX/MetalWalk2.wav"
+dest_files=["res://.godot/imported/MetalWalk2.wav-1c63b8682e1c6158214efe64041cafd4.sample"]
 
 [params]
 

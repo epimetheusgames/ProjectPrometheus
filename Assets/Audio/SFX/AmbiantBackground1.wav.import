@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dgahhl602nprq"
-path="res://.godot/imported/AmbiantBackground1.wav-53ccbf8d2e8bedbf8786e56df577093b.sample"
+path="res://.godot/imported/AmbiantBackground1.wav-75679eb998c70afe4908ce3774f21450.sample"
 
 [deps]
 
-source_file="res://Assets/Audios/SFX/AmbiantBackground1.wav"
-dest_files=["res://.godot/imported/AmbiantBackground1.wav-53ccbf8d2e8bedbf8786e56df577093b.sample"]
+source_file="res://Assets/Audio/SFX/AmbiantBackground1.wav"
+dest_files=["res://.godot/imported/AmbiantBackground1.wav-75679eb998c70afe4908ce3774f21450.sample"]
 
 [params]
 
