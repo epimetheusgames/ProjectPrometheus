@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/Credits.gd" id="1_ty6cr"]
 [ext_resource type="PackedScene" uid="uid://ucrfo18juupk" path="res://Objects/Effects/Rain.tscn" id="2_nj5qs"]
-[ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audio/Music/Subway-VIP.ogg" id="3_8gexv"]
+[ext_resource type="AudioStream" uid="uid://d2btt4c4ooqdy" path="res://Assets/Audios/Music/Subway-VIP.ogg" id="3_8gexv"]
 
 [sub_resource type="Curve" id="Curve_vw2dj"]
 min_value = -10.0

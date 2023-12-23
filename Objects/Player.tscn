@@ -17,11 +17,11 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="13_2tixx"]
-[ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
+[ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audios/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
-[ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
-[ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
-[ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
+[ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audios/SFX/MetalWalk1.wav" id="19_4311v"]
+[ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audios/SFX/MetalWalk2.wav" id="20_kii0g"]
+[ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audios/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
@@ -356,7 +356,6 @@ position = Vector2(-1.60933e-06, 20)
 [node name="Weapon" type="Sprite2D" parent="Camera/Control/AbilityManager/TickerMask/Item"]
 position = Vector2(0, -20)
 rotation = -0.785398
-scale = Vector2(1, 1)
 texture = ExtResource("7_cocna")
 
 [node name="Boots" type="Sprite2D" parent="Camera/Control/AbilityManager/TickerMask/Item"]
