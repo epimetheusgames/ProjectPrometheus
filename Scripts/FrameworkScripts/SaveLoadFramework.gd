@@ -24,7 +24,11 @@ const level_node_names = [
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
 var current_level_name = ""
 
+func _ready():
+	print(Input.get_connected_joypads())
+
 func _process(delta):
+	print(Input.get_joy_axis(0, JOY_AXIS_LEFT_X))
 	while len(get_parent().get_node("Level").get_children()) > 1:
 		get_parent().get_node("Level").get_children()[-1].free()
 
@@ -82,15 +86,15 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 		level_loaded.get_node("Player").get_node("Camera").position = player_spawn_pos
 		
 		if player_respawn_ability == "Weapon":
-			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 0
+			level_loaded.get_node("Player").get_node("Camera").get_node("Control").get_node("AbilityManager").ability_index = 0
 		if player_respawn_ability == "RocketBoost":
-			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 1
+			level_loaded.get_node("Player").get_node("Camera").get_node("Control").get_node("AbilityManager").ability_index = 1
 		if player_respawn_ability == "ArmGun":
-			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 2
+			level_loaded.get_node("Player").get_node("Camera").get_node("Control").get_node("AbilityManager").ability_index = 2
 		if player_respawn_ability == "Grapple":
-			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 3
+			level_loaded.get_node("Player").get_node("Camera").get_node("Control").get_node("AbilityManager").ability_index = 3
 			
-		level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager")._on_fadin_half_wait_timer_timeout()
+		level_loaded.get_node("Player").get_node("Camera").get_node("Control").get_node("AbilityManager")._on_fadin_half_wait_timer_timeout()
 	get_node("Menu").queue_free()
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
