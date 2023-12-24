@@ -20,7 +20,7 @@ func _on_abililty_switch_timer_timeout():
 	fading_in = true
 
 func _process(delta):
-	$TickerMask/Ticker.rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60)
+	$TickerMask/Ticker.rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
 	
 	if switching_ability && fading_in:

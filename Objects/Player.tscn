@@ -319,12 +319,15 @@ text = "FPS: Calculating ...
 [node name="Control" type="Control" parent="Camera"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 393.0
+offset_top = 87.0
+offset_right = 433.0
+offset_bottom = 127.0
 
 [node name="AbilityManager" type="Node2D" parent="Camera/Control"]
 z_index = 5
-position = Vector2(-150, 48)
+position = Vector2(-165, 37)
+rotation = -0.785398
 scale = Vector2(1.5, 1.5)
 script = ExtResource("4_ctc4a")
 
@@ -332,7 +335,7 @@ script = ExtResource("4_ctc4a")
 clip_children = 2
 z_index = 1
 material = SubResource("CanvasItemMaterial_4rsve")
-position = Vector2(99.9999, 47.5)
+position = Vector2(0.666594, -19.1667)
 texture = ExtResource("7_es82s")
 region_rect = Rect2(0, 0, 100, 100)
 
@@ -364,7 +367,7 @@ rotation = 4.71239
 texture = ExtResource("5_2fpqi")
 
 [node name="TickerRing" type="AnimatedSprite2D" parent="Camera/Control/AbilityManager"]
-position = Vector2(100, 48.5)
+position = Vector2(0.666666, -18.1667)
 sprite_frames = SubResource("SpriteFrames_nlsj1")
 
 [node name="AbililtySwitchTimer" type="Timer" parent="Camera/Control/AbilityManager"]
