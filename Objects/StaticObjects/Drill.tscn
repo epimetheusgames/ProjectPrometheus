@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=17 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
 [ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/DrillSpritesheet.png" id="2_sjdmu"]
+[ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/DrillBreakSpritesheet.png" id="3_1ri88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88nda"]
 atlas = ExtResource("2_sjdmu")
@@ -37,6 +38,57 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qpvt"]
+atlas = ExtResource("3_1ri88")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfp48"]
+atlas = ExtResource("3_1ri88")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4eqt"]
+atlas = ExtResource("3_1ri88")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ici5m"]
+atlas = ExtResource("3_1ri88")
+region = Rect2(0, 60, 30, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dh7n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qpvt")
+}],
+"loop": true,
+"name": &"Break1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfp48")
+}],
+"loop": true,
+"name": &"Break2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4eqt")
+}],
+"loop": true,
+"name": &"Break3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ici5m")
+}],
+"loop": true,
+"name": &"None",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpe1"]
 size = Vector2(20, 5)
 
@@ -56,6 +108,12 @@ script = ExtResource("1_axli8")
 position = Vector2(20, 12)
 sprite_frames = SubResource("SpriteFrames_jwq1i")
 animation = &"Idle"
+
+[node name="DrillBreakOverlay" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, 4)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_dh7n3")
+animation = &"Break3"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(16, 16)

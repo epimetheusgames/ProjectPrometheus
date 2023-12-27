@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=29 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="2_d4qao"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_6jcrf"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="19_oxovb"]
-[ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="20_pkmjd"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="21_je3sr"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_o2r4d"]
 
@@ -479,13 +478,6 @@ position = Vector2(12, 10)
 [node name="WallTurret9" parent="." instance=ExtResource("19_oxovb")]
 position = Vector2(-3895, -1230)
 
-[node name="DroneManager7" parent="." instance=ExtResource("20_pkmjd")]
-position = Vector2(-336, -187)
-
-[node name="DronePatrolPoints" parent="DroneManager7" index="0"]
-visible = false
-points = PackedVector2Array(2, 140, -555, 144, 251, 153, 83, -213)
-
 [node name="Checkpoint" parent="." instance=ExtResource("21_o2r4d")]
 position = Vector2(-3717, -784)
 player_checkpoint_item = "Grapple"
@@ -522,4 +514,3 @@ position = Vector2(-980, -748)
 [editable path="WallTurret5"]
 [editable path="WallTurret7"]
 [editable path="WallTurret8"]
-[editable path="DroneManager7"]

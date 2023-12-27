@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqy1gmd6wwrqx"]
+[gd_scene load_steps=12 format=3 uid="uid://bqy1gmd6wwrqx"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_fhp4c"]
 [ext_resource type="Texture2D" uid="uid://dpkebxe2qa4tu" path="res://Assets/Images/Objects/BigDroneSpritesheet.png" id="2_6x22x"]
-[ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="3_k4xbe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sodd7"]
 atlas = ExtResource("2_6x22x")
@@ -62,36 +61,6 @@ colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_0awkx")
 width = 1
 
-[sub_resource type="Gradient" id="Gradient_c6iik"]
-offsets = PackedFloat32Array(0, 0.118081, 0.380074, 0.965986)
-colors = PackedColorArray(0.137255, 0.129412, 1, 1, 1, 0.772549, 0.14902, 0.235294, 0.670588, 0, 0, 0.333333, 1, 0, 0, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_udcty"]
-gradient = SubResource("Gradient_c6iik")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mev46"]
-lifetime_randomness = 0.1
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(2, 1, 1)
-angle_min = -720.0
-angle_max = 720.0
-direction = Vector3(0, 2, 0)
-spread = 22.209
-initial_velocity_min = 200.0
-initial_velocity_max = 300.0
-angular_velocity_min = -720.0
-angular_velocity_max = 720.0
-gravity = Vector3(0, -300, 0)
-damping_min = 59.678
-damping_max = 59.678
-scale_min = 0.0
-scale_max = 0.8
-color = Color(1, 1, 1, 0.607843)
-color_ramp = SubResource("GradientTexture1D_udcty")
-hue_variation_min = -0.01
-hue_variation_max = 0.01
-
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_fhp4c")
 big_drone = true
@@ -135,25 +104,5 @@ local_coords = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drone/DroneHitbox"]
 polygon = PackedVector2Array(-32, 16, -24, 18, -15, 18, 0, 16, 15, 18, 24, 18, 32, 16, 32, 5, 49, -4, 49, -8, 32, -3, 32, -9, -32, -9, -32, -3, -50, -8, -50, -4, -32, 4)
-
-[node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Drone"]
-self_modulate = Color(3, 3, 3, 1)
-position = Vector2(-20, 18)
-scale = Vector2(0.5, 0.5)
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_mev46")
-texture = ExtResource("3_k4xbe")
-lifetime = 0.5
-explosiveness = 0.09
-
-[node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Drone"]
-self_modulate = Color(3, 3, 3, 1)
-position = Vector2(20, 18)
-scale = Vector2(0.5, 0.5)
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_mev46")
-texture = ExtResource("3_k4xbe")
-lifetime = 0.5
-explosiveness = 0.09
 
 [connection signal="area_entered" from="Drone/DroneHurtbox" to="." method="_on_drone_hurtbox_area_entered"]

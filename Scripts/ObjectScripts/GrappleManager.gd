@@ -119,6 +119,7 @@ func _physics_process(delta):
 			var mouse_direction = (closest_hook.position - get_parent().position).normalized()
 			$LinePorabola.points[0] = Vector2.ZERO
 			$LinePorabola.points[1] = mouse_direction * 10000
+			$LinePorabola.visible = true
 			
 			if Input.is_action_just_pressed("mouse_click"):
 				grapling = true
@@ -127,6 +128,8 @@ func _physics_process(delta):
 					air_grapling = true
 				
 				$GrappleBody.velocity = mouse_direction * 15
+		else:
+			$LinePorabola.visible = false
 			
 	if active:
 		visible = true

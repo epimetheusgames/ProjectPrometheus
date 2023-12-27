@@ -29,11 +29,13 @@ func _process(delta):
 			$JumpHurtBox/CollisionShape2D2.disabled = false
 			$JumpHurtBox/CollisionShape2D3.disabled = false
 			$DrillAnimation.scale.x = 1
+			$DrillBreakOverlay.scale.x = 1
 		elif right_collision != null && right_collision.name != "Player" && direction == speed:
 			direction = -speed
 			$JumpHurtBox/CollisionShape2D2.disabled = false
 			$JumpHurtBox/CollisionShape2D3.disabled = false
 			$DrillAnimation.scale.x = -1
+			$DrillBreakOverlay.scale.x = -1
 		
 		if down_collision != null || down_collision_2 != null:
 			velocity.y = -0.05
@@ -43,10 +45,17 @@ func _process(delta):
 		else:
 			$DrillAnimation.play("Idle")
 			
-		if health <= 0:
-			$DrillAnimation.play("Idle")
+		if health == 3:
+			$DrillBreakOverlay.play("None")
+		if health == 2:
+			$DrillBreakOverlay.play("Break1")
+		if health == 1:
+			$DrillBreakOverlay.play("Break2")
 			
 		position += velocity * (delta * 60)
+	else:
+		$DrillBreakOverlay.play("Break3")
+		$DrillAnimation.play("Idle")
 
 func _on_jump_hurt_box_area_entered(area):
 	var no_damage = false

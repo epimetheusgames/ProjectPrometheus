@@ -17,13 +17,17 @@ const preloaded_levels = [
 	[
 		preload("res://Levels/Playable/Level4/Floor1.tscn"),
 	],
+	[
+		preload("res://Levels/Playable/Level5/Floor1.tscn"),
+	],
 ]
 
 const level_node_names = [
 	["Level1",],
 	["Level2",],
+	["Level3",],
 	["Level4",],
-	["Level4",],
+	["Level5",],
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
