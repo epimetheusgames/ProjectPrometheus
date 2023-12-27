@@ -241,7 +241,7 @@ bus = &"Master"
 script = ExtResource("7_nkvx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(723, -83)
+position = Vector2(-343, -1551)
 shape = SubResource("RectangleShape2D_5kdbj")
 
 [node name="DroneManager2" parent="." instance=ExtResource("6_pm7tb")]

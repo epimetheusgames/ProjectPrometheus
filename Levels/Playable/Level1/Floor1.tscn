@@ -265,6 +265,12 @@ texture = ExtResource("15_wl6fd")
 position = Vector2(528, -208)
 texture = ExtResource("16_46u4n")
 
+[node name="AmbiantBackground2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_845lg")
+volume_db = -8.69
+autoplay = true
+bus = &"SFX"
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
