@@ -33,6 +33,9 @@ func _physics_process(delta):
 		get_parent().disable_speed_cap = false
 		get_parent().low_gravity = false
 	
+	if !hooked && !air_grapling && get_parent().get_node("PlayerAnimation").animation == "GrappleHang":
+		get_parent().get_node("PlayerAnimation").play("Idle")
+	
 	if active && grapling:
 		if hooked && hook && air_grapling:
 			if !was_hooked:
