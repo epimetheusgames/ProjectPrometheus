@@ -26,6 +26,7 @@ func _process(delta):
 			var controller_joy_dir_x = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_X)
 			var controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_Y)
 			mouse_direction = Vector2(controller_joy_dir_x, controller_joy_dir_y)
+			reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
 			mouse_pos = mouse_direction * 50
 		
 		$Line2D.points[3] = $Line2D.points[2] + ((mouse_direction if get_parent().previous_direction == 1 else reversed_mouse_dir) * 20)
