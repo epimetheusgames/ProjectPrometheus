@@ -259,8 +259,7 @@ position = Vector2(617, -184)
 position = Vector2(1808, -220)
 
 [node name="GrappleHook2" parent="." instance=ExtResource("15_0r3sj")]
-position = Vector2(2106, -292)
-rotation = 3.14159
+position = Vector2(2095, -380)
 
 [node name="WallTurret2" parent="." instance=ExtResource("12_28vfv")]
 position = Vector2(937, -187)

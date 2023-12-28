@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://by6yqsmwuyf3i"]
+
+[ext_resource type="FontFile" uid="uid://cflsrb28newdy" path="res://Assets/Fonts/NixieOne-Regular.ttf" id="1_ljfed"]
+
+[resource]
+default_font = ExtResource("1_ljfed")
+default_font_size = 19

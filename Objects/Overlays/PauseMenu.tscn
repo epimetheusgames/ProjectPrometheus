@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbql3q4vummfw"]
+[gd_scene load_steps=3 format=3 uid="uid://dbql3q4vummfw"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/PauseMenu.gd" id="1_0l5na"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_1kp1x"]
 
 [node name="PauseMenu" type="Node2D"]
 process_mode = 3
@@ -11,6 +12,7 @@ offset_left = -30.0
 offset_top = -27.0
 offset_right = 1933.0
 offset_bottom = 1219.0
+theme = ExtResource("2_1kp1x")
 color = Color(0, 0, 0, 0.372549)
 
 [node name="Label" type="Label" parent="."]
@@ -18,6 +20,7 @@ offset_left = 893.0
 offset_top = 566.0
 offset_right = 979.0
 offset_bottom = 592.0
+theme = ExtResource("2_1kp1x")
 text = "SPACE EXIT"
 
 [node name="Label2" type="Label" parent="."]
@@ -25,4 +28,5 @@ offset_left = 888.0
 offset_top = 491.0
 offset_right = 1144.0
 offset_bottom = 575.0
+theme = ExtResource("2_1kp1x")
 text = "ESC RESUME"

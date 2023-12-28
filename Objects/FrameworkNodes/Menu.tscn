@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqj7x37f41rx1"]
+[gd_scene load_steps=3 format=3 uid="uid://bqj7x37f41rx1"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egmb5"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_exvs6"]
 
 [node name="Menu" type="Node2D"]
 editor_description = "This scene should include the UI for the main menu."
@@ -11,6 +12,7 @@ offset_left = 897.0
 offset_top = 493.0
 offset_right = 1073.0
 offset_bottom = 615.0
+theme = ExtResource("2_exvs6")
 min_value = 1.0
 max_value = 5.0
 value = 1.0
@@ -21,6 +23,7 @@ offset_left = 1085.0
 offset_top = 492.0
 offset_right = 1261.0
 offset_bottom = 614.0
+theme = ExtResource("2_exvs6")
 min_value = 1.0
 max_value = 4.0
 value = 1.0
@@ -31,6 +34,7 @@ offset_left = 893.0
 offset_top = 610.0
 offset_right = 1078.0
 offset_bottom = 667.0
+theme = ExtResource("2_exvs6")
 text = "Efficient Rendering
 (Visual defficiencies)"
 
@@ -39,13 +43,15 @@ offset_left = 345.0
 offset_top = 326.0
 offset_right = 838.0
 offset_bottom = 773.0
-text = "CLICK HERE"
+theme = ExtResource("2_exvs6")
+text = "START"
 
 [node name="MusicSlider" type="HSlider" parent="."]
 offset_left = 888.0
 offset_top = 462.0
 offset_right = 1245.0
 offset_bottom = 483.0
+theme = ExtResource("2_exvs6")
 min_value = -40.0
 max_value = 6.0
 
@@ -54,6 +60,7 @@ offset_left = 1023.0
 offset_top = 440.0
 offset_right = 1132.0
 offset_bottom = 466.0
+theme = ExtResource("2_exvs6")
 text = "Music Volume
 "
 
@@ -62,6 +69,7 @@ offset_left = 887.0
 offset_top = 417.0
 offset_right = 1244.0
 offset_bottom = 438.0
+theme = ExtResource("2_exvs6")
 min_value = -40.0
 max_value = 6.0
 
@@ -70,6 +78,7 @@ offset_left = 1022.0
 offset_top = 395.0
 offset_right = 1131.0
 offset_bottom = 421.0
+theme = ExtResource("2_exvs6")
 text = "SFX Volume
 "
 
