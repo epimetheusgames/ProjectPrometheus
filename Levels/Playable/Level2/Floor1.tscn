@@ -150,7 +150,7 @@ size = Vector2(110, 166)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ci8yo")
-level = 1
+level = 4
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
