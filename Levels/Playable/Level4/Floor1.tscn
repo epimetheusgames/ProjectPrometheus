@@ -428,6 +428,7 @@ position = Vector2(937, -87)
 position = Vector2(1875, -188)
 
 [node name="DronePatrolPoints" parent="DroneManager3" index="1"]
+visible = false
 points = PackedVector2Array(-5, 120, -5, 176, -678, 174, -676, 213, 496, 234)
 
 [node name="WallTurret2" parent="." instance=ExtResource("18_1ue77")]
@@ -438,9 +439,6 @@ position = Vector2(-727, -215)
 
 [node name="WallTurret7" parent="." instance=ExtResource("18_1ue77")]
 position = Vector2(-823, -280)
-
-[node name="WallTurret8" parent="." instance=ExtResource("18_1ue77")]
-position = Vector2(-919, -214)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
