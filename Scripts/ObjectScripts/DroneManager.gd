@@ -9,6 +9,7 @@ var precalculated_flight_path = null
 var flight_index = 0
 var fly_to_correct = false
 var temp_disabled = false
+var started_path_drone = false
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -33,6 +34,17 @@ func _ready():
 				break
 			
 			precalculated_flight_path.append([flight_position, flight_rotation])
+			
+		# Disperse drones along the track.
+		if !big_drone:
+			var distance_to_first_point = $Drone.position.distance_to($DronePatrolPoints.points[0])
+			for i in range(int(len(precalculated_flight_path) / distance_to_first_point)):
+				var new_drone = duplicate()
+				new_drone.get_node("Drone").position = precalculated_flight_path[int(i * distance_to_first_point)][0]
+				new_drone.precalculated_flight_path = precalculated_flight_path
+				new_drone.flight_index = int(i * distance_to_first_point)
+				new_drone.started_path_drone = true
+				get_parent().add_child.call_deferred(new_drone)
 	
 	current_line_point = 0
 	
@@ -83,7 +95,7 @@ func _process(delta):
 		if current_line_point < $DronePatrolPoints.points.size() - 1:
 			current_line_point += 1
 			
-			if current_line_point == 1 && !big_drone:
+			if current_line_point == 1 && !big_drone && !started_path_drone:
 				var new_drone = duplicate()
 				new_drone.get_node("Drone").position = Vector2.ZERO
 				new_drone.precalculated_flight_path = precalculated_flight_path
