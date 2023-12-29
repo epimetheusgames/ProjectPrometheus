@@ -36,8 +36,12 @@ const level_node_names = [
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
 var current_level_name = ""
+var bulge_amm = 0.0
 
 func _process(delta):
+	bulge_amm += 0.005
+	get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", bulge_amm)
+	
 	if len(get_parent().get_node("Level").get_children()) > 1:
 		get_parent().get_node("Level").get_children()[-1].queue_free()
 

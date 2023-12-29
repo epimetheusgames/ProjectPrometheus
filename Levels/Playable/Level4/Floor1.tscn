@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cbgxwk0kv3r5m"]
+[gd_scene load_steps=34 format=3 uid="uid://cbgxwk0kv3r5m"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_bxd2n"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="11_av7gl"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="12_3rx5p"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_fcqti"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="13_3lsyc"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="14_dwyna"]
 [ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="15_kfylc"]
@@ -172,6 +173,10 @@ size = Vector2(427, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfscn"]
 size = Vector2(528, 123)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lxv0b"]
+shader = ExtResource("12_fcqti")
+shader_parameter/distortion_amm = 0.0
+
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_3ry76")
 level = 1
@@ -263,6 +268,8 @@ autoplay = true
 bus = &"SFX"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_lxv0b")
 color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]

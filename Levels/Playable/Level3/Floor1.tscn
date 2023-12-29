@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=31 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="2_d4qao"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="11_n8qbk"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="12_f4x6s"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="13_w48jd"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_8cm7r"]
 [ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="16_ck8fg"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_6jcrf"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
@@ -141,6 +142,10 @@ size = Vector2(9906, 144.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdbj"]
 size = Vector2(206, 520)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
+shader = ExtResource("15_8cm7r")
+shader_parameter/distortion_amm = 0.0
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_2k2wj")
 level = 4
@@ -195,6 +200,12 @@ position = Vector2(-1144, -1735)
 shape = SubResource("RectangleShape2D_3voqy")
 
 [node name="Player" parent="." instance=ExtResource("4_r1rf1")]
+
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" parent="Player/Camera" index="3"]
+metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="6"]
 scale = Vector2(0.983491, 1)
@@ -342,6 +353,7 @@ position = Vector2(-3488, -800)
 texture = ExtResource("13_w48jd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
