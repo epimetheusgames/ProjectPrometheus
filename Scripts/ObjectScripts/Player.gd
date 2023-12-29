@@ -30,6 +30,7 @@ var was_in_air = false
 var just_jumped = false
 var wasnt_moving = false
 var was_climbing = false
+var dead = false
 
 var current_ability = "Weapon"
 
@@ -75,7 +76,7 @@ func canJump():
 	
 func jump():
 	just_jumped = true
-	velocity.y = -jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel
+	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * (1.3 if Engine.time_scale < 1 else 1)
 	$PlayerAnimation.play("StartJump")
 			
 	if current_ability == "RocketBoost":
@@ -84,7 +85,7 @@ func jump():
 	if current_ability == "Weapon":
 		$PlayerAnimation.play("StartJumpSword")
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if physics_player:
 		return
 	
@@ -101,14 +102,15 @@ func _physics_process(_delta):
 	# Apply keyboard inputs.
 	var can_jump = canJump()
 	var input_velocity = getInputVelocity(can_jump)
-	velocity.x += input_velocity
+	if !dead:
+		velocity.x += input_velocity
 	
 	# Check if we can jump
 	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
-		if !in_ladder_area:
+		if !in_ladder_area && !dead:
 			jump()
 			
-	if Input.is_action_pressed("down") && climbing:
+	if Input.is_action_pressed("down") && climbing && !dead:
 		velocity.y += jump_push_force
 		
 	# Implement coyote jumping system.
@@ -116,9 +118,9 @@ func _physics_process(_delta):
 		$CoyoteJumpTimer.start() 
 		
 	# If the player is holding the jump button, apply a slight upwards push.
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") && !dead:
 		if !climbing:
-			velocity.y -= jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force
+			velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force)
 		else:
 			velocity.y -= jump_push_force
 			
@@ -134,7 +136,7 @@ func _physics_process(_delta):
 			if $PlayerAnimation.animation != "Climbing":
 				$PlayerAnimation.play("Climbing")
 		
-	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:
+	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !dead:
 		$PlayerAnimation.play("AttackSword")
 		$DashStopCooldown.start()
 		$NewDashCooldown.start()
@@ -160,7 +162,7 @@ func _physics_process(_delta):
 		velocity.x /= 1.3
 		
 	# Add velocity to position.
-	position += velocity
+	position += velocity * delta * 60
 	
 	# Collisions.
 	move_and_slide()
@@ -222,7 +224,7 @@ func _physics_process(_delta):
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
 		
-	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
+	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")) && !dead:
 		
 		# Set player to be in the direction that it's moving.
 		if Input.is_action_pressed("left"):
@@ -307,7 +309,7 @@ func _physics_process(_delta):
 	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
 	if (direction_just_pressed && !both_pressed && ($PlayerAnimation.animation != "SwitchDirections" &&
 		$PlayerAnimation.animation != "SwitchDirectionsRockets" &&
-		$PlayerAnimation.animation != "SwitchDirectionsSword")):
+		$PlayerAnimation.animation != "SwitchDirectionsSword")) && !dead:
 		$PlayerAnimation.play("StartWalk")
 				
 		if current_ability == "RocketBoost":
@@ -348,7 +350,7 @@ func _physics_process(_delta):
 		if current_ability == "Weapon":
 			$PlayerAnimation.play("LandingSword")
 		
-	# Play animations for walking.var active = false
+	# Play animations for walking.
 	if both_pressed && $PlayerAnimation.animation != "Climbing":
 		$PlayerAnimation.play("Idle")
 				
@@ -385,6 +387,12 @@ func _physics_process(_delta):
 	# the entire EndMoving animation before going back. In the future, maybe 
 	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
 		$AntennaAnimation.play("Moving")
+	
+	if $BulletBadHurtcooldown.time_left > 0:
+		Engine.time_scale = 0.65
+	else:
+		Engine.time_scale = 1
+	
 		
 	wasnt_moving = !direction_pressed
 	was_in_air = !can_jump
@@ -428,13 +436,17 @@ func _on_area_2d_area_entered(area):
 		if $BulletBadHurtcooldown.time_left > 0:
 			get_parent().get_node("Camera/CloseAnimator").closing = true
 		elif $BulletHurtCooldown.time_left > 0:
+			$HurtPauseTimer.start()
 			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0
 			$PlayerAnimation.modulate.b = 0
+			get_tree().paused = true
 		else:
+			$HurtPauseTimer.start()
 			$BulletHurtCooldown.start()
 			$PlayerAnimation.modulate.g = 0.8
 			$PlayerAnimation.modulate.b = 0.6
+			get_tree().paused = true
 			
 func die():
 	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
@@ -511,4 +523,3 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
-

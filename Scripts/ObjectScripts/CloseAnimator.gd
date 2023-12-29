@@ -2,13 +2,17 @@ extends Node2D
 
 
 var closing = false
+var start = false
 
 func _process(delta):
-	if closing:
+	if closing && start:
 		get_parent().get_parent().get_parent().self_modulate.r += 10
 		
-		$BlackBarTop.scale.y += 8 * delta * 60
-		$BlackBarBottom.scale.y += 8 * delta * 60
+		$BlackBarTop.scale.y += (1005 - $BlackBarTop.scale.y) * 0.1 * delta * 60
+		$BlackBarBottom.scale.y += (1005 - $BlackBarBottom.scale.y) * 0.1 * delta * 60
+		
+		if $ColorRect.color.a < 0.8:
+			$ColorRect.color.a += 0.05
 		
 		if $BlackBarTop.scale.y > 1000:
 			$WhiteLine.visible = true 
@@ -19,6 +23,18 @@ func _process(delta):
 				
 				if $DeathWaitTimer.time_left == 0:
 					$DeathWaitTimer.start()
+	elif closing:
+		if $AnimDelayTimer.time_left == 0:
+			$AnimDelayTimer.start()
+			get_parent().get_parent().get_node("Player").dead = true
+		
+		Engine.time_scale = 0.2
+		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("Idle")
+		$ColorRect.color.a += 0.0001
 
 func _on_death_wait_timer_timeout():
 	get_parent().get_parent().get_node("Player").die()
+
+func _on_anim_delay_timer_timeout():
+	Engine.time_scale = 0.8
+	start = true

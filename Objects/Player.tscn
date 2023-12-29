@@ -385,19 +385,28 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_8im51")
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
+process_mode = 3
 z_index = 20
 script = ExtResource("11_opf60")
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+offset_left = -600.0
+offset_top = -139.0
+offset_right = 586.0
+offset_bottom = 142.0
+color = Color(1, 0.8, 0.8, 0)
 
 [node name="BlackBarBottom" type="Sprite2D" parent="Camera/CloseAnimator"]
 z_index = 10
 position = Vector2(1, 500)
-scale = Vector2(500, 500)
+scale = Vector2(500, 1e-05)
 texture = ExtResource("12_38xen")
 
 [node name="BlackBarTop" type="Sprite2D" parent="Camera/CloseAnimator"]
 z_index = 10
 position = Vector2(0, -500)
-scale = Vector2(500, 500)
+scale = Vector2(500, 1e-05)
 texture = ExtResource("12_38xen")
 
 [node name="WhiteLine" type="Sprite2D" parent="Camera/CloseAnimator"]
@@ -411,6 +420,10 @@ texture = ExtResource("13_mdxpq")
 [node name="DeathWaitTimer" type="Timer" parent="Camera/CloseAnimator"]
 process_mode = 3
 wait_time = 0.5
+one_shot = true
+
+[node name="AnimDelayTimer" type="Timer" parent="Camera/CloseAnimator"]
+wait_time = 0.3
 one_shot = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -478,7 +491,7 @@ one_shot = true
 one_shot = true
 
 [node name="BulletBadHurtcooldown" type="Timer" parent="Player"]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 
 [node name="DashStopCooldown" type="Timer" parent="Player"]
@@ -487,6 +500,11 @@ one_shot = true
 
 [node name="NewDashCooldown" type="Timer" parent="Player"]
 wait_time = 0.5
+one_shot = true
+
+[node name="HurtPauseTimer" type="Timer" parent="Player"]
+process_mode = 2
+wait_time = 0.3
 one_shot = true
 
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
@@ -533,7 +551,7 @@ texture = SubResource("GradientTexture2D_ia288")
 lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PackedVector2Array(-8, 16, 6, 16, 6, -2, 1, -2, 1, -10, -2, -10, -2, -2, -8, -2)
+polygon = PackedVector2Array(-8, 16, 6, 16, 6, 2, 2, 2, 2, -10, -3, -10, -3, 2, -7, 2)
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
@@ -563,6 +581,7 @@ bus = &"SFX"
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/CloseAnimator/DeathWaitTimer" to="Camera/CloseAnimator" method="_on_death_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/CloseAnimator/AnimDelayTimer" to="Camera/CloseAnimator" method="_on_anim_delay_timer_timeout"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Player/PlayerHurtbox" to="Player" method="_on_player_hurtbox_area_exited"]
 [connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
@@ -570,4 +589,5 @@ bus = &"SFX"
 [connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
 [connection signal="timeout" from="Player/BulletBadHurtcooldown" to="Player" method="_on_bullet_bad_hurtcooldown_timeout"]
 [connection signal="timeout" from="Player/DashStopCooldown" to="Player" method="_on_dash_stop_cooldown_timeout"]
+[connection signal="timeout" from="Player/HurtPauseTimer" to="Camera/PauseMenu" method="_on_hurt_pause_timer_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]

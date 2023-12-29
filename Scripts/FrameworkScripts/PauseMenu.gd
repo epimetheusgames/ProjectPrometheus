@@ -25,4 +25,6 @@ func _process(delta):
 		get_tree().paused = true
 	else:
 		get_tree().paused = false
-		
+
+func _on_hurt_pause_timer_timeout():
+	get_tree().paused = false
