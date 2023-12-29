@@ -7,6 +7,11 @@
 editor_description = "This scene should include the UI for the main menu."
 script = ExtResource("1_egmb5")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 1079.0
+color = Color(0.203922, 0.203922, 0.203922, 1)
+
 [node name="SpinBox" type="SpinBox" parent="."]
 offset_left = 897.0
 offset_top = 493.0
