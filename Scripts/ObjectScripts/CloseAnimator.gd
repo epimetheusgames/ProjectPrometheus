@@ -5,6 +5,8 @@ var closing = false
 
 func _process(delta):
 	if closing:
+		get_parent().get_parent().get_parent().self_modulate.r += 10
+		
 		$BlackBarTop.scale.y += 8 * delta * 60
 		$BlackBarBottom.scale.y += 8 * delta * 60
 		

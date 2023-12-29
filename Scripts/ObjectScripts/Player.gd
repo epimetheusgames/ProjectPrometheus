@@ -216,8 +216,8 @@ func _physics_process(_delta):
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 1.0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.1
 	elif $BulletHurtCooldown.time_left > 0:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.4
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.1
 	else:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
