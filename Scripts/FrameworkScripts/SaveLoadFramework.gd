@@ -81,10 +81,15 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
-func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null):
+func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
+	
+	if level:
+		current_level = level 
+		level_floor = floor 
+	
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
 	level_loaded.slot = slot
 	level_loaded.graphics_efficiency = graphics_efficiency

@@ -154,10 +154,6 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("11_bsrgu")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0gos"]
-atlas = ExtResource("2_6fghm")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6woab"]
 atlas = ExtResource("2_6fghm")
 region = Rect2(0, 96, 32, 32)
@@ -182,8 +178,8 @@ region = Rect2(0, 224, 32, 32)
 atlas = ExtResource("2_6fghm")
 region = Rect2(0, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jou8g"]
-atlas = ExtResource("6_bwihs")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0gos"]
+atlas = ExtResource("2_6fghm")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doso1"]
@@ -210,8 +206,8 @@ region = Rect2(0, 224, 32, 32)
 atlas = ExtResource("6_bwihs")
 region = Rect2(0, 256, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wux1q"]
-atlas = ExtResource("8_cinwy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jou8g"]
+atlas = ExtResource("6_bwihs")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nce6"]
@@ -237,6 +233,10 @@ region = Rect2(0, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v71rm"]
 atlas = ExtResource("8_cinwy")
 region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wux1q"]
+atlas = ExtResource("8_cinwy")
+region = Rect2(0, 0, 32, 32)
 
 [resource]
 animations = [{
@@ -412,7 +412,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"StartWalk",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -423,7 +423,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"StartWalkRockets",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -434,7 +434,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"StartWalkSword",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -462,9 +462,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s0gos")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6woab")
 }, {
 "duration": 1.0,
@@ -481,15 +478,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wcuji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0gos")
 }],
 "loop": true,
 "name": &"Walking",
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jou8g")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_doso1")
 }, {
@@ -507,15 +504,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_esb2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jou8g")
 }],
 "loop": true,
 "name": &"WalkingRockets",
 "speed": 15.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wux1q")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6nce6")
 }, {
@@ -533,6 +530,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v71rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wux1q")
 }],
 "loop": true,
 "name": &"WalkingSword",

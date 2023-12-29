@@ -32,7 +32,18 @@ theme = ExtResource("2_exvs6")
 min_value = 1.0
 max_value = 4.0
 value = 1.0
-prefix = "Character Num:"
+prefix = "Character:"
+
+[node name="SpinBox3" type="SpinBox" parent="."]
+offset_left = 1273.0
+offset_top = 492.0
+offset_right = 1449.0
+offset_bottom = 614.0
+theme = ExtResource("2_exvs6")
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+prefix = "Level:"
 
 [node name="CheckBox" type="CheckBox" parent="."]
 offset_left = 893.0
@@ -87,4 +98,5 @@ theme = ExtResource("2_exvs6")
 text = "SFX Volume
 "
 
+[connection signal="changed" from="SpinBox" to="." method="_on_spin_box_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

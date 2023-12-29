@@ -14,6 +14,7 @@ func activate():
 	# Activate all menu nodes!
 	
 func _ready():
+	_on_spin_box_changed()
 	var global_data = get_parent().load_data("global")
 	
 	$CheckBox.button_pressed = global_data[0]
@@ -33,4 +34,9 @@ func _process(_delta):
 
 func _on_button_pressed():
 	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
-	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed)
+	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value, 0)
+
+func _on_spin_box_changed():
+	var loaded_data = get_parent().load_data($SpinBox.value)
+	$SpinBox3.value = loaded_data[0]
+	$SpinBox3.max_value = loaded_data[0]
