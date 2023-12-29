@@ -429,7 +429,7 @@ shape = SubResource("RectangleShape2D_7c12t")
 material = SubResource("ShaderMaterial_3omib")
 position = Vector2(-2, 0)
 sprite_frames = ExtResource("15_4ybmm")
-animation = &"WalkingSword"
+animation = &"AttackSword"
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
@@ -446,7 +446,7 @@ one_shot = true
 one_shot = true
 
 [node name="BulletBadHurtcooldown" type="Timer" parent="Player"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="DashStopCooldown" type="Timer" parent="Player"]

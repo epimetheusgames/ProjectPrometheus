@@ -64,6 +64,9 @@ func _on_jump_hurt_box_area_entered(area):
 		if area.get_parent().get_node("NewDashCooldown").time_left > 0:
 			health -= 1
 			no_damage = true
+			
+			if health == 0:
+				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 		
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5

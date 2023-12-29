@@ -15,25 +15,25 @@
 [ext_resource type="Texture2D" uid="uid://bubv7d2ut3ppa" path="res://Assets/Images/Objects/CharacterSplitRocketsType3.png" id="8_o3rva"]
 [ext_resource type="Texture2D" uid="uid://cxeafisnc65mu" path="res://Assets/Images/Objects/CharacterSpritesheetSwordType4.png" id="12_0gu2r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hx3et"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkggv"]
+atlas = ExtResource("1_t7qto")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mew04"]
 atlas = ExtResource("1_t7qto")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63pki"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g60cn"]
 atlas = ExtResource("1_t7qto")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnb7j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8y22"]
 atlas = ExtResource("1_t7qto")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1cf4d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrujw"]
 atlas = ExtResource("1_t7qto")
 region = Rect2(0, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qmp4r"]
-atlas = ExtResource("1_t7qto")
-region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otkdc"]
 atlas = ExtResource("2_e56m7")
@@ -263,23 +263,23 @@ region = Rect2(0, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hx3et")
+"texture": SubResource("AtlasTexture_dkggv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_63pki")
+"texture": SubResource("AtlasTexture_mew04")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jnb7j")
+"texture": SubResource("AtlasTexture_g60cn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1cf4d")
+"texture": SubResource("AtlasTexture_w8y22")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qmp4r")
+"texture": SubResource("AtlasTexture_wrujw")
 }],
-"loop": true,
+"loop": false,
 "name": &"AttackSword",
-"speed": 12.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,

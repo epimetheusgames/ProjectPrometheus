@@ -6,10 +6,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x1rg8"]
 shader = ExtResource("2_0worp")
 shader_parameter/distortion_amm = 0.0
+shader_parameter/static_scale = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ft8a"]
 shader = ExtResource("2_0worp")
 shader_parameter/distortion_amm = 0.0
+shader_parameter/static_scale = 0.0
 
 [node name="Root" type="Node"]
 

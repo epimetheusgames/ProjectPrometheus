@@ -211,6 +211,15 @@ func _physics_process(_delta):
 			get_parent().get_node("MetalWalk1").volume_db -= 1
 			get_parent().get_node("MetalWalk2").volume_db -= 1
 			get_parent().get_node("MetalWalkBoots1").volume_db -= 1
+	
+	if $BulletBadHurtcooldown.time_left > 0:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 1.0
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.15
+	elif $BulletHurtCooldown.time_left > 0:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
+	else:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
 		
@@ -410,6 +419,9 @@ func _on_area_2d_area_entered(area):
 			area.get_parent().queue_free()
 		elif area.name == "JumpHurtBox":
 			if area.get_parent().health <= 0:
+				return
+			
+			if $NewDashCooldown.time_left > 0:
 				return
 		
 		if $BulletBadHurtcooldown.time_left > 0:
