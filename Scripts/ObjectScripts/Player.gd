@@ -123,11 +123,15 @@ func _physics_process(_delta):
 			velocity.y -= jump_push_force
 			
 		if in_ladder_area:
+			velocity.x /= 1.3
 			$FireParticlesBootsLeft.emitting = false
 			$FireParticlesBootsRight.emitting = false
 			climbing = true
 			
 			if !was_climbing:
+				$PlayerAnimation.play("Climbing")
+				
+			if $PlayerAnimation.animation != "Climbing":
 				$PlayerAnimation.play("Climbing")
 		
 	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0:

@@ -12,7 +12,7 @@ const ability_max = 3
 
 
 func _ready():
-	$TickerMask/Ticker.rotation = -((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60)
+	$TickerMask/Ticker.rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60)
 
 func _on_abililty_switch_timer_timeout():
 	if ability_index < ability_max:
