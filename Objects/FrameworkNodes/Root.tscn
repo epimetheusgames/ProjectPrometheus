@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbf3m5eyfx455"]
+[gd_scene load_steps=4 format=3 uid="uid://cbf3m5eyfx455"]
 
 [ext_resource type="PackedScene" uid="uid://dk8o56bdo51ex" path="res://Objects/FrameworkNodes/SaveLoadFramework.tscn" id="1_kbqhr"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="2_0worp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1rg8"]
-shader = ExtResource("2_0worp")
-shader_parameter/distortion_amm = 0.0
-shader_parameter/static_scale = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ft8a"]
 shader = ExtResource("2_0worp")
@@ -19,7 +14,6 @@ shader_parameter/static_scale = 0.0
 process_mode = 3
 
 [node name="Level" type="Node2D" parent="."]
-material = SubResource("ShaderMaterial_x1rg8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

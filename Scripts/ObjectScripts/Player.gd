@@ -214,9 +214,10 @@ func _physics_process(_delta):
 	
 	if $BulletBadHurtcooldown.time_left > 0:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 1.0
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.2
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.1
 	elif $BulletHurtCooldown.time_left > 0:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.1
 	else:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
@@ -413,7 +414,7 @@ func _on_area_2d_area_entered(area):
 		respawn_ability = area.get_parent().player_checkpoint_item
 		area.get_parent().activate()
 	if area.name == "DeathZone":
-		get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
+		get_parent().get_node("Camera/CloseAnimator").closing = true
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
@@ -421,11 +422,11 @@ func _on_area_2d_area_entered(area):
 			if area.get_parent().health <= 0:
 				return
 			
-			if $NewDashCooldown.time_left > 0:
+			if $DashStopCooldown.time_left > 0:
 				return
 		
 		if $BulletBadHurtcooldown.time_left > 0:
-			get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
+			get_parent().get_node("Camera/CloseAnimator").closing = true
 		elif $BulletHurtCooldown.time_left > 0:
 			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0
@@ -434,6 +435,9 @@ func _on_area_2d_area_entered(area):
 			$BulletHurtCooldown.start()
 			$PlayerAnimation.modulate.g = 0.8
 			$PlayerAnimation.modulate.b = 0.6
+			
+func die():
+	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 			
 func _on_player_hurtbox_area_exited(area):
 	if area.name == "LadderClimbArea":

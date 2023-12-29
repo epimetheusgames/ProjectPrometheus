@@ -1,11 +1,32 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=28 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
 [ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/DrillSpritesheet.png" id="2_sjdmu"]
+[ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/DrillTurningSpritesheet.png" id="3_0tlq6"]
 [ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/DrillBreakSpritesheet.png" id="3_1ri88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_88nda"]
 atlas = ExtResource("2_sjdmu")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxn8e"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 160, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpi8y"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 120, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlpp4"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t31lp"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_450si"]
+atlas = ExtResource("3_0tlq6")
 region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6x3s"]
@@ -16,15 +37,55 @@ region = Rect2(0, 0, 40, 40)
 atlas = ExtResource("2_sjdmu")
 region = Rect2(0, 40, 40, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nth6o"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfjeb"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uom7v"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 80, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kyt8"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 120, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qduhs"]
+atlas = ExtResource("3_0tlq6")
+region = Rect2(0, 160, 40, 40)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwq1i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_88nda")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxn8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpi8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlpp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t31lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_450si")
+}],
+"loop": false,
+"name": &"LeftToRight",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -35,6 +96,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"Moving",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nth6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfjeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uom7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kyt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qduhs")
+}],
+"loop": false,
+"name": &"RightToLeft",
 "speed": 15.0
 }]
 
@@ -90,7 +171,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpe1"]
-size = Vector2(20, 5)
+size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxb5c"]
 size = Vector2(8, 32)
@@ -107,7 +188,8 @@ script = ExtResource("1_axli8")
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 12)
 sprite_frames = SubResource("SpriteFrames_jwq1i")
-animation = &"Idle"
+animation = &"Moving"
+autoplay = "Moving"
 
 [node name="DrillBreakOverlay" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 4)
@@ -134,7 +216,7 @@ target_position = Vector2(0, 16)
 [node name="JumpHurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(22, -2.5)
+position = Vector2(22, -3)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
@@ -151,4 +233,5 @@ shape = SubResource("RectangleShape2D_dncpn")
 position = Vector2(18.5, 15.5)
 shape = SubResource("RectangleShape2D_1ihfj")
 
+[connection signal="animation_finished" from="DrillAnimation" to="." method="_on_drill_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]

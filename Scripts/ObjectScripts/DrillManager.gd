@@ -9,8 +9,12 @@ var velocity = Vector2.ZERO
 
 func _ready():
 	if direction == speed:
+		$JumpHurtBox/CollisionShape2D2.disabled = false
+		$JumpHurtBox/CollisionShape2D3.disabled = true
 		$DrillAnimation.scale.x = 1
 	elif direction == -speed:
+		$JumpHurtBox/CollisionShape2D2.disabled = true
+		$JumpHurtBox/CollisionShape2D3.disabled = false
 		$DrillAnimation.scale.x = -1
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,23 +31,23 @@ func _process(delta):
 		if left_collision != null && left_collision.name != "Player" && direction == -speed:
 			direction = speed
 			$JumpHurtBox/CollisionShape2D2.disabled = false
-			$JumpHurtBox/CollisionShape2D3.disabled = false
+			$JumpHurtBox/CollisionShape2D3.disabled = true
 			$DrillAnimation.scale.x = 1
 			$DrillBreakOverlay.scale.x = 1
+			$DrillAnimation.play("LeftToRight")
+			$DrillBreakOverlay.visible = false
+			
 		elif right_collision != null && right_collision.name != "Player" && direction == speed:
 			direction = -speed
-			$JumpHurtBox/CollisionShape2D2.disabled = false
+			$JumpHurtBox/CollisionShape2D2.disabled = true
 			$JumpHurtBox/CollisionShape2D3.disabled = false
 			$DrillAnimation.scale.x = -1
 			$DrillBreakOverlay.scale.x = -1
+			$DrillAnimation.play("LeftToRight")
+			$DrillBreakOverlay.visible = false
 		
 		if down_collision != null || down_collision_2 != null:
 			velocity.y = -0.05
-			$DrillAnimation.play("Moving")
-		elif direction != 0:
-			$DrillAnimation.play("Moving")
-		else:
-			$DrillAnimation.play("Idle")
 			
 		if health == 3:
 			$DrillBreakOverlay.play("None")
@@ -61,12 +65,13 @@ func _on_jump_hurt_box_area_entered(area):
 	var no_damage = false
 	
 	if area.name == "PlayerHurtbox" && health > 0:
-		if area.get_parent().get_node("NewDashCooldown").time_left > 0:
+		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
 			health -= 1
 			no_damage = true
 			
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
+				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 		
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5
@@ -82,3 +87,8 @@ func _on_jump_hurt_box_area_entered(area):
 		area.get_parent().jump()
 		area.get_parent().jump_vel = 4
 		area.get_parent().rocket_jump_vel = 6
+
+func _on_drill_animation_animation_finished():
+	if $DrillAnimation.animation == "LeftToRight" || $DrillAnimation.animation == "RightToLeft":
+		$DrillBreakOverlay.visible = true
+		$DrillAnimation.play("Moving")

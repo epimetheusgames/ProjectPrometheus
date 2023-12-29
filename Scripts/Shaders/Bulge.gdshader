@@ -51,8 +51,8 @@ void fragment() {
         
     uv = uv + distort(v, amount);
 	vec4 color = textureLod(screen_texture, uv, 0.0);
-	color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale;
-	color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale;
-	color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale;
+	color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale * 1.3f;
+	color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+	color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
 	COLOR = color;
 }
