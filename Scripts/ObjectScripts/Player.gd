@@ -76,7 +76,7 @@ func canJump():
 	
 func jump():
 	just_jumped = true
-	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * (1.3 if Engine.time_scale < 1 else 1)
+	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * ((1.2 if current_ability != "RocketBoost" else 1.5) if Engine.time_scale < 1 else 1)
 	$PlayerAnimation.play("StartJump")
 			
 	if current_ability == "RocketBoost":
@@ -146,7 +146,7 @@ func _physics_process(delta):
 	# Hard cap the speed to supress speed glitches.
 	if abs(velocity.x) > speed_hard_cap && !disable_speed_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
-	if abs(velocity.y) > rocket_jump_vel + 1 && !disable_speed_cap:
+	if abs(velocity.y) > (rocket_jump_vel + 1) && !disable_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# If speed cap is disabled, ignore that.
@@ -227,7 +227,7 @@ func _physics_process(delta):
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.4
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
 	else:
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.2
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")) && !dead:

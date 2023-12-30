@@ -66,7 +66,6 @@ func _on_jump_hurt_box_area_entered(area):
 	
 	if area.name == "PlayerHurtbox" && health > 0:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
-			health -= 1
 			no_damage = true
 			
 			if health == 0:
@@ -92,3 +91,12 @@ func _on_drill_animation_animation_finished():
 	if $DrillAnimation.animation == "LeftToRight" || $DrillAnimation.animation == "RightToLeft":
 		$DrillBreakOverlay.visible = true
 		$DrillAnimation.play("Moving")
+
+func _on_jump_hurt_box_allways_active_area_entered(area):
+	if area.name == "PlayerHurtbox" && health > 0:
+		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
+			health -= 1
+			
+			if health == 0:
+				area.get_parent().get_node("BulletBadHurtcooldown").stop()
+				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE

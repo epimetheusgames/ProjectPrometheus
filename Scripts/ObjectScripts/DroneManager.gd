@@ -38,13 +38,14 @@ func _ready():
 		# Disperse drones along the track.
 		if !big_drone:
 			var distance_to_first_point = $Drone.position.distance_to($DronePatrolPoints.points[0])
-			for i in range(int(len(precalculated_flight_path) / distance_to_first_point)):
-				var new_drone = duplicate()
-				new_drone.get_node("Drone").position = precalculated_flight_path[int(i * distance_to_first_point)][0]
-				new_drone.precalculated_flight_path = precalculated_flight_path
-				new_drone.flight_index = int(i * distance_to_first_point)
-				new_drone.started_path_drone = true
-				get_parent().add_child.call_deferred(new_drone)
+			for i in range(int(len(precalculated_flight_path) / (distance_to_first_point * 2))):
+				if i > 0:
+					var new_drone = duplicate()
+					new_drone.get_node("Drone").position = precalculated_flight_path[int(i * distance_to_first_point)][0]
+					new_drone.precalculated_flight_path = precalculated_flight_path
+					new_drone.flight_index = int(i * distance_to_first_point * 2)
+					new_drone.started_path_drone = true
+					get_parent().add_child.call_deferred(new_drone)
 	
 	current_line_point = 0
 	
@@ -147,7 +148,7 @@ func _on_rapid_bullet_cooldown_timeout():
 	
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
 		var player_cast = $Drone/PlayerRaycast.get_collider()
-		if player_cast == null || player_cast.name == "Player" && !big_drone:
+		if player_cast == null || player_cast.name == "Player" && !big_drone && !temp_disabled && !fly_to_correct:
 			var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 
 			if rapid_bullet_num < 2:
@@ -188,6 +189,7 @@ func _on_drone_hurtbox_area_entered(area):
 			$Drone.visible = false
 			fly_to_correct = false
 			temp_disabled = true
+			$AttackLine.visible = false
 		if area.name == "PlayerBulletHurter":
 			dead_drone.no_respawn = true
 			get_parent().call_deferred("add_child", dead_drone)
