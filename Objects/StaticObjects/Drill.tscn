@@ -140,7 +140,7 @@ size = Vector2(8, 32)
 size = Vector2(8, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ihfj"]
-size = Vector2(28, 31)
+size = Vector2(36, 31)
 
 [node name="DrillManager" type="Node2D"]
 script = ExtResource("1_axli8")
@@ -204,7 +204,7 @@ shape = SubResource("RectangleShape2D_dncpn")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(19, 15.5)
+position = Vector2(18, 15.5)
 shape = SubResource("RectangleShape2D_1ihfj")
 
 [connection signal="animation_finished" from="DrillAnimation" to="." method="_on_drill_animation_animation_finished"]

@@ -552,7 +552,7 @@ texture = SubResource("GradientTexture2D_ia288")
 lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PackedVector2Array(-8, 16, 6, 16, 6, 2, 2, 2, 2, -10, -3, -10, -3, 2, -8, 2)
+polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 2, -10, -3, -10, -8, 16)
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
