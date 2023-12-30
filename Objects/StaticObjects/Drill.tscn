@@ -29,13 +29,13 @@ region = Rect2(0, 40, 40, 40)
 atlas = ExtResource("3_0tlq6")
 region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6x3s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecvox"]
 atlas = ExtResource("2_sjdmu")
-region = Rect2(0, 0, 40, 40)
+region = Rect2(0, 0, 40, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4qgx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8wk2"]
 atlas = ExtResource("2_sjdmu")
-region = Rect2(0, 40, 40, 40)
+region = Rect2(0, 40, 40, 35)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwq1i"]
 animations = [{
@@ -69,10 +69,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s6x3s")
+"texture": SubResource("AtlasTexture_ecvox")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x4qgx")
+"texture": SubResource("AtlasTexture_s8wk2")
 }],
 "loop": true,
 "name": &"Moving",
@@ -146,9 +146,9 @@ size = Vector2(36, 31)
 script = ExtResource("1_axli8")
 
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 12)
+position = Vector2(20, 14.5)
 sprite_frames = SubResource("SpriteFrames_jwq1i")
-animation = &"LeftToRight"
+animation = &"Moving"
 autoplay = "Moving"
 
 [node name="DrillBreakOverlay" type="AnimatedSprite2D" parent="."]

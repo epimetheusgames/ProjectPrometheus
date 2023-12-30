@@ -29,7 +29,9 @@ func _process(delta):
 			$AnimDelayTimer.start()
 			get_parent().get_parent().get_node("Player").dead = true
 		
-		Engine.time_scale = 0.2
+		if Engine.time_scale > 0.3:
+			Engine.time_scale -= 0.01
+			
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("Idle")
 		$ColorRect.color.a += 0.0001 * delta * 60
 

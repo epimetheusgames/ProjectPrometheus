@@ -420,11 +420,11 @@ texture = ExtResource("13_mdxpq")
 
 [node name="DeathWaitTimer" type="Timer" parent="Camera/CloseAnimator"]
 process_mode = 3
-wait_time = 0.5
+wait_time = 0.8
 one_shot = true
 
 [node name="AnimDelayTimer" type="Timer" parent="Camera/CloseAnimator"]
-wait_time = 0.3
+wait_time = 0.8
 one_shot = true
 
 [node name="Player" type="CharacterBody2D" parent="."]

@@ -334,7 +334,9 @@ func _physics_process(delta):
 				
 			if current_ability == "Weapon":
 				$PlayerAnimation.play("InAirUpSword")
-		if velocity.y > 0 && current_ability == "RocketBoost":
+		if velocity.y > 0:
+			$FireParticlesBootsLeft.emitting = false 
+			$FireParticlesBootsRight.emitting = false 
 			$PlayerAnimation.play("InAirDown")
 				
 			if current_ability == "RocketBoost":
@@ -394,9 +396,9 @@ func _physics_process(delta):
 	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
 		$AntennaAnimation.play("Moving")
 	
-	if $BulletBadHurtcooldown.time_left > 0:
+	if $BulletBadHurtcooldown.time_left > 0 && !dead:
 		Engine.time_scale = 0.65
-	else:
+	elif !dead:
 		Engine.time_scale = 1
 	
 		

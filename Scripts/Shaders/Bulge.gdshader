@@ -3,6 +3,10 @@ shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 uniform float distortion_amm = 0.0f;
 uniform float static_scale = 0.0f;
+uniform float vignette_softness = 1.0f;
+uniform float vignette_visibleness = 1.0f;
+
+const float QUARTER_COLOR = 0.0001; // 1.0 / 1024.0
 
 vec2 distort(vec2 r, float alpha)
 {
@@ -45,14 +49,34 @@ void fragment() {
 	uv.x += 0.5f;
 	uv.y += 0.5f;
     vec2 v = (uv - vec2(.5, .5));
-    
+	
+	vec4 color = vec4(0, 0, 0, 0);
+	
+	//
+	// vignette here
+	
     //float amount = m.x;
     float amount = (sin(-distortion_amm) * .5 ) ;
         
     uv = uv + distort(v, amount);
-	vec4 color = textureLod(screen_texture, uv, 0.0);
+	color += textureLod(screen_texture, uv, 0.0);
 	color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale * 1.3f;
 	color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
 	color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+	
+	// Increase/decrease the pixel colour values slightly in a 
+	// chessboard pattern to achieve a simple dithering against banding.
+	// Assume 8-bit RGB values and offset values a bit to affect rounding.
+	if (mod(FRAGCOORD.x + FRAGCOORD.y, 2) == 1.0) {
+		color.rgb += vec3(QUARTER_COLOR);
+	} else {
+		color.rgb -= vec3(QUARTER_COLOR);
+	}
+	if (mod(FRAGCOORD.x + FRAGCOORD.y, 4) == 1.0) {
+		color.rgb += vec3(QUARTER_COLOR);
+	} else {
+		color.rgb -= vec3(QUARTER_COLOR);
+	}
+	
 	COLOR = color;
 }
