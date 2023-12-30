@@ -15,7 +15,7 @@ func _process(delta):
 		if $ColorRect.color.a < 0.8:
 			$ColorRect.color.a += 0.05
 		
-		if $BlackBarTop.scale.y > 950:
+		if $BlackBarTop.scale.y > 980:
 			$WhiteLine.visible = true 
 			$WhiteLine.scale.x -= $WhiteLine.scale.x * 0.1 * delta * 60
 			
@@ -31,7 +31,7 @@ func _process(delta):
 		
 		Engine.time_scale = 0.2
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("Idle")
-		$ColorRect.color.a += 0.0001
+		$ColorRect.color.a += 0.0001 * delta * 60
 
 func _on_death_wait_timer_timeout():
 	get_parent().get_parent().get_node("Player").die()
