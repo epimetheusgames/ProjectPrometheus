@@ -178,6 +178,7 @@ func _on_area_2d_body_exited(body):
 func _on_drone_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" && !big_drone && !temp_disabled:
 		get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
+		get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
 		var dead_drone = loaded_physics_drone.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation

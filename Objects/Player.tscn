@@ -392,21 +392,22 @@ script = ExtResource("11_opf60")
 [node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]
 self_modulate = Color(1.4, 1.4, 1.4, 1)
 offset_left = -600.0
-offset_top = -139.0
+offset_top = -218.0
 offset_right = 586.0
-offset_bottom = 142.0
+offset_bottom = 203.0
+mouse_filter = 2
 color = Color(1, 0.8, 0.8, 0)
 
 [node name="BlackBarBottom" type="Sprite2D" parent="Camera/CloseAnimator"]
 z_index = 10
 position = Vector2(1, 500)
-scale = Vector2(500, 1e-05)
+scale = Vector2(2000, 1e-05)
 texture = ExtResource("12_38xen")
 
 [node name="BlackBarTop" type="Sprite2D" parent="Camera/CloseAnimator"]
 z_index = 10
 position = Vector2(0, -500)
-scale = Vector2(500, 1e-05)
+scale = Vector2(2000, 1e-05)
 texture = ExtResource("12_38xen")
 
 [node name="WhiteLine" type="Sprite2D" parent="Camera/CloseAnimator"]

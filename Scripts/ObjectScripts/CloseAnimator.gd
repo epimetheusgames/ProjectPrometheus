@@ -6,6 +6,7 @@ var start = false
 
 func _process(delta):
 	if closing && start:
+		get_tree().paused = true
 		get_parent().get_parent().get_parent().self_modulate.r += 10
 		
 		$BlackBarTop.scale.y += (1005 - $BlackBarTop.scale.y) * 0.1 * delta * 60
@@ -14,7 +15,7 @@ func _process(delta):
 		if $ColorRect.color.a < 0.8:
 			$ColorRect.color.a += 0.05
 		
-		if $BlackBarTop.scale.y > 1000:
+		if $BlackBarTop.scale.y > 950:
 			$WhiteLine.visible = true 
 			$WhiteLine.scale.x -= $WhiteLine.scale.x * 0.1 * delta * 60
 			

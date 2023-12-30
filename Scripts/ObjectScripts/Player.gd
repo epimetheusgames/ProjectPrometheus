@@ -149,6 +149,12 @@ func _physics_process(delta):
 	if abs(velocity.y) > rocket_jump_vel + 1 && !disable_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
+	# If speed cap is disabled, ignore that.
+	if abs(velocity.x) > speed_hard_cap * 2 && disable_speed_cap:
+		velocity.x = max_speed * 2 if velocity.x > 0 else -max_speed * 2
+	if abs(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
+		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
+		
 	# Apply friction.
 	if input_velocity == 0:
 		# Don't apply friction if the player is moving.
@@ -221,7 +227,7 @@ func _physics_process(delta):
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.4
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
 	else:
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.2
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
 		
 	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")) && !dead:
