@@ -119,7 +119,7 @@ texture = ExtResource("4_hkc18")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
-[node name="Level4" type="Node2D"]
+[node name="Level6" type="Node2D"]
 script = ExtResource("1_0t4w5")
 
 [node name="Decorations" type="TileMap" parent="."]

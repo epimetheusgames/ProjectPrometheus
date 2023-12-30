@@ -149,12 +149,12 @@ shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
-[sub_resource type="Gradient" id="Gradient_r01hp"]
+[sub_resource type="Gradient" id="Gradient_g2ier"]
 offsets = PackedFloat32Array(0, 0.825301)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_duk24"]
-gradient = SubResource("Gradient_r01hp")
+gradient = SubResource("Gradient_g2ier")
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_2k2wj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=27 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_m3it6"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_hu8r7"]
@@ -134,6 +134,13 @@ size = Vector2(1542.5, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glhqo"]
 size = Vector2(88, 171)
+
+[sub_resource type="Gradient" id="Gradient_7jd0s"]
+offsets = PackedFloat32Array(0, 0.259036, 0.879518)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.650685, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fhjhb"]
+gradient = SubResource("Gradient_7jd0s")
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_m3it6")
@@ -369,6 +376,12 @@ position = Vector2(836, -384)
 
 [node name="WallTurret3" parent="." instance=ExtResource("12_28vfv")]
 position = Vector2(2121, -184)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-680.999, 118.61)
+rotation = 1.5708
+scale = Vector2(1.58675, 615.474)
+texture = SubResource("GradientTexture1D_fhjhb")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

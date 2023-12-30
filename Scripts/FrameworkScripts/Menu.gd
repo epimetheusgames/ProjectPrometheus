@@ -31,6 +31,7 @@ func _process(_delta):
 		
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value)
+	_on_spin_box_changed()
 
 func _on_button_pressed():
 	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
@@ -38,5 +39,4 @@ func _on_button_pressed():
 
 func _on_spin_box_changed():
 	var loaded_data = get_parent().load_data($SpinBox.value)
-	$SpinBox3.value = loaded_data[0]
 	$SpinBox3.max_value = loaded_data[0]
