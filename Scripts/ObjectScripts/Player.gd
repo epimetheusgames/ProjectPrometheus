@@ -440,21 +440,20 @@ func _on_area_2d_area_entered(area):
 			
 			if $DashStopCooldown.time_left > 0:
 				return
+				
+		Input.start_joy_vibration(0, 1, 1)
+		$HurtVibrationTimer.start()
 		
 		if $BulletBadHurtcooldown.time_left > 0:
 			get_parent().get_node("Camera/CloseAnimator").closing = true
 		elif $BulletHurtCooldown.time_left > 0:
-			$HurtPauseTimer.start()
 			$BulletBadHurtcooldown.start()
 			$PlayerAnimation.modulate.g = 0
 			$PlayerAnimation.modulate.b = 0
-			get_tree().paused = true
 		else:
-			$HurtPauseTimer.start()
 			$BulletHurtCooldown.start()
 			$PlayerAnimation.modulate.g = 0.8
 			$PlayerAnimation.modulate.b = 0.6
-			get_tree().paused = true
 			
 func die():
 	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
@@ -531,3 +530,6 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
+
+func _on_hurt_vibration_timer_timeout():
+	Input.stop_joy_vibration(0)

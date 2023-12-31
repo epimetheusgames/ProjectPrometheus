@@ -503,9 +503,8 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="HurtPauseTimer" type="Timer" parent="Player"]
-process_mode = 2
-wait_time = 0.3
+[node name="HurtVibrationTimer" type="Timer" parent="Player"]
+wait_time = 0.5
 one_shot = true
 
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
@@ -590,5 +589,5 @@ bus = &"SFX"
 [connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
 [connection signal="timeout" from="Player/BulletBadHurtcooldown" to="Player" method="_on_bullet_bad_hurtcooldown_timeout"]
 [connection signal="timeout" from="Player/DashStopCooldown" to="Player" method="_on_dash_stop_cooldown_timeout"]
-[connection signal="timeout" from="Player/HurtPauseTimer" to="Camera/PauseMenu" method="_on_hurt_pause_timer_timeout"]
+[connection signal="timeout" from="Player/HurtVibrationTimer" to="Player" method="_on_hurt_vibration_timer_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]
