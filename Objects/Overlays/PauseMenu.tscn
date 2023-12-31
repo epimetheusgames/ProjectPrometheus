@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbql3q4vummfw"]
+[gd_scene load_steps=6 format=3 uid="uid://dbql3q4vummfw"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/PauseMenu.gd" id="1_0l5na"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_1kp1x"]
+[ext_resource type="Texture2D" uid="uid://cnghdqiitl0fu" path="res://addons/controller_icons/assets/key/esc.png" id="3_c1oyq"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="4_cow0x"]
+[ext_resource type="Texture2D" uid="uid://bp58drjdgvxsi" path="res://addons/controller_icons/assets/key/enter_alt.png" id="5_h0c4x"]
 
 [node name="PauseMenu" type="Node2D"]
 process_mode = 3
@@ -16,17 +19,41 @@ theme = ExtResource("2_1kp1x")
 color = Color(0, 0, 0, 0.372549)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 893.0
-offset_top = 566.0
-offset_right = 979.0
-offset_bottom = 592.0
+offset_left = 872.0
+offset_top = 562.0
+offset_right = 1032.0
+offset_bottom = 588.0
 theme = ExtResource("2_1kp1x")
-text = "SPACE EXIT"
+text = "Press         to exit"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 888.0
-offset_top = 491.0
-offset_right = 1144.0
-offset_bottom = 575.0
+offset_left = 844.0
+offset_top = 516.0
+offset_right = 1100.0
+offset_bottom = 600.0
 theme = ExtResource("2_1kp1x")
-text = "ESC RESUME"
+text = "Press         to resume"
+horizontal_alignment = 1
+
+[node name="ControllerTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 930.0
+offset_top = 508.0
+offset_right = 970.0
+offset_bottom = 548.0
+texture = ExtResource("3_c1oyq")
+expand_mode = 1
+script = ExtResource("4_cow0x")
+path = "esc"
+
+[node name="ControllerTextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 930.0
+offset_top = 553.0
+offset_right = 970.0
+offset_bottom = 593.0
+texture = ExtResource("5_h0c4x")
+expand_mode = 1
+script = ExtResource("4_cow0x")
+path = "ui_accept"

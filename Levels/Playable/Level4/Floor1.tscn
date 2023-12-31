@@ -451,9 +451,9 @@ visible = false
 points = PackedVector2Array(-86, 0, -2146, 1, -2622, 29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(63.2608, -331.007)
+position = Vector2(774.866, -331.004)
 rotation = 1.5708
-scale = Vector2(1.10864, 577.003)
+scale = Vector2(1.10864, 2000.21)
 texture = SubResource("GradientTexture1D_7aq5a")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
