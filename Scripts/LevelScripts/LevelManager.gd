@@ -4,6 +4,7 @@ extends Node2D
 @export var floor = 0
 var slot = -1
 var graphics_efficiency = false
+var is_max_level = true
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

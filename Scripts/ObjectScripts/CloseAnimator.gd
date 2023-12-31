@@ -34,6 +34,8 @@ func _process(delta):
 			
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("Idle")
 		$ColorRect.color.a += 0.001 * delta * 60
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 100.0
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 1.0
 
 func _on_death_wait_timer_timeout():
 	get_parent().get_parent().get_node("Player").die()
