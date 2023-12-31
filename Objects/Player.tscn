@@ -313,7 +313,7 @@ offset_left = -487.0
 offset_top = -282.0
 offset_right = 499.0
 offset_bottom = 344.0
-color = Color(0, 0, 0, 0)
+color = Color(0.0823529, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
 offset_left = -234.0

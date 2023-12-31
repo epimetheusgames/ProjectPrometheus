@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cbgxwk0kv3r5m"]
+[gd_scene load_steps=37 format=3 uid="uid://cbgxwk0kv3r5m"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/PropTable.png" id="20_v578s"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="21_12qea"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/PropBeanCan.png" id="21_h8x5u"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="24_7b6p3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_k7tq6")
@@ -385,10 +386,6 @@ texture = ExtResource("14_dwyna")
 position = Vector2(858, -848)
 texture = ExtResource("13_3lsyc")
 
-[node name="PropTable2" type="Sprite2D" parent="."]
-position = Vector2(-1430, -208)
-texture = ExtResource("20_v578s")
-
 [node name="PropTable3" type="Sprite2D" parent="."]
 position = Vector2(-1359, -208)
 texture = ExtResource("20_v578s")
@@ -406,7 +403,7 @@ position = Vector2(-1148, -208)
 texture = ExtResource("20_v578s")
 
 [node name="PropBeanCan" type="Sprite2D" parent="."]
-position = Vector2(-1443, -214.485)
+position = Vector2(-1363, -214.5)
 texture = ExtResource("21_h8x5u")
 
 [node name="WorkerHelmetProp" type="Sprite2D" parent="."]
@@ -455,6 +452,21 @@ position = Vector2(774.866, -331.004)
 rotation = 1.5708
 scale = Vector2(1.10864, 2000.21)
 texture = SubResource("GradientTexture1D_7aq5a")
+
+[node name="ItemSwitcher" parent="." instance=ExtResource("24_7b6p3")]
+position = Vector2(-419, 16)
+item_switch_type = "RocketBoost"
+
+[node name="ItemSwitcher2" parent="." instance=ExtResource("24_7b6p3")]
+position = Vector2(-961, -208)
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher3" parent="." instance=ExtResource("24_7b6p3")]
+position = Vector2(-1430, -208)
+item_switch_type = "Grapple"
+
+[node name="ItemSwitcher4" parent="." instance=ExtResource("24_7b6p3")]
+position = Vector2(400, -496)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

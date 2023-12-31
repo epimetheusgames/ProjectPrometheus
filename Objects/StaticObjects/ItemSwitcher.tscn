@@ -10,18 +10,25 @@ size = Vector2(32, 32)
 script = ExtResource("1_fge0x")
 
 [node name="SwordCollect" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_882ot")
 
 [node name="RocketBoostCollect" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_882ot")
 
 [node name="GrappleCollect" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_882ot")
 
 [node name="ArmGunCollect" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_882ot")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Preview" type="Sprite2D" parent="."]
+texture = ExtResource("1_882ot")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="ItemSwitcherArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSwitcherArea"]
 shape = SubResource("RectangleShape2D_vk66y")

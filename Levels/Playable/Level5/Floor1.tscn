@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=28 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_m3it6"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_hu8r7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="16_lhonr"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="17_j1mro"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="17_y0hms"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="18_v0ao3"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="19_cv0ui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -382,6 +383,21 @@ position = Vector2(-680.999, 118.61)
 rotation = 1.5708
 scale = Vector2(1.58675, 615.474)
 texture = SubResource("GradientTexture1D_fhjhb")
+
+[node name="ItemSwitcher" parent="." instance=ExtResource("18_v0ao3")]
+position = Vector2(616, 16)
+item_switch_type = "RocketBoost"
+
+[node name="ItemSwitcher2" parent="." instance=ExtResource("18_v0ao3")]
+position = Vector2(960, -112)
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher3" parent="." instance=ExtResource("18_v0ao3")]
+position = Vector2(1580, -112)
+item_switch_type = "Grapple"
+
+[node name="ItemSwitcher4" parent="." instance=ExtResource("18_v0ao3")]
+position = Vector2(2047, -304)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

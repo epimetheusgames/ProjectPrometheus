@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=24 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="14_ij2cn"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/PropBeanCan.png" id="15_wl6fd"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/PropTable.png" id="16_46u4n"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_dnrg7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_s7twi")
@@ -271,6 +272,14 @@ stream = ExtResource("8_845lg")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
+
+[node name="ItemSwitcher" parent="." instance=ExtResource("17_dnrg7")]
+position = Vector2(593, -207)
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher2" parent="." instance=ExtResource("17_dnrg7")]
+position = Vector2(457, -80)
+item_switch_type = "RocketBoost"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

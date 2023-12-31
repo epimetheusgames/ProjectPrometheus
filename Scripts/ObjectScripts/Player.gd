@@ -226,7 +226,7 @@ func _physics_process(delta):
 	elif $BulletHurtCooldown.time_left > 0:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.4
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
-	else:
+	elif get_parent().get_node("Camera").get_node("AbillityManager").get_node("AbilitySwitchTimer").time_left > 5:
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
 		
@@ -420,6 +420,17 @@ func _physics_process(delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	if area.name == "ItemSwitcherArea":
+		var switch_ability = area.get_parent().item_switch_type
+		if current_ability == "Weapon" && switch_ability == "RocketBoost":
+			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+		if current_ability == "RocketBoost" && switch_ability == "ArmGun":
+			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+		if current_ability == "ArmGun" && switch_ability == "Grapple":
+			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+		if current_ability == "Grapple" && switch_ability == "Weapon":
+			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+	
 	if area.name == "LadderClimbArea":
 		if in_ladder_area:
 			in_second_ladder_area = true
