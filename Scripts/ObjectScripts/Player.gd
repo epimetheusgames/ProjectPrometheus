@@ -396,9 +396,9 @@ func _physics_process(delta):
 	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
 		$AntennaAnimation.play("Moving")
 	
-	if $BulletBadHurtcooldown.time_left > 0 && !dead:
+	if $BulletBadHurtcooldown.time_left > 0 && !dead && $HurtVibrationTimer.time_left == 0:
 		Engine.time_scale = 0.65
-	elif !dead:
+	elif !dead && $HurtVibrationTimer.time_left == 0:
 		Engine.time_scale = 1
 	
 		
@@ -442,6 +442,7 @@ func _on_area_2d_area_entered(area):
 				return
 				
 		Input.start_joy_vibration(0, 1, 1)
+		Engine.time_scale = 0.6
 		$HurtVibrationTimer.start()
 		
 		if $BulletBadHurtcooldown.time_left > 0:
@@ -532,4 +533,5 @@ func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
 
 func _on_hurt_vibration_timer_timeout():
+	Engine.time_scale = 1
 	Input.stop_joy_vibration(0)

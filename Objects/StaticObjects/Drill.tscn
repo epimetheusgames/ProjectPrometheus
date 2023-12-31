@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=22 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
 [ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/DrillSpritesheet.png" id="2_sjdmu"]
@@ -139,9 +139,6 @@ size = Vector2(8, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dncpn"]
 size = Vector2(8, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ihfj"]
-size = Vector2(36, 31)
-
 [node name="DrillManager" type="Node2D"]
 script = ExtResource("1_axli8")
 
@@ -159,7 +156,7 @@ animation = &"Break3"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(16, 16)
-target_position = Vector2(-24, 0)
+target_position = Vector2(-20, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(16, 16)
@@ -203,9 +200,8 @@ shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(18, 15.5)
-shape = SubResource("RectangleShape2D_1ihfj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(38, 32, 38, 10, 27, -1, 14, -1, 2, 10, 2, 32)
 
 [connection signal="animation_finished" from="DrillAnimation" to="." method="_on_drill_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]

@@ -504,7 +504,8 @@ wait_time = 0.5
 one_shot = true
 
 [node name="HurtVibrationTimer" type="Timer" parent="Player"]
-wait_time = 0.5
+process_mode = 3
+wait_time = 0.2
 one_shot = true
 
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]

@@ -24,7 +24,7 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_down"):
 		get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
-		get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed)
+		get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0)
 		
 	if Input.is_action_just_pressed("ui_up"):
 		get_tree().quit()
@@ -35,7 +35,7 @@ func _process(_delta):
 
 func _on_button_pressed():
 	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
-	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value, 0)
+	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0)
 
 func _on_spin_box_changed():
 	var loaded_data = get_parent().load_data($SpinBox.value)

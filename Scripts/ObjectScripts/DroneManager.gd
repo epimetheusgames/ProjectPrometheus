@@ -134,6 +134,8 @@ func _process(delta):
 			
 			$AttackLine.visible = false
 			player_previous_ability = "NoDistance"
+	elif !big_drone:
+		$AttackLine.visible = false
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
