@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dn087ulv26701"]
+
+[node name="ItemSwitcher" type="Node2D"]
+
+[node name="SwordCollect" type="Sprite2D" parent="."]
+
+[node name="RocketBoostCollect" type="Sprite2D" parent="."]
+
+[node name="GrappleCollect" type="Sprite2D" parent="."]
+
+[node name="ArmGunCollect" type="Sprite2D" parent="."]

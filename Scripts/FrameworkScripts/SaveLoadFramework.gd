@@ -148,4 +148,4 @@ func exit_to_menu(level, floor, slot, is_max_level):
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null):
 	exit_to_menu(current_level, current_floor, slot, is_max_level)
 	save_data(switch_level, switch_floor, slot)
-	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, level, floor)
+	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor)

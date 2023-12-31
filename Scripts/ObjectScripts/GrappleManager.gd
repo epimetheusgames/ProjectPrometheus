@@ -50,6 +50,10 @@ func _physics_process(delta):
 			# This uses math that is way over my head. Literally magic.
 			var radius = get_parent().position - hook.position
 			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
+			
+			if Input.is_action_pressed("jump"):
+				angle -= 0.35
+			
 			var rad_vel = cos(angle) * get_parent().velocity.length()
 			get_parent().velocity += radius.normalized() * -rad_vel
 			# End code I did not make.
