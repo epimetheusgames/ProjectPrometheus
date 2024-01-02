@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=31 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="18_7xqa3"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/PropBeanCan.png" id="19_0na5i"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="20_8cmn7"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="21_wdqbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_s7twi")
@@ -443,6 +444,18 @@ stream = ExtResource("20_8cmn7")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
+
+[node name="ItemSwitcher" parent="." instance=ExtResource("21_wdqbd")]
+position = Vector2(-281, -25)
+item_switch_type = "RocketBoost"
+
+[node name="ItemSwitcher2" parent="." instance=ExtResource("21_wdqbd")]
+position = Vector2(464, -336)
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher3" parent="." instance=ExtResource("21_wdqbd")]
+position = Vector2(720, -336)
+item_switch_type = "Grapple"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

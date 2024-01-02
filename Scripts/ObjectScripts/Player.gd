@@ -61,10 +61,10 @@ func getInputVelocity(can_jump):
 		if !can_jump:
 			max_movement_speed = max_air_speed
 		
-		if abs(velocity.x) < max_movement_speed:
+		if absf(velocity.x) < max_movement_speed:
 			return input_direction * speed
 			
-		return (abs(velocity.x) - max_movement_speed) * -input_direction
+		return (absf(velocity.x) - max_movement_speed) * -input_direction
 	
 	return 0
 	
@@ -144,21 +144,21 @@ func _physics_process(delta):
 		velocity.x = previous_direction * 5
 		
 	# Hard cap the speed to supress speed glitches.
-	if abs(velocity.x) > speed_hard_cap && !disable_speed_cap:
+	if absf(velocity.x) > speed_hard_cap && !disable_speed_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
-	if abs(velocity.y) > (rocket_jump_vel + 1) && !disable_speed_cap:
+	if absf(velocity.y) > (rocket_jump_vel + 1) && !disable_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# If speed cap is disabled, ignore that.
-	if abs(velocity.x) > speed_hard_cap * 2 && disable_speed_cap:
+	if absf(velocity.x) > speed_hard_cap * 2 && disable_speed_cap:
 		velocity.x = max_speed * 2 if velocity.x > 0 else -max_speed * 2
-	if abs(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
+	if absf(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
 		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
 		
 	# Apply friction.
 	if input_velocity == 0:
 		# Don't apply friction if the player is moving.
-		if can_jump && (abs(velocity.x) != max_speed && Input.get_axis("left", "right") == 0):
+		if can_jump && (absf(velocity.x) != max_speed && Input.get_axis("left", "right") == 0):
 			velocity.x /= friction_force
 		else:
 			velocity.x /= air_friction_force
@@ -173,12 +173,15 @@ func _physics_process(delta):
 	# Collisions.
 	move_and_slide()
 	
-	if get_parent().get_node("MetalWalkBoots1").playing && !current_ability == "RocketBoost":
-		get_parent().get_node("MetalWalk1").play()
-		get_parent().get_node("MetalWalkBoots1").stop()
-	if get_parent().get_node("MetalWalk1").playing && current_ability == "RocketBoost":
-		get_parent().get_node("MetalWalkBoots1").play()
-		get_parent().get_node("MetalWalk1").stop()
+	var metal_walk_boots_1 = get_parent().get_node("MetalWalkBoots1")
+	var metal_walk_1 = get_parent().get_node("MetalWalk1")
+	
+	if metal_walk_boots_1.playing && !current_ability == "RocketBoost":
+		metal_walk_1.play()
+		metal_walk_boots_1.stop()
+	if metal_walk_1.playing && current_ability == "RocketBoost":
+		metal_walk_boots_1.play()
+		metal_walk_1.stop()
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -193,47 +196,52 @@ func _physics_process(delta):
 				if collision.get_collider().name == "Ingame":
 					play_metal_walk = true
 					
-					if get_parent().get_node("MetalWalk1").volume_db < 7:
-						get_parent().get_node("MetalWalk1").volume_db += 1
+					if metal_walk_1.volume_db < 7:
+						metal_walk_1.volume_db += 1
 						get_parent().get_node("MetalWalk2").volume_db += 1
-					if get_parent().get_node("MetalWalkBoots1").volume_db < 2:
-						get_parent().get_node("MetalWalkBoots1").volume_db += 0.5
+					if metal_walk_boots_1.volume_db < 2:
+						metal_walk_boots_1.volume_db += 0.5
 						
-						if get_parent().get_node("MetalWalkBoots1").volume_db < -8:
-							get_parent().get_node("MetalWalkBoots1").volume_db = -8
+						if metal_walk_boots_1.volume_db < -8:
+							metal_walk_boots_1.volume_db = -8
 					
-					if get_parent().get_node("MetalWalk1").playing == false && get_parent().get_node("MetalWalk2").playing == false && get_parent().get_node("MetalWalkBoots1").playing == false:
+					if metal_walk_1.playing == false && get_parent().get_node("MetalWalk2").playing == false && metal_walk_boots_1.playing == false:
 						if current_ability == "RocketBoost":
-							get_parent().get_node("MetalWalkBoots1").play()
+							metal_walk_boots_1.play()
 						else: 
-							get_parent().get_node("MetalWalk1").play()
+							metal_walk_1.play()
 		
 		if !play_metal_walk:
-			if get_parent().get_node("MetalWalk1").volume_db > -20:
-				get_parent().get_node("MetalWalk1").volume_db -= 1
+			if metal_walk_1.volume_db > -20:
+				metal_walk_1.volume_db -= 1
 				get_parent().get_node("MetalWalk2").volume_db -= 1
-				get_parent().get_node("MetalWalkBoots1").volume_db -= 1
+				metal_walk_boots_1.volume_db -= 1
 	
 	if !can_jump:
-		if get_parent().get_node("MetalWalk1").volume_db > -20:
-			get_parent().get_node("MetalWalk1").volume_db -= 1
-			get_parent().get_node("MetalWalk2").volume_db -= 1
-			get_parent().get_node("MetalWalkBoots1").volume_db -= 1
+		if metal_walk_1.volume_db > -20:
+			metal_walk_1.volume_db -= 1
+			metal_walk_1.volume_db -= 1
+			metal_walk_boots_1.volume_db -= 1
+			
+	var save_load_framework = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework")
 	
 	if $BulletBadHurtcooldown.time_left > 0:
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 1.0
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.1
+		save_load_framework.bulge_amm = 1.0
+		save_load_framework.static_amm = 0.1
 	elif $BulletHurtCooldown.time_left > 0:
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0.4
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.05
-	elif get_parent().get_node("Camera").get_node("AbillityManager").get_node("AbilitySwitchTimer").time_left > 5:
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 0
-		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0
+		save_load_framework.bulge_amm = 0.4
+		save_load_framework.static_amm = 0.05
+	elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
+		save_load_framework.bulge_amm = 0
+		save_load_framework.static_amm = 0
 		
-	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")) && !dead:
+	var left_pressed = Input.is_action_pressed("left")
+	var right_pressed = Input.is_action_pressed("right")
+		
+	if !(left_pressed && right_pressed) && !dead:
 		
 		# Set player to be in the direction that it's moving.
-		if Input.is_action_pressed("left"):
+		if left_pressed:
 			$PlayerAnimation.scale.x = -1
 			$AntennaAnimation.scale.x = -1
 			
@@ -250,7 +258,7 @@ func _physics_process(delta):
 				else:
 					$PlayerAnimation.play("SwitchDirections")
 					
-		elif Input.is_action_pressed("right"):
+		elif right_pressed:
 			$PlayerAnimation.scale.x = 1
 			$AntennaAnimation.scale.x = 1
 			if !get_parent().graphics_efficiency:
@@ -311,8 +319,8 @@ func _physics_process(delta):
 		
 	# Play start walk animation when left or right is pressed.
 	var direction_just_pressed = Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right")
-	var direction_pressed = Input.is_action_pressed("left") || Input.is_action_pressed("right")
-	var both_pressed = Input.is_action_pressed("left") && Input.is_action_pressed("right")
+	var direction_pressed = left_pressed || right_pressed
+	var both_pressed = left_pressed && right_pressed
 	if (direction_just_pressed && !both_pressed && ($PlayerAnimation.animation != "SwitchDirections" &&
 		$PlayerAnimation.animation != "SwitchDirectionsRockets" &&
 		$PlayerAnimation.animation != "SwitchDirectionsSword")) && !dead:
@@ -392,7 +400,7 @@ func _physics_process(delta):
 	# If the antenna animation stops moving but a direction is still pressed,
 	# (e.g. the player is still moving), presumably because the player turned
 	# around, set the animation back to moving, else it would have to complete
-	# the entire EndMoving animation before going back. In the future, maybe 
+	# the entire EndMoving animation before going back. 
 	if $AntennaAnimation.animation == "EndMoving" && direction_pressed && !(velocity.x > -0.5 && velocity.x < 0.5):
 		$AntennaAnimation.play("Moving")
 	
@@ -412,24 +420,25 @@ func _physics_process(delta):
 	else:
 		could_jump = false
 		
-	if !(Input.is_action_pressed("left") && Input.is_action_pressed("right")):
-		if Input.is_action_pressed("left"):
+	if !(left_pressed && right_pressed):
+		if left_pressed:
 			previous_direction = -1
-		elif Input.is_action_pressed("right"):
+		elif right_pressed:
 			previous_direction = 1
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
 	if area.name == "ItemSwitcherArea":
+		var ability_manager = get_parent().get_node("Camera").get_node("AbilityManager")
 		var switch_ability = area.get_parent().item_switch_type
 		if current_ability == "Weapon" && switch_ability == "RocketBoost":
-			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+			ability_manager.next_ability()
 		if current_ability == "RocketBoost" && switch_ability == "ArmGun":
-			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+			ability_manager.next_ability()
 		if current_ability == "ArmGun" && switch_ability == "Grapple":
-			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+			ability_manager.next_ability()
 		if current_ability == "Grapple" && switch_ability == "Weapon":
-			get_parent().get_node("Camera").get_node("AbilityManager").next_ability()
+			ability_manager.next_ability()
 	
 	if area.name == "LadderClimbArea":
 		if in_ladder_area:

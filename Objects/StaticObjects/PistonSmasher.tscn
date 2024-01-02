@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://7gkuoslfisye"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PistonSmasher.gd" id="1_4pgxl"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_y2klk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khl2o"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11uqa"]
+size = Vector2(64, 128)
+
+[node name="PistonSmasher" type="CharacterBody2D"]
+script = ExtResource("1_4pgxl")
+
+[node name="SmasherSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 4)
+texture = ExtResource("1_y2klk")
+
+[node name="SmasherCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_khl2o")
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_11uqa")
+
+[node name="SmashTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="SmashTimer" to="." method="_on_smash_timer_timeout"]

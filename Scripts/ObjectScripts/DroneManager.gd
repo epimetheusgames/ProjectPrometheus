@@ -13,6 +13,7 @@ var started_path_drone = false
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
+@onready var calc_close_to_checkpoint = false
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
@@ -33,7 +34,7 @@ func _ready():
 			if finished == "finished":
 				break
 			
-			precalculated_flight_path.append([flight_position, flight_rotation])
+			precalculated_flight_path.append([flight_position, flight_rotation, calc_close_to_checkpoint])
 			
 		# Disperse drones along the track.
 		if !big_drone:
@@ -60,8 +61,10 @@ func calculate_flight_frame():
 								
 	flight_position += movement_velocity * speed
 	flight_rotation = movement_velocity.x / (3 if !big_drone else 15)
+	calc_close_to_checkpoint = false
 	
 	if flight_position.distance_to($DronePatrolPoints.points[current_line_point]) < 30:
+		calc_close_to_checkpoint = true
 		if current_line_point < $DronePatrolPoints.points.size() - 1:
 			current_line_point += 1
 		else:
@@ -69,30 +72,26 @@ func calculate_flight_frame():
 
 func _process(delta):
 	var player = get_parent().get_node("Player").get_node("Player")
-	
-	if !big_drone:
-		var direction_to_player = (player.position - (position + $Drone.position)).normalized()
-		var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y)
-		$Drone/Turret.rotation = direction_to_player_radians - $Drone.rotation
+	var current_pos_data = precalculated_flight_path[int(flight_index - 1)]
 	
 	if int(flight_index) >= len(precalculated_flight_path):
 		queue_free()
 	else:
 		if !fly_to_correct:
-			$Drone.position = precalculated_flight_path[int(flight_index)][0]
-			$Drone.rotation = precalculated_flight_path[int(flight_index)][1]
+			$Drone.position = current_pos_data[0]
+			$Drone.rotation = current_pos_data[1]
 		else:
 			temp_disabled = false
 			$Drone.visible = true
-			$Drone.position += (precalculated_flight_path[int(flight_index)][0] - $Drone.position).normalized() * speed
+			$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed
 			$Drone.rotation -= $Drone.rotation * 0.1
 			
-			if $Drone.position.distance_to(precalculated_flight_path[int(flight_index)][0]) < 3:
+			if $Drone.position.distance_to(current_pos_data[0]) < 3:
 				fly_to_correct = false
 		
 		flight_index += delta * 60
 	
-	if $Drone.position.distance_to($DronePatrolPoints.points[current_line_point]) < 30:
+	if current_pos_data[2]:
 		if current_line_point < $DronePatrolPoints.points.size() - 1:
 			current_line_point += 1
 			

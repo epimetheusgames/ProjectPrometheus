@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cbgxwk0kv3r5m"]
+[gd_scene load_steps=38 format=3 uid="uid://cbgxwk0kv3r5m"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="21_12qea"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/PropBeanCan.png" id="21_h8x5u"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="24_7b6p3"]
+[ext_resource type="AudioStream" uid="uid://diqrmekexoo2x" path="res://Assets/Audio/Voicelines/Voiceline1.mp3" id="25_agg1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_k7tq6")
@@ -467,6 +468,12 @@ item_switch_type = "Grapple"
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("24_7b6p3")]
 position = Vector2(400, -496)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_agg1x")
+volume_db = 7.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

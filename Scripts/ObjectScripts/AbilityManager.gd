@@ -29,6 +29,7 @@ func _process(delta):
 	
 	if $AbililtySwitchTimer.time_left < 10:
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
+		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1
 
