@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=23 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -8,7 +8,6 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="4_xwy4g"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_kr20f"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="8_845lg"]
 [ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="9_idwtj"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_kyova"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="11_l3x5j"]
@@ -208,7 +207,6 @@ position = Vector2(1242, -48)
 shape = SubResource("RectangleShape2D_24ive")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_845lg")
 volume_db = -8.69
 autoplay = true
 
@@ -268,7 +266,6 @@ position = Vector2(528, -207)
 texture = ExtResource("16_46u4n")
 
 [node name="AmbiantBackground2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_845lg")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"

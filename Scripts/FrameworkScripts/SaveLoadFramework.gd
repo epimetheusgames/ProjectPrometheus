@@ -38,8 +38,8 @@ var static_amm = 0.0
 var real_static = 0.0
 
 func _process(delta):
-	real_bulge += (bulge_amm - real_bulge) * 0.01
-	real_static += (static_amm - real_static) * 0.05
+	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
+	real_static += (static_amm - real_static) * 0.05 * delta * 60
 	
 	if len(get_children()) > 1:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", 0.0)

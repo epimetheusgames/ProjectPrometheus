@@ -111,8 +111,9 @@ func _process(delta):
 			new_drone.get_node("AttackLine").points[0] = Vector2.ZERO
 			new_drone.get_node("AttackLine").points[1] = Vector2.ZERO
 			get_parent().add_child(new_drone)
-
+			
 	if !big_drone && is_close_to_player && !temp_disabled:
+		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle()
 		$Drone/PlayerRaycast.target_position = player.position - position - $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		var player_cast = $Drone/PlayerRaycast.get_collider()
@@ -127,7 +128,7 @@ func _process(delta):
 			
 			if player_cast == null || player_cast.name == "Player":
 				$AttackLine.visible = true
-				$AttackLine.points[1] = (player.position - position)
+				$AttackLine.points[1] += (player.position - position)
 			else:
 				$AttackLine.points[1] = ($Drone/PlayerRaycast.get_collision_point() - position)
 			

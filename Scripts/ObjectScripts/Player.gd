@@ -4,6 +4,7 @@ extends CharacterBody2D
 var speed = 0.2
 var jump_vel = 4
 var rocket_jump_vel = 6
+var max_jump_speed_rocket = 8
 var gravity = 0.5
 var gravity_low = 0.03
 var friction_force = 1.2
@@ -76,7 +77,7 @@ func canJump():
 	
 func jump():
 	just_jumped = true
-	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * ((1.2 if current_ability != "RocketBoost" else 1.5) if Engine.time_scale < 1 else 1)
+	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * (1.2 if Engine.time_scale < 1 else 1)
 	$PlayerAnimation.play("StartJump")
 			
 	if current_ability == "RocketBoost":
@@ -146,7 +147,7 @@ func _physics_process(delta):
 	# Hard cap the speed to supress speed glitches.
 	if absf(velocity.x) > speed_hard_cap && !disable_speed_cap:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
-	if absf(velocity.y) > (rocket_jump_vel + 1) && !disable_speed_cap:
+	if absf(velocity.y) > (max_jump_speed_rocket + 1) && !disable_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# If speed cap is disabled, ignore that.

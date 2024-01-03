@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=27 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_m3it6"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_hu8r7"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="6_gh3jl"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="7_5qb2n"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="8_q8hbx"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_0d7hp"]
 [ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="10_t0ukj"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="12_28vfv"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="15_0r3sj"]
@@ -219,7 +218,6 @@ position = Vector2(34, -168.5)
 shape = SubResource("RectangleShape2D_glhqo")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_0d7hp")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"

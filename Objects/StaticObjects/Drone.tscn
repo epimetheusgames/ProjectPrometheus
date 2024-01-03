@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=22 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
@@ -110,9 +110,6 @@ width = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp6ji"]
 size = Vector2(4, 2)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jc72"]
-size = Vector2(18, 7)
-
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
@@ -161,13 +158,6 @@ shape = SubResource("RectangleShape2D_cp6ji")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Drone/DroneHurtbox"]
 polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
-
-[node name="DroneHitbox" type="CharacterBody2D" parent="Drone"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone/DroneHitbox"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_4jc72")
-disabled = true
 
 [node name="Turret" type="Sprite2D" parent="Drone"]
 position = Vector2(0, 1)

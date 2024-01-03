@@ -61,7 +61,7 @@ colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_0awkx")
 width = 1
 
-[node name="DroneManager" type="Node2D"]
+[node name="DroneManager2" type="Node2D"]
 script = ExtResource("1_fhp4c")
 big_drone = true
 speed = 0.3
