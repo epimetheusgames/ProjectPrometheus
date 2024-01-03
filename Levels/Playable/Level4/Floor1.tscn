@@ -314,8 +314,7 @@ position = Vector2(-279, -280)
 position = Vector2(-1541, -681)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="1"]
-visible = false
-points = PackedVector2Array(-1, 172, 80, 371, 310, 376, 312, -85)
+points = PackedVector2Array(7, 140, 107, 376, 310, 376, 312, -85)
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_tou6m")]
 position = Vector2(-1113, -476)
@@ -445,8 +444,7 @@ position = Vector2(-823, -280)
 position = Vector2(844, 146)
 
 [node name="DronePatrolPoints" parent="DroneManager2" index="1"]
-visible = false
-points = PackedVector2Array(-86, 0, -2146, 1, -2622, 29)
+points = PackedVector2Array(-121, 3, -2146, 1, -2622, 29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(774.866, -331.004)

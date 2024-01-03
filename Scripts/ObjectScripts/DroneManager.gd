@@ -10,6 +10,7 @@ var flight_index = 0
 var fly_to_correct = false
 var temp_disabled = false
 var started_path_drone = false
+var flight_path_length = 0
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -17,6 +18,9 @@ var started_path_drone = false
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
+@onready var player = get_parent().get_node("Player").get_node("Player")
+@onready var patrol_points_size = $DronePatrolPoints.points.size()
+
 @export var velocity_smoothing = 0.01
 @export var big_drone = false
 @export var speed = 1.0
@@ -50,6 +54,8 @@ func _ready():
 	
 	current_line_point = 0
 	
+	flight_path_length = len(precalculated_flight_path)
+	
 	if graphics_efficiency:
 		$Drone/GPUParticles2D.queue_free()
 		
@@ -71,39 +77,42 @@ func calculate_flight_frame():
 			return "finished"
 
 func _process(delta):
-	var player = get_parent().get_node("Player").get_node("Player")
-	var current_pos_data = precalculated_flight_path[int(flight_index - 1)]
+	var flight_index_int = int(flight_index) - 1
+	var is_close_to_player = $Drone.position.distance_to(player.position) < 250
 	
-	if int(flight_index) >= len(precalculated_flight_path):
+	if flight_index_int >= flight_path_length:
 		queue_free()
-	else:
-		if !fly_to_correct:
-			$Drone.position = current_pos_data[0]
-			$Drone.rotation = current_pos_data[1]
-		else:
-			temp_disabled = false
-			$Drone.visible = true
-			$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed
-			$Drone.rotation -= $Drone.rotation * 0.1
-			
-			if $Drone.position.distance_to(current_pos_data[0]) < 3:
-				fly_to_correct = false
-		
-		flight_index += delta * 60
+		return
 	
-	if current_pos_data[2]:
-		if current_line_point < $DronePatrolPoints.points.size() - 1:
-			current_line_point += 1
-			
-			if current_line_point == 1 && !big_drone && !started_path_drone:
-				var new_drone = duplicate()
-				new_drone.get_node("Drone").position = Vector2.ZERO
-				new_drone.precalculated_flight_path = precalculated_flight_path
-				new_drone.get_node("AttackLine").points[0] = Vector2.ZERO
-				new_drone.get_node("AttackLine").points[1] = Vector2.ZERO
-				get_parent().add_child(new_drone)
+	var current_pos_data = precalculated_flight_path[flight_index_int]
+	
+	if !fly_to_correct:
+		$Drone.position = current_pos_data[0]
+		$Drone.rotation = current_pos_data[1]
+	else:
+		temp_disabled = false
+		$Drone.visible = true
+		$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed
+		$Drone.rotation -= $Drone.rotation * 0.1
+		
+		# This distance call is okay because only one or two drones should be in fly_to_correct at one time.
+		if $Drone.position.distance_to(current_pos_data[0]) < 3:
+			fly_to_correct = false
+	
+	flight_index += delta * 60
+	
+	if current_pos_data[2] && current_line_point < patrol_points_size - 1:
+		current_line_point += 1
+		
+		if current_line_point == 1 && !big_drone && !started_path_drone:
+			var new_drone = duplicate()
+			new_drone.get_node("Drone").position = Vector2.ZERO
+			new_drone.precalculated_flight_path = precalculated_flight_path
+			new_drone.get_node("AttackLine").points[0] = Vector2.ZERO
+			new_drone.get_node("AttackLine").points[1] = Vector2.ZERO
+			get_parent().add_child(new_drone)
 
-	if !big_drone && $Drone/VisibleOnScreenNotifier2D.is_on_screen() && !temp_disabled:
+	if !big_drone && is_close_to_player && !temp_disabled:
 		$Drone/PlayerRaycast.target_position = player.position - position - $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		var player_cast = $Drone/PlayerRaycast.get_collider()
@@ -140,13 +149,10 @@ func _process(delta):
 		$BulletCooldown.start()
 		
 func _on_bullet_cooldown_timeout():
-	var player = get_parent().get_node("Player").get_node("Player")
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun"):
 		$RapidBulletCooldown.start()
 
 func _on_rapid_bullet_cooldown_timeout():
-	var player = get_parent().get_node("Player").get_node("Player")
-	
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
 		var player_cast = $Drone/PlayerRaycast.get_collider()
 		if player_cast == null || player_cast.name == "Player" && !big_drone && !temp_disabled && !fly_to_correct:

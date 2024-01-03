@@ -103,6 +103,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
 	level_loaded.slot = slot
+	level_loaded.level = current_level
+	level_loaded.floor = level_floor
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	
