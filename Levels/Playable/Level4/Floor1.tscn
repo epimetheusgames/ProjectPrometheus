@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_lb0sn"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_tppji"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_bxd2n"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="11_av7gl"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_av7gl"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="12_3rx5p"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_fcqti"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="13_3lsyc"]

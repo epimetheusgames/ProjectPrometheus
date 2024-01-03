@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/PropTable.png" id="16_sipsx"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="18_7xqa3"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/PropBeanCan.png" id="19_0na5i"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="20_8cmn7"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="20_8cmn7"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="21_wdqbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]

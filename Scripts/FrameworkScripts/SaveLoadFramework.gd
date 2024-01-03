@@ -6,7 +6,7 @@ extends Node2D
 
 const preloaded_levels = [
 	[
-		preload("res://Levels/Playable/Level4/Floor1.tscn"),
+		preload("res://Levels/Playable/Level7/Floor1.tscn"),
 	],
 	[
 		preload("res://Levels/Playable/Level5/Floor1.tscn"),
@@ -23,7 +23,7 @@ const preloaded_levels = [
 ]
 
 const level_node_names = [
-	["Level4",],
+	["Level7",],
 	["Level5",],
 	["Level1",],
 	["Level3",],

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_1lub2"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="6_pm7tb"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_nkvx3"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbiantBackground1.wav" id="9_6biff"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_6biff"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="11_n8qbk"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="12_f4x6s"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="13_w48jd"]
