@@ -537,7 +537,7 @@ position = Vector2(-3661, -784)
 item_switch_type = "Grapple"
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("22_oqfep")]
-position = Vector2(-3827, -1456)
+position = Vector2(-4047, -1328)
 
 [node name="ItemSwitcher5" parent="." instance=ExtResource("22_oqfep")]
 position = Vector2(-1520, -1488)
