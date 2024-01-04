@@ -428,7 +428,7 @@ wait_time = 0.8
 one_shot = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
-z_index = 4
+z_index = 20
 script = ExtResource("2_7fkxw")
 
 [node name="ArmGunManager" type="Node2D" parent="Player"]
@@ -553,6 +553,13 @@ lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 2, -10, -3, -10, -8, 16)
+
+[node name="PlayerAccurateCollider" type="StaticBody2D" parent="Player"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/PlayerAccurateCollider"]
+polygon = PackedVector2Array(-7, 14, -8, 13, -8, 10, -6, 10, -8, 7, -11, 7, -11, -3, -6, -6, -6, -13, 5, -13, 5, -3, 3, 9, 3, 16, -4, 16)
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")

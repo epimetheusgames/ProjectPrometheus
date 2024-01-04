@@ -124,9 +124,6 @@ width = 2.0
 
 [node name="Drone" type="Node2D" parent="."]
 
-[node name="PlayerRaycast" type="RayCast2D" parent="Drone"]
-target_position = Vector2(0, 49)
-
 [node name="DroneSpritesheet" type="AnimatedSprite2D" parent="Drone"]
 sprite_frames = SubResource("SpriteFrames_okakp")
 animation = &"Idle"
@@ -189,6 +186,10 @@ bus = &"SFX"
 [node name="TargetLost" type="AudioStreamPlayer" parent="."]
 volume_db = 1.0
 bus = &"SFX"
+
+[node name="PlayerRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 49)
+collision_mask = 9
 
 [connection signal="body_entered" from="Drone/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drone/Area2D" to="." method="_on_area_2d_body_exited"]

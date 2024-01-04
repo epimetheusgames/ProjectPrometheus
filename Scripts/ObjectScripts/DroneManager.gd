@@ -11,6 +11,7 @@ var fly_to_correct = false
 var temp_disabled = false
 var started_path_drone = false
 var flight_path_length = 0
+var player_follower_position = Vector2.ZERO
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -24,6 +25,8 @@ var flight_path_length = 0
 @export var velocity_smoothing = 0.01
 @export var big_drone = false
 @export var speed = 1.0
+
+const ninety_deg_rad = deg_to_rad(90)
 
 func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
@@ -78,7 +81,7 @@ func calculate_flight_frame():
 
 func _process(delta):
 	var flight_index_int = int(flight_index) - 1
-	var is_close_to_player = $Drone.position.distance_to(player.position) < 250
+	var is_close_to_player = ($Drone.position + position).distance_to(player.position) < 250
 	
 	if flight_index_int >= flight_path_length:
 		queue_free()
@@ -92,8 +95,8 @@ func _process(delta):
 	else:
 		temp_disabled = false
 		$Drone.visible = true
-		$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed
-		$Drone.rotation -= $Drone.rotation * 0.1
+		$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed * delta * 60
+		$Drone.rotation -= $Drone.rotation * 0.1 * delta * 60
 		
 		# This distance call is okay because only one or two drones should be in fly_to_correct at one time.
 		if $Drone.position.distance_to(current_pos_data[0]) < 3:
@@ -113,11 +116,15 @@ func _process(delta):
 			get_parent().add_child(new_drone)
 			
 	if !big_drone && is_close_to_player && !temp_disabled:
-		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle()
-		$Drone/PlayerRaycast.target_position = player.position - position - $Drone.position
+		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
+		player_follower_position += (player.position - player_follower_position) * 0.02
+		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 1000
+		
+		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
-		var player_cast = $Drone/PlayerRaycast.get_collider()
-		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
+		
+		var player_cast = $PlayerRaycast.get_collider()
+		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
 			if $TargetFoundTimer.time_left == 0:
 				$TargetFoundTimer.start()
 			
@@ -125,12 +132,12 @@ func _process(delta):
 				$WeaponDetected.playing == false && $TargetLost.playing == false &&
 				$TargetFoundCooldown.time_left == 0):
 				$WeaponDetected.play()
+				
+			$AttackLine.visible = true
+			if $AttackLine.modulate.a < 1:
+				$AttackLine.modulate.a += 0.02 * delta * 60
 			
-			if player_cast == null || player_cast.name == "Player":
-				$AttackLine.visible = true
-				$AttackLine.points[1] += (player.position - position)
-			else:
-				$AttackLine.points[1] = ($Drone/PlayerRaycast.get_collision_point() - position)
+			$AttackLine.points[1] = ($PlayerRaycast.get_collision_point() - position)
 			
 			player_previous_ability = player.current_ability
 		else:
@@ -141,10 +148,13 @@ func _process(delta):
 					can_play_target_lost = false
 					$TargetLost.play()
 			
-			$AttackLine.visible = false
+			if $AttackLine.modulate.a > 0:
+				$AttackLine.modulate.a -= 0.04 * delta * 60
+			
 			player_previous_ability = "NoDistance"
 	elif !big_drone:
-		$AttackLine.visible = false
+		if $AttackLine.modulate.a > 0:
+			$AttackLine.modulate.a -= 0.04 * delta * 60
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
@@ -155,7 +165,7 @@ func _on_bullet_cooldown_timeout():
 
 func _on_rapid_bullet_cooldown_timeout():
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
-		var player_cast = $Drone/PlayerRaycast.get_collider()
+		var player_cast = $PlayerRaycast.get_collider()
 		if player_cast == null || player_cast.name == "Player" && !big_drone && !temp_disabled && !fly_to_correct:
 			var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 
