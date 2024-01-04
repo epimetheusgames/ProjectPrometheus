@@ -215,7 +215,8 @@ position = Vector2(53, -383)
 speed = 0.4
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
-points = PackedVector2Array(59, 100, 34, 292, 89, 281, 181, 278, 360, 237, 370, 148, 632, 146, 639, -1, 1050, 4, 1228, -1169)
+visible = false
+points = PackedVector2Array(59, 100, 36, 313, 91, 236, 126, 270, 351, 270, 356, 147, 632, 146, 639, -1, 1050, 4, 1228, -1169)
 
 [node name="DroneManager2" parent="." instance=ExtResource("9_kyova")]
 position = Vector2(755, -242)

@@ -166,7 +166,7 @@ func _on_bullet_cooldown_timeout():
 func _on_rapid_bullet_cooldown_timeout():
 	if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 200:
 		var player_cast = $PlayerRaycast.get_collider()
-		if player_cast == null || player_cast.name == "Player" && !big_drone && !temp_disabled && !fly_to_correct:
+		if player_cast != null && (player_cast.name == "Player" || player_cast.name == "PlayerAccurateCollider") && !big_drone && !temp_disabled && !fly_to_correct:
 			var direction_to_player = (player.position - (position + $Drone.position)).normalized()
 
 			if rapid_bullet_num < 2:
