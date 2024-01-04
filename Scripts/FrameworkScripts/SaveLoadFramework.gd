@@ -6,28 +6,36 @@ extends Node2D
 
 const preloaded_levels = [
 	[
-		preload("res://Levels/Playable/Level7/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/Level5/Floor1.tscn"),
-	],
-	[
 		preload("res://Levels/Playable/Level1/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level2/Floor1.tscn"),
 	],
 	[
 		preload("res://Levels/Playable/Level3/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level2/Floor1.tscn"),
+		preload("res://Levels/Playable/Level4/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level5/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level6/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level7/Floor1.tscn"),
 	],
 ]
 
 const level_node_names = [
-	["Level7",],
-	["Level5",],
 	["Level1",],
-	["Level3",],
 	["Level2",],
+	["Level3",],
+	["Level4",],
+	["Level5",],
+	["Level6",],
+	["Level7",],
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")

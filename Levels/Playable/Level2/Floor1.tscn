@@ -247,14 +247,8 @@ position = Vector2(-254, 0)
 [node name="DrillManager4" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-147, 0)
 
-[node name="DrillManager5" parent="." instance=ExtResource("9_isgf2")]
-position = Vector2(-307, 0)
-
 [node name="DrillManager6" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-360, 0)
-
-[node name="DrillManager7" parent="." instance=ExtResource("9_isgf2")]
-position = Vector2(-414, 0)
 
 [node name="DrillManager8" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-467, 0)
