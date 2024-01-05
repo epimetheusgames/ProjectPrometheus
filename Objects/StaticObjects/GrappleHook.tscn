@@ -1,13 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://btl0cv6b8cmh"]
+[gd_scene load_steps=7 format=3 uid="uid://btl0cv6b8cmh"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleHook.gd" id="1_x5bcy"]
-[ext_resource type="Texture2D" uid="uid://c3wl6tf86tra6" path="res://Assets/Images/Objects/LightBulb.png" id="2_c6k1s"]
+[ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/Hook&Cover.png" id="2_bunc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw17c"]
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpmw8"]
 size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26uca"]
+atlas = ExtResource("2_bunc2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77iwy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26uca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GrappleHook" type="Node2D" groups=["hooks"]]
 script = ExtResource("1_x5bcy")
@@ -17,14 +32,13 @@ script = ExtResource("1_x5bcy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_sw17c")
 
-[node name="PlaceHolder1-1" type="Sprite2D" parent="."]
-self_modulate = Color(3, 3, 3, 1)
-position = Vector2(-1, -4)
-texture = ExtResource("2_c6k1s")
-
 [node name="PlayerConnecter" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerConnecter"]
 shape = SubResource("RectangleShape2D_rpmw8")
+
+[node name="HookSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 4)
+sprite_frames = SubResource("SpriteFrames_77iwy")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

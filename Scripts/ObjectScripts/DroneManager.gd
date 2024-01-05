@@ -32,6 +32,8 @@ func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
 	
 func _ready():
+	$LineRaycast.add_exception(player)
+	
 	if precalculated_flight_path == null:
 		precalculated_flight_path = []
 		
@@ -117,11 +119,14 @@ func _process(delta):
 			
 	if !big_drone && is_close_to_player && !temp_disabled:
 		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
-		player_follower_position += (player.position - player_follower_position) * 0.02
+		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
 		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 1000
 		
 		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
+		
+		$LineRaycast.target_position = $PlayerRaycast.target_position
+		$LineRaycast.position = $PlayerRaycast.position
 		
 		var player_cast = $PlayerRaycast.get_collider()
 		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
@@ -137,7 +142,7 @@ func _process(delta):
 			if $AttackLine.modulate.a < 1:
 				$AttackLine.modulate.a += 0.02 * delta * 60
 			
-			$AttackLine.points[1] = ($PlayerRaycast.get_collision_point() - position)
+			$AttackLine.points[1] = ($LineRaycast.get_collision_point() - position)
 			
 			player_previous_ability = player.current_ability
 		else:
@@ -147,14 +152,14 @@ func _process(delta):
 				if can_play_target_lost:
 					can_play_target_lost = false
 					$TargetLost.play()
-			
+					
 			if $AttackLine.modulate.a > 0:
-				$AttackLine.modulate.a -= 0.04 * delta * 60
+				$AttackLine.modulate.a -= 0.5 * delta * 60
 			
 			player_previous_ability = "NoDistance"
 	elif !big_drone:
 		if $AttackLine.modulate.a > 0:
-			$AttackLine.modulate.a -= 0.04 * delta * 60
+			$AttackLine.modulate.a -= 0.5 * delta * 60
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()

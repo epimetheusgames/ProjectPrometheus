@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=68 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/FireParticle1.png" id="18_6ibhy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
+[ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/Hook&Cover.png" id="19_xwxdj"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 
@@ -79,6 +80,21 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe6x2"]
+atlas = ExtResource("19_xwxdj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyytr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe6x2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
 size = Vector2(9, 20)
@@ -457,12 +473,16 @@ shape = SubResource("RectangleShape2D_f6ify")
 
 [node name="LinePorabola" type="Line2D" parent="Player/GrappleManager"]
 points = PackedVector2Array(0, 0, 0, 0)
-width = 1.0
+width = 0.2
+default_color = Color(0, 0.658824, 0.639216, 1)
 
 [node name="GrappleRope" type="Line2D" parent="Player/GrappleManager"]
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0.560784, 0.560784, 0.560784, 1)
+
+[node name="HookHighlighter" type="AnimatedSprite2D" parent="Player/GrappleManager"]
+sprite_frames = SubResource("SpriteFrames_eyytr")
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)
@@ -553,13 +573,6 @@ lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 2, -10, -3, -10, -8, 16)
-
-[node name="PlayerAccurateCollider" type="StaticBody2D" parent="Player"]
-collision_layer = 8
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/PlayerAccurateCollider"]
-polygon = PackedVector2Array(-7, 14, -8, 13, -8, 10, -6, 10, -8, 7, -11, 7, -11, -3, -6, -6, -6, -13, 5, -13, 5, -3, 3, 9, 3, 16, -4, 16)
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")

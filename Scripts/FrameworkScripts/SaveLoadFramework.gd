@@ -6,19 +6,19 @@ extends Node2D
 
 const preloaded_levels = [
 	[
+		preload("res://Levels/Playable/Level3/Floor1.tscn"),
+	],
+	[
+		preload("res://Levels/Playable/Level5/Floor1.tscn"),
+	],
+	[
 		preload("res://Levels/Playable/Level1/Floor1.tscn"),
 	],
 	[
 		preload("res://Levels/Playable/Level2/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level3/Floor1.tscn"),
-	],
-	[
 		preload("res://Levels/Playable/Level4/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/Level5/Floor1.tscn"),
 	],
 	[
 		preload("res://Levels/Playable/Level6/Floor1.tscn"),

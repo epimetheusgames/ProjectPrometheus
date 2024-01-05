@@ -60,6 +60,7 @@ func _process(delta):
 	else:
 		$DrillBreakOverlay.play("Break3")
 		$DrillAnimation.play("Idle")
+		$DrillBreakOverlay.visible = true
 
 func _on_jump_hurt_box_area_entered(area):
 	var no_damage = false

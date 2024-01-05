@@ -24,7 +24,7 @@ func _process(delta):
 	position = original_pos * (4 / get_parent().zoom.x)
 	scale = original_scale * (4 / get_parent().zoom.x)
 	ideal_rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60
-	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1
+	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1 * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
 	
 	if $AbililtySwitchTimer.time_left < 10:

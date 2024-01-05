@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=31 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -145,6 +145,9 @@ size = Vector2(1545, 383)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6r"]
 size = Vector2(126.5, 332.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg4tm"]
+size = Vector2(91, 88)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_ci8yo")
 level = 5
@@ -226,6 +229,10 @@ shape = SubResource("RectangleShape2D_7hm6r")
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("6_o30v6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(599.5, -103)
+shape = SubResource("RectangleShape2D_fg4tm")
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(336, 0)
@@ -348,7 +355,7 @@ position = Vector2(713, -406)
 position = Vector2(520, -956)
 
 [node name="PropDoorFaceForward2" type="Sprite2D" parent="."]
-position = Vector2(645, -97)
+position = Vector2(645, -96)
 texture = ExtResource("7_3hgyk")
 
 [node name="PropBench2" type="Sprite2D" parent="."]
