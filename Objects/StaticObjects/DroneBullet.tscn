@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpqs3h031dhae"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
-[ext_resource type="Texture2D" uid="uid://cxeppn50cjf01" path="res://Assets/Images/Objects/DroneBullet.png" id="2_6g3vu"]
+[ext_resource type="Texture2D" uid="uid://cxeppn50cjf01" path="res://Assets/Images/Objects/Enemy/DroneBullet.png" id="2_6g3vu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
 radius = 2.54951

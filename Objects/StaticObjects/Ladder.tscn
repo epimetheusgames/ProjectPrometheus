@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcwrdriivsxv0"]
 
-[ext_resource type="Texture2D" uid="uid://cfl4o66hvt3o4" path="res://Assets/Images/Objects/LadderSprite.png" id="1_hnx3t"]
+[ext_resource type="Texture2D" uid="uid://cfl4o66hvt3o4" path="res://Assets/Images/Objects/FunctionalProps/LadderSprite.png" id="1_hnx3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20eey"]
 size = Vector2(15, 40)

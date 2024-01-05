@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_gt75n"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="18_84llk"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="19_am7qq"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="19_v182w"]
+[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_v182w"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_filsr"]
-[ext_resource type="Texture2D" uid="uid://cfl4o66hvt3o4" path="res://Assets/Images/Objects/LadderSprite.png" id="21_syrb7"]
+[ext_resource type="Texture2D" uid="uid://cfl4o66hvt3o4" path="res://Assets/Images/Objects/FunctionalProps/LadderSprite.png" id="21_syrb7"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="22_nlfdx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]

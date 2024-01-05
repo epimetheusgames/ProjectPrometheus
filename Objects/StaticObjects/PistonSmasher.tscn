@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7gkuoslfisye"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PistonSmasher.gd" id="1_4pgxl"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/PlaceHolder1-1.png" id="1_y2klk"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_y2klk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khl2o"]
 size = Vector2(64, 128)

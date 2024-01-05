@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
-[ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/DroneSpritesheet.png" id="2_vtjwx"]
-[ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/DroneOutlineSpritesheet.png" id="4_nmpt3"]
-[ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/DroneTurret1.png" id="4_sscxf"]
+[ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="2_vtjwx"]
+[ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/Enemy/DroneOutlineSpritesheet.png" id="4_nmpt3"]
+[ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/Enemy/DroneTurret1.png" id="4_sscxf"]
 [ext_resource type="AudioStream" uid="uid://bjwlgs3fjyivv" path="res://Assets/Audio/SFX/DroneGunLoad.wav" id="5_hte47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]

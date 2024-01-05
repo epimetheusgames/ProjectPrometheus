@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://crc87c2fbl217"]
 
-[ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSplit.png" id="1_lrump"]
+[ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplit.png" id="1_lrump"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/RigidBodyExtensions.gd" id="1_vj1c0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrd03"]

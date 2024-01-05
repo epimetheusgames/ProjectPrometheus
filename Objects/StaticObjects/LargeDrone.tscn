@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqy1gmd6wwrqx"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_fhp4c"]
-[ext_resource type="Texture2D" uid="uid://dpkebxe2qa4tu" path="res://Assets/Images/Objects/BigDroneSpritesheet.png" id="2_6x22x"]
+[ext_resource type="Texture2D" uid="uid://dpkebxe2qa4tu" path="res://Assets/Images/Objects/Enemy/BigDroneSpritesheet.png" id="2_6x22x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sodd7"]
 atlas = ExtResource("2_6x22x")

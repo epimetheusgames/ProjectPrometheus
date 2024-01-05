@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://btl0cv6b8cmh"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleHook.gd" id="1_x5bcy"]
-[ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/Hook&Cover.png" id="2_bunc2"]
+[ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/FunctionalProps/Hook&Cover.png" id="2_bunc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw17c"]
 size = Vector2(24, 24)

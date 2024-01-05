@@ -1,9 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
-[ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/DrillSpritesheet.png" id="2_sjdmu"]
-[ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/DrillTurningSpritesheet.png" id="3_0tlq6"]
-[ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/DrillBreakSpritesheet.png" id="3_1ri88"]
+[ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/Enemy/DrillSpritesheet.png" id="2_sjdmu"]
+[ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/Enemy/DrillTurningSpritesheet.png" id="3_0tlq6"]
+[ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/Enemy/DrillBreakSpritesheet.png" id="3_1ri88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0na53"]
 atlas = ExtResource("2_sjdmu")

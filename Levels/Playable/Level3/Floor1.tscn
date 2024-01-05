@@ -1,11 +1,11 @@
 [gd_scene load_steps=38 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
-[ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/WorkerHelmetProp.png" id="2_d4qao"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pcvgh"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_8axaw"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_mp7sm"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="4_cji8d"]
+[ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="4_l0wfb"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_r1rf1"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_n578r"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_1lub2"]
@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="6_pm7tb"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_nkvx3"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="11_n8qbk"]
-[ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/PropBench.png" id="12_f4x6s"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/PropDoorFaceForward.png" id="13_w48jd"]
+[ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="14_0vkft"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_8cm7r"]
+[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="15_x1fny"]
 [ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="16_ck8fg"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_6jcrf"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
@@ -236,7 +236,7 @@ layer_0/tile_data = PackedInt32Array(-131098, 65536, 0, -131091, 65536, 0, -5898
 modulate = Color(0.239216, 0.227451, 0.227451, 1)
 position = Vector2(-829, -4.8)
 rotation = 3.21141
-texture = ExtResource("2_d4qao")
+texture = ExtResource("4_l0wfb")
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("3_mp7sm")
@@ -417,15 +417,15 @@ start_direction = -1
 
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(-3570, -784)
-texture = ExtResource("12_f4x6s")
+texture = ExtResource("14_0vkft")
 
 [node name="PropBench2" type="Sprite2D" parent="."]
 position = Vector2(-464, -1488)
-texture = ExtResource("12_f4x6s")
+texture = ExtResource("14_0vkft")
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-3488, -800)
-texture = ExtResource("13_w48jd")
+texture = ExtResource("15_x1fny")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
