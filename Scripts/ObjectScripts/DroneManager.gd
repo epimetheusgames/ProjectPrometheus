@@ -12,6 +12,7 @@ var temp_disabled = false
 var started_path_drone = false
 var flight_path_length = 0
 var player_follower_position = Vector2.ZERO
+var physics_drone_ingame = null
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -116,14 +117,22 @@ func _process(delta):
 			new_drone.get_node("AttackLine").points[0] = Vector2.ZERO
 			new_drone.get_node("AttackLine").points[1] = Vector2.ZERO
 			get_parent().add_child(new_drone)
+	
+	if !temp_disabled:
+		physics_drone_ingame = null
 			
-	if !big_drone && is_close_to_player && !temp_disabled:
+	if !big_drone && is_close_to_player:
 		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
 		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
 		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 1000
 		
 		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
+		
+		if physics_drone_ingame:
+			$AttackLine.points[0] = physics_drone_ingame.position
+			$PlayerRaycast.position = physics_drone_ingame.position
+			$PlayerRaycast.target_position = Vector2(cos(physics_drone_ingame.rotation), sin(physics_drone_ingame.rotation)).normalized() * 1000
 		
 		$LineRaycast.target_position = $PlayerRaycast.target_position
 		$LineRaycast.position = $PlayerRaycast.position
@@ -152,14 +161,11 @@ func _process(delta):
 				if can_play_target_lost:
 					can_play_target_lost = false
 					$TargetLost.play()
-					
-			if $AttackLine.modulate.a > 0:
-				$AttackLine.modulate.a -= 0.5 * delta * 60
 			
 			player_previous_ability = "NoDistance"
 	elif !big_drone:
 		if $AttackLine.modulate.a > 0:
-			$AttackLine.modulate.a -= 0.5 * delta * 60
+			$AttackLine.modulate.a -= 0.04 * delta * 60
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
@@ -207,16 +213,18 @@ func _on_drone_hurtbox_area_entered(area):
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
 		dead_drone.set_queued_pos = true
+		physics_drone_ingame = dead_drone
 		if area.name == "PlayerHurtbox":
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
 			fly_to_correct = false
 			temp_disabled = true
-			$AttackLine.visible = false
 		if area.name == "PlayerBulletHurter":
 			dead_drone.no_respawn = true
-			get_parent().call_deferred("add_child", dead_drone)
-			queue_free()
+			call_deferred("add_child", dead_drone)
+			$Drone.visible = false
+			fly_to_correct = false
+			temp_disabled = true
 
 func _on_target_found_timer_timeout():
 	can_play_target_lost = true
