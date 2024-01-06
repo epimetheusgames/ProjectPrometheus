@@ -129,7 +129,7 @@ func _process(delta):
 		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		
-		if physics_drone_ingame && physics_drone_ingame.is_instance_valid():
+		if physics_drone_ingame && is_instance_valid(physics_drone_ingame):
 			$AttackLine.points[0] = physics_drone_ingame.position
 			$PlayerRaycast.position = physics_drone_ingame.position
 			$PlayerRaycast.target_position = Vector2(cos(physics_drone_ingame.rotation), sin(physics_drone_ingame.rotation)).normalized() * 1000
