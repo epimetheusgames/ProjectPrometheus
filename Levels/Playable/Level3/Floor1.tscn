@@ -566,7 +566,7 @@ position = Vector2(12, 10)
 position = Vector2(-3895, -1230)
 
 [node name="Checkpoint" parent="." instance=ExtResource("21_o2r4d")]
-position = Vector2(-3717, -784)
+position = Vector2(-3717, -783)
 player_checkpoint_item = "Grapple"
 
 [node name="Ladder" parent="." instance=ExtResource("21_je3sr")]
