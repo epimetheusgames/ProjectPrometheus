@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
+[ext_resource type="Texture2D" uid="uid://dgvalkix6ijlb" path="res://Assets/Images/Objects/Misc/CloudThing.png" id="2_qrewg"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="2_vtjwx"]
 [ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/Enemy/DroneOutlineSpritesheet.png" id="4_nmpt3"]
 [ext_resource type="Texture2D" uid="uid://cyn8vadjjxa6b" path="res://Assets/Images/Objects/Enemy/DroneTurret1.png" id="4_sscxf"]
@@ -113,14 +114,27 @@ size = Vector2(4, 2)
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
-[node name="AttackLine" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 0.3
-default_color = Color(0.619608, 0, 0, 1)
-
 [node name="DronePatrolPoints" type="Line2D" parent="."]
 points = PackedVector2Array(551, 176, 300, 20, 67, 166)
 width = 2.0
+
+[node name="AttackLine" type="Line2D" parent="."]
+clip_children = 1
+texture_filter = 4
+texture_repeat = 2
+points = PackedVector2Array(122, 37, 33, 26)
+width = 0.3
+default_color = Color(0.529412, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackLine"]
+modulate = Color(0.360784, 0.360784, 0.360784, 1)
+self_modulate = Color(3, 3, 3, 1)
+texture_filter = 4
+texture_repeat = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_qrewg")
+region_enabled = true
+region_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="Drone" type="Node2D" parent="."]
 

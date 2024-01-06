@@ -84,6 +84,8 @@ func calculate_flight_frame():
 			return "finished"
 
 func _process(delta):
+	$AttackLine/Sprite2D.rotation += 0.01 * delta * 60
+	$AttackLine/Sprite2D.position = $Drone.position
 	var flight_index_int = int(flight_index) - 1
 	var is_close_to_player = ($Drone.position + position).distance_to(player.position) < 250
 	

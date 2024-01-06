@@ -282,7 +282,7 @@ func _physics_process(delta):
 			$PlayerAnimation.animation != "StartJump" && 
 			$PlayerAnimation.animation != "StartJumpRockets" && 
 			$PlayerAnimation.animation != "StartJumpSword" &&
-			$PlayerAnimation.animation != "Climbing"):
+			$PlayerAnimation.animation != "Climbing") && !dead:
 			#Reusing code here.
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -296,7 +296,7 @@ func _physics_process(delta):
 		if (($PlayerAnimation.animation == "InAirUp" || 
 			$PlayerAnimation.animation == "InAirUpRockets" ||
 			$PlayerAnimation.animation == "InAirUpSword") &&
-			$PlayerAnimation.animation != "Climbing" && can_jump):
+			$PlayerAnimation.animation != "Climbing" && can_jump) && !dead:
 			
 			if current_ability == "RocketBoost":
 				$PlayerAnimation.play("IdleRockets")
@@ -368,7 +368,7 @@ func _physics_process(delta):
 			$PlayerAnimation.play("LandingSword")
 		
 	# Play animations for walking.
-	if both_pressed && $PlayerAnimation.animation != "Climbing":
+	if both_pressed && $PlayerAnimation.animation != "Climbing" && !dead:
 		$PlayerAnimation.play("Idle")
 				
 		if current_ability == "RocketBoost":
@@ -410,6 +410,8 @@ func _physics_process(delta):
 	elif !dead && $HurtVibrationTimer.time_left == 0:
 		Engine.time_scale = 1
 	
+	if $PlayerAnimation.animation != "DeathAnim" && dead:
+		$PlayerAnimation.play("DeathAnim")
 		
 	wasnt_moving = !direction_pressed
 	was_in_air = !can_jump
@@ -449,6 +451,21 @@ func _on_area_2d_area_entered(area):
 	if area.name == "CheckpointCollision":
 		respawn_pos = position
 		respawn_ability = area.get_parent().player_checkpoint_item
+		current_ability = respawn_ability
+		
+		var ability_manager = get_parent().get_node("Camera").get_node("AbilityManager")
+		
+		if current_ability == "Weapon":
+			ability_manager.ability_index = 3
+		elif current_ability == "RocketBoost":
+			ability_manager.ability_index = 0
+		elif current_ability == "ArmGun":
+			ability_manager.ability_index = 1
+		elif current_ability == "Grapple":
+			ability_manager.ability_index = 2
+			
+		ability_manager.next_ability()
+			
 		area.get_parent().activate()
 	if area.name == "DeathZone":
 		get_parent().get_node("Camera/CloseAnimator").closing = true

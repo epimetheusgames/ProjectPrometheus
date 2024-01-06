@@ -9,6 +9,9 @@ const preloaded_levels = [
 		preload("res://Levels/Playable/Level3/Floor1.tscn"),
 	],
 	[
+		preload("res://Levels/Playable/Level9/Floor1.tscn"),
+	],
+	[
 		preload("res://Levels/Playable/Level5/Floor1.tscn"),
 	],
 	[
