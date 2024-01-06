@@ -9,6 +9,9 @@ const preloaded_levels = [
 		preload("res://Levels/Playable/Level3/Floor1.tscn"),
 	],
 	[
+		preload("res://Levels/Playable/Level10/Floor1.tscn"),
+	],
+	[
 		preload("res://Levels/Playable/Level9/Floor1.tscn"),
 	],
 	[
@@ -103,7 +106,7 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
-func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null):
+func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
@@ -118,6 +121,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.floor = level_floor
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
+	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 30)
+	level_loaded.easy_mode = easy_mode
 	
 	if level != null:
 		level_loaded.is_max_level = false
@@ -154,7 +159,7 @@ func exit_to_menu(level, floor, slot, is_max_level):
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	add_child(menu.instantiate())
 
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null):
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
 	exit_to_menu(current_level, current_floor, slot, is_max_level)
 	save_data(switch_level, switch_floor, slot)
-	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor)
+	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode)

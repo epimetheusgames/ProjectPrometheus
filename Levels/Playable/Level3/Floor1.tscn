@@ -200,7 +200,7 @@ size = Vector2(3418, 144.5)
 size = Vector2(9906, 144.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdbj"]
-size = Vector2(494, 515)
+size = Vector2(680, 1256)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_8cm7r")
@@ -327,7 +327,7 @@ bus = &"Master"
 script = ExtResource("7_nkvx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-3016, -2186.5)
+position = Vector2(-3580, -1239)
 shape = SubResource("RectangleShape2D_5kdbj")
 
 [node name="DroneManager2" parent="." instance=ExtResource("6_pm7tb")]
@@ -356,60 +356,10 @@ bus = &"Master"
 [node name="TargetLost" parent="DroneManager3" index="8"]
 bus = &"Master"
 
-[node name="DroneManager4" parent="." instance=ExtResource("6_pm7tb")]
-position = Vector2(-3375, -1168)
-
-[node name="DronePatrolPoints" parent="DroneManager4" index="0"]
-visible = false
-position = Vector2(1, 5)
-points = PackedVector2Array(0, 81, 0, 327, -27, 271, -46, 321, -67, 329, -88, 307, -95, 277, -99, 315, -185, 310, -207, 263, -227, 301, -245, 308, -280, 353, -275, 278, -288, -30, -3, -28)
-
-[node name="WeaponDetected" parent="DroneManager4" index="7"]
-bus = &"Master"
-
-[node name="TargetLost" parent="DroneManager4" index="8"]
-bus = &"Master"
-
-[node name="DroneManager5" parent="." instance=ExtResource("6_pm7tb")]
-position = Vector2(-3789, -2240)
-
-[node name="DronePatrolPoints" parent="DroneManager5" index="0"]
-visible = false
-points = PackedVector2Array(-2, 730, 48, 756, 248, 740, 501, 737, 984, 736, 1147, 752, 1777, 753, 2267, 751, 2541, 723, 3181, 692, 3454, 648, 3627, 419, 3657, -364)
-
-[node name="WeaponDetected" parent="DroneManager5" index="7"]
-bus = &"Master"
-
-[node name="TargetLost" parent="DroneManager5" index="8"]
-bus = &"Master"
-
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
-
-[node name="DroneManager6" parent="." instance=ExtResource("6_pm7tb")]
-position = Vector2(-4433, -909)
-
-[node name="DronePatrolPoints" parent="DroneManager6" index="0"]
-visible = false
-position = Vector2(-5, -18)
-points = PackedVector2Array(-84, -51, -395, -172, -250, -171, -106, -173, 19, -174, 103, -178, 323, -193, 377, -236, 545, -237, 391, -256, 542, -287, 471, -306, 293, -317, 206, -334, 3, -334)
-
-[node name="AttackLine" parent="DroneManager6" index="1"]
-points = PackedVector2Array(0, 0, 87, 9)
-
-[node name="WeaponDetected" parent="DroneManager6" index="7"]
-bus = &"Master"
-
-[node name="TargetLost" parent="DroneManager6" index="8"]
-bus = &"Master"
-
-[node name="DronePatrolPoints2" type="Line2D" parent="DroneManager6"]
-visible = false
-position = Vector2(-6, -18)
-points = PackedVector2Array(136, 109, 303, 106, 352, -81, 228, -149, 607, -150, 378, -253, 586, -478, 522, -437, 491, -487, 462, -497, 429, -443, -50, -426)
-width = 2.0
 
 [node name="Drill" parent="." instance=ExtResource("11_n8qbk")]
 position = Vector2(165, -67)
@@ -617,13 +567,6 @@ player_checkpoint_item = "RocketBoost"
 position = Vector2(-798, -1999)
 player_checkpoint_item = "ArmGun"
 
-[node name="DroneManager7" parent="." instance=ExtResource("6_pm7tb")]
-position = Vector2(-2091, -2383)
-
-[node name="DronePatrolPoints" parent="DroneManager7" index="0"]
-visible = false
-points = PackedVector2Array(332, 93, 305, 367, 241, 96, 196, 367, 101, 97, 38, 372, -20, 79, -99, 371, -110.79, 144.833, -197.259, 141.622, -205, 375, -288, 377, -312, -61)
-
 [node name="Checkpoint3" parent="." instance=ExtResource("21_o2r4d")]
 position = Vector2(-2766, -1999)
 player_checkpoint_item = "Grapple"
@@ -636,6 +579,23 @@ item_switch_type = "ArmGun"
 position = Vector2(-2631, -1999)
 item_switch_type = "Grapple"
 
+[node name="DroneManager4" parent="." instance=ExtResource("6_pm7tb")]
+position = Vector2(-3376, -1173)
+
+[node name="DronePatrolPoints" parent="DroneManager4" index="0"]
+visible = false
+position = Vector2(1, 5)
+points = PackedVector2Array(0, 81, 0, 327, -27, 271, -46, 321, -67, 329, -88, 307, -95, 277, -99, 315, -185, 310, -207, 263, -227, 301, -245, 308, -280, 353, -275, 278, -288, -30, -3, -28)
+
+[node name="WeaponDetected" parent="DroneManager4" index="7"]
+bus = &"Master"
+
+[node name="TargetLost" parent="DroneManager4" index="8"]
+bus = &"Master"
+
+[node name="Checkpoint5" parent="." instance=ExtResource("21_o2r4d")]
+position = Vector2(-3236, -784)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
@@ -643,9 +603,6 @@ item_switch_type = "Grapple"
 [editable path="DroneManager"]
 [editable path="DroneManager2"]
 [editable path="DroneManager3"]
-[editable path="DroneManager4"]
-[editable path="DroneManager5"]
-[editable path="DroneManager6"]
 [editable path="WallTurret"]
 [editable path="WallTurret2"]
 [editable path="WallTurret3"]
@@ -653,4 +610,4 @@ item_switch_type = "Grapple"
 [editable path="WallTurret5"]
 [editable path="WallTurret7"]
 [editable path="WallTurret8"]
-[editable path="DroneManager7"]
+[editable path="DroneManager4"]

@@ -84,6 +84,22 @@ theme = ExtResource("2_exvs6")
 text = "Music Volume
 "
 
+[node name="CheckBox2" type="CheckBox" parent="."]
+offset_left = 893.0
+offset_top = 660.0
+offset_right = 1115.0
+offset_bottom = 717.0
+theme = ExtResource("2_exvs6")
+text = "Easy Mode"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 1023.0
+offset_top = 490.0
+offset_right = 1155.0
+offset_bottom = 516.0
+theme = ExtResource("2_exvs6")
+text = "Easy Mode"
+
 [node name="SFXSlider" type="HSlider" parent="."]
 offset_left = 887.0
 offset_top = 417.0
