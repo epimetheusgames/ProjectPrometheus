@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=65 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -19,9 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://b1xwrqg427wio" path="res://Assets/Images/Objects/Misc/WhitePixel.png" id="13_7gte0"]
 [ext_resource type="SpriteFrames" uid="uid://ccgutb3w6122l" path="res://Objects/StaticObjects/PlayerType1.tres" id="15_4ybmm"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="18_64bca"]
+[ext_resource type="Texture2D" uid="uid://c4nfctlp6w8sn" path="res://Assets/Images/Objects/UI/Grapple.png" id="18_c1syy"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
-[ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/FunctionalProps/Hook&Cover.png" id="19_ojsld"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
@@ -80,21 +79,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fe6x2"]
-atlas = ExtResource("19_ojsld")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eyytr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fe6x2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
 size = Vector2(9, 20)
@@ -465,7 +449,7 @@ script = ExtResource("12_5gxux")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/GrappleManager/GrappleBody"]
 scale = Vector2(0.125, 0.125)
-texture = ExtResource("18_64bca")
+texture = ExtResource("18_c1syy")
 
 [node name="GrappleColider" type="Area2D" parent="Player/GrappleManager/GrappleBody"]
 visible = false
@@ -482,9 +466,6 @@ default_color = Color(0, 0.658824, 0.639216, 1)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0.560784, 0.560784, 0.560784, 1)
-
-[node name="HookHighlighter" type="AnimatedSprite2D" parent="Player/GrappleManager"]
-sprite_frames = SubResource("SpriteFrames_eyytr")
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)

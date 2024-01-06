@@ -124,7 +124,6 @@ func _physics_process(delta):
 		
 		if closest_hook && closest_hook_dist < max_hook_dist:
 			var mouse_direction = (closest_hook.position - get_parent().position).normalized()
-			$HookHighlighter.position += (closest_hook.position - $HookHighlighter.position) * 0.1 * delta * 60
 			$LinePorabola.points[0] = Vector2.ZERO
 			$LinePorabola.points[1] = mouse_direction * 10000
 			$LinePorabola.visible = true
@@ -142,12 +141,10 @@ func _physics_process(delta):
 	if active:
 		visible = true
 		get_parent().get_parent().target_zoom = Vector2(3, 3)
-		$HookHighlighter.visible = true
 	else:
 		visible = false
 		get_parent().grappling_effects = false
 		get_parent().get_parent().target_zoom = get_parent().get_parent().start_zoom
-		$HookHighlighter.visible = true
 		
 	if hooked:
 		was_hooked = true

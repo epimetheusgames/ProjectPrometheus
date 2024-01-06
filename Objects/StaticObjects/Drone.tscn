@@ -123,7 +123,7 @@ clip_children = 1
 texture_filter = 4
 texture_repeat = 2
 points = PackedVector2Array(122, 37, 33, 26)
-width = 0.3
+width = 0.1
 default_color = Color(0.529412, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackLine"]
