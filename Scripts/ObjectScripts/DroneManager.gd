@@ -33,7 +33,8 @@ func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
 	
 func _ready():
-	$LineRaycast.add_exception(player)
+	if !big_drone:
+		$LineRaycast.add_exception(player)
 	
 	if precalculated_flight_path == null:
 		precalculated_flight_path = []
