@@ -347,6 +347,7 @@ bus = &"Master"
 position = Vector2(-1321, -207)
 
 [node name="DronePatrolPoints" parent="DroneManager3" index="1"]
+visible = false
 points = PackedVector2Array(71, 0, 249, 0, 259, -160, 412, -199, 431, -305, 492, -348, 493, -405, 420, -406, 403, -323, 392, -232, 253, -218, 216, -406, -132, -412)
 
 [node name="WeaponDetected" parent="DroneManager3" index="7"]
