@@ -434,11 +434,11 @@ func _on_area_2d_area_entered(area):
 		var switch_ability = area.get_parent().item_switch_type
 		if current_ability == "Weapon" && switch_ability == "RocketBoost":
 			ability_manager.next_ability()
-		if current_ability == "RocketBoost" && switch_ability == "ArmGun":
+		elif current_ability == "RocketBoost" && switch_ability == "ArmGun":
 			ability_manager.next_ability()
-		if current_ability == "ArmGun" && switch_ability == "Grapple":
+		elif current_ability == "ArmGun" && switch_ability == "Grapple":
 			ability_manager.next_ability()
-		if current_ability == "Grapple" && switch_ability == "Weapon":
+		elif current_ability == "Grapple" && switch_ability == "Weapon":
 			ability_manager.next_ability()
 	
 	if area.name == "LadderClimbArea":

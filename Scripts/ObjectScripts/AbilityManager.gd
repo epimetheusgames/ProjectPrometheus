@@ -63,6 +63,9 @@ func next_ability():
 		_ready()
 	
 	ability_index += 1
+	
+	if ability_index == 4:
+		ability_index = 0
 	$AbililtySwitchTimer.start()
 
 func _on_fadin_half_wait_timer_timeout():
