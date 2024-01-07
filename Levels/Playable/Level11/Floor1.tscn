@@ -1,0 +1,222 @@
+[gd_scene load_steps=18 format=3 uid="uid://clylsw51pcy3t"]
+
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_eaq6q"]
+[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jxqgc"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_vi7r1"]
+[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="4_jyvmd"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="5_see2a"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="6_pxdxq"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="7_xaivb"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="8_ea2r7"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_4panx"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="10_fg5ru"]
+[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="11_8hcsc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
+texture = ExtResource("2_jxqgc")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/metadata/_better_terrain = {
+"type": 0
+}
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dgxbs"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_yd36w")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["3DMetal", Color(0.619633, 0.80742, 0.554222, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
+
+[sub_resource type="TileSet" id="TileSet_yk64r"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
+texture = ExtResource("4_jyvmd")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_2gdyw"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_7qd54")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
+shader = ExtResource("10_fg5ru")
+shader_parameter/distortion_amm = 0.0
+shader_parameter/static_scale = 0.0
+shader_parameter/vignette_softness = 0.45
+shader_parameter/vignette_visibleness = 1.0
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_eaq6q")
+level = 4
+
+[node name="Decorations" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dgxbs")
+rendering_quadrant_size = 32
+format = 2
+
+[node name="Ingame" type="TileMap" parent="."]
+tile_set = ExtResource("3_vi7r1")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "Layer 1"
+layer_0/tile_data = PackedInt32Array(131063, 524289, 0, 131064, 655361, 0, 131065, 655361, 0, 131066, 655361, 0, 131067, 655361, 0, 131068, 655361, 0, 131069, 655361, 0, 196606, 589825, 2, 196607, 589825, 2, 131072, 589825, 2, 131073, 589825, 2, 131074, 589825, 2, 131075, 589825, 2, 131076, 589825, 2, 131077, 589825, 2, 131078, 589825, 2, 131079, 393217, 1, 131080, 655361, 0, 131081, 655361, 0, 196618, 589825, 3, 196619, 589825, 3, 131082, 655361, 0, 65543, 720897, 0, 65542, 655361, 0, 65541, 655361, 0, 65540, 655361, 0, 196605, 589825, 2, 196604, 589825, 2, 131070, 655361, 0, 131071, 655361, 0, 65536, 655361, 0, 65537, 655361, 0, 65538, 655361, 0, 65539, 655361, 0, 131083, 655361, 0, 131084, 720897, 0, 196617, 589825, 3, 196616, 589825, 3, 196615, 589825, 3, 196614, 589825, 3, 196613, 589825, 3, 196612, 589825, 3, 196611, 589825, 3, 196610, 589825, 3, 196609, 589825, 3, 196603, 589825, 2, 196602, 589825, 2, 196601, 589825, 2, 196600, 589825, 2, 196599, 327681, 1, 196598, 524289, 0, 262134, 524289, 3, 262135, 589825, 3, 262136, 589825, 3, 262137, 589825, 3, 262138, 589825, 3, 262139, 589825, 3, 262140, 589825, 3, 262141, 589825, 3, 262142, 589825, 3, 262143, 589825, 3, 196608, 589825, 3, 196620, 720897, 3)
+
+[node name="Pipes" type="TileMap" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = 1
+tile_set = SubResource("TileSet_yk64r")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
+
+[node name="PipesSmall" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2gdyw")
+format = 2
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
+
+[node name="Gravel" type="TileMap" parent="."]
+tile_set = ExtResource("5_see2a")
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Player" parent="." instance=ExtResource("6_pxdxq")]
+
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" parent="Player/Camera" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="PointLight2D" parent="Player" index="6"]
+scale = Vector2(0.983491, 1)
+color = Color(0.941176, 1, 0.419608, 1)
+energy = 1.88
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-500, -500)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 640)
+
+[node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-475, 111)
+scale = Vector2(5, 5)
+texture = ExtResource("7_xaivb")
+centered = false
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="RespawnPos" type="Node2D" parent="."]
+position = Vector2(4, -91)
+
+[node name="NextLevel" type="Area2D" parent="."]
+script = ExtResource("8_ea2r7")
+
+[node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4panx")
+volume_db = -8.69
+autoplay = true
+bus = &"SFX"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_0aues")
+color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8hcsc")
+autoplay = true
+bus = &"Music"
+
+[connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
+[connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+
+[editable path="Player"]

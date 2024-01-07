@@ -21,6 +21,9 @@ func _on_abililty_switch_timer_timeout():
 	get_parent().get_parent().get_node("Player").get_node("HurtVibrationTimer").start()
 
 func _process(delta):
+	original_scale = Vector2(1.5, 1.5)
+	original_pos = Vector2(0, 137)
+	
 	position = original_pos * (4 / get_parent().zoom.x)
 	scale = original_scale * (4 / get_parent().zoom.x)
 	ideal_rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60

@@ -32,7 +32,6 @@ func _process(delta):
 		if Engine.time_scale > 0.3:
 			Engine.time_scale -= 0.01
 			
-		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("Idle")
 		$ColorRect.color.a += 0.001 * delta * 60
 
 func _on_death_wait_timer_timeout():

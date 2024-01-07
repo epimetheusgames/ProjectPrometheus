@@ -87,6 +87,9 @@ func jump():
 		$PlayerAnimation.play("StartJumpSword")
 
 func _physics_process(delta):
+	if dead:
+		$AntennaAnimation.visible = false
+	
 	if physics_player:
 		return
 	
@@ -451,6 +454,11 @@ func _on_area_2d_area_entered(area):
 	if area.name == "CheckpointCollision":
 		respawn_pos = position
 		respawn_ability = area.get_parent().player_checkpoint_item
+		area.get_parent().activate()
+		
+		if current_ability == respawn_ability:
+			return
+		
 		current_ability = respawn_ability
 		
 		var ability_manager = get_parent().get_node("Camera").get_node("AbilityManager")
@@ -465,8 +473,6 @@ func _on_area_2d_area_entered(area):
 			ability_manager.ability_index = 2
 			
 		ability_manager.next_ability()
-			
-		area.get_parent().activate()
 	if area.name == "DeathZone":
 		get_parent().get_node("Camera/CloseAnimator").closing = true
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
