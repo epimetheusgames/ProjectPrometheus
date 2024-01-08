@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhcou5wi6iu8x"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ch81c"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_oee3f"]
+[ext_resource type="Texture2D" uid="uid://cge2w6yy0r2cx" path="res://addons/controller_icons/assets/key/arrow_down.png" id="3_fn3b5"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="4_0bekd"]
+[ext_resource type="Texture2D" uid="uid://d04bqc5v3befo" path="res://addons/controller_icons/assets/key/arrow_up.png" id="5_odovw"]
+[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="6_e423l"]
+
+[node name="Menu" type="Node2D"]
+editor_description = "This scene should include the UI for the main menu."
+script = ExtResource("1_ch81c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 1079.0
+color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[node name="SpinBox" type="SpinBox" parent="."]
+offset_left = 2653.0
+offset_top = 466.0
+offset_right = 2829.0
+offset_bottom = 588.0
+theme = ExtResource("2_oee3f")
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+prefix = "Slot Num:"
+
+[node name="SpinBox2" type="SpinBox" parent="."]
+offset_left = 2841.0
+offset_top = 465.0
+offset_right = 3017.0
+offset_bottom = 587.0
+theme = ExtResource("2_oee3f")
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+prefix = "Character:"
+
+[node name="SpinBox3" type="SpinBox" parent="."]
+offset_left = 3029.0
+offset_top = 465.0
+offset_right = 3205.0
+offset_bottom = 587.0
+theme = ExtResource("2_oee3f")
+min_value = 1.0
+max_value = 4.0
+value = 1.0
+prefix = "Level:"
+
+[node name="CheckBox" type="CheckBox" parent="."]
+offset_left = 2649.0
+offset_top = 583.0
+offset_right = 2871.0
+offset_bottom = 640.0
+theme = ExtResource("2_oee3f")
+text = "Efficient Rendering
+(Visual defficiencies)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 2101.0
+offset_top = 299.0
+offset_right = 2594.0
+offset_bottom = 746.0
+theme = ExtResource("2_oee3f")
+text = "START"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+offset_left = 2644.0
+offset_top = 435.0
+offset_right = 3001.0
+offset_bottom = 456.0
+theme = ExtResource("2_oee3f")
+min_value = -40.0
+max_value = 6.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2779.0
+offset_top = 413.0
+offset_right = 2911.0
+offset_bottom = 439.0
+theme = ExtResource("2_oee3f")
+text = "Music Volume
+"
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+offset_left = 2649.0
+offset_top = 633.0
+offset_right = 2871.0
+offset_bottom = 690.0
+theme = ExtResource("2_oee3f")
+text = "W Mode"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+offset_left = 2643.0
+offset_top = 390.0
+offset_right = 3000.0
+offset_bottom = 411.0
+theme = ExtResource("2_oee3f")
+min_value = -40.0
+max_value = 6.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 2778.0
+offset_top = 368.0
+offset_right = 2889.0
+offset_bottom = 394.0
+theme = ExtResource("2_oee3f")
+text = "SFX Volume
+"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 2273.0
+offset_top = 765.0
+offset_right = 2451.0
+offset_bottom = 788.0
+theme = ExtResource("2_oee3f")
+text = "Press          to start
+"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 2335.0
+offset_top = 756.0
+offset_right = 2375.0
+offset_bottom = 796.0
+texture = ExtResource("3_fn3b5")
+expand_mode = 1
+script = ExtResource("4_0bekd")
+path = "ui_down"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 2273.0
+offset_top = 803.0
+offset_right = 2451.0
+offset_bottom = 850.0
+theme = ExtResource("2_oee3f")
+text = "Press          to exit
+
+"
+
+[node name="ControllerTextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 2335.0
+offset_top = 794.0
+offset_right = 2375.0
+offset_bottom = 834.0
+texture = ExtResource("5_odovw")
+expand_mode = 1
+script = ExtResource("4_0bekd")
+path = "ui_up"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 2273.0
+offset_top = 842.0
+offset_right = 2500.0
+offset_bottom = 889.0
+theme = ExtResource("2_oee3f")
+text = "Press          to use ability
+
+"
+
+[node name="ControllerTextureRect3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 2335.0
+offset_top = 833.0
+offset_right = 2375.0
+offset_bottom = 873.0
+texture = ExtResource("6_e423l")
+expand_mode = 1
+script = ExtResource("4_0bekd")
+path = "mouse_click"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 910.0
+offset_top = 300.0
+offset_right = 1030.0
+offset_bottom = 367.0
+theme = ExtResource("2_oee3f")
+theme_override_font_sizes/font_size = 58
+text = "Play"
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 852.0
+offset_top = 370.0
+offset_right = 1091.0
+offset_bottom = 437.0
+theme = ExtResource("2_oee3f")
+theme_override_font_sizes/font_size = 58
+text = "Settings"
+horizontal_alignment = 1
+
+[connection signal="changed" from="SpinBox" to="." method="_on_spin_box_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
