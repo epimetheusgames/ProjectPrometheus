@@ -90,7 +90,7 @@ offset_top = 660.0
 offset_right = 1115.0
 offset_bottom = 717.0
 theme = ExtResource("2_exvs6")
-text = "Easy Mode"
+text = "W Mode"
 
 [node name="SFXSlider" type="HSlider" parent="."]
 offset_left = 887.0

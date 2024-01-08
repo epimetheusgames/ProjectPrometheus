@@ -231,7 +231,6 @@ func _on_drone_hurtbox_area_entered(area):
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
 			fly_to_correct = false
-			temp_disabled = true
 
 func _on_target_found_timer_timeout():
 	can_play_target_lost = true

@@ -121,7 +121,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.floor = level_floor
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
-	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 30)
+	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 35)
 	level_loaded.easy_mode = easy_mode
 	
 	if level != null:

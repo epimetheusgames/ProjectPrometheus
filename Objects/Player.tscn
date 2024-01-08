@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=67 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -287,6 +287,17 @@ gradient = SubResource("Gradient_at02u")
 width = 2
 height = 2
 
+[sub_resource type="Gradient" id="Gradient_5hxdt"]
+offsets = PackedFloat32Array(0, 0.72)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ittv"]
+gradient = SubResource("Gradient_5hxdt")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
@@ -558,6 +569,14 @@ lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 2, -10, -3, -10, -8, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+energy = 1.2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.87451)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_6ittv")
 
 [node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_4311v")
