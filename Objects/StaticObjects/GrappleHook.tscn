@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://btl0cv6b8cmh"]
+[gd_scene load_steps=6 format=3 uid="uid://btl0cv6b8cmh"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleHook.gd" id="1_x5bcy"]
 [ext_resource type="Texture2D" uid="uid://bhx21vw6kwujn" path="res://Assets/Images/Objects/FunctionalProps/Hook&Cover.png" id="2_bunc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sw17c"]
 size = Vector2(24, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpmw8"]
-size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26uca"]
 atlas = ExtResource("2_bunc2")
@@ -31,11 +28,6 @@ script = ExtResource("1_x5bcy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_sw17c")
-
-[node name="PlayerConnecter" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerConnecter"]
-shape = SubResource("RectangleShape2D_rpmw8")
 
 [node name="HookSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 4)

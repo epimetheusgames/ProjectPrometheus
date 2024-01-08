@@ -87,6 +87,12 @@ func jump():
 		$PlayerAnimation.play("StartJumpSword")
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("respawn"):
+		die()
+	
+	if get_parent().graphics_efficiency:
+		$PointLight2D.visible = false
+	
 	if dead:
 		$AntennaAnimation.visible = false
 	

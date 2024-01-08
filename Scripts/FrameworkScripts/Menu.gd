@@ -20,6 +20,7 @@ func _ready():
 	$CheckBox.button_pressed = global_data[0]
 	$MusicSlider.value = global_data[1]
 	$SFXSlider.value = global_data[2]
+	$CheckBox2.button_pressed = global_data[3]
 
 func _process(_delta):
 	if $CheckBox2.button_pressed:
@@ -28,7 +29,7 @@ func _process(_delta):
 		$CheckBox2.text = "W Mode"
 	
 	if Input.is_action_just_pressed("ui_down"):
-		get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
+		get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($CheckBox2.button_pressed) + "]", "global")
 		get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0)
 		
 	if Input.is_action_just_pressed("ui_up"):
@@ -39,7 +40,7 @@ func _process(_delta):
 	_on_spin_box_changed()
 
 func _on_button_pressed():
-	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "]", "global")
+	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($CheckBox2.button_pressed) + "]", "global")
 	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0, $CheckBox2.button_pressed)
 
 func _on_spin_box_changed():
