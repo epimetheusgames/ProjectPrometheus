@@ -145,14 +145,14 @@ script = ExtResource("1_axli8")
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 14.5)
 sprite_frames = SubResource("SpriteFrames_jwq1i")
-animation = &"Idle"
+animation = &"Moving"
 autoplay = "Moving"
 
 [node name="DrillBreakOverlay" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 4)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_dh7n3")
-animation = &"Break3"
+animation = &"None"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(16, 16)

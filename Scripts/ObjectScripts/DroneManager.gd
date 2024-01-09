@@ -71,7 +71,11 @@ func calculate_flight_frame():
 
 	movement_velocity = Vector2(smooth(movement_velocity.x, direction_to_next_point.x, velocity_smoothing * 1.5),
 								smooth(movement_velocity.y, direction_to_next_point.y / 1.5, velocity_smoothing))
-								
+	
+	if get_parent().graphics_efficiency:
+		$AttackLine.clip_children = false
+		$AttackLine/Sprite2D.visible = false
+	
 	flight_position += movement_velocity * speed
 	flight_rotation = movement_velocity.x / (3 if !big_drone else 15)
 	calc_close_to_checkpoint = false

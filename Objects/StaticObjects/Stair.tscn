@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyuudd0mcchkr"]
+
+[ext_resource type="Texture2D" uid="uid://e1ii3u7d8gku" path="res://Assets/Images/Objects/Props/StairSprite.png" id="1_eawra"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a3hca"]
+polygon = PackedVector2Array(16.1288, 23.8085, -47.8712, 23.8085, -47.8712, 15.8085, -31.8712, 15.8085, -31.8712, 7.80848, -15.8712, 7.80848, -15.8712, -0.191525, 0.128807, -0.191525, 0.128807, -8.19152, 16.1288, -8.19152)
+
+[node name="Stair" type="Node2D"]
+
+[node name="StairSprite" type="Sprite2D" parent="."]
+position = Vector2(-32, 16)
+texture = ExtResource("1_eawra")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-16.1288, 8.19152)
+occluder = SubResource("OccluderPolygon2D_a3hca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 0, 32, -64, 32)

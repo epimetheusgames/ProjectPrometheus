@@ -121,7 +121,6 @@ width = 2.0
 [node name="AttackLine" type="Line2D" parent="."]
 clip_children = 1
 texture_filter = 4
-texture_repeat = 2
 points = PackedVector2Array(122, 37, 33, 26)
 width = 0.1
 default_color = Color(0.529412, 0, 0, 1)
@@ -142,7 +141,8 @@ region_rect = Rect2(-5000, -5000, 10000, 10000)
 sprite_frames = SubResource("SpriteFrames_okakp")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.423627
+frame = 3
+frame_progress = 0.0927667
 
 [node name="DroneOutlineSpritesheet" type="AnimatedSprite2D" parent="Drone"]
 visible = false

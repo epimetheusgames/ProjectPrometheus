@@ -64,9 +64,9 @@ offset_right = 69.0
 offset_bottom = 892.0
 
 [node name="Difficulty" type="CheckButton" parent="."]
-offset_left = 286.0
+offset_left = 327.0
 offset_top = 1017.0
-offset_right = 510.0
+offset_right = 551.0
 offset_bottom = 1062.0
 theme = ExtResource("2_oee3f")
 text = "Accessibility Mode"

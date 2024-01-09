@@ -92,6 +92,7 @@ func _physics_process(delta):
 	
 	if get_parent().graphics_efficiency:
 		$PointLight2D.visible = false
+		$PointLight2D.shadow_enabled = false
 		$PointLight2DEfficient.visible = true
 	
 	if dead:
