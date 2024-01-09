@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dk8o56bdo51ex"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/SaveLoadFramework.gd" id="1_7se8a"]
-[ext_resource type="PackedScene" uid="uid://bqj7x37f41rx1" path="res://Objects/FrameworkNodes/Menu.tscn" id="2_6xv50"]
+[ext_resource type="PackedScene" uid="uid://bjnr6bfdx0uju" path="res://Objects/FrameworkNodes/MainMenu.tscn" id="2_afe5v"]
 
 [sub_resource type="Environment" id="Environment_80h8x"]
 background_mode = 3
@@ -17,7 +17,7 @@ glow_hdr_scale = 1.0
 editor_description = "This should be the root scene of the project."
 script = ExtResource("1_7se8a")
 
-[node name="Menu" parent="." instance=ExtResource("2_6xv50")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80h8x")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_afe5v")]

@@ -3,10 +3,15 @@ extends Node2D
 @onready var start_zoom = $Camera.zoom
 @onready var target_zoom = $Camera.zoom
 @onready var graphics_efficiency = get_parent().graphics_efficiency
+var static_adder = 0
+var bulge_adder = 0
 
 func _ready():
 	if graphics_efficiency:
 		$Player/PlayerAmbianceParticles.queue_free()
+		
+	$Camera.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
+	$Camera/CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 
 func _process(delta):
 	# Camera follows player.
@@ -18,3 +23,5 @@ func _process(delta):
 	var player_vel = 0
 	
 	$PointLight2D.position = $Player.position
+	
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $Camera/CameraCollider.position - follow_position

@@ -102,7 +102,7 @@ func _physics_process(delta):
 			$GrappleBody.hooked = false
 			
 		$GrappleRope.points[0] = Vector2.ZERO 
-		$GrappleRope.points[1] = $GrappleBody.position
+		$GrappleRope.points[1] = $GrappleBody.position - get_parent().get_parent().position
 		
 		$GrappleRope.visible = true
 		$LinePorabola.visible = false
@@ -126,7 +126,7 @@ func _physics_process(delta):
 			closest_hook_dist = closest_hook.position.distance_to(get_parent().position)
 		
 		if closest_hook && closest_hook_dist < max_hook_dist:
-			var mouse_direction = (closest_hook.position - get_parent().position).normalized()
+			var mouse_direction = (closest_hook.position - get_parent().get_parent().position - get_parent().position).normalized()
 			$LinePorabola.points[0] = Vector2.ZERO
 			$LinePorabola.points[1] = mouse_direction * 10000
 			$LinePorabola.visible = true

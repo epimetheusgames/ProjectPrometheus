@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjnr6bfdx0uju"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_hjrbd"]
+[ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_bljg4"]
+[ext_resource type="PackedScene" uid="uid://be1k51hweeaqw" path="res://Objects/FrameworkNodes/StartGameMenu.tscn" id="4_poeu2"]
+
+[node name="MainMenu" type="Node2D"]
+editor_description = "This scene should include the UI for the main menu."
+script = ExtResource("1_ebplq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1919.0
+offset_bottom = 1079.0
+color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 69.0
+offset_right = 192.0
+offset_bottom = 136.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 114
+text = "The Scalvager"
+
+[node name="Play" type="Label" parent="."]
+offset_left = 96.0
+offset_top = 764.0
+offset_right = 216.0
+offset_bottom = 831.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "Play"
+
+[node name="Settings" type="Label" parent="."]
+offset_left = 95.0
+offset_top = 834.0
+offset_right = 334.0
+offset_bottom = 901.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 94.0
+offset_top = 899.0
+offset_right = 304.0
+offset_bottom = 966.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Quit" type="Label" parent="."]
+offset_left = 91.0
+offset_top = 961.0
+offset_right = 214.0
+offset_bottom = 1028.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = 45.0
+offset_top = 769.0
+offset_right = 277.0
+offset_bottom = 832.0
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+offset_left = 58.0
+offset_top = 843.0
+offset_right = 345.0
+offset_bottom = 906.0
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+offset_left = 58.0
+offset_top = 906.0
+offset_right = 345.0
+offset_bottom = 969.0
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 58.0
+offset_top = 961.0
+offset_right = 229.0
+offset_bottom = 1024.0
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
+visible = false
+position = Vector2(349, -37)
+
+[node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
+visible = false
+position = Vector2(342, -27)
+
+[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]

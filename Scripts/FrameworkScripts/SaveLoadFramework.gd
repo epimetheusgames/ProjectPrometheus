@@ -44,12 +44,13 @@ const level_node_names = [
 	["Level7",],
 ]
 
-const menu = preload("res://Objects/FrameworkNodes/Menu.tscn")
+const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")
 var current_level_name = ""
 var bulge_amm = 0.0
 var real_bulge = 0.0
 var static_amm = 0.0
 var real_static = 0.0
+var player_camera_position = Vector2.ZERO
 
 func _process(delta):
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
@@ -150,12 +151,11 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 			
 		level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager")._on_fadin_half_wait_timer_timeout()
 	
-	get_node("Menu").queue_free()
+	get_node("MainMenu").queue_free()
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
 func exit_to_menu(level, floor, slot, is_max_level):
-	if is_max_level:
-		save_data(level, floor, slot)
+	save_data(level, floor, slot)
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	add_child(menu.instantiate())
 

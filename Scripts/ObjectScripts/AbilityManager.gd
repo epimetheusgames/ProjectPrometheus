@@ -35,6 +35,9 @@ func _process(delta):
 		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1
+		
+	get_parent().get_parent().static_adder = get_parent().get_node("DarkOverlay").color.a / 10
+	get_parent().get_parent().bulge_adder = get_parent().get_node("DarkOverlay").color.a
 
 func _on_fadin_wait_timer_timeout():
 	fading_in = false

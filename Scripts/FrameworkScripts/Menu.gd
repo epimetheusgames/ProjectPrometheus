@@ -1,7 +1,9 @@
 extends Node2D
 
-
+var character_type = 1
 var deactivated = false
+var credits_open = false
+@onready var credits_instance = preload("res://Levels/Cutscenes/Credits.tscn")
 
 func deactivate():
 	hide()
@@ -14,35 +16,50 @@ func activate():
 	# Activate all menu nodes!
 	
 func _ready():
-	_on_spin_box_changed()
-	var global_data = get_parent().load_data("global")
-	
-	$CheckBox.button_pressed = global_data[0]
-	$MusicSlider.value = global_data[1]
-	$SFXSlider.value = global_data[2]
-	$CheckBox2.button_pressed = global_data[3]
+	if name == "SettingsMenu":
+		var global_data = get_parent().get_parent().load_data("global")
+		$MusicSlider.value = global_data[1]
+		$SFXSlider.value = global_data[2]
+		$CheckButton.button_pressed = global_data[0]
+		$Difficulty.button_pressed = global_data[3]
 
 func _process(_delta):
-	if $CheckBox2.button_pressed:
-		$CheckBox2.text = "L Mode"
-	else:
-		$CheckBox2.text = "W Mode"
+	if name == "SettingsMenu":
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value)
+
+func _on_play_button_button_up():
+	$SettingsMenu.visible = false
+	$StartGameMenu.visible = true
 	
-	if Input.is_action_just_pressed("ui_down"):
-		get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($CheckBox2.button_pressed) + "]", "global")
-		get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0)
-		
-	if Input.is_action_just_pressed("ui_up"):
-		get_tree().quit()
-		
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value)
-	_on_spin_box_changed()
+func _on_settings_button_button_up():
+	$SettingsMenu.visible = true
+	$StartGameMenu.visible = false
 
-func _on_button_pressed():
-	get_parent().save_game("[" + str($CheckBox.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($CheckBox2.button_pressed) + "]", "global")
-	get_parent().start_game($SpinBox.value, $SpinBox2.value, $CheckBox.button_pressed, null, null, $SpinBox3.value - 1, 0, $CheckBox2.button_pressed)
+func _on_credits_button_button_up():
+	if !credits_open:
+		credits_open = true
+		call_deferred("add_child", credits_instance.instantiate())
 
-func _on_spin_box_changed():
-	var loaded_data = get_parent().load_data($SpinBox.value)
-	$SpinBox3.max_value = loaded_data[0]
+func _on_quit_button_button_up():
+	get_tree().quit()
+
+func _on_settings_back_button_button_up():
+	visible = false
+
+func _on_start_button_up():
+	var global_data = get_parent().get_parent().load_data("global")
+	get_parent().get_parent().start_game($SpinBox.value, character_type, global_data[0])
+
+func _on_type_1_button_down():
+	character_type = 1
+
+func _on_type_2_button_down():
+	character_type = 2
+
+func _on_type_3_button_down():
+	character_type = 3
+
+func _on_type_4_button_down():
+	character_type = 4
+

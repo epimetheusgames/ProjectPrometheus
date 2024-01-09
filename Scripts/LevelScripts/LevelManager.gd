@@ -8,8 +8,7 @@ var is_max_level = true
 var easy_mode = false
 
 func _ready():
-	if graphics_efficiency:
-		$CanvasModulate.color = Color(0.8, 0.8, 0.8, 1)
+	$CanvasModulate.color = Color(0.27, 0.27, 0.27, 1)
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

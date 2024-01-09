@@ -92,6 +92,7 @@ func _physics_process(delta):
 	
 	if get_parent().graphics_efficiency:
 		$PointLight2D.visible = false
+		$PointLight2DEfficient.visible = true
 	
 	if dead:
 		$AntennaAnimation.visible = false
@@ -236,14 +237,14 @@ func _physics_process(delta):
 	var save_load_framework = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework")
 	
 	if $BulletBadHurtcooldown.time_left > 0:
-		save_load_framework.bulge_amm = 1.0
-		save_load_framework.static_amm = 0.1
+		save_load_framework.bulge_amm = 1.0 + get_parent().bulge_adder
+		save_load_framework.static_amm = 0.1 + get_parent().static_adder
 	elif $BulletHurtCooldown.time_left > 0:
-		save_load_framework.bulge_amm = 0.4
-		save_load_framework.static_amm = 0.05
+		save_load_framework.bulge_amm = 0.4 + get_parent().bulge_adder
+		save_load_framework.static_amm = 0.05 + get_parent().static_adder
 	elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
-		save_load_framework.bulge_amm = 0
-		save_load_framework.static_amm = 0
+		save_load_framework.bulge_amm = 0 + get_parent().bulge_adder
+		save_load_framework.static_amm = 0 + get_parent().static_adder
 		
 	var left_pressed = Input.is_action_pressed("left")
 	var right_pressed = Input.is_action_pressed("right")
