@@ -1,8 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=37 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pcvgh"]
-[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_8axaw"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_mp7sm"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="4_cji8d"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="4_l0wfb"]
@@ -92,17 +91,8 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
-texture = ExtResource("3_8axaw")
-texture_region_size = Vector2i(36, 20)
-1:0/0 = 0
-0:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_1qr4f"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_de7lc")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
