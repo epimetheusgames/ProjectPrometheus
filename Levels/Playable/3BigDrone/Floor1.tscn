@@ -1,24 +1,24 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=22 format=3 uid="uid://c1im61j16trjv"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
-[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
-[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_cdmjk"]
-[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="4_i1qh4"]
-[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="4_inqs7"]
-[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="4_xwy4g"]
-[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="5_gfx43"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_kr20f"]
-[ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="9_idwtj"]
-[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_kyova"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="11_l3x5j"]
-[ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="12_5c2ij"]
-[ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="14_ij2cn"]
-[ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="15_wl6fd"]
-[ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="16_46u4n"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_dnrg7"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
+[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jkpvj"]
+[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="3_s3kju"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_wpm32"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_3mykt"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_lcb4g"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="7_lb12w"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_x137m"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="9_ggust"]
+[ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="10_osp52"]
+[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="11_sjoqh"]
+[ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="12_hrvsf"]
+[ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="13_pxvvt"]
+[ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="14_5to6w"]
+[ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="15_ss8gt"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_b2qe8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
-texture = ExtResource("2_s7twi")
+texture = ExtResource("2_jkpvj")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/metadata/_better_terrain = {
@@ -86,7 +86,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxdxs"]
-texture = ExtResource("4_inqs7")
+texture = ExtResource("5_3mykt")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -126,14 +126,11 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nxdxs")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcl6"]
-size = Vector2(4345, 1083)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24ive"]
 size = Vector2(140, 96)
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_ci8yo")
+script = ExtResource("1_hjtrt")
 level = 3
 
 [node name="Decorations" type="TileMap" parent="."]
@@ -144,10 +141,10 @@ layer_0/tile_data = PackedInt32Array(-131079, 65536, 3, -65543, 65536, 3, -13107
 
 [node name="PropDoorFaceForward4" type="Sprite2D" parent="."]
 position = Vector2(1168, -29)
-texture = ExtResource("11_l3x5j")
+texture = ExtResource("3_s3kju")
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("3_cdmjk")
+tile_set = ExtResource("4_wpm32")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -162,12 +159,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -524261, 0, 0, -524260, 0, 0, -524259, 0, 0, -524258, 0, 0, -524257, 0, 0, -786406, 0, 0, -786405, 0, 0, -786404, 0, 0, -786403, 0, 0, -786402, 0, 0, -786401, 0, 0, -851942, 0, 0, -851941, 0, 0, -851940, 0, 0, -851939, 0, 0, -851938, 0, 0, -851937, 0, 0, -917478, 0, 0, -917477, 0, 0, -917476, 0, 0, -917475, 0, 0, -917474, 0, 0, -917473, 0, 0, -983014, 0, 0, -983013, 0, 0, -983012, 0, 0, -983011, 0, 0, -983010, 0, 0, -983009, 0, 0, -983016, 0, 0, -917480, 0, 0, -851944, 0, 0, -786408, 0, 0, -983015, 0, 0, -917479, 0, 0, -851943, 0, 0, -786407, 0, 0)
 
 [node name="Gravel" type="TileMap" parent="."]
-tile_set = ExtResource("4_xwy4g")
+tile_set = ExtResource("6_lcb4g")
 rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(-7, 0, 2, -6, 0, 1, -65535, 0, 0, -65534, 0, 1, -65532, 0, 0, -131067, 0, 0, -65531, 0, 2, -131066, 0, 3, -65530, 0, 2, -131065, 0, 3, -65529, 0, 3, -131064, 0, 1, -65528, 0, 3, -65527, 0, 1, -65525, 0, 0, -65524, 0, 2, -131059, 0, 0, -65523, 0, 3, -131058, 0, 2, -65522, 0, 2)
 
-[node name="Player" parent="." instance=ExtResource("4_i1qh4")]
+[node name="Player" parent="." instance=ExtResource("7_lb12w")]
 
 [node name="Player" parent="Player" index="1"]
 position = Vector2(-47, -29)
@@ -182,7 +179,7 @@ motion_mirroring = Vector2(1920, 640)
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-494, 107)
 scale = Vector2(5, 5)
-texture = ExtResource("5_gfx43")
+texture = ExtResource("8_x137m")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
@@ -190,17 +187,8 @@ centered = false
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-scale = Vector2(0.5, 0.5)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1017.5, 550)
-shape = SubResource("RectangleShape2D_5xcl6")
-
 [node name="NextLevel" type="Area2D" parent="."]
-script = ExtResource("7_kr20f")
+script = ExtResource("9_ggust")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(1242, -48)
@@ -210,7 +198,7 @@ shape = SubResource("RectangleShape2D_24ive")
 volume_db = -8.69
 autoplay = true
 
-[node name="DroneManager" parent="." instance=ExtResource("9_idwtj")]
+[node name="DroneManager" parent="." instance=ExtResource("10_osp52")]
 position = Vector2(53, -383)
 speed = 0.4
 
@@ -218,63 +206,63 @@ speed = 0.4
 visible = false
 points = PackedVector2Array(59, 100, 36, 313, 91, 236, 126, 270, 351, 270, 356, 147, 632, 146, 639, -1, 1050, 4, 1228, -1169)
 
-[node name="DroneManager2" parent="." instance=ExtResource("9_kyova")]
+[node name="DroneManager2" parent="." instance=ExtResource("11_sjoqh")]
 position = Vector2(755, -242)
 
-[node name="DronePatrolPoints" parent="DroneManager2" index="1"]
+[node name="DronePatrolPoints" parent="DroneManager2" index="0"]
 visible = false
 points = PackedVector2Array(-192, -36, -585, -34, -578, -89, -17, -97, -22, -166, 308, -213, 358, -375)
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-126, -32)
-texture = ExtResource("11_l3x5j")
+texture = ExtResource("3_s3kju")
 
 [node name="PropDoorFaceForward2" type="Sprite2D" parent="."]
 position = Vector2(-126, -224)
-texture = ExtResource("11_l3x5j")
+texture = ExtResource("3_s3kju")
 
 [node name="PropDoorFaceForward3" type="Sprite2D" parent="."]
 position = Vector2(-126, -416)
-texture = ExtResource("11_l3x5j")
+texture = ExtResource("3_s3kju")
 
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(-64, -16)
-texture = ExtResource("12_5c2ij")
+texture = ExtResource("12_hrvsf")
 
 [node name="PropBench2" type="Sprite2D" parent="."]
 position = Vector2(-64, -208)
-texture = ExtResource("12_5c2ij")
+texture = ExtResource("12_hrvsf")
 
 [node name="PropBench3" type="Sprite2D" parent="."]
 position = Vector2(-64, -400)
-texture = ExtResource("12_5c2ij")
+texture = ExtResource("12_hrvsf")
 
 [node name="PropBench4" type="Sprite2D" parent="."]
 position = Vector2(1109, -15)
-texture = ExtResource("12_5c2ij")
+texture = ExtResource("12_hrvsf")
 
-[node name="WallTurret" parent="." instance=ExtResource("14_ij2cn")]
+[node name="WallTurret" parent="." instance=ExtResource("13_pxvvt")]
 position = Vector2(745, -290)
 
 [node name="PropBeanCan" type="Sprite2D" parent="."]
 position = Vector2(519, -211.335)
 rotation = 4.9899
-texture = ExtResource("15_wl6fd")
+texture = ExtResource("14_5to6w")
 
 [node name="PropTable" type="Sprite2D" parent="."]
 position = Vector2(528, -207)
-texture = ExtResource("16_46u4n")
+texture = ExtResource("15_ss8gt")
 
 [node name="AmbiantBackground2" type="AudioStreamPlayer" parent="."]
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
 
-[node name="ItemSwitcher" parent="." instance=ExtResource("17_dnrg7")]
+[node name="ItemSwitcher" parent="." instance=ExtResource("16_b2qe8")]
 position = Vector2(593, -207)
 item_switch_type = "ArmGun"
 
-[node name="ItemSwitcher2" parent="." instance=ExtResource("17_dnrg7")]
+[node name="ItemSwitcher2" parent="." instance=ExtResource("16_b2qe8")]
 position = Vector2(457, -80)
 item_switch_type = "RocketBoost"
 
