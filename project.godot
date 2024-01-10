@@ -20,6 +20,7 @@ boot_splash/fullsize=false
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 [display]
 
@@ -36,7 +37,7 @@ movie_writer/movie_file="C:/Users/black/Videos/MovieFile.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/controller_icons/plugin.cfg")
+enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/debug_menu/plugin.cfg")
 
 [file_customization]
 
