@@ -16,6 +16,8 @@ var rocket_jump_push_force = 0.32
 var speed_hard_cap = 5
 var previous_direction = 0
 var character_type = 0
+var conveyor_speed = 0
+var conveyor_direction = 0
 
 var in_second_ladder_area = false
 var in_ladder_area = false
@@ -32,6 +34,8 @@ var just_jumped = false
 var wasnt_moving = false
 var was_climbing = false
 var dead = false
+var in_conveyor_belt = false
+var dont_reset_conveyor = false
 
 var current_ability = "Weapon"
 
@@ -94,6 +98,9 @@ func _physics_process(delta):
 		$PointLight2D.visible = false
 		$PointLight2D.shadow_enabled = false
 		$PointLight2DEfficient.visible = true
+	
+	if in_conveyor_belt:
+		position.x += conveyor_speed * conveyor_direction * delta * 60
 	
 	if dead:
 		$AntennaAnimation.visible = false
@@ -442,6 +449,15 @@ func _physics_process(delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	if area.name == "PlayerPusher":
+		if in_conveyor_belt:
+			dont_reset_conveyor = true
+			return
+		
+		in_conveyor_belt = true
+		conveyor_speed = area.get_parent().speed
+		conveyor_direction = area.get_parent().direction
+	
 	if area.name == "ItemSwitcherArea":
 		var ability_manager = get_parent().get_node("Camera").get_node("AbilityManager")
 		var switch_ability = area.get_parent().item_switch_type
@@ -481,7 +497,10 @@ func _on_area_2d_area_entered(area):
 			ability_manager.ability_index = 2
 			
 		ability_manager.next_ability()
-	if area.name == "DeathZone":
+	if area.name == "DeathZone" || area.name == "PistonDeathZone":
+		if area.name == "PistonDeathZone":
+			visible = false
+		
 		get_parent().get_node("Camera/CloseAnimator").closing = true
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
 		if area.name == "BulletHurter":
@@ -519,6 +538,13 @@ func _on_player_hurtbox_area_exited(area):
 			in_ladder_area = false
 			climbing = false
 			jump()
+	
+	if area.name == "PlayerPusher":
+		if dont_reset_conveyor:
+			dont_reset_conveyor = false
+		else:
+			velocity.x = area.get_parent().speed * area.get_parent().direction
+			in_conveyor_belt = false
 			
 # If start walk animation finishes, play walking animation.
 func _on_animated_sprite_2d_animation_finished():
@@ -587,3 +613,7 @@ func _on_dash_stop_cooldown_timeout():
 func _on_hurt_vibration_timer_timeout():
 	Engine.time_scale = 1
 	Input.stop_joy_vibration(0)
+	
+func _on_spike_hurt_box_body_entered(body):
+	if body.name == "Spikes":
+		get_parent().get_node("Camera/CloseAnimator").closing = true

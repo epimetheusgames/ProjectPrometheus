@@ -266,6 +266,8 @@ item_switch_type = "ArmGun"
 position = Vector2(457, -80)
 item_switch_type = "RocketBoost"
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 

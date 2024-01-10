@@ -27,6 +27,7 @@ func _process(_delta):
 	if name == "SettingsMenu":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value)
+		get_parent().get_parent().save_game("[" + str($CheckButton.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($Difficulty.button_pressed) + "]", "global")
 
 func _on_play_button_button_up():
 	$SettingsMenu.visible = false

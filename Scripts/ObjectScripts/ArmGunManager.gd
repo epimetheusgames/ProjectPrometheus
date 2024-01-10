@@ -18,7 +18,7 @@ func _process(delta):
 		$Line2D.points[2].y = -25 - (mouse_pos.x / 150) + (mouse_pos.y / 200)
 		
 		var reversed_points_2 = Vector2(-$Line2D.points[2].x, $Line2D.points[2].y)
-		var mouse_direction = (get_global_mouse_position() - (get_parent().position + ($Line2D.points[2] if get_parent().previous_direction == 1 else reversed_points_2))).normalized()
+		var mouse_direction = (get_global_mouse_position() - (get_parent().position + get_parent().get_parent().position + ($Line2D.points[2] if get_parent().previous_direction == 1 else reversed_points_2))).normalized()
 		var reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
 		
 		# For controller

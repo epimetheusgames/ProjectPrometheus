@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://hx1rrl8f6576"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ConveyorBelt.gd" id="1_n5q37"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_qx2tm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrhyu"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6pb7"]
+size = Vector2(64, 13)
+
+[node name="ConveyorBelt" type="Node2D"]
+script = ExtResource("1_n5q37")
+speed = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, -4)
+scale = Vector2(2, 0.25)
+texture = ExtResource("1_qx2tm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_wrhyu")
+
+[node name="PlayerPusher" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPusher"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_f6pb7")

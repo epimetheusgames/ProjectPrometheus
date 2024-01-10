@@ -29,7 +29,6 @@ window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
-window/vsync/vsync_mode=0
 
 [editor]
 
@@ -42,43 +41,9 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
-"res://Assets/": "orange",
-"res://Assets/Audio/": "red",
 "res://Assets/Audio/SFX/": "orange",
 "res://Assets/Audio/Voicelines/": "yellow",
-"res://Assets/Images/": "yellow",
-"res://Assets/Images/Objects/": "red",
-"res://Assets/Images/Objects/Enemy/": "orange",
-"res://Assets/Images/Objects/FunctionalProps/": "yellow",
-"res://Assets/Images/Objects/Misc/": "green",
-"res://Assets/Images/Objects/Props/": "teal",
-"res://Assets/Images/Objects/UI/": "blue",
-"res://Assets/Images/Tilesets/": "orange",
-"res://Levels/": "yellow",
-"res://Levels/Cutscenes/": "red",
-"res://Levels/Playable/": "orange",
-"res://Levels/Playable/1Tutorial/": "red",
-"res://Levels/Playable/2Easy/": "orange",
-"res://Levels/Playable/3BigDrone/": "yellow",
-"res://Levels/Playable/Level10/": "red",
-"res://Levels/Playable/Level11/": "orange",
-"res://Levels/Playable/Level12/": "yellow",
-"res://Levels/Playable/Level2/": "green",
-"res://Levels/Playable/Level3/": "teal",
-"res://Levels/Playable/Level4/": "blue",
-"res://Levels/Playable/Level5/": "purple",
-"res://Levels/Playable/Level9/": "pink",
-"res://Levels/Playable/Template/": "green",
-"res://Objects/": "green",
-"res://Objects/Effects/": "red",
-"res://Objects/FrameworkNodes/": "orange",
-"res://Objects/Overlays/": "yellow",
 "res://Objects/UIThemes/": "teal",
-"res://Scripts/": "teal",
-"res://addons/": "red",
-"res://addons/better-terrain/icons/": "orange",
-"res://addons/controller_icons/": "orange",
-"res://addons/controller_icons/assets/": "red",
 "res://addons/controller_icons/example/": "orange",
 "res://addons/controller_icons/objects/": "yellow"
 }
@@ -154,7 +119,6 @@ respawn={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.121569, 0.121569, 0.121569, 1)
 anti_aliasing/quality/msaa_2d=3
 viewport/hdr_2d=true

@@ -6,31 +6,31 @@ extends Node2D
 
 const preloaded_levels = [
 	[
-		preload("res://Levels/Playable/Level11/Floor1.tscn"),
+		preload("res://Levels/Playable/1Tutorial/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level10/Floor1.tscn"),
+		preload("res://Levels/Playable/2EasyA/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level9/Floor1.tscn"),
+		preload("res://Levels/Playable/2EasyB/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level9/Floor1.tscn"),
+		preload("res://Levels/Playable/2EasyC/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level5/Floor1.tscn"),
+		preload("res://Levels/Playable/3BigDrone/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level1/Floor1.tscn"),
+		preload("res://Levels/Playable/4ConveyorDrop/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level2/Floor1.tscn"),
+		preload("res://Levels/Playable/5TowerLevelPartA/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level4/Floor1.tscn"),
+		preload("res://Levels/Playable/5TowerLevelPartB/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/Level7/Floor1.tscn"),
+		preload("res://Levels/Playable/5TowerLevelPartC/Floor1.tscn"),
 	],
 ]
 
@@ -41,6 +41,8 @@ const level_node_names = [
 	["Level4",],
 	["Level5",],
 	["Level4",],
+	["Level7",],
+	["Level7",],
 	["Level7",],
 ]
 
