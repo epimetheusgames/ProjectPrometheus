@@ -53,6 +53,9 @@ const level_node_names = [
 	["Level8",],
 	["Level9",],
 	["Level10",],
+	["Level10",],
+	["Level10",],
+	["Level10",],
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")

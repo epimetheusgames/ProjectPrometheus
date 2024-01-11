@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=37 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="22_nlfdx"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="22_nqhbn"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="23_a45st"]
-[ext_resource type="AudioStream" uid="uid://diqrmekexoo2x" path="res://Assets/Audio/Voicelines/Voiceline1.mp3" id="25_vw113"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_t6j4e")
@@ -462,12 +461,6 @@ item_switch_type = "Grapple"
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("22_nlfdx")]
 position = Vector2(400, -496)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("25_vw113")
-volume_db = 7.0
-autoplay = true
-bus = &"SFX"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

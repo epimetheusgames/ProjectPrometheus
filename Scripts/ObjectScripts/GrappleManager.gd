@@ -52,7 +52,7 @@ func _physics_process(delta):
 			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
 			
 			if Input.is_action_pressed("jump"):
-				grapple_lock_rope_len -= 1 * delta * 60
+				grapple_lock_rope_len -= 1.5 * delta * 60
 				
 			if Input.is_action_pressed("down"):
 				grapple_lock_rope_len += 1.4 * delta * 60
