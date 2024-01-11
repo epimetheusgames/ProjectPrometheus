@@ -6,19 +6,25 @@ extends Node2D
 @onready var direction = speed * start_direction
 var gravity = 0.5
 var velocity = Vector2.ZERO
+var enabled = false
 
 func _ready():
 	if direction == speed:
 		$JumpHurtBox/CollisionShape2D2.disabled = false
 		$JumpHurtBox/CollisionShape2D3.disabled = true
 		$DrillAnimation.scale.x = 1
+		$DrillBreakOverlay.scale.x = 1
 	elif direction == -speed:
 		$JumpHurtBox/CollisionShape2D2.disabled = true
 		$JumpHurtBox/CollisionShape2D3.disabled = false
 		$DrillAnimation.scale.x = -1
+		$DrillBreakOverlay.scale.x = -1
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !enabled:
+		return
+	
 	if health > 0:
 		velocity.x = direction
 		velocity.y += gravity
@@ -101,3 +107,7 @@ func _on_jump_hurt_box_allways_active_area_entered(area):
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+
+func _on_player_in_range_detector_area_entered(area):
+	if area.name == "PlayerHurtbox":
+		enabled = true

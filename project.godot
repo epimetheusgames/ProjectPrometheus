@@ -42,9 +42,7 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
-"res://Assets/Audio/SFX/": "orange",
 "res://Assets/Audio/Voicelines/": "yellow",
-"res://Objects/UIThemes/": "teal",
 "res://addons/controller_icons/example/": "orange",
 "res://addons/controller_icons/objects/": "yellow"
 }

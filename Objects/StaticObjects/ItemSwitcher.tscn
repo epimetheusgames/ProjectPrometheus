@@ -1,24 +1,201 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn087ulv26701"]
+[gd_scene load_steps=22 format=3 uid="uid://dn087ulv26701"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="1_fge0x"]
+[ext_resource type="Texture2D" uid="uid://dc2hjawjefeds" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherSword.png" id="2_dcrik"]
+[ext_resource type="Texture2D" uid="uid://cg75lqqdfu7qv" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcher.png" id="2_fcxye"]
+[ext_resource type="Texture2D" uid="uid://el4d7tmp3gfi" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherGrapple.png" id="3_ne3oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhh0"]
+atlas = ExtResource("2_dcrik")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4bkn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhh0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgr42"]
+atlas = ExtResource("3_ne3oy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnvj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgr42")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnhbe"]
+atlas = ExtResource("3_ne3oy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coxh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnhbe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bohfp"]
+atlas = ExtResource("2_fcxye")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16wcn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3u38"]
+atlas = ExtResource("2_fcxye")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnjdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3u38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mjgd"]
+atlas = ExtResource("2_dcrik")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hi10e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mjgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf1wy"]
+atlas = ExtResource("3_ne3oy")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gw78a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf1wy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3oa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bohfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk66y"]
-size = Vector2(32, 32)
+size = Vector2(16, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upvkn"]
+size = Vector2(32, 4)
 
 [node name="ItemSwitcher" type="Node2D"]
 script = ExtResource("1_fge0x")
 
-[node name="ItemSwitcherArea" type="Area2D" parent="."]
+[node name="SwordCollect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_g4bkn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSwitcherArea"]
-shape = SubResource("RectangleShape2D_vk66y")
+[node name="RocketBoostCollect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_qnvj3")
 
-[node name="SwordCollect2" type="AnimatedSprite2D" parent="."]
-
-[node name="RocketBoostCollect2" type="AnimatedSprite2D" parent="."]
-
-[node name="GrappleCollect2" type="AnimatedSprite2D" parent="."]
+[node name="GrappleCollect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_coxh5")
 
 [node name="ArmGunCollect" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_16wcn")
 
 [node name="Preview" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_lnjdx")
+
+[node name="SwordCollect2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 15
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_hi10e")
+
+[node name="RocketBoostCollect2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 15
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_16wcn")
+
+[node name="GrappleCollect2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 15
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_gw78a")
+
+[node name="ArmGunCollect2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 15
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_16wcn")
+
+[node name="Preview2" type="AnimatedSprite2D" parent="."]
+z_index = 15
+position = Vector2(1, -16)
+sprite_frames = SubResource("SpriteFrames_v3oa6")
+
+[node name="ItemSwitcherArea" type="Area2D" parent="."]
+position = Vector2(1, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSwitcherArea"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_vk66y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, -16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(28, 32, 12, 28, -12, 28, -31, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_upvkn")

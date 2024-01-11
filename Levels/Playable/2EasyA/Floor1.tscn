@@ -286,9 +286,9 @@ autoplay = true
 bus = &"Music"
 
 [node name="Checkpoint4" parent="." instance=ExtResource("20_filsr")]
+z_index = -1
 position = Vector2(-100, -13)
 rotation = 0.270526
-scale = Vector2(1, 1)
 
 [node name="Ladder" parent="." instance=ExtResource("17_7bxca")]
 position = Vector2(-624, -172)

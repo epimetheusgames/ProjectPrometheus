@@ -241,6 +241,8 @@ tile_set = ExtResource("7_4cs5s")
 format = 2
 
 [node name="Spikes" type="TileMap" parent="."]
+z_index = 15
+z_as_relative = false
 tile_set = ExtResource("8_6xwbw")
 rendering_quadrant_size = 32
 format = 2
