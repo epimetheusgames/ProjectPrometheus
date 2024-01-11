@@ -81,9 +81,18 @@ theme = ExtResource("2_m10j5")
 text = "Start Game
 "
 
+[node name="ClearSlot" type="Button" parent="."]
+offset_left = 179.0
+offset_top = 985.0
+offset_right = 312.0
+offset_bottom = 1016.0
+text = "Clear Slot
+"
+
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
 [connection signal="button_down" from="Type1" to="." method="_on_type_1_button_down"]
 [connection signal="button_down" from="Type2" to="." method="_on_type_2_button_down"]
 [connection signal="button_down" from="Type3" to="." method="_on_type_3_button_down"]
 [connection signal="button_down" from="Type4" to="." method="_on_type_4_button_down"]
 [connection signal="button_up" from="Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="ClearSlot" to="." method="_on_clear_slot_button_up"]

@@ -131,7 +131,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpe1"]
-size = Vector2(24, 6)
+size = Vector2(24, 15.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxb5c"]
 size = Vector2(8, 32)
@@ -175,7 +175,7 @@ target_position = Vector2(0, 16)
 [node name="JumpHurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(22, -3)
+position = Vector2(22, -8.25)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
@@ -189,7 +189,7 @@ shape = SubResource("RectangleShape2D_dncpn")
 [node name="JumpHurtBoxAllwaysActive" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
-position = Vector2(22, -3)
+position = Vector2(22, -8.5)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]

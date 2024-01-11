@@ -276,7 +276,7 @@ position = Vector2(4, -91)
 script = ExtResource("10_3xfa0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-8754.5, 1510)
+position = Vector2(-8721, 679)
 shape = SubResource("RectangleShape2D_2nmsf")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]

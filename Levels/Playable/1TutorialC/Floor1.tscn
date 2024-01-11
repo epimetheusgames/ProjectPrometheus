@@ -319,10 +319,6 @@ texture = ExtResource("18_b2mwp")
 position = Vector2(3018, 192)
 start_direction = -1
 
-[node name="DrillManager2" parent="." instance=ExtResource("19_v1xhg")]
-position = Vector2(2930, 192)
-start_direction = -1
-
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(3135, 192)
 texture = ExtResource("20_v3ukf")
