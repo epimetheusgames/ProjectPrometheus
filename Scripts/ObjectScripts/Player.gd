@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Speed multiplier for the player
 var speed = 0.2
-var jump_vel = 4
+var jump_vel = 4.5
 var rocket_jump_vel = 6
 var max_jump_speed_rocket = 8
 var gravity = 0.5
@@ -96,8 +96,6 @@ func _physics_process(delta):
 	
 	if get_parent().graphics_efficiency:
 		$PointLight2D.visible = false
-		$PointLight2D.shadow_enabled = false
-		$PointLight2DEfficient.visible = true
 	
 	if in_conveyor_belt:
 		position.x += conveyor_speed * conveyor_direction * delta * 60

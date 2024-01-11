@@ -72,7 +72,7 @@ func calculate_flight_frame():
 	movement_velocity = Vector2(smooth(movement_velocity.x, direction_to_next_point.x, velocity_smoothing * 1.5),
 								smooth(movement_velocity.y, direction_to_next_point.y / 1.5, velocity_smoothing))
 	
-	if get_parent().graphics_efficiency:
+	if get_parent().graphics_efficiency && !big_drone:
 		$AttackLine.clip_children = false
 		$AttackLine/Sprite2D.visible = false
 	

@@ -281,7 +281,7 @@ position = Vector2(-822, -32)
 [node name="DroneManager" parent="." instance=ExtResource("11_jybpi")]
 position = Vector2(-591, 178)
 
-[node name="DronePatrolPoints" parent="DroneManager" index="1"]
+[node name="DronePatrolPoints" parent="DroneManager" index="0"]
 visible = false
 position = Vector2(0, -1)
 points = PackedVector2Array(1, -159, -5, -559, 49, -587, 272, -587, 567, -544, 534, -590, 544, -622, 545, -943, -572, -916, -548, -708, -625, -605, -803, -557, -822, -1136, 222, -1140, 491, -1217, 807.369, -1218.97, 1939, -1226)
@@ -343,7 +343,7 @@ player_checkpoint_item = "ArmGun"
 [node name="DroneManager2" parent="." instance=ExtResource("11_jybpi")]
 position = Vector2(1443, -811)
 
-[node name="DronePatrolPoints" parent="DroneManager2" index="1"]
+[node name="DronePatrolPoints" parent="DroneManager2" index="0"]
 visible = false
 position = Vector2(0, 9)
 points = PackedVector2Array(-241, -9, -732, 0, -821, 378, -889, 0, -1000, -103, -527, -113, -10, -126)

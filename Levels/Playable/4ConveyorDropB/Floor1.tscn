@@ -1,28 +1,30 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=33 format=3 uid="uid://d0ts7tu78v4at"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5xcuu"]
-[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_216n4"]
-[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_oq1s7"]
-[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_v7atr"]
-[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_yc6bl"]
-[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_d4hbk"]
-[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_wmmmt"]
-[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_kkvgl"]
-[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_o1aul"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_80gyx"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_t3k2c"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_s6b6t"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="13_3hvfw"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="14_hrnfp"]
-[ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="15_om58m"]
-[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="16_er62a"]
-[ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="17_qiu6b"]
-[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="18_d18fk"]
-[ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="19_td6dm"]
-[ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="20_2865w"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ky4pi"]
+[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mtgua"]
+[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_tlqbr"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_i7eyj"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_d6bb7"]
+[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_650se"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_qojer"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_mgk8e"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_iik12"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_3xfa0"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_j2fdj"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_n6vx0"]
+[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="13_nlqw5"]
+[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_msve5"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_87f7g"]
+[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="16_v2cx0"]
+[ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="17_gkk2g"]
+[ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="18_0g8u3"]
+[ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="19_2dqvj"]
+[ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_y1enx"]
+[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_4ksgq"]
+[ext_resource type="PackedScene" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
-texture = ExtResource("2_216n4")
+texture = ExtResource("2_mtgua")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/metadata/_better_terrain = {
@@ -90,7 +92,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
-texture = ExtResource("3_oq1s7")
+texture = ExtResource("3_tlqbr")
 texture_region_size = Vector2i(36, 20)
 1:0/0 = 0
 0:0/0 = 0
@@ -111,7 +113,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khs7b"]
-texture = ExtResource("5_yc6bl")
+texture = ExtResource("5_d6bb7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -152,7 +154,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_khs7b")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
-texture = ExtResource("6_d4hbk")
+texture = ExtResource("6_650se")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -190,15 +192,18 @@ texture = ExtResource("6_d4hbk")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nmsf"]
+size = Vector2(1521, 107.875)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
-shader = ExtResource("12_s6b6t")
+shader = ExtResource("12_n6vx0")
 shader_parameter/distortion_amm = 0.0
 shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
 [node name="Level3" type="Node2D"]
-script = ExtResource("1_5xcuu")
+script = ExtResource("1_ky4pi")
 level = 4
 
 [node name="Decorations" type="TileMap" parent="."]
@@ -213,7 +218,7 @@ rendering_quadrant_size = 32
 format = 2
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("4_v7atr")
+tile_set = ExtResource("4_i7eyj")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -233,10 +238,10 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 
 [node name="Gravel" type="TileMap" parent="."]
-tile_set = ExtResource("7_wmmmt")
+tile_set = ExtResource("7_qojer")
 format = 2
 
-[node name="Player" parent="." instance=ExtResource("8_kkvgl")]
+[node name="Player" parent="." instance=ExtResource("8_mgk8e")]
 
 [node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
@@ -259,7 +264,7 @@ motion_mirroring = Vector2(1920, 640)
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-475, 111)
 scale = Vector2(5, 5)
-texture = ExtResource("9_o1aul")
+texture = ExtResource("9_iik12")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
@@ -268,10 +273,14 @@ centered = false
 position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
-script = ExtResource("10_80gyx")
+script = ExtResource("10_3xfa0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(-5118.5, 448.062)
+shape = SubResource("RectangleShape2D_2nmsf")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_t3k2c")
+stream = ExtResource("11_j2fdj")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
@@ -281,7 +290,7 @@ material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_3hvfw")
+stream = ExtResource("13_nlqw5")
 autoplay = true
 bus = &"Music"
 
@@ -293,14 +302,14 @@ offset_right = 14.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
 
-[node name="DrillManager" parent="." instance=ExtResource("16_er62a")]
+[node name="DrillManager" parent="." instance=ExtResource("14_msve5")]
 position = Vector2(-530, 0)
 
-[node name="ItemSwitcher" parent="." instance=ExtResource("14_hrnfp")]
+[node name="ItemSwitcher" parent="." instance=ExtResource("15_87f7g")]
 position = Vector2(-877, 16)
 item_switch_type = "RocketBoost"
 
-[node name="DroneManager" parent="." instance=ExtResource("18_d18fk")]
+[node name="DroneManager" parent="." instance=ExtResource("16_v2cx0")]
 position = Vector2(-1651, -366)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
@@ -309,10 +318,10 @@ points = PackedVector2Array(108, -1, 272, -2, 228, 306, 318, 281, 391, 325, 507,
 [node name="Sprite2D" parent="DroneManager/AttackLine" index="0"]
 position = Vector2(15, 0)
 
-[node name="ItemSwitcher2" parent="." instance=ExtResource("14_hrnfp")]
+[node name="ItemSwitcher2" parent="." instance=ExtResource("15_87f7g")]
 position = Vector2(-1520, 16)
 
-[node name="Stair" parent="." instance=ExtResource("20_2865w")]
+[node name="Stair" parent="." instance=ExtResource("17_gkk2g")]
 position = Vector2(-1745, 5)
 
 [node name="StairSprite" parent="Stair" index="0"]
@@ -329,39 +338,103 @@ scale = Vector2(-1, 1)
 [node name="CollisionPolygon2D" parent="Stair/StaticBody2D" index="0"]
 position = Vector2(47, -5)
 
-[node name="WallTurret" parent="." instance=ExtResource("17_qiu6b")]
+[node name="WallTurret" parent="." instance=ExtResource("18_0g8u3")]
 position = Vector2(-1719, -93)
 
-[node name="ItemSwitcher3" parent="." instance=ExtResource("14_hrnfp")]
+[node name="ItemSwitcher3" parent="." instance=ExtResource("15_87f7g")]
 position = Vector2(-2084, -16)
 item_switch_type = "Grapple"
 
-[node name="GrappleHook" parent="." instance=ExtResource("15_om58m")]
+[node name="GrappleHook" parent="." instance=ExtResource("19_2dqvj")]
 position = Vector2(-2185, -283)
 
-[node name="Checkpoint" parent="." instance=ExtResource("19_td6dm")]
+[node name="Checkpoint" parent="." instance=ExtResource("20_y1enx")]
 position = Vector2(-977, 17)
 player_checkpoint_item = "RocketBoost"
 
-[node name="Checkpoint2" parent="." instance=ExtResource("19_td6dm")]
+[node name="Checkpoint2" parent="." instance=ExtResource("20_y1enx")]
 position = Vector2(-1978, -16)
 player_checkpoint_item = "ArmGun"
 
-[node name="GrappleHook2" parent="." instance=ExtResource("15_om58m")]
+[node name="GrappleHook2" parent="." instance=ExtResource("19_2dqvj")]
 position = Vector2(-2461, -283)
 
-[node name="DrillManager2" parent="." instance=ExtResource("16_er62a")]
+[node name="DrillManager2" parent="." instance=ExtResource("14_msve5")]
 position = Vector2(-3169, -159)
 
-[node name="Checkpoint3" parent="." instance=ExtResource("19_td6dm")]
+[node name="Checkpoint3" parent="." instance=ExtResource("20_y1enx")]
 position = Vector2(-2703, -208)
 
-[node name="ItemSwitcher4" parent="." instance=ExtResource("14_hrnfp")]
+[node name="ItemSwitcher4" parent="." instance=ExtResource("15_87f7g")]
 position = Vector2(-2607, -208)
 
-[node name="ItemSwitcher5" parent="." instance=ExtResource("14_hrnfp")]
+[node name="ItemSwitcher5" parent="." instance=ExtResource("15_87f7g")]
 position = Vector2(-3325, -144)
 item_switch_type = "RocketBoost"
+
+[node name="DoorAjarSprite" type="Sprite2D" parent="."]
+position = Vector2(4, 1)
+texture = ExtResource("21_4ksgq")
+
+[node name="ConveyorBelt" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-3680, -192)
+direction = -1
+
+[node name="ConveyorBelt2" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-3744, -192)
+direction = -1
+
+[node name="ConveyorBelt3" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-3808, -192)
+direction = -1
+
+[node name="ConveyorBelt4" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-3872, -192)
+direction = -1
+
+[node name="ConveyorBelt5" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-3936, -192)
+direction = -1
+
+[node name="ConveyorBelt6" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4000, -192)
+direction = -1
+
+[node name="ConveyorBelt7" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4064, -192)
+direction = -1
+
+[node name="ConveyorBelt8" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4128, -192)
+direction = -1
+
+[node name="ConveyorBelt9" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4192, -192)
+direction = -1
+
+[node name="ConveyorBelt10" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4256, -192)
+direction = -1
+
+[node name="ConveyorBelt11" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4320, -192)
+direction = -1
+
+[node name="ConveyorBelt12" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4384, -192)
+direction = -1
+
+[node name="ConveyorBelt13" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4448, -192)
+direction = -1
+
+[node name="ConveyorBelt14" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4512, -192)
+direction = -1
+
+[node name="ConveyorBelt15" parent="." instance=ExtResource("22_tiyoc")]
+position = Vector2(-4576, -192)
+direction = -1
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
