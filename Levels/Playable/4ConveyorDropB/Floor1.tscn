@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="19_2dqvj"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_y1enx"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_4ksgq"]
-[ext_resource type="PackedScene" uid="uid://hx1rrl8f6576" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
+[ext_resource type="PackedScene" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_mtgua")

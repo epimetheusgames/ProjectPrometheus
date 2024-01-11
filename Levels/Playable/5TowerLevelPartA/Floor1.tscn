@@ -565,6 +565,9 @@ bus = &"Master"
 [node name="Checkpoint5" parent="." instance=ExtResource("21_o2r4d")]
 position = Vector2(-3236, -784)
 
+[node name="Checkpoint6" parent="." instance=ExtResource("21_o2r4d")]
+position = Vector2(-689, -16)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 

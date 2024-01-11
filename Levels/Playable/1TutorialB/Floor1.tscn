@@ -246,7 +246,7 @@ z_as_relative = false
 tile_set = ExtResource("8_6xwbw")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-131045, 65536, 2, -65509, 65536, 3, 27, 65536, 4, -327641, 65536, 2, -262105, 65536, 3, -196569, 65536, 4)
+layer_0/tile_data = PackedInt32Array(-196573, 0, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -318,7 +318,7 @@ position = Vector2(2, 0)
 texture = ExtResource("15_10cv0")
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("16_nefoj")]
-position = Vector2(817, 16)
+position = Vector2(801, 16)
 item_switch_type = "RocketBoost"
 
 [node name="DroneManager" parent="." instance=ExtResource("17_rkbi5")]
@@ -336,7 +336,7 @@ item_switch_type = "ArmGun"
 position = Vector2(1255, -315)
 
 [node name="ItemSwitcher3" parent="." instance=ExtResource("16_nefoj")]
-position = Vector2(1221, -80)
+position = Vector2(1212, -80)
 item_switch_type = "Grapple"
 
 [node name="PistonSmasher" parent="." instance=ExtResource("19_5ioun")]

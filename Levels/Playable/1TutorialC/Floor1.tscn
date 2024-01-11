@@ -234,7 +234,7 @@ motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 640)
 
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-475, 111)
+position = Vector2(-471, 111)
 scale = Vector2(5, 5)
 texture = ExtResource("9_1n3tp")
 centered = false
@@ -281,7 +281,7 @@ position = Vector2(1683, 133)
 position = Vector2(2386, 37)
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("15_c3831")]
-position = Vector2(446, 16)
+position = Vector2(450, 16)
 item_switch_type = "RocketBoost"
 
 [node name="DroneManager" parent="." instance=ExtResource("16_mi5fu")]
@@ -300,7 +300,7 @@ position = Vector2(929, 16)
 item_switch_type = "ArmGun"
 
 [node name="ItemSwitcher3" parent="." instance=ExtResource("15_c3831")]
-position = Vector2(1503, 304)
+position = Vector2(1504, 304)
 item_switch_type = "Grapple"
 
 [node name="Checkpoint2" parent="." instance=ExtResource("17_6lkn0")]
@@ -308,7 +308,7 @@ position = Vector2(1553, 306)
 player_checkpoint_item = "Grapple"
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("15_c3831")]
-position = Vector2(2656, 112)
+position = Vector2(2657, 112)
 
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
