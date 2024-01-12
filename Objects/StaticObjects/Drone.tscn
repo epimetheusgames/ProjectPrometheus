@@ -126,6 +126,7 @@ width = 0.1
 default_color = Color(0.529412, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackLine"]
+visible = false
 modulate = Color(0.360784, 0.360784, 0.360784, 1)
 self_modulate = Color(3, 3, 3, 1)
 texture_filter = 4
