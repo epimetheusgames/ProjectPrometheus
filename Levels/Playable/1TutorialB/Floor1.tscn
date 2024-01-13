@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=31 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_oj1qr"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_qqyaf"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_7m1fi"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="12_xa6g6"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="13_m3gtf"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="14_pwu2t"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="15_10cv0"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_nefoj"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="17_rkbi5"]
@@ -299,11 +298,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_pwu2t")
-autoplay = true
-bus = &"Music"
 
 [node name="SizeChecker" type="ColorRect" parent="."]
 visible = false

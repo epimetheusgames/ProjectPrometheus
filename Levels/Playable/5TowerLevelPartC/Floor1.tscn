@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ctkvp8tqrbrmp"]
+[gd_scene load_steps=29 format=3 uid="uid://ctkvp8tqrbrmp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cc421"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_r8kqu"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="8_0oldw"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_qv1k2"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="10_72318"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="11_6duqt"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="12_l8qmj"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="13_jkp2v"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="14_ig3k1"]
@@ -275,11 +274,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_6duqt")
-autoplay = true
-bus = &"Music"
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_l8qmj")]
 position = Vector2(-16, 17)

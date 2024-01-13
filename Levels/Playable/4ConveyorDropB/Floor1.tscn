@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=32 format=3 uid="uid://d0ts7tu78v4at"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ky4pi"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mtgua"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_3xfa0"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_j2fdj"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_n6vx0"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="13_nlqw5"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_msve5"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_87f7g"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="16_v2cx0"]
@@ -21,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="19_2dqvj"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_y1enx"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_4ksgq"]
-[ext_resource type="PackedScene" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
+[ext_resource type="PackedScene" uid="uid://hx1rrl8f6576" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_mtgua")
@@ -288,11 +287,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_nlqw5")
-autoplay = true
-bus = &"Music"
 
 [node name="SizeChecker" type="ColorRect" parent="."]
 visible = false

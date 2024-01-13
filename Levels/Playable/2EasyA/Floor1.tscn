@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=36 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_1ko6j"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_r8xft"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="10_dto7s"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="11_3n1yl"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="17_7bxca"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_gt75n"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="18_84llk"]
@@ -278,11 +277,6 @@ bus = &"SFX"
 z_index = 100
 material = SubResource("ShaderMaterial_lxv0b")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_3n1yl")
-autoplay = true
-bus = &"Music"
 
 [node name="Checkpoint4" parent="." instance=ExtResource("20_filsr")]
 z_index = -1
