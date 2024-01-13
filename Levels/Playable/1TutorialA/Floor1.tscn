@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=20 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -124,6 +124,9 @@ texture = ExtResource("4_mouxu")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8hru"]
+size = Vector2(164, 62)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
 size = Vector2(144, 98)
 
@@ -186,6 +189,22 @@ scale = Vector2(5, 5)
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-3503, 250)
+shape = SubResource("RectangleShape2D_o8hru")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-4404, 165)
+shape = SubResource("RectangleShape2D_o8hru")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-5202, 64)
+shape = SubResource("RectangleShape2D_o8hru")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(-5522, 64)
+shape = SubResource("RectangleShape2D_o8hru")
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
