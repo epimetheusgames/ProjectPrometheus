@@ -27,8 +27,8 @@ theme = ExtResource("2_m10j5")
 [node name="SpinBox" type="SpinBox" parent="."]
 offset_left = 25.0
 offset_top = 985.0
-offset_right = 167.0
-offset_bottom = 1016.0
+offset_right = 197.0
+offset_bottom = 1020.0
 theme = ExtResource("2_m10j5")
 max_value = 5.0
 prefix = "Game Slot"
@@ -78,13 +78,14 @@ offset_top = 985.0
 offset_right = 638.0
 offset_bottom = 1045.0
 theme = ExtResource("2_m10j5")
+theme_override_font_sizes/font_size = 24
 text = "Start Game
 "
 
 [node name="ClearSlot" type="Button" parent="."]
-offset_left = 179.0
+offset_left = 206.0
 offset_top = 985.0
-offset_right = 312.0
+offset_right = 339.0
 offset_bottom = 1016.0
 text = "Clear Slot
 "

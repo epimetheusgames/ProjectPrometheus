@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cflsrb28newdy"
-path="res://.godot/imported/NixieOne-Regular.ttf-a867cac66c257ab31f6f63bafb7485ac.fontdata"
+uid="uid://dfld0e118c5p1"
+path="res://.godot/imported/Poppins-Regular.ttf-4baeef52d79191d6228faf051a44b650.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/NixieOne-Regular.ttf"
-dest_files=["res://.godot/imported/NixieOne-Regular.ttf-a867cac66c257ab31f6f63bafb7485ac.fontdata"]
+source_file="res://Assets/Fonts/Poppins-Regular.ttf"
+dest_files=["res://.godot/imported/Poppins-Regular.ttf-4baeef52d79191d6228faf051a44b650.fontdata"]
 
 [params]
 

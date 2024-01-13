@@ -26,9 +26,14 @@ func _process(delta):
 	
 	position = original_pos * (4 / get_parent().zoom.x)
 	scale = original_scale * (4 / get_parent().zoom.x)
-	ideal_rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60
+	ideal_rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60 * (get_parent().get_parent().get_node("Player").velocity.length() * 0.5)
 	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1 * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
+	
+	if fmod(ideal_rotation , ((1.0 / 2.0) * PI) <= 0.1) && $AbililtySwitchTimer.time_left <= 15:
+		get_parent().get_node("CloseAnimator").closing = true
+		Engine.time_scale = 0.6
+		get_parent().get_parent().get_node("Player").get_node("HurtVibrationTimer").start()
 	
 	if $AbililtySwitchTimer.time_left < 10:
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
