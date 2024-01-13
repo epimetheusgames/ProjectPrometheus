@@ -58,6 +58,12 @@ const level_node_names = [
 	["Level10",],
 ]
 
+const music_files = [
+	preload("res://Assets/Audio/Music/Dronium.ogg"),
+	preload("res://Assets/Audio/Music/Oskillate.ogg"),
+	preload("res://Assets/Audio/Music/Arpeggiator.ogg"),
+]
+
 const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")
 var current_level_name = ""
 var bulge_amm = 0.0
@@ -67,16 +73,25 @@ var real_static = 0.0
 var player_camera_position = Vector2.ZERO
 
 func _process(delta):
+	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 2:
+		var rng = RandomNumberGenerator.new()
+		var music_index = rng.randi_range(0, len(music_files) - 1)
+		var music_stream = music_files[music_index]
+		$BackgroundMusicPlayer.stream = music_stream
+		$BackgroundMusicPlayer.play()
+	
+	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 2:
+		$BackgroundMusicPlayer.playing = false
+	
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
 	real_static += (static_amm - real_static) * 0.05 * delta * 60
 	
-	if len(get_children()) > 1:
+	if len(get_children()) > 2:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", 0.0)
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("static_scale", 0.0)
 	else:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", real_bulge)
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("static_scale", real_static)
-		
 	
 	if len(get_parent().get_node("Level").get_children()) > 1:
 		get_parent().get_node("Level").get_children()[-1].queue_free()

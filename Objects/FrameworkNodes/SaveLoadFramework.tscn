@@ -21,3 +21,6 @@ script = ExtResource("1_7se8a")
 environment = SubResource("Environment_80h8x")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_afe5v")]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
