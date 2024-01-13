@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=30 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="12_ymn2g"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="13_7jma7"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="14_rnqkd"]
-[ext_resource type="AudioStream" uid="uid://bthafqauupwoi" path="res://Assets/Audio/Music/Dronium.ogg" id="15_0qxn8"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="16_sipsx"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="18_7xqa3"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="19_0na5i"]
@@ -383,10 +382,6 @@ position = Vector2(-137, -860)
 
 [node name="GrappleHook11" parent="." instance=ExtResource("13_7jma7")]
 position = Vector2(-13, -860)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_0qxn8")
-autoplay = true
 
 [node name="WallTurret8" parent="." instance=ExtResource("12_ymn2g")]
 position = Vector2(105, -444)

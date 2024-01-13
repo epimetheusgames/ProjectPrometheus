@@ -59,9 +59,14 @@ const level_node_names = [
 ]
 
 const music_files = [
-	preload("res://Assets/Audio/Music/Dronium.ogg"),
 	preload("res://Assets/Audio/Music/Oskillate.ogg"),
 	preload("res://Assets/Audio/Music/Arpeggiator.ogg"),
+	preload("res://Assets/Audio/Music/Winds-of-Exhilation.ogg"),
+	preload("res://Assets/Audio/Music/Metallic-Fire.ogg"),
+]
+
+const intense_music_files = [
+	preload("res://Assets/Audio/Music/Dronium.ogg"),
 ]
 
 const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")
