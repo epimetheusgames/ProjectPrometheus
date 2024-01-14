@@ -14,7 +14,6 @@ func play_voiceline(voiceline_name):
 	$VoicelineContainer.playing = false
 	$VoicelineContainer.stream = voicelines[voiceline_name]
 	$VoicelineContainer.playing = true
-	print($VoicelineContainer.stream)
 
 func death_by_hazard():
 	hazard_deaths_this_level += 1
