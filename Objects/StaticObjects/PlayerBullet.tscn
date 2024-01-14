@@ -1,6 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dn1vatgdq214p"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerBulletManager.gd" id="1_des1p"]
+[ext_resource type="Texture2D" uid="uid://cxeppn50cjf01" path="res://Assets/Images/Objects/Enemy/DroneBullet.png" id="2_xkciq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63qep"]
 radius = 2.54951
@@ -36,9 +37,6 @@ gradient = SubResource("Gradient_552lm")
 width = 1
 height = 1
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_358aq"]
-load_path = "res://.godot/imported/DroneBullet.png-0837aace0ff8c6d0711a741410be7ff2.ctex"
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_des1p")
 
@@ -65,7 +63,7 @@ visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 modulate = Color(0, 0.784314, 0.980392, 1)
 position = Vector2(2.5, 2.5)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("CompressedTexture2D_358aq")
+texture = ExtResource("2_xkciq")
 
 [connection signal="area_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_area_entered"]
 [connection signal="body_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_body_entered"]

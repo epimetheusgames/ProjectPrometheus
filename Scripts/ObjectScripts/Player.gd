@@ -496,6 +496,7 @@ func _on_area_2d_area_entered(area):
 			
 		ability_manager.next_ability()
 	if area.name == "DeathZone" || area.name == "PistonDeathZone":
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 		if area.name == "PistonDeathZone":
 			visible = false
 		
@@ -515,6 +516,7 @@ func _on_area_2d_area_entered(area):
 		$HurtVibrationTimer.start()
 		
 		if $BulletBadHurtcooldown.time_left > 0:
+			get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 			get_parent().get_node("Camera/CloseAnimator").closing = true
 		elif $BulletHurtCooldown.time_left > 0:
 			$BulletBadHurtcooldown.start()
@@ -614,4 +616,5 @@ func _on_hurt_vibration_timer_timeout():
 	
 func _on_spike_hurt_box_body_entered(body):
 	if body.name == "Spikes":
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 		get_parent().get_node("Camera/CloseAnimator").closing = true

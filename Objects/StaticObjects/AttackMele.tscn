@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ces80e2ev3flu"]
+[gd_scene load_steps=6 format=3 uid="uid://ces80e2ev3flu"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
@@ -7,10 +7,6 @@
 radius = 16.0
 height = 45.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k76yt"]
-radius = 14.5
-height = 46.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]
 size = Vector2(56, 44)
 
@@ -18,6 +14,7 @@ size = Vector2(56, 44)
 size = Vector2(36, 44)
 
 [node name="AttackMele" type="CharacterBody2D"]
+platform_on_leave = 2
 script = ExtResource("1_7wlle")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -25,15 +22,9 @@ position = Vector2(0, 13)
 scale = Vector2(1, 1.375)
 texture = ExtResource("1_rcsf5")
 
-[node name="AliveCollision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12.5)
 shape = SubResource("CapsuleShape2D_860og")
-
-[node name="DeadCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20.5)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_k76yt")
-disabled = true
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 21)

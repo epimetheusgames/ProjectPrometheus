@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 
 var speed = 0.15
-var max_speed = 0.8
-var jump_vel = 6
+var max_speed = 1.5
+var jump_vel = 6.5
 var gravity = 0.5
 var attacking = false
 var friction_force = 1.2
 @onready var player = get_parent().get_node("Player").get_node("Player")
+@onready var loaded_ragdoll = preload("res://Objects/StaticObjects/RagdollMele.tscn")
 @export var health = 4
 var direction = 0
 
@@ -33,11 +34,12 @@ func _physics_process(delta):
 			
 		var jump = ((left_col && direction == -1 && !"Player" in left_col.name) || (right_col && direction == 1 && !"Player" in right_col.name)) && (left_col if direction == -1 else right_col)
 		var player_near = (left_col && "Player" in left_col.name) || (right_col && "Player" in right_col.name)
+		var mele_near = (left_col && "AttackMele" in left_col.name && direction == -1) || (right_col && "AttackMele" in right_col.name && direction == 1)
 		
-		if is_on_floor() && jump:
+		if is_on_floor() && jump && !player_near && !mele_near:
 			velocity.y = -jump_vel
 			
-		if (down_col && "Player" in down_col.name):
+		if (down_col && ("Player" in down_col.name || "AttackMele" in down_col.name)):
 			velocity.y = -jump_vel
 			velocity.x = -direction * speed * 2
 			_on_jump_hurt_box_area_entered(down_col.get_node("PlayerHurtbox"))
@@ -45,7 +47,7 @@ func _physics_process(delta):
 		if player_near && $AttackTimer.time_left <= 0 && $AttackResetTimer.time_left <= 0:
 			$AttackTimer.start()
 		
-		if direction && !player_near && !$AttackResetTimer.time_left > 0:
+		if direction && !player_near && !mele_near && !$AttackResetTimer.time_left > 0:
 			velocity.x += direction * speed
 			
 		if attacking:
@@ -58,11 +60,10 @@ func _physics_process(delta):
 			velocity.x /= friction_force
 		
 		position += velocity
+		move_and_slide()
 	else:
-		$DeadCollision.disabled = false
-		$AliveCollision.disabled = true
-
-	move_and_slide()
+		$Collision.disabled = true
+		$Sprite2D.visible = false
 
 func _on_attack_timer_timeout():
 	$AttackStopTimer.start()
@@ -76,7 +77,7 @@ func _on_attack_reset_timer_timeout():
 	$AttackTimer.start()
 
 func _on_jump_hurt_box_area_entered(area):
-	if area.name == "PlayerHurtbox" && health > 0:
+	if area && area.name == "PlayerHurtbox" && health > 0:
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5
 		area.get_parent().velocity.x = -area.get_parent().velocity.x
@@ -88,10 +89,21 @@ func _on_jump_hurt_box_area_entered(area):
 		area.get_parent().rocket_jump_vel = 6
 
 func _on_hurt_box_area_entered(area):
-	if area.name == "PlayerHurtbox" && health > 0:
+	if area && area.name == "PlayerHurtbox" && health > 0:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
 			health -= 1
+			velocity.x = -direction
+			velocity.y = -jump_vel / 2
 			
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+				add_child(loaded_ragdoll.instantiate())
+	elif area && area.name == "PlayerBulletHurter" && health > 0:
+		health -= 5
+		velocity.x = -direction * 4
+		velocity.y = -jump_vel / 2
+		
+		if health <= 0:
+			add_child(loaded_ragdoll.instantiate())
+		

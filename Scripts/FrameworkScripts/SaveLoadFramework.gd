@@ -71,6 +71,7 @@ const intense_music_files = [
 
 const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")
 var current_level_name = ""
+var current_level_ind = -1
 var bulge_amm = 0.0
 var real_bulge = 0.0
 var static_amm = 0.0
@@ -156,6 +157,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 		level_floor = floor 
 	
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
+	current_level_ind = current_level
 	level_loaded.slot = slot
 	level_loaded.level = current_level
 	level_loaded.floor = level_floor

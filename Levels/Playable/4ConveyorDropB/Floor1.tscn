@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=33 format=3 uid="uid://d0ts7tu78v4at"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ky4pi"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mtgua"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="19_2dqvj"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_y1enx"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_4ksgq"]
+[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="22_6uhbu"]
 [ext_resource type="PackedScene" uid="uid://hx1rrl8f6576" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -586,6 +587,16 @@ position = Vector2(-4145, -531)
 [node name="DronePatrolPoints" parent="DroneManager2" index="0"]
 visible = false
 points = PackedVector2Array(226, 12, 598, 138, 720, 238, 516, 218, 398, 236, 272, 184, 128, 268, 22, 184, 48, 8)
+
+[node name="AttackMele2" parent="." instance=ExtResource("22_6uhbu")]
+position = Vector2(-292, -19)
+health = 3
+
+[node name="DrillManager3" parent="." instance=ExtResource("14_msve5")]
+position = Vector2(-1295, -13)
+
+[node name="AttackMele" parent="." instance=ExtResource("22_6uhbu")]
+position = Vector2(-2943, -171)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

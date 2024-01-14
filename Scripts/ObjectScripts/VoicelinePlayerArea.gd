@@ -7,4 +7,4 @@ var played = false
 func _on_area_entered(area):
 	if area.name == "PlayerHurtbox" && !played:
 		played = true
-		area.get_parent().get_parent().get_node("VoicelinePlayer").play_voiceline(voiceline_name)
+		area.get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").play_voiceline(voiceline_name)

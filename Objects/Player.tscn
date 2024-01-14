@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=68 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/VoicelinePlayer.gd" id="27_p0i3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
@@ -447,6 +446,7 @@ one_shot = true
 [node name="Player" type="CharacterBody2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = 8
+platform_on_leave = 2
 script = ExtResource("2_7fkxw")
 
 [node name="ArmGunManager" type="Node2D" parent="Player"]
@@ -613,12 +613,6 @@ bus = &"SFX"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 
 [node name="PhysicsPlayerContainer" type="Node" parent="."]
-
-[node name="VoicelinePlayer" type="Node2D" parent="."]
-script = ExtResource("27_p0i3a")
-
-[node name="VoicelineContainer" type="AudioStreamPlayer" parent="VoicelinePlayer"]
-bus = &"SFX"
 
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]

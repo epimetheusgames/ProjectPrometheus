@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://clylsw51pcy3t"]
+[gd_scene load_steps=32 format=3 uid="uid://clylsw51pcy3t"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_msv6s"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wue0v"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="20_whl7n"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="21_x25e2"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="22_fj27u"]
+[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="23_2u4co"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_rxajx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -389,6 +390,9 @@ texture = ExtResource("23_rxajx")
 [node name="Checkpoint5" parent="." instance=ExtResource("19_e4aya")]
 position = Vector2(1800, 208)
 player_checkpoint_item = "Grapple"
+
+[node name="AttackMele" parent="." instance=ExtResource("23_2u4co")]
+position = Vector2(1031, -3)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
