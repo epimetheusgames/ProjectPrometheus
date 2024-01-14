@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=32 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_oj1qr"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_qqyaf"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="19_5ioun"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="20_nolwl"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_ilr8b"]
+[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="21_oyvh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_qqyaf")
@@ -343,6 +344,10 @@ texture = ExtResource("20_nolwl")
 [node name="Checkpoint" parent="." instance=ExtResource("21_ilr8b")]
 position = Vector2(973, -80)
 player_checkpoint_item = "ArmGun"
+
+[node name="AttackMele" parent="." instance=ExtResource("21_oyvh5")]
+position = Vector2(810, -77)
+health = 3
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

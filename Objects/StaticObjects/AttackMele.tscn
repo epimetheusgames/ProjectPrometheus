@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://ces80e2ev3flu"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_860og"]
+radius = 16.0
+height = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k76yt"]
+radius = 14.5
+height = 46.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]
+size = Vector2(56, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ftl"]
+size = Vector2(36, 44)
+
+[node name="AttackMele" type="CharacterBody2D"]
+script = ExtResource("1_7wlle")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 13)
+scale = Vector2(1, 1.375)
+texture = ExtResource("1_rcsf5")
+
+[node name="AliveCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12.5)
+shape = SubResource("CapsuleShape2D_860og")
+
+[node name="DeadCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k76yt")
+disabled = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 21)
+target_position = Vector2(-40, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 21)
+target_position = Vector2(40, 0)
+
+[node name="RayCastLeftTop" type="RayCast2D" parent="."]
+position = Vector2(0, -21)
+target_position = Vector2(-70, 0)
+
+[node name="RayCastRightTop" type="RayCast2D" parent="."]
+position = Vector2(0, -21)
+target_position = Vector2(70, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(0, 21)
+target_position = Vector2(0, 30)
+
+[node name="JumpHurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_svidt")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_w3ftl")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackStopTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="AttackResetTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="AttackStopTimer" to="." method="_on_attack_stop_timer_timeout"]
+[connection signal="timeout" from="AttackResetTimer" to="." method="_on_attack_reset_timer_timeout"]

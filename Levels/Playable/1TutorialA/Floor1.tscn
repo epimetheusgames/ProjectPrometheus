@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="10_p42e6"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="11_unlok"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="12_ehmem"]
+[ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="13_lj0mu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -271,7 +272,15 @@ player_checkpoint_item = "Grapple"
 position = Vector2(-5825, -128)
 texture = ExtResource("12_ehmem")
 
+[node name="VoicelinePlayerArea" parent="." instance=ExtResource("13_lj0mu")]
+position = Vector2(-2507, 89)
+voiceline_name = "1TutorialA2"
+
+[node name="CollisionShape2D" parent="VoicelinePlayerArea" index="0"]
+position = Vector2(-32.5, -9.5)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
+[editable path="VoicelinePlayerArea"]

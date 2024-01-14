@@ -76,14 +76,19 @@ var real_bulge = 0.0
 var static_amm = 0.0
 var real_static = 0.0
 var player_camera_position = Vector2.ZERO
+var last_music_ind = -1
 
 func _process(delta):
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 2:
 		var rng = RandomNumberGenerator.new()
-		var music_index = rng.randi_range(0, len(music_files) - 1)
+		var music_index = -1
+		while music_index == last_music_ind:
+			music_index = rng.randi_range(0, len(music_files) - 1)
+			
 		var music_stream = music_files[music_index]
 		$BackgroundMusicPlayer.stream = music_stream
 		$BackgroundMusicPlayer.play()
+		last_music_ind = music_index
 	
 	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 2:
 		$BackgroundMusicPlayer.playing = false
