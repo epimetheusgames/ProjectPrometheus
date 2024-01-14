@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=33 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_oj1qr"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_qqyaf"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="20_nolwl"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_ilr8b"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="21_oyvh5"]
+[ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="22_0xelj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_qqyaf")
@@ -348,6 +349,10 @@ player_checkpoint_item = "ArmGun"
 [node name="AttackMele" parent="." instance=ExtResource("21_oyvh5")]
 position = Vector2(810, -77)
 health = 3
+
+[node name="VoicelinePlayerArea2" parent="." instance=ExtResource("22_0xelj")]
+position = Vector2(218, -12)
+voiceline_name = "1TutorialB1"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

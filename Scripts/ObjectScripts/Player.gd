@@ -516,7 +516,10 @@ func _on_area_2d_area_entered(area):
 		$HurtVibrationTimer.start()
 		
 		if $BulletBadHurtcooldown.time_left > 0:
-			get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
+			if area.name == "JumpHurtBox":
+				get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
+			else:
+				get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_drone()
 			get_parent().get_node("Camera/CloseAnimator").closing = true
 		elif $BulletHurtCooldown.time_left > 0:
 			$BulletBadHurtcooldown.start()

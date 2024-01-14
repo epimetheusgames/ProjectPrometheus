@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=31 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_o1440"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_tib5c"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="17_6lkn0"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="18_b2mwp"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="19_v1xhg"]
+[ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="20_4w3ct"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="20_v3ukf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -339,6 +340,10 @@ start_direction = -1
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(3135, 192)
 texture = ExtResource("20_v3ukf")
+
+[node name="VoicelinePlayerArea" parent="." instance=ExtResource("20_4w3ct")]
+position = Vector2(3182, 172)
+voiceline_name = "1TutorialC1"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

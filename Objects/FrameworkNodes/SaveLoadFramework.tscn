@@ -31,4 +31,5 @@ bus = &"Music"
 script = ExtResource("3_dvmmk")
 
 [node name="VoicelineContainer" type="AudioStreamPlayer" parent="VoicelinePlayer"]
+volume_db = 10.0
 bus = &"SFX"

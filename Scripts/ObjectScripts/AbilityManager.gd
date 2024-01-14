@@ -49,6 +49,7 @@ func next_ability():
 		get_parent().get_parent().get_node("Player").current_ability = "Weapon"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkSword")
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = false
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").get_out_weapon()
 		_ready()
 	elif ability_index == 0:
 		ideal_rotation = deg_to_rad(90)
@@ -61,6 +62,7 @@ func next_ability():
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalk")
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = true
 		_ready()
+		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").get_out_weapon()
 	elif ability_index == 2:
 		ideal_rotation = deg_to_rad(270)
 		get_parent().get_parent().get_node("Player").current_ability = "Grapple"

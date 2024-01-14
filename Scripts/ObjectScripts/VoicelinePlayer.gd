@@ -2,26 +2,60 @@ extends Node2D
 
 
 var hazard_deaths_this_level = 0
+var weapons_used_this_level = 0
+var drone_deaths_this_level = 0
 
 @onready var voicelines = {
 	"1TutorialA2": load("res://Assets/Audio/Voicelines/1TutorialA2.mp3"),
 	"1TutorialADeath1": load("res://Assets/Audio/Voicelines/1TutorialADeath1.ogg"),
 	"1TutorialADeath2": load("res://Assets/Audio/Voicelines/1TutorialADeath2.ogg"),
 	"1TutorialADeath3": load("res://Assets/Audio/Voicelines/1TutorialADeath3.ogg"),
+	"1TutorialACompleteLevel1": load("res://Assets/Audio/Voicelines/1TutorialACompleteLevel1.ogg"),
+	"1TutorialAGetsOutWeapon1": load("res://Assets/Audio/Voicelines/1TutorialAGetsOutWeapon1.ogg"),
+	"1TutorialAGetsOutWeapon2": load("res://Assets/Audio/Voicelines/1TutorialAGetsOutWeapon2.ogg"),
+	"1TutorialADiesToDrone1": load("res://Assets/Audio/Voicelines/1TutorialADiesToDrone1.ogg"),
+	"1TutorialB1": load("res://Assets/Audio/Voicelines/1TutorialB1.ogg"),
+	"1TutorialC1": load("res://Assets/Audio/Voicelines/1TutorialC1.ogg"),
 }
+
+var queue = []
+
+func _process(delta):
+	if $VoicelineContainer.playing == false && len(queue) > 0:
+		play_voiceline(queue[-1])
+		queue.pop_back()
 
 func play_voiceline(voiceline_name):
 	$VoicelineContainer.playing = false
 	$VoicelineContainer.stream = voicelines[voiceline_name]
 	$VoicelineContainer.playing = true
+	
+func add_to_queue(voiceline_name):
+	queue.append(voiceline_name)
 
 func death_by_hazard():
 	hazard_deaths_this_level += 1
 	
-	if get_parent().current_level_ind == 0:
+	if get_parent().current_level_ind <= 2:
 		if hazard_deaths_this_level == 1:
-			play_voiceline("1TutorialADeath1")
+			add_to_queue("1TutorialADeath1")
 		if hazard_deaths_this_level == 2:
-			play_voiceline("1TutorialADeath2")
+			add_to_queue("1TutorialADeath2")
 		if hazard_deaths_this_level == 3:
-			play_voiceline("1TutorialADeath3")
+			add_to_queue("1TutorialADeath3")
+
+func death_by_drone():
+	drone_deaths_this_level += 1
+	
+	if get_parent().current_level_ind <= 2:
+		if drone_deaths_this_level == 1:
+			add_to_queue("1TutorialADiesToDrone1")
+
+func get_out_weapon():
+	weapons_used_this_level += 1
+	
+	if get_parent().current_level_ind == 0:
+		if weapons_used_this_level == 1:
+			add_to_queue("1TutorialAGetsOutWeapon1")
+		if weapons_used_this_level == 2:
+			add_to_queue("1TutorialAGetsOutWeapon2")
