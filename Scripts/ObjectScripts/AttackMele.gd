@@ -13,7 +13,7 @@ var friction_force = 1.2
 var direction = 0
 
 
-func _physics_process(delta):
+func _process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta * 60
@@ -56,10 +56,10 @@ func _physics_process(delta):
 			$JumpHurtBox/CollisionShape2D.disabled = true
 		
 		# Don't apply friction if the player is moving.
-		if is_on_floor() && (absf(velocity.x) > max_speed):
+		if (absf(velocity.x) > max_speed):
 			velocity.x /= friction_force
 		
-		position += velocity
+		position += velocity * delta * 60
 		move_and_slide()
 	else:
 		$Collision.disabled = true

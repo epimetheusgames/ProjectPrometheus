@@ -227,12 +227,10 @@ func _on_drone_hurtbox_area_entered(area):
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
 			fly_to_correct = false
-			temp_disabled = true
 		if area.name == "PlayerBulletHurter":
 			dead_drone.no_respawn = true
-			call_deferred("add_child", dead_drone)
-			$Drone.visible = false
-			fly_to_correct = false
+			get_parent().call_deferred("add_child", dead_drone)
+			queue_free()
 
 func _on_target_found_timer_timeout():
 	can_play_target_lost = true

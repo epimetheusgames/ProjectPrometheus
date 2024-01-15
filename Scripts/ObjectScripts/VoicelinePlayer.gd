@@ -19,6 +19,7 @@ var drone_deaths_this_level = 0
 }
 
 var queue = []
+var already_played_voicelines = []
 
 func _process(delta):
 	if $VoicelineContainer.playing == false && len(queue) > 0:
@@ -26,9 +27,11 @@ func _process(delta):
 		queue.pop_back()
 
 func play_voiceline(voiceline_name):
-	$VoicelineContainer.playing = false
-	$VoicelineContainer.stream = voicelines[voiceline_name]
-	$VoicelineContainer.playing = true
+	if !voiceline_name in already_played_voicelines:
+		already_played_voicelines.append(voiceline_name)
+		$VoicelineContainer.playing = false
+		$VoicelineContainer.stream = voicelines[voiceline_name]
+		$VoicelineContainer.playing = true
 	
 func add_to_queue(voiceline_name):
 	queue.append(voiceline_name)

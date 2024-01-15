@@ -78,8 +78,18 @@ var static_amm = 0.0
 var real_static = 0.0
 var player_camera_position = Vector2.ZERO
 var last_music_ind = -1
+@export var force_time_scale = -1.0
 
 func _process(delta):
+	if force_time_scale > 0:
+		Engine.time_scale = force_time_scale
+	
+	# Time slow down for debugging lower fps issues
+	#if Input.is_action_just_pressed("ui_up"):
+	#	force_time_scale += 0.1
+	#if Input.is_action_just_pressed("ui_down"):
+	#	force_time_scale -= 0.1
+	
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 2:
 		var rng = RandomNumberGenerator.new()
 		var music_index = -1

@@ -81,7 +81,7 @@ func canJump():
 	
 func jump():
 	just_jumped = true
-	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel) * (1.2 if Engine.time_scale < 1 else 1)
+	velocity.y = (-jump_vel if current_ability != "RocketBoost" else -rocket_jump_vel)
 	$PlayerAnimation.play("StartJump")
 			
 	if current_ability == "RocketBoost":
@@ -108,7 +108,7 @@ func _physics_process(delta):
 	
 	# Apply gravity if not grappling
 	if !grappling_effects && !climbing:
-		velocity.y += gravity
+		velocity.y += gravity * Engine.time_scale
 		
 	if in_ladder_area:
 		velocity.y /= 1.5
@@ -137,7 +137,7 @@ func _physics_process(delta):
 	# If the player is holding the jump button, apply a slight upwards push.
 	if Input.is_action_pressed("jump") && !dead:
 		if !climbing:
-			velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force)
+			velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force) * Engine.time_scale
 		else:
 			velocity.y -= jump_push_force
 			

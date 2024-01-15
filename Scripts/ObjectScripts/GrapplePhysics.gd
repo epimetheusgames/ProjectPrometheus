@@ -6,7 +6,7 @@ var hooked = false
 
 func _physics_process(delta):
 	if !hooked:
-		position += velocity * delta * 60 - get_parent().get_parent().velocity
+		position += (velocity - (get_parent().get_parent().velocity * Engine.time_scale)) * delta * 60
 	elif get_parent().hook:
 		position = get_parent().hook.position - get_parent().get_parent().get_parent().position - get_parent().get_parent().position
 		rotation = get_parent().hook.rotation
