@@ -21,6 +21,9 @@ const preloaded_levels = [
 		preload("res://Levels/Playable/2EasyB/Floor1.tscn")
 	],
 	[
+		preload("res://Levels/Playable/2EasyC/Floor1.tscn")
+	],
+	[
 		preload("res://Levels/Playable/3BigDrone/Floor1.tscn")
 	],
 	[
@@ -56,6 +59,7 @@ const level_node_names = [
 	["Level10",],
 	["Level10",],
 	["Level10",],
+	["Level11",],
 ]
 
 const music_files = [

@@ -446,6 +446,7 @@ one_shot = true
 [node name="Player" type="CharacterBody2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = 8
+collision_mask = 17
 platform_on_leave = 2
 script = ExtResource("2_7fkxw")
 
