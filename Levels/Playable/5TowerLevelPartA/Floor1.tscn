@@ -297,7 +297,6 @@ position = Vector2(4, -91)
 position = Vector2(-879, -312)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
-visible = false
 points = PackedVector2Array(0, 213, 410, 215, 416, -114, 249, -116)
 
 [node name="WeaponDetected" parent="DroneManager" index="7"]
@@ -330,8 +329,10 @@ bus = &"Master"
 position = Vector2(-1321, -207)
 
 [node name="DronePatrolPoints" parent="DroneManager3" index="0"]
+points = PackedVector2Array(163, 1, 249, 0, 259, -160, 412, -199, 431, -305, 492, -348, 493, -405, 420, -406, 403, -323, 392, -232, 253, -218, 216, -406, -132, -412)
+
+[node name="Sprite2D" parent="DroneManager3/AttackLine" index="0"]
 visible = false
-points = PackedVector2Array(71, 0, 249, 0, 259, -160, 412, -199, 431, -305, 492, -348, 493, -405, 420, -406, 403, -323, 392, -232, 253, -218, 216, -406, -132, -412)
 
 [node name="WeaponDetected" parent="DroneManager3" index="7"]
 bus = &"Master"
