@@ -14,7 +14,7 @@ func _ready():
 		$CanvasModulate.color = Color(0.8, 0.8, 0.8, 1)
 	else:
 		if lights_off:
-			$CanvasModulate.color = Color(0.25, 0.25, 0.25, 1)
+			$CanvasModulate.color = Color(0.1, 0.1, 0.1, 1)
 		else:
 			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
 
