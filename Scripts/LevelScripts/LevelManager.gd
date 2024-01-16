@@ -14,9 +14,9 @@ func _ready():
 		$CanvasModulate.color = Color(0.8, 0.8, 0.8, 1)
 	else:
 		if lights_off:
-			$CanvasModulate.color = Color(0.3, 0.3, 0.3, 1)
+			$CanvasModulate.color = Color(0.25, 0.25, 0.25, 1)
 		else:
-			$CanvasModulate.color = Color(0.5, 0.5, 0.5, 1)
+			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

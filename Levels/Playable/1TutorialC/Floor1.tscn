@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=33 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_o1440"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_tib5c"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="19_v1xhg"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="20_4w3ct"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="20_v3ukf"]
+[ext_resource type="Script" path="res://Scripts/CustomVoicelineScripts/1TutorialCGrappleSwingDeath.gd" id="21_bydwj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_tib5c")
@@ -166,6 +167,9 @@ shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1yec"]
+size = Vector2(423, 137)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_o1440")
 level = 4
@@ -257,7 +261,7 @@ position = Vector2(703, 247)
 shape = SubResource("RectangleShape2D_wt3eh")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(1711.5, 455)
+position = Vector2(1711.5, 523)
 shape = SubResource("RectangleShape2D_wt3eh")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="DeathZone"]
@@ -345,8 +349,16 @@ texture = ExtResource("20_v3ukf")
 position = Vector2(3182, 172)
 voiceline_name = "1TutorialC1"
 
+[node name="VoicelinePlayer" type="Area2D" parent="."]
+script = ExtResource("21_bydwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoicelinePlayer"]
+position = Vector2(1728.5, 499.5)
+shape = SubResource("RectangleShape2D_d1yec")
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+[connection signal="area_entered" from="VoicelinePlayer" to="VoicelinePlayer" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
