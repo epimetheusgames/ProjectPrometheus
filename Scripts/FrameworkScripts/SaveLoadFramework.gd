@@ -6,6 +6,9 @@ extends Node2D
 
 const preloaded_levels = [
 	[
+		preload("res://Levels/Playable/6HardLevelB/Floor1.tscn")
+	],
+	[
 		preload("res://Levels/Playable/1TutorialA/Floor1.tscn")
 	],
 	[
@@ -42,7 +45,10 @@ const preloaded_levels = [
 		preload("res://Levels/Playable/5TowerLevelPartC/Floor1.tscn"),
 	],
 	[
-		preload("res://Levels/Playable/6LastLevel/Floor1.tscn")
+		preload("res://Levels/Playable/6HardLeveA/Floor1.tscn")
+	],
+	[
+		preload("res://Levels/Playable/7LastLevel/Floor1.tscn")
 	]
 ]
 
@@ -111,7 +117,7 @@ func _process(delta):
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
 	real_static += (static_amm - real_static) * 0.05 * delta * 60
 	
-	if len(get_children()) > 2:
+	if len(get_children()) > 3:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", 0.0)
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("static_scale", 0.0)
 	else:

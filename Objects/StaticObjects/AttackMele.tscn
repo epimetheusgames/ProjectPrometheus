@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_860og"]
-radius = 16.0
+radius = 17.0
 height = 45.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]

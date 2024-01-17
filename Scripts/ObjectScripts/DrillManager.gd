@@ -36,11 +36,11 @@ func _process(delta):
 		var ext_down_collision = $ExtRaycastDownLeft.get_collider()
 		var ext_down_collision_2 = $ExtRaycastDownRight.get_collider()
 		
-		if !ext_down_collision && ext_down_collision_2 && direction == speed:
+		if !ext_down_collision && ext_down_collision_2 && direction == -speed:
 			var node_with_name = Node.new()
 			node_with_name.name = "Drill worked!"
 			left_collision = node_with_name
-		if !ext_down_collision_2 && ext_down_collision && direction == -speed:
+		if !ext_down_collision_2 && ext_down_collision && direction == speed:
 			var node_with_name = Node.new()
 			node_with_name.name = "Drill worked!"
 			right_collision = node_with_name
@@ -92,7 +92,7 @@ func _on_jump_hurt_box_area_entered(area):
 		
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5
-		area.get_parent().velocity.x = -area.get_parent().velocity.x
+		area.get_parent().velocity.x = -area.get_parent().velocity. x
 		
 		if area.get_parent().velocity.x > 0:
 			area.get_parent().velocity.x = 4

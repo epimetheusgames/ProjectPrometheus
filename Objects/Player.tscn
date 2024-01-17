@@ -338,7 +338,7 @@ text = "FPS: Calculating ...
 "
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
-z_index = 5
+z_index = 20
 position = Vector2(0, 137)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("4_ctc4a")
