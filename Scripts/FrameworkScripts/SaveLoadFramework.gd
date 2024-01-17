@@ -5,51 +5,21 @@ extends Node2D
 # menu.
 
 const preloaded_levels = [
-	[
-		preload("res://Levels/Playable/1TutorialA/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/1TutorialB/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/1TutorialC/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/2EasyA/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/2EasyB/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/2EasyC/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/3BigDrone/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/4ConveyorDropA/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/4ConveyorDropB/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/5TowerLevelPartA/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/5TowerLevelPartB/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/5TowerLevelPartC/Floor1.tscn"),
-	],
-	[
-		preload("res://Levels/Playable/6HardLeveA/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/6HardLevelB/Floor1.tscn")
-	],
-	[
-		preload("res://Levels/Playable/7LastLevel/Floor1.tscn")
-	]
+	[preload("res://Levels/Playable/1TutorialA/Floor1.tscn")],
+	[preload("res://Levels/Playable/1TutorialB/Floor1.tscn")],
+	[preload("res://Levels/Playable/1TutorialC/Floor1.tscn")],
+	[preload("res://Levels/Playable/2EasyA/Floor1.tscn")],
+	[preload("res://Levels/Playable/2EasyB/Floor1.tscn")],
+	[preload("res://Levels/Playable/2EasyC/Floor1.tscn")],
+	[preload("res://Levels/Playable/3BigDrone/Floor1.tscn")],
+	[preload("res://Levels/Playable/4ConveyorDropA/Floor1.tscn"),],
+	[preload("res://Levels/Playable/4ConveyorDropB/Floor1.tscn"),],
+	[preload("res://Levels/Playable/5TowerLevelPartA/Floor1.tscn"),],
+	[preload("res://Levels/Playable/5TowerLevelPartB/Floor1.tscn"),],
+	[preload("res://Levels/Playable/5TowerLevelPartC/Floor1.tscn"),],
+	[preload("res://Levels/Playable/6HardLeveA/Floor1.tscn")],
+	[preload("res://Levels/Playable/6HardLevelB/Floor1.tscn")],
+	[preload("res://Levels/Playable/7LastLevel/Floor1.tscn")]
 ]
 
 const level_node_names = [
@@ -65,6 +35,13 @@ const level_node_names = [
 	["Level10",],
 	["Level10",],
 	["Level10",],
+	["Level11",],
+	["Level11",],
+	["Level11",],
+	["Level11",],
+	["Level11",],
+	["Level11",],
+	["Level11",],
 	["Level11",],
 ]
 
