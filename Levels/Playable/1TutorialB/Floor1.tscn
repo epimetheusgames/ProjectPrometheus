@@ -242,7 +242,7 @@ tile_set = ExtResource("7_4cs5s")
 format = 2
 
 [node name="Spikes" type="TileMap" parent="."]
-self_modulate = Color(3, 3, 3, 1)
+self_modulate = Color(2, 2, 2, 1)
 z_index = 15
 z_as_relative = false
 tile_set = ExtResource("8_6xwbw")

@@ -168,6 +168,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-7, 0, 2, -6, 0, 1, -65535, 0, 0, -65534, 0, 1, -65532, 0, 0, -131067, 0, 0, -65531, 0, 2, -131066, 0, 3, -65530, 0, 2, -131065, 0, 3, -65529, 0, 3, -131064, 0, 1, -65528, 0, 3, -65527, 0, 1, -65525, 0, 0, -65524, 0, 2, -131059, 0, 0, -65523, 0, 3, -131058, 0, 2, -65522, 0, 2)
 
 [node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_dba0d")
 rendering_quadrant_size = 32
 format = 2
@@ -218,8 +219,7 @@ points = PackedVector2Array(6, 132, 19, 306, 91, 236, 126, 270, 230, 252, 307, 1
 position = Vector2(991, -242)
 
 [node name="DronePatrolPoints" parent="DroneManager2" index="0"]
-position = Vector2(-232, 0)
-points = PackedVector2Array(-134, -29, -203, -49, -259, -73, -405, -27, -563, 94, -682, 15, -453, -33, -335, -85, -302, -193, -38, -190, 311, -195, 358, -375)
+points = PackedVector2Array(-210, 4, -404, -54, -763, 90, -876, 7, -518, -88, -302, -193, -38, -190, 127, -298)
 
 [node name="DroneOutlineSpritesheet" parent="DroneManager2/Drone" index="1"]
 visible = true

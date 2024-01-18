@@ -254,6 +254,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(131081, 0, 1, 65550, 0, 0, 65551, 0, 3, 16, 0, 0, -65519, 0, 0, 17, 0, 2)
 
 [node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.8, 1.8, 0.18, 1)
 tile_set = ExtResource("7_1q70i")
 rendering_quadrant_size = 32
 format = 2

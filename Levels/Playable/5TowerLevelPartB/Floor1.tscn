@@ -254,6 +254,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(11, 0, 0, 12, 0, 2, 13, 0, 3, 14, 0, 3, 15, 0, 2, 16, 0, 3, 17, 0, 2, 18, 0, 2, 19, 0, 3, 20, 0, 1, 23, 0, 0, 24, 0, 1)
 
 [node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.7, 1.7, 1.7, 1)
 tile_set = ExtResource("8_6bimj")
 format = 2
 layer_0/z_index = 15

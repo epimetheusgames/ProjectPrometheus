@@ -230,6 +230,7 @@ tile_set = ExtResource("7_d7oq2")
 format = 2
 
 [node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.7, 1.7, 1.7, 1)
 tile_set = ExtResource("8_80lgf")
 rendering_quadrant_size = 32
 format = 2
