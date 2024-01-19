@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://5vu83mjagwj3"]
+[gd_scene load_steps=36 format=3 uid="uid://5vu83mjagwj3"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hmli3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_uanwo"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="19_8tc31"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="20_tksiu"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="22_lq50t"]
+[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_rbfm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_uanwo")
@@ -202,6 +203,12 @@ shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
+[sub_resource type="Gradient" id="Gradient_qd5rr"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b7x2s"]
+gradient = SubResource("Gradient_qd5rr")
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_hmli3")
 level = 4
@@ -287,7 +294,9 @@ centered = false
 [node name="DeathZone" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
-polygon = PackedVector2Array(-2408, 677, -1704, 670, -2092, 775)
+position = Vector2(0, -163.561)
+scale = Vector2(1, 1.20043)
+polygon = PackedVector2Array(-2372, 679, -1757, 678, -2072, 765)
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
@@ -327,9 +336,6 @@ position = Vector2(-365, -6)
 
 [node name="DrillManager2" parent="." instance=ExtResource("14_6hij2")]
 position = Vector2(-487, -6)
-
-[node name="AttackMele" parent="." instance=ExtResource("15_mo43t")]
-position = Vector2(-607, -9)
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("17_cvneq")]
 position = Vector2(-864, -48)
@@ -400,6 +406,20 @@ points = PackedVector2Array(-2, 118, 6, 247, 139, 244, 214, 686, 391, 696, 367, 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(1087, 577)
 texture = ExtResource("22_lq50t")
+
+[node name="Checkpoint4" parent="." instance=ExtResource("19_8tc31")]
+position = Vector2(-1009, 16)
+player_checkpoint_item = "RocketBoost"
+
+[node name="DoorAjarSprite" type="Sprite2D" parent="."]
+position = Vector2(4, 0)
+texture = ExtResource("23_rbfm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2063.71, 627.137)
+rotation = -1.5708
+scale = Vector2(1.12953, 610.079)
+texture = SubResource("GradientTexture1D_b7x2s")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
