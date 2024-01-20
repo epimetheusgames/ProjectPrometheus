@@ -271,7 +271,7 @@ player_checkpoint_item = "Grapple"
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("13_jkp2v")]
 position = Vector2(110, 17)
-item_switch_type = "GrappleHook"
+item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("14_ig3k1")]
 position = Vector2(-474, -188)
