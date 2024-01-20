@@ -258,7 +258,7 @@ self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_1q70i")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458684, 0, 0)
+layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458685, 0, 0, -65489, 0, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -453,6 +453,10 @@ position = Vector2(2233, -155)
 
 [node name="GrappleHook7" parent="." instance=ExtResource("22_6ho06")]
 position = Vector2(2304, -283)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("23_mo3wc")]
+position = Vector2(2419, 368)
+player_checkpoint_item = "ArmGun"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
