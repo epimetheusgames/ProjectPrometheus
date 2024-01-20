@@ -333,6 +333,7 @@ item_switch_type = "ArmGun"
 position = Vector2(-12, -465)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 points = PackedVector2Array(59, 5, 1471, 0, 294, -15, 424, -79, -143, -94)
 
 [node name="Checkpoint" parent="." instance=ExtResource("19_5ldv2")]
