@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpt5tt7fmwjnv"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PathfindPlayerFollower.gd" id="1_dr0ge"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_i14pf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sx1ul"]
+radius = 5.09902
+
+[node name="PlayerFollower" type="CharacterBody2D"]
+collision_layer = 4
+wall_min_slide_angle = 0.0
+script = ExtResource("1_dr0ge")
+
+[node name="FollowerSprite" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, -2.08616e-07)
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("1_i14pf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sx1ul")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+path_max_distance = 10.0
+avoidance_enabled = true
+radius = 6.0
+max_speed = 200.0
+debug_path_custom_line_width = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
