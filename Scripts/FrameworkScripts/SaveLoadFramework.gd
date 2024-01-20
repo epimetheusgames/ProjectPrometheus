@@ -170,7 +170,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 		level_loaded.get_node("Player").get_node("Player").position = player_spawn_pos
 		level_loaded.get_node("Player").get_node("Player").current_ability = player_respawn_ability
 		level_loaded.get_node("Player").get_node("Camera").position = player_spawn_pos
-		level_loaded.get_node("Player").get_node("Camera").get_node("CameraCollider").position = player_spawn_pos
+		level_loaded.get_node("Player").get_node("CameraCollider").position = player_spawn_pos
 		
 		if player_respawn_ability == "Weapon":
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 0

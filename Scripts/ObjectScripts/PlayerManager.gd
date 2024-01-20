@@ -11,17 +11,17 @@ func _ready():
 		$Player/PlayerAmbianceParticles.queue_free()
 		
 	$Camera.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
-	$Camera/CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
+	$CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 
 func _process(delta):
 	# Camera follows player.
 	var follow_position = $Player.position + ($PhysicsPlayerContainer.get_children()[0].position if $Player.physics_player else Vector2.ZERO)
-	$Camera/CameraCollider.position += (follow_position - $Camera/CameraCollider.position) * 0.05 * (delta * 60)
-	$Camera.position += ($Camera/CameraCollider.position - $Camera.position) * 0.1 * (delta * 60)
+	$CameraCollider.position += (follow_position - $CameraCollider.position) * 0.05 * (delta * 60)
+	$Camera.position += ($CameraCollider.position - $Camera.position) * 0.1 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
 	
 	var player_vel = 0
 	
 	$PointLight2D.position = $Player.position
 	
-	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $Camera/CameraCollider.position - follow_position
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $CameraCollider.position - follow_position

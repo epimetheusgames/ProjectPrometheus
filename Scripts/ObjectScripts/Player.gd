@@ -158,16 +158,19 @@ func _physics_process(delta):
 		$DashStopCooldown.start()
 		$NewDashCooldown.start()
 		
-		velocity.x = previous_direction * 5
+		velocity.x = previous_direction * 7
+		
+	if $NewDashCooldown.time_left > 0 && $DashStopCooldown.time_left <= 0:
+		velocity.x = 0
 		
 	# Hard cap the speed to supress speed glitches.
-	if absf(velocity.x) > speed_hard_cap && !disable_speed_cap:
+	if absf(velocity.x) > speed_hard_cap && !disable_speed_cap && !$DashStopCooldown.time_left > 0:
 		velocity.x = max_speed if velocity.x > 1 else -max_speed
 	if absf(velocity.y) > (max_jump_speed_rocket + 1) && !disable_speed_cap:
 		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
 		
 	# If speed cap is disabled, ignore that.
-	if absf(velocity.x) > speed_hard_cap * 2 && disable_speed_cap:
+	if absf(velocity.x) > speed_hard_cap * 2 && (disable_speed_cap || $DashStopCooldown.time_left > 0):
 		velocity.x = max_speed * 2 if velocity.x > 0 else -max_speed * 2
 	if absf(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
 		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
@@ -350,7 +353,7 @@ func _physics_process(delta):
 			$PlayerAnimation.play("StartWalkSword")
 		
 	# You cannot walk in the air.
-	if !can_jump && velocity.y > 2:
+	if !can_jump && velocity.y > 2 && !dead:
 		if velocity.y < 0:
 			$PlayerAnimation.play("InAirUp")
 				

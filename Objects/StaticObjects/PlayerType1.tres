@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bw1mqmcbonj07" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetIdleRockets.png" id="2_76mma"]
 [ext_resource type="Texture2D" uid="uid://b2bsqxv6pog21" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetClimbing.png" id="2_86mwi"]
 [ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/CharacterSpritesheet/PlayerSpritesheetGrappleHangeAllTypes.png" id="2_tkjl7"]
-[ext_resource type="Texture2D" uid="uid://cnt3m2rrhtowv" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAir.png" id="3_2nnvv"]
 [ext_resource type="Texture2D" uid="uid://d0dcmeuec5flp" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetDeath.png" id="3_i6nss"]
 [ext_resource type="Texture2D" uid="uid://h0shb6q52fd4" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetIdleMele.png" id="3_j112u"]
 [ext_resource type="Texture2D" uid="uid://di37e3ncb5f7s" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAirRockets.png" id="4_ag13h"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://btg3fhef4j5qn" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetRockets.png" id="6_p735s"]
 [ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplit.png" id="7_a1qxt"]
 [ext_resource type="Texture2D" uid="uid://c0dviagx33dte" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAirSword.png" id="7_x6vhx"]
+[ext_resource type="Texture2D" uid="uid://cxy8fo2gdgrui" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAirNew.png" id="8_0j884"]
 [ext_resource type="Texture2D" uid="uid://cmyvexa2xj6h" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplitRockets.png" id="8_adppp"]
 [ext_resource type="Texture2D" uid="uid://ultydr24v1sv" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetMele.png" id="8_vjrwe"]
 [ext_resource type="Texture2D" uid="uid://biw7rpa6mvcyb" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplitSword.png" id="12_0tule"]
@@ -114,32 +114,32 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("3_j112u")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xa2ct"]
-atlas = ExtResource("3_2nnvv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm22w"]
+atlas = ExtResource("8_0j884")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xemq8"]
-atlas = ExtResource("4_ag13h")
-region = Rect2(0, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1t4g"]
+atlas = ExtResource("8_0j884")
+region = Rect2(0, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7josi"]
-atlas = ExtResource("7_x6vhx")
-region = Rect2(0, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_duvr0"]
+atlas = ExtResource("8_0j884")
+region = Rect2(0, 320, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lodw3"]
-atlas = ExtResource("3_2nnvv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5k5x"]
+atlas = ExtResource("8_0j884")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nd63l"]
-atlas = ExtResource("4_ag13h")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_52e7l"]
+atlas = ExtResource("8_0j884")
+region = Rect2(0, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bq8bo"]
-atlas = ExtResource("7_x6vhx")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiscn"]
+atlas = ExtResource("8_0j884")
+region = Rect2(0, 288, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ub2nb"]
-atlas = ExtResource("3_2nnvv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_acsje"]
+atlas = ExtResource("8_0j884")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bh6m5"]
@@ -150,17 +150,17 @@ region = Rect2(0, 96, 32, 32)
 atlas = ExtResource("7_x6vhx")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7oh8m"]
-atlas = ExtResource("3_2nnvv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt88f"]
+atlas = ExtResource("8_0j884")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y22p"]
 atlas = ExtResource("4_ag13h")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahx2d"]
-atlas = ExtResource("7_x6vhx")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8thm"]
+atlas = ExtResource("8_0j884")
+region = Rect2(0, 256, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjf5l"]
 atlas = ExtResource("5_lsnl6")
@@ -389,7 +389,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xa2ct")
+"texture": SubResource("AtlasTexture_dm22w")
 }],
 "loop": true,
 "name": &"InAirDown",
@@ -397,7 +397,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xemq8")
+"texture": SubResource("AtlasTexture_b1t4g")
 }],
 "loop": true,
 "name": &"InAirDownRockets",
@@ -405,7 +405,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7josi")
+"texture": SubResource("AtlasTexture_duvr0")
 }],
 "loop": true,
 "name": &"InAirDownSword",
@@ -413,7 +413,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lodw3")
+"texture": SubResource("AtlasTexture_p5k5x")
 }],
 "loop": true,
 "name": &"InAirUp",
@@ -421,7 +421,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nd63l")
+"texture": SubResource("AtlasTexture_52e7l")
 }],
 "loop": true,
 "name": &"InAirUpRockets",
@@ -429,7 +429,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bq8bo")
+"texture": SubResource("AtlasTexture_jiscn")
 }],
 "loop": true,
 "name": &"InAirUpSword",
@@ -437,7 +437,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ub2nb")
+"texture": SubResource("AtlasTexture_acsje")
 }],
 "loop": false,
 "name": &"Landing",
@@ -461,7 +461,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7oh8m")
+"texture": SubResource("AtlasTexture_qt88f")
 }],
 "loop": false,
 "name": &"StartJump",
@@ -477,7 +477,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ahx2d")
+"texture": SubResource("AtlasTexture_a8thm")
 }],
 "loop": false,
 "name": &"StartJumpSword",

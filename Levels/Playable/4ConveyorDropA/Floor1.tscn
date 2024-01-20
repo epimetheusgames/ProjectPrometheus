@@ -183,6 +183,7 @@ shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
 [node name="Level3" type="Node2D"]
+position = Vector2(30, -10)
 script = ExtResource("1_msv6s")
 level = 4
 
@@ -233,15 +234,18 @@ layer_0/tile_data = PackedInt32Array(16, 0, 0, -131056, 0, 1, 45, 65536, 0, 46, 
 collision_layer = 2
 collision_mask = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-308, -101, 572, -104, 1237, -212, 2138, -121, 3657, -104, 3646, 186, 3560, 678, 3786, 945, 3790, 1091, 3229, 1258, 2513, 1263, 2519, 690, 2871, 693, 2347, 472, 2369, 1360, 3980, 1283, 3839, -458)
+
 [node name="Player" parent="." instance=ExtResource("9_w8tyd")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
+[node name="DarkOverlay" parent="Player/Camera" index="1"]
 metadata/_edit_use_anchors_ = true
 
-[node name="FPSCounter" parent="Player/Camera" index="3"]
+[node name="FPSCounter" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="6"]
+[node name="PointLight2D" parent="Player" index="7"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -389,7 +393,7 @@ position = Vector2(1794, 208)
 player_checkpoint_item = "Grapple"
 
 [node name="AttackMele" parent="." instance=ExtResource("23_2u4co")]
-position = Vector2(1031, -3)
+position = Vector2(1292, -143)
 
 [node name="Stair3" parent="." instance=ExtResource("20_whl7n")]
 position = Vector2(1248, -96)

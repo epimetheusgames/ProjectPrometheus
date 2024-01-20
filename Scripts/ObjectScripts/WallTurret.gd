@@ -12,7 +12,7 @@ func _process(delta):
 	
 	var player = get_parent().get_node("Player").get_node("Player")
 	
-	var direction_to_player = (player.position - position - $Turret.position).normalized()
+	var direction_to_player = (player.position - position + player.get_parent().position - $Turret.position).normalized()
 	var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y) 
 	$Turret.rotation = direction_to_player_radians - (1.0/2.0 * PI)
 	

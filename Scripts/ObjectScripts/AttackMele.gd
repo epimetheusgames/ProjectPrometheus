@@ -92,8 +92,8 @@ func _on_hurt_box_area_entered(area):
 	if area && area.name == "PlayerHurtbox" && health > 0:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
 			health -= 1
-			velocity.x = -direction
-			velocity.y = -jump_vel / 2
+			velocity.x = -direction * 7
+			velocity.y = -jump_vel
 			
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()

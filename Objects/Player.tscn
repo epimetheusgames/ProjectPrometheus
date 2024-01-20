@@ -304,18 +304,18 @@ fill_from = Vector2(0.5, 0.5)
 [node name="PlayerManager" type="Node2D"]
 script = ExtResource("1_71342")
 
-[node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-script = ExtResource("2_hyv1c")
-
-[node name="CameraCollider" type="CharacterBody2D" parent="Camera"]
+[node name="CameraCollider" type="CharacterBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_mi2af")
 
-[node name="CameraHitbox" type="CollisionShape2D" parent="Camera/CameraCollider"]
+[node name="CameraHitbox" type="CollisionShape2D" parent="CameraCollider"]
 position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_shfyb")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+script = ExtResource("2_hyv1c")
 
 [node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
 z_index = 20
@@ -491,6 +491,7 @@ position = Vector2(16.5, 19)
 shape = SubResource("RectangleShape2D_7c12t")
 
 [node name="SpikeHurtBox" type="Area2D" parent="Player"]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SpikeHurtBox"]
 position = Vector2(-1, 3.5)
@@ -500,10 +501,8 @@ shape = SubResource("RectangleShape2D_1mslx")
 material = SubResource("ShaderMaterial_3omib")
 position = Vector2(-2, 0)
 sprite_frames = ExtResource("15_4ybmm")
-animation = &"DeathAnim"
+animation = &"StartJumpSword"
 autoplay = "Walking"
-frame = 4
-frame_progress = 1.0
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-2, 1)
@@ -542,7 +541,7 @@ process_material = SubResource("ParticleProcessMaterial_ws7le")
 texture = SubResource("GradientTexture2D_vxmpe")
 
 [node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
-self_modulate = Color(1.5, 1.5, 1.5, 1)
+self_modulate = Color(1.1, 1.1, 1.1, 1)
 position = Vector2(-5.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false
@@ -552,7 +551,7 @@ texture = ExtResource("23_1iden")
 lifetime = 0.4
 
 [node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
-self_modulate = Color(1.5, 1.5, 1.5, 1)
+self_modulate = Color(1.1, 1.1, 1.1, 1)
 position = Vector2(3.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false
