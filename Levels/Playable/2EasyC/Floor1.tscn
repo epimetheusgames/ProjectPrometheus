@@ -258,7 +258,7 @@ self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_1q70i")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458685, 0, 0, -65489, 0, 0)
+layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458685, 0, 0, -65487, 0, 0, 2, 0, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
