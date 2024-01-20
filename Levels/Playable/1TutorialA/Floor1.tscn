@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="12_ehmem"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="13_lj0mu"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
+>>>>>>> a42bded (fireflies)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -312,8 +316,24 @@ item_switch_type = "RocketBoost"
 [node name="Checkpoint6" parent="." instance=ExtResource("11_unlok")]
 position = Vector2(-6288, 80)
 
+<<<<<<< HEAD
+=======
+[node name="DroneManager2" parent="." instance=ExtResource("17_8botr")]
+position = Vector2(-1655, -176)
+firefly = true
+speed = 0.2
+
+[node name="DronePatrolPoints" parent="DroneManager2" index="0"]
+visible = false
+points = PackedVector2Array(934, -87, 386, 139, 268.724, 113.981, 408.84, 18.1991, 592, -22, 527, 105, 425.488, 81.306, 596, 41, 870, 167, 625, 123, 465, 169, 861, -16, 1017, 91, 430, 124, 716.254, 18.0135, 1213.23, 91.171, 1280, 101, 1056, 159, 1217, 79, 1214, 68, 1256, 31, 1403, 53, 1316, 164, 1511, 89, 1458, -36, 1311, 99, 1350, -64, 1571.16, -117.754, -67.4036, -84.6678, 98, 41, -183.484, 33.9037, -191.602, 64.717, -263.768, 7.63931, -359.119, 159.488, -410.049, 142.995, -571.982, 261.666, -605.104, 187.423, -544, 181, 8, -512)
+
+[node name="DroneSpritesheet" parent="DroneManager2/Drone" index="0"]
+self_modulate = Color(10, 7, 2.99, 1)
+
+>>>>>>> a42bded (fireflies)
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
 [editable path="VoicelinePlayerArea"]
+[editable path="DroneManager2"]

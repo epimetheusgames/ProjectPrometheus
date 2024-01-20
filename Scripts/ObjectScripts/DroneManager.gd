@@ -25,6 +25,7 @@ var physics_drone_ingame = null
 
 @export var velocity_smoothing = 0.01
 @export var big_drone = false
+@export var firefly = false
 @export var speed = 1.0
 
 const ninety_deg_rad = deg_to_rad(90)
@@ -48,7 +49,7 @@ func _ready():
 			precalculated_flight_path.append([flight_position, flight_rotation, calc_close_to_checkpoint])
 			
 		# Disperse drones along the track.
-		if !big_drone:
+		if !big_drone || firefly:
 			var distance_to_first_point = $Drone.position.distance_to($DronePatrolPoints.points[0])
 			for i in range(int(len(precalculated_flight_path) / (distance_to_first_point * 2))):
 				if i > 0:

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://dtsvfundbj5"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://dtsvfundbj5"]
 
 [ext_resource type="Texture2D" uid="uid://b5m1jdui51ygc" path="res://Assets/Images/Tilesets/Tileset.png" id="1_cusdj"]
 [ext_resource type="Texture2D" uid="uid://nvc1f5t0l2pl" path="res://Assets/Images/Tilesets/TileMapMetalNonTransparent.png" id="2_pne8e"]
@@ -8,12 +8,14 @@
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8qxxy"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_wwtsj"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gcb6d"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_353xq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1mqme"]
 texture = ExtResource("1_cusdj")
@@ -267,10 +269,10 @@ texture_region_size = Vector2i(32, 32)
 10:1/0 = 0
 10:1/0/terrain_set = 0
 10:1/0/terrain = 0
-10:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_8qxxy")
+10:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_353xq")
 10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:1/0/physics_layer_0/angular_velocity = 0.0
-10:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_wwtsj")
+10:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_gcb6d")
 10:1/0/metadata/_better_terrain = {
 "type": 0
 }
