@@ -504,7 +504,7 @@ func _on_area_2d_area_entered(area):
 			visible = false
 		
 		get_parent().get_node("Camera/CloseAnimator").closing = true
-	if area.name == "BulletHurter" || area.name == "JumpHurtBox":
+	if area.name == "BulletHurter" || area.name == "JumpHurtBox" || area.name == "ExplosionHitbox":
 		if area.name == "BulletHurter":
 			area.get_parent().queue_free()
 		elif area.name == "JumpHurtBox":

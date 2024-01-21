@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_mele = preload("res://Objects/StaticObjects/AttackMele.tscn")
 @onready var loaded_drill = preload("res://Objects/StaticObjects/Drill.tscn")
+@onready var loaded_bomb = preload("res://Objects/StaticObjects/Exploder.tscn")
 
 @export var health = 100
 
@@ -29,6 +30,18 @@ func spawn_drill(pos):
 	drill_to_add.position = position + pos
 	drill_to_add.disable_hitbox_when_dead = true
 	get_parent().add_child(drill_to_add)
+	
+func spawn_bomb(pos, vel_scale):
+	var bomb_to_add = loaded_bomb.instantiate()
+	bomb_to_add.position = position + pos
+	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
+	bomb_to_add.velocity.x = direction_to_player.x * vel_scale
+	get_parent().add_child(bomb_to_add)
+
+func _on_new_explosion_timer_timeout():
+	if player.position.distance_to(position) < 600 && (player.current_ability == "RocketBoost" || player.current_ability == "Grapple"):
+		spawn_bomb($BossShootPosition3.position, 5)
+		spawn_bomb($BossShootPosition4.position, -5)
 
 func _on_new_bullet_timer_timeout():
 	if player.position.distance_to(position) < 600 && player.current_ability == "ArmGun":
@@ -38,6 +51,10 @@ func _on_new_bullet_timer_timeout():
 func _on_boss_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
 		health -= 0.8
+		
+		if health < 40:
+			health += 0.4 
+		
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
 func _process(delta):

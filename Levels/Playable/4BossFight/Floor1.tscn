@@ -259,6 +259,9 @@ script = ExtResource("10_x31iv")
 wait_time = 0.4
 autostart = true
 
+[node name="NewExplosionTimer" type="Timer" parent="Boss"]
+autostart = true
+
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
 scale = Vector2(5, 5)
 texture = ExtResource("10_230w6")
@@ -271,6 +274,12 @@ position = Vector2(-40, 88)
 
 [node name="BossShootPosition2" type="Node2D" parent="Boss"]
 position = Vector2(40, 89)
+
+[node name="BossShootPosition3" type="Node2D" parent="Boss"]
+position = Vector2(-40, 107)
+
+[node name="BossShootPosition4" type="Node2D" parent="Boss"]
+position = Vector2(40, 108)
 
 [node name="MeleSpawn" type="Node2D" parent="Boss"]
 position = Vector2(-112, 32)
@@ -371,6 +380,7 @@ position = Vector2(86, 17)
 item_switch_type = "Grapple"
 
 [connection signal="timeout" from="Boss/NewBulletTimer" to="Boss" method="_on_new_bullet_timer_timeout"]
+[connection signal="timeout" from="Boss/NewExplosionTimer" to="Boss" method="_on_new_explosion_timer_timeout"]
 [connection signal="area_entered" from="Boss/BossHurtbox" to="Boss" method="_on_boss_hurtbox_area_entered"]
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
