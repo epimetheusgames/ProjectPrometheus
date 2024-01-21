@@ -12,6 +12,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/2EasyB/Floor1.tscn")],
 	[preload("res://Levels/Playable/2EasyC/Floor1.tscn")],
 	[preload("res://Levels/Playable/3BigDrone/Floor1.tscn")],
+	[preload("res://Levels/Playable/4BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/4ConveyorDropA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/4ConveyorDropB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/5TowerLevelPartA/Floor1.tscn"),],

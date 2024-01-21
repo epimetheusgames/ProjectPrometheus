@@ -443,6 +443,13 @@ one_shot = true
 wait_time = 0.6
 one_shot = true
 
+[node name="BossBar" type="ProgressBar" parent="Camera"]
+offset_left = -176.0
+offset_top = -209.0
+offset_right = 184.0
+offset_bottom = -182.0
+value = 100.0
+
 [node name="Player" type="CharacterBody2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = 8
@@ -526,7 +533,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="NewDashCooldown" type="Timer" parent="Player"]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [node name="HurtVibrationTimer" type="Timer" parent="Player"]
@@ -582,6 +589,7 @@ lifetime = 20.0
 polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 6, 15, 2, -10, -3, -10, -8, 15, -8, 16)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(-18, -22)
 energy = 1.2
 range_z_max = 7
 shadow_enabled = true

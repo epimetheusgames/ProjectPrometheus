@@ -5,12 +5,18 @@ extends Node2D
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 
 @export var shoot_velocity = 0.0
+@export var boss_turret = false
 
 func _process(delta):
 	if $Sprite2D.scale.x == -1:
 		$Turret.scale.y = -1
+		
+	var player
 	
-	var player = get_parent().get_node("Player").get_node("Player")
+	if boss_turret:
+		player = get_parent().get_parent().get_node("Player").get_node("Player")
+	else:
+		player = get_parent().get_node("Player").get_node("Player")
 	
 	var direction_to_player = (player.position - position + player.get_parent().position - $Turret.position).normalized()
 	var direction_to_player_radians = -atan2(direction_to_player.x, direction_to_player.y) 

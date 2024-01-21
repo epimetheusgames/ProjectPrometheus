@@ -2,6 +2,7 @@ extends Node2D
 
 @export var start_direction = 1
 @export var health = 3
+@export var disable_hitbox_when_dead = false
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
 var gravity = 0.5
@@ -78,6 +79,9 @@ func _process(delta):
 		$DrillBreakOverlay.play("Break3")
 		$DrillAnimation.play("Idle")
 		$DrillBreakOverlay.visible = true
+		
+		if disable_hitbox_when_dead:
+			$StaticBody2D/CollisionPolygon2D.disabled = true
 
 func _on_jump_hurt_box_area_entered(area):
 	var no_damage = false
