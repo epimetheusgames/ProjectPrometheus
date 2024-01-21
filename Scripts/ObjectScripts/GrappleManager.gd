@@ -24,11 +24,10 @@ func calc_closest_hook():
 	return closest_hook
 
 func _physics_process(delta):
-	if get_parent().is_on_floor():
-		if air_grapling:
-			grapling = false
-			hooked = false
-			hook = null
+	if get_parent().is_on_floor() && hook && hooked && air_grapling:
+		hooked = false
+		hook = null
+		grapling = false
 		air_grapling = false
 		get_parent().disable_speed_cap = false
 		get_parent().low_gravity = false

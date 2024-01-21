@@ -207,7 +207,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(412, -384, -3270, -418, -4582, -152, -4940, -104, -5580, -120, -6298, -222, -6790, -384, -6968, -402, -7150, -372, -8570, -236, -8714, -244, -8888, -326, -9076, -506, -9226, -558, -10008, -642, -11182, -682, -12714, -392, -13498, -82, -13650, -70, -13796, -88, -14296, -254, -15188, -248, -6868, -1702)
+polygon = PackedVector2Array(-3270, -418, -4582, -152, -5020, -106, -5580, -120, -6298, -222, -6790, -384, -6968, -402, -7150, -372, -8570, -236, -8714, -244, -8888, -326, -9076, -506, -9226, -558, -10008, -642, -11182, -682, -12714, -392, -13498, -82, -13650, -70, -13796, -88, -14296, -254, -15188, -248, -6868, -1702, -682, -1206, -2902, -662)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(726, 316, -1026, 150, -2616, 170, -3360, 824, -1516, 574)
 
 [node name="Player" parent="." instance=ExtResource("6_ad5ab")]
 
@@ -338,7 +341,7 @@ self_modulate = Color(10, 7, 2.99, 1)
 position = Vector2(-1536, -128)
 
 [node name="StartDelayTimer" parent="PistonSmasher" index="5"]
-wait_time = 2.0
+wait_time = 5.0
 
 [node name="PistonSmasher2" parent="." instance=ExtResource("18_cmg21")]
 position = Vector2(-1408, -128)

@@ -258,11 +258,14 @@ self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_1q70i")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458685, 0, 0, -65487, 0, 0, 2, 0, 0)
+layer_0/tile_data = PackedInt32Array(-720813, 196608, 0, -720814, 65536, 0, -458685, 0, 0, -65489, 0, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(2307, -443, 2971, -444, 2975, -132, 2975, -115, 2964, -98, 2947, -86, 2936, -76, 2902, -50, 2880, -37, 2859, -18, 2852, 1, 2845, 27, 2842, 51, 2840, 81, 2818, 152, 2802, 195, 2801, 254, 2801, 316, 2798, 338, 2793, 354, 2782, 376, 2760, 396, 2751, 422, 2704, 444, 900, 435, 779, 464, 359, 466, 320, 461, 279, 436, 252, 422, 205, 399, 31, 374, -474, 381, -504, 379, -522, 372, -544, 353, -557, 322, -575, 281, -601, 188, -619, 58, -616, -18, -596, -73, -586, -102, -558, -130, -517, -159, -422, -171, 92, -178, -715, -376, -800, 622, 3186, 589, 3253, -575)
 
 [node name="Player" parent="." instance=ExtResource("8_7dbkh")]
 

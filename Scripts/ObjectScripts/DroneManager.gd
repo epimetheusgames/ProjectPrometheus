@@ -131,7 +131,7 @@ func _process(delta):
 	if !temp_disabled:
 		physics_drone_ingame = null
 			
-	if !big_drone && is_close_to_player:
+	if !big_drone && is_close_to_player && !temp_disabled:
 		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
 		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
 		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 1000
@@ -228,6 +228,7 @@ func _on_drone_hurtbox_area_entered(area):
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
 			fly_to_correct = false
+			temp_disabled = true
 		if area.name == "PlayerBulletHurter":
 			dead_drone.no_respawn = true
 			get_parent().call_deferred("add_child", dead_drone)
