@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn087ulv26701"]
+[gd_scene load_steps=29 format=3 uid="uid://dn087ulv26701"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="1_fge0x"]
 [ext_resource type="Texture2D" uid="uid://dc2hjawjefeds" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherSword.png" id="2_dcrik"]
 [ext_resource type="Texture2D" uid="uid://cg75lqqdfu7qv" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcher.png" id="2_fcxye"]
 [ext_resource type="Texture2D" uid="uid://el4d7tmp3gfi" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherGrapple.png" id="3_ne3oy"]
+[ext_resource type="Texture2D" uid="uid://duewia6ne4sxd" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherRocketBoost.png" id="3_x7nmn"]
+[ext_resource type="Texture2D" uid="uid://druajrlycxe1s" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherArmGun.png" id="5_b2shw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljhh0"]
 atlas = ExtResource("2_dcrik")
@@ -20,15 +22,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgr42"]
-atlas = ExtResource("3_ne3oy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_spffr"]
+atlas = ExtResource("3_x7nmn")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnvj3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tgr42")
+"texture": SubResource("AtlasTexture_spffr")
 }],
 "loop": true,
 "name": &"default",
@@ -50,15 +52,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bohfp"]
-atlas = ExtResource("2_fcxye")
-region = Rect2(0, 64, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_31wxp"]
+atlas = ExtResource("5_b2shw")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_16wcn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1nrb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bohfp")
+"texture": SubResource("AtlasTexture_31wxp")
 }],
 "loop": true,
 "name": &"default",
@@ -95,6 +97,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv7hw"]
+atlas = ExtResource("3_x7nmn")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1mi4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv7hw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tf1wy"]
 atlas = ExtResource("3_ne3oy")
 region = Rect2(0, 64, 64, 64)
@@ -109,6 +126,25 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa8xq"]
+atlas = ExtResource("5_b2shw")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_718l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa8xq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bohfp"]
+atlas = ExtResource("2_fcxye")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v3oa6"]
 animations = [{
@@ -148,7 +184,7 @@ sprite_frames = SubResource("SpriteFrames_coxh5")
 [node name="ArmGunCollect" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_16wcn")
+sprite_frames = SubResource("SpriteFrames_q1nrb")
 
 [node name="Preview" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
@@ -164,7 +200,7 @@ sprite_frames = SubResource("SpriteFrames_hi10e")
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_16wcn")
+sprite_frames = SubResource("SpriteFrames_l1mi4")
 
 [node name="GrappleCollect2" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -176,7 +212,7 @@ sprite_frames = SubResource("SpriteFrames_gw78a")
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_16wcn")
+sprite_frames = SubResource("SpriteFrames_718l3")
 
 [node name="Preview2" type="AnimatedSprite2D" parent="."]
 z_index = 15

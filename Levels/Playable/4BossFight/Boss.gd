@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var loaded_mele = preload("res://Objects/StaticObjects/AttackMele.tscn")
 @onready var loaded_drill = preload("res://Objects/StaticObjects/Drill.tscn")
 @onready var loaded_bomb = preload("res://Objects/StaticObjects/Exploder.tscn")
+@onready var start_pos = position 
 
 @export var health = 100
 
@@ -50,10 +51,10 @@ func _on_new_bullet_timer_timeout():
 
 func _on_boss_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
-		health -= 0.8
+		health -= 1
 		
 		if health < 40:
-			health += 0.4 
+			health += 0.3
 		
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
@@ -67,3 +68,7 @@ func _process(delta):
 		
 		if health < 50:
 			spawn_drill($MeleSpawn3.position)
+			
+	if health < 100:
+		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
+		position += (start_pos + $FiftyPercentPos.position - position).normalized()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=6 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_hjrbd"]
 [ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_bljg4"]
 [ext_resource type="PackedScene" uid="uid://be1k51hweeaqw" path="res://Objects/FrameworkNodes/StartGameMenu.tscn" id="4_poeu2"]
+[ext_resource type="AudioStream" uid="uid://cvcjj8cbkbm0t" path="res://Assets/Audio/Music/TitleTheme.ogg" id="5_1iyyo"]
 
 [node name="MainMenu" type="Node2D"]
 editor_description = "This scene should include the UI for the main menu."
@@ -93,6 +94,10 @@ position = Vector2(349, -37)
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
 visible = false
 position = Vector2(342, -27)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1iyyo")
+autoplay = true
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]

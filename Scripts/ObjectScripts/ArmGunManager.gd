@@ -35,8 +35,25 @@ func _process(delta):
 			$Line2D.points[3].x = -$Line2D.points[3].x
 			$Line2D.points[2].x = -$Line2D.points[2].x
 			$Line2D.points[1].x = -point_1_start_x
+			
+			$Segment1.rotation_degrees = 48
+			$Segment1.position.x = 10
+			$Segment2.rotation_degrees = -27.4
+			$Segment2.position.x = 12
+			$Segment3.position = (Vector2(8, -18) + mouse_direction * 8)
+			$Hinge1.position.x = 15
 		else:
 			$Line2D.points[1].x = point_1_start_x
+			
+			$Segment1.rotation_degrees = -48
+			$Segment1.position.x = -14
+			$Segment2.rotation_degrees = 27.4
+			$Segment2.position.x = -16
+			$Segment3.position = (Vector2(-12, -18) + mouse_direction * 8)
+			$Hinge1.position.x = -19
+			
+		$Segment3.rotation = atan2(mouse_direction.y, mouse_direction.x) - (1.0 / 2.0) * PI
+			
 		
 		if Input.is_action_just_pressed("mouse_click") || Input.is_action_just_pressed("attack"):
 			var bullet = loaded_bullet.instantiate()
