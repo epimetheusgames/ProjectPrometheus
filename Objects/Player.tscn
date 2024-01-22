@@ -465,6 +465,7 @@ script = ExtResource("2_7fkxw")
 script = ExtResource("8_bsb7n")
 
 [node name="Line2D" type="Line2D" parent="Player/ArmGunManager"]
+visible = false
 points = PackedVector2Array(-10, 1, -19, -5, -10, -21, 15, -22)
 width = 1.0
 default_color = Color(0.415686, 0.415686, 0.415686, 1)
@@ -483,7 +484,6 @@ texture = ExtResource("16_r6ffc")
 position = Vector2(-12, -18)
 rotation = -1.5708
 texture = ExtResource("17_p4s3n")
-flip_h = true
 flip_v = true
 
 [node name="Hinge1" type="Sprite2D" parent="Player/ArmGunManager"]
