@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=31 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -190,6 +190,9 @@ texture = ExtResource("6_g12tu")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kur5w"]
+size = Vector2(30, 63)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("14_fcnsf")
 shader_parameter/distortion_amm = 0.0
@@ -341,6 +344,10 @@ position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("12_juktl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(497, 0.5)
+shape = SubResource("RectangleShape2D_kur5w")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_8b7il")
