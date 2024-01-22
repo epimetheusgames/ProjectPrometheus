@@ -54,7 +54,7 @@ func _on_boss_hurtbox_area_entered(area):
 		health -= 1
 		
 		if health < 40:
-			health += 0.3
+			health += 0.5
 		
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
@@ -69,6 +69,6 @@ func _process(delta):
 		if health < 50:
 			spawn_drill($MeleSpawn3.position)
 			
-	if health < 100:
+	if health < 50 && position.distance_to((start_pos + $FiftyPercentPos.position)) > 10:
 		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		position += (start_pos + $FiftyPercentPos.position - position).normalized()

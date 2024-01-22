@@ -42,6 +42,7 @@ func _process(delta):
 			$Segment2.position.x = 12
 			$Segment3.position = (Vector2(8, -18) + mouse_direction * 8)
 			$Hinge1.position.x = 15
+			$Hinge2.position.x = 7
 			$Segment3.flip_h = false
 		else:
 			$Line2D.points[1].x = point_1_start_x
@@ -52,6 +53,7 @@ func _process(delta):
 			$Segment2.position.x = -16
 			$Segment3.position = (Vector2(-12, -18) + mouse_direction * 8)
 			$Hinge1.position.x = -19
+			$Hinge2.position.x = -14
 			$Segment3.flip_h = true
 			
 		$Segment3.rotation = atan2(mouse_direction.y, mouse_direction.x) - (1.0 / 2.0) * PI
@@ -59,7 +61,7 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("mouse_click") || Input.is_action_just_pressed("attack"):
 			var bullet = loaded_bullet.instantiate()
-			bullet.position = get_parent().position + $Line2D.points[3]
+			bullet.position = get_parent().position + (Vector2(8, -18) if get_parent().previous_direction == -1 else Vector2(-12, -18)) + mouse_direction * 16
 			bullet.direction = mouse_direction
 			bullet.velocity = 7
 			bullet.graphics_efficiency = get_parent().get_parent().graphics_efficiency
