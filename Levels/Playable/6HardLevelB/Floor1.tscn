@@ -361,13 +361,13 @@ position = Vector2(1456, 112)
 rotation = 1.5708
 
 [node name="DrillManager" parent="." instance=ExtResource("21_syoty")]
-position = Vector2(1051, 250)
+position = Vector2(1051, 257)
 
 [node name="DrillManager2" parent="." instance=ExtResource("21_syoty")]
-position = Vector2(962, 248)
+position = Vector2(962, 257)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("19_5ldv2")]
-position = Vector2(1395, 244)
+position = Vector2(875, 244)
 
 [node name="ItemSwitcher5" parent="." instance=ExtResource("2_ekk3b")]
 position = Vector2(583, 288)
@@ -387,7 +387,11 @@ position = Vector2(1942, -271)
 player_checkpoint_item = "Grapple"
 
 [node name="Checkpoint8" parent="." instance=ExtResource("19_5ldv2")]
-position = Vector2(1650, 145)
+position = Vector2(1490, -15)
+player_checkpoint_item = "Grapple"
+
+[node name="Checkpoint9" parent="." instance=ExtResource("19_5ldv2")]
+position = Vector2(1930, 49)
 player_checkpoint_item = "Grapple"
 
 [node name="Checkpoint5" parent="." instance=ExtResource("19_5ldv2")]
