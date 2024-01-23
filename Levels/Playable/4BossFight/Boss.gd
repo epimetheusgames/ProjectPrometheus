@@ -45,7 +45,7 @@ func _on_new_explosion_timer_timeout():
 		spawn_bomb($BossShootPosition4.position, -5)
 
 func _on_new_bullet_timer_timeout():
-	if player.position.distance_to(position) < 600 && player.current_ability == "ArmGun":
+	if player.position.distance_to(position) < 600 && (player.current_ability == "ArmGun" || health <= 0):
 		shoot_bullet($BossShootPosition.position)
 		shoot_bullet($BossShootPosition2.position)
 
