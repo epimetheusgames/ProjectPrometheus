@@ -60,6 +60,7 @@ one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [connection signal="body_entered" from="ExplosionHitbox" to="." method="_on_explosion_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

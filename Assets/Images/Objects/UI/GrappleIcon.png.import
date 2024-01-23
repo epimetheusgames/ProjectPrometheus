@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbh55n60qvvo0"
-path="res://.godot/imported/PlayerRocketBoots.png-bd047746713d151d016a4b8e38d95fe7.ctex"
+uid="uid://dvk40sahmgybr"
+path="res://.godot/imported/GrappleIcon.png-247dc6ee56529aa19a16992f47b778b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Objects/UI/PlayerRocketBoots.png"
-dest_files=["res://.godot/imported/PlayerRocketBoots.png-bd047746713d151d016a4b8e38d95fe7.ctex"]
+source_file="res://Assets/Images/Objects/UI/GrappleIcon.png"
+dest_files=["res://.godot/imported/GrappleIcon.png-247dc6ee56529aa19a16992f47b778b0.ctex"]
 
 [params]
 

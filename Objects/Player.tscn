@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=73 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://duef5w4d6i5lt" path="res://Assets/Images/Objects/UI/TickerBackgroundMask.png" id="7_es82s"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="Texture2D" uid="uid://chbgvy50r01t1" path="res://Assets/Images/Objects/UI/TickerSpritesheet.png" id="9_l4wr6"]
+[ext_resource type="Texture2D" uid="uid://dvk40sahmgybr" path="res://Assets/Images/Objects/UI/GrappleIcon.png" id="10_5iont"]
 [ext_resource type="Texture2D" uid="uid://beg0uwi0f0c6h" path="res://Assets/Images/Objects/Misc/ScreenBorder.png" id="10_to3sf"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CloseAnimator.gd" id="11_opf60"]
@@ -367,12 +368,12 @@ default_color = Color(0.631373, 0.631373, 0.631373, 1)
 
 [node name="Ticker" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
 position = Vector2(0.500051, 19.9999)
-rotation = 0.270526
+rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_sydkl")
 
 [node name="Item" type="Node2D" parent="Camera/AbilityManager/TickerMask"]
 position = Vector2(-1.60933e-06, 20)
-rotation = 0.270526
+rotation = 4.71239
 
 [node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
 position = Vector2(0, -20)
@@ -383,6 +384,11 @@ texture = ExtResource("7_cocna")
 position = Vector2(-20, 0)
 rotation = 4.71239
 texture = ExtResource("5_2fpqi")
+
+[node name="Grapple" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(12.6667, -3.33337)
+rotation = 1.5708
+texture = ExtResource("10_5iont")
 
 [node name="TickerRing" type="AnimatedSprite2D" parent="Camera/AbilityManager"]
 position = Vector2(0.666666, -18.1667)
