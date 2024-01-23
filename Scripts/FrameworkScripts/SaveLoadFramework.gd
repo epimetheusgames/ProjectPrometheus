@@ -4,7 +4,7 @@ extends Node2D
 # It should have a child named Menu, which holds the UI of the
 # menu.
 
-const preloaded_levels = [
+const preloaded_levels = [	[preload("res://Levels/Playable/4BossFightPre/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialA/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialB/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialC/Floor1.tscn")],
@@ -13,13 +13,12 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/2EasyC/Floor1.tscn")],
 	[preload("res://Levels/Playable/2EasyD/Floor1.tscn")],
 	[preload("res://Levels/Playable/3BigDrone/Floor1.tscn")],
-	[preload("res://Levels/Playable/4BossFightPre/Floor1.tscn")],
-	[preload("res://Levels/Playable/4BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/5ConveyorDropA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/5ConveyorDropB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartC/Floor1.tscn"),],
+	[preload("res://Levels/Playable/4BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/7HardLeveA/Floor1.tscn")],
 	[preload("res://Levels/Playable/7HardLevelB/Floor1.tscn")],
 	[preload("res://Levels/Playable/8LastLevel/Floor1.tscn")]
