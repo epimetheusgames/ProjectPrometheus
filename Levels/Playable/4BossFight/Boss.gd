@@ -75,4 +75,5 @@ func _process(delta):
 	
 	if health <= 0:
 		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
+		get_parent().boss = false
 		position.y -= 1

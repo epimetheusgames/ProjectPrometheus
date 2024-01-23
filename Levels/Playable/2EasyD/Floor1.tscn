@@ -241,7 +241,7 @@ layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 [node name="Gravel" type="TileMap" parent="."]
 tile_set = ExtResource("7_r8xgo")
 format = 2
-layer_0/tile_data = PackedInt32Array(-720889, 0, 0, -720888, 0, 3, -720887, 0, 2, -720886, 0, 3, -786424, 0, 0, -786423, 0, 1, -720885, 0, 1)
+layer_0/tile_data = PackedInt32Array(-720889, 0, 0, -720888, 0, 3, -720887, 0, 2, -720886, 0, 3, -786424, 0, 0, -786423, 0, 2, -720885, 0, 3, -786421, 0, 1, -786422, 0, 2)
 
 [node name="Spikes" type="TileMap" parent="."]
 self_modulate = Color(1.7, 1.7, 1.7, 1)
@@ -359,6 +359,9 @@ texture = ExtResource("21_1s7jt")
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(72, -352)
 texture = ExtResource("22_a1svb")
+
+[node name="GrappleHook3" parent="." instance=ExtResource("18_cpt7n")]
+position = Vector2(335, -411)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
