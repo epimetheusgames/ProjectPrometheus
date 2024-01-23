@@ -13,15 +13,16 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/2EasyC/Floor1.tscn")],
 	[preload("res://Levels/Playable/2EasyD/Floor1.tscn")],
 	[preload("res://Levels/Playable/3BigDrone/Floor1.tscn")],
+	[preload("res://Levels/Playable/4BossFightPre/Floor1.tscn")],
 	[preload("res://Levels/Playable/4BossFight/Floor1.tscn")],
-	[preload("res://Levels/Playable/4ConveyorDropA/Floor1.tscn"),],
-	[preload("res://Levels/Playable/4ConveyorDropB/Floor1.tscn"),],
-	[preload("res://Levels/Playable/5TowerLevelPartA/Floor1.tscn"),],
-	[preload("res://Levels/Playable/5TowerLevelPartB/Floor1.tscn"),],
-	[preload("res://Levels/Playable/5TowerLevelPartC/Floor1.tscn"),],
-	[preload("res://Levels/Playable/6HardLeveA/Floor1.tscn")],
-	[preload("res://Levels/Playable/6HardLevelB/Floor1.tscn")],
-	[preload("res://Levels/Playable/7LastLevel/Floor1.tscn")]
+	[preload("res://Levels/Playable/5ConveyorDropA/Floor1.tscn"),],
+	[preload("res://Levels/Playable/5ConveyorDropB/Floor1.tscn"),],
+	[preload("res://Levels/Playable/6TowerLevelPartA/Floor1.tscn"),],
+	[preload("res://Levels/Playable/6TowerLevelPartB/Floor1.tscn"),],
+	[preload("res://Levels/Playable/6TowerLevelPartC/Floor1.tscn"),],
+	[preload("res://Levels/Playable/7HardLeveA/Floor1.tscn")],
+	[preload("res://Levels/Playable/7HardLevelB/Floor1.tscn")],
+	[preload("res://Levels/Playable/8LastLevel/Floor1.tscn")]
 ]
 
 const level_node_names = [
