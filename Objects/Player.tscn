@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=73 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -200,6 +200,9 @@ colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_vup00")
 width = 1
 height = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ugayt"]
+blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_xg2ih"]
 offsets = PackedFloat32Array(0, 0.197279, 0.326531, 0.707483, 0.965986)
@@ -591,7 +594,8 @@ process_material = SubResource("ParticleProcessMaterial_ws7le")
 texture = SubResource("GradientTexture2D_vxmpe")
 
 [node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
-self_modulate = Color(1.1, 1.1, 1.1, 1)
+self_modulate = Color(0.8, 0.8, 0.8, 1)
+material = SubResource("CanvasItemMaterial_ugayt")
 position = Vector2(-5.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false
@@ -601,7 +605,8 @@ texture = ExtResource("23_1iden")
 lifetime = 0.4
 
 [node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
-self_modulate = Color(1.1, 1.1, 1.1, 1)
+self_modulate = Color(0.8, 0.8, 0.8, 1)
+material = SubResource("CanvasItemMaterial_ugayt")
 position = Vector2(3.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false

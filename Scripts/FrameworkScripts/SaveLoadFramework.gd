@@ -83,7 +83,7 @@ func _process(delta):
 	
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 3:
 		var rng = RandomNumberGenerator.new()
-		var music_index = -1
+		var music_index = rng.randi_range(0, len(music_files) - 1)
 		while music_index == last_music_ind:
 			music_index = rng.randi_range(0, len(music_files) - 1)
 			

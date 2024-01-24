@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	if !exploded:
 		velocity.y += 0.2
-		position += velocity * delta * 60 * 0.5
+		position += velocity * delta * 60
 
 func _on_explosion_hitbox_body_entered(body):
 	if !exploded:
