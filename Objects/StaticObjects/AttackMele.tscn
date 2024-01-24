@@ -14,6 +14,7 @@ size = Vector2(56, 44)
 size = Vector2(36, 44)
 
 [node name="AttackMele" type="CharacterBody2D"]
+collision_layer = 0
 platform_on_leave = 2
 script = ExtResource("1_7wlle")
 
@@ -70,8 +71,13 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="SwitchHurtboxEnabledTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="AttackStopTimer" to="." method="_on_attack_stop_timer_timeout"]
 [connection signal="timeout" from="AttackResetTimer" to="." method="_on_attack_reset_timer_timeout"]
+[connection signal="timeout" from="SwitchHurtboxEnabledTimer" to="." method="_on_switch_hurtbox_enabled_timer_timeout"]

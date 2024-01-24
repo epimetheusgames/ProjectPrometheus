@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=30 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ci8yo"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_s7twi"]
@@ -155,18 +155,6 @@ sources/1 = SubResource("TileSetAtlasSource_hrhx4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyq6k"]
 size = Vector2(375, 110)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7j0m"]
-size = Vector2(779, 88)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olgxj"]
-size = Vector2(2510, 264)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw0jw"]
-size = Vector2(1545, 383)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hm6r"]
-size = Vector2(126.5, 332.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg4tm"]
 size = Vector2(91, 88)
 
@@ -200,7 +188,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65534, 0, 2)
 
 [node name="Ingame" type="TileMap" parent="."]
-self_modulate = Color(1.7, 1.7, 1.7, 1)
 tile_set = ExtResource("3_cdmjk")
 rendering_quadrant_size = 32
 format = 2
@@ -211,7 +198,7 @@ layer_0/tile_data = PackedInt32Array(131063, 393217, 1, 131064, 655361, 0, 13106
 tile_set = ExtResource("7_f36p1")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-1048570, 0, 1, -851954, 0, 2, -786418, 0, 3, -720882, 0, 4, -1048564, 65536, 1, -1048563, 196608, 1, -1441778, 0, 5, -1572852, 0, 5)
+layer_0/tile_data = PackedInt32Array(-1048570, 0, 1, -851954, 0, 2, -786418, 0, 3, -720882, 0, 4, -1048564, 65536, 1, -1048563, 196608, 1, -1441778, 0, 5, -1572852, 0, 5, -1114138, 65536, 0, -1114137, 131072, 0, -1114136, 131072, 0, -1114135, 131072, 0, -1114134, 131072, 0, -1114133, 131072, 0, -1114132, 131072, 0, -1114131, 131072, 0, -1114130, 131072, 0, -1114129, 131072, 0, -1114128, 131072, 0, -1114127, 131072, 0, -1114126, 131072, 0, -1114125, 131072, 0, -1114124, 131072, 0, -1114123, 131072, 0, -1114122, 131072, 0, -1114121, 131072, 0, -1114120, 131072, 0, -1114119, 131072, 0, -1114118, 131072, 0, -1114117, 196608, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_i1qh4")]
 
@@ -237,10 +224,6 @@ polygon = PackedVector2Array(263, -213, 457, -212, 459, -179, 263, -179)
 position = Vector2(1011.5, 208)
 shape = SubResource("RectangleShape2D_wyq6k")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(-486.5, -571)
-shape = SubResource("RectangleShape2D_f7j0m")
-
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
 
@@ -248,18 +231,6 @@ position = Vector2(4, -91)
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(269, -476)
-shape = SubResource("RectangleShape2D_olgxj")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2056, 104)
-shape = SubResource("RectangleShape2D_tw0jw")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1346.75, -253.75)
-shape = SubResource("RectangleShape2D_7hm6r")
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("6_o30v6")
@@ -278,36 +249,47 @@ texture = ExtResource("8_2pue3")
 
 [node name="DrillManager" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-94, 0)
+no_nockback = true
 
 [node name="DrillManager2" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-201, 0)
+no_nockback = true
 
 [node name="DrillManager3" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-254, 0)
+no_nockback = true
 
 [node name="DrillManager4" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-147, 0)
+no_nockback = true
 
 [node name="DrillManager5" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-364, -32)
+no_nockback = true
 
 [node name="DrillManager6" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-417, -32)
+no_nockback = true
 
 [node name="DrillManager7" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-471, -32)
+no_nockback = true
 
 [node name="DrillManager15" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-990, -32)
+no_nockback = true
 
 [node name="DrillManager16" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-935, -32)
+no_nockback = true
 
 [node name="DrillManager17" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-876, -32)
+no_nockback = true
 
 [node name="DrillManager18" parent="." instance=ExtResource("9_isgf2")]
 position = Vector2(-822, -32)
+no_nockback = true
 
 [node name="DroneManager" parent="." instance=ExtResource("11_jybpi")]
 position = Vector2(-591, 178)

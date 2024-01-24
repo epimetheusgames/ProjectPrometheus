@@ -17,7 +17,7 @@ func calc_closest_hook():
 	
 	for test_hook in get_tree().get_nodes_in_group("hooks"):
 		var distance = test_hook.position.distance_to(get_parent().position)
-		if distance < closest_distance:
+		if distance < closest_distance && test_hook.position.y < get_parent().get_parent().position.y + get_parent().position.y:
 			closest_hook = test_hook
 			closest_distance = distance
 	

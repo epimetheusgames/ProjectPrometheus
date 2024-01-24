@@ -176,7 +176,7 @@ func _physics_process(delta):
 		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
 		
 	# Apply friction.
-	if input_velocity == 0 && !$GrappleManager.air_grapling && Input.get_axis("left", "right") == 0 && !$GrappleManager.grapling:
+	if input_velocity == 0 && !$GrappleManager.air_grapling && Input.get_axis("left", "right") == 0 && (!$GrappleManager.grapling || can_jump):
 		# Don't apply friction if the player is moving.
 		if can_jump:
 			velocity.x /= friction_force

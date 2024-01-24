@@ -5,6 +5,7 @@ extends Node2D
 @export var disable_hitbox_when_dead = false
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
+@export var no_nockback = false
 var gravity = 0.5
 var velocity = Vector2.ZERO
 var enabled = false
@@ -89,7 +90,9 @@ func _on_jump_hurt_box_area_entered(area):
 	if area.name == "PlayerHurtbox" && health > 0:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
 			no_damage = true
-			position.x += -velocity.x * 50
+			
+			if !no_nockback:
+				position.x += -velocity.x * 50
 			
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()

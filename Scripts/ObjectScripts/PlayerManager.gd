@@ -6,6 +6,9 @@ extends Node2D
 var static_adder = 0
 var bulge_adder = 0
 
+func round_place(x, place):
+	return round(x * pow(10, place)) / pow(10, place)
+
 func _ready():
 	if graphics_efficiency:
 		$Player/PlayerAmbianceParticles.queue_free()
@@ -40,6 +43,11 @@ func _process(delta):
 	# and I'm not going to do it.
 	$Camera/PointsCounter.text = "Points: " + str(get_parent().points * 10) 
 	
-	$Camera/TimeCounter.text = "Time: " + str(int(get_parent().time))
+	var hours = int(get_parent().time / 60 / 60)
+	var minutes = int((get_parent().time - hours * 60 * 60) / 60)
+	var seconds = int(get_parent().time - (hours * 60 * 60) - (minutes * 60))
+	var extra = get_parent().time - (hours * 60 * 60) - (minutes * 60) - (seconds)
+	
+	$Camera/TimeCounter.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str(round_place(extra, 2)).lstrip("0.")
 	
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $CameraCollider.position - follow_position
