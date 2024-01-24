@@ -121,6 +121,7 @@ func _on_jump_hurt_box_allways_active_area_entered(area):
 			health -= 1
 			
 			if health == 0:
+				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 

@@ -96,13 +96,17 @@ func _on_hurt_box_area_entered(area):
 			velocity.y = -jump_vel
 			
 			if health == 0:
+				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+				
 	elif area && area.name == "PlayerBulletHurter" && health > 0:
-		health -= 5
+		health -= 0.5
 		velocity.x = -direction * 4
 		velocity.y = -jump_vel / 2
 		
 		if health <= 0:
-			add_child(loaded_ragdoll.instantiate())
+			get_parent().points += 5
+			area.get_parent().get_node("BulletBadHurtcooldown").stop()
+			area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 		

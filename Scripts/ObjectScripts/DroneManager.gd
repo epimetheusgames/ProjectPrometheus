@@ -232,6 +232,7 @@ func _on_drone_hurtbox_area_entered(area):
 		if area.name == "PlayerBulletHurter":
 			dead_drone.no_respawn = true
 			get_parent().call_deferred("add_child", dead_drone)
+			get_parent().points += 1
 			queue_free()
 
 func _on_target_found_timer_timeout():

@@ -341,6 +341,20 @@ offset_bottom = -108.0
 text = "FPS: Calculating ...
 "
 
+[node name="PointsCounter" type="Label" parent="Camera"]
+offset_left = -234.0
+offset_top = -115.0
+offset_right = -95.0
+offset_bottom = -92.0
+text = "Points: 0"
+
+[node name="TimeCounter" type="Label" parent="Camera"]
+offset_left = -234.0
+offset_top = -99.0
+offset_right = -95.0
+offset_bottom = -76.0
+text = "Time: 0"
+
 [node name="AbilityManager" type="Node2D" parent="Camera"]
 z_index = 20
 position = Vector2(0, 137)

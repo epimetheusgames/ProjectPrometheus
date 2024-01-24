@@ -8,6 +8,8 @@ var graphics_efficiency = false
 var is_max_level = true
 var easy_mode = false
 var deaths_this_level = 0
+var points = 0
+var time = 0
 @export var lights_off = false
 
 func _ready():
@@ -20,6 +22,8 @@ func _ready():
 			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
 
 func _process(delta):
+	time += delta
+	
 	if boss:
 		get_node("Player").target_zoom = Vector2(2.5, 2.5)
 

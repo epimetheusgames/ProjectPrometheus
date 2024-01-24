@@ -122,15 +122,15 @@ func load_game(load_num):
 			save_game("[false, 0, 0, false]", "global")
 			return load_game("global")
 		
-		save_data(0, 0, load_num)
+		save_data(0, 0, load_num, 0, 0)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	var content = file.get_as_text()
 	return content
 
 # Convert level to json and save in respective slot.
-func save_data(level, floor, slot):
-	var data = [level, floor]
+func save_data(level, floor, slot, points, time):
+	var data = [level, floor, points, time]
 	var json_data = JSON.stringify(data)
 	save_game(json_data, slot)
 	
@@ -152,6 +152,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
+	var slot_points = level_data[2]
+	var slot_time = level_data[3]
 	
 	if level != null:
 		current_level = level 
@@ -162,6 +164,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.slot = slot
 	level_loaded.level = current_level
 	level_loaded.floor = level_floor
+	level_loaded.points = slot_points
+	level_loaded.time = slot_time
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 40)
@@ -199,12 +203,12 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_node("MainMenu").queue_free()
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
-func exit_to_menu(level, floor, slot, is_max_level):
-	save_data(level, floor, slot)
+func exit_to_menu(level, floor, slot, points, time, is_max_level):
+	save_data(level, floor, slot, points, time)
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	add_child(menu.instantiate())
 
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
-	exit_to_menu(current_level, current_floor, slot, is_max_level)
-	save_data(switch_level, switch_floor, slot)
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
+	exit_to_menu(current_level, current_floor, slot, is_max_level, points, time)
+	save_data(switch_level, switch_floor, slot, points, time)
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode)

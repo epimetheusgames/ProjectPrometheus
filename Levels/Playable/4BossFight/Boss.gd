@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var health = 100
 
 var dropped_enemies = false
+var dead = false
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -55,6 +56,10 @@ func _on_boss_hurtbox_area_entered(area):
 		
 		if health < 40:
 			health += 0.5
+		
+		if health <= 0 && !dead:
+			dead = true
+			get_parent().points += 100
 		
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
