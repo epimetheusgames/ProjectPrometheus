@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://y65ckdnnfe7s"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/EpimetheusFadin.gd" id="1_iop6e"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_qao55"]
+
+[node name="EpimetheusFadin" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_iop6e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1926.0
+offset_bottom = 1110.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_qao55")
+theme_override_font_sizes/font_size = 110
+text = "Epimetheus Games
+"
+horizontal_alignment = 1
+vertical_alignment = 1

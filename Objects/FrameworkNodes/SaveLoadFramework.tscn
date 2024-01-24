@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk8o56bdo51ex"]
+[gd_scene load_steps=6 format=3 uid="uid://dk8o56bdo51ex"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/SaveLoadFramework.gd" id="1_7se8a"]
 [ext_resource type="PackedScene" uid="uid://bjnr6bfdx0uju" path="res://Objects/FrameworkNodes/MainMenu.tscn" id="2_afe5v"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/VoicelinePlayer.gd" id="3_dvmmk"]
+[ext_resource type="PackedScene" uid="uid://y65ckdnnfe7s" path="res://Objects/Overlays/EpimetheusFadin.tscn" id="4_a7fay"]
 
 [sub_resource type="Environment" id="Environment_80h8x"]
 background_mode = 3
@@ -17,6 +18,8 @@ glow_hdr_scale = 1.0
 [node name="SaveLoadFramework" type="Node2D"]
 editor_description = "This should be the root scene of the project."
 script = ExtResource("1_7se8a")
+
+[node name="EpimetheusFadin" parent="." instance=ExtResource("4_a7fay")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80h8x")

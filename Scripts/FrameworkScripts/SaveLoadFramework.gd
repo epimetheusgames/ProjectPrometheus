@@ -69,9 +69,20 @@ var static_amm = 0.0
 var real_static = 0.0
 var player_camera_position = Vector2.ZERO
 var last_music_ind = -1
+var starting = true
 @export var force_time_scale = -1.0
 
 func _process(delta):
+	if starting && !$EpimetheusFadin.finished:
+		$MainMenu.modulate.a = 0
+	elif starting:
+		$MainMenu.modulate.a += 0.1
+		$EpimetheusFadin.modulate.a -= 0.1
+		
+		if $EpimetheusFadin.modulate.a <= 0:
+			$EpimetheusFadin.queue_free()
+			starting = false
+	
 	if force_time_scale > 0:
 		Engine.time_scale = force_time_scale
 	

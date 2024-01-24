@@ -16,6 +16,8 @@ func activate():
 	# Activate all menu nodes!
 	
 func _ready():
+	modulate.a = 0.00001
+	
 	if name == "SettingsMenu":
 		var global_data = get_parent().get_parent().load_data("global")
 		$MusicSlider.value = global_data[1]
@@ -24,6 +26,9 @@ func _ready():
 		$Difficulty.button_pressed = global_data[3]
 
 func _process(_delta):
+	if modulate.a < 1:
+		modulate.a *= 1.1
+	
 	if name == "SettingsMenu":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value if $MusicSlider.value > -40 else -10000)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value if $SFXSlider.value > -40 else -10000)
