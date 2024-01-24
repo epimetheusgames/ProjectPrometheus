@@ -104,3 +104,4 @@ bus = &"Music"
 [connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="button_up" from="CreditsButton" to="." method="_on_credits_button_button_up"]
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -81,7 +81,7 @@ func _process(delta):
 	#if Input.is_action_just_pressed("ui_down"):
 	#	force_time_scale -= 0.1
 	
-	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 2:
+	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 3:
 		var rng = RandomNumberGenerator.new()
 		var music_index = -1
 		while music_index == last_music_ind:
@@ -90,9 +90,10 @@ func _process(delta):
 		var music_stream = music_files[music_index]
 		$BackgroundMusicPlayer.stream = music_stream
 		$BackgroundMusicPlayer.play()
+		$BackgroundMusicPlayer.playing = true
 		last_music_ind = music_index
 	
-	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 2:
+	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 3:
 		$BackgroundMusicPlayer.playing = false
 	
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60

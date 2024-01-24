@@ -66,3 +66,6 @@ func _on_type_4_button_down():
 
 func _on_clear_slot_button_up():
 	get_parent().get_parent().save_data(0, 0, $SpinBox.value, 0, 0)
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()
