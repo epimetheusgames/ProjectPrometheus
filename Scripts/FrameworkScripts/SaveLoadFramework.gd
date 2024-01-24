@@ -4,7 +4,7 @@ extends Node2D
 # It should have a child named Menu, which holds the UI of the
 # menu.
 
-const preloaded_levels = [	[preload("res://Levels/Playable/4BossFightPre/Floor1.tscn")],
+const preloaded_levels = [
 	[preload("res://Levels/Playable/1TutorialA/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialB/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialC/Floor1.tscn")],
@@ -18,6 +18,7 @@ const preloaded_levels = [	[preload("res://Levels/Playable/4BossFightPre/Floor1.
 	[preload("res://Levels/Playable/6TowerLevelPartA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartC/Floor1.tscn"),],
+	[preload("res://Levels/Playable/4BossFightPre/Floor1.tscn")],
 	[preload("res://Levels/Playable/4BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/7HardLeveA/Floor1.tscn")],
 	[preload("res://Levels/Playable/7HardLevelB/Floor1.tscn")],
@@ -181,14 +182,17 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 1
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Item").rotation = deg_to_rad(90)
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Ticker").rotation = deg_to_rad(90)
+			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ideal_rotation = deg_to_rad(90)
 		if player_respawn_ability == "ArmGun":
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 2
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Item").rotation = deg_to_rad(180)
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Ticker").rotation = deg_to_rad(180)
+			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ideal_rotation = deg_to_rad(180)
 		if player_respawn_ability == "Grapple":
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ability_index = 3
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Item").rotation = deg_to_rad(270)
 			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("TickerMask").get_node("Ticker").rotation = deg_to_rad(270)
+			level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").ideal_rotation = deg_to_rad(180)
 			
 		level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager")._on_fadin_half_wait_timer_timeout()
 	

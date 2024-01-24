@@ -7,8 +7,8 @@ var rocket_jump_vel = 6
 var max_jump_speed_rocket = 8
 var gravity = 0.5
 var gravity_low = 0.03
-var friction_force = 1.2
-var air_friction_force = 1.01
+var friction_force = 1.4
+var air_friction_force = 1.3
 var max_speed = 3
 var max_air_speed = 4.5
 var jump_push_force = 0.225
@@ -176,9 +176,9 @@ func _physics_process(delta):
 		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
 		
 	# Apply friction.
-	if input_velocity == 0:
+	if input_velocity == 0 && !$GrappleManager.air_grapling && Input.get_axis("left", "right") == 0 && !$GrappleManager.grapling:
 		# Don't apply friction if the player is moving.
-		if can_jump && (absf(velocity.x) != max_speed && Input.get_axis("left", "right") == 0):
+		if can_jump:
 			velocity.x /= friction_force
 		else:
 			velocity.x /= air_friction_force
