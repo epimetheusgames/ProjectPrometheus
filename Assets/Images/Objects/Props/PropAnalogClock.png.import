@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7md2ixd8bat8"
-path="res://.godot/imported/PropClock.png-607bf593e80117448496e636185a77a5.ctex"
+path="res://.godot/imported/PropAnalogClock.png-2fb360b34a9dc3794220dc554d37fb20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Objects/Props/PropClock.png"
-dest_files=["res://.godot/imported/PropClock.png-607bf593e80117448496e636185a77a5.ctex"]
+source_file="res://Assets/Images/Objects/Props/PropAnalogClock.png"
+dest_files=["res://.godot/imported/PropAnalogClock.png-2fb360b34a9dc3794220dc554d37fb20.ctex"]
 
 [params]
 

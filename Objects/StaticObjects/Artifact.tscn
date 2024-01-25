@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://qvsrwgkheuap"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ArtifactManager.gd" id="1_37ukb"]
+[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_bpywn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6x0r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f0xcn"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_apw7k"]
+offsets = PackedFloat32Array(0, 0.147541, 0.221311, 0.409836, 0.754098)
+colors = PackedColorArray(1, 0.945098, 0.894118, 1, 0.380392, 1, 0.0313726, 1, 0.3625, 0.15, 1, 1, 0, 0.0783333, 0.47, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_atxwa"]
+gradient = SubResource("Gradient_apw7k")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_vwi0a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.546667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p2sfo"]
+curve = SubResource("Curve_vwi0a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_umko7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 70.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -7.3
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_p2sfo")
+color_ramp = SubResource("GradientTexture1D_atxwa")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="Gradient" id="Gradient_0r8ix"]
+offsets = PackedFloat32Array(0, 0.363636)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ouduu"]
+gradient = SubResource("Gradient_0r8ix")
+fill = 1
+fill_from = Vector2(0.463303, 0.536697)
+
+[node name="Artifact" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_37ukb")
+
+[node name="ArtifactSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_bpywn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o6x0r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1.6, 1.6, 1.6, 0.682)
+material = SubResource("CanvasItemMaterial_f0xcn")
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_umko7")
+texture = SubResource("GradientTexture2D_ouduu")
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.9
+randomness = 1.0
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

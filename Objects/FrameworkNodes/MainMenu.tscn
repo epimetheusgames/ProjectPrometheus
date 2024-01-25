@@ -90,10 +90,12 @@ offset_bottom = 1024.0
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
 visible = false
 position = Vector2(349, -37)
+first = false
 
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
 visible = false
 position = Vector2(342, -27)
+first = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1iyyo")

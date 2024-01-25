@@ -186,6 +186,9 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	if level != null:
 		level_loaded.is_max_level = false
 	
+	if level != null:
+		level_loaded.is_max_level = false
+	
 	if player_spawn_pos:
 		level_loaded.get_node("Player").get_node("Player").position = player_spawn_pos
 		level_loaded.get_node("Player").get_node("Player").current_ability = player_respawn_ability
@@ -216,11 +219,15 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
 func exit_to_menu(level, floor, slot, points, time, is_max_level):
-	save_data(level, floor, slot, points, time)
+	if is_max_level:
+		save_data(level, floor, slot, points, time)
 	get_parent().get_node("Level").get_children()[0].queue_free()
-	add_child(menu.instantiate())
+	var menu_instance = menu.instantiate()
+	menu_instance.first = false
+	add_child(menu_instance)
 
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
-	exit_to_menu(current_level, current_floor, slot, is_max_level, points, time)
-	save_data(switch_level, switch_floor, slot, points, time)
+	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level)
+	if is_max_level:
+		save_data(switch_level, switch_floor, slot, points, time)
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode)

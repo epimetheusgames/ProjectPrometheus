@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bjgxijbajixgk"]
+[gd_scene load_steps=48 format=3 uid="uid://bjgxijbajixgk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_d2w5j"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wfvtm"]
@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="20_apivn"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="20_l1xa7"]
 [ext_resource type="Texture2D" uid="uid://bx4t5nr8u1xhl" path="res://Assets/Images/Objects/Props/PropComputer.png" id="21_j5yfl"]
-[ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="23_ei8qo"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="25_rq7eb"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="26_tu7jd"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="27_ew3hl"]
@@ -31,6 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://4jmd0y5crx2q" path="res://Assets/Images/Objects/Props/PropDoorSideways.png" id="31_0xfcr"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="31_54uup"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="31_v38qp"]
+[ext_resource type="Texture2D" uid="uid://3uvtp35sttsd" path="res://Assets/Images/Objects/Props/PropWhiteBoard.png" id="32_4wgrg"]
+[ext_resource type="Texture2D" uid="uid://ctsenv43f243c" path="res://Assets/Images/Objects/Props/PropForwardFaceChair.png" id="32_5k72o"]
+[ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="33_s3sn2"]
+[ext_resource type="Texture2D" uid="uid://b5w0rjxflto7g" path="res://Assets/Images/Objects/Props/PropDigitalClock.png" id="34_l4xfy"]
+[ext_resource type="Texture2D" uid="uid://7md2ixd8bat8" path="res://Assets/Images/Objects/Props/PropAnalogClock.png" id="35_cd7yc"]
+[ext_resource type="Texture2D" uid="uid://ggjny2mf5t8" path="res://Assets/Images/Objects/Props/PropBreakerBox2.png" id="36_kucoo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_wfvtm")
@@ -517,11 +522,6 @@ texture = ExtResource("21_j5yfl")
 position = Vector2(627, 58)
 texture = ExtResource("21_j5yfl")
 
-[node name="WorkerHelmetProp" type="Sprite2D" parent="."]
-position = Vector2(902, 75)
-rotation = -0.287979
-texture = ExtResource("23_ei8qo")
-
 [node name="PropTable" type="Sprite2D" parent="."]
 position = Vector2(898, 80)
 texture = ExtResource("20_l1xa7")
@@ -674,6 +674,71 @@ item_switch_type = "RocketBoost"
 
 [node name="ItemSwitcher7" parent="." instance=ExtResource("25_rq7eb")]
 position = Vector2(3008, 112)
+
+[node name="PropWhiteBoard" type="Sprite2D" parent="."]
+position = Vector2(980, 80)
+texture = ExtResource("32_4wgrg")
+
+[node name="PropWhiteBoard2" type="Sprite2D" parent="."]
+position = Vector2(1252, 80)
+texture = ExtResource("32_4wgrg")
+
+[node name="PropForwardFaceChair" type="Sprite2D" parent="."]
+position = Vector2(1095, 105)
+texture = ExtResource("32_5k72o")
+
+[node name="PropForwardFaceChair2" type="Sprite2D" parent="."]
+position = Vector2(1127, 105)
+texture = ExtResource("32_5k72o")
+
+[node name="PropForwardFaceChair3" type="Sprite2D" parent="."]
+position = Vector2(1160, 105)
+texture = ExtResource("32_5k72o")
+
+[node name="PropWiltedPlant" type="Sprite2D" parent="."]
+position = Vector2(756, 92.5)
+texture = ExtResource("33_s3sn2")
+
+[node name="PropDigitalClock" type="Sprite2D" parent="."]
+position = Vector2(916, 74)
+texture = ExtResource("34_l4xfy")
+
+[node name="PropClock" type="Sprite2D" parent="."]
+position = Vector2(1112, 24)
+texture = ExtResource("35_cd7yc")
+
+[node name="PropBreakerBox2" type="Sprite2D" parent="."]
+position = Vector2(537, 63)
+texture = ExtResource("36_kucoo")
+
+[node name="PropDigitalClock2" type="Sprite2D" parent="."]
+position = Vector2(3324, 510)
+texture = ExtResource("34_l4xfy")
+
+[node name="PropDigitalClock3" type="Sprite2D" parent="."]
+position = Vector2(3402, 510)
+texture = ExtResource("34_l4xfy")
+
+[node name="PropWhiteBoard3" type="Sprite2D" parent="."]
+position = Vector2(3358, 482)
+texture = ExtResource("32_4wgrg")
+
+[node name="PropWiltedPlant2" type="Sprite2D" parent="."]
+position = Vector2(3558, 511)
+texture = ExtResource("33_s3sn2")
+
+[node name="PropWiltedPlant3" type="Sprite2D" parent="."]
+position = Vector2(3547.27, 512.7)
+rotation = 1.24791
+texture = ExtResource("33_s3sn2")
+
+[node name="PropBreakerBox3" type="Sprite2D" parent="."]
+position = Vector2(3164, 480)
+texture = ExtResource("36_kucoo")
+
+[node name="PropClock2" type="Sprite2D" parent="."]
+position = Vector2(3549, 452)
+texture = ExtResource("35_cd7yc")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

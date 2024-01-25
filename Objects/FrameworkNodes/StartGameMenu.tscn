@@ -24,14 +24,27 @@ offset_right = 69.0
 offset_bottom = 812.0
 theme = ExtResource("2_m10j5")
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="SlotSelect" type="SpinBox" parent="."]
 offset_left = 25.0
 offset_top = 985.0
 offset_right = 197.0
 offset_bottom = 1020.0
 theme = ExtResource("2_m10j5")
+min_value = 1.0
 max_value = 5.0
+value = 1.0
 prefix = "Game Slot"
+
+[node name="LevelSelect" type="SpinBox" parent="."]
+offset_left = 25.0
+offset_top = 1025.0
+offset_right = 197.0
+offset_bottom = 1060.0
+theme = ExtResource("2_m10j5")
+min_value = 1.0
+max_value = 456743.0
+value = 1.0
+prefix = "Level Select"
 
 [node name="Type1" type="Button" parent="."]
 offset_left = 25.0
@@ -73,9 +86,9 @@ toggle_mode = true
 icon = ExtResource("7_5n65k")
 
 [node name="Start" type="Button" parent="."]
-offset_left = 421.0
+offset_left = 434.0
 offset_top = 985.0
-offset_right = 638.0
+offset_right = 651.0
 offset_bottom = 1045.0
 theme = ExtResource("2_m10j5")
 theme_override_font_sizes/font_size = 24
@@ -90,7 +103,15 @@ offset_bottom = 1016.0
 text = "Clear Slot
 "
 
+[node name="Label" type="Label" parent="."]
+offset_left = 208.0
+offset_top = 1029.0
+offset_right = 426.0
+offset_bottom = 1052.0
+text = "(0 will default to latest level)"
+
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
+[connection signal="value_changed" from="SlotSelect" to="." method="_on_slot_select_value_changed"]
 [connection signal="button_down" from="Type1" to="." method="_on_type_1_button_down"]
 [connection signal="button_down" from="Type2" to="." method="_on_type_2_button_down"]
 [connection signal="button_down" from="Type3" to="." method="_on_type_3_button_down"]
