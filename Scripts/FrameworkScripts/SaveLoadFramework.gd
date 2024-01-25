@@ -5,7 +5,6 @@ extends Node2D
 # menu.
 
 const preloaded_levels = [
-	[preload("res://Levels/Playable/4Puzzle1/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialA/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialB/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialC/Floor1.tscn")],
@@ -14,6 +13,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/2EasyC/Floor1.tscn")],
 	[preload("res://Levels/Playable/2EasyD/Floor1.tscn")],
 	[preload("res://Levels/Playable/3BigDrone/Floor1.tscn")],
+	[preload("res://Levels/Playable/4Puzzle1/Floor1.tscn")],
 	[preload("res://Levels/Playable/5ConveyorDropA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/5ConveyorDropB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartA/Floor1.tscn"),],
