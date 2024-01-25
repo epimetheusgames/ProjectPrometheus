@@ -1,31 +1,30 @@
-[gd_scene load_steps=33 format=3 uid="uid://dl78yagbirxrk"]
+[gd_scene load_steps=32 format=3 uid="uid://dl78yagbirxrk"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_nxma7"]
-[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_cbhmk"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="2_ekk3b"]
-[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_4aqxu"]
-[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_y7kkw"]
-[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_rprj3"]
-[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_xe5ws"]
-[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_8cgdx"]
-[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="8_ox07j"]
-[ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_tbk5b"]
-[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_xf43m"]
-[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_kku7n"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="12_qif23"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_r1bjb"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_pd1pd"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="15_5wkj6"]
-[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="17_71fah"]
-[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="18_5pqby"]
-[ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="19_5ldv2"]
-[ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="20_bhvfr"]
-[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="21_syoty"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="22_qs3mb"]
-[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_dgawm"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sf2si"]
+[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="2_ja1qo"]
+[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="3_rflqm"]
+[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_mg7gn"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_k2b40"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_j3wyo"]
+[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="7_qrgu5"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="8_6xwrx"]
+[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="9_7fyfc"]
+[ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_bq2eg"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_wd0ij"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="12_lg35i"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_xrd17"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_7u6dv"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_ega2i"]
+[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="16_hlkqt"]
+[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="17_0uhm7"]
+[ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="18_ya4nc"]
+[ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="19_udnnm"]
+[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="20_ls60k"]
+[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="21_61vjt"]
+[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="22_7gc6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
-texture = ExtResource("2_cbhmk")
+texture = ExtResource("3_rflqm")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/metadata/_better_terrain = {
@@ -93,7 +92,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
-texture = ExtResource("3_4aqxu")
+texture = ExtResource("4_mg7gn")
 texture_region_size = Vector2i(36, 20)
 1:0/0 = 0
 0:0/0 = 0
@@ -114,7 +113,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fx8ic"]
-texture = ExtResource("5_rprj3")
+texture = ExtResource("6_j3wyo")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -155,7 +154,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fx8ic")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
-texture = ExtResource("6_xe5ws")
+texture = ExtResource("7_qrgu5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -194,17 +193,17 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
-shader = ExtResource("14_pd1pd")
+shader = ExtResource("15_ega2i")
 shader_parameter/distortion_amm = 0.0
 shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
 [node name="Level3" type="Node2D"]
-script = ExtResource("1_nxma7")
+script = ExtResource("1_sf2si")
 level = 4
 
-[node name="ItemSwitcher" parent="." instance=ExtResource("2_ekk3b")]
+[node name="ItemSwitcher" parent="." instance=ExtResource("2_ja1qo")]
 position = Vector2(839, -6)
 rotation = 0.218166
 item_switch_type = "RocketBoost"
@@ -222,7 +221,7 @@ format = 2
 
 [node name="Ingame" type="TileMap" parent="."]
 z_index = 20
-tile_set = ExtResource("4_y7kkw")
+tile_set = ExtResource("5_k2b40")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -242,19 +241,19 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 
 [node name="Gravel" type="TileMap" parent="."]
-tile_set = ExtResource("7_8cgdx")
+tile_set = ExtResource("8_6xwrx")
 format = 2
 
 [node name="Spikes" type="TileMap" parent="."]
 self_modulate = Color(1.7, 1.7, 1.7, 1)
-tile_set = ExtResource("8_ox07j")
+tile_set = ExtResource("9_7fyfc")
 rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(-917437, 0, 5, -786365, 65536, 2, -720829, 65536, 3, -1310653, 196608, 1, -1310657, 131072, 1, -1310656, 131072, 1, -1310655, 131072, 1, -1310654, 131072, 1, -1310658, 65536, 1, -1179584, 196608, 0, -1179586, 131072, 0, -1179585, 131072, 0, -1179587, 65536, 0, -655293, 65536, 3, -589757, 65536, 4, -589756, 65536, 4, -1114046, 0, 5, -1114045, 65536, 4, -1179581, 65536, 3, -1245116, 65536, 2, -1245117, 65536, 2, 65539, 0, 2, 131075, 0, 4, 131077, 65536, 5, 6, 0, 5, -65526, 0, 5, -65523, 65536, 5, 65549, 0, 5, 30, 65536, 0, 31, 131072, 0, 32, 196608, 0, 34, 0, 2, 65570, 0, 3, 131106, 0, 4, -131035, 0, 1, -327649, 0, 2, -262113, 0, 4, -131056, 0, 0, -720881, 0, 2, -655345, 0, 4, -655335, 65536, 5, -655338, 65536, 0, -655337, 196608, 0, -720860, 65536, 1, -655324, 0, 5, -720859, 131072, 1, -655322, 0, 0, -720858, 131072, 1, -720857, 196608, 1, -589780, 65536, 0, -589779, 131072, 0, -589778, 196608, 0, -720842, 65536, 5, -655309, 0, 0, -720846, 65536, 1, -720845, 131072, 1, -720844, 196608, 1, -589775, 65536, 5, -589771, 0, 2, -524235, 0, 4, -524233, 65536, 0, -524232, 196608, 0, -589782, 0, 5, -524229, 65536, 2, -458693, 65536, 3, -393157, 65536, 3, -327621, 65536, 3, -262085, 65536, 3, -196549, 65536, 4, -131013, 196608, 0, -131014, 65536, 0, -196550, 0, 4, -393158, 0, 3, -327622, 0, 3, -262086, 0, 3, -458694, 0, 2, -131019, 65536, 1, -131018, 196608, 1, -65483, 0, 2, -65484, 0, 3, 53, 0, 3, 65589, 0, 4, 196660, 0, 1, 48, 196608, 0, 47, 65536, 0, -131027, 0, 2, -65491, 0, 3, 45, 0, 3, 65581, 0, 4, 393261, 65536, 4, 327725, 65536, 2, 262165, 0, 0, 262154, 0, 0, 524308, 65536, 5, 524303, 196608, 0, 524302, 65536, 0, 524298, 196608, 0, 524297, 131072, 0, 524296, 65536, 0, 589814, 196608, 0, 589813, 131072, 0, 589812, 131072, 0, 589811, 65536, 0, -458690, 0, 2, -327618, 0, 4, -393154, 0, 3, -458688, 65536, 2, -393152, 65536, 4, -458689, 0, 1, -327617, 65536, 0, -327616, 196608, 0, 720948, 65536, 3, 655412, 65536, 3, 786496, 65536, 0, 786497, 131072, 0, 786498, 196608, 0, 786493, 65536, 0, 786494, 131072, 0, 786495, 196608, 0, 786490, 65536, 0, 786491, 131072, 0, 786492, 196608, 0, 983090, 65536, 0, 983091, 196608, 0, 393267, 65536, 2, 458803, 65536, 3, 524339, 65536, 3, 589875, 65536, 3, 655411, 65536, 3, 720947, 65536, 3, 786483, 65536, 3, 852019, 65536, 3, 917555, 65536, 4, 393266, 0, 2, 458802, 0, 3, 524338, 0, 3, 589874, 0, 3, 655410, 0, 3, 720946, 0, 3, 786482, 0, 3, 852018, 0, 3, 917554, 0, 4, 524341, 0, 0)
 
 [node name="TransparentMetal" type="TileMap" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
-tile_set = ExtResource("9_tbk5b")
+tile_set = ExtResource("10_bq2eg")
 format = 2
 layer_0/tile_data = PackedInt32Array(-851961, 524288, 0, -851960, 655360, 0, -851959, 655360, 0, -851958, 655360, 0, -851957, 655360, 0, -851956, 655360, 0, -851955, 655360, 0, -851954, 655360, 0, -851953, 655360, 0, -851952, 655360, 0, -851951, 655360, 0, -851950, 655360, 0, -851949, 655360, 0, -851948, 655360, 0, -851947, 655360, 0, -851946, 655360, 0, -851945, 655360, 0, -851944, 655360, 0, -851943, 655360, 0, -851942, 655360, 0, -851941, 655360, 0, -851940, 655360, 0, -851939, 655360, 0, -851938, 655360, 0, -851937, 655360, 0, -851936, 655360, 0, -851935, 655360, 0, -851934, 655360, 0, -851933, 655360, 0, -851932, 655360, 0, -851931, 655360, 0, -851930, 655360, 0, -851929, 655360, 0, -851928, 655360, 0, -851927, 655360, 0, -851926, 655360, 0, -851925, 655360, 0, -851924, 655360, 0, -851923, 655360, 0, -851922, 655360, 0, -851921, 655360, 0, -851920, 655360, 0, -851919, 655360, 0, -851918, 655360, 0, -851917, 655360, 0, -851916, 655360, 0, -851915, 655360, 0, -851914, 655360, 0, -851913, 655360, 0, -851912, 720896, 0, -786425, 524288, 3, -786424, 589824, 3, -786423, 589824, 3, -786422, 589824, 3, -786421, 589824, 3, -786420, 589824, 3, -786419, 589824, 3, -786418, 589824, 3, -786417, 589824, 3, -786416, 589824, 3, -786415, 589824, 3, -786414, 589824, 3, -786413, 589824, 3, -786412, 589824, 3, -786411, 589824, 3, -786410, 589824, 3, -786409, 589824, 3, -786408, 589824, 3, -786407, 589824, 3, -786406, 589824, 3, -786405, 589824, 3, -786404, 589824, 3, -786403, 589824, 3, -786402, 589824, 3, -786401, 589824, 3, -786400, 589824, 3, -786399, 589824, 3, -786398, 589824, 3, -786397, 589824, 3, -786396, 589824, 3, -786395, 589824, 3, -786394, 589824, 3, -786393, 589824, 3, -786392, 589824, 3, -786391, 589824, 3, -786390, 589824, 3, -786389, 589824, 3, -786388, 589824, 3, -786387, 589824, 3, -786386, 589824, 3, -786385, 589824, 3, -786384, 589824, 3, -786383, 589824, 3, -786382, 589824, 3, -786381, 589824, 3, -786380, 589824, 3, -786379, 589824, 3, -786378, 589824, 3, -786377, 589824, 3, -786376, 720896, 3, -393153, 0, 3)
 
@@ -262,7 +261,7 @@ layer_0/tile_data = PackedInt32Array(-851961, 524288, 0, -851960, 655360, 0, -85
 collision_layer = 2
 collision_mask = 2
 
-[node name="Player" parent="." instance=ExtResource("10_xf43m")]
+[node name="Player" parent="." instance=ExtResource("11_wd0ij")]
 
 [node name="DarkOverlay" parent="Player/Camera" index="1"]
 metadata/_edit_use_anchors_ = true
@@ -285,7 +284,7 @@ motion_mirroring = Vector2(1920, 640)
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-378, 235)
 scale = Vector2(5, 5)
-texture = ExtResource("11_kku7n")
+texture = ExtResource("12_lg35i")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
@@ -294,13 +293,13 @@ centered = false
 position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
-script = ExtResource("12_qif23")
+script = ExtResource("13_xrd17")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextLevel"]
 polygon = PackedVector2Array(-454, 315, -453, 189, -539, 256)
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_r1bjb")
+stream = ExtResource("14_7u6dv")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
@@ -308,11 +307,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_5wkj6")
-autoplay = true
-bus = &"Music"
 
 [node name="SizeChecker" type="ColorRect" parent="."]
 visible = false
@@ -322,89 +316,89 @@ offset_right = 14.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
 
-[node name="AttackMele" parent="." instance=ExtResource("17_71fah")]
+[node name="AttackMele" parent="." instance=ExtResource("16_hlkqt")]
 position = Vector2(1382, -46)
 
-[node name="ItemSwitcher2" parent="." instance=ExtResource("2_ekk3b")]
+[node name="ItemSwitcher2" parent="." instance=ExtResource("2_ja1qo")]
 position = Vector2(641, -304)
 item_switch_type = "ArmGun"
 
-[node name="DroneManager" parent="." instance=ExtResource("18_5pqby")]
+[node name="DroneManager" parent="." instance=ExtResource("17_0uhm7")]
 position = Vector2(-12, -465)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
 visible = false
 points = PackedVector2Array(59, 5, 1471, 0, 294, -15, 424, -79, -143, -94)
 
-[node name="Checkpoint" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(567, -247)
 rotation = -1.25664
 player_checkpoint_item = "RocketBoost"
 
-[node name="ItemSwitcher3" parent="." instance=ExtResource("2_ekk3b")]
+[node name="ItemSwitcher3" parent="." instance=ExtResource("2_ja1qo")]
 position = Vector2(2068, -262)
 rotation = 0.279253
 item_switch_type = "Grapple"
 
-[node name="GrappleHook3" parent="." instance=ExtResource("20_bhvfr")]
+[node name="GrappleHook3" parent="." instance=ExtResource("19_udnnm")]
 position = Vector2(1613, -92)
 
-[node name="GrappleHook12" parent="." instance=ExtResource("20_bhvfr")]
+[node name="GrappleHook12" parent="." instance=ExtResource("19_udnnm")]
 position = Vector2(2116, -549)
 rotation = 3.14159
 
-[node name="GrappleHook13" parent="." instance=ExtResource("20_bhvfr")]
+[node name="GrappleHook13" parent="." instance=ExtResource("19_udnnm")]
 position = Vector2(2129, 37)
 
-[node name="ItemSwitcher4" parent="." instance=ExtResource("2_ekk3b")]
+[node name="ItemSwitcher4" parent="." instance=ExtResource("2_ja1qo")]
 position = Vector2(1456, 112)
 rotation = 1.5708
 
-[node name="DrillManager" parent="." instance=ExtResource("21_syoty")]
+[node name="DrillManager" parent="." instance=ExtResource("20_ls60k")]
 position = Vector2(1051, 257)
 
-[node name="DrillManager2" parent="." instance=ExtResource("21_syoty")]
+[node name="DrillManager2" parent="." instance=ExtResource("20_ls60k")]
 position = Vector2(962, 257)
 
-[node name="Checkpoint2" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint2" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(875, 244)
 
-[node name="ItemSwitcher5" parent="." instance=ExtResource("2_ekk3b")]
+[node name="ItemSwitcher5" parent="." instance=ExtResource("2_ja1qo")]
 position = Vector2(583, 288)
 rotation = -0.225147
 item_switch_type = "RocketBoost"
 
-[node name="Checkpoint3" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint3" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(0, 272)
 player_checkpoint_item = "RocketBoost"
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-450, 256)
-texture = ExtResource("22_qs3mb")
+texture = ExtResource("21_61vjt")
 
-[node name="Checkpoint4" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint4" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(1942, -271)
 player_checkpoint_item = "Grapple"
 
-[node name="Checkpoint8" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint8" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(1490, -15)
 player_checkpoint_item = "Grapple"
 
-[node name="Checkpoint9" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint9" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(1930, 49)
 player_checkpoint_item = "Grapple"
 
-[node name="Checkpoint5" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint5" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(2032, -179)
 
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 2)
-texture = ExtResource("23_dgawm")
+texture = ExtResource("22_7gc6c")
 
-[node name="Checkpoint6" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint6" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(637, 16)
 
-[node name="Checkpoint7" parent="." instance=ExtResource("19_5ldv2")]
+[node name="Checkpoint7" parent="." instance=ExtResource("18_ya4nc")]
 position = Vector2(1298, -304)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]

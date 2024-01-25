@@ -740,6 +740,9 @@ texture = ExtResource("36_kucoo")
 position = Vector2(3549, 452)
 texture = ExtResource("35_cd7yc")
 
+[node name="GrappleHook3" parent="." instance=ExtResource("31_54uup")]
+position = Vector2(3092, 37)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 

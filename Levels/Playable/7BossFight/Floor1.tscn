@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=31 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -11,12 +11,11 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_eg7tb"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="10_230w6"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_qip8k"]
-[ext_resource type="Script" path="res://Levels/Playable/4BossFight/Boss.gd" id="10_x31iv"]
+[ext_resource type="Script" path="res://Levels/Playable/7BossFight/Boss.gd" id="10_x31iv"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_7uef0"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="12_juktl"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_8b7il"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_fcnsf"]
-[ext_resource type="AudioStream" uid="uid://6rg2tbxg8qr2" path="res://Assets/Audio/Music/Oskillate.ogg" id="15_iga15"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_herbc"]
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_20vt3"]
 [ext_resource type="PackedScene" uid="uid://bpt5tt7fmwjnv" path="res://Objects/StaticObjects/PathfindPlayerFollower.tscn" id="20_vla6e"]
@@ -366,11 +365,6 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
-
-[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_iga15")
-autoplay = true
-bus = &"Music"
 
 [node name="SizeChecker" type="ColorRect" parent="."]
 visible = false
