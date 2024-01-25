@@ -18,7 +18,7 @@ You play as a human in a very gray and bleak facility, fighting your way through
 - We will have working exports for Windows, Linux, and Mac. The game will also be able to run on a browser using HTML5.
 - This game is designed to be used with a keyboard and a mouse or a bluetooth/USB controller.
 - We have an efficiency mode which removes most particle systems and changes some calculations, so our game can run on most computers.
-- You probably need at least 0.5 GB of RAM to run.
+- You probably need at least 1 GB of RAM to run.
 - Godot uses gdscript, which is Godot’s own programming language, along with GLSL for shaders.
 - We’re using Beepbox (and some Beepbox mods), and GarageBand (all with custom-made loops (we recorded our own instrument and/or created the entire melody)) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
 - We are using LibreSprite (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
