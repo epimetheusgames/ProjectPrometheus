@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="12_ehmem"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="13_lj0mu"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
-[ext_resource type="PackedScene" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
+[ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]

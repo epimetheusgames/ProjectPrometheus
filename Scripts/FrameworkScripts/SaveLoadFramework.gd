@@ -4,7 +4,7 @@ extends Node2D
 # It should have a child named Menu, which holds the UI of the
 # menu.
 
-const preloaded_levels = [
+const preloaded_levels = [	[preload("res://Levels/Playable/7BossFightPre/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialA/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialB/Floor1.tscn")],
 	[preload("res://Levels/Playable/1TutorialC/Floor1.tscn")],
@@ -19,7 +19,6 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/6TowerLevelPartA/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartB/Floor1.tscn"),],
 	[preload("res://Levels/Playable/6TowerLevelPartC/Floor1.tscn"),],
-	[preload("res://Levels/Playable/7BossFightPre/Floor1.tscn")],
 	[preload("res://Levels/Playable/7BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/8HardLeveA/Floor1.tscn")],
 	[preload("res://Levels/Playable/8HardLevelB/Floor1.tscn")],
