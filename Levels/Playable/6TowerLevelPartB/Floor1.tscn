@@ -405,7 +405,6 @@ position = Vector2(-660.954, -430)
 
 [node name="Checkpoint" parent="." instance=ExtResource("21_167ii")]
 position = Vector2(-684, -560)
-player_checkpoint_item = "Grapple"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-566.848, 400.49)
