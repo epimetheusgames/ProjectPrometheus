@@ -10,6 +10,7 @@ var easy_mode = false
 var deaths_this_level = 0
 var points = 0
 var time = 0
+@export var no_timer = false
 @export var lights_off = false
 
 func _ready():
