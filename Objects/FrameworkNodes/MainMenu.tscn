@@ -22,7 +22,7 @@ offset_right = 192.0
 offset_bottom = 136.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 114
-text = "The Scalvager"
+text = "WE NEED A TITLE!!! PLEEEEEASE"
 
 [node name="Play" type="Label" parent="."]
 offset_left = 96.0

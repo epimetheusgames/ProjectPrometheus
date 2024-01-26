@@ -1,14 +1,11 @@
-extends Area2D
+extends Node2D
 
-var active = true
-var use_parent_add = false
+var active = false
 
-func _on_area_entered(area):
-	if area.name == "PlayerHurtbox" && active:
-		if !use_parent_add:
-			add_level()
-		else:
-			get_parent().add_level
+
+func _on_area_2d_area_entered(area):
+	if area.name == "PlayerHurtbox" && area.get_parent().has_key:
+		add_level()
 		
 func add_level():
 	var level = get_parent().level
@@ -25,10 +22,3 @@ func add_level():
 		floor_next += 1
 		
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode)
-
-func restart_level(respawn_pos, respawn_ability):
-	var level = get_parent().level
-	var floor = get_parent().floor
-	var graphics_efficiency = get_parent().graphics_efficiency
-		
-	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)

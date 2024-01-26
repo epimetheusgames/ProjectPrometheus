@@ -36,6 +36,7 @@ var was_climbing = false
 var dead = false
 var in_conveyor_belt = false
 var dont_reset_conveyor = false
+var has_key = false
 
 var current_ability = "Weapon"
 
