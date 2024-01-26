@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bjgxijbajixgk"]
+[gd_scene load_steps=51 format=3 uid="uid://bjgxijbajixgk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_d2w5j"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wfvtm"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://ggjny2mf5t8" path="res://Assets/Images/Objects/Props/PropBreakerBox2.png" id="36_kucoo"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="37_2jsge"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="38_g5uht"]
+[ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="39_k7g8f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_wfvtm")
@@ -798,6 +799,12 @@ texture = ExtResource("20_l1xa7")
 position = Vector2(3460, 524)
 rotation = -1.20428
 texture = ExtResource("38_g5uht")
+
+[node name="Artifact" parent="." instance=ExtResource("39_k7g8f")]
+position = Vector2(-300, -139)
+
+[node name="Artifact2" parent="." instance=ExtResource("39_k7g8f")]
+position = Vector2(2388, 72)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=26 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jkpvj"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_b2qe8"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="17_4aaym"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="18_0if7a"]
+[ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="20_pfgdt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_jkpvj")
@@ -176,7 +177,7 @@ layer_0/tile_data = PackedInt32Array(-65508, 65536, 0, -65507, 196608, 0, -85196
 
 [node name="Player" parent="." instance=ExtResource("7_lb12w")]
 
-[node name="Player" parent="Player" index="1"]
+[node name="Player" parent="Player" index="2"]
 position = Vector2(-47, -29)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -279,6 +280,9 @@ item_switch_type = "Grapple"
 [node name="ItemSwitcher5" parent="." instance=ExtResource("16_b2qe8")]
 position = Vector2(-127, -208)
 item_switch_type = "ArmGun"
+
+[node name="Artifact" parent="." instance=ExtResource("20_pfgdt")]
+position = Vector2(-72, -404)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

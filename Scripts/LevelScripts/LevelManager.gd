@@ -12,6 +12,7 @@ var points = 0
 var time = 0
 @export var no_timer = false
 @export var lights_off = false
+@export var end_level = false
 
 func _ready():
 	if graphics_efficiency:
@@ -23,10 +24,21 @@ func _ready():
 			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
 
 func _process(delta):
-	time += delta
+	if !end_level:
+		time += delta
 	
 	if boss:
 		get_node("Player").target_zoom = Vector2(2.5, 2.5)
+		
+	if end_level:
+		$Label2.text = "Points: " + str(points * 10) 
+	
+		var hours = int(time / 60 / 60)
+		var minutes = int((time - hours * 60 * 60) / 60)
+		var seconds = int(time - (hours * 60 * 60) - (minutes * 60))
+		var extra = time - (hours * 60 * 60) - (minutes * 60) - (seconds)
+		
+		$Label3.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str($Player.round_place(extra, 2)).lstrip("0.")
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

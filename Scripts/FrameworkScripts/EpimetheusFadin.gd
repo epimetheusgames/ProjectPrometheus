@@ -11,6 +11,7 @@ func _process(delta):
 		label_progress += 0.02
 	
 	$Node2D.modulate.a = label_progress
+	$LogoGreyscale.modulate.a = label_progress / 40
 	
 	if decreasing:
 		label_progress -= 0.04
