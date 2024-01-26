@@ -32,7 +32,7 @@ one_shot = true
 autostart = true
 
 [node name="LogoGreyscale" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.0117647)
+modulate = Color(1, 1, 1, 0.105882)
 position = Vector2(947, 560)
 texture = ExtResource("3_yipkc")
 

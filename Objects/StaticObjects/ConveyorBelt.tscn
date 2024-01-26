@@ -46,7 +46,7 @@ speed = 5
 position = Vector2(0, -4.5)
 sprite_frames = SubResource("SpriteFrames_5k6mp")
 autoplay = "default"
-frame_progress = 0.402517
+frame_progress = 0.593422
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
