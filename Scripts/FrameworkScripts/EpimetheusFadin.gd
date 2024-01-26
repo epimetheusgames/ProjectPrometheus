@@ -10,8 +10,9 @@ func _process(delta):
 	if !wait_decrease:
 		label_progress += 0.02
 	
-	$Node2D.modulate.a = label_progress
-	$LogoGreyscale.modulate.a = label_progress / 40
+	$CanvasModulate.color.r = max(label_progress, 0)
+	$CanvasModulate.color.g = max(label_progress, 0)
+	$CanvasModulate.color.b = max(label_progress, 0)
 	
 	if decreasing:
 		label_progress -= 0.04
