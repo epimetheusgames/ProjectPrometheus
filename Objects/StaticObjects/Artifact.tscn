@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_bpywn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6x0r"]
+radius = 24.0832
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f0xcn"]
 blend_mode = 1
