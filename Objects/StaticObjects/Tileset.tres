@@ -857,6 +857,9 @@ texture_region_size = Vector2i(32, 32)
 0:3/0/metadata/_better_terrain = {
 "type": 0
 }
+10:1/0 = 0
+10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cni2b"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

@@ -104,11 +104,6 @@ func _on_hurt_box_area_entered(area):
 		health -= 0.5
 		velocity.x = -direction * 4
 		velocity.y = -jump_vel / 2
-		
-		if health <= 0:
-			get_parent().points += 5
-			area.get_parent().get_node("BulletBadHurtcooldown").stop()
-			area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 
 func _on_switch_hurtbox_enabled_timer_timeout():
 	$HurtBox/CollisionShape2D.disabled = !$HurtBox/CollisionShape2D.disabled
