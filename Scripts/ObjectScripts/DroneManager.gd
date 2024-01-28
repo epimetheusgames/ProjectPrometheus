@@ -26,6 +26,7 @@ var physics_drone_ingame = null
 @export var velocity_smoothing = 0.01
 @export var big_drone = false
 @export var firefly = false
+@export var drone_boss = false
 @export var speed = 1.0
 
 const ninety_deg_rad = deg_to_rad(90)
@@ -97,8 +98,13 @@ func _process(delta):
 	var is_close_to_player = ($Drone.position + position).distance_to(player.position) < 250
 	
 	if flight_index_int >= flight_path_length:
-		queue_free()
-		return
+		if !drone_boss:
+			queue_free()
+			return
+		else:
+			get_parent().get_node("DeadBoss").visible = true
+			queue_free()
+			return
 	
 	var current_pos_data = precalculated_flight_path[flight_index_int]
 	
@@ -216,7 +222,7 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" && !big_drone && !temp_disabled:
+	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" || area.name == "DeathZone" && !big_drone && !temp_disabled:
 		get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
 		get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
 		var dead_drone = loaded_physics_drone.instantiate()
@@ -229,7 +235,7 @@ func _on_drone_hurtbox_area_entered(area):
 			$Drone.visible = false
 			fly_to_correct = false
 			temp_disabled = true
-		if area.name == "PlayerBulletHurter":
+		if area.name == "PlayerBulletHurter" || area.name == "DeathZone":
 			dead_drone.no_respawn = true
 			get_parent().call_deferred("add_child", dead_drone)
 			get_parent().points += 1

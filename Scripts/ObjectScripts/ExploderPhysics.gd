@@ -3,6 +3,7 @@ extends Node2D
 
 var velocity = Vector2.ZERO
 var exploded = false
+@export var no_damage = false
 
 func _ready():
 	$ExplosionHitbox/CollisionShape2D.shape = $ExplosionHitbox/CollisionShape2D.shape.duplicate()

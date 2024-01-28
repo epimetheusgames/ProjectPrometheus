@@ -13,6 +13,9 @@ extends CharacterBody2D
 
 var dropped_enemies = false
 var dead = false
+var bob_x = 0
+var has_weapon_time = 0
+var has_ability_time = 0
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -51,6 +54,10 @@ func _on_new_bullet_timer_timeout():
 		shoot_bullet($BossShootPosition2.position)
 
 func _on_boss_hurtbox_area_entered(area):
+	if area && area.name == "PlayerHurtbox" && health > 0:
+		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
+			health -= 5
+			
 	if area.name == "PlayerBulletHurter":
 		health -= 1
 		
@@ -64,6 +71,10 @@ func _on_boss_hurtbox_area_entered(area):
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
 func _process(delta):
+	var target_pos = start_pos
+	var no_bob = false
+	bob_x += 0.01 * delta * 60
+	
 	if !player.current_ability == "Weapon":
 		dropped_enemies = false
 	elif !dropped_enemies:
@@ -77,8 +88,26 @@ func _process(delta):
 	if health < 50 && position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		position += (start_pos + $FiftyPercentPos.position - position).normalized()
+		no_bob = true
+		
+	if health < 50 && !position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
+		target_pos = $FiftyPercentPos.position
 	
 	if health <= 0:
 		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		get_parent().boss = false
 		position.y -= 1
+		
+	if player.current_ability == "Grapple" || player.current_ability == "RocketBoost":
+		target_pos.y += has_ability_time + has_weapon_time
+		has_ability_time -= 0.1 * delta * 60
+		if has_weapon_time > 0:
+			has_weapon_time -= 0.05 * delta * 60
+	if player.current_ability == "ArmGun" || player.current_ability == "Weapon":
+		target_pos.y += has_weapon_time + has_ability_time
+		has_weapon_time += 0.05 * delta * 60
+		if has_ability_time < 0:
+			has_ability_time += 0.1 * delta * 60
+
+	if health > 50 && !no_bob:
+		position += (Vector2(target_pos.x, target_pos.y + sin(bob_x) * 10) - position) * 0.01

@@ -51,3 +51,6 @@ func _process(delta):
 	$Camera/TimeCounter.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str(round_place(extra, 2)).lstrip("0.")
 	
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $CameraCollider.position - follow_position
+
+	if $Camera/BossBar.value <= -30 && get_parent().boss:
+		get_parent().get_node("DroneManager").get_node("Drone").get_node("DeathZone").get_node("CollisionPolygon2D").disabled = true
