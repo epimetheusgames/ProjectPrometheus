@@ -57,6 +57,7 @@ fill_from = Vector2(0.463303, 0.536697)
 script = ExtResource("1_nm13k")
 
 [node name="ExplosionHitbox" type="Area2D" parent="."]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionHitbox"]
 shape = SubResource("CircleShape2D_astfj")
