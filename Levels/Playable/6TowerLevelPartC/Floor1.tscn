@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="9_qv1k2"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="10_72318"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="12_l8qmj"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="13_jkp2v"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="13_jkp2v"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="14_ig3k1"]
 [ext_resource type="Texture2D" uid="uid://centqdm3rkc8p" path="res://Assets/Images/Objects/Props/StairSpriteNonTransparent.png" id="15_0glt4"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="17_723ml"]
@@ -243,7 +243,7 @@ energy = 1.88
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-500, -500)
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 640)
 
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]

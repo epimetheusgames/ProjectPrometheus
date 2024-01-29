@@ -5,9 +5,10 @@ var smashing = false
 var retracting = false
 
 @onready var start_position = position
+@export var horizontal_smash = false
 
 func _physics_process(delta):
-	position = start_position + Vector2(0, position_y_offset)
+	position = start_position + Vector2(position_y_offset if horizontal_smash else 0, position_y_offset if !horizontal_smash else 0)
 	
 	if position_y_offset < 96 && smashing:
 		position_y_offset += 10 * delta * 60

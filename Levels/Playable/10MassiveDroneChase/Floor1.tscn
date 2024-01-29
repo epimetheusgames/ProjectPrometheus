@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=67 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l03d8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_wxg2b"]
 [ext_resource type="Script" path="res://Levels/Playable/10MassiveDroneChase/ExplosionDropper.gd" id="4_1nnyn"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_a0w3r"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="5_82pr2"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_gnftb"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_h01v7"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_lfboh"]
@@ -20,7 +21,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_bxr1h"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_e66ut"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_5hgb7"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="18_qv2pt"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="18_qv2pt"]
 [ext_resource type="Texture2D" uid="uid://el4d7tmp3gfi" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherGrapple.png" id="19_qv2qf"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="20_ktkfw"]
 [ext_resource type="Texture2D" uid="uid://j7dp7uoxlwb" path="res://Assets/Images/Objects/FunctionalProps/JumpHump.png" id="21_3srr8"]
@@ -33,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="31_qbi61"]
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="32_mfm6y"]
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="33_yemmr"]
+[ext_resource type="Script" path="res://Levels/Playable/10MassiveDroneChase/ENextLevel.gd" id="35_pc451"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfuj5"]
 atlas = ExtResource("3_wxg2b")
@@ -417,6 +419,9 @@ size = Vector2(7, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io6g7"]
 size = Vector2(60, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf3sw"]
+size = Vector2(178, 169)
+
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_q3u7p")
 level = 4
@@ -432,6 +437,7 @@ drone_boss = true
 speed = 3.0
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 points = PackedVector2Array(280, -28, 1167, -13, 2068, 11, 2609, 87, 2871, 75, 3934, -39, 4051, 643, 4634, 671, 5383, 603, 6200, 442, 6021, 501, 6559, 493, 6135, 565, 6561, 588)
 
 [node name="AttackLine" parent="DroneManager" index="1"]
@@ -487,6 +493,7 @@ position = Vector2(5616, 461)
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("5_82pr2")
 expand_mode = 1
 script = ExtResource("5_gnftb")
 path = "interact"
@@ -1240,6 +1247,13 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(3610, 772.5)
 shape = SubResource("RectangleShape2D_io6g7")
 
+[node name="ENextLevel" type="Area2D" parent="."]
+script = ExtResource("35_pc451")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ENextLevel"]
+position = Vector2(5675, 524)
+shape = SubResource("RectangleShape2D_rf3sw")
+
 [connection signal="timeout" from="DroneManager/Drone/ExplosionDropper/Timer" to="DroneManager/Drone/ExplosionDropper" method="_on_timer_timeout"]
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
@@ -1261,6 +1275,8 @@ shape = SubResource("RectangleShape2D_io6g7")
 [connection signal="area_entered" from="BossHealthDecreaser12" to="BossHealthDecreaser12" method="_on_area_entered"]
 [connection signal="area_entered" from="BossHealthDecreaser18" to="BossHealthDecreaser18" method="_on_area_entered"]
 [connection signal="area_entered" from="BossHealthDecreaser13" to="BossHealthDecreaser13" method="_on_area_entered"]
+[connection signal="area_entered" from="ENextLevel" to="ENextLevel" method="_on_area_entered"]
+[connection signal="area_exited" from="ENextLevel" to="ENextLevel" method="_on_area_exited"]
 
 [editable path="DroneManager"]
 [editable path="Player"]
