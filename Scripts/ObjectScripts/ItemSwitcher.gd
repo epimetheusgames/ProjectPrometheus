@@ -10,6 +10,7 @@ const next_item_key = {
 	"ArmGun": "Grapple",
 	"Grapple": "Weapon"
 }
+var pulse_x = 0
 
 func _ready():
 	$Preview.visible = false
@@ -30,7 +31,9 @@ func _ready():
 			$GrappleCollect2.visible = true
 
 func _process(delta):
+	pulse_x += 0.07 * delta * 60
+	
 	if item_switch_type == next_item_key[player.current_ability]:
-		modulate = Color(1.3, 1.3, 1.3, 1)
+		modulate = Color(1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1)
 	else:
 		modulate = Color(0.8, 0.8, 0.8, 1)

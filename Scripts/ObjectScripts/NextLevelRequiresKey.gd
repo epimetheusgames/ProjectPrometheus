@@ -35,4 +35,4 @@ func add_level():
 
 func _physics_process(delta):
 	if do_enable_collision:
-		$CharacterBody2D/CollisionShape2D.disabled = false
+		$StaticBody2D/CollisionShape2D.disabled = false
