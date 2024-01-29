@@ -461,9 +461,9 @@ enable_collision = true
 [node name="CollisionShape2D" parent="NextLevelRequiresKey2/Area2D" index="0"]
 position = Vector2(1596, 609)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="NextLevelRequiresKey2"]
+[node name="StaticBody2D" type="CharacterBody2D" parent="NextLevelRequiresKey2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelRequiresKey2/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelRequiresKey2/StaticBody2D"]
 position = Vector2(1595.5, 608)
 shape = SubResource("RectangleShape2D_huyfi")
 disabled = true

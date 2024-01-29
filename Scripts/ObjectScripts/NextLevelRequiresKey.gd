@@ -11,10 +11,10 @@ func _on_area_2d_area_entered(area):
 		add_level()
 		
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && disable_collision && !enable_collision:
-		$CharacterBody2D.queue_free()
+		$StaticBody2D.queue_free()
 		
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && enable_collision:
-		$CharacterBody2D/CollisionShape2D.disabled = false
+		$StaticBody2D/CollisionShape2D.disabled = false
 		do_enable_collision = true
 		
 func add_level():

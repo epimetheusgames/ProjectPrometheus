@@ -319,7 +319,6 @@ shader_parameter/vignette_visibleness = 1.0
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_kjdhf")
 level = 4
-no_timer = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
