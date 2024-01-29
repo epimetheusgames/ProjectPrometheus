@@ -17,10 +17,10 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_8cm7r"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="15_x1fny"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="19_12i0t"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="19_oxovb"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="21_je3sr"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_o2r4d"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="22_oqfep"]
 [ext_resource type="Texture2D" uid="uid://4jmd0y5crx2q" path="res://Assets/Images/Objects/Props/PropDoorSideways.png" id="24_ndwts"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="25_hssp3"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="26_5wgay"]
@@ -439,12 +439,14 @@ position = Vector2(-1076, -716)
 [node name="Ladder5" parent="." instance=ExtResource("21_je3sr")]
 position = Vector2(-1076, -748)
 
-[node name="ItemSwitcher" parent="." instance=ExtResource("22_oqfep")]
+[node name="ItemSwitcher" type="Node2D" parent="."]
 position = Vector2(-913, -16)
+script = ExtResource("19_12i0t")
 item_switch_type = "RocketBoost"
 
-[node name="ItemSwitcher2" parent="." instance=ExtResource("22_oqfep")]
+[node name="ItemSwitcher2" type="Node2D" parent="."]
 position = Vector2(-1023, -592)
+script = ExtResource("19_12i0t")
 item_switch_type = "ArmGun"
 
 [node name="Checkpoint6" parent="." instance=ExtResource("21_o2r4d")]

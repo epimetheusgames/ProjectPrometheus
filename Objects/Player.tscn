@@ -337,6 +337,7 @@ offset_bottom = 344.0
 color = Color(0.0823529, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
+z_index = 50
 offset_left = -234.0
 offset_top = -131.0
 offset_right = -194.0
@@ -345,6 +346,7 @@ text = "FPS: Calculating ...
 "
 
 [node name="PointsCounter" type="Label" parent="Camera"]
+z_index = 50
 offset_left = -234.0
 offset_top = -115.0
 offset_right = -95.0
@@ -352,6 +354,7 @@ offset_bottom = -92.0
 text = "Points: 0"
 
 [node name="TimeCounter" type="Label" parent="Camera"]
+z_index = 50
 offset_left = -234.0
 offset_top = -99.0
 offset_right = -95.0

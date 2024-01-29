@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dn087ulv26701"]
+[gd_scene load_steps=29 format=3 uid="uid://cwm1lj78dxm6r"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="1_fge0x"]
 [ext_resource type="Texture2D" uid="uid://dc2hjawjefeds" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherSword.png" id="2_dcrik"]
@@ -11,7 +11,7 @@
 atlas = ExtResource("2_dcrik")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4bkn"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jt8l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -26,7 +26,7 @@ animations = [{
 atlas = ExtResource("3_x7nmn")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qnvj3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fdr3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -41,7 +41,7 @@ animations = [{
 atlas = ExtResource("3_ne3oy")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_coxh5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufqlc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -56,7 +56,7 @@ animations = [{
 atlas = ExtResource("5_b2shw")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q1nrb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylybh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -71,7 +71,7 @@ animations = [{
 atlas = ExtResource("2_fcxye")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lnjdx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mndut"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -86,7 +86,7 @@ animations = [{
 atlas = ExtResource("2_dcrik")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hi10e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsoi1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -101,7 +101,7 @@ animations = [{
 atlas = ExtResource("3_x7nmn")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_l1mi4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_d01ku"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -116,7 +116,7 @@ animations = [{
 atlas = ExtResource("3_ne3oy")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gw78a"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfdhr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -131,7 +131,7 @@ animations = [{
 atlas = ExtResource("5_b2shw")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_718l3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqswt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -146,7 +146,7 @@ animations = [{
 atlas = ExtResource("2_fcxye")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_v3oa6"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2po4g"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -157,10 +157,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk66y"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvp50"]
 size = Vector2(16, 56)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_upvkn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fi54k"]
 size = Vector2(32, 4)
 
 [node name="ItemSwitcher" type="Node2D"]
@@ -169,62 +169,62 @@ script = ExtResource("1_fge0x")
 [node name="SwordCollect" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_g4bkn")
+sprite_frames = SubResource("SpriteFrames_0jt8l")
 
 [node name="RocketBoostCollect" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_qnvj3")
+sprite_frames = SubResource("SpriteFrames_6fdr3")
 
 [node name="GrappleCollect" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_coxh5")
+sprite_frames = SubResource("SpriteFrames_ufqlc")
 
 [node name="ArmGunCollect" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_q1nrb")
+sprite_frames = SubResource("SpriteFrames_ylybh")
 
 [node name="Preview" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_lnjdx")
+sprite_frames = SubResource("SpriteFrames_mndut")
 
 [node name="SwordCollect2" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_hi10e")
+sprite_frames = SubResource("SpriteFrames_lsoi1")
 
 [node name="RocketBoostCollect2" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_l1mi4")
+sprite_frames = SubResource("SpriteFrames_d01ku")
 
 [node name="GrappleCollect2" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_gw78a")
+sprite_frames = SubResource("SpriteFrames_yfdhr")
 
 [node name="ArmGunCollect2" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_718l3")
+sprite_frames = SubResource("SpriteFrames_xqswt")
 
 [node name="Preview2" type="AnimatedSprite2D" parent="."]
 z_index = 15
 position = Vector2(1, -16)
-sprite_frames = SubResource("SpriteFrames_v3oa6")
+sprite_frames = SubResource("SpriteFrames_2po4g")
 
 [node name="ItemSwitcherArea" type="Area2D" parent="."]
 position = Vector2(1, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSwitcherArea"]
 position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_vk66y")
+shape = SubResource("RectangleShape2D_dvp50")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -16)
@@ -234,4 +234,4 @@ polygon = PackedVector2Array(28, 32, 12, 28, -12, 28, -31, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -30)
-shape = SubResource("RectangleShape2D_upvkn")
+shape = SubResource("RectangleShape2D_fi54k")
