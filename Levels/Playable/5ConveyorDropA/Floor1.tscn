@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_ns75o"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="12_faexn"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="13_xvg2g"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_k3uih"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_k3uih"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_qkgcd"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="17_ki12s"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="18_xndg1"]
@@ -235,7 +235,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-308, -101, 572, -104, 1237, -212, 2138, -121, 3657, -104, 3646, 186, 3560, 678, 3786, 945, 3790, 1091, 3229, 1258, 2513, 1263, 2519, 690, 2871, 693, 2347, 472, 2369, 1360, 3980, 1283, 3839, -458)
+polygon = PackedVector2Array(-227, -218, 572, -104, 1237, -212, 2138, -121, 3657, -104, 3646, 186, 3560, 678, 3786, 945, 3790, 1091, 3229, 1258, 2513, 1263, 2519, 690, 2871, 693, 2347, 472, 2369, 1360, 3980, 1283, 3839, -458)
 
 [node name="Player" parent="." instance=ExtResource("9_w8tyd")]
 
