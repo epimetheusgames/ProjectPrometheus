@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=32 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -17,8 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_8b7il"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_fcnsf"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_herbc"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_20vt3"]
-[ext_resource type="PackedScene" uid="uid://bpt5tt7fmwjnv" path="res://Objects/StaticObjects/PathfindPlayerFollower.tscn" id="20_vla6e"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_20vt3"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_olvbb"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="21_p5mvj"]
 [ext_resource type="Script" path="res://Levels/Playable/7BossFight/BossCheckpointUpdater.gd" id="22_eak4u"]
@@ -397,66 +396,6 @@ item_switch_type = "RocketBoost"
 [node name="ItemSwitcher4" parent="." instance=ExtResource("17_20vt3")]
 position = Vector2(86, 17)
 item_switch_type = "Grapple"
-
-[node name="PlayerFollower" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower11" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower12" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower13" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower14" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower15" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower16" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower17" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower18" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower19" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
-
-[node name="PlayerFollower20" parent="." node_paths=PackedStringArray("player") instance=ExtResource("20_vla6e")]
-player = NodePath("../Player/Player")
 
 [node name="BossHook1" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(-264, -230)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lox5g"]
-size = Vector2(32, 44)
+size = Vector2(22, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]
 size = Vector2(56, 44)
