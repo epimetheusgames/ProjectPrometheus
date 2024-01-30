@@ -59,8 +59,8 @@ func _process(delta):
 		if (absf(velocity.x) > max_speed):
 			velocity.x /= friction_force
 		
-		position += velocity * delta * 60
 		move_and_slide()
+		position += velocity * delta * 60
 	else:
 		$Collision.disabled = true
 		$Sprite2D.visible = false
