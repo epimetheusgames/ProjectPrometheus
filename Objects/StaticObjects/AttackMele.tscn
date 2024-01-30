@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_860og"]
-radius = 17.0
-height = 45.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lox5g"]
+size = Vector2(32, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]
 size = Vector2(56, 44)
@@ -23,8 +22,8 @@ scale = Vector2(1, 1.375)
 texture = ExtResource("1_rcsf5")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12.5)
-shape = SubResource("CapsuleShape2D_860og")
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_lox5g")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, 21)
