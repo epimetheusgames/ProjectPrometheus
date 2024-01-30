@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://qvsrwgkheuap"]
+[gd_scene load_steps=17 format=3 uid="uid://qvsrwgkheuap"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArtifactManager.gd" id="1_37ukb"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_bpywn"]
+[ext_resource type="Texture2D" uid="uid://dr4kuha0viygi" path="res://Assets/Images/Objects/FunctionalProps/artifact1.png" id="2_a3tf1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6x0r"]
 radius = 24.0832
@@ -53,12 +53,45 @@ gradient = SubResource("Gradient_0r8ix")
 fill = 1
 fill_from = Vector2(0.463303, 0.536697)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_53604"]
+atlas = ExtResource("2_a3tf1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1o5q"]
+atlas = ExtResource("2_a3tf1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef1ya"]
+atlas = ExtResource("2_a3tf1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbk34"]
+atlas = ExtResource("2_a3tf1")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bquou"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_53604")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_i1o5q")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ef1ya")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lbk34")
+}],
+"loop": true,
+"name": &"Animation",
+"speed": 5.0
+}]
+
 [node name="Artifact" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_37ukb")
-
-[node name="ArtifactSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_bpywn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o6x0r")
@@ -78,6 +111,11 @@ randomness = 1.0
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bquou")
+animation = &"Animation"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
