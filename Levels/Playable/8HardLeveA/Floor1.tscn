@@ -417,6 +417,9 @@ rotation = -1.5708
 scale = Vector2(1.12953, 610.079)
 texture = SubResource("GradientTexture1D_b7x2s")
 
+[node name="AttackMele" parent="." instance=ExtResource("15_mo43t")]
+position = Vector2(-637, -17)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
