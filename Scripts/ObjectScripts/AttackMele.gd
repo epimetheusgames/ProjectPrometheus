@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 var speed = 0.15
 var max_speed = 1.5
+var max_fall_speed = 10
 var jump_vel = 6.5
 var gravity = 0.5
 var attacking = false
@@ -57,6 +58,9 @@ func _physics_process(delta):
 		# Don't apply friction if the player is moving.
 		if (absf(velocity.x) > max_speed):
 			velocity.x /= friction_force
+			
+		if velocity.y > max_fall_speed:
+			velocity.y = max_fall_speed
 		
 		move_and_slide()
 		position += velocity

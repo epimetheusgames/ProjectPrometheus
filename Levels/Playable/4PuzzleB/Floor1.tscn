@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_3iboh"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_f1lqg"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_rx7ld"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_koiyi"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_koiyi"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_7ubhr"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_i1f5k"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="23_g8e3j"]
@@ -366,12 +366,15 @@ format = 2
 collision_layer = 2
 collision_mask = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(315, -179, -553, -180, -556, 183, -630, -237)
+
 [node name="Player" parent="." instance=ExtResource("11_tc6ql")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="1"]
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
 
-[node name="FPSCounter" parent="Player/Camera" index="2"]
+[node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="7"]

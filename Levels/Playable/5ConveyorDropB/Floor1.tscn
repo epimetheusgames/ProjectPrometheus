@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=34 format=3 uid="uid://d0ts7tu78v4at"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ky4pi"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mtgua"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_i7eyj"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_d6bb7"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_650se"]
+[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="6_dplhl"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_qojer"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_mgk8e"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_iik12"]
@@ -13,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_j2fdj"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_n6vx0"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_msve5"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_87f7g"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="15_87f7g"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="16_v2cx0"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="17_gkk2g"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="18_0g8u3"]
@@ -232,6 +233,13 @@ rendering_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -720948, 0, 0, -720947, 0, 0, -720946, 0, 0, -720945, 0, 0, -720944, 0, 0, -720943, 0, 0)
 
+[node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.7, 1.7, 1.7, 1)
+tile_set = ExtResource("6_dplhl")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(-196598, 196608, 1, -131098, 131072, 1, -131097, 131072, 1, -131096, 131072, 1, -131095, 131072, 1, -131094, 131072, 1, -131093, 131072, 1, -131092, 131072, 1, -131091, 131072, 1, -131090, 131072, 1, -131089, 131072, 1, -131088, 131072, 1, -131087, 131072, 1, -131086, 131072, 1, -131085, 131072, 1, -131084, 131072, 1, -131083, 131072, 1, -131082, 131072, 1, -131081, 131072, 1, -131080, 131072, 1, -131079, 131072, 1, -131078, 131072, 1, -131077, 131072, 1, -131076, 131072, 1, -131075, 131072, 1, -131074, 131072, 1, -131073, 131072, 1, -196608, 131072, 1, -196607, 131072, 1, -196606, 131072, 1, -196605, 131072, 1, -196604, 131072, 1, -196603, 131072, 1, -196602, 131072, 1, -196601, 131072, 1, -196600, 131072, 1, -196599, 131072, 1, -131099, 65536, 1, -65582, 0, 4, -589870, 0, 3, -524334, 0, 3, -458798, 0, 3, -393262, 0, 3, -327726, 0, 3, -262190, 0, 3, -196654, 0, 3, -131118, 0, 3, -65590, 65536, 5, -57, 0, 0, -131129, 0, 1, -196674, 65536, 4, -458818, 65536, 3, -393282, 65536, 3, -327746, 65536, 3, -262210, 65536, 3, -524354, 65536, 1, 720821, 65536, 4, -262219, 65536, 3, -196683, 65536, 3, -131147, 65536, 3, -65611, 65536, 3, -75, 65536, 3, 65461, 65536, 3, 130997, 65536, 3, 196533, 65536, 3, 262069, 65536, 3, 327605, 65536, 3, 393141, 65536, 3, 458677, 65536, 3, 524213, 65536, 3, 589749, 65536, 3, 655285, 65536, 3, -327755, 65536, 2, 720818, 0, 4, -65614, 0, 3, -78, 0, 3, 65458, 0, 3, 130994, 0, 3, 196530, 0, 3, 262066, 0, 3, 327602, 0, 3, 393138, 0, 3, 458674, 0, 3, 524210, 0, 3, 589746, 0, 3, 655282, 0, 3, -131150, 0, 2, -393322, 0, 2, -327786, 0, 3, -262250, 0, 4, -458902, 196608, 1, -458941, 131072, 1, -458940, 131072, 1, -458939, 131072, 1, -458938, 131072, 1, -458937, 131072, 1, -458936, 131072, 1, -458935, 131072, 1, -458934, 131072, 1, -458933, 131072, 1, -458932, 131072, 1, -458931, 131072, 1, -458930, 131072, 1, -458929, 131072, 1, -458928, 131072, 1, -458927, 131072, 1, -458926, 131072, 1, -458925, 131072, 1, -458924, 131072, 1, -458923, 131072, 1, -458922, 131072, 1, -458921, 131072, 1, -458920, 131072, 1, -458919, 131072, 1, -458918, 131072, 1, -458917, 131072, 1, -458916, 131072, 1, -458915, 131072, 1, -458914, 131072, 1, -458913, 131072, 1, -458912, 131072, 1, -458911, 131072, 1, -458910, 131072, 1, -458909, 131072, 1, -458908, 131072, 1, -458907, 131072, 1, -458906, 131072, 1, -458905, 131072, 1, -458904, 131072, 1, -458903, 131072, 1, -458942, 65536, 1)
+
 [node name="PipesSmall" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2gdyw")
 format = 2
@@ -249,7 +257,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="6"]
+[node name="PointLight2D" parent="Player" index="7"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -268,6 +276,9 @@ texture = ExtResource("9_iik12")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(-2317, 108, -2561, 108, -2381, 493)
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)

@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="16_sipsx"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="18_7xqa3"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="19_0na5i"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="21_wdqbd"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="21_wdqbd"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_v7qf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -461,10 +461,6 @@ item_switch_type = "ArmGun"
 [node name="ItemSwitcher3" parent="." instance=ExtResource("21_wdqbd")]
 position = Vector2(867, -336)
 item_switch_type = "Grapple"
-
-[node name="Checkpoint2" parent="." instance=ExtResource("14_rnqkd")]
-position = Vector2(-431, -368)
-player_checkpoint_item = "RocketBoost"
 
 [node name="Artifact" parent="." instance=ExtResource("22_v7qf1")]
 position = Vector2(274, -942)

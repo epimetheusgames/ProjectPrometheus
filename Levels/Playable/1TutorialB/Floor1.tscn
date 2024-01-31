@@ -257,14 +257,14 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-279, 118, 177, 121, 989, 70, 1365, -44, 1651, -49, 901, 299)
+polygon = PackedVector2Array(-279, 118, 177, 121, 966, 95, 1434, -14, 1651, -49, 901, 299)
 
 [node name="Player" parent="." instance=ExtResource("9_ahiya")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="1"]
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
 
-[node name="FPSCounter" parent="Player/Camera" index="2"]
+[node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="7"]
@@ -286,6 +286,9 @@ texture = ExtResource("10_gs8gl")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(99, 175, 938, 179, 512, 351)
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)

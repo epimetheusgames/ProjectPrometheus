@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_tou6m"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="18_1ue77"]
 [ext_resource type="Texture2D" uid="uid://centqdm3rkc8p" path="res://Assets/Images/Objects/Props/StairSpriteNonTransparent.png" id="18_gqwt1"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="24_7b6p3"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="24_7b6p3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_k7tq6")
@@ -219,6 +219,9 @@ format = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-682, 236, 3164, 254, 3554, 254, 4322, -108, 4376, -150, 4412, -218, 4428, -350, 4422, -492, 4414, -804, 4408, -874, 4358, -942, 4288, -994, 4200, -1018, 4118, -1022, 4016, -1012, 3910, -966, 3856, -930, 3724, -902, 3520, -898, 3308, -902, 232, -870, 4998, -1356, 4692, 934)
 
 [node name="Player" parent="." instance=ExtResource("7_nm8ya")]
 

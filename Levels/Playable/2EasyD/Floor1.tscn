@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_dbs54"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_e0omg"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="16_xx8ln"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_f207p"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_f207p"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="18_cpt7n"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="19_ie77e"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="20_hit7a"]
@@ -258,12 +258,15 @@ layer_0/tile_data = PackedInt32Array(-589789, 131072, 3, -589788, 131072, 3, -58
 collision_layer = 2
 collision_mask = 2
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-304, 114, 980, 110, 1641, -68, 1646, -568, 1081, -721, -65, -712, 525, -845, 1862, -613, 1613, 212)
+
 [node name="Player" parent="." instance=ExtResource("10_v4svw")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="1"]
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
 
-[node name="FPSCounter" parent="Player/Camera" index="2"]
+[node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="7"]

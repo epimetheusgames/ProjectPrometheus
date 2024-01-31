@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=40 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_v182w"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_filsr"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="21_4qrpr"]
-[ext_resource type="PackedScene" uid="uid://dn087ulv26701" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="22_nlfdx"]
+[ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="22_nlfdx"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="22_nqhbn"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="23_a45st"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="26_bh74c"]
@@ -191,9 +191,6 @@ metadata/_better_terrain = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dkxr5"]
 size = Vector2(320, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_281of"]
-size = Vector2(427, 89)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfscn"]
 size = Vector2(528, 123)
 
@@ -227,7 +224,7 @@ self_modulate = Color(1.7, 1.7, 1.7, 1)
 tile_set = ExtResource("3_x70no")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(196646, 0, 0, 65577, 65536, 2, 131113, 65536, 3, 196649, 65536, 3, 262185, 65536, 3, 327721, 65536, 4, 589867, 65536, 0, 589868, 196608, 0)
+layer_0/tile_data = PackedInt32Array(196646, 0, 0, 131113, 65536, 3, 196649, 65536, 3, 262185, 65536, 3, 327721, 65536, 4, 589867, 65536, 0, 589868, 196608, 0, 65558, 0, 0, 65561, 0, 0, 65568, 0, 0, 65564, 65536, 0, 65565, 196608, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 self_modulate = Color(1.7, 1.7, 1.7, 1)
@@ -291,10 +288,6 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(-82, -253)
 shape = SubResource("RectangleShape2D_dkxr5")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(889.5, 57.5)
-shape = SubResource("RectangleShape2D_281of")
 
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
