@@ -16,17 +16,20 @@ script = ExtResource("1_st5ai")
 texture = ExtResource("2_sydr4")
 
 [node name="ControllerTextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(10, 10)
-offset_left = -21.0
-offset_top = -26.0
-offset_right = -10.0
-offset_bottom = -15.0
+visible = false
+custom_minimum_size = Vector2(40, 40)
+offset_left = -19.5
+offset_top = -25.875
+offset_right = 20.5
+offset_bottom = 14.125
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_snvjp")
 expand_mode = 1
 script = ExtResource("4_e86yl")
 path = "interact"
 
 [node name="InteractText" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(37, 8)
 texture = ExtResource("5_s035q")
 
@@ -35,3 +38,6 @@ texture = ExtResource("5_s035q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 38)
 shape = SubResource("RectangleShape2D_65nb4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

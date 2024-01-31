@@ -321,6 +321,7 @@ position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_shfyb")
 
 [node name="Camera" type="Camera2D" parent="."]
+process_mode = 3
 zoom = Vector2(4, 4)
 script = ExtResource("2_hyv1c")
 
@@ -328,6 +329,9 @@ script = ExtResource("2_hyv1c")
 z_index = 20
 position = Vector2(-470, -271)
 scale = Vector2(0.5, 0.5)
+
+[node name="DialogueBoxContainer" type="Node2D" parent="Camera"]
+visible = false
 
 [node name="DarkOverlay" type="ColorRect" parent="Camera"]
 offset_left = -487.0
@@ -362,6 +366,7 @@ offset_bottom = -76.0
 text = "Time: 0"
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
+process_mode = 1
 z_index = 20
 position = Vector2(0, 137)
 scale = Vector2(1.5, 1.5)

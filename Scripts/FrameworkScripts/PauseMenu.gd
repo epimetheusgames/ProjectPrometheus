@@ -14,7 +14,7 @@ func _process(delta):
 		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(get_parent().get_parent().get_parent().level, get_parent().get_parent().get_parent().floor, get_parent().get_parent().get_parent().slot, get_parent().get_parent().get_parent().points, get_parent().get_parent().get_parent().time, get_parent().get_parent().get_parent().is_max_level)
 		
 	# Open and close options menu.
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") && !get_parent().was_open:
 		if showing:
 			hide()
 		else:
@@ -23,7 +23,7 @@ func _process(delta):
 		
 	if showing:
 		get_tree().paused = true
-	else:
+	elif !get_parent().open_dialogue == true:
 		get_tree().paused = false
 
 func _on_hurt_pause_timer_timeout():
