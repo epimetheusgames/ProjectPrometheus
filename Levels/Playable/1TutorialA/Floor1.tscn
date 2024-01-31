@@ -280,6 +280,9 @@ position = Vector2(-4492, -579)
 position = Vector2(0, 2)
 points = PackedVector2Array(172, 40, 111, 509, 275, 438, 378, 512, 507, 418, 633, 491, 768.135, 431.566, 892, 499, 931.585, 438.608, 938, 265)
 
+[node name="LineRaycast" parent="DroneManager" index="10"]
+visible = false
+
 [node name="GrappleHook" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(-4838, -187)
 
