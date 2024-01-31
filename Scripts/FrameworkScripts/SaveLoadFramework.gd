@@ -103,6 +103,7 @@ var starting = true
 @export var force_time_scale = -1.0
 
 func _process(delta):
+	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
 	elif starting:

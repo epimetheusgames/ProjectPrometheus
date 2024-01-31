@@ -13,10 +13,9 @@ var friction_force = 1.2
 var direction = 0
 
 
-func _process(delta):
+func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta * 60
+	velocity.y += gravity * delta * 60
 
 	if health > 0:
 		var down_col = $RayCastDown.get_collider() 
@@ -60,7 +59,7 @@ func _process(delta):
 			velocity.x /= friction_force
 		
 		move_and_slide()
-		position += velocity * delta * 60
+		position += velocity
 	else:
 		$Collision.disabled = true
 		$Sprite2D.visible = false
