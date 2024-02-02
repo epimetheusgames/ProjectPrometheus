@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ub8v2jpohowo"]
+[gd_scene load_steps=32 format=3 uid="uid://ub8v2jpohowo"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_0eu8e"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l1lk4"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_m2cq7"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_3a1v7"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_huic7"]
-[ext_resource type="Texture2D" uid="uid://7jn7sdye8av0" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="16_omwif"]
+[ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="16_omwif"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="17_3b25w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -308,6 +308,35 @@ shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwin7"]
+atlas = ExtResource("16_omwif")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sshp"]
+atlas = ExtResource("16_omwif")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22fws"]
+atlas = ExtResource("16_omwif")
+region = Rect2(0, 192, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg5rf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwin7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sshp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22fws")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_0eu8e")
 level = 4
@@ -418,11 +447,6 @@ offset_right = 14.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
 
-[node name="ElevatorCharage" type="Sprite2D" parent="."]
-z_index = 50
-position = Vector2(1, -16)
-texture = ExtResource("16_omwif")
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
@@ -431,6 +455,12 @@ polygon = PackedVector2Array(-32, 32, -10, 15, 23, 15, 24, -58, 44, 25)
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-416, 0)
 texture = ExtResource("17_3b25w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 50
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_hg5rf")
+autoplay = "default"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

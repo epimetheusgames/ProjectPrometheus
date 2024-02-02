@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cog3jp2ops40s"]
+[gd_scene load_steps=42 format=3 uid="uid://cog3jp2ops40s"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_b70f2"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="19_5d67w"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="20_3txb6"]
 [ext_resource type="Script" path="res://Levels/Playable/8SurfaceElevatorPuzzle/ElevatorManager.gd" id="21_3al8j"]
-[ext_resource type="Texture2D" uid="uid://7jn7sdye8av0" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="21_3e8m8"]
+[ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="21_3e8m8"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="22_metxa"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="23_bw2sv"]
 
@@ -324,6 +324,35 @@ size = Vector2(3, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xisf"]
 size = Vector2(29, 72)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a16vn"]
+atlas = ExtResource("21_3e8m8")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jscs"]
+atlas = ExtResource("21_3e8m8")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4nux"]
+atlas = ExtResource("21_3e8m8")
+region = Rect2(0, 192, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmfrd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a16vn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jscs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4nux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_y5xwq")
 level = 4
@@ -487,11 +516,6 @@ texture = ExtResource("20_3txb6")
 [node name="ElevatorManager" type="Node2D" parent="."]
 script = ExtResource("21_3al8j")
 
-[node name="ElevatorCharage" type="Sprite2D" parent="ElevatorManager"]
-z_index = 50
-position = Vector2(768, -48)
-texture = ExtResource("21_3e8m8")
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="ElevatorManager"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ElevatorManager/CharacterBody2D"]
@@ -508,6 +532,12 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorManager/Area2D"]
 position = Vector2(781.5, -53)
 shape = SubResource("RectangleShape2D_8xisf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ElevatorManager"]
+z_index = 50
+position = Vector2(768, -48)
+sprite_frames = SubResource("SpriteFrames_lmfrd")
+autoplay = "default"
 
 [node name="ControllerTextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
