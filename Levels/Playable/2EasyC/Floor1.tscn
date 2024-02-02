@@ -458,6 +458,7 @@ player_checkpoint_item = "ArmGun"
 
 [node name="Artifact" parent="." instance=ExtResource("27_xmymx")]
 position = Vector2(-399, -24)
+uid = 90909
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
