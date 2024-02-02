@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=35 format=3 uid="uid://d0ts7tu78v4at"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ky4pi"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mtgua"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_4ksgq"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="22_6uhbu"]
 [ext_resource type="PackedScene" uid="uid://hx1rrl8f6576" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="22_tiyoc"]
+[ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="24_c7nxd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_mtgua")
@@ -608,6 +609,9 @@ position = Vector2(-1295, -13)
 
 [node name="AttackMele" parent="." instance=ExtResource("22_6uhbu")]
 position = Vector2(-2943, -171)
+
+[node name="Artifact" parent="." instance=ExtResource("24_c7nxd")]
+position = Vector2(-5756, -298)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

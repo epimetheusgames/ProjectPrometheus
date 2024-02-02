@@ -489,18 +489,18 @@ script = ExtResource("21_3al8j")
 
 [node name="ElevatorCharage" type="Sprite2D" parent="ElevatorManager"]
 z_index = 50
-position = Vector2(770, -48)
+position = Vector2(768, -48)
 texture = ExtResource("21_3e8m8")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="ElevatorManager"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ElevatorManager/CharacterBody2D"]
 z_index = 100
-polygon = PackedVector2Array(740, 0, 766, -17, 792, -17, 792, -89, 833, -67, 797, 0)
+polygon = PackedVector2Array(740, 0, 766, -17, 795, -17, 795, -89, 833, -67, 797, 0)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ElevatorManager/CharacterBody2D"]
 z_index = 50
-polygon = PackedVector2Array(766, -17, 745, -17, 744, -89, 727, 0)
+polygon = PackedVector2Array(766, -17, 740, -17, 740, -89, 727, 0)
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="ElevatorManager"]
