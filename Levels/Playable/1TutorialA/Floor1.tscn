@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
-[ext_resource type="PackedScene" uid="uid://bl0sonahek41k" path="res://Objects/StaticObjects/TutorialDialogueBox.tscn" id="19_ymhau"]
+[ext_resource type="PackedScene" path="res://Objects/StaticObjects/TutorialDialogueBox.tscn" id="19_ymhau"]
 [ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="20_4y5gd"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="21_f6466"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="22_3d6fq"]
@@ -156,7 +156,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
-size = Vector2(144, 98)
+size = Vector2(70, 64)
 
 [sub_resource type="Gradient" id="Gradient_unp1f"]
 offsets = PackedFloat32Array(0.19, 1)
@@ -211,7 +211,7 @@ self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_dr4u2")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-65583, 65536, 1, -65582, 196608, 1, -196654, 65536, 3, -262190, 65536, 3, -327726, 65536, 3, -393262, 65536, 3, -196655, 65536, 3, -458799, 65536, 3, -393263, 65536, 3, -327727, 65536, 3, -262191, 65536, 3, -524335, 65536, 3, -524334, 65536, 3, -458798, 65536, 3)
+layer_0/tile_data = PackedInt32Array(-65583, 65536, 1, -65582, 196608, 1, -196654, 65536, 3, -262190, 65536, 3, -327726, 65536, 3, -393262, 65536, 3, -196655, 0, 3, -458799, 0, 3, -393263, 0, 3, -327727, 0, 3, -262191, 0, 3, -524335, 0, 3, -524334, 65536, 3, -458798, 65536, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -259,7 +259,7 @@ position = Vector2(4, -91)
 script = ExtResource("7_6b3e4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-7586, -64)
+position = Vector2(-7549, -64)
 shape = SubResource("RectangleShape2D_fuwdw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

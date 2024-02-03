@@ -103,13 +103,6 @@ offset_bottom = 1016.0
 text = "Clear Slot
 "
 
-[node name="Label" type="Label" parent="."]
-offset_left = 208.0
-offset_top = 1029.0
-offset_right = 426.0
-offset_bottom = 1052.0
-text = "(0 will default to latest level)"
-
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
 [connection signal="value_changed" from="SlotSelect" to="." method="_on_slot_select_value_changed"]
 [connection signal="button_down" from="Type1" to="." method="_on_type_1_button_down"]

@@ -653,6 +653,44 @@ position = Vector2(-783, 1)
 rotation = 1.5708
 item_switch_type = "Grapple"
 
+[node name="ItemSwitcher21" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 65)
+rotation = 1.5708
+
+[node name="ItemSwitcher22" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 129)
+rotation = 1.5708
+item_switch_type = "RocketBoost"
+
+[node name="ItemSwitcher23" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 193)
+rotation = 1.5708
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher24" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 257)
+rotation = 1.5708
+item_switch_type = "Grapple"
+
+[node name="ItemSwitcher25" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 321)
+rotation = 1.5708
+
+[node name="ItemSwitcher26" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 385)
+rotation = 1.5708
+item_switch_type = "RocketBoost"
+
+[node name="ItemSwitcher27" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 449)
+rotation = 1.5708
+item_switch_type = "ArmGun"
+
+[node name="ItemSwitcher28" parent="." instance=ExtResource("18_hfl85")]
+position = Vector2(-783, 513)
+rotation = 1.5708
+item_switch_type = "Grapple"
+
 [node name="Checkpoint8" parent="." instance=ExtResource("19_b2l52")]
 position = Vector2(1408, -624)
 
