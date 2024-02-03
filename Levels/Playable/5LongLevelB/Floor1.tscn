@@ -418,7 +418,7 @@ position = Vector2(480, 392)
 script = ExtResource("13_5wik8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(624.5, 96)
+position = Vector2(-549, 131)
 shape = SubResource("RectangleShape2D_elr0a")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -532,6 +532,7 @@ position = Vector2(736, 45)
 
 [node name="Artifact2" parent="." instance=ExtResource("17_6uef8")]
 position = Vector2(-272, 120)
+uid = 69969696
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-48, 520)

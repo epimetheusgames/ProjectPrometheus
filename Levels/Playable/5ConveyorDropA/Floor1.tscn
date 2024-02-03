@@ -417,6 +417,7 @@ position = Vector2(494, -256)
 
 [node name="Artifact" parent="." instance=ExtResource("25_pxyfg")]
 position = Vector2(-239, -238)
+uid = 333454
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

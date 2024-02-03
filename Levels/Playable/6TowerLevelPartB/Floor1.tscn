@@ -445,9 +445,11 @@ rotation = 1.5708
 
 [node name="Artifact" parent="." instance=ExtResource("21_bp3pl")]
 position = Vector2(-400, -272)
+uid = 424242424
 
 [node name="Artifact2" parent="." instance=ExtResource("21_bp3pl")]
 position = Vector2(0, -1136)
+uid = 10106778
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("23_k7ev6")]
 position = Vector2(-80, -895)

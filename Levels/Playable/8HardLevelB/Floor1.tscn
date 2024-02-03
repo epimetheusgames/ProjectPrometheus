@@ -395,6 +395,7 @@ texture = ExtResource("22_7gc6c")
 
 [node name="Artifact" parent="." instance=ExtResource("23_iwhll")]
 position = Vector2(1818, -571)
+uid = 9876543
 
 [node name="TutorialDialogueBox" parent="." instance=ExtResource("24_4bfho")]
 position = Vector2(1065, -160)
@@ -408,6 +409,10 @@ text = "You cannot escape
 [node name="TutorialDialogueBox3" parent="." instance=ExtResource("24_4bfho")]
 position = Vector2(-302, 223)
 text = "YOU WILL DIE"
+
+[node name="Artifact2" parent="." instance=ExtResource("23_iwhll")]
+position = Vector2(-9, 111)
+uid = 98765
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
