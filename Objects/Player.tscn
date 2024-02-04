@@ -425,7 +425,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="ScreenBorder" type="Sprite2D" parent="Camera"]
-z_index = 20
+z_index = 2000
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("10_to3sf")
 

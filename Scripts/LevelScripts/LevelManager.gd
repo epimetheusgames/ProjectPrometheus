@@ -10,6 +10,7 @@ var easy_mode = false
 var deaths_this_level = 0
 var points = 0
 var time = 0
+var deaths = 0
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
@@ -39,10 +40,8 @@ func _process(delta):
 		var extra = time - (hours * 60 * 60) - (minutes * 60) - (seconds)
 		
 		$Label3.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str($Player.round_place(extra, 2)).lstrip("0.")
+		$Label4.text = "Deaths: " + str(deaths)
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()
 
-
-func _on_area_2d_area_entered(area):
-	pass # Replace with function body.

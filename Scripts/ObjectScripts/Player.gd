@@ -538,6 +538,7 @@ func _on_area_2d_area_entered(area):
 			$PlayerAnimation.modulate.b = 0.6
 			
 func die():
+	get_parent().get_parent().deaths += 1
 	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 			
 func _on_player_hurtbox_area_exited(area):

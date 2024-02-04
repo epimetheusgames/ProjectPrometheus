@@ -45,12 +45,12 @@ text = "SFX Volume
 "
 
 [node name="CheckButton" type="CheckButton" parent="."]
-offset_left = 21.0
-offset_top = 1017.0
-offset_right = 293.0
-offset_bottom = 1062.0
+offset_left = 422.0
+offset_top = 886.0
+offset_right = 646.0
+offset_bottom = 931.0
 theme = ExtResource("2_oee3f")
-text = "Use Efficient Rendering"
+text = "Efficient Rendering"
 
 [node name="BackArrow" type="Sprite2D" parent="."]
 position = Vector2(44, 873)
@@ -64,11 +64,36 @@ offset_right = 69.0
 offset_bottom = 892.0
 
 [node name="Difficulty" type="CheckButton" parent="."]
+visible = false
 offset_left = 327.0
 offset_top = 1017.0
 offset_right = 551.0
 offset_bottom = 1062.0
 theme = ExtResource("2_oee3f")
 text = "Accessibility Mode"
+
+[node name="ShowFPS" type="CheckButton" parent="."]
+offset_left = 422.0
+offset_top = 947.0
+offset_right = 646.0
+offset_bottom = 992.0
+theme = ExtResource("2_oee3f")
+text = "Show FPS Counter"
+
+[node name="ShowPoints" type="CheckButton" parent="."]
+offset_left = 655.0
+offset_top = 886.0
+offset_right = 911.0
+offset_bottom = 931.0
+theme = ExtResource("2_oee3f")
+text = "Show Points Counter"
+
+[node name="ShowSpeedrunTimer" type="CheckButton" parent="."]
+offset_left = 655.0
+offset_top = 947.0
+offset_right = 910.0
+offset_bottom = 992.0
+theme = ExtResource("2_oee3f")
+text = "Show Speedrun Timer"
 
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]

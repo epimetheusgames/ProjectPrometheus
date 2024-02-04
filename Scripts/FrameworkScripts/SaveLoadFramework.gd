@@ -168,15 +168,15 @@ func load_game(load_num):
 			save_game("[false, 0, 0, false]", "global")
 			return load_game("global")
 		
-		save_data(0, 0, load_num, 0, 0, {})
+		save_data(0, 0, load_num, 0, 0, {}, 0)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	var content = file.get_as_text()
 	return content
 
 # Convert level to json and save in respective slot.
-func save_data(level, floor, slot, points, time, artifact_data):
-	var data = [level, floor, points, time, artifact_data]
+func save_data(level, floor, slot, points, time, artifact_data, deaths):
+	var data = [level, floor, points, time, artifact_data, deaths]
 	var json_data = JSON.stringify(data)
 	save_game(json_data, slot)
 	
@@ -200,6 +200,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var level_floor = level_data[1]
 	var slot_points = level_data[2]
 	var slot_time = level_data[3]
+	var slot_deaths = level_data[5]
 	
 	if level != null:
 		current_level = level 
@@ -212,6 +213,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.floor = level_floor
 	level_loaded.points = slot_points
 	level_loaded.time = slot_time
+	level_loaded.deaths = slot_deaths
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 40)
@@ -252,22 +254,22 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_node("MainMenu").queue_free()
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
-func exit_to_menu(level, floor, slot, points, time, is_max_level):
+func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 	if is_max_level:
-		save_data(level, floor, slot, points, time, load_data(slot)[4])
+		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths)
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
 	menu_instance.first = false
 	add_child(menu_instance)
 
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
-	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level)
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
+	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths)
 	if is_max_level:
-		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4])
+		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths)
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode)
 
 func collect_artifact(slot, uid):
 	var data = load_data(slot)
 	data[4][uid] = true
-	save_data(data[0], data[1], slot, data[2], data[3], data[4])
+	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5])
 	
