@@ -67,6 +67,8 @@ func _ready():
 	
 	if graphics_efficiency:
 		$Drone/GPUParticles2D.queue_free()
+		if big_drone:
+			$Drone/GPUParticles2D2.queue_free()
 		
 func calculate_flight_frame():
 	var direction_to_next_point = ($DronePatrolPoints.points[current_line_point] - flight_position).normalized()
