@@ -63,6 +63,46 @@ theme_override_font_sizes/font_size = 58
 text = "Quit"
 horizontal_alignment = 1
 
+[node name="PlayHighlight" type="Label" parent="."]
+visible = false
+offset_left = 65.0
+offset_top = 764.0
+offset_right = 185.0
+offset_bottom = 846.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "-        -"
+
+[node name="SettingsHighlight" type="Label" parent="."]
+visible = false
+offset_left = 63.0
+offset_top = 834.0
+offset_right = 302.0
+offset_bottom = 916.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "-                -"
+
+[node name="CreditsHighlight" type="Label" parent="."]
+visible = false
+offset_left = 61.0
+offset_top = 899.0
+offset_right = 335.0
+offset_bottom = 981.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "-              -"
+
+[node name="QuitHighlight" type="Label" parent="."]
+visible = false
+offset_left = 61.0
+offset_top = 964.0
+offset_right = 245.0
+offset_bottom = 1046.0
+theme = ExtResource("2_hjrbd")
+theme_override_font_sizes/font_size = 58
+text = "-        -"
+
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 45.0
 offset_top = 769.0
@@ -103,7 +143,11 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="button_up" from="CreditsButton" to="." method="_on_credits_button_button_up"]
+[connection signal="mouse_entered" from="CreditsButton" to="." method="_on_credits_button_mouse_entered"]
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
