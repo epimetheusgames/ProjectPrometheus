@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="18_ao25b"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="19_5d67w"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="20_3txb6"]
-[ext_resource type="Script" path="res://Levels/Playable/8SurfaceElevatorPuzzle/ElevatorManager.gd" id="21_3al8j"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/8SurfaceElevatorPuzzle/ElevatorManager.gd" id="21_3al8j"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="21_3e8m8"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="22_metxa"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="23_bw2sv"]

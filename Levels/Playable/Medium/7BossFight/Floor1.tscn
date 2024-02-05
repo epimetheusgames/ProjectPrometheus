@@ -11,7 +11,7 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_eg7tb"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="10_230w6"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_qip8k"]
-[ext_resource type="Script" path="res://Levels/Playable/7BossFight/Boss.gd" id="10_x31iv"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/7BossFight/Boss.gd" id="10_x31iv"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_7uef0"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="12_juktl"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_8b7il"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_20vt3"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_olvbb"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="21_p5mvj"]
-[ext_resource type="Script" path="res://Levels/Playable/7BossFight/BossCheckpointUpdater.gd" id="22_eak4u"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/7BossFight/BossCheckpointUpdater.gd" id="22_eak4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_lvfhp")
