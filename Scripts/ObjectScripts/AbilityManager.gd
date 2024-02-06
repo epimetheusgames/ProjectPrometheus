@@ -39,8 +39,11 @@ func _process(delta):
 	if $AbililtySwitchTimer.time_left < 10:
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
 		
-		if ability_lost_volume < 0:
-			ability_lost_volume += 0.1 * delta * 60
+		if ability_lost_volume < 5:
+			ability_lost_volume += 0.08 * delta * 60
+		
+		if ability_lost_volume < -20:
+			ability_lost_volume = -20
 		
 		if get_parent().get_parent().get_node("Heartbeat").volume_db < 0:
 			get_parent().get_parent().get_node("Heartbeat").volume_db = ability_lost_volume
@@ -50,6 +53,7 @@ func _process(delta):
 		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1
+		ability_lost_volume = -40
 		
 	get_parent().get_parent().static_adder = get_parent().get_node("DarkOverlay").color.a / 10
 	get_parent().get_parent().bulge_adder = get_parent().get_node("DarkOverlay").color.a

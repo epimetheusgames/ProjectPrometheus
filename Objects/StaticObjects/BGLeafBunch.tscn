@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dary5muymue13"]
+
+[ext_resource type="PackedScene" uid="uid://b53iq0uxs40b3" path="res://Objects/StaticObjects/LeafBunch.tscn" id="1_l4puh"]
+
+[node name="BGLeafBunch" type="Node2D"]
+z_index = -30
+
+[node name="Bunch" parent="." instance=ExtResource("1_l4puh")]
+modulate = Color(0.65098, 0.580392, 0.580392, 0.623529)
+z_index = 0

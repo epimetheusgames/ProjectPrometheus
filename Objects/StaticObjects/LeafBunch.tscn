@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53iq0uxs40b3"]
+
+[ext_resource type="Texture2D" uid="uid://cftd4d04ty6cg" path="res://Assets/Images/Objects/Props/PropLeaf.png" id="1_nmtna"]
+
+[node name="LeafBunch" type="Node2D"]
+z_index = 50
+
+[node name="PropLeaf" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf2" type="Sprite2D" parent="."]
+position = Vector2(1, 8)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf3" type="Sprite2D" parent="."]
+position = Vector2(-7, 6)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf4" type="Sprite2D" parent="."]
+position = Vector2(7, 0)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf5" type="Sprite2D" parent="."]
+position = Vector2(9, 8)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf6" type="Sprite2D" parent="."]
+position = Vector2(0.999999, 6)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf7" type="Sprite2D" parent="."]
+position = Vector2(7, 8)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf9" type="Sprite2D" parent="."]
+position = Vector2(0.999999, 14)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf10" type="Sprite2D" parent="."]
+position = Vector2(-1, 8)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf12" type="Sprite2D" parent="."]
+position = Vector2(-7, 14)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf13" type="Sprite2D" parent="."]
+position = Vector2(-9, 8)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf15" type="Sprite2D" parent="."]
+position = Vector2(-11, 11)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf16" type="Sprite2D" parent="."]
+position = Vector2(-11, -5)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf17" type="Sprite2D" parent="."]
+position = Vector2(-7, 0)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf18" type="Sprite2D" parent="."]
+position = Vector2(-15, -2)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf19" type="Sprite2D" parent="."]
+position = Vector2(-1, -6)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf20" type="Sprite2D" parent="."]
+position = Vector2(0.999999, 0)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf21" type="Sprite2D" parent="."]
+position = Vector2(-7, -2)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf22" type="Sprite2D" parent="."]
+position = Vector2(5, -5)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf23" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf24" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf25" type="Sprite2D" parent="."]
+position = Vector2(-12, 0)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf26" type="Sprite2D" parent="."]
+position = Vector2(-10, 8)
+rotation = 2.19911
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf27" type="Sprite2D" parent="."]
+position = Vector2(-18, 6)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf28" type="Sprite2D" parent="."]
+position = Vector2(-15, 12)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf29" type="Sprite2D" parent="."]
+position = Vector2(-15, -1)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf30" type="Sprite2D" parent="."]
+position = Vector2(-14, 0)
+texture = ExtResource("1_nmtna")
+
+[node name="PropLeaf31" type="Sprite2D" parent="."]
+position = Vector2(-20, 6)
+rotation = -2.00713
+texture = ExtResource("1_nmtna")
