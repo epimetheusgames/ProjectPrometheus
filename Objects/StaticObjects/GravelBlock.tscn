@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bftj7jx388yff"]
+
+[ext_resource type="Texture2D" uid="uid://c0bk4bvwupo4q" path="res://Assets/Images/Tilesets/GravelTextures.png" id="1_562q8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6j6jh"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwbjh"]
+atlas = ExtResource("1_562q8")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar8d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwbjh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GravelBlock" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6j6jh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ar8d2")
