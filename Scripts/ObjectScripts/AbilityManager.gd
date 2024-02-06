@@ -5,6 +5,7 @@ var ability_index = 0
 var switching_ability = false
 var fading_in = false
 var ideal_rotation = 0
+var ability_lost_volume = -40.0
 
 @onready var original_pos = position
 @onready var original_scale = scale
@@ -37,6 +38,15 @@ func _process(delta):
 	
 	if $AbililtySwitchTimer.time_left < 10:
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
+		
+		if ability_lost_volume < 0:
+			ability_lost_volume += 0.1 * delta * 60
+		
+		if get_parent().get_parent().get_node("Heartbeat").volume_db < 0:
+			get_parent().get_parent().get_node("Heartbeat").volume_db = ability_lost_volume
+			
+			if !get_parent().get_parent().get_node("Heartbeat").playing:
+				get_parent().get_parent().get_node("Heartbeat").play()
 		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1

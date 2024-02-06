@@ -245,17 +245,28 @@ func _physics_process(delta):
 			metal_walk_boots_1.volume_db -= 1
 			
 	var save_load_framework = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework")
+		
+	if $BulletBadHurtcooldown.time_left <= 0 && $BulletHurtCooldown.time_left <= 0 && get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left < 10:
+		get_parent().get_node("Heartbeat").volume_db = -40
 	
 	if $BulletBadHurtcooldown.time_left > 0:
 		save_load_framework.bulge_amm = 1.0 + get_parent().bulge_adder
 		save_load_framework.static_amm = 0.1 + get_parent().static_adder
+		
+		get_parent().get_node("Heartbeat").volume_db = 3
+		get_parent().get_node("Heartbeat").pitch_scale = 2
+		
+		if !get_parent().get_node("Heartbeat").playing:
+			get_parent().get_node("Heartbeat").play()
+		
 	elif $BulletHurtCooldown.time_left > 0:
 		save_load_framework.bulge_amm = 0.4 + get_parent().bulge_adder
 		save_load_framework.static_amm = 0.05 + get_parent().static_adder
+		
 	elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
 		save_load_framework.bulge_amm = 0 + get_parent().bulge_adder
 		save_load_framework.static_amm = 0 + get_parent().static_adder
-		
+	
 	var left_pressed = Input.is_action_pressed("left")
 	var right_pressed = Input.is_action_pressed("right")
 		
