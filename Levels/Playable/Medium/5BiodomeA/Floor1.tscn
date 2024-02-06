@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=50 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://c5uqws8ci502i" path="res://Assets/Images/Objects/Props/PropBranch3.png" id="30_o1cam"]
 [ext_resource type="PackedScene" uid="uid://b53iq0uxs40b3" path="res://Objects/StaticObjects/LeafBunch.tscn" id="32_sssd4"]
 [ext_resource type="PackedScene" uid="uid://dary5muymue13" path="res://Objects/StaticObjects/BGLeafBunch.tscn" id="33_e28eo"]
+[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="34_6ntr8"]
+[ext_resource type="Texture2D" uid="uid://dgpt4u3xygxnc" path="res://Assets/Images/Objects/Enemy/EvilBird.png" id="35_yhvx7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -326,6 +328,28 @@ shader_parameter/distortion_amm = 0.0
 shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h86ik"]
+atlas = ExtResource("35_yhvx7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf0kt"]
+atlas = ExtResource("35_yhvx7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aeoet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h86ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf0kt")
+}],
+"loop": true,
+"name": &"Bird",
+"speed": 2.0
+}]
 
 [node name="Level3" type="Node2D"]
 position = Vector2(-72, 0)
@@ -2938,7 +2962,34 @@ position = Vector2(4798, 125)
 [node name="BGLeafBunch109" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(4785, 158)
 
+[node name="DroneManager" parent="." instance=ExtResource("34_6ntr8")]
+position = Vector2(5835, -312)
+speed = 0.5
+
+[node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
+points = PackedVector2Array(150, 399, 159, 575, -631, 647, -844.906, 547.053, -1009.51, 280.127, -1240.42, 275.493, -1390.07, 541.974, -1828.81, 570.337, -2520.97, 402.302, -3363.82, 573.284, -3765.75, 443.982, -3847.39, 645.312, -3985, 587)
+
+[node name="DroneSpritesheet" parent="DroneManager/Drone" index="0"]
+position = Vector2(1, -3)
+scale = Vector2(1.625, 1.625)
+sprite_frames = SubResource("SpriteFrames_aeoet")
+animation = &"Bird"
+autoplay = "Bird"
+frame = 0
+frame_progress = 0.0
+
+[node name="GPUParticles2D" parent="DroneManager/Drone" index="2"]
+visible = false
+
+[node name="CollisionPolygon2D" parent="DroneManager/Drone/DroneHurtbox" index="0"]
+polygon = PackedVector2Array(5, -1, 8, -3, 9, -7, -8, -7, -10, -2, -8, 0, -5, -2)
+
+[node name="Turret" parent="DroneManager/Drone" index="5"]
+visible = false
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
+[editable path="DroneManager"]
