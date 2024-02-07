@@ -580,7 +580,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BossBar" parent="Player/Camera" index="9"]
 z_index = 50
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -715,6 +715,7 @@ sprite_frames = SubResource("SpriteFrames_gw78a")
 position = Vector2(1215, 24)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 100.0
 
 [node name="JumpHump" type="Sprite2D" parent="RigidBody2D"]
 modulate = Color(1.1, 1.1, 1.1, 1)
@@ -728,6 +729,7 @@ shape = SubResource("RectangleShape2D_ffx1e")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
 position = Vector2(224, 32)
+mass = 100.0
 
 [node name="JumpHump" type="Sprite2D" parent="RigidBody2D2"]
 modulate = Color(1.1, 1.1, 1.1, 1)
@@ -742,6 +744,7 @@ shape = SubResource("RectangleShape2D_ffx1e")
 [node name="RigidBody2D6" type="RigidBody2D" parent="."]
 position = Vector2(2624, 557)
 collision_layer = 257
+mass = 100.0
 
 [node name="JumpHump" type="Sprite2D" parent="RigidBody2D6"]
 modulate = Color(1.1, 1.1, 1.1, 1)
@@ -755,6 +758,7 @@ shape = SubResource("RectangleShape2D_ffx1e")
 
 [node name="RigidBody2D3" type="RigidBody2D" parent="."]
 position = Vector2(96, -64)
+mass = 100.0
 
 [node name="JumpHump" type="Sprite2D" parent="RigidBody2D3"]
 modulate = Color(1.1, 1.1, 1.1, 1)
@@ -771,6 +775,7 @@ shape = SubResource("RectangleShape2D_ffx1e")
 [node name="RigidBody2D4" type="RigidBody2D" parent="."]
 position = Vector2(96, -72)
 collision_layer = 257
+mass = 100.0
 
 [node name="JumpSlab" type="Sprite2D" parent="RigidBody2D4"]
 modulate = Color(1.1, 1.1, 1.1, 1)
@@ -1000,6 +1005,7 @@ texture = ExtResource("28_7q38o")
 position = Vector2(72, -8)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D5"]
 position = Vector2(1, -8)
@@ -1013,6 +1019,7 @@ shape = SubResource("RectangleShape2D_5k6vx")
 position = Vector2(4132, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D7"]
 position = Vector2(1, -8)
@@ -1026,6 +1033,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(4035, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D8"]
 position = Vector2(1, -8)
@@ -1041,6 +1049,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(4048, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D9"]
 position = Vector2(38, -2)
@@ -1057,6 +1066,7 @@ shape = SubResource("RectangleShape2D_agfqs")
 position = Vector2(4048, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D10"]
 position = Vector2(18, -18)
@@ -1072,6 +1082,7 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(4088, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D11"]
 position = Vector2(18, -18)
@@ -1087,6 +1098,7 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(4276, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D13"]
 position = Vector2(1, -8)
@@ -1100,6 +1112,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(4179, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D14"]
 position = Vector2(1, -8)
@@ -1115,6 +1128,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(4192, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D15"]
 position = Vector2(38, -2)
@@ -1131,6 +1145,7 @@ shape = SubResource("RectangleShape2D_agfqs")
 position = Vector2(4192, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D16"]
 position = Vector2(18, -18)
@@ -1146,6 +1161,7 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(4232, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D17"]
 position = Vector2(18, -18)
@@ -1161,6 +1177,7 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(-72, -8)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D18"]
 position = Vector2(1, -8)
@@ -1174,6 +1191,7 @@ shape = SubResource("RectangleShape2D_5k6vx")
 position = Vector2(3988, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D19"]
 position = Vector2(1, -8)
@@ -1187,6 +1205,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(3891, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D20"]
 position = Vector2(1, -8)
@@ -1202,6 +1221,7 @@ shape = SubResource("RectangleShape2D_oafd0")
 position = Vector2(3904, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D21"]
 position = Vector2(38, -2)
@@ -1218,6 +1238,7 @@ shape = SubResource("RectangleShape2D_agfqs")
 position = Vector2(3904, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D22"]
 position = Vector2(18, -18)
@@ -1233,6 +1254,7 @@ shape = SubResource("RectangleShape2D_vh0lb")
 position = Vector2(3944, 690)
 collision_layer = 256
 collision_mask = 256
+mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D23"]
 position = Vector2(18, -18)

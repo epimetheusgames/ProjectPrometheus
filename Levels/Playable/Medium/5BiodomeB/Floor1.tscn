@@ -508,8 +508,6 @@ texture = ExtResource("19_k7qat")
 
 [node name="GravelBlock" parent="." instance=ExtResource("20_oxvkg")]
 position = Vector2(154, -592)
-collision_layer = 0
-mass = 10.0
 
 [node name="Trunk" type="Sprite2D" parent="."]
 position = Vector2(620, -16)

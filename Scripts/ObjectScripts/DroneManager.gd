@@ -19,6 +19,7 @@ var physics_drone_ingame = null
 @onready var calc_close_to_checkpoint = false
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
+@onready var loaded_physics_bird = preload("res://Objects/StaticObjects/PhysicsBird.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 @onready var player = get_parent().get_node("Player").get_node("Player")
 @onready var patrol_points_size = $DronePatrolPoints.points.size()
@@ -27,6 +28,7 @@ var physics_drone_ingame = null
 @export var big_drone = false
 @export var firefly = false
 @export var drone_boss = false
+@export var bird = false
 @export var speed = 1.0
 
 const ninety_deg_rad = deg_to_rad(90)
@@ -227,7 +229,7 @@ func _on_drone_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" || area.name == "DeathZone" && !big_drone && !temp_disabled:
 		get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
 		get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
-		var dead_drone = loaded_physics_drone.instantiate()
+		var dead_drone = loaded_physics_drone.instantiate() if !bird else loaded_physics_bird.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
 		dead_drone.set_queued_pos = true

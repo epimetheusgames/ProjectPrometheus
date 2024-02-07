@@ -18,6 +18,7 @@ var previous_direction = 0
 var character_type = 0
 var conveyor_speed = 0
 var conveyor_direction = 0
+var push_force = 20
 
 var in_second_ladder_area = false
 var in_ladder_area = false
@@ -209,6 +210,9 @@ func _physics_process(delta):
 		if !get_parent().graphics_efficiency:
 			$GravelWalkingParticles.emitting = false
 		var play_metal_walk = false
+		
+		if collision && collision.get_collider() is RigidBody2D:
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
 		
 		if collision && collision.get_collider() is TileMap:
 			if (velocity.x > 1 || velocity.x < -1):

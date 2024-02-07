@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://b078ae2fifa80"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/RigidBodyExtensions.gd" id="1_f0k63"]
+[ext_resource type="Texture2D" uid="uid://dgpt4u3xygxnc" path="res://Assets/Images/Objects/Enemy/EvilBird.png" id="2_cvuvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqumr"]
+atlas = ExtResource("2_cvuvx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et00i"]
+atlas = ExtResource("2_cvuvx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5so0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqumr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et00i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_f0k63")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_n5so0")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 2, 7, -1, 7, -6, -5, -6)
+
+[node name="GroundFallTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="StartFlyingTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="GroundFallTimer" to="." method="_on_ground_fall_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
+[connection signal="timeout" from="StartFlyingTimer" to="." method="_on_start_flying_timer_timeout"]
