@@ -5,10 +5,10 @@ extends Node2D
 # menu.
 
 const preloaded_levels = [
-	[preload("res://Levels/Playable/Hard/1TutorialA/Floor1.tscn")],
-	[preload("res://Levels/Playable/Hard/1TutorialB/Floor1.tscn")],
-	[preload("res://Levels/Playable/Hard/1TutorialC/Floor1.tscn")],
-	[preload("res://Levels/Playable/Hard/2EasyA/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/1TutorialA/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/1TutorialB/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/1TutorialC/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/2EasyA/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2EasyB/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2EasyC/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2EasyD/Floor1.tscn")],
