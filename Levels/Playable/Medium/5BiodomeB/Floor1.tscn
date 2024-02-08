@@ -8142,11 +8142,11 @@ polygon = PackedVector2Array(1384, -86, 1410, -94, 1452, -94, 1511, -86, 1538, -
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(-240, -296)
-polygon = PackedVector2Array(1384, -86, 1411, -101, 1453, -109, 1518, -104, 1582, -83, 1610, -76, 1614, -53, 1577, -11, 1477, 10, 1433, -8, 1408, -19, 1384, -37, 1373, -66)
+polygon = PackedVector2Array(1384, -86, 1411, -101, 1453, -109, 1518, -104, 1576, -75, 1621, -67, 1620, -50, 1577, -11, 1477, 10, 1433, -8, 1408, -19, 1384, -37, 1373, -66)
 
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(-512, -384)
-polygon = PackedVector2Array(1383, -90, 1415, -100, 1455, -119, 1505, -118, 1553, -91, 1573, -59, 1597, -57, 1572, 12, 1510, 20, 1448, 16, 1416, -6, 1395, -19, 1373, -66)
+polygon = PackedVector2Array(1383, -90, 1415, -100, 1455, -119, 1505, -118, 1553, -91, 1572, -57, 1607, -50, 1608, -13, 1572, 12, 1510, 20, 1448, 16, 1416, -6, 1395, -19, 1373, -66)
 
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(-1112, -384)
