@@ -7,6 +7,9 @@ var slot = -1
 var graphics_efficiency = false
 var is_max_level = true
 var easy_mode = false
+var show_fps = false
+var show_points = false
+var show_timer = false
 var deaths_this_level = 0
 var points = 0
 var time = 0
@@ -23,6 +26,13 @@ func _ready():
 			$CanvasModulate.color = Color(0.1, 0.1, 0.1, 1)
 		else:
 			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
+			
+	if !show_fps:
+		$Player/Camera/FPSCounter.visible = false
+	if !show_points:
+		$Player/Camera/PointsCounter.visible = false
+	if !show_timer:
+		$Player/Camera/TimeCounter.visible = false
 
 func _process(delta):
 	if !end_level:

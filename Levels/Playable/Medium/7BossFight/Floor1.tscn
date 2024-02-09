@@ -281,7 +281,7 @@ texture = ExtResource("10_230w6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
 visible = false
 position = Vector2(-12, 0)
-polygon = PackedVector2Array(-180, 48, 100, 49, 140, 45, 171, 34, 194, 19, 208, -4, 207, -30, 204, -36, 200, -38, 98, -38, 90, -35, 86, -27, -9, -27, -11, -23, -53, -23, -56, -33, -68, -37, -108, -37, -126, -33, -129, -26, -139, -22, -153, -22, -166, -18, -173, -15, -175, -8, -185, -3, -191, 11, -202, 16, -208, 25, -208, 32, -199, 42)
+polygon = PackedVector2Array(-52, 64, 76, 64, 76, -64, -52, -64)
 
 [node name="BossShootPosition" type="Node2D" parent="Boss"]
 position = Vector2(-40, 88)
@@ -312,7 +312,7 @@ position = Vector2(-203, -472)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss/BossHurtbox"]
 visible = false
 position = Vector2(-10, 0)
-polygon = PackedVector2Array(-181, 50, 108, 54, 166, 43, 205, 13, 213, -18, 204, -43, 141, -42, 90, -42, 70, -33, -32, -33, -69, -44, -126, -38, -175, -17, -214, 26, -204, 45)
+polygon = PackedVector2Array(-54, 64, 74, 64, 74, -64, -54, -64)
 
 [node name="Player" parent="." instance=ExtResource("10_qip8k")]
 
@@ -331,7 +331,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="Player" index="2"]
 position = Vector2(456, 0)
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88

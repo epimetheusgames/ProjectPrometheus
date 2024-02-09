@@ -1,28 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://ces80e2ev3flu"]
+[gd_scene load_steps=9 format=3 uid="uid://ces80e2ev3flu"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_rcsf5"]
+[ext_resource type="Texture2D" uid="uid://bo3f0811ntveg" path="res://Assets/Images/Objects/Enemy/MeleeSpritesheet.png" id="2_375tt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi1dt"]
+atlas = ExtResource("2_375tt")
+region = Rect2(0, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iqgp"]
+atlas = ExtResource("2_375tt")
+region = Rect2(46, 0, 46, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijdmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi1dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iqgp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lox5g"]
-size = Vector2(22, 65)
+size = Vector2(24, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svidt"]
-size = Vector2(56, 44)
+size = Vector2(50, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ftl"]
-size = Vector2(36, 44)
+size = Vector2(44, 52)
 
 [node name="AttackMele" type="CharacterBody2D"]
 platform_on_leave = 2
 script = ExtResource("1_7wlle")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 13)
-scale = Vector2(1, 1.375)
-texture = ExtResource("1_rcsf5")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 10)
+sprite_frames = SubResource("SpriteFrames_ijdmu")
+autoplay = "default"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_lox5g")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
@@ -48,13 +70,13 @@ target_position = Vector2(0, 30)
 [node name="JumpHurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(0, 13)
+position = Vector2(-2, 13)
 shape = SubResource("RectangleShape2D_svidt")
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, 13)
+position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_w3ftl")
 
 [node name="AttackTimer" type="Timer" parent="."]

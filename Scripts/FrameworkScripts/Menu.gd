@@ -29,6 +29,9 @@ func _ready():
 		$SFXSlider.value = global_data[2]
 		$CheckButton.button_pressed = global_data[0]
 		$Difficulty.button_pressed = global_data[3]
+		$ShowFPS.button_pressed = global_data[4]
+		$ShowPoints.button_pressed = global_data[5]
+		$ShowSpeedrunTimer.button_pressed = global_data[5]
 		
 	if name == "StartGameMenu":
 		$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data($SlotSelect.value)[0] + 1)
@@ -40,7 +43,16 @@ func _process(_delta):
 	if name == "SettingsMenu":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value if $MusicSlider.value > -40 else -10000)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value if $SFXSlider.value > -40 else -10000)
-		get_parent().get_parent().save_game("[" + str($CheckButton.button_pressed) + "," + str($MusicSlider.value) + "," + str($SFXSlider.value) + "," + str($Difficulty.button_pressed) + "]", "global")
+		get_parent().get_parent().save_game(
+			"[" + 
+			str($CheckButton.button_pressed) + "," + 
+			str($MusicSlider.value) + "," + 
+			str($SFXSlider.value) + "," + 
+			str($Difficulty.button_pressed) + "," + 
+			str($ShowFPS.button_pressed) + "," + 
+			str($ShowPoints.button_pressed) + "," + 
+			str($ShowSpeedrunTimer.button_pressed) + 
+			"]", "global")
 
 		if settings_menu_selected:
 			if hovered_button == "PlayButton":

@@ -17,6 +17,8 @@ var direction = 0
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta * 60
+	
+	$Sprite2D.scale.x = -direction
 
 	if health > 0:
 		var down_col = $RayCastDown.get_collider() 

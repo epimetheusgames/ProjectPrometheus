@@ -165,7 +165,7 @@ func load_game(load_num):
 	
 	if not file:
 		if str(load_num) == "global":
-			save_game("[false, 0, 0, false]", "global")
+			save_game("[false, 0, 0, false, false, false, false]", "global")
 			return load_game("global")
 		
 		save_data(0, 0, load_num, 0, 0, {}, 0)
@@ -202,6 +202,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var slot_time = level_data[3]
 	var slot_deaths = level_data[5]
 	
+	var global_data = load_data("global")
+	
 	if level != null:
 		current_level = level 
 		level_floor = floor 
@@ -215,6 +217,9 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.time = slot_time
 	level_loaded.deaths = slot_deaths
 	level_loaded.graphics_efficiency = graphics_efficiency
+	level_loaded.show_fps = global_data[4]
+	level_loaded.show_points = global_data[5]
+	level_loaded.show_timer = global_data[6]
 	level_loaded.get_node("Player").get_node("Player").character_type = player_type
 	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 40)
 	level_loaded.easy_mode = easy_mode
