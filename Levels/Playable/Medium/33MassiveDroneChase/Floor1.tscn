@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=72 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l03d8"]
@@ -65,6 +65,35 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_2j5lc"]
+offsets = PackedFloat32Array(0, 0.255208, 0.46875, 0.723958, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_inqbl"]
+gradient = SubResource("Gradient_2j5lc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76aea"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 31.51
+initial_velocity_max = 80.29
+angular_velocity_min = -400.0
+angular_velocity_max = 400.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = -0.1
+gravity = Vector3(0, 0, 0)
+linear_accel_max = 7.0
+color_ramp = SubResource("GradientTexture1D_inqbl")
+turbulence_enabled = true
+turbulence_noise_scale = 4.8
+
+[sub_resource type="Gradient" id="Gradient_0awkx"]
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5bk6"]
+gradient = SubResource("Gradient_0awkx")
+width = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_l03d8")
@@ -461,26 +490,38 @@ sprite_frames = SubResource("SpriteFrames_4q5he")
 animation = &"default"
 autoplay = ""
 
+[node name="GPUParticles2D" parent="DroneManager/Drone" index="2"]
+position = Vector2(104, -64)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="DroneManager/Drone" index="3"]
+position = Vector2(-144, -64)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_76aea")
+texture = SubResource("GradientTexture1D_q5bk6")
+lifetime = 20.0
+visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+local_coords = true
+
 [node name="CollisionShape2D" parent="DroneManager/Drone/Area2D" index="0"]
 disabled = true
 
 [node name="CollisionPolygon2D" parent="DroneManager/Drone/DroneHurtbox" index="0"]
 disabled = true
 
-[node name="DeathZone" type="Area2D" parent="DroneManager/Drone" index="5"]
+[node name="DeathZone" type="Area2D" parent="DroneManager/Drone" index="6"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroneManager/Drone/DeathZone"]
 position = Vector2(0, -24)
 polygon = PackedVector2Array(223, 120, 224, -34, 182, -20, 133, -44, -207, -43, -200, 24, -123, 55)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="DroneManager/Drone" index="7"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="DroneManager/Drone" index="8"]
 collision_layer = 257
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DroneManager/Drone/CharacterBody2D"]
 position = Vector2(0, -31)
 polygon = PackedVector2Array(-88, 47, 221, 46, 199, 1, 194, -6, 185, -9, 185, -14, 172, -21, 150, -24, 141, -27, 138, -33, 130, -36, 102, -37, 75, -36, 69, -34, 66, -31, 65, -24, 21, -24, 19, -27, -75, -28, -78, -35, -87, -38, -188, -38, -192, -37, -193, -34, -195, -11, -195, -4, -188, 10, -172, 25, -149, 36, -116, 45)
 
-[node name="ExplosionDropper" type="Node2D" parent="DroneManager/Drone" index="8"]
+[node name="ExplosionDropper" type="Node2D" parent="DroneManager/Drone" index="9"]
 position = Vector2(147, 54)
 script = ExtResource("4_1nnyn")
 
@@ -713,6 +754,7 @@ sprite_frames = SubResource("SpriteFrames_gw78a")
 
 [node name="DrillManager" parent="." instance=ExtResource("20_ktkfw")]
 position = Vector2(1215, 24)
+disable_hitbox_when_dead = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 100.0
