@@ -17,9 +17,10 @@ func _ready():
 	ideal_rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60) 
 
 func _on_abililty_switch_timer_timeout():
-	get_parent().get_node("CloseAnimator").closing = true
-	Engine.time_scale = 0.6
-	get_parent().get_parent().get_node("Player").get_node("HurtVibrationTimer").start()
+	if (get_parent().get_parent().get_parent().is_multiplayer && get_parent().get_parent().is_multiplayer_authority()) || !get_parent().get_parent().get_parent().is_multiplayer:
+		get_parent().get_node("CloseAnimator").closing = true
+		Engine.time_scale = 0.6
+		get_parent().get_parent().get_node("Player").get_node("HurtVibrationTimer").start()
 
 func _process(delta):
 	original_scale = Vector2(1.5, 1.5)

@@ -35,7 +35,8 @@ func _process(delta):
 		$ColorRect.color.a += 0.001 * delta * 60
 
 func _on_death_wait_timer_timeout():
-	get_parent().get_parent().get_node("Player").die()
+	if (get_parent().get_parent().get_parent().is_multiplayer && get_parent().get_parent().is_multiplayer_authority()) || !get_parent().get_parent().get_parent().is_multiplayer:
+		get_parent().get_parent().get_node("Player").die()
 
 func _on_anim_delay_timer_timeout():
 	Engine.time_scale = 0.8

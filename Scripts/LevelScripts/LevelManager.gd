@@ -18,6 +18,8 @@ var deaths = 0
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
+@onready var server_player = $ServerPlayer
+@onready var client_player = $ClientPlayer
 
 func _ready():
 	if graphics_efficiency:
@@ -35,20 +37,23 @@ func _ready():
 			$Player/Camera/PointsCounter.visible = false
 		if !show_timer:
 			$Player/Camera/TimeCounter.visible = false
-	
+			
 	if is_multiplayer:
 		if multiplayer.is_server():
-			$ClientPlayer.set_multiplayer_authority(multiplayer.get_peers()[0])
-			$ClientPlayer/Camera.enabled = false
-			$ClientPlayer/Camera.visible = false
-			$ClientPlayer.modulate.a = 0.3
+			client_player.set_multiplayer_authority(multiplayer.get_peers()[0])
+			server_player.set_multiplayer_authority(multiplayer.get_unique_id())
+			client_player.get_node("Camera").enabled = false
+			client_player.get_node("Camera").visible = false
+			client_player.modulate.a = 0.3
 		else:
-			$ClientPlayer.set_multiplayer_authority(multiplayer.get_unique_id())
-			$ServerPlayer/Camera.enabled = false
-			$ServerPlayer/Camera.visible = false
-			$ServerPlayer.modulate.a = 0.3
+			server_player.set_multiplayer_authority(multiplayer.get_peers()[0])
+			client_player.set_multiplayer_authority(multiplayer.get_unique_id())
+			server_player.get_node("Camera").enabled = false
+			server_player.get_node("Camera").visible = false
+			server_player.modulate.a = 0.3
 
 func _process(delta):
+			
 	if !end_level:
 		time += delta
 	
