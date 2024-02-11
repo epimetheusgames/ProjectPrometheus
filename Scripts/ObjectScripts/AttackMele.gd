@@ -12,6 +12,7 @@ var friction_force = 1.2
 @onready var loaded_ragdoll = preload("res://Objects/StaticObjects/RagdollMele.tscn")
 @export var health = 4
 var direction = 0
+var push_force = 40
 
 
 func _ready():
@@ -26,9 +27,15 @@ func _physics_process(delta):
 		# Add the gravity.
 		velocity.y += gravity * delta * 60
 		
-		$Sprite2D.scale.x = -direction
+		$Sprite2D.scale.x = -1 if velocity.x < 1 else 1
 
 		if health > 0:
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				
+				if collision && collision.get_collider() is RigidBody2D:
+					collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
+					
 			if get_parent().is_multiplayer:
 				var distance_to_server_player = get_parent().server_player.get_node("Player").position.distance_to(position)
 				var distance_to_client_player = get_parent().client_player.get_node("Player").position.distance_to(position)
@@ -37,6 +44,8 @@ func _physics_process(delta):
 					player = get_parent().server_player.get_node("Player")
 				else:
 					player = get_parent().client_player.get_node("Player")
+					
+			$Sprite2D.sprite_frames.set_animation_speed("default", abs(velocity.x * 20))
 			
 			var down_col = $RayCastDown.get_collider() 
 			var left_col = $RayCastLeft.get_collider()
@@ -128,11 +137,22 @@ func _on_hurt_box_area_entered(area):
 				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+				var ragdoll = loaded_ragdoll.instantiate()
+				ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
+				add_child(ragdoll)
 				
 	elif area && area.name == "PlayerBulletHurter" && health > 0:
 		health -= 0.5
 		velocity.x = -direction * 4
 		velocity.y = -jump_vel / 2
+		
+		if health == 0:
+				get_parent().points += 5
+				area.get_parent().get_node("BulletBadHurtcooldown").stop()
+				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+				var ragdoll = loaded_ragdoll.instantiate()
+				ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
+				add_child(ragdoll)
 
 func _on_switch_hurtbox_enabled_timer_timeout():
 	$HurtBox/CollisionShape2D.disabled = !$HurtBox/CollisionShape2D.disabled
@@ -142,3 +162,10 @@ func set_pos_and_motion_multiplayer(pos, motion, hp):
 	position = pos
 	velocity = motion
 	health = hp
+
+func _on_spike_hurt_box_body_entered(body):
+	health = 0
+	var ragdoll = loaded_ragdoll.instantiate()
+	ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
+	add_child(ragdoll)
+		

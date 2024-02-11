@@ -38,18 +38,21 @@ offset_top = 361.0
 offset_right = 501.0
 offset_bottom = 384.0
 text = "Address"
+metadata/_edit_use_anchors_ = true
 
 [node name="StatusOk" type="Label" parent="NetworkingManager"]
 offset_left = 438.0
 offset_top = 459.0
 offset_right = 625.0
 offset_bottom = 482.0
+metadata/_edit_use_anchors_ = true
 
 [node name="StatusFail" type="Label" parent="NetworkingManager"]
 offset_left = 438.0
 offset_top = 491.0
 offset_right = 589.0
 offset_bottom = 514.0
+metadata/_edit_use_anchors_ = true
 
 [node name="PortForward" type="Label" parent="NetworkingManager"]
 offset_left = 438.0
@@ -59,6 +62,7 @@ offset_bottom = 606.0
 text = "If you want non-LAN clients to connect,
 make sure the port 8910 in UDP
 is forwarded checked your router."
+metadata/_edit_use_anchors_ = true
 
 [node name="Address" type="LineEdit" parent="NetworkingManager"]
 offset_left = 440.0
@@ -67,6 +71,7 @@ offset_right = 606.0
 offset_bottom = 428.0
 text = "127.0.0.1"
 placeholder_text = "127.0.0.1"
+metadata/_edit_use_anchors_ = true
 
 [node name="HostButton" type="Button" parent="NetworkingManager"]
 offset_left = 440.0
@@ -74,6 +79,7 @@ offset_top = 430.0
 offset_right = 513.0
 offset_bottom = 457.0
 text = "Host"
+metadata/_edit_use_anchors_ = true
 
 [node name="JoinButton" type="Button" parent="NetworkingManager"]
 offset_left = 528.0
@@ -82,6 +88,7 @@ offset_right = 601.0
 offset_bottom = 461.0
 text = "Join
 "
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="NetworkingManager/HostButton" to="NetworkingManager" method="_on_host_button_pressed"]
 [connection signal="pressed" from="NetworkingManager/JoinButton" to="NetworkingManager" method="_on_join_button_pressed"]

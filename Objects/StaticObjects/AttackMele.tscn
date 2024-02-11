@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ces80e2ev3flu"]
+[gd_scene load_steps=25 format=3 uid="uid://ces80e2ev3flu"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
 [ext_resource type="Texture2D" uid="uid://d4dtf2vgs5svc" path="res://Assets/Images/Objects/Enemy/MeleeMoving.png" id="2_mpm8x"]
@@ -139,6 +139,9 @@ size = Vector2(50, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3ftl"]
 size = Vector2(44, 52)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpd5w"]
+size = Vector2(26, 42)
+
 [node name="AttackMele" type="CharacterBody2D"]
 platform_on_leave = 2
 script = ExtResource("1_7wlle")
@@ -185,6 +188,13 @@ shape = SubResource("RectangleShape2D_svidt")
 position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_w3ftl")
 
+[node name="SpikeHurtBox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHurtBox"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_hpd5w")
+
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
@@ -203,6 +213,7 @@ autostart = true
 
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="SpikeHurtBox" to="." method="_on_spike_hurt_box_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="AttackStopTimer" to="." method="_on_attack_stop_timer_timeout"]
 [connection signal="timeout" from="AttackResetTimer" to="." method="_on_attack_reset_timer_timeout"]
