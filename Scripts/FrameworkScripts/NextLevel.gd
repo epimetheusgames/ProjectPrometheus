@@ -23,12 +23,19 @@ func add_level():
 		floor_next = 0
 	else:
 		floor_next += 1
-		
-	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode)
+	
+	if !get_parent().is_multiplayer:
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode)
 
 func restart_level(respawn_pos, respawn_ability):
 	var level = get_parent().level
 	var floor = get_parent().floor
 	var graphics_efficiency = get_parent().graphics_efficiency
-		
-	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)
+	
+	if !get_parent().is_multiplayer:
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)
+	else:
+		if multiplayer.is_server():
+			get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(34, 0, 34, 0, get_parent().get_node("ServerPlayer").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)
+		else:
+			get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(34, 0, 34, 0, get_parent().get_node("ClientPlayer").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)

@@ -29,8 +29,7 @@ func _process(delta):
 func _on_hurt_pause_timer_timeout():
 	get_tree().paused = false
 	
-
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT && !get_parent().get_parent().get_parent().is_multiplayer:
 		showing = true
 		show()

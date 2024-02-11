@@ -40,6 +40,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/33MassiveDroneChase/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
 	[preload("res://Levels/Cutscenes/Credits.tscn")],
+	[preload("res://Levels/Playable/Multiplayer/Multiplayer1/Floor1.tscn")],
 ]
 
 const level_node_names = [
@@ -102,7 +103,6 @@ var starting = true
 @export var force_time_scale = -1.0
 
 func _process(delta):
-	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
 	elif starting:
@@ -216,8 +216,11 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.show_fps = global_data[4]
 	level_loaded.show_points = global_data[5]
 	level_loaded.show_timer = global_data[6]
-	level_loaded.get_node("Player").get_node("Player").character_type = player_type
-	level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 40)
+	
+	if !level_loaded.is_multiplayer:
+		level_loaded.get_node("Player").get_node("Player").character_type = player_type
+		level_loaded.get_node("Player").get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").set_wait_time(20 if !easy_mode else 40)
+	
 	level_loaded.easy_mode = easy_mode
 	
 	if level != null:
@@ -226,7 +229,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	if level != null:
 		level_loaded.is_max_level = false
 	
-	if player_spawn_pos:
+	if player_spawn_pos && !level_loaded.is_multiplayer:
 		level_loaded.get_node("Player").get_node("Player").position = player_spawn_pos
 		level_loaded.get_node("Player").get_node("Player").current_ability = player_respawn_ability
 		level_loaded.get_node("Player").get_node("Camera").position = player_spawn_pos

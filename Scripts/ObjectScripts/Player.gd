@@ -93,186 +93,192 @@ func jump():
 		$PlayerAnimation.play("StartJumpSword")
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("respawn"):
-		die()
-	
-	if get_parent().graphics_efficiency:
-		$PointLight2D.visible = false
-	
-	if in_conveyor_belt:
-		position.x += conveyor_speed * conveyor_direction * delta * 60
-	
-	if dead:
-		$AntennaAnimation.visible = false
-	
-	if physics_player:
-		return
-	
-	# Apply gravity if not grappling
-	if !grappling_effects && !climbing:
-		velocity.y += gravity * Engine.time_scale
-		
-	if in_ladder_area:
-		velocity.y /= 1.5
-	
-	dont_apply_friction = false
-	just_jumped = false
-	
-	# Apply keyboard inputs.
 	var can_jump = canJump()
-	var input_velocity = getInputVelocity(can_jump)
-	if !dead:
-		velocity.x += input_velocity
 	
-	# Check if we can jump
-	if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
-		if !in_ladder_area && !dead:
-			jump()
-			
-	if Input.is_action_pressed("down") && climbing && !dead:
-		velocity.y += jump_push_force
+	if (get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority()) || !get_parent().get_parent().is_multiplayer:
+		if Input.is_action_just_pressed("respawn"):
+			die()
 		
-	# Implement coyote jumping system.
-	if could_jump && !can_jump:
-		$CoyoteJumpTimer.start() 
+		if get_parent().graphics_efficiency:
+			$PointLight2D.visible = false
 		
-	# If the player is holding the jump button, apply a slight upwards push.
-	if Input.is_action_pressed("jump") && !dead:
-		if !climbing:
-			velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force) * Engine.time_scale
-		else:
-			velocity.y -= jump_push_force
+		if in_conveyor_belt:
+			position.x += conveyor_speed * conveyor_direction * delta * 60
+		
+		if dead:
+			$AntennaAnimation.visible = false
+		
+		if physics_player:
+			return
+		
+		# Apply gravity if not grappling
+		if !grappling_effects && !climbing:
+			velocity.y += gravity * Engine.time_scale
 			
 		if in_ladder_area:
-			velocity.x /= 1.3
-			$FireParticlesBootsLeft.emitting = false
-			$FireParticlesBootsRight.emitting = false
-			climbing = true
-			
-			if !was_climbing:
-				$PlayerAnimation.play("Climbing")
+			velocity.y /= 1.5
+		
+		dont_apply_friction = false
+		just_jumped = false
+		
+		# Apply keyboard inputs.
+		var input_velocity = getInputVelocity(can_jump)
+		if !dead:
+			velocity.x += input_velocity
+		
+		# Check if we can jump
+		if checkJump() and (can_jump || $CoyoteJumpTimer.time_left > 0):
+			if !in_ladder_area && !dead:
+				jump()
 				
-			if $PlayerAnimation.animation != "Climbing":
-				$PlayerAnimation.play("Climbing")
-		
-	if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !dead:
-		$PlayerAnimation.play("AttackSword")
-		$DashStopCooldown.start()
-		$NewDashCooldown.start()
-		
-		velocity.x = previous_direction * 7
-		
-	if $NewDashCooldown.time_left > 0 && $DashStopCooldown.time_left <= 0:
-		velocity.x = 0
-		
-	# Hard cap the speed to supress speed glitches.
-	if absf(velocity.x) > speed_hard_cap && !disable_speed_cap && !$DashStopCooldown.time_left > 0:
-		velocity.x = max_speed if velocity.x > 1 else -max_speed
-	if absf(velocity.y) > (max_jump_speed_rocket + 1) && !disable_speed_cap:
-		velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
-		
-	# If speed cap is disabled, ignore that.
-	if absf(velocity.x) > speed_hard_cap * 2 && (disable_speed_cap || $DashStopCooldown.time_left > 0):
-		velocity.x = max_speed * 2 if velocity.x > 0 else -max_speed * 2
-	if absf(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
-		velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
-		
-	# Apply friction.
-	if input_velocity == 0 && !$GrappleManager.air_grapling && Input.get_axis("left", "right") == 0 && (!$GrappleManager.grapling || can_jump):
-		# Don't apply friction if the player is moving.
-		if can_jump:
-			velocity.x /= friction_force
-		else:
-			velocity.x /= air_friction_force
-	
-	# If the player hits the ground, apply a slight decrement to the velocity.
-	if was_in_air && can_jump:
-		velocity.x /= 1.3
-		
-	# Add velocity to position.
-	position += velocity * delta * 60
-	
-	# Collisions.
-	move_and_slide()
-	
-	var metal_walk_boots_1 = get_parent().get_node("MetalWalkBoots1")
-	var metal_walk_1 = get_parent().get_node("MetalWalk1")
-	
-	if metal_walk_boots_1.playing && !current_ability == "RocketBoost":
-		metal_walk_1.play()
-		metal_walk_boots_1.stop()
-	if metal_walk_1.playing && current_ability == "RocketBoost":
-		metal_walk_boots_1.play()
-		metal_walk_1.stop()
-	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if !get_parent().graphics_efficiency:
-			$GravelWalkingParticles.emitting = false
-		var play_metal_walk = false
-		
-		if collision && collision.get_collider() is RigidBody2D:
-			collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
-		
-		if collision && collision.get_collider() is TileMap:
-			if (velocity.x > 1 || velocity.x < -1):
-				if collision.get_collider().name == "Gravel" && !get_parent().graphics_efficiency:
-					$GravelWalkingParticles.emitting = true
-				if collision.get_collider().name == "Ingame":
-					play_metal_walk = true
+		if Input.is_action_pressed("down") && climbing && !dead:
+			velocity.y += jump_push_force
+			
+		# Implement coyote jumping system.
+		if could_jump && !can_jump:
+			$CoyoteJumpTimer.start() 
+			
+		# If the player is holding the jump button, apply a slight upwards push.
+		if Input.is_action_pressed("jump") && !dead:
+			if !climbing:
+				velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force) * Engine.time_scale
+			else:
+				velocity.y -= jump_push_force
+				
+			if in_ladder_area:
+				velocity.x /= 1.3
+				$FireParticlesBootsLeft.emitting = false
+				$FireParticlesBootsRight.emitting = false
+				climbing = true
+				
+				if !was_climbing:
+					$PlayerAnimation.play("Climbing")
 					
-					if metal_walk_1.volume_db < 7:
-						metal_walk_1.volume_db += 1
-						get_parent().get_node("MetalWalk2").volume_db += 1
-					if metal_walk_boots_1.volume_db < 2:
-						metal_walk_boots_1.volume_db += 0.5
+				if $PlayerAnimation.animation != "Climbing":
+					$PlayerAnimation.play("Climbing")
+			
+		if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !dead:
+			$PlayerAnimation.play("AttackSword")
+			$DashStopCooldown.start()
+			$NewDashCooldown.start()
+			
+			velocity.x = previous_direction * 7
+			
+		if $NewDashCooldown.time_left > 0 && $DashStopCooldown.time_left <= 0:
+			velocity.x = 0
+			
+		# Hard cap the speed to supress speed glitches.
+		if absf(velocity.x) > speed_hard_cap && !disable_speed_cap && !$DashStopCooldown.time_left > 0:
+			velocity.x = max_speed if velocity.x > 1 else -max_speed
+		if absf(velocity.y) > (max_jump_speed_rocket + 1) && !disable_speed_cap:
+			velocity.y = rocket_jump_vel if velocity.y > 1 else -rocket_jump_vel
+			
+		# If speed cap is disabled, ignore that.
+		if absf(velocity.x) > speed_hard_cap * 2 && (disable_speed_cap || $DashStopCooldown.time_left > 0):
+			velocity.x = max_speed * 2 if velocity.x > 0 else -max_speed * 2
+		if absf(velocity.y) > rocket_jump_vel * 2 && disable_speed_cap:
+			velocity.y = rocket_jump_vel * 2 if velocity.y > 0 else -rocket_jump_vel * 2
+			
+		# Apply friction.
+		if input_velocity == 0 && !$GrappleManager.air_grapling && Input.get_axis("left", "right") == 0 && (!$GrappleManager.grapling || can_jump):
+			# Don't apply friction if the player is moving.
+			if can_jump:
+				velocity.x /= friction_force
+			else:
+				velocity.x /= air_friction_force
+		
+		# If the player hits the ground, apply a slight decrement to the velocity.
+		if was_in_air && can_jump:
+			velocity.x /= 1.3
+			
+		# Add velocity to position.
+		position += velocity * delta * 60
+		
+		# Collisions.
+		move_and_slide()
+		
+		var metal_walk_boots_1 = get_parent().get_node("MetalWalkBoots1")
+		var metal_walk_1 = get_parent().get_node("MetalWalk1")
+		
+		if metal_walk_boots_1.playing && !current_ability == "RocketBoost":
+			metal_walk_1.play()
+			metal_walk_boots_1.stop()
+		if metal_walk_1.playing && current_ability == "RocketBoost":
+			metal_walk_boots_1.play()
+			metal_walk_1.stop()
+		
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if !get_parent().graphics_efficiency:
+				$GravelWalkingParticles.emitting = false
+			var play_metal_walk = false
+			
+			if collision && collision.get_collider() is RigidBody2D:
+				collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
+			
+			if collision && collision.get_collider() is TileMap:
+				if (velocity.x > 1 || velocity.x < -1):
+					if collision.get_collider().name == "Gravel" && !get_parent().graphics_efficiency:
+						$GravelWalkingParticles.emitting = true
+					if collision.get_collider().name == "Ingame":
+						play_metal_walk = true
 						
-						if metal_walk_boots_1.volume_db < -8:
-							metal_walk_boots_1.volume_db = -8
-					
-					if metal_walk_1.playing == false && get_parent().get_node("MetalWalk2").playing == false && metal_walk_boots_1.playing == false:
-						if current_ability == "RocketBoost":
-							metal_walk_boots_1.play()
-						else: 
-							metal_walk_1.play()
+						if metal_walk_1.volume_db < 7:
+							metal_walk_1.volume_db += 1
+							get_parent().get_node("MetalWalk2").volume_db += 1
+						if metal_walk_boots_1.volume_db < 2:
+							metal_walk_boots_1.volume_db += 0.5
+							
+							if metal_walk_boots_1.volume_db < -8:
+								metal_walk_boots_1.volume_db = -8
+						
+						if metal_walk_1.playing == false && get_parent().get_node("MetalWalk2").playing == false && metal_walk_boots_1.playing == false:
+							if current_ability == "RocketBoost":
+								metal_walk_boots_1.play()
+							else: 
+								metal_walk_1.play()
+			
+			if !play_metal_walk:
+				if metal_walk_1.volume_db > -20:
+					metal_walk_1.volume_db -= 1
+					get_parent().get_node("MetalWalk2").volume_db -= 1
+					metal_walk_boots_1.volume_db -= 1
 		
-		if !play_metal_walk:
+		if !can_jump:
 			if metal_walk_1.volume_db > -20:
 				metal_walk_1.volume_db -= 1
-				get_parent().get_node("MetalWalk2").volume_db -= 1
+				metal_walk_1.volume_db -= 1
 				metal_walk_boots_1.volume_db -= 1
-	
-	if !can_jump:
-		if metal_walk_1.volume_db > -20:
-			metal_walk_1.volume_db -= 1
-			metal_walk_1.volume_db -= 1
-			metal_walk_boots_1.volume_db -= 1
+				
+		var save_load_framework = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework")
 			
-	var save_load_framework = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework")
+		if $BulletBadHurtcooldown.time_left <= 0 && $BulletHurtCooldown.time_left <= 0 && get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left < 10:
+			get_parent().get_node("Heartbeat").volume_db = -40
 		
-	if $BulletBadHurtcooldown.time_left <= 0 && $BulletHurtCooldown.time_left <= 0 && get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left < 10:
-		get_parent().get_node("Heartbeat").volume_db = -40
-	
-	if $BulletBadHurtcooldown.time_left > 0:
-		save_load_framework.bulge_amm = 1.0 + get_parent().bulge_adder
-		save_load_framework.static_amm = 0.1 + get_parent().static_adder
+		if $BulletBadHurtcooldown.time_left > 0:
+			save_load_framework.bulge_amm = 1.0 + get_parent().bulge_adder
+			save_load_framework.static_amm = 0.1 + get_parent().static_adder
+			
+			get_parent().get_node("Heartbeat").volume_db = 3
+			get_parent().get_node("Heartbeat").pitch_scale = 2
+			
+			if !get_parent().get_node("Heartbeat").playing:
+				get_parent().get_node("Heartbeat").play()
+			
+		elif $BulletHurtCooldown.time_left > 0:
+			save_load_framework.bulge_amm = 0.4 + get_parent().bulge_adder
+			save_load_framework.static_amm = 0.05 + get_parent().static_adder
+			
+		elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
+			save_load_framework.bulge_amm = 0 + get_parent().bulge_adder
+			save_load_framework.static_amm = 0 + get_parent().static_adder
 		
-		get_parent().get_node("Heartbeat").volume_db = 3
-		get_parent().get_node("Heartbeat").pitch_scale = 2
-		
-		if !get_parent().get_node("Heartbeat").playing:
-			get_parent().get_node("Heartbeat").play()
-		
-	elif $BulletHurtCooldown.time_left > 0:
-		save_load_framework.bulge_amm = 0.4 + get_parent().bulge_adder
-		save_load_framework.static_amm = 0.05 + get_parent().static_adder
-		
-	elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
-		save_load_framework.bulge_amm = 0 + get_parent().bulge_adder
-		save_load_framework.static_amm = 0 + get_parent().static_adder
-	
 	var left_pressed = Input.is_action_pressed("left")
 	var right_pressed = Input.is_action_pressed("right")
+	
+	if get_parent().get_parent().is_multiplayer && !get_parent().is_multiplayer_authority():
+		left_pressed = velocity.x < 0
+		right_pressed = velocity.x > 0
 		
 	if !(left_pressed && right_pressed) && !dead:
 		
@@ -463,6 +469,9 @@ func _physics_process(delta):
 			previous_direction = -1
 		elif right_pressed:
 			previous_direction = 1
+	
+	if get_parent().get_parent().is_multiplayer:
+		set_pos_and_motion_multiplayer.rpc(position, velocity)
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
@@ -644,3 +653,8 @@ func _on_spike_hurt_box_body_entered(body):
 	if body.name == "Spikes":
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 		get_parent().get_node("Camera/CloseAnimator").closing = true
+
+@rpc("unreliable")
+func set_pos_and_motion_multiplayer(pos, motion):
+	position = pos
+	velocity = motion

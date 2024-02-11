@@ -3,6 +3,7 @@ extends Node2D
 @export var level = 0
 @export var floor = 0
 @export var boss = false
+@export var is_multiplayer = false
 var slot = -1
 var graphics_efficiency = false
 var is_max_level = true
@@ -26,13 +27,26 @@ func _ready():
 			$CanvasModulate.color = Color(0.1, 0.1, 0.1, 1)
 		else:
 			$CanvasModulate.color = Color(0.6, 0.6, 0.6, 1)
-			
-	if !show_fps:
-		$Player/Camera/FPSCounter.visible = false
-	if !show_points:
-		$Player/Camera/PointsCounter.visible = false
-	if !show_timer:
-		$Player/Camera/TimeCounter.visible = false
+	
+	if !is_multiplayer:
+		if !show_fps:
+			$Player/Camera/FPSCounter.visible = false
+		if !show_points:
+			$Player/Camera/PointsCounter.visible = false
+		if !show_timer:
+			$Player/Camera/TimeCounter.visible = false
+	
+	if is_multiplayer:
+		if multiplayer.is_server():
+			$ClientPlayer.set_multiplayer_authority(multiplayer.get_peers()[0])
+			$ClientPlayer/Camera.enabled = false
+			$ClientPlayer/Camera.visible = false
+			$ClientPlayer.modulate.a = 0.3
+		else:
+			$ClientPlayer.set_multiplayer_authority(multiplayer.get_unique_id())
+			$ServerPlayer/Camera.enabled = false
+			$ServerPlayer/Camera.visible = false
+			$ServerPlayer.modulate.a = 0.3
 
 func _process(delta):
 	if !end_level:

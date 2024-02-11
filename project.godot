@@ -28,9 +28,6 @@ DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
-window/size/resizable=false
-window/size/borderless=true
 window/stretch/mode="viewport"
 
 [editor]
@@ -39,7 +36,7 @@ movie_writer/movie_file="C:/Users/black/Videos/MovieFile.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Holepunch/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/debug_menu/plugin.cfg")
+enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/debug_menu/plugin.cfg")
 
 [file_customization]
 
@@ -127,7 +124,6 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.121569, 0.121569, 0.121569, 1)
 anti_aliasing/quality/msaa_2d=3
 viewport/hdr_2d=true
