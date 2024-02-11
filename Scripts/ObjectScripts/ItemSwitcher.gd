@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var item_switch_type = "Weapon"
-@onready var player = get_parent().get_node("Player").get_node("Player")
+@onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @export var dont_show_sprite = false
 const next_item_key = {
 	"Weapon": "RocketBoost",
@@ -32,6 +32,12 @@ func _ready():
 
 func _process(delta):
 	pulse_x += 0.07 * delta * 60
+	
+	if get_parent().is_multiplayer:
+		if multiplayer.is_server():
+			player = get_parent().server_player.get_node("Player")
+		else:
+			player = get_parent().client_player.get_node("Player")
 	
 	if item_switch_type == next_item_key[player.current_ability]:
 		modulate = Color(1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1)

@@ -8,65 +8,89 @@ var jump_vel = 6.5
 var gravity = 0.5
 var attacking = false
 var friction_force = 1.2
-@onready var player = get_parent().get_node("Player").get_node("Player")
+@onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @onready var loaded_ragdoll = preload("res://Objects/StaticObjects/RagdollMele.tscn")
 @export var health = 4
 var direction = 0
 
 
-func _physics_process(delta):
-	# Add the gravity.
-	velocity.y += gravity * delta * 60
-	
-	$Sprite2D.scale.x = -direction
-
-	if health > 0:
-		var down_col = $RayCastDown.get_collider() 
-		var left_col = $RayCastLeft.get_collider()
-		var right_col = $RayCastRight.get_collider()
-		var top_left_col = $RayCastLeftTop.get_collider()
-		var top_right_col = $RayCastRightTop.get_collider()
-		
-		direction = 0
-
-		if player.position.x - position.x > 0:
-			direction = 1
-		if player.position.x - position.x < 0:
-			direction = -1
-			
-		var jump = ((left_col && direction == -1 && !"Player" in left_col.name) || (right_col && direction == 1 && !"Player" in right_col.name)) && (left_col if direction == -1 else right_col)
-		var player_near = (left_col && "Player" in left_col.name) || (right_col && "Player" in right_col.name)
-		var mele_near = (left_col && "AttackMele" in left_col.name && direction == -1) || (right_col && "AttackMele" in right_col.name && direction == 1)
-		
-		if is_on_floor() && jump && !player_near && !mele_near:
-			velocity.y = -jump_vel
-			
-		if (down_col && ("Player" in down_col.name || "AttackMele" in down_col.name)):
-			velocity.y = -jump_vel
-			velocity.x = -direction * speed * 2
-			_on_jump_hurt_box_area_entered(down_col.get_node("PlayerHurtbox"))
-			
-		if player_near && $AttackTimer.time_left <= 0 && $AttackResetTimer.time_left <= 0:
-			$AttackTimer.start()
-		
-		if direction && !player_near && !mele_near && !$AttackResetTimer.time_left > 0:
-			velocity.x += direction * speed
-			
-		if attacking:
-			$JumpHurtBox/CollisionShape2D.disabled = false
+func _ready():
+	if get_parent().multiplayer:
+		if multiplayer.is_server():
+			set_multiplayer_authority(multiplayer.get_unique_id())
 		else:
-			$JumpHurtBox/CollisionShape2D.disabled = true
+			set_multiplayer_authority(multiplayer.get_peers()[0])
+
+func _physics_process(delta):
+	if (get_parent().is_multiplayer && is_multiplayer_authority()) || !get_parent().is_multiplayer:
+		# Add the gravity.
+		velocity.y += gravity * delta * 60
 		
-		# Don't apply friction if the player is moving.
-		if (absf(velocity.x) > max_speed):
-			velocity.x /= friction_force
+		$Sprite2D.scale.x = -direction
+
+		if health > 0:
+			if get_parent().is_multiplayer:
+				var distance_to_server_player = get_parent().server_player.get_node("Player").position.distance_to(position)
+				var distance_to_client_player = get_parent().client_player.get_node("Player").position.distance_to(position)
+					
+				if distance_to_server_player > distance_to_client_player:
+					player = get_parent().server_player.get_node("Player")
+				else:
+					player = get_parent().client_player.get_node("Player")
 			
-		if velocity.y > max_fall_speed:
-			velocity.y = max_fall_speed
+			var down_col = $RayCastDown.get_collider() 
+			var left_col = $RayCastLeft.get_collider()
+			var right_col = $RayCastRight.get_collider()
+			var top_left_col = $RayCastLeftTop.get_collider()
+			var top_right_col = $RayCastRightTop.get_collider()
+			
+			direction = 0
+
+			if player.position.x - position.x > 0:
+				direction = 1
+			if player.position.x - position.x < 0:
+				direction = -1
+				
+			var jump = ((left_col && direction == -1 && !"Player" in left_col.name) || (right_col && direction == 1 && !"Player" in right_col.name)) && (left_col if direction == -1 else right_col)
+			var player_near = (left_col && "Player" in left_col.name) || (right_col && "Player" in right_col.name)
+			var mele_near = (left_col && "AttackMele" in left_col.name && direction == -1) || (right_col && "AttackMele" in right_col.name && direction == 1)
+			
+			if is_on_floor() && jump && !player_near && !mele_near:
+				velocity.y = -jump_vel
+				
+			if (down_col && ("Player" in down_col.name || "AttackMele" in down_col.name)):
+				velocity.y = -jump_vel
+				velocity.x = -direction * speed * 2
+				_on_jump_hurt_box_area_entered(down_col.get_node("PlayerHurtbox"))
+				
+			if player_near && $AttackTimer.time_left <= 0 && $AttackResetTimer.time_left <= 0:
+				$AttackTimer.start()
+			
+			if direction && !player_near && !mele_near && !$AttackResetTimer.time_left > 0:
+				velocity.x += direction * speed
+				
+			if attacking:
+				$JumpHurtBox/CollisionShape2D.disabled = false
+			else:
+				$JumpHurtBox/CollisionShape2D.disabled = true
+			
+			# Don't apply friction if the player is moving.
+			if (absf(velocity.x) > max_speed):
+				velocity.x /= friction_force
+				
+			if velocity.y > max_fall_speed:
+				velocity.y = max_fall_speed
+			
+			move_and_slide()
+			position += velocity
+		else:
+			$Collision.disabled = true
+			$Sprite2D.visible = false
+	
+	if get_parent().is_multiplayer && is_multiplayer_authority():
+		set_pos_and_motion_multiplayer.rpc(position, velocity, health)
 		
-		move_and_slide()
-		position += velocity
-	else:
+	if health <= 0:
 		$Collision.disabled = true
 		$Sprite2D.visible = false
 
@@ -112,3 +136,9 @@ func _on_hurt_box_area_entered(area):
 
 func _on_switch_hurtbox_enabled_timer_timeout():
 	$HurtBox/CollisionShape2D.disabled = !$HurtBox/CollisionShape2D.disabled
+	
+@rpc("unreliable")
+func set_pos_and_motion_multiplayer(pos, motion, hp):
+	position = pos
+	velocity = motion
+	health = hp

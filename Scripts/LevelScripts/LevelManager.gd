@@ -37,7 +37,8 @@ func _ready():
 			$Player/Camera/PointsCounter.visible = false
 		if !show_timer:
 			$Player/Camera/TimeCounter.visible = false
-			
+
+func _process(delta):
 	if is_multiplayer:
 		if multiplayer.is_server():
 			client_player.set_multiplayer_authority(multiplayer.get_peers()[0])
@@ -51,8 +52,6 @@ func _ready():
 			server_player.get_node("Camera").enabled = false
 			server_player.get_node("Camera").visible = false
 			server_player.modulate.a = 0.3
-
-func _process(delta):
 			
 	if !end_level:
 		time += delta

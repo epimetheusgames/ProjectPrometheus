@@ -60,5 +60,8 @@ func restart_level(respawn_pos, respawn_ability):
 		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("ColorRect").color.a = 0
 		respawning_player.get_node("Camera").get_node("CloseAnimator").closing = false
 		respawning_player.get_node("Camera").get_node("CloseAnimator").start = false
+		respawning_player.get_node("Player").get_node("BulletHurtCooldown").stop()
+		respawning_player.get_node("Player").get_node("BulletBadHurtcooldown").stop()
+		respawning_player.get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
 		respawning_player.get_node("Player").dead = false
 			
