@@ -41,6 +41,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
 	[preload("res://Levels/Cutscenes/Credits.tscn")],
 	[preload("res://Levels/Playable/Multiplayer/Multiplayer1/Floor1.tscn")],
+	[preload("res://Levels/Playable/Multiplayer/Multiplayer2/Floor1.tscn")],
 ]
 
 const level_node_names = [
@@ -100,7 +101,7 @@ var real_static = 0.0
 var player_camera_position = Vector2.ZERO
 var last_music_ind = -1
 var starting = true
-@export var force_time_scale = -1.0
+var force_time_scale = -1.0
 
 func _process(delta):
 	if starting && !$EpimetheusFadin.finished:
