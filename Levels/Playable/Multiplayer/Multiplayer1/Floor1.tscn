@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c2pds12qarntg"]
+[gd_scene load_steps=27 format=3 uid="uid://c2pds12qarntg"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_wsi6f"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_x1kva"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_nb1sh"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_pbh70"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_puhle"]
+[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="16_el35m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_x1kva")
@@ -437,6 +438,9 @@ offset_top = 90.0
 offset_right = 14.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
+
+[node name="DrillManager" parent="." instance=ExtResource("16_el35m")]
+position = Vector2(-193, 86)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

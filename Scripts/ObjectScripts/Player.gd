@@ -38,6 +38,7 @@ var dead = false
 var in_conveyor_belt = false
 var dont_reset_conveyor = false
 var has_key = false
+var is_swiping_sword = false
 
 var current_ability = "Weapon"
 
@@ -161,6 +162,7 @@ func _physics_process(delta):
 			$PlayerAnimation.play("AttackSword")
 			$DashStopCooldown.start()
 			$NewDashCooldown.start()
+			is_swiping_sword = true
 			
 			velocity.x = previous_direction * 7
 			
@@ -471,7 +473,7 @@ func _physics_process(delta):
 			previous_direction = 1
 	
 	if get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority():
-		set_pos_and_motion_multiplayer.rpc(position, velocity)
+		set_pos_and_motion_multiplayer.rpc(position, velocity, is_swiping_sword)
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
@@ -644,6 +646,7 @@ func _on_bullet_bad_hurtcooldown_timeout():
 
 func _on_dash_stop_cooldown_timeout():
 	velocity.x = 0
+	is_swiping_sword = false
 
 func _on_hurt_vibration_timer_timeout():
 	Engine.time_scale = 1
@@ -655,6 +658,7 @@ func _on_spike_hurt_box_body_entered(body):
 		get_parent().get_node("Camera/CloseAnimator").closing = true
 
 @rpc("unreliable")
-func set_pos_and_motion_multiplayer(pos, motion):
+func set_pos_and_motion_multiplayer(pos, motion, swiping):
 	position = pos
 	velocity = motion
+	is_swiping_sword = swiping
