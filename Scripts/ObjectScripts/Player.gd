@@ -470,7 +470,7 @@ func _physics_process(delta):
 		elif right_pressed:
 			previous_direction = 1
 	
-	if get_parent().get_parent().is_multiplayer:
+	if get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority():
 		set_pos_and_motion_multiplayer.rpc(position, velocity)
 
 # If the player enters a death zone, respawn it.

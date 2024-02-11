@@ -35,16 +35,30 @@ func restart_level(respawn_pos, respawn_ability):
 	if !get_parent().is_multiplayer:
 		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)
 	else:
-		var new_player_instance = preload("res://Objects/Player.tscn").instantiate()
+		var respawning_player = null
 		
 		if multiplayer.is_server():
-			get_parent().server_player.queue_free()
-			new_player_instance.name = "ServerPlayer"
-			get_parent().server_player = new_player_instance
+			respawning_player = get_parent().server_player
 		else:
-			get_parent().client_player.queue_free()
-			new_player_instance.name = "ClientPlayer"
-			get_parent().client_player = new_player_instance
-			new_player_instance.set_multiplayer_authority(multiplayer.get_unique_id())
+			respawning_player = get_parent().client_player
+		
+		respawning_player.get_node("Player").position = Vector2.ZERO
+		
+		if respawning_player.get_node("Camera").get_node("AbilityManager").ability_index != 0:
+			respawning_player.get_node("Camera").get_node("AbilityManager").ability_index -= 1
+		else:
+			respawning_player.get_node("Camera").get_node("AbilityManager").ability_index = 3
+		respawning_player.get_node("Camera").get_node("AbilityManager").next_ability()
+		
+		respawning_player.self_modulate.r = 0
+		respawning_player.get_node("Camera").get_node("DarkOverlay").color.a = 0
+		respawning_player.get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").start()
+		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("BlackBarBottom").scale.y = 0
+		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("BlackBarTop").scale.y = 0
+		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("WhiteLine").scale.x = 700
+		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("WhiteLine").visible = false
+		respawning_player.get_node("Camera").get_node("CloseAnimator").get_node("ColorRect").color.a = 0
+		respawning_player.get_node("Camera").get_node("CloseAnimator").closing = false
+		respawning_player.get_node("Camera").get_node("CloseAnimator").start = false
+		respawning_player.get_node("Player").dead = false
 			
-		get_parent().call_deferred("add_child", new_player_instance)

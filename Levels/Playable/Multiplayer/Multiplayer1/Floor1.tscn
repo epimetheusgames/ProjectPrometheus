@@ -366,6 +366,7 @@ collision_mask = 2
 collision_layer = 0
 
 [node name="DarkOverlay" parent="ServerPlayer/Camera" index="2"]
+color = Color(0.0823529, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="ServerPlayer/Camera" index="3"]
