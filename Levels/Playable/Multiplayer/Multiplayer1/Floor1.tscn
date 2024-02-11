@@ -15,8 +15,8 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_nb1sh"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_pbh70"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_puhle"]
-[ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="16_el35m"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_plef4"]
+[ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="17_w1dk5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_x1kva")
@@ -368,7 +368,6 @@ collision_mask = 2
 collision_layer = 0
 
 [node name="DarkOverlay" parent="ServerPlayer/Camera" index="2"]
-color = Color(0.0823529, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="ServerPlayer/Camera" index="3"]
@@ -444,11 +443,15 @@ color = Color(1, 1, 1, 0.454902)
 position = Vector2(387, 48)
 item_switch_type = "RocketBoost"
 
-[node name="DrillManager" parent="." instance=ExtResource("16_el35m")]
-position = Vector2(-113, 74)
+[node name="DroneManager" parent="." instance=ExtResource("17_w1dk5")]
+position = Vector2(484, 106)
+
+[node name="DronePatrolPoints" parent="DroneManager" index="0"]
+points = PackedVector2Array(-206, 9, -782, 4)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="ServerPlayer"]
 [editable path="ClientPlayer"]
+[editable path="DroneManager"]

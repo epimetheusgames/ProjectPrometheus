@@ -95,7 +95,6 @@ func jump():
 
 func _physics_process(delta):
 	var can_jump = canJump()
-	print(dead)
 	
 	if (get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority()) || !get_parent().get_parent().is_multiplayer:
 		if Input.is_action_just_pressed("respawn"):
@@ -474,7 +473,7 @@ func _physics_process(delta):
 			previous_direction = 1
 	
 	if get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority():
-		set_pos_and_motion_multiplayer.rpc(position, velocity, is_swiping_sword, $PlayerAnimation.modulate)
+		set_pos_and_motion_multiplayer.rpc(position, velocity, is_swiping_sword, $PlayerAnimation.modulate, dead)
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
@@ -659,8 +658,9 @@ func _on_spike_hurt_box_body_entered(body):
 		get_parent().get_node("Camera/CloseAnimator").closing = true
 
 @rpc("unreliable")
-func set_pos_and_motion_multiplayer(pos, motion, swiping, color_mod):
+func set_pos_and_motion_multiplayer(pos, motion, swiping, color_mod, death):
 	position = pos
 	velocity = motion
 	is_swiping_sword = swiping
 	$PlayerAnimation.modulate = color_mod
+	dead = death

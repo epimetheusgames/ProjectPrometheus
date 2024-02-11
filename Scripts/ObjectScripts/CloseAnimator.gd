@@ -6,7 +6,9 @@ var start = false
 
 func _process(delta):
 	if closing && start:
-		get_tree().paused = true
+		if !get_parent().get_parent().get_parent().is_multiplayer:
+			get_tree().paused = true
+			
 		get_parent().get_parent().get_parent().self_modulate.r += 10 * delta * 60
 		
 		$BlackBarTop.scale.y += (1005 - $BlackBarTop.scale.y) * 0.1 * delta * 60

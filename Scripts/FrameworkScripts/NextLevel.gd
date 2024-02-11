@@ -41,6 +41,9 @@ func restart_level(respawn_pos, respawn_ability):
 			respawning_player = get_parent().server_player
 		else:
 			respawning_player = get_parent().client_player
+			
+		if !respawning_player.is_multiplayer_authority():
+			return
 		
 		respawning_player.get_node("Player").position = Vector2.ZERO
 		

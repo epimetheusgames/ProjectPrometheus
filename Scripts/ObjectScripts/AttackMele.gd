@@ -119,7 +119,7 @@ func _on_jump_hurt_box_area_entered(area):
 
 func _on_hurt_box_area_entered(area):
 	if area && area.name == "PlayerHurtbox" && health > 0:
-		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
+		if area.get_parent().get_node("DashStopCooldown").time_left > 0 || area.get_parent().is_swiping_sword:
 			health -= 1
 			velocity.x = -direction * 7
 			velocity.y = -jump_vel / 1.7

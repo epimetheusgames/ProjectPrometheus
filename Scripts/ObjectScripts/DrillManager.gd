@@ -85,7 +85,7 @@ func _process(delta):
 				$StaticBody2D/CollisionPolygon2D.disabled = true
 	
 	if get_parent().is_multiplayer && is_multiplayer_authority():
-		set_pos_and_motion_multiplayer.rpc(position, velocity, health)
+		set_pos_and_motion_multiplayer.rpc(position, velocity, health, $DrillAnimation.scale.x)
 	
 	if health > 0:
 		if health == 3:
@@ -146,7 +146,8 @@ func _on_player_in_range_detector_area_entered(area):
 		enabled = true
 
 @rpc("unreliable")
-func set_pos_and_motion_multiplayer(pos, motion, hp):
+func set_pos_and_motion_multiplayer(pos, motion, hp, anim_scale):
 	position = pos
 	velocity = motion
 	health = hp
+	$DrillAnimation.scale.x = anim_scale

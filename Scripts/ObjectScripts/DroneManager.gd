@@ -21,7 +21,7 @@ var physics_drone_ingame = null
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @onready var loaded_physics_bird = preload("res://Objects/StaticObjects/PhysicsBird.tscn")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
-@onready var player = get_parent().get_node("Player").get_node("Player")
+@onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @onready var patrol_points_size = $DronePatrolPoints.points.size()
 
 @export var velocity_smoothing = 0.01
@@ -94,6 +94,15 @@ func calculate_flight_frame():
 			return "finished"
 
 func _process(delta):
+	if get_parent().is_multiplayer:
+		var distance_to_server_player = get_parent().server_player.get_node("Player").position.distance_to(position)
+		var distance_to_client_player = get_parent().client_player.get_node("Player").position.distance_to(position)
+			
+		if distance_to_server_player < distance_to_client_player:
+			player = get_parent().server_player.get_node("Player")
+		else:
+			player = get_parent().client_player.get_node("Player")
+	
 	if !big_drone:
 		$AttackLine/Sprite2D.rotation += 0.01 * delta * 60
 		$AttackLine/Sprite2D.position = $Drone.position
@@ -227,8 +236,9 @@ func _on_area_2d_body_exited(body):
 
 func _on_drone_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" || area.name == "DeathZone" && !big_drone && !temp_disabled:
-		get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
-		get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
+		if !get_parent().is_multiplayer:
+			get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
+			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
 		var dead_drone = loaded_physics_drone.instantiate() if !bird else loaded_physics_bird.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
