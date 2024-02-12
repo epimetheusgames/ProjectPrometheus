@@ -5,6 +5,8 @@ extends Node2D
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 var static_adder = 0
 var bulge_adder = 0
+@export var smoothing_1 = 0.05
+@export var smoothing_2 = 0.1
 
 func round_place(x, place):
 	return round(x * pow(10, place)) / pow(10, place)
@@ -19,8 +21,8 @@ func _ready():
 func _process(delta):
 	# Camera follows player.
 	var follow_position = $Player.position + ($PhysicsPlayerContainer.get_children()[0].position if $Player.physics_player else Vector2.ZERO)
-	$CameraCollider.position += (follow_position - $CameraCollider.position) * 0.05 * (delta * 60)
-	$Camera.position += ($CameraCollider.position - $Camera.position) * 0.1 * (delta * 60)
+	$CameraCollider.position += (follow_position - $CameraCollider.position) * smoothing_1 * (delta * 60)
+	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
 	
 	var player_vel = 0
