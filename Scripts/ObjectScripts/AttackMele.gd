@@ -148,10 +148,8 @@ func _on_hurt_box_area_entered(area):
 		
 		if health == 0:
 				get_parent().points += 5
-				area.get_parent().get_node("BulletBadHurtcooldown").stop()
-				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 				var ragdoll = loaded_ragdoll.instantiate()
-				ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
+				ragdoll.get_node("Body").apply_central_force(velocity * 10)
 				add_child(ragdoll)
 
 func _on_switch_hurtbox_enabled_timer_timeout():

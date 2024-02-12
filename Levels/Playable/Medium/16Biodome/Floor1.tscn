@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=50 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -351,9 +351,6 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxwc5"]
-size = Vector2(24, 5)
-
 [node name="Level3" type="Node2D"]
 position = Vector2(-72, 0)
 script = ExtResource("1_cmf1l")
@@ -544,6 +541,27 @@ polygon = PackedVector2Array(3737, 494, 3760, 483, 3778, 468, 3757, 478, 3739, 4
 [node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D2"]
 visible = false
 polygon = PackedVector2Array(4600, 260, 4694, 258, 4709, 257, 4710, 172, 4731, 172, 4730, 300, 4765, 287, 4803, 291, 4855, 294, 4888, 292, 4865, 238, 4726, 160, 4690, 169, 4603, 241)
+
+[node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(1640, -32)
+polygon = PackedVector2Array(2745.78, 479.802, 2764, 478, 2784, 467, 2804, 450, 2778, 477, 2746, 489)
+
+[node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(1640, -32)
+polygon = PackedVector2Array(2668, 420, 2696.63, 440.406, 2711, 446, 2745, 448, 2703, 452, 2693, 443)
+
+[node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(1640, 64)
+polygon = PackedVector2Array(2668, 422, 2696.63, 440.406, 2711, 446, 2745, 448, 2725, 459, 2693, 443)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(4385, 352, 4385, 363, 4429, 340, 4431, 335, 4408, 348, 4394, 352)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(4365, 269, 4324, 244, 4324, 238, 4345, 253, 4356, 256, 4365, 256)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(4544, 348, 4562, 330, 4579, 319, 4608, 314)
 
 [node name="ItemSwitcher2" parent="." instance=ExtResource("17_qjykc")]
 position = Vector2(1824, 560)
@@ -1506,6 +1524,248 @@ texture = ExtResource("28_qmoel")
 
 [node name="PropTwig113" type="Sprite2D" parent="."]
 position = Vector2(2925, 489)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk190" type="Sprite2D" parent="."]
+position = Vector2(4376, 367)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch159" type="Sprite2D" parent="."]
+position = Vector2(4408, 348)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk191" type="Sprite2D" parent="."]
+position = Vector2(4376, 463)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk192" type="Sprite2D" parent="."]
+position = Vector2(4376, 431)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk193" type="Sprite2D" parent="."]
+position = Vector2(4376, 399)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch168" type="Sprite2D" parent="."]
+position = Vector2(4408, 444)
+texture = ExtResource("27_cjnfs")
+
+[node name="PropBranch169" type="Sprite2D" parent="."]
+position = Vector2(4349, 414)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig116" type="Sprite2D" parent="."]
+position = Vector2(4440, 425)
+rotation = 0.767945
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig117" type="Sprite2D" parent="."]
+position = Vector2(4317, 393)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk194" type="Sprite2D" parent="."]
+position = Vector2(4376, 399)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch170" type="Sprite2D" parent="."]
+position = Vector2(4349, 414)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig118" type="Sprite2D" parent="."]
+position = Vector2(4440, 425)
+rotation = 0.767945
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig119" type="Sprite2D" parent="."]
+position = Vector2(4317, 393)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk195" type="Sprite2D" parent="."]
+position = Vector2(4376, 367)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch171" type="Sprite2D" parent="."]
+position = Vector2(4408, 348)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk196" type="Sprite2D" parent="."]
+position = Vector2(4376, 431)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk197" type="Sprite2D" parent="."]
+position = Vector2(4376, 399)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch173" type="Sprite2D" parent="."]
+position = Vector2(4349, 414)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig120" type="Sprite2D" parent="."]
+position = Vector2(4440, 425)
+rotation = 0.767945
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig121" type="Sprite2D" parent="."]
+position = Vector2(4317, 393)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk198" type="Sprite2D" parent="."]
+position = Vector2(4376, 399)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch174" type="Sprite2D" parent="."]
+position = Vector2(4349, 414)
+texture = ExtResource("28_qmoel")
+
+[node name="PropBranch176" type="Sprite2D" parent="."]
+position = Vector2(4349, 254)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig122" type="Sprite2D" parent="."]
+position = Vector2(4440, 425)
+rotation = 0.767945
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig123" type="Sprite2D" parent="."]
+position = Vector2(4317, 393)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk199" type="Sprite2D" parent="."]
+position = Vector2(4376, 303)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk200" type="Sprite2D" parent="."]
+position = Vector2(4376, 335)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk201" type="Sprite2D" parent="."]
+position = Vector2(4376, 335)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk202" type="Sprite2D" parent="."]
+position = Vector2(4376, 303)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk203" type="Sprite2D" parent="."]
+position = Vector2(4376, 335)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk204" type="Sprite2D" parent="."]
+position = Vector2(4376, 335)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk205" type="Sprite2D" parent="."]
+position = Vector2(4376, 239)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch177" type="Sprite2D" parent="."]
+position = Vector2(4408, 220)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk206" type="Sprite2D" parent="."]
+position = Vector2(4376, 271)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk207" type="Sprite2D" parent="."]
+position = Vector2(4376, 271)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk208" type="Sprite2D" parent="."]
+position = Vector2(4376, 239)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch179" type="Sprite2D" parent="."]
+position = Vector2(4408, 220)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk209" type="Sprite2D" parent="."]
+position = Vector2(4376, 271)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk210" type="Sprite2D" parent="."]
+position = Vector2(4376, 271)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk211" type="Sprite2D" parent="."]
+position = Vector2(4376, 175)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch180" type="Sprite2D" parent="."]
+position = Vector2(4408, 156)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk212" type="Sprite2D" parent="."]
+position = Vector2(4376, 207)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk213" type="Sprite2D" parent="."]
+position = Vector2(4376, 207)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk214" type="Sprite2D" parent="."]
+position = Vector2(4376, 175)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk215" type="Sprite2D" parent="."]
+position = Vector2(4376, 143)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk216" type="Sprite2D" parent="."]
+position = Vector2(4376, 111)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk217" type="Sprite2D" parent="."]
+position = Vector2(4376, 79)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk218" type="Sprite2D" parent="."]
+position = Vector2(4376, 47)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk219" type="Sprite2D" parent="."]
+position = Vector2(4376, 15)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch182" type="Sprite2D" parent="."]
+position = Vector2(4408, 156)
+texture = ExtResource("27_cjnfs")
+
+[node name="Trunk220" type="Sprite2D" parent="."]
+position = Vector2(4376, 207)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk221" type="Sprite2D" parent="."]
+position = Vector2(4376, 207)
+texture = ExtResource("22_cwwka")
+
+[node name="Trunk222" type="Sprite2D" parent="."]
+position = Vector2(4376, 495)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch183" type="Sprite2D" parent="."]
+position = Vector2(4349, 510)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig124" type="Sprite2D" parent="."]
+position = Vector2(4317, 489)
+rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="Trunk223" type="Sprite2D" parent="."]
+position = Vector2(4376, 495)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch184" type="Sprite2D" parent="."]
+position = Vector2(4349, 510)
+texture = ExtResource("28_qmoel")
+
+[node name="PropTwig125" type="Sprite2D" parent="."]
+position = Vector2(4317, 489)
 rotation = -0.933751
 texture = ExtResource("29_8l1iq")
 
@@ -4755,281 +5015,6 @@ texture = ExtResource("36_aajqt")
 position = Vector2(5107, 353)
 texture = ExtResource("37_kcmtn")
 
-[node name="Bridge" type="Node2D" parent="."]
-position = Vector2(4158, 516)
-rotation = -0.340339
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Bridge"]
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="Bridge"]
-position = Vector2(24, 0)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D2"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D2"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="Bridge"]
-position = Vector2(48, 0)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D3"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D3"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="Bridge"]
-position = Vector2(72, 0)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D4"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D4"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D5" type="RigidBody2D" parent="Bridge"]
-position = Vector2(96, 0)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D5"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D5"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D6" type="RigidBody2D" parent="Bridge"]
-position = Vector2(120, 0)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D6"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D6"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D7" type="RigidBody2D" parent="Bridge"]
-position = Vector2(143.408, -0.197144)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D7"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D7"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D8" type="RigidBody2D" parent="Bridge"]
-position = Vector2(167.759, -0.0610352)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D8"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D8"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D9" type="RigidBody2D" parent="Bridge"]
-position = Vector2(192.111, 0.0751953)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D9"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D9"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D10" type="RigidBody2D" parent="Bridge"]
-position = Vector2(216.795, -0.730957)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D10"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D10"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D11" type="RigidBody2D" parent="Bridge"]
-position = Vector2(241.481, -1.53772)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D11"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D11"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D12" type="RigidBody2D" parent="Bridge"]
-position = Vector2(266.166, -2.34375)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D12"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D12"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D13" type="RigidBody2D" parent="Bridge"]
-position = Vector2(290.851, -3.15051)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D13"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D13"]
-position = Vector2(98, 0.500122)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D14" type="RigidBody2D" parent="Bridge"]
-position = Vector2(315.536, -3.95667)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D14"]
-position = Vector2(101.943, 2.3335)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D14"]
-position = Vector2(98.9429, 0.833984)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="RigidBody2D15" type="RigidBody2D" parent="Bridge"]
-position = Vector2(341.164, -4.4292)
-
-[node name="PropTwig102" type="Sprite2D" parent="Bridge/RigidBody2D15"]
-position = Vector2(101, 2)
-rotation = 1.5708
-texture = ExtResource("29_8l1iq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/RigidBody2D15"]
-position = Vector2(98, 0.5)
-shape = SubResource("RectangleShape2D_oxwc5")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Bridge"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bridge/StaticBody2D"]
-position = Vector2(-5, 0)
-polygon = PackedVector2Array(87, 6, 87, -5, 80, 3)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Bridge"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bridge/StaticBody2D2"]
-position = Vector2(-2.17212, 1.00159)
-polygon = PackedVector2Array(451.314, -2.13989, 451.707, -6.24438, 522.226, -22.6451)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Bridge"]
-position = Vector2(87, 0)
-node_a = NodePath("../../StaticBody2D")
-node_b = NodePath("../RigidBody2D")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Bridge"]
-position = Vector2(110, 1)
-node_a = NodePath("../RigidBody2D")
-node_b = NodePath("../RigidBody2D2")
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="Bridge"]
-position = Vector2(134, 0)
-node_a = NodePath("../RigidBody2D2")
-node_b = NodePath("../RigidBody2D3")
-
-[node name="PinJoint2D4" type="PinJoint2D" parent="Bridge"]
-position = Vector2(158, 0)
-node_a = NodePath("../RigidBody2D3")
-node_b = NodePath("../RigidBody2D4")
-
-[node name="PinJoint2D5" type="PinJoint2D" parent="Bridge"]
-position = Vector2(182, 0)
-node_a = NodePath("../RigidBody2D4")
-node_b = NodePath("../RigidBody2D5")
-
-[node name="PinJoint2D6" type="PinJoint2D" parent="Bridge"]
-position = Vector2(206, 0)
-node_a = NodePath("../RigidBody2D5")
-node_b = NodePath("../RigidBody2D6")
-
-[node name="PinJoint2D7" type="PinJoint2D" parent="Bridge"]
-position = Vector2(229.075, 0.744995)
-node_a = NodePath("../RigidBody2D6")
-node_b = NodePath("../RigidBody2D7")
-
-[node name="PinJoint2D8" type="PinJoint2D" parent="Bridge"]
-position = Vector2(253.76, -0.0610352)
-node_a = NodePath("../RigidBody2D7")
-node_b = NodePath("../RigidBody2D8")
-
-[node name="PinJoint2D9" type="PinJoint2D" parent="Bridge"]
-position = Vector2(278.111, 0.0755615)
-node_a = NodePath("../RigidBody2D8")
-node_b = NodePath("../RigidBody2D9")
-
-[node name="PinJoint2D10" type="PinJoint2D" parent="Bridge"]
-position = Vector2(302.463, 0.21167)
-node_a = NodePath("../RigidBody2D9")
-node_b = NodePath("../RigidBody2D10")
-
-[node name="PinJoint2D11" type="PinJoint2D" parent="Bridge"]
-position = Vector2(327.052, -0.878069)
-node_a = NodePath("../RigidBody2D10")
-node_b = NodePath("../RigidBody2D11")
-
-[node name="PinJoint2D12" type="PinJoint2D" parent="Bridge"]
-position = Vector2(351.737, -1.68428)
-node_a = NodePath("../RigidBody2D11")
-node_b = NodePath("../RigidBody2D12")
-
-[node name="PinJoint2D13" type="PinJoint2D" parent="Bridge"]
-position = Vector2(375.146, -1.88166)
-node_a = NodePath("../RigidBody2D12")
-node_b = NodePath("../RigidBody2D13")
-
-[node name="PinJoint2D14" type="PinJoint2D" parent="Bridge"]
-position = Vector2(402.05, -2.9628)
-node_a = NodePath("../RigidBody2D13")
-node_b = NodePath("../RigidBody2D14")
-
-[node name="PinJoint2D15" type="PinJoint2D" parent="Bridge"]
-position = Vector2(426.735, -3.76905)
-node_a = NodePath("../RigidBody2D14")
-node_b = NodePath("../RigidBody2D15")
-
-[node name="PinJoint2D16" type="PinJoint2D" parent="Bridge"]
-position = Vector2(449.201, -4.30023)
-node_a = NodePath("../RigidBody2D15")
-node_b = NodePath("../StaticBody2D2")
-
 [node name="Checkpoint2" parent="." instance=ExtResource("20_27b7i")]
 position = Vector2(282, 336)
 player_checkpoint_item = "RocketBoost"
@@ -5058,6 +5043,27 @@ item_switch_type = "ArmGun"
 [node name="Checkpoint3" parent="." instance=ExtResource("20_27b7i")]
 position = Vector2(494, -304)
 player_checkpoint_item = "RocketBoost"
+
+[node name="Checkpoint4" parent="." instance=ExtResource("20_27b7i")]
+position = Vector2(4691, 334)
+rotation = 0.427606
+
+[node name="PropTreeStump16" type="Sprite2D" parent="."]
+position = Vector2(4182, 530)
+texture = ExtResource("26_44qhx")
+
+[node name="PropTreeStump17" type="Sprite2D" parent="."]
+position = Vector2(4382, 530)
+texture = ExtResource("26_44qhx")
+
+[node name="PropTrunkMiddle" type="Sprite2D" parent="."]
+position = Vector2(4376, 504)
+texture = ExtResource("22_cwwka")
+
+[node name="PropBranch185" type="Sprite2D" parent="."]
+position = Vector2(4565, 334)
+rotation = -3.31613
+texture = ExtResource("27_cjnfs")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

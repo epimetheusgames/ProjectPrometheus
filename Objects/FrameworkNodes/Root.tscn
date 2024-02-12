@@ -59,9 +59,7 @@ offset_left = 438.0
 offset_top = 531.0
 offset_right = 741.0
 offset_bottom = 606.0
-text = "If you want non-LAN clients to connect,
-make sure the port 8910 in UDP
-is forwarded checked your router."
+text = "PLAYTESTERS PLEASE IGNORE THIS"
 metadata/_edit_use_anchors_ = true
 
 [node name="Address" type="LineEdit" parent="NetworkingManager"]
