@@ -78,13 +78,13 @@ offset_bottom = 886.0
 
 [node name="Difficulty" type="CheckButton" parent="."]
 visible = false
-offset_left = 327.0
-offset_top = 1017.0
-offset_right = 551.0
-offset_bottom = 1062.0
+offset_left = 911.0
+offset_top = 958.0
+offset_right = 1135.0
+offset_bottom = 1003.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_oee3f")
-text = "Accessibility Mode"
+text = "Hard Mode                    "
 
 [node name="ShowFPS" type="CheckButton" parent="."]
 offset_left = 408.0
@@ -140,6 +140,15 @@ offset_bottom = 1010.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
 
+[node name="Panel8" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 906.0
+offset_top = 954.0
+offset_right = 1164.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
 [node name="Panel4" type="Panel" parent="."]
 modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
 offset_left = 398.0
@@ -167,5 +176,25 @@ offset_bottom = 946.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
 
+[node name="ShowDeaths" type="CheckButton" parent="."]
+visible = false
+offset_left = 909.0
+offset_top = 897.0
+offset_right = 1165.0
+offset_bottom = 942.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_oee3f")
+text = "Show Death Counter"
+
+[node name="Panel7" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 906.0
+offset_top = 890.0
+offset_right = 1164.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
 [connection signal="mouse_entered" from="Panel3" to="." method="_on_panel_3_mouse_entered"]
+[connection signal="mouse_entered" from="Panel8" to="." method="_on_panel_3_mouse_entered"]

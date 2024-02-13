@@ -433,7 +433,7 @@ item_switch_type = "Grapple"
 position = Vector2(112, -1552)
 
 [node name="Artifact2" parent="." instance=ExtResource("21_vavub")]
-position = Vector2(47, -1040)
+position = Vector2(81, -1136)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

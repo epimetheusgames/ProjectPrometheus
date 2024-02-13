@@ -644,7 +644,7 @@ texture = SubResource("GradientTexture2D_ia288")
 lifetime = 20.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 6, 15, 2, -13, -3, -13, -8, 15, -8, 16)
+polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 6, 15, 2, -10, -3, -10, -8, 15, -8, 16)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 energy = 1.2

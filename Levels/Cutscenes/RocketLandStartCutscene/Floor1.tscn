@@ -466,7 +466,7 @@ _data = {
 "RocketLanding": SubResource("Animation_4i0tr")
 }
 
-[node name="Level3" type="Node2D"]
+[node name="RocketLandCutscene" type="Node2D"]
 script = ExtResource("1_5eoh3")
 level = 4
 boss = true
