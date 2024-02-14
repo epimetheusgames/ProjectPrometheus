@@ -19,7 +19,7 @@ func _process(delta):
 		$CharacterBody2D/CollisionPolygon2D2.disabled = false
 		
 	if going_up:
-		if velocity.y > -elevator_max_speed:
+		if abs(velocity.y) < elevator_max_speed:
 			velocity.y -= acceleration
 		
 		position += velocity
