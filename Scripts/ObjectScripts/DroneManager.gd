@@ -151,9 +151,11 @@ func _process(delta):
 		physics_drone_ingame = null
 			
 	if !big_drone && is_close_to_player && !temp_disabled:
-		$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
+		if !get_parent().graphics_efficiency:
+			$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
+			
 		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
-		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 1000
+		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 300
 		
 		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
@@ -166,7 +168,6 @@ func _process(delta):
 		$LineRaycast.target_position = $PlayerRaycast.target_position
 		$LineRaycast.position = $PlayerRaycast.position
 		
-		var player_cast = $PlayerRaycast.get_collider()
 		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
 			if $TargetFoundTimer.time_left == 0:
 				$TargetFoundTimer.start()
