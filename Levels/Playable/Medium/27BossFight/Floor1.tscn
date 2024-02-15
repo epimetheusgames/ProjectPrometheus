@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=45 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -26,6 +26,8 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="24_1ioqx"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="25_xmgre"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="26_3luxv"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="27_wcxkk"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="28_yqhjs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_lvfhp")
@@ -364,7 +366,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
-position = Vector2(464, -832)
+position = Vector2(464, 0)
 
 [node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
@@ -391,6 +393,7 @@ position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("12_juktl")
+auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(933, 2007)
@@ -573,6 +576,29 @@ script = ExtResource("26_3luxv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
 position = Vector2(709.75, -902.5)
 shape = SubResource("RectangleShape2D_exyt3")
+
+[node name="ControllerTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 908.0
+offset_top = -793.0
+offset_right = 948.0
+offset_bottom = -753.0
+texture = ExtResource("27_wcxkk")
+expand_mode = 1
+script = ExtResource("28_yqhjs")
+path = "interact"
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(159, 2112)
+points = PackedVector2Array(747, 0, 747, -3008)
+width = 2.0
+default_color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(203, 2112)
+points = PackedVector2Array(747, 0, 747, -3008)
+width = 2.0
+default_color = Color(0.27451, 0.27451, 0.27451, 1)
 
 [connection signal="timeout" from="Boss/NewBulletTimer" to="Boss" method="_on_new_bullet_timer_timeout"]
 [connection signal="timeout" from="Boss/NewExplosionTimer" to="Boss" method="_on_new_explosion_timer_timeout"]

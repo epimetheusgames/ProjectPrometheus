@@ -2,9 +2,28 @@ extends Area2D
 
 var active = true
 var use_parent_add = false
+var player_in_area = false
+@export var auto_next = false
+
+func _ready():
+	area_exited.connect(_on_area_exited)
 
 func _on_area_entered(area):
 	if area.name == "PlayerHurtbox" && active:
+		player_in_area = true
+		
+		if auto_next:
+			if !use_parent_add:
+				add_level()
+			else:
+				get_parent().add_level
+		
+func _on_area_exited(area):
+	if area.name == "PlayerHurtbox":
+		player_in_area = false
+		
+func _process(delta):
+	if player_in_area && Input.is_action_just_pressed("interact"):
 		if !use_parent_add:
 			add_level()
 		else:
