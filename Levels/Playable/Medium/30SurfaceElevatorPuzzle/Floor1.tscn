@@ -657,9 +657,6 @@ position = Vector2(-174, 196)
 position = Vector2(-454, -4)
 rotation = 3.14159
 
-[node name="GrappleHook4" parent="." instance=ExtResource("18_ao25b")]
-position = Vector2(-532, 356)
-
 [node name="GrappleHook5" parent="." instance=ExtResource("18_ao25b")]
 position = Vector2(169, -91)
 

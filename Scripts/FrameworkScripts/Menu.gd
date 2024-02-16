@@ -31,7 +31,7 @@ func _ready():
 		$Difficulty.button_pressed = global_data[3]
 		$ShowFPS.button_pressed = global_data[4]
 		$ShowPoints.button_pressed = global_data[5]
-		$ShowSpeedrunTimer.button_pressed = global_data[5]
+		$ShowSpeedrunTimer.button_pressed = global_data[6]
 		
 	if name == "StartGameMenu":
 		$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data($SlotSelect.value)[0] + 1)
