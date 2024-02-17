@@ -16,6 +16,7 @@ func _process(delta):
 	# Open and close options menu.
 	if Input.is_action_just_pressed("esc") && !get_parent().was_open:
 		if showing:
+			get_parent().get_parent().get_parent().just_unpaused = true
 			hide()
 		else:
 			show()

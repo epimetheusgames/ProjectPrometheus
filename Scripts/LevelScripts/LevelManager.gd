@@ -15,6 +15,7 @@ var deaths_this_level = 0
 var points = 0
 var time = 0
 var deaths = 0
+var just_unpaused = false
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
