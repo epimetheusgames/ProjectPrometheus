@@ -39,6 +39,7 @@ var in_conveyor_belt = false
 var dont_reset_conveyor = false
 var has_key = false
 var is_swiping_sword = false
+var disable_controlls = false
 
 var current_ability = "Weapon"
 
@@ -62,7 +63,7 @@ func _ready():
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
-	if $PlayerAnimation.animation != "AttackSword":
+	if $PlayerAnimation.animation != "AttackSword" && !disable_controlls:
 		var input_direction = Input.get_axis("left", "right")
 		var max_movement_speed = max_speed
 		
@@ -77,7 +78,7 @@ func getInputVelocity(can_jump):
 	return 0
 	
 func checkJump():
-	return Input.is_action_just_pressed("jump")
+	return Input.is_action_just_pressed("jump") if !disable_controlls else false
 	
 func canJump():
 	return is_on_floor()
