@@ -3,6 +3,7 @@ extends Node2D
 @export var level = 0
 @export var floor = 0
 @export var boss = false
+@export var zoom_boss = false
 @export var is_multiplayer = false
 var slot = -1
 var graphics_efficiency = false
@@ -60,6 +61,9 @@ func _process(delta):
 	if boss:
 		get_node("Player").target_zoom = Vector2(2.5, 2.5)
 		
+	if zoom_boss:
+		get_node("Player").target_zoom = Vector2(2, 2)
+		
 	if end_level:
 		$Label2.text = "Points: " + str(points * 10) 
 	
@@ -74,3 +78,6 @@ func _process(delta):
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()
 
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "ExtractLargeDrone":
+		$NextLevel.add_level()

@@ -38,8 +38,18 @@ func _process(delta):
 			get_parent().add_child(missile_object)
 			
 		if controlling_ship:
-			position.x += get_horizontal_direction_pressed()
-			position.y += get_vertical_direction_pressed()
+			velocity.x += get_horizontal_direction_pressed() * 0.02
+			if get_vertical_direction_pressed() == 0:
+				velocity.y -= abs(get_horizontal_direction_pressed()) * 0.02 if velocity.y > 0 else -abs(get_horizontal_direction_pressed()) * 0.02
+			
+			velocity.y += get_vertical_direction_pressed() * 0.02
+			if get_horizontal_direction_pressed() == 0:
+				velocity.x -= abs(get_vertical_direction_pressed()) * 0.02 if velocity.x > 0 else -abs(get_vertical_direction_pressed()) * 0.02
+			
+		if abs(velocity.x) > 3:
+			velocity.x = 3 if velocity.x > 0 else -3
+		if abs(velocity.y) > 3:
+			velocity.y = 3 if velocity.y > 0 else -3
 			
 		position += velocity * delta * 60
 

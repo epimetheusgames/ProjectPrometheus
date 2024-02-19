@@ -1,34 +1,32 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2n1v46obijg1"]
+[gd_scene load_steps=34 format=3 uid="uid://tq755c4o5ojd"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cr1e0"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattle/BossControls.gd" id="2_ognvq"]
-[ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_2ugms"]
-[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="5_035fk"]
-[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="6_m8hif"]
-[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="8_d25o7"]
-[ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="9_1iv3b"]
-[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="10_mniio"]
-[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="11_6ki2e"]
-[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="12_yspfo"]
-[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="13_eypvj"]
-[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="14_8hsir"]
-[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="15_nbxqw"]
-[ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="16_h50xi"]
-[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="17_mjq8r"]
-[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="18_6580v"]
-[ext_resource type="PackedScene" uid="uid://cjw00oo2fydpj" path="res://Objects/StaticObjects/RagdollMele.tscn" id="19_1hnae"]
-[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="19_m1sin"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="19_qgxlf"]
-[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="20_5ylww"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="21_pk2e6"]
-[ext_resource type="Texture2D" uid="uid://dpkebxe2qa4tu" path="res://Assets/Images/Objects/Enemy/BigDroneSpritesheet.png" id="21_yceq1"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/33MassiveDroneChase/ENextLevel.gd" id="35_qofjs"]
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
+[ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_w0vt6"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="4_3gji8"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_of2sk"]
+[ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="6_o578s"]
+[ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="7_kpxhr"]
+[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="8_kqsia"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="9_x6svd"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="10_ycvg7"]
+[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="11_pjr15"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="12_nsyl5"]
+[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="13_wyniw"]
+[ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="14_nw1q6"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="15_78dkd"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="16_lshur"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="17_e5bgd"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="18_emox8"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="19_6av2y"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/33MassiveDroneChase/ENextLevel.gd" id="20_bo2a6"]
+[ext_resource type="PackedScene" uid="uid://cjw00oo2fydpj" path="res://Objects/StaticObjects/RagdollMele.tscn" id="22_5qxfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdcgr"]
 size = Vector2(72, 88)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
-texture = ExtResource("8_d25o7")
+texture = ExtResource("6_o578s")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -179,7 +177,7 @@ texture_region_size = Vector2i(32, 32)
 11:3/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rylkn"]
-texture = ExtResource("9_1iv3b")
+texture = ExtResource("7_kpxhr")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -207,7 +205,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
-texture = ExtResource("10_mniio")
+texture = ExtResource("8_kqsia")
 texture_region_size = Vector2i(36, 20)
 1:0/0 = 0
 0:0/0 = 0
@@ -228,7 +226,7 @@ metadata/_better_terrain = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fx8ic"]
-texture = ExtResource("12_yspfo")
+texture = ExtResource("10_ycvg7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -269,7 +267,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fx8ic")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
-texture = ExtResource("13_eypvj")
+texture = ExtResource("11_pjr15")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -308,361 +306,32 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
-shader = ExtResource("21_pk2e6")
+shader = ExtResource("19_6av2y")
 shader_parameter/distortion_amm = 0.0
 shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
-[sub_resource type="Animation" id="Animation_21n51"]
-resource_name = "ExtractLargeDrone"
-length = 70.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigDroneExtractor1:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 9.6, 18, 18.1, 27, 39, 50, 58, 70),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-152, -416), Vector2(-152, -85), Vector2(-152, -168), Vector2(-152, -104), Vector2(-152, -107.197), Vector2(-152, -600), Vector2(315, -608), Vector2(316, -552), Vector2(316, -552), Vector2(316, -888)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BigDroneExtractor2:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 9.6, 18, 27, 39, 50, 58, 70),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(121, -416), Vector2(121, -85), Vector2(121, -168), Vector2(121, -104), Vector2(121, -600), Vector2(585, -608), Vector2(585, -552), Vector2(585, -552), Vector2(585, -888)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BigDroneExtractor1/ExtractorCable:points")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(7, 14, 52, 58),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-171.5, -91, -171.5, -88), PackedVector2Array(-171, -91, -171, -45), PackedVector2Array(-171, -91, -171, -45), PackedVector2Array(-171, -91, -166.5, -105)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BigDroneExtractor1/ExtractorCable2:points")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(7, 14, 52, 58),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-170.5, -91, -170.5, -87), PackedVector2Array(-171, -91, -171, -45), PackedVector2Array(-171, -91, -171, -45), PackedVector2Array(-171, -91, -174.5, -104)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BigDroneExtractor2/ExtractorCable3:points")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(7, 14, 52, 58),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-171, -90, -171, -87), PackedVector2Array(-170.5, -90, -170.5, -43), PackedVector2Array(-170.5, -90, -170.5, -43), PackedVector2Array(-170.5, -90, -170.5, -100)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BigDroneExtractor2/ExtractorCable4:points")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(7, 16.1, 52, 58),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [PackedVector2Array(-172, -91, -172, -88), PackedVector2Array(-171.5, -91, -171.5, -29), PackedVector2Array(-171.5, -91, -171.5, -29), PackedVector2Array(-171.5, -91, -171.5, -102)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BigDroneExtractor1/ExtractorCable:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BigDroneExtractor1/ExtractorCable2:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("BigDroneExtractor2/ExtractorCable3:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("BigDroneExtractor2/ExtractorCable4:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("DeadBoss:position")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(17, 27, 39, 50),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-16, -69), Vector2(-16, -573), Vector2(441, -577), Vector2(441, -520)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("DeadBoss/DeadBoss:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 48.5, 50),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.16777, 3.16777, 3.14159]
-}
-
-[sub_resource type="Animation" id="Animation_lrilj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigDroneExtractor2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(121, -120)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BigDroneExtractor1:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-152, -120)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BigDroneExtractor2/ExtractorCable4:points")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-171, -91, -171.5, -29)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BigDroneExtractor2/ExtractorCable3:points")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-170.5, -90, -170.5, -43)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BigDroneExtractor1/ExtractorCable:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BigDroneExtractor1/ExtractorCable2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BigDroneExtractor2/ExtractorCable3:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BigDroneExtractor2/ExtractorCable4:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("BigDroneExtractor1/ExtractorCable:points")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-171.5, -91, -171.5, -88)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("BigDroneExtractor1/ExtractorCable2:points")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-170.5, -91, -170.5, -87)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("DeadBoss:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, -573)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("DeadBoss/DeadBoss:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.16777]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx5wd"]
-_data = {
-"ExtractLargeDrone": SubResource("Animation_21n51"),
-"RESET": SubResource("Animation_lrilj")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lyaeu"]
-atlas = ExtResource("21_yceq1")
-region = Rect2(0, 0, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwgym"]
-atlas = ExtResource("21_yceq1")
-region = Rect2(0, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_32ubl"]
-atlas = ExtResource("21_yceq1")
-region = Rect2(0, 128, 128, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_avjtw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lyaeu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kwgym")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_32ubl")
-}],
-"loop": true,
-"name": &"BigDrone",
-"speed": 17.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ekkl"]
 size = Vector2(446, 55)
 
 [node name="Level4" type="Node2D"]
-script = ExtResource("1_cr1e0")
+script = ExtResource("1_41ryj")
 level = 4
 boss = true
+zoom_boss = true
 no_timer = true
 
 [node name="DeadBoss" type="Node2D" parent="."]
-position = Vector2(-16, -573)
-script = ExtResource("2_ognvq")
+position = Vector2(464, -520)
+script = ExtResource("2_otdig")
 
 [node name="DeadBoss" type="Sprite2D" parent="DeadBoss"]
 modulate = Color(1, 1, 1, 0.756863)
 position = Vector2(24, 68)
-rotation = 3.16777
+rotation = 3.14159
 scale = Vector2(1, -1)
-texture = ExtResource("3_2ugms")
+texture = ExtResource("3_w0vt6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="DeadBoss"]
 
@@ -676,9 +345,9 @@ offset_top = 32.0
 offset_right = 240.0
 offset_bottom = 72.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_035fk")
+texture = ExtResource("4_3gji8")
 expand_mode = 1
-script = ExtResource("6_m8hif")
+script = ExtResource("5_of2sk")
 path = "interact"
 
 [node name="MissileFireEIcon" type="TextureRect" parent="DeadBoss"]
@@ -688,9 +357,9 @@ offset_top = 40.0
 offset_right = -16.0
 offset_bottom = 80.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_035fk")
+texture = ExtResource("4_3gji8")
 expand_mode = 1
-script = ExtResource("6_m8hif")
+script = ExtResource("5_of2sk")
 path = "interact"
 
 [node name="ShipMovementControlEIconActivator" type="Area2D" parent="DeadBoss"]
@@ -709,8 +378,10 @@ shape = SubResource("RectangleShape2D_xdcgr")
 [node name="MissileFirePosition" type="Node2D" parent="DeadBoss"]
 position = Vector2(152, 113)
 
+[node name="PlayerControllingPosition" type="Node2D" parent="DeadBoss"]
+position = Vector2(189, 78)
+
 [node name="MissileFireCooldown" type="Timer" parent="DeadBoss"]
-wait_time = 2.0
 one_shot = true
 
 [node name="Decorations" type="TileMap" parent="."]
@@ -726,7 +397,7 @@ format = 2
 
 [node name="Ingame" type="TileMap" parent="."]
 z_index = 1
-tile_set = ExtResource("11_6ki2e")
+tile_set = ExtResource("9_x6svd")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -746,26 +417,32 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 
 [node name="Gravel" type="TileMap" parent="."]
-tile_set = ExtResource("14_8hsir")
+tile_set = ExtResource("12_nsyl5")
 format = 2
 
 [node name="Spikes" type="TileMap" parent="."]
 self_modulate = Color(1.7, 1.7, 1.7, 1)
-tile_set = ExtResource("15_nbxqw")
+tile_set = ExtResource("13_wyniw")
 rendering_quadrant_size = 32
 format = 2
 
 [node name="TransparentMetal" type="TileMap" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
-tile_set = ExtResource("16_h50xi")
+tile_set = ExtResource("14_nw1q6")
 format = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="Player" parent="." instance=ExtResource("17_mjq8r")]
+[node name="Player" parent="." instance=ExtResource("15_78dkd")]
 z_index = -30
+
+[node name="CameraCollider" parent="Player" index="0"]
+position = Vector2(512, -456)
+
+[node name="Camera" parent="Player" index="1"]
+position = Vector2(512, -456)
 
 [node name="PauseMenu" parent="Player/Camera" index="0"]
 z_index = 30
@@ -778,6 +455,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BossBar" parent="Player/Camera" index="9"]
 z_index = 50
+
+[node name="Player" parent="Player" index="2"]
+position = Vector2(512, -456)
 
 [node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
@@ -794,7 +474,7 @@ motion_mirroring = Vector2(1920, 640)
 [node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-475, 111)
 scale = Vector2(5, 4.99819)
-texture = ExtResource("18_6580v")
+texture = ExtResource("16_lshur")
 centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
@@ -803,10 +483,10 @@ centered = false
 position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
-script = ExtResource("19_qgxlf")
+script = ExtResource("17_e5bgd")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_5ylww")
+stream = ExtResource("18_emox8")
 volume_db = -8.69
 autoplay = true
 bus = &"SFX"
@@ -824,69 +504,17 @@ offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
 
 [node name="ENextLevel" type="Area2D" parent="."]
-script = ExtResource("35_qofjs")
+script = ExtResource("20_bo2a6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_dx5wd")
-}
-autoplay = "ExtractLargeDrone"
-
-[node name="BigDroneExtractor1" type="AnimatedSprite2D" parent="."]
-position = Vector2(-152, -120)
-sprite_frames = SubResource("SpriteFrames_avjtw")
-animation = &"BigDrone"
-
-[node name="ExtractorCable" type="Line2D" parent="BigDroneExtractor1"]
-visible = false
-z_index = -1
-position = Vector2(151.5, 104)
-points = PackedVector2Array(-171.5, -91, -171.5, -88)
-width = 2.0
-default_color = Color(0.305882, 0.305882, 0.305882, 1)
-
-[node name="ExtractorCable2" type="Line2D" parent="BigDroneExtractor1"]
-visible = false
-z_index = -1
-position = Vector2(190.5, 104)
-points = PackedVector2Array(-170.5, -91, -170.5, -87)
-width = 2.0
-default_color = Color(0.305882, 0.305882, 0.305882, 1)
-
-[node name="BigDroneExtractor2" type="AnimatedSprite2D" parent="."]
-position = Vector2(121, -120)
-sprite_frames = SubResource("SpriteFrames_avjtw")
-animation = &"BigDrone"
-
-[node name="ExtractorCable3" type="Line2D" parent="BigDroneExtractor2"]
-visible = false
-z_index = -1
-position = Vector2(151.5, 104)
-points = PackedVector2Array(-170.5, -90, -170.5, -43)
-width = 2.0
-default_color = Color(0.305882, 0.305882, 0.305882, 1)
-
-[node name="ExtractorCable4" type="Line2D" parent="BigDroneExtractor2"]
-visible = false
-z_index = -1
-position = Vector2(191.5, 104)
-points = PackedVector2Array(-171, -91, -171.5, -29)
-width = 2.0
-default_color = Color(0.305882, 0.305882, 0.305882, 1)
-
-[node name="RagdollMele" parent="." instance=ExtResource("19_1hnae")]
+[node name="RagdollMele" parent="." instance=ExtResource("22_5qxfm")]
 z_index = -20
-position = Vector2(-107, -22)
+position = Vector2(357, -478)
 rotation = 0.837758
 
-[node name="RagdollMele2" parent="." instance=ExtResource("19_1hnae")]
+[node name="RagdollMele2" parent="." instance=ExtResource("22_5qxfm")]
 z_index = -20
-position = Vector2(-132, 15)
+position = Vector2(332, -441)
 rotation = -1.64061
-
-[node name="AttackMele" parent="." instance=ExtResource("19_m1sin")]
-z_index = -20
-position = Vector2(142, -10)
 
 [node name="ShipControlsActivatorArea" type="Area2D" parent="."]
 
