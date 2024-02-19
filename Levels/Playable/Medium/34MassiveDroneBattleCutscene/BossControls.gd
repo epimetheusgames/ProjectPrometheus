@@ -4,6 +4,27 @@ extends Node2D
 var active = false
 var controlling_ship = false
 var velocity = Vector2.ZERO
+		
+@onready var raycasts = [
+			$CharacterBody2D/RayCast2D,
+			$CharacterBody2D/RayCast2D2,
+			$CharacterBody2D/RayCast2D3,
+			$CharacterBody2D/RayCast2D4,
+			$CharacterBody2D/RayCast2D5,
+			$CharacterBody2D/RayCast2D6,
+			$CharacterBody2D/RayCast2D7,
+			$CharacterBody2D/RayCast2D8,
+			$CharacterBody2D/RayCast2D9,
+			$CharacterBody2D/RayCast2D10,
+			$CharacterBody2D/RayCast2D11,
+			$CharacterBody2D/RayCast2D12,
+			$CharacterBody2D/RayCast2D13,
+			$CharacterBody2D/RayCast2D14,
+			$CharacterBody2D/RayCast2D15,
+			$CharacterBody2D/RayCast2D16,
+			$CharacterBody2D/RayCast2D17,
+			$CharacterBody2D/RayCast2D18,
+		]
 
 @onready var loaded_missile = preload("res://Objects/StaticObjects/Exploder.tscn")
 
@@ -36,6 +57,34 @@ func _process(delta):
 			missile_object.velocity.x = 15
 			missile_object.position = position + $MissileFirePosition.position
 			get_parent().add_child(missile_object)
+			
+		var collisions = [
+			$CharacterBody2D/RayCast2D.get_collider(),
+			$CharacterBody2D/RayCast2D2.get_collider(),
+			$CharacterBody2D/RayCast2D3.get_collider(),
+			$CharacterBody2D/RayCast2D4.get_collider(),
+			$CharacterBody2D/RayCast2D5.get_collider(),
+			$CharacterBody2D/RayCast2D6.get_collider(),
+			$CharacterBody2D/RayCast2D7.get_collider(),
+			$CharacterBody2D/RayCast2D8.get_collider(),
+			$CharacterBody2D/RayCast2D9.get_collider(),
+			$CharacterBody2D/RayCast2D10.get_collider(),
+			$CharacterBody2D/RayCast2D11.get_collider(),
+			$CharacterBody2D/RayCast2D12.get_collider(),
+			$CharacterBody2D/RayCast2D13.get_collider(),
+			$CharacterBody2D/RayCast2D14.get_collider(),
+			$CharacterBody2D/RayCast2D15.get_collider(),
+			$CharacterBody2D/RayCast2D16.get_collider(),
+			$CharacterBody2D/RayCast2D17.get_collider(),
+			$CharacterBody2D/RayCast2D18.get_collider(),
+		]
+		
+		for collision in range(len(collisions)):
+			if collisions[collision]:
+				var instantiated_missile = loaded_missile.instantiate()
+				instantiated_missile.position = position + raycasts[collision].position
+				get_parent().add_child(instantiated_missile)
+				get_parent().get_node("Player/Camera/CloseAnimator").closing = true
 			
 		if controlling_ship:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position

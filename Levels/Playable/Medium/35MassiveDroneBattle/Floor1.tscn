@@ -338,6 +338,78 @@ texture = ExtResource("3_w0vt6")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeadBoss/CharacterBody2D"]
 polygon = PackedVector2Array(-35, 94, 211, 97, 209, 75, 206, 62, 200, 57, 186, 55, 186, 43, -167, 36, -180, 41, -179, 53, -158, 75, -139, 86, -124, 90, -37, 94, -34, 208, -222, 206, -205, 4, 227, 30, 217, 99, 143, 98, -31, 207)
 
+[node name="RayCast2D" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(208, 80)
+target_position = Vector2(15, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(200, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D3" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(176, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D4" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(152, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D5" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(128, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D6" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(104, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D7" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(80, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D8" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(56, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D9" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(32, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D10" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(8, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D11" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-16, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D12" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-40, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D13" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-64, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D14" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-88, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D15" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-112, 97)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D16" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-136, 91)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D17" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-160, 81)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D18" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
+position = Vector2(-176, 65)
+target_position = Vector2(0, 5)
+
 [node name="ShipControlsEIcon" type="TextureRect" parent="DeadBoss"]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 200.0
@@ -443,6 +515,7 @@ position = Vector2(512, -456)
 
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(512, -456)
+zoom = Vector2(2.5, 2.5)
 
 [node name="PauseMenu" parent="Player/Camera" index="0"]
 z_index = 30
@@ -452,6 +525,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
+
+[node name="ScreenBorder" parent="Player/Camera" index="7"]
+scale = Vector2(0.4, 0.4)
+
+[node name="CloseAnimator" parent="Player/Camera" index="8"]
+z_index = 50
 
 [node name="BossBar" parent="Player/Camera" index="9"]
 z_index = 50
@@ -521,6 +600,11 @@ rotation = -1.64061
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipControlsActivatorArea"]
 position = Vector2(479, -430.5)
 shape = SubResource("RectangleShape2D_6ekkl")
+
+[node name="RagdollMele3" parent="." instance=ExtResource("22_5qxfm")]
+z_index = -20
+position = Vector2(642, -437)
+rotation = 1.54462
 
 [connection signal="area_entered" from="DeadBoss/ShipMovementControlEIconActivator" to="DeadBoss" method="_on_ship_movement_control_e_icon_activator_area_entered"]
 [connection signal="area_exited" from="DeadBoss/ShipMovementControlEIconActivator" to="DeadBoss" method="_on_ship_movement_control_e_icon_activator_area_exited"]
