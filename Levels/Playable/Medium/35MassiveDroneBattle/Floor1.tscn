@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://tq755c4o5ojd"]
+[gd_scene load_steps=35 format=3 uid="uid://tq755c4o5ojd"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
@@ -304,6 +304,9 @@ texture = ExtResource("11_pjr15")
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eq71"]
+size = Vector2(1876, 483)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("19_6av2y")
@@ -676,8 +679,9 @@ position = Vector2(4, -91)
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("17_e5bgd")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextLevel"]
-polygon = PackedVector2Array(3437, -593, 4095, -570, 3703, -836)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(3779, -828)
+shape = SubResource("RectangleShape2D_7eq71")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_emox8")
