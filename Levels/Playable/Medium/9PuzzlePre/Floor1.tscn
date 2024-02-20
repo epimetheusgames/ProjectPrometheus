@@ -442,7 +442,7 @@ position = Vector2(449, -80)
 item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("18_uwlia")]
-position = Vector2(505, -315)
+position = Vector2(449, -315)
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-687, -256)
