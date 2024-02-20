@@ -536,6 +536,7 @@ texture = ExtResource("4_3gji8")
 expand_mode = 1
 script = ExtResource("5_of2sk")
 path = "interact"
+metadata/_edit_use_anchors_ = true
 
 [node name="MissileFireEIcon" type="TextureRect" parent="DeadBoss"]
 custom_minimum_size = Vector2(40, 40)
@@ -548,6 +549,7 @@ texture = ExtResource("4_3gji8")
 expand_mode = 1
 script = ExtResource("5_of2sk")
 path = "interact"
+metadata/_edit_use_anchors_ = true
 
 [node name="ShipMovementControlEIconActivator" type="Area2D" parent="DeadBoss"]
 
@@ -641,14 +643,24 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
+[node name="PointsCounter" parent="Player/Camera" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeCounter" parent="Player/Camera" index="5"]
+metadata/_edit_use_anchors_ = true
+
 [node name="ScreenBorder" parent="Player/Camera" index="7"]
 scale = Vector2(0.4, 0.4)
 
 [node name="CloseAnimator" parent="Player/Camera" index="8"]
 z_index = 50
 
+[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
+metadata/_edit_use_anchors_ = true
+
 [node name="BossBar" parent="Player/Camera" index="9"]
 z_index = 50
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
 position = Vector2(512, -456)

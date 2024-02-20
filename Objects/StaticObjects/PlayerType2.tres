@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=76 format=3 uid="uid://dh70krarnsqvn"]
+[gd_resource type="SpriteFrames" load_steps=82 format=3 uid="uid://dh70krarnsqvn"]
 
 [ext_resource type="Texture2D" uid="uid://b2bsqxv6pog21" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetClimbing.png" id="1_4ad3s"]
 [ext_resource type="Texture2D" uid="uid://b2x6liovymgg6" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAttackMeleType2.png" id="1_5vmc4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c70kyoweeuhkr" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetAirType2.png" id="2_lkd8n"]
 [ext_resource type="Texture2D" uid="uid://cry5fgceh6l0v" path="res://Assets/Images/Objects/CharacterSpritesheet/PlayerSpritesheetGrappleHangeAllTypes.png" id="2_ptawt"]
 [ext_resource type="Texture2D" uid="uid://3bocuhg5bgrg" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetIdleRocketsType2.png" id="2_yrbwd"]
+[ext_resource type="Texture2D" uid="uid://d0dcmeuec5flp" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetDeath.png" id="3_4t0bn"]
 [ext_resource type="Texture2D" uid="uid://bqyrlcf4cpxjg" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheetIdleSwordType2.png" id="3_vcn6a"]
 [ext_resource type="Texture2D" uid="uid://clrlubptpj34p" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplit.png" id="3_wm4pg"]
 [ext_resource type="Texture2D" uid="uid://cmyvexa2xj6h" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSplitRockets.png" id="4_5odpp"]
@@ -50,6 +51,26 @@ region = Rect2(64, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hrx1f"]
 atlas = ExtResource("1_4ad3s")
 region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycytq"]
+atlas = ExtResource("3_4t0bn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nji7"]
+atlas = ExtResource("3_4t0bn")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u4pe"]
+atlas = ExtResource("3_4t0bn")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gs3n"]
+atlas = ExtResource("3_4t0bn")
+region = Rect2(0, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sopui"]
+atlas = ExtResource("3_4t0bn")
+region = Rect2(0, 544, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3thqc"]
 atlas = ExtResource("2_ptawt")
@@ -297,6 +318,26 @@ animations = [{
 "loop": true,
 "name": &"Climbing",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycytq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nji7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u4pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gs3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sopui")
+}],
+"loop": false,
+"name": &"DeathAnim",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,

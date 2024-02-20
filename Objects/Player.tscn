@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
 [ext_resource type="Texture2D" uid="uid://bxkgsplc2qnf3" path="res://Assets/Images/Objects/Misc/BlackPixel.png" id="12_lk36j"]
 [ext_resource type="Texture2D" uid="uid://b1xwrqg427wio" path="res://Assets/Images/Objects/Misc/WhitePixel.png" id="13_7gte0"]
-[ext_resource type="SpriteFrames" uid="uid://ccgutb3w6122l" path="res://Objects/StaticObjects/PlayerType1.tres" id="15_4ybmm"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://bp3tntuuapxp6" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment1.png" id="16_r6ffc"]
 [ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
@@ -30,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
+[ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
@@ -563,8 +563,8 @@ shape = SubResource("RectangleShape2D_1mslx")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
 material = SubResource("ShaderMaterial_3omib")
 position = Vector2(-2, 0)
-sprite_frames = ExtResource("15_4ybmm")
-animation = &"StartJumpSword"
+sprite_frames = ExtResource("23_3u55o")
+animation = &"DeathAnim"
 autoplay = "Walking"
 
 [node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
