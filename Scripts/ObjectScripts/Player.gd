@@ -70,7 +70,7 @@ func getInputVelocity(can_jump):
 		if !can_jump:
 			max_movement_speed = max_air_speed
 		
-		if absf(velocity.x) < max_movement_speed:
+		if absf(velocity.x) < max_movement_speed || (abs(velocity.x) >= max_movement_speed && ((velocity.x < 0 && input_direction > 0) || (velocity.x > 0 && input_direction < 0))):
 			return input_direction * speed
 			
 		return (absf(velocity.x) - max_movement_speed) * -input_direction
