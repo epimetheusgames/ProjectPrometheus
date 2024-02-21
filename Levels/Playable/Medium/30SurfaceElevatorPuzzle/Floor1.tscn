@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cog3jp2ops40s"]
+[gd_scene load_steps=55 format=3 uid="uid://cog3jp2ops40s"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_b70f2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="21_3e8m8"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="22_metxa"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="23_bw2sv"]
+[ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="23_uehp8"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="25_tjqer"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/AnimationActivator.gd" id="26_6qcrf"]
 
@@ -714,6 +715,14 @@ libraries = {
 "": SubResource("AnimationLibrary_cghqg")
 }
 
+[node name="ElevatorMusicPlayer" type="AudioStreamPlayer2D" parent="ElevatorManager"]
+position = Vector2(768, -40)
+stream = ExtResource("23_uehp8")
+volume_db = 7.0
+autoplay = true
+max_distance = 500.0
+bus = &"SpecialMusic"
+
 [node name="ControllerTextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 749.0
@@ -783,6 +792,7 @@ joint_mode = 2
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="ElevatorManager/Area2D" to="ElevatorManager" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ElevatorManager/Area2D" to="ElevatorManager" method="_on_area_2d_area_exited"]
+[connection signal="animation_finished" from="ElevatorManager/AnimationPlayer" to="ElevatorManager" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="AnimationActivator" to="AnimationActivator" method="_on_area_entered"]
 [connection signal="area_exited" from="AnimationActivator" to="AnimationActivator" method="_on_area_exited"]
 

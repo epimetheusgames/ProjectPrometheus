@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk8o56bdo51ex"]
+[gd_scene load_steps=10 format=3 uid="uid://dk8o56bdo51ex"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/SaveLoadFramework.gd" id="1_7se8a"]
 [ext_resource type="PackedScene" uid="uid://bjnr6bfdx0uju" path="res://Objects/FrameworkNodes/MainMenu.tscn" id="2_afe5v"]
@@ -15,6 +15,60 @@ glow_intensity = 1.45
 glow_blend_mode = 1
 glow_hdr_scale = 1.0
 
+[sub_resource type="Animation" id="Animation_xv6h5"]
+resource_name = "FadeoutLevelMusic"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-10.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_sywl8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+
+[sub_resource type="Animation" id="Animation_p8gmw"]
+resource_name = "FadeinLevelMusic"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1.02837),
+"update": 0,
+"values": [-10.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mabt0"]
+_data = {
+"FadeinLevelMusic": SubResource("Animation_p8gmw"),
+"FadeoutLevelMusic": SubResource("Animation_xv6h5"),
+"RESET": SubResource("Animation_sywl8")
+}
+
 [node name="SaveLoadFramework" type="Node2D"]
 editor_description = "This should be the root scene of the project."
 script = ExtResource("1_7se8a")
@@ -28,7 +82,7 @@ environment = SubResource("Environment_80h8x")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
-bus = &"Music"
+bus = &"LevelMusic"
 
 [node name="VoicelinePlayer" type="Node2D" parent="."]
 process_mode = 1
@@ -37,4 +91,9 @@ script = ExtResource("3_dvmmk")
 [node name="VoicelineContainer" type="AudioStreamPlayer" parent="VoicelinePlayer"]
 process_mode = 3
 volume_db = 10.0
-bus = &"SFX"
+bus = &"Voicelines"
+
+[node name="AudioFader" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mabt0")
+}

@@ -1,83 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=15 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
-[ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/Enemy/DrillSpritesheet.png" id="2_sjdmu"]
-[ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/Enemy/DrillTurningSpritesheet.png" id="3_0tlq6"]
+[ext_resource type="SpriteFrames" uid="uid://be50iqvtndo2r" path="res://Objects/StaticObjects/DrillAnimations.tres" id="2_bqydg"]
 [ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/Enemy/DrillBreakSpritesheet.png" id="3_1ri88"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0na53"]
-atlas = ExtResource("2_sjdmu")
-region = Rect2(0, 0, 40, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxn8e"]
-atlas = ExtResource("3_0tlq6")
-region = Rect2(0, 160, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpi8y"]
-atlas = ExtResource("3_0tlq6")
-region = Rect2(0, 120, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlpp4"]
-atlas = ExtResource("3_0tlq6")
-region = Rect2(0, 80, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t31lp"]
-atlas = ExtResource("3_0tlq6")
-region = Rect2(0, 40, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_450si"]
-atlas = ExtResource("3_0tlq6")
-region = Rect2(0, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ecvox"]
-atlas = ExtResource("2_sjdmu")
-region = Rect2(0, 0, 40, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8wk2"]
-atlas = ExtResource("2_sjdmu")
-region = Rect2(0, 40, 40, 35)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jwq1i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0na53")
-}],
-"loop": false,
-"name": &"Idle",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxn8e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpi8y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlpp4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t31lp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_450si")
-}],
-"loop": false,
-"name": &"LeftToRight",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ecvox")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8wk2")
-}],
-"loop": true,
-"name": &"Moving",
-"speed": 20.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qpvt"]
 atlas = ExtResource("3_1ri88")
@@ -161,7 +86,7 @@ target_position = Vector2(0, 31)
 
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 14.5)
-sprite_frames = SubResource("SpriteFrames_jwq1i")
+sprite_frames = ExtResource("2_bqydg")
 animation = &"Moving"
 autoplay = "Moving"
 

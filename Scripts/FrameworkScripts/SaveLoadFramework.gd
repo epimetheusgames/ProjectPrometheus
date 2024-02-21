@@ -108,6 +108,7 @@ var player_camera_position = Vector2.ZERO
 var last_music_ind = -1
 var starting = true
 var force_time_scale = -1.0
+var playing_special_music = false
 
 func _process(delta):
 	if starting && !$EpimetheusFadin.finished:
@@ -284,3 +285,12 @@ func collect_artifact(slot, uid):
 	data[4][uid] = true
 	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5])
 	
+func start_special_music():
+	if !playing_special_music:
+		playing_special_music = true
+		$AudioFader.play("FadeoutLevelMusic")
+	
+func end_special_music():
+	if playing_special_music:
+		playing_special_music = false
+		$AudioFader.play("FadeinLevelMusic")

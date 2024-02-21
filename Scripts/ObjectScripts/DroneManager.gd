@@ -29,6 +29,7 @@ var physics_drone_ingame = null
 @export var firefly = false
 @export var drone_boss = false
 @export var bird = false
+@export var attack_drone = false
 @export var speed = 1.0
 
 const ninety_deg_rad = deg_to_rad(90)

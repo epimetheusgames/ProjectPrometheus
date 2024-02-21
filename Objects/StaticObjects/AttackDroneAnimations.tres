@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dvad4ka6eq5kw"]
+
+[ext_resource type="Texture2D" uid="uid://bmkm3x8ywtpii" path="res://Assets/Images/Objects/Enemy/AttackDroneSpritesheet.png" id="1_u5j1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i27am"]
+atlas = ExtResource("1_u5j1v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lxvq"]
+atlas = ExtResource("1_u5j1v")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ln2"]
+atlas = ExtResource("1_u5j1v")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00bv6"]
+atlas = ExtResource("1_u5j1v")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i27am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lxvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ln2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00bv6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}]
