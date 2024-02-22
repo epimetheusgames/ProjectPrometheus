@@ -306,7 +306,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7eq71"]
-size = Vector2(1876, 483)
+size = Vector2(466, 483)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("19_6av2y")
@@ -608,6 +608,7 @@ layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 [node name="Gravel" type="TileMap" parent="."]
 tile_set = ExtResource("12_nsyl5")
 format = 2
+layer_0/tile_data = PackedInt32Array(131047, 0, 1, -26, 0, 1, -131100, 0, 1, -196638, 0, 1, 196584, 0, 1, -65571, 0, 2, -65570, 0, 2, -65569, 0, 3, -65568, 0, 3, -131104, 0, 3, -131103, 0, 2, -131102, 0, 2, -65566, 0, 2, -65567, 0, 3, -65565, 0, 3, -131101, 0, 2, -29, 0, 3, -65564, 0, 2, -28, 0, 3, -27, 0, 3, 65509, 0, 2, 131045, 0, 3, 131046, 0, 3, 65510, 0, 3, 196582, 0, 3, 196583, 0, 2, 262120, 0, 3, 262119, 0, 3, 262118, 0, 2, 262117, 0, 3, 262116, 0, 2, 262115, 0, 2, 262114, 0, 2, 262113, 0, 2, 262112, 0, 2, 262111, 0, 3, 262110, 0, 2, 262109, 0, 2, 196573, 0, 3, 131037, 0, 3, 65501, 0, 3, -35, 0, 3, -34, 0, 2, 65502, 0, 2, 131038, 0, 3, 131039, 0, 3, 196575, 0, 2, 196574, 0, 2, -33, 0, 2, -32, 0, 3, 65504, 0, 3, 131040, 0, 3, 196576, 0, 3, 65503, 0, 2, 65505, 0, 2, 131042, 0, 2, 196578, 0, 3, 196577, 0, 3, 131041, 0, 3, -31, 0, 2, 65506, 0, 3, 65507, 0, 3, 131043, 0, 3, -30, 0, 3, 196579, 0, 3, 196580, 0, 2, 196581, 0, 3, 131044, 0, 2, 65508, 0, 2, 327647, 0, 3, 327648, 0, 3, 327649, 0, 3, 327650, 0, 3, 327651, 0, 2, 327652, 0, 3, 327653, 0, 2, 327654, 0, 2, 327655, 0, 3)
 
 [node name="Spikes" type="TileMap" parent="."]
 self_modulate = Color(1.7, 1.7, 1.7, 1)
@@ -690,9 +691,10 @@ position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("17_e5bgd")
+auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(3779, -828)
+position = Vector2(3709, -694)
 shape = SubResource("RectangleShape2D_7eq71")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
