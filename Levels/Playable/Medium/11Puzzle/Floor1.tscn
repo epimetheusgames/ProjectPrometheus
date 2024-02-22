@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_f1lqg"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_rx7ld"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_koiyi"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_7ubhr"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="20_s6bs5"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_i1f5k"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="23_g8e3j"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="24_38163"]
@@ -377,7 +377,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -425,10 +425,6 @@ color = Color(1, 1, 1, 0.454902)
 position = Vector2(-431, 80)
 item_switch_type = "RocketBoost"
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-432, -64)
-texture = ExtResource("19_7ubhr")
-
 [node name="NextLevelRequiresKey" parent="." instance=ExtResource("23_g8e3j")]
 position = Vector2(-462, -43)
 
@@ -438,6 +434,10 @@ position = Vector2(112, -49)
 [node name="Artifact" parent="." instance=ExtResource("22_i1f5k")]
 position = Vector2(255, -130)
 uid = 10101054
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(-431, -64)
+texture = ExtResource("20_s6bs5")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

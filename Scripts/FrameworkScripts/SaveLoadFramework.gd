@@ -6,9 +6,10 @@ extends Node2D
 
 const preloaded_levels = [
 	#[preload("res://Levels/Cutscenes/RocketLandStartCutscene/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/0Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/1Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2Tutorial/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/3Tutorial/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/3Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/4Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/5Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/6Easy/Floor1.tscn")],

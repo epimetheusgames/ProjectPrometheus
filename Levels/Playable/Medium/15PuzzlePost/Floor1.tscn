@@ -19,12 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="17_asmii"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_wfvgc"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="18_q8ibj"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_ugrlh"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="22_nbr0b"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="23_ch8lv"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="24_lhhao"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="25_o3bpb"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="25_pnrqq"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="26_6l1lv"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="26_mvncx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -380,7 +380,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -465,10 +465,6 @@ points = PackedVector2Array(-232, 9, -221, 215, -276, 200, -335, 245, -424, 213,
 [node name="AttackMele" parent="." instance=ExtResource("23_ch8lv")]
 position = Vector2(-540, -511)
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-766, -512)
-texture = ExtResource("19_ugrlh")
-
 [node name="ItemSwitcher5" parent="." instance=ExtResource("17_wfvgc")]
 position = Vector2(-31, -528)
 
@@ -484,6 +480,10 @@ scale = Vector2(-1, 1)
 
 [node name="Checkpoint" parent="." instance=ExtResource("26_mvncx")]
 position = Vector2(273, -208)
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(-770, -512)
+texture = ExtResource("26_6l1lv")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

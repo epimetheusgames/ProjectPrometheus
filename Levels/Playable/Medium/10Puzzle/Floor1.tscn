@@ -16,10 +16,10 @@
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_d44md"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_qnig2"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="16_872dr"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="17_edacm"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="18_b7k6p"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="19_ngw4n"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="20_dq1lk"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="20_jsktq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_jci7s")
@@ -424,10 +424,6 @@ color = Color(1, 1, 1, 0.454902)
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("16_872dr")
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-176, 0)
-texture = ExtResource("17_edacm")
-
 [node name="Key" parent="." instance=ExtResource("18_b7k6p")]
 position = Vector2(251, 0)
 
@@ -437,6 +433,10 @@ position = Vector2(-207, 22)
 [node name="DrillManager" parent="." instance=ExtResource("20_dq1lk")]
 position = Vector2(165, -13)
 start_direction = -1
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(-176, 0)
+texture = ExtResource("20_jsktq")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

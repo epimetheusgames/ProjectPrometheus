@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="20_d5pp0"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="22_6ho06"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="23_mo3wc"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="24_sm8rs"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="25_03jmb"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="26_p0m3p"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="27_i2y2r"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="27_qdc0y"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="27_xmymx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -393,10 +393,6 @@ position = Vector2(2775, -187)
 position = Vector2(1518, -16)
 player_checkpoint_item = "RocketBoost"
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(2017, -224)
-texture = ExtResource("24_sm8rs")
-
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(2089, -208)
 texture = ExtResource("25_03jmb")
@@ -463,6 +459,10 @@ uid = 90909
 [node name="Artifact2" parent="." instance=ExtResource("27_xmymx")]
 position = Vector2(2464, -342)
 uid = 38478
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(2018, -224)
+texture = ExtResource("27_qdc0y")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

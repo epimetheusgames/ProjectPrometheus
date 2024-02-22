@@ -34,10 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="34_6ntr8"]
 [ext_resource type="Texture2D" uid="uid://dgpt4u3xygxnc" path="res://Assets/Images/Objects/Enemy/EvilBird.png" id="35_yhvx7"]
 [ext_resource type="Texture2D" uid="uid://bkuhx6xm405i1" path="res://Assets/Images/Objects/Props/PropLargeBush.png" id="36_aajqt"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="36_hootk"]
 [ext_resource type="Texture2D" uid="uid://6ocnahhe2c0v" path="res://Assets/Images/Objects/Props/PropGiganticBush.png" id="37_kcmtn"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="37_rmto2"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="38_ms1na"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="38_q85fv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -5105,10 +5105,6 @@ position = Vector2(4565, 334)
 rotation = -3.31613
 texture = ExtResource("27_cjnfs")
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(6710, 352)
-texture = ExtResource("36_hootk")
-
 [node name="Checkpoint5" parent="." instance=ExtResource("20_27b7i")]
 position = Vector2(6274, 368)
 player_checkpoint_item = "Grapple"
@@ -5141,6 +5137,10 @@ rotation = 3.14159
 [node name="GrappleHook2" parent="." instance=ExtResource("38_ms1na")]
 position = Vector2(6556, -5)
 rotation = 3.14159
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(6710, 352)
+texture = ExtResource("38_q85fv")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

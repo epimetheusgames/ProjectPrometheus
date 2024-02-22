@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_wwgdy"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="17_imtog"]
 [ext_resource type="PackedScene" uid="uid://hx1rrl8f6576" path="res://Objects/StaticObjects/ConveyorBelt.tscn" id="18_mekw7"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_k7qat"]
 [ext_resource type="PackedScene" uid="uid://bftj7jx388yff" path="res://Objects/StaticObjects/GravelBlock.tscn" id="20_oxvkg"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="22_2gbl0"]
 [ext_resource type="Texture2D" uid="uid://cdxvgm1lfk23y" path="res://Assets/Images/Objects/Props/PropTrunkMiddle.png" id="23_gjsnv"]
@@ -37,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b0d5qxpdasrgs" path="res://Assets/Images/Objects/Props/PropTreeStump.png" id="35_0a5og"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="36_byvlm"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="37_cby8g"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="37_fqmh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_uvxm3")
@@ -537,10 +537,6 @@ speed = 4
 position = Vector2(-288, -544)
 direction = -1
 speed = 4
-
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-1056, 0)
-texture = ExtResource("19_k7qat")
 
 [node name="GravelBlock" parent="." instance=ExtResource("20_oxvkg")]
 position = Vector2(154, -592)
@@ -3547,6 +3543,10 @@ position = Vector2(1250, -70)
 
 [node name="BGLeafBunch162" parent="." instance=ExtResource("33_n0dfc")]
 position = Vector2(1259, -62)
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(-1056, 0)
+texture = ExtResource("37_fqmh1")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

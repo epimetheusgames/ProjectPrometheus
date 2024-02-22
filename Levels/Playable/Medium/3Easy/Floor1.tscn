@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="18_u5bto"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="19_iet5i"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="20_3tx6r"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="21_bhv8c"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_xcx0j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_7lqw8")
@@ -365,10 +365,6 @@ points = PackedVector2Array(33, 94, 73, 91, 76, 143, 403, 145, 399, 95, 17, 93)
 position = Vector2(-1, -1)
 texture = ExtResource("20_3tx6r")
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(72, -352)
-texture = ExtResource("21_bhv8c")
-
 [node name="GrappleHook3" parent="." instance=ExtResource("17_ioy4q")]
 position = Vector2(335, -411)
 
@@ -391,6 +387,10 @@ position = Vector2(783.724, 212.032)
 rotation = -1.5708
 scale = Vector2(1.64869, 160.947)
 texture = SubResource("GradientTexture1D_yposk")
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(71, -352)
+texture = ExtResource("21_xcx0j")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

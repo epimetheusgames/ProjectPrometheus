@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cod8b62ly5sei"]
+[gd_scene load_steps=32 format=3 uid="uid://dqi1j5bbwwg5i"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_c6ane"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_tq1of"]
@@ -17,8 +17,8 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_bpnbm"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_koiyi"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="19_1mu8t"]
-[ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_7ubhr"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="20_dggsp"]
+[ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_yhtwx"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="23_g8e3j"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="24_38163"]
 
@@ -378,7 +378,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="8"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -444,10 +444,6 @@ rotation = 1.5708
 [node name="GrappleHook2" parent="." instance=ExtResource("20_dggsp")]
 position = Vector2(-129, -155)
 
-[node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-428, 0)
-texture = ExtResource("19_7ubhr")
-
 [node name="ItemSwitcher5" parent="." instance=ExtResource("16_koiyi")]
 position = Vector2(-160, -112)
 
@@ -459,6 +455,10 @@ position = Vector2(881, -178)
 
 [node name="NextLevelRequiresKey" parent="." instance=ExtResource("23_g8e3j")]
 position = Vector2(-461, 26)
+
+[node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+position = Vector2(-428, 0)
+texture = ExtResource("21_yhtwx")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
