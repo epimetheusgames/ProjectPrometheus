@@ -356,7 +356,7 @@ position = Vector2(218, -12)
 voiceline_name = "1TutorialB1"
 
 [node name="ARobot" parent="." instance=ExtResource("21_yrnxa")]
-position = Vector2(330, -7)
+position = Vector2(331, -7)
 
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(1513, -256)
