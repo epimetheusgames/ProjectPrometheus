@@ -216,7 +216,8 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name != "DroneHurtbox" && area.name != "SmallBox" && area.name != "CheckpointCollision" && !big_drone && !temp_disabled:
+	if area.name != "DroneHurtbox" && area.name != "SmallBox" && area.name != "CheckpointCollision" && area.name != "ExplosionHitbox" && !big_drone && !temp_disabled:
+		print(area.name)
 		var instantiated_exploder = loaded_bomb.instantiate()
 		instantiated_exploder.position = position + $Drone.position
 		instantiated_exploder._on_explosion_hitbox_body_entered(area)

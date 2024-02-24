@@ -23,8 +23,9 @@ func _process(delta):
 		
 		# For controller
 		if len(Input.get_connected_joypads()) > 0:
-			var controller_joy_dir_x = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_X)
-			var controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_Y)
+			print(len(Input.get_connected_joypads()))
+			var controller_joy_dir_x = Input.get_joy_axis(Input.get_connected_joypads()[1], JOY_AXIS_RIGHT_X)
+			var controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[1], JOY_AXIS_RIGHT_Y)
 			mouse_direction = Vector2(controller_joy_dir_x, controller_joy_dir_y)
 			reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
 			mouse_pos = mouse_direction * 50
