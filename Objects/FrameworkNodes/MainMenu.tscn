@@ -18,11 +18,12 @@ color = Color(0.203922, 0.203922, 0.203922, 1)
 [node name="Title" type="Label" parent="."]
 offset_left = 72.0
 offset_top = 69.0
-offset_right = 192.0
-offset_bottom = 136.0
+offset_right = 1257.0
+offset_bottom = 229.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 114
-text = "WE NEED A TITLE!!! PLEEEEEASE"
+text = "Project Prometheus"
+text_overrun_behavior = 1
 
 [node name="Play" type="Label" parent="."]
 offset_left = 96.0
