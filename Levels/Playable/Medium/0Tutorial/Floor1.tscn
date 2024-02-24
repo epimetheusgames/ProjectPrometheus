@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=123 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -22,7 +22,6 @@
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="22_3d6fq"]
 [ext_resource type="Texture2D" uid="uid://c14mtny14n2gr" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueItemSwitcherAnimation.png" id="22_geleh"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_pk4yi"]
-[ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="23_wenqa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -1045,12 +1044,6 @@ position = Vector2(-2591, 82)
 sprite_frames = SubResource("SpriteFrames_is6df")
 autoplay = "default"
 
-[node name="DroneManager3" parent="." instance=ExtResource("23_wenqa")]
-position = Vector2(-796, -109)
-
-[node name="DronePatrolPoints" parent="DroneManager3" index="0"]
-points = PackedVector2Array(128, 7, 806, 24, 620, -246)
-
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
 [editable path="Player"]
@@ -1058,4 +1051,3 @@ points = PackedVector2Array(128, 7, 806, 24, 620, -246)
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
-[editable path="DroneManager3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=46 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="24_1ioqx"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="25_xmgre"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="26_3luxv"]
+[ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="26_pl7s8"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="27_wcxkk"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="28_yqhjs"]
 
@@ -569,6 +570,12 @@ z_index = 50
 position = Vector2(768, -48)
 sprite_frames = SubResource("SpriteFrames_bwp3i")
 autoplay = "default"
+
+[node name="ElevatorMusicPlayer" type="AudioStreamPlayer2D" parent="ElevatorManager"]
+position = Vector2(768, -40)
+stream = ExtResource("26_pl7s8")
+volume_db = 5.0
+max_distance = 300.0
 
 [node name="TimerDisabler" type="Area2D" parent="."]
 script = ExtResource("26_3luxv")

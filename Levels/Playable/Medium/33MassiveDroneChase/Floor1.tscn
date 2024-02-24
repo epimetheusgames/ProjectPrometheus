@@ -476,7 +476,7 @@ points = PackedVector2Array(-251, -20, 139, -22)
 position = Vector2(-392, 0)
 
 [node name="DroneSpritesheet" parent="DroneManager/Drone" index="0"]
-position = Vector2(0, -32)
+position = Vector2(-3, 1)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_7rll6")
 animation = &"default"

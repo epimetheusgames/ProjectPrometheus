@@ -21,6 +21,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/13Puzzle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/14Puzzle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/15PuzzlePost/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/15PuzzlePostPost/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/16Biodome/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/17Biodome/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/18LongLevel/Floor1.tscn"),],
@@ -116,6 +117,8 @@ func _ready():
 	Input.set_custom_mouse_cursor(loaded_carret, Input.CURSOR_IBEAM)
 
 func _process(delta):
+	print(playing_special_music)
+	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
 	elif starting:
@@ -135,7 +138,7 @@ func _process(delta):
 	#if Input.is_action_just_pressed("ui_down"):
 	#	force_time_scale -= 0.1
 	
-	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 3:
+	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 4:
 		var rng = RandomNumberGenerator.new()
 		var music_index = rng.randi_range(0, len(music_files) - 1)
 		while music_index == last_music_ind:
@@ -147,7 +150,7 @@ func _process(delta):
 		$BackgroundMusicPlayer.playing = true
 		last_music_ind = music_index
 	
-	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 3:
+	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 4:
 		$BackgroundMusicPlayer.playing = false
 	
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60

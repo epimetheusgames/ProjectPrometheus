@@ -159,7 +159,7 @@ func _process(delta):
 		physics_drone_ingame = null
 			
 	if !big_drone && is_close_to_player && !temp_disabled:
-		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
+		player_follower_position += (player.position - player_follower_position) * 0.2 * delta * 60
 		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 300
 		
 		$PlayerRaycast.position = $Drone.position
@@ -217,7 +217,6 @@ func _on_area_2d_body_exited(body):
 
 func _on_drone_hurtbox_area_entered(area):
 	if area.name != "DroneHurtbox" && area.name != "SmallBox" && area.name != "CheckpointCollision" && area.name != "ExplosionHitbox" && !big_drone && !temp_disabled:
-		print(area.name)
 		var instantiated_exploder = loaded_bomb.instantiate()
 		instantiated_exploder.position = position + $Drone.position
 		instantiated_exploder._on_explosion_hitbox_body_entered(area)

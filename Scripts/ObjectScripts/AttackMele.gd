@@ -93,7 +93,7 @@ func _physics_process(delta):
 			
 			if abs(velocity.x) > 5:
 				velocity.x = 2 if velocity.x > 0 else -2
-			if abs(velocity.y) > 5:
+			if abs(velocity.y) > 7:
 				velocity.y = 7 if velocity.y > 0 else -7
 			
 			position += velocity

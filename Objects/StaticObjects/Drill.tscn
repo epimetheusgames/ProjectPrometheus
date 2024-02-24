@@ -56,13 +56,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxb5c"]
-size = Vector2(8, 32)
+size = Vector2(13.25, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dncpn"]
-size = Vector2(8, 32)
+size = Vector2(11, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3hcw8"]
-radius = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1qpf"]
+size = Vector2(6, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0o1es"]
 radius = 364.232
@@ -111,22 +111,22 @@ target_position = Vector2(0, 16)
 [node name="JumpHurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(40, 16)
+position = Vector2(42.375, 16)
 shape = SubResource("RectangleShape2D_bxb5c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(-4, 16)
+position = Vector2(-5.5, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="JumpHurtBoxAllwaysActive" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
-position = Vector2(40, 16)
+position = Vector2(39.75, 16)
 shape = SubResource("RectangleShape2D_bxb5c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
-position = Vector2(11, 16)
-shape = SubResource("CircleShape2D_3hcw8")
+position = Vector2(-3, 16)
+shape = SubResource("RectangleShape2D_y1qpf")
 
 [node name="PlayerInRangeDetector" type="Area2D" parent="."]
 
