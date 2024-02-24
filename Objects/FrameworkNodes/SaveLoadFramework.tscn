@@ -15,6 +15,22 @@ glow_intensity = 1.45
 glow_blend_mode = 1
 glow_hdr_scale = 1.0
 
+[sub_resource type="Animation" id="Animation_p8gmw"]
+resource_name = "FadeinLevelMusic"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusicPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1.02837),
+"update": 0,
+"values": [-10.0, -80.0]
+}
+
 [sub_resource type="Animation" id="Animation_xv6h5"]
 resource_name = "FadeoutLevelMusic"
 length = 2.0
@@ -44,22 +60,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-10.0]
-}
-
-[sub_resource type="Animation" id="Animation_p8gmw"]
-resource_name = "FadeinLevelMusic"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BackgroundMusicPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1.02837),
-"update": 0,
-"values": [-10.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mabt0"]

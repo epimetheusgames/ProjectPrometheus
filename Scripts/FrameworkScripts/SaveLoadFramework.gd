@@ -9,7 +9,6 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/0Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/1Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2Tutorial/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/3Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/4Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/5Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/6Easy/Floor1.tscn")],
@@ -110,6 +109,11 @@ var last_music_ind = -1
 var starting = true
 var force_time_scale = -1.0
 var playing_special_music = false
+
+@onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
+
+func _ready():
+	Input.set_custom_mouse_cursor(loaded_carret, Input.CURSOR_IBEAM)
 
 func _process(delta):
 	if starting && !$EpimetheusFadin.finished:

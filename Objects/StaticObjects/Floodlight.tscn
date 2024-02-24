@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm566haiwff2j"]
+[gd_scene load_steps=4 format=3 uid="uid://cm566haiwff2j"]
 
 [ext_resource type="Texture2D" uid="uid://dpqjf8wl8h4o" path="res://Assets/Images/Objects/Props/Floodlight.png" id="1_1kwxt"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Floodlight.gd" id="1_7ptvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31011"]
+size = Vector2(60, 7)
 
 [node name="Floodlight" type="Node2D"]
+script = ExtResource("1_7ptvu")
 
 [node name="FloodlightSprite" type="Sprite2D" parent="."]
 self_modulate = Color(1.8, 1.4, 1.4, 1)
 position = Vector2(28, 16)
 texture = ExtResource("1_1kwxt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28, 3.5)
+shape = SubResource("RectangleShape2D_31011")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

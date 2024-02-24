@@ -9,6 +9,8 @@ var ability_lost_volume = -40.0
 
 @onready var original_pos = position
 @onready var original_scale = scale
+@onready var loaded_crosshair = preload("res://Assets/Images/Objects/Misc/Crosshair.png")
+@onready var loaded_arrow = preload("res://Assets/Images/Objects/Misc/MouseCursor.png")
 
 const ability_max = 3
 
@@ -33,6 +35,11 @@ func _process(delta):
 		ideal_rotation += ((1.0 / 2.0) * PI) / ($AbililtySwitchTimer.wait_time * 60) * delta * 60
 	else:
 		$AbililtySwitchTimer.start()
+		
+	if ability_index == 2:
+		Input.set_custom_mouse_cursor(loaded_crosshair)
+	else:
+		Input.set_custom_mouse_cursor(loaded_arrow)
 		
 	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1 * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
