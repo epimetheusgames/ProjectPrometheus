@@ -83,7 +83,6 @@ func _physics_process(delta):
 			else:
 				$JumpHurtBox/CollisionShape2D.disabled = true
 			
-			# Don't apply friction if the player is moving.
 			if (absf(velocity.x) > max_speed):
 				velocity.x /= friction_force
 				
@@ -91,6 +90,12 @@ func _physics_process(delta):
 				velocity.y = max_fall_speed
 			
 			move_and_slide()
+			
+			if abs(velocity.x) > 5:
+				velocity.x = 2 if velocity.x > 0 else -2
+			if abs(velocity.y) > 5:
+				velocity.y = 3 if velocity.y > 0 else -3
+			
 			position += velocity
 		else:
 			$Collision.disabled = true
