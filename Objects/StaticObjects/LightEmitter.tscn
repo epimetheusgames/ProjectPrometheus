@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdwnporw18dhy"]
+[gd_scene load_steps=6 format=3 uid="uid://bdwnporw18dhy"]
 
 [ext_resource type="Texture2D" uid="uid://c1et4icapqvg0" path="res://Assets/Images/Objects/Props/LightEmitter.png" id="1_0uiii"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/LightEmitter.gd" id="2_sprqc"]
 
 [sub_resource type="Gradient" id="Gradient_5hxdt"]
 offsets = PackedFloat32Array(0, 0.31, 0.46, 0.74)
@@ -18,6 +19,7 @@ polygon = PackedVector2Array(-1, 1, 1, 1, 23, -19, 0, 3, -27, -19)
 
 [node name="LightEmitter" type="Sprite2D"]
 texture = ExtResource("1_0uiii")
+script = ExtResource("2_sprqc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, 6)
