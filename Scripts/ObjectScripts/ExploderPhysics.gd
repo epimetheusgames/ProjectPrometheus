@@ -8,11 +8,6 @@ var exploded = false
 func _ready():
 	$ExplosionHitbox/CollisionShape2D.shape = $ExplosionHitbox/CollisionShape2D.shape.duplicate()
 
-func _process(delta):
-	if !exploded:
-		velocity.y += 0.2
-		position += velocity * delta * 60
-
 func _on_explosion_hitbox_body_entered(body):
 	if !exploded:
 		exploded = true

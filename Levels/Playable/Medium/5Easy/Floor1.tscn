@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=31 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="18_1ue77"]
 [ext_resource type="Texture2D" uid="uid://centqdm3rkc8p" path="res://Assets/Images/Objects/Props/StairSpriteNonTransparent.png" id="18_gqwt1"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="19_2rb5e"]
+[ext_resource type="PackedScene" uid="uid://bdwnporw18dhy" path="res://Objects/StaticObjects/LightEmitter.tscn" id="20_51f2t"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="24_7b6p3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -184,6 +185,7 @@ gradient = SubResource("Gradient_7jd0s")
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_3ry76")
 level = 2
+lights_off = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
@@ -265,7 +267,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.701961, 0.701961, 0.701961, 1)
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(64, 16)
@@ -437,6 +439,76 @@ points = PackedVector2Array(86, 20, 287, 21, 330, -17, 440, -27, 543, 18, 501, 4
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(-1, -128)
 texture = ExtResource("19_2rb5e")
+
+[node name="LightEmitter" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(1, -58)
+rotation = 3.14159
+
+[node name="LightEmitter2" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(129, -57)
+rotation = 3.14159
+
+[node name="LightEmitter3" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(257, -57)
+rotation = 3.14159
+
+[node name="LightEmitter4" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(385, -57)
+rotation = 3.14159
+
+[node name="LightEmitter5" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(513, -57)
+rotation = 3.14159
+
+[node name="LightEmitter6" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(641, -57)
+rotation = 3.14159
+
+[node name="LightEmitter9" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(1, -185)
+rotation = 3.14159
+
+[node name="LightEmitter10" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(129, -185)
+rotation = 3.14159
+
+[node name="LightEmitter11" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(257, -185)
+rotation = 3.14159
+
+[node name="LightEmitter12" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(457, -105)
+
+[node name="LightEmitter13" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(585, -105)
+
+[node name="LightEmitter14" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(-647, -185)
+rotation = 3.14159
+
+[node name="LightEmitter15" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(-519, -185)
+rotation = 3.14159
+
+[node name="LightEmitter16" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(-391, -185)
+rotation = 3.14159
+
+[node name="LightEmitter17" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(-263, -185)
+rotation = 3.14159
+
+[node name="LightEmitter18" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(-135, -185)
+rotation = 3.14159
+
+[node name="LightEmitter7" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(1449, -57)
+rotation = 3.14159
+
+[node name="LightEmitter8" parent="." instance=ExtResource("20_51f2t")]
+position = Vector2(1577, -57)
+rotation = 3.14159
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

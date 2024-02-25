@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=42 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="27_djuie"]
 [ext_resource type="Texture2D" uid="uid://d0dptskf12ie5" path="res://Assets/Images/Objects/Misc/InvisibleWall.png" id="27_f6pcd"]
 [ext_resource type="Texture2D" uid="uid://dg2g03ffmhsby" path="res://Assets/Images/Objects/Props/PropWaterBottle.png" id="28_tpoli"]
+[ext_resource type="PackedScene" uid="uid://bdwnporw18dhy" path="res://Objects/StaticObjects/LightEmitter.tscn" id="29_6tgsv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_t6j4e")
@@ -303,7 +304,7 @@ bus = &"SFX"
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 z_index = 100
 material = SubResource("ShaderMaterial_lxv0b")
-color = Color(0.701961, 0.701961, 0.701961, 1)
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="Checkpoint4" parent="." instance=ExtResource("20_filsr")]
 z_index = -1
@@ -565,6 +566,94 @@ texture = ExtResource("27_djuie")
 [node name="PropWaterBottle" type="Sprite2D" parent="."]
 position = Vector2(-1252.5, -199.5)
 texture = ExtResource("28_tpoli")
+
+[node name="LightEmitter" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-773, -200)
+
+[node name="LightEmitter2" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-828, -200)
+
+[node name="LightEmitter11" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-556, -200)
+
+[node name="LightEmitter12" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-460, -200)
+
+[node name="LightEmitter13" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-364, -200)
+
+[node name="LightEmitter14" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(324, -488)
+
+[node name="LightEmitter15" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(604, -488)
+
+[node name="LightEmitter16" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(700, -488)
+
+[node name="LightEmitter17" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(884, -600)
+rotation = 3.14159
+
+[node name="LightEmitter18" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(1044, -600)
+rotation = 3.14159
+
+[node name="LightEmitter19" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(1340, -568)
+rotation = 3.14159
+
+[node name="LightEmitter20" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(504, -600)
+rotation = -1.5708
+
+[node name="LightEmitter21" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(504, -800)
+rotation = -1.5708
+
+[node name="LightEmitter23" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(544, -920)
+rotation = 3.14159
+
+[node name="LightEmitter24" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(672, -920)
+rotation = 3.14159
+
+[node name="LightEmitter25" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(792, -920)
+rotation = 3.14159
+
+[node name="LightEmitter22" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(424, -696)
+rotation = 1.5708
+
+[node name="LightEmitter3" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-972, -392)
+
+[node name="LightEmitter4" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-876, -392)
+
+[node name="LightEmitter5" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-780, -392)
+
+[node name="LightEmitter6" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-684, -392)
+
+[node name="LightEmitter7" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-584, -432)
+rotation = -1.5708
+
+[node name="LightEmitter8" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-544, -568)
+rotation = 3.14159
+
+[node name="LightEmitter9" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-448, -568)
+rotation = 3.14159
+
+[node name="LightEmitter10" parent="." instance=ExtResource("29_6tgsv")]
+position = Vector2(-352, -568)
+rotation = 3.14159
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

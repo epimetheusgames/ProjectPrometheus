@@ -27,7 +27,7 @@ func _process(delta):
 			var controller_joy_dir_y
 			if len(Input.get_connected_joypads()) > 1:
 				controller_joy_dir_x = Input.get_joy_axis(Input.get_connected_joypads()[1], JOY_AXIS_RIGHT_X)
-				ccontroller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[1], JOY_AXIS_RIGHT_Y)
+				controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[1], JOY_AXIS_RIGHT_Y)
 			else:
 				controller_joy_dir_x = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_X)
 				controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_Y)
