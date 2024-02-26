@@ -553,6 +553,7 @@ position = Vector2(-451, -530)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("22_qsyqg")]
 position = Vector2(1615, -400)
+player_checkpoint_item = "RocketBoost"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
