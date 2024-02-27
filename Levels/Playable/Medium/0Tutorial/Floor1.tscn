@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=122 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -17,11 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
-[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="20_4y5gd"]
-[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="21_f6466"]
-[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="22_3d6fq"]
 [ext_resource type="Texture2D" uid="uid://c14mtny14n2gr" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueItemSwitcherAnimation.png" id="22_geleh"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_pk4yi"]
+[ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="23_7in8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -796,6 +794,9 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmek2"]
+size = Vector2(274, 285)
+
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
 no_timer = true
@@ -1015,26 +1016,6 @@ rotation = -1.5708
 scale = Vector2(1.97132, 160.29)
 texture = SubResource("GradientTexture1D_uyp5a")
 
-[node name="ControllerTextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(40, 40)
-offset_left = -3417.0
-offset_top = -90.0
-offset_right = -3377.0
-offset_bottom = -50.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_4y5gd")
-expand_mode = 1
-script = ExtResource("21_f6466")
-path = "attack"
-
-[node name="Label" type="Label" parent="."]
-offset_left = -3388.0
-offset_top = -93.0
-offset_right = -3333.0
-offset_bottom = -66.0
-theme = ExtResource("22_3d6fq")
-text = "Shoot"
-
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(-7516, -64)
 texture = ExtResource("22_pk4yi")
@@ -1043,6 +1024,14 @@ texture = ExtResource("22_pk4yi")
 position = Vector2(-2591, 82)
 sprite_frames = SubResource("SpriteFrames_is6df")
 autoplay = "default"
+
+[node name="TutorialDialogueArea" parent="." instance=ExtResource("23_7in8k")]
+position = Vector2(-1234, -20)
+tutorial_box_ind = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea"]
+position = Vector2(-1, -30.5)
+shape = SubResource("RectangleShape2D_rmek2")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

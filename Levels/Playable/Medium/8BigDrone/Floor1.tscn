@@ -211,6 +211,7 @@ position = Vector2(53, -383)
 speed = 0.4
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 points = PackedVector2Array(6, 132, 19, 306, 91, 236, 126, 270, 230, 252, 307, 146, 440, 140, 510, 107, 612, 83, 639, -1, 1050, 4, 1057, -173)
 
 [node name="Drone" parent="DroneManager" index="1"]
@@ -220,6 +221,7 @@ position = Vector2(11, 0)
 position = Vector2(991, -242)
 
 [node name="DronePatrolPoints" parent="DroneManager2" index="0"]
+visible = false
 points = PackedVector2Array(-210, 4, -404, -54, -763, 90, -876, 7, -518, -88, -302, -193, -38, -190, 127, -298)
 
 [node name="DroneOutlineSpritesheet" parent="DroneManager2/Drone" index="1"]
