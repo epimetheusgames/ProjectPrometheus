@@ -47,3 +47,7 @@ func open_dialogue_box():
 	get_tree().paused = true
 	$DialogueBoxContainer.visible = true
 	open_dialogue = true
+
+func _on_level_transition_animation_player_animation_finished(anim_name):
+	if anim_name == "CloseLevel":
+		get_parent().get_parent().get_node("NextLevel").add_level()

@@ -10,7 +10,11 @@ var fading_out = false
 
 func enter_tutorial_area(tutorial_box_ind):
 	if tutorial_box_ind == 1:
-		dialogue_displaying = $ItemSwitcherDialogue1
+		dialogue_displaying = $ItemSwitcherDialogue
+	if tutorial_box_ind == 2:
+		dialogue_displaying = $MouseToShoot
+	if tutorial_box_ind == 3:
+		dialogue_displaying = $MouseToWeapon
 		
 	dialogue_displaying.visible = true
 	displaying_dialogue = true
@@ -31,7 +35,7 @@ func _process(delta):
 		if displaying_opacity > 0 && fading_out:
 			displaying_opacity -= 0.05 * delta * 60
 		elif fading_out:
-			$ItemSwitcherDialogue1.visible = false
+			dialogue_displaying.visible = false
 			displaying_dialogue = false
 			dialogue_displaying = null
 			displaying_ind = -1

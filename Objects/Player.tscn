@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=86 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
 [ext_resource type="Texture2D" uid="uid://8u6qags5a5w4" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge2.png" id="18_tdjfb"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
 [ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="20_vy4us"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
@@ -88,6 +89,96 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_4w1xp"]
+resource_name = "CloseLevel"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120.245, 1000), Vector2(1500, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-524, -464)]
+}
+
+[sub_resource type="Animation" id="Animation_7p7jl"]
+resource_name = "OpenLevel"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1276, 1000), Vector2(134, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-482, -324), Vector2(406, -324)]
+}
+
+[sub_resource type="Animation" id="Animation_ai123"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120.245, 335)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-482, -324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7w7xl"]
+_data = {
+"CloseLevel": SubResource("Animation_4w1xp"),
+"OpenLevel": SubResource("Animation_7p7jl"),
+"RESET": SubResource("Animation_ai123")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
@@ -388,7 +479,7 @@ value = 100.0
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
 process_mode = 1
-z_index = 20
+z_index = 50
 position = Vector2(0, 137)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("4_ctc4a")
@@ -453,7 +544,7 @@ one_shot = true
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
 process_mode = 3
-z_index = 20
+z_index = 50
 script = ExtResource("11_opf60")
 
 [node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]
@@ -495,17 +586,18 @@ wait_time = 0.6
 one_shot = true
 
 [node name="TutorialDialogues" type="Node2D" parent="Camera"]
+z_index = 50
 script = ExtResource("15_c3i4e")
 
-[node name="ItemSwitcherDialogue1" type="Node2D" parent="Camera/TutorialDialogues"]
+[node name="ItemSwitcherDialogue" type="Node2D" parent="Camera/TutorialDialogues"]
 visible = false
 
-[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ItemSwitcherDialogue1"]
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
 position = Vector2(79.5, 59)
 scale = Vector2(3.46875, 1.9375)
 texture = ExtResource("15_b14rh")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
 offset_left = 50.0
 offset_top = 37.0
 offset_right = 273.0
@@ -515,7 +607,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/normal_font_size = 25
 text = "This shows your current item"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue1"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
 offset_left = 91.0
 offset_top = 66.0
 offset_right = 314.0
@@ -525,7 +617,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/normal_font_size = 25
 text = "Dismiss"
 
-[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ItemSwitcherDialogue1"]
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 80.0
 offset_top = 65.0
@@ -537,16 +629,17 @@ expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
 
-[node name="ItemSwitcherDialogue2" type="Node2D" parent="Camera/TutorialDialogues"]
+[node name="MouseToShoot" type="Node2D" parent="Camera/TutorialDialogues"]
 visible = false
-position = Vector2(-152, -88)
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
 
-[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ItemSwitcherDialogue2"]
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/MouseToShoot"]
 position = Vector2(79.5, 59)
 scale = Vector2(-3.469, 1.938)
 texture = ExtResource("15_b14rh")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue2"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/MouseToShoot"]
 offset_left = 80.0
 offset_top = 65.0
 offset_right = 303.0
@@ -556,7 +649,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/normal_font_size = 25
 text = "Dismiss"
 
-[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ItemSwitcherDialogue2"]
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/MouseToShoot"]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 69.0
 offset_top = 64.0
@@ -568,7 +661,7 @@ expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
 
-[node name="ControllerTextureRect2" type="TextureRect" parent="Camera/TutorialDialogues/ItemSwitcherDialogue2"]
+[node name="ControllerTextureRect2" type="TextureRect" parent="Camera/TutorialDialogues/MouseToShoot"]
 custom_minimum_size = Vector2(40, 40)
 offset_left = 37.0
 offset_top = 37.0
@@ -580,7 +673,7 @@ expand_mode = 1
 script = ExtResource("18_op56f")
 path = "attack"
 
-[node name="Label" type="Label" parent="Camera/TutorialDialogues/ItemSwitcherDialogue2"]
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/MouseToShoot"]
 offset_left = 60.0
 offset_top = 36.0
 offset_right = 233.0
@@ -589,6 +682,73 @@ scale = Vector2(0.3, 0.3)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 50
 text = "Shoot"
+
+[node name="MouseToWeapon" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/MouseToWeapon"]
+position = Vector2(47.9285, 59)
+scale = Vector2(-5.44222, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/MouseToWeapon"]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/MouseToWeapon"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_pk4f0")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="ControllerTextureRect2" type="TextureRect" parent="Camera/TutorialDialogues/MouseToWeapon"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = -18.0
+offset_top = 37.0
+offset_right = 22.0
+offset_bottom = 77.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_vy4us")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "attack"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/MouseToWeapon"]
+offset_top = 36.0
+offset_right = 316.0
+offset_bottom = 109.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 50
+text = "Use Weapon"
+
+[node name="LevelTransitionAnimationPlayer" type="AnimationPlayer" parent="Camera"]
+libraries = {
+"": SubResource("AnimationLibrary_7w7xl")
+}
+autoplay = "OpenLevel"
+
+[node name="ColorRect" type="ColorRect" parent="Camera"]
+z_index = 100
+offset_left = -482.0
+offset_top = -324.0
+offset_right = -361.755
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
@@ -798,6 +958,7 @@ bus = &"SFX"
 [connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/CloseAnimator/DeathWaitTimer" to="Camera/CloseAnimator" method="_on_death_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/CloseAnimator/AnimDelayTimer" to="Camera/CloseAnimator" method="_on_anim_delay_timer_timeout"]
+[connection signal="animation_finished" from="Camera/LevelTransitionAnimationPlayer" to="Camera" method="_on_level_transition_animation_player_animation_finished"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Player/PlayerHurtbox" to="Player" method="_on_player_hurtbox_area_exited"]
 [connection signal="body_entered" from="Player/SpikeHurtBox" to="Player" method="_on_spike_hurt_box_body_entered"]

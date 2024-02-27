@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=124 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -795,7 +795,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmek2"]
-size = Vector2(274, 285)
+size = Vector2(177, 551)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bpsl"]
+size = Vector2(59, 156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mlac"]
+size = Vector2(147, 92)
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
@@ -913,6 +919,7 @@ item_switch_type = "Grapple"
 position = Vector2(-4492, -579)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 position = Vector2(0, 2)
 points = PackedVector2Array(172, 40, 111, 509, 275, 438, 378, 512, 507, 418, 633, 491, 768.135, 431.566, 892, 499, 931.585, 438.608, 938, 265)
 
@@ -1032,6 +1039,22 @@ tutorial_box_ind = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea"]
 position = Vector2(-1, -30.5)
 shape = SubResource("RectangleShape2D_rmek2")
+
+[node name="TutorialDialogueArea2" parent="." instance=ExtResource("23_7in8k")]
+position = Vector2(-3373, -64)
+tutorial_box_ind = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea2"]
+position = Vector2(-92.5, 1)
+shape = SubResource("RectangleShape2D_1bpsl")
+
+[node name="TutorialDialogueArea3" parent="." instance=ExtResource("23_7in8k")]
+position = Vector2(-6602, 79)
+tutorial_box_ind = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea3"]
+position = Vector2(-12.5, -16)
+shape = SubResource("RectangleShape2D_6mlac")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

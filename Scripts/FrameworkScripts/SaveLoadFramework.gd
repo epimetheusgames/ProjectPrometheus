@@ -113,11 +113,14 @@ var playing_special_music = false
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 
 func _ready():
+	# Load mouse cursor.
 	Input.set_custom_mouse_cursor(loaded_carret, Input.CURSOR_IBEAM)
+	
+	# Set controller icons process mode to allways so they can update in pause menu ... 
+	# this cannot be set in the editor.
+	get_parent().get_parent().get_node("ControllerIcons").process_mode = 3
 
 func _process(delta):
-	print(playing_special_music)
-	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
 	elif starting:
@@ -128,6 +131,7 @@ func _process(delta):
 			$EpimetheusFadin.queue_free()
 			starting = false
 	
+	# Force time scale for TAS or something
 	if force_time_scale > 0:
 		Engine.time_scale = force_time_scale
 	
@@ -205,6 +209,7 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		
+# Start the game with all this info which should be loaded from a save file.
 func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
@@ -273,6 +278,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_node("MainMenu").queue_free()
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
+# Exit to menu while saving the game.
 func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 	if is_max_level:
 		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths)
@@ -281,17 +287,21 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 	menu_instance.first = false
 	add_child(menu_instance)
 
+# Background function for switching levels. Exits to menu first, saves data,
+# and starts the game again.
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
 	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths)
 	if is_max_level:
 		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths)
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode)
 
+# Saves artifact with uid in slot so you cannot collect it again.
 func collect_artifact(slot, uid):
 	var data = load_data(slot)
 	data[4][uid] = true
 	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5])
 	
+# Special music like boss of elevator.
 func start_special_music():
 	if !playing_special_music:
 		playing_special_music = true

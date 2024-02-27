@@ -25,7 +25,7 @@ func _on_area_exited(area):
 func _process(delta):
 	if player_in_area && Input.is_action_just_pressed("interact"):
 		if !use_parent_add:
-			add_level()
+			get_parent().get_node("Player").get_node("Camera").get_node("LevelTransitionAnimationPlayer").play("CloseLevel")
 		else:
 			get_parent().add_level
 		
