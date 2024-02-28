@@ -444,7 +444,7 @@ position = Vector2(-128, 16)
 item_switch_type = "ArmGun"
 
 [node name="NextLevelRequiresKey" parent="." instance=ExtResource("18_wehe0")]
-position = Vector2(30, -192)
+position = Vector2(12, -192)
 
 [node name="Key" parent="." instance=ExtResource("19_v6cbb")]
 position = Vector2(-465, 25)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=34 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
 [ext_resource type="PackedScene" uid="uid://cflbjyiyjsdmf" path="res://Objects/StaticObjects/ARobot.tscn" id="21_yrnxa"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_pk4yi"]
+[ext_resource type="PackedScene" uid="uid://bory2q8wdwwns" path="res://Objects/StaticObjects/AVeryExtremelyEvilMeanHorribleBadRobot.tscn" id="23_26fu1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -193,7 +194,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpqux"]
-size = Vector2(88, 96)
+size = Vector2(40, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("13_c2n2q")
@@ -297,7 +298,7 @@ position = Vector2(4, -91)
 script = ExtResource("7_6b3e4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1556, -272)
+position = Vector2(1513, -256)
 shape = SubResource("RectangleShape2D_jpqux")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -361,6 +362,9 @@ position = Vector2(331, -7)
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(1513, -256)
 texture = ExtResource("22_pk4yi")
+
+[node name="ARobot2" parent="." instance=ExtResource("23_26fu1")]
+position = Vector2(269, -7)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -154,7 +154,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
-size = Vector2(70, 64)
+size = Vector2(40, 64)
 
 [sub_resource type="Gradient" id="Gradient_unp1f"]
 offsets = PackedFloat32Array(0.19, 1)
@@ -897,7 +897,7 @@ position = Vector2(4, -91)
 script = ExtResource("7_6b3e4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-7549, -64)
+position = Vector2(-7516, -64)
 shape = SubResource("RectangleShape2D_fuwdw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

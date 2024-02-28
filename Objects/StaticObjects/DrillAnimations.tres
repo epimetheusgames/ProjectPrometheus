@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://be50iqvtndo2r"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://be50iqvtndo2r"]
 
 [ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/Enemy/DrillSpritesheet.png" id="1_6ic1n"]
 [ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/Enemy/DrillTurningSpritesheet.png" id="2_tk26s"]
+[ext_resource type="Texture2D" uid="uid://dtnluup2gb23t" path="res://Assets/Images/Objects/Enemy/TankSpritesheet.png" id="3_hwuod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0na53"]
 atlas = ExtResource("1_6ic1n")
@@ -26,14 +27,6 @@ region = Rect2(0, 40, 40, 40)
 [sub_resource type="AtlasTexture" id="AtlasTexture_450si"]
 atlas = ExtResource("2_tk26s")
 region = Rect2(0, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ecvox"]
-atlas = ExtResource("1_6ic1n")
-region = Rect2(0, 0, 40, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8wk2"]
-atlas = ExtResource("1_6ic1n")
-region = Rect2(0, 40, 40, 35)
 
 [resource]
 animations = [{
@@ -67,10 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ecvox")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8wk2")
+"texture": ExtResource("3_hwuod")
 }],
 "loop": true,
 "name": &"Moving",

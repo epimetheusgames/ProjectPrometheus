@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var health = 3
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
+@onready var loaded_exploder = preload("res://Objects/StaticObjects/Exploder.tscn")
+@onready var player = get_parent().get_node("Player").get_node("Player")
 var gravity = 0.5
 var enabled = false
 
@@ -40,3 +42,15 @@ func _physics_process(delta):
 		velocity.y = -0.05
 	
 	position += velocity * (delta * 60)
+
+func _on_player_detector_area_entered(area):
+	if area.name == "PlayerHurtbox":
+		$ExplodeTimer.start()
+
+func _on_explode_timer_timeout():
+	var instantiated_exploder = loaded_exploder.instantiate()
+	instantiated_exploder.position = position
+	instantiated_exploder._on_explosion_hitbox_body_entered(player.get_node("PlayerHurtbox"))
+	get_parent().add_child(instantiated_exploder)
+	
+	queue_free()

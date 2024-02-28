@@ -1,98 +1,23 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=15 format=3 uid="uid://d2bqvo5kefwci"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
-[ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/Enemy/DrillSpritesheet.png" id="2_td8xb"]
-[ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/Enemy/DrillBreakSpritesheet.png" id="3_1ri88"]
-[ext_resource type="Texture2D" uid="uid://byl4l6qeccksa" path="res://Assets/Images/Objects/Enemy/DrillTurningSpritesheet.png" id="3_yowwe"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0na53"]
-atlas = ExtResource("2_td8xb")
-region = Rect2(0, 0, 40, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxn8e"]
-atlas = ExtResource("3_yowwe")
-region = Rect2(0, 160, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpi8y"]
-atlas = ExtResource("3_yowwe")
-region = Rect2(0, 120, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qlpp4"]
-atlas = ExtResource("3_yowwe")
-region = Rect2(0, 80, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t31lp"]
-atlas = ExtResource("3_yowwe")
-region = Rect2(0, 40, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_450si"]
-atlas = ExtResource("3_yowwe")
-region = Rect2(0, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mc008"]
-atlas = ExtResource("2_td8xb")
-region = Rect2(0, 0, 40, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o01dx"]
-atlas = ExtResource("2_td8xb")
-region = Rect2(0, 37, 40, 37)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fmm32"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0na53")
-}],
-"loop": false,
-"name": &"Idle",
-"speed": 60.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxn8e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kpi8y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qlpp4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t31lp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_450si")
-}],
-"loop": false,
-"name": &"LeftToRight",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mc008")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o01dx")
-}],
-"loop": true,
-"name": &"Moving",
-"speed": 20.0
-}]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_3vhgw"]
+[ext_resource type="SpriteFrames" uid="uid://be50iqvtndo2r" path="res://Objects/StaticObjects/DrillAnimations.tres" id="2_ht3a4"]
+[ext_resource type="Texture2D" uid="uid://dnrg6n05eyy73" path="res://Assets/Images/Objects/Enemy/DrillBreakSpritesheet.png" id="3_5sefe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qpvt"]
-atlas = ExtResource("3_1ri88")
+atlas = ExtResource("3_5sefe")
 region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tfp48"]
-atlas = ExtResource("3_1ri88")
+atlas = ExtResource("3_5sefe")
 region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4eqt"]
-atlas = ExtResource("3_1ri88")
+atlas = ExtResource("3_5sefe")
 region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ici5m"]
-atlas = ExtResource("3_1ri88")
+atlas = ExtResource("3_5sefe")
 region = Rect2(0, 60, 30, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dh7n3"]
@@ -145,23 +70,23 @@ size = Vector2(24, 15.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0o1es"]
 radius = 364.232
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jsx41"]
-polygon = PackedVector2Array(2, 32, 2, 10, 3, 9, 4, 9, 4, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 4, 9, 4, 9, 3, 10, 3, 10, 2, 11, 2, 11, 1, 12, 1, 12, 0, 13, 0, 13, -1, 14, -1, 27, -1, 28, -1, 28, 0, 29, 0, 29, 1, 30, 1, 30, 2, 31, 2, 31, 3, 32, 3, 32, 4, 33, 4, 33, 5, 34, 5, 34, 6, 35, 6, 35, 7, 36, 7, 38, 10, 38, 32)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mownt"]
+polygon = PackedVector2Array(-131, -5, -131, -3, -111, -3, -111, -1, -110, -1, -110, 0, -109, 0, -109, 1, -100, 1, -100, 3, -104, 3, -110, 6, -120, 6, -122, 7, -122, 10, -119, 13, -119, 14, -108, 21, -59, 21, -47, 13, -47, 12, -48, 12, -48, 10, -46, 10, -46, 8, -47, 8, -47, 6, -46, 6, -46, 5, -47, 5, -47, 4, -48, 4, -48, 3, -62, 3, -62, 1, -60, 1, -60, -10, -61, -10, -61, -11, -64, -11, -64, -12, -99, -12, -99, -9, -109, -9, -111, -7, -111, -5)
 
 [node name="DrillManager" type="Node2D"]
-script = ExtResource("1_axli8")
+script = ExtResource("1_3vhgw")
 
 [node name="ExtRaycastDownRight" type="RayCast2D" parent="."]
-position = Vector2(46, 11)
-target_position = Vector2(0, 31)
+position = Vector2(48, 15)
+target_position = Vector2(0, 14)
 
 [node name="ExtRaycastDownLeft" type="RayCast2D" parent="."]
-position = Vector2(-7, 11)
-target_position = Vector2(0, 31)
+position = Vector2(-40, 12)
+target_position = Vector2(0, 18)
 
 [node name="DrillAnimation" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 14.5)
-sprite_frames = SubResource("SpriteFrames_fmm32")
+position = Vector2(0, -0.5)
+sprite_frames = ExtResource("2_ht3a4")
 animation = &"Moving"
 autoplay = "Moving"
 
@@ -171,39 +96,42 @@ sprite_frames = SubResource("SpriteFrames_dh7n3")
 animation = &"None"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(16, 16)
-target_position = Vector2(-20, 0)
+position = Vector2(-28, 18)
+target_position = Vector2(-11, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(16, 16)
-target_position = Vector2(28, 0)
+position = Vector2(35, 20)
+target_position = Vector2(12, 0)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-position = Vector2(32, 16)
-target_position = Vector2(0, 16)
+position = Vector2(36, 17)
+target_position = Vector2(0, 4)
 
 [node name="RayCastDown2" type="RayCast2D" parent="."]
-position = Vector2(0, 16)
-target_position = Vector2(0, 16)
+position = Vector2(-28, 17)
+target_position = Vector2(0, 4)
 
 [node name="JumpHurtBox" type="Area2D" parent="."]
+visible = false
+position = Vector2(-21, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(22, -8.25)
+position = Vector2(-3, 6.75)
 shape = SubResource("RectangleShape2D_6fc6h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(40, 16)
+position = Vector2(61, 16)
 shape = SubResource("RectangleShape2D_bxb5c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="JumpHurtBox"]
-position = Vector2(-4, 16)
+position = Vector2(-18, 19)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="JumpHurtBoxAllwaysActive" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
-position = Vector2(22, -8.5)
+position = Vector2(-24, 6.5)
 shape = SubResource("RectangleShape2D_3tpe1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
@@ -211,13 +139,16 @@ position = Vector2(40, 16)
 shape = SubResource("RectangleShape2D_bxb5c")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
-position = Vector2(-4, 16)
+position = Vector2(-39, 19)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+scale = Vector2(-1, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(38, 32, 38, 10, 27, -1, 14, -1, 2, 10, 2, 32)
+position = Vector2(-20, -15)
+polygon = PackedVector2Array(49, 36, 59, 28, 61, 28, 62, 21, 60, 18, 48, 18, 48, 5, 44, 3, 9, 3, 9, 6, 0, 6, -4, 10, -22, 10, -22, 12, -7, 12, -4, 13, 8, 13, 8, 18, -14, 22, -14, 25, -9, 31, -1, 36)
 
 [node name="PlayerInRangeDetector" type="Area2D" parent="."]
 
@@ -227,7 +158,8 @@ shape = SubResource("CircleShape2D_0o1es")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_jsx41")
+position = Vector2(88, 0)
+occluder = SubResource("OccluderPolygon2D_mownt")
 
 [connection signal="animation_finished" from="DrillAnimation" to="." method="_on_drill_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]

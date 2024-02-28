@@ -6,4 +6,5 @@ extends Node2D
 func _on_timer_timeout():
 	var explosion_instance = explosion_loaded.instantiate()
 	explosion_instance.velocity.x = 10
-	add_child(explosion_instance)
+	explosion_instance.position = get_parent().get_parent().position + get_parent().position + position
+	get_parent().get_parent().get_parent().add_child(explosion_instance)
