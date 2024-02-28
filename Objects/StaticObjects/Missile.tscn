@@ -56,6 +56,7 @@ fill_from = Vector2(0.463303, 0.536697)
 
 [node name="Missile" type="Node2D"]
 script = ExtResource("1_swk8e")
+no_damage = null
 
 [node name="ExplosionHitbox" type="Area2D" parent="."]
 collision_mask = 17

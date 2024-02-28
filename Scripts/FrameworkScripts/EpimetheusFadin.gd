@@ -1,3 +1,12 @@
+# -------------------------------------------------------------------------------------------------------|
+# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# All rights reserved.                                                                                   |
+#                                                                                                        |
+# Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# -------------------------------------------------------------------------------------------------------|
+
+# This file handles the fadein animation at the start of the game.
+
 extends Node2D
 
 

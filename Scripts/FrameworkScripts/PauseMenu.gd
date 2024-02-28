@@ -1,3 +1,11 @@
+# -------------------------------------------------------------------------------------------------------|
+# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# All rights reserved.                                                                                   |
+#                                                                                                        |
+# Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# -------------------------------------------------------------------------------------------------------|
+
+
 # This should be a child of the Player node inside of PlayerManager.
 extends Node2D
 
