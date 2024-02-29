@@ -31,7 +31,10 @@ func _on_explosion_hitbox_body_entered(body):
 		player.velocity = direction_to_player * 5
 		
 func _process(delta):
-	if
+	if gravity:
+		velocity.y += 0.5
+		
+	position += velocity * 60
 
 func _on_timer_timeout():
 	queue_free()

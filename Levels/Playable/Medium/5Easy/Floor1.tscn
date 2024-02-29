@@ -433,72 +433,90 @@ texture = ExtResource("18_gqwt1")
 polygon = PackedVector2Array(1536, 32, 1584, 0, 1633, 0, 1584, 32)
 
 [node name="LightEmitter" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(1, -58)
 rotation = 3.14159
 
 [node name="LightEmitter2" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(129, -57)
 rotation = 3.14159
 
 [node name="LightEmitter3" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(257, -57)
 rotation = 3.14159
 
 [node name="LightEmitter4" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(385, -57)
 rotation = 3.14159
 
 [node name="LightEmitter5" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(513, -57)
 rotation = 3.14159
 
 [node name="LightEmitter6" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(641, -57)
 rotation = 3.14159
 
 [node name="LightEmitter9" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(1, -185)
 rotation = 3.14159
 
 [node name="LightEmitter10" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(129, -185)
 rotation = 3.14159
 
 [node name="LightEmitter11" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(257, -185)
 rotation = 3.14159
 
 [node name="LightEmitter12" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(457, -105)
 
 [node name="LightEmitter13" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(585, -105)
 
 [node name="LightEmitter14" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(-647, -185)
 rotation = 3.14159
 
 [node name="LightEmitter15" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(-519, -185)
 rotation = 3.14159
 
 [node name="LightEmitter16" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(-391, -185)
 rotation = 3.14159
 
 [node name="LightEmitter17" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(-263, -185)
 rotation = 3.14159
 
 [node name="LightEmitter18" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(-135, -185)
 rotation = 3.14159
 
 [node name="LightEmitter7" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(1449, -57)
 rotation = 3.14159
 
 [node name="LightEmitter8" parent="." instance=ExtResource("20_51f2t")]
+visible = false
 position = Vector2(1577, -57)
 rotation = 3.14159
 
