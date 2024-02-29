@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=128 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -17,9 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="17_8botr"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
+[ext_resource type="Texture2D" uid="uid://bbtooxs6kll5f" path="res://Assets/Images/Objects/Props/PropBreakerBox1.png" id="21_7l64e"]
 [ext_resource type="Texture2D" uid="uid://c14mtny14n2gr" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueItemSwitcherAnimation.png" id="22_geleh"]
+[ext_resource type="Texture2D" uid="uid://ggjny2mf5t8" path="res://Assets/Images/Objects/Props/PropBreakerBox2.png" id="22_k3idv"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_pk4yi"]
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="23_7in8k"]
+[ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="23_ol755"]
+[ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="24_2wxqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -1055,6 +1059,22 @@ tutorial_box_ind = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea3"]
 position = Vector2(-12.5, -16)
 shape = SubResource("RectangleShape2D_6mlac")
+
+[node name="PropBreakerBox1" type="Sprite2D" parent="."]
+position = Vector2(-7313, -49)
+texture = ExtResource("21_7l64e")
+
+[node name="PropBreakerBox2" type="Sprite2D" parent="."]
+position = Vector2(-6927, 63)
+texture = ExtResource("22_k3idv")
+
+[node name="PropBeanCan" type="Sprite2D" parent="."]
+position = Vector2(-3783, -4)
+texture = ExtResource("23_ol755")
+
+[node name="PropBench" type="Sprite2D" parent="."]
+position = Vector2(-4639, 80)
+texture = ExtResource("24_2wxqt")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
