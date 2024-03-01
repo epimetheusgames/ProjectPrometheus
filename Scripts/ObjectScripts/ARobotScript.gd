@@ -58,7 +58,7 @@ func _on_player_detector_area_entered(area):
 func _on_explode_timer_timeout():
 	var instantiated_exploder = loaded_exploder.instantiate()
 	instantiated_exploder.position = position
-	instantiated_exploder._on_explosion_hitbox_body_entered(player.get_node("PlayerHurtbox"))
 	get_parent().add_child(instantiated_exploder)
+	instantiated_exploder._on_explosion_hitbox_body_entered(player.get_node("PlayerHurtbox"))
 	
 	queue_free()

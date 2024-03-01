@@ -29,13 +29,13 @@ region = Rect2(0, 40, 40, 40)
 atlas = ExtResource("3_yowwe")
 region = Rect2(0, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mc008"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj7qx"]
 atlas = ExtResource("2_td8xb")
-region = Rect2(0, 0, 40, 37)
+region = Rect2(0, 0, 40, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o01dx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqbdd"]
 atlas = ExtResource("2_td8xb")
-region = Rect2(0, 37, 40, 37)
+region = Rect2(0, 40, 40, 35)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fmm32"]
 animations = [{
@@ -69,10 +69,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mc008")
+"texture": SubResource("AtlasTexture_pj7qx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o01dx")
+"texture": SubResource("AtlasTexture_dqbdd")
 }],
 "loop": true,
 "name": &"Moving",
@@ -179,7 +179,7 @@ position = Vector2(16, 16)
 target_position = Vector2(28, 0)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-position = Vector2(32, 16)
+position = Vector2(40, 16)
 target_position = Vector2(0, 16)
 
 [node name="RayCastDown2" type="RayCast2D" parent="."]

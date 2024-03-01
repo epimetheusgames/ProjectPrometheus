@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------------|
-# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
@@ -17,7 +17,7 @@ var do_enable_collision = false
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && !enable_collision:
 		add_level()
-		
+	
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && disable_collision && !enable_collision:
 		if $StaticBody2D:
 			$StaticBody2D.queue_free()

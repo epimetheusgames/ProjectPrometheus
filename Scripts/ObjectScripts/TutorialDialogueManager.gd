@@ -23,6 +23,8 @@ func enter_tutorial_area(tutorial_box_ind):
 		dialogue_displaying = $MouseToShoot
 	if tutorial_box_ind == 3:
 		dialogue_displaying = $MouseToWeapon
+	if tutorial_box_ind == 4:
+		dialogue_displaying = $ShootSwitch
 		
 	dialogue_displaying.visible = true
 	displaying_dialogue = true

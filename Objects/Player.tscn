@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=87 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
@@ -735,6 +736,47 @@ scale = Vector2(0.3, 0.3)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 50
 text = "Use Weapon"
+
+[node name="ShootSwitch" type="Node2D" parent="Camera/TutorialDialogues"]
+position = Vector2(-144, -98)
+script = ExtResource("22_uhhpf")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ShootSwitch"]
+position = Vector2(51.5159, 59)
+scale = Vector2(-5.21801, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ShootSwitch"]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ShootSwitch"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_pk4f0")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/ShootSwitch"]
+offset_left = -6.0
+offset_top = 38.0
+offset_right = 314.0
+offset_bottom = 111.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 29
+text = "Shoot to unlock doors"
 
 [node name="LevelTransitionAnimationPlayer" type="AnimationPlayer" parent="Camera"]
 libraries = {
