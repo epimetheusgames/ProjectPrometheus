@@ -20,8 +20,9 @@ func _process(delta):
 			$AnimationPlayer.play("ElevatorUp")
 		else:
 			going_up = true
-			
-		$CharacterBody2D/CollisionPolygon2D2.disabled = false
+		
+		if $CharacterBody2D/CollisionPolygon2D2:
+			$CharacterBody2D/CollisionPolygon2D2.disabled = false
 		
 		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").start_special_music()
 		
