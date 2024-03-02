@@ -25,15 +25,15 @@
 [ext_resource type="Texture2D" uid="uid://bp3tntuuapxp6" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment1.png" id="16_r6ffc"]
 [ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
 [ext_resource type="Texture2D" uid="uid://dk0yq6avys0cc" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment3.png" id="17_p4s3n"]
-[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="17_pk4f0"]
 [ext_resource type="Texture2D" uid="uid://c4nfctlp6w8sn" path="res://Assets/Images/Objects/UI/Grapple.png" id="18_c1syy"]
+[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="18_ng1if"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
 [ext_resource type="Texture2D" uid="uid://8u6qags5a5w4" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge2.png" id="18_tdjfb"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
-[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="20_vy4us"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
+[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="21_cdvk0"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
@@ -625,7 +625,7 @@ offset_top = 65.0
 offset_right = 120.0
 offset_bottom = 105.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_pk4f0")
+texture = ExtResource("18_ng1if")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -657,7 +657,7 @@ offset_top = 64.0
 offset_right = 109.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_pk4f0")
+texture = ExtResource("18_ng1if")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -669,7 +669,7 @@ offset_top = 37.0
 offset_right = 77.0
 offset_bottom = 77.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_vy4us")
+texture = ExtResource("21_cdvk0")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "attack"
@@ -711,7 +711,7 @@ offset_top = 64.0
 offset_right = 93.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_pk4f0")
+texture = ExtResource("18_ng1if")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -723,7 +723,7 @@ offset_top = 37.0
 offset_right = 22.0
 offset_bottom = 77.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_vy4us")
+texture = ExtResource("21_cdvk0")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "attack"
@@ -738,6 +738,7 @@ theme_override_font_sizes/font_size = 50
 text = "Use Weapon"
 
 [node name="ShootSwitch" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
 position = Vector2(-144, -98)
 script = ExtResource("22_uhhpf")
 
@@ -763,7 +764,7 @@ offset_top = 64.0
 offset_right = 93.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("17_pk4f0")
+texture = ExtResource("18_ng1if")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
