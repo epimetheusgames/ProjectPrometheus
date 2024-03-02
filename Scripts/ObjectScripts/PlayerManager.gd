@@ -27,11 +27,29 @@ func _ready():
 	$CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 
 func _process(delta):
-	# Camera follows player.
-	var follow_position = $Player.position + ($PhysicsPlayerContainer.get_children()[0].position if $Player.physics_player else Vector2.ZERO)
+	# Camera follows player, but follows it better if the player is moving fast.
+	var follow_position
+	
+	follow_position = $Player.position + ($PhysicsPlayerContainer.get_children()[0].position if $Player.physics_player else Vector2.ZERO)
 	$CameraCollider.position += (follow_position - $CameraCollider.position) * smoothing_1 * (delta * 60)
 	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
+	
+	if $Camera.position.distance_to($Player.position) > 150:
+		if smoothing_1 < 0.5:
+			smoothing_1 += 0.001
+		if smoothing_2 < 0.5:
+			smoothing_2 += 0.001
+			
+		target_zoom += Vector2(0.01, 0.01)
+	else:
+		if smoothing_1 > 0.05:
+			smoothing_1 -= 0.0003
+		if smoothing_2 > 0.1:
+			smoothing_2 -= 0.0003
+			
+		if target_zoom > start_zoom:
+			target_zoom -= Vector2(0.01, 0.01)
 	
 	var player_vel = 0
 	
