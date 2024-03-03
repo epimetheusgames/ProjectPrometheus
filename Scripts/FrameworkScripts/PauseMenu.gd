@@ -13,9 +13,6 @@ extends Node2D
 var showing = false
 
 
-func _ready():
-	$CanvasLayer.hide()
-
 func _process(delta):
 	if Input.is_action_just_released("ui_accept") and showing:
 		# Exit to menu, don't question it.
@@ -24,13 +21,11 @@ func _process(delta):
 	# Open and close options menu.
 	if Input.is_action_just_pressed("esc") && !get_parent().was_open:
 		if showing:
-			get_parent().get_parent().blur_enabled = false
-			get_parent().get_parent().get_parent().just_unpaused = true
-			$CanvasLayer.hide()
+			get_parent().get_parent().get_node("Blur").get_node("AnimationPlayer").play("FadeoutBlur")
+			$AnimationPlayer.play("FadeoutPauseMenu")
 		else:
-			get_parent().get_parent().blur_enabled = true
-			get_parent().get_parent().get_node("Blur").visible = true
-			$CanvasLayer.show()
+			get_parent().get_parent().get_node("Blur").get_node("AnimationPlayer").play("FadeinBlur")
+			$AnimationPlayer.play("FadeinPauseMenu")
 		showing = !showing
 		
 	if showing:
@@ -44,4 +39,5 @@ func _on_hurt_pause_timer_timeout():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT && !get_parent().get_parent().get_parent().is_multiplayer:
 		showing = true
-		show()
+		get_parent().get_parent().get_node("Blur").get_node("AnimationPlayer").play("FadeinBlur")
+		$AnimationPlayer.play("FadeinPauseMenu")

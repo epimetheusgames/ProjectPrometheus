@@ -16,7 +16,6 @@ var bulge_adder = 0
 @export var smoothing_1 = 0.05
 @export var smoothing_2 = 0.1
 var screenshake_enabled = false
-var blur_enabled = false
 
 func round_place(x, place):
 	return round(x * pow(10, place)) / pow(10, place)
@@ -87,11 +86,6 @@ func _process(delta):
 		
 	if screenshake_enabled && $ScreenShakeDisableTimer.time_left <= 0:
 		$ScreenShakeDisableTimer.start()
-		
-	if blur_enabled:
-		$Blur.visible = true
-	else:
-		$Blur.visible = false
 
 func _on_screen_shake_disable_timer_timeout():
 	screenshake_enabled = false
