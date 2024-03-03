@@ -559,4 +559,5 @@ player_checkpoint_item = "RocketBoost"
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
+[editable path="Player/ScreenShake"]
 [editable path="DroneManager"]

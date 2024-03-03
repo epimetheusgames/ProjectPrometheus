@@ -522,7 +522,7 @@ position = Vector2(0, -31)
 polygon = PackedVector2Array(-88, 47, 221, 46, 199, 1, 194, -6, 185, -9, 185, -14, 172, -21, 150, -24, 141, -27, 138, -33, 130, -36, 102, -37, 75, -36, 69, -34, 66, -31, 65, -24, 21, -24, 19, -27, -75, -28, -78, -35, -87, -38, -188, -38, -192, -37, -193, -34, -195, -11, -195, -4, -188, 10, -172, 25, -149, 36, -116, 45)
 
 [node name="ExplosionDropper" type="Node2D" parent="DroneManager/Drone" index="9"]
-position = Vector2(147, 54)
+position = Vector2(259, -42)
 script = ExtResource("4_1nnyn")
 
 [node name="Timer" type="Timer" parent="DroneManager/Drone/ExplosionDropper"]
@@ -1347,6 +1347,7 @@ shape = SubResource("RectangleShape2D_rf3sw")
 
 [editable path="DroneManager"]
 [editable path="Player"]
+[editable path="Player/ScreenShake"]
 [editable path="ItemSwitcher"]
 [editable path="ItemSwitcher2"]
 [editable path="ItemSwitcher3"]

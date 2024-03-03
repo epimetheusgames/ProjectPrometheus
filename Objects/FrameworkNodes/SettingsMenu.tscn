@@ -65,6 +65,7 @@ theme = ExtResource("2_oee3f")
 text = "Efficient Rendering"
 
 [node name="BackArrow" type="Sprite2D" parent="."]
+texture_filter = 2
 position = Vector2(44, 868)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_p0vtk")

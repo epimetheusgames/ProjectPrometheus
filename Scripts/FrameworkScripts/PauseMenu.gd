@@ -14,7 +14,7 @@ var showing = false
 
 
 func _ready():
-	hide()
+	$CanvasLayer.hide()
 
 func _process(delta):
 	if Input.is_action_just_released("ui_accept") and showing:
@@ -24,10 +24,13 @@ func _process(delta):
 	# Open and close options menu.
 	if Input.is_action_just_pressed("esc") && !get_parent().was_open:
 		if showing:
+			get_parent().get_parent().blur_enabled = false
 			get_parent().get_parent().get_parent().just_unpaused = true
-			hide()
+			$CanvasLayer.hide()
 		else:
-			show()
+			get_parent().get_parent().blur_enabled = true
+			get_parent().get_parent().get_node("Blur").visible = true
+			$CanvasLayer.show()
 		showing = !showing
 		
 	if showing:

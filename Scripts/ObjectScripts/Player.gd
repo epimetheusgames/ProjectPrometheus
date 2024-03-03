@@ -499,13 +499,20 @@ func _on_area_2d_area_entered(area):
 		var ability_manager = get_parent().get_node("Camera").get_node("AbilityManager")
 		var switch_ability = area.get_parent().item_switch_type
 		if current_ability == "Weapon" && switch_ability == "RocketBoost":
+			area.get_parent().right_item()
 			ability_manager.next_ability()
 		elif current_ability == "RocketBoost" && switch_ability == "ArmGun":
+			area.get_parent().right_item()
 			ability_manager.next_ability()
 		elif current_ability == "ArmGun" && switch_ability == "Grapple":
+			area.get_parent().right_item()
 			ability_manager.next_ability()
 		elif current_ability == "Grapple" && switch_ability == "Weapon":
+			area.get_parent().right_item()
 			ability_manager.next_ability()
+		else:
+			area.get_parent().wrong_item()
+			get_parent().screenshake_enabled = true
 	
 	if area.name == "LadderClimbArea":
 		if in_ladder_area:

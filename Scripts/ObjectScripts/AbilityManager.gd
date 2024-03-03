@@ -109,6 +109,8 @@ func next_ability():
 	if ability_index == 4:
 		ability_index = 0
 	$AbililtySwitchTimer.start()
+	
+	$AnimationPlayer.play("GotItem")
 
 func _on_fadin_half_wait_timer_timeout():
 	if ability_index == 0:

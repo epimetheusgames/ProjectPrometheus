@@ -27,14 +27,19 @@ func _on_explosion_hitbox_body_entered(body):
 		$Timer2.start()
 		$Sprite2D.visible = false
 	
-		var direction_to_player = (player.position - position).normalized()
-		player.velocity = direction_to_player * 5
+		if player.position.distance_to(position) < 30:
+			var direction_to_player = (player.position - position).normalized()
+			player.velocity = direction_to_player * 5
+			
+		if player.position.distance_to(position) < 150:
+			player.get_parent().screenshake_enabled = true
 		
 func _process(delta):
-	if gravity:
-		velocity.y += 0.5
-		
-	position += velocity * 60
+	if !exploded:
+		if gravity:
+			velocity.y += 0.2
+			
+		position += velocity * delta * 60
 
 func _on_timer_timeout():
 	queue_free()

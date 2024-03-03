@@ -51,3 +51,8 @@ func _process(delta):
 		modulate = Color(1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1)
 	else:
 		modulate = Color(0.8, 0.8, 0.8, 1)
+
+func wrong_item():
+	$AnimationPlayer.play("WrongItem")
+
+func right_item(): pass

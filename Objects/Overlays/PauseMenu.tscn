@@ -10,7 +10,14 @@
 process_mode = 3
 script = ExtResource("1_0l5na")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 90
+
+[node name="ForManipulatingTheseNodes" type="Node2D" parent="CanvasLayer"]
+position = Vector2(-976, -568)
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
 offset_left = -30.0
 offset_top = -27.0
 offset_right = 1933.0
@@ -18,43 +25,43 @@ offset_bottom = 1219.0
 theme = ExtResource("2_1kp1x")
 color = Color(0, 0, 0, 0.372549)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 872.0
+[node name="Label" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 487.0
 offset_top = 562.0
-offset_right = 1032.0
-offset_bottom = 588.0
+offset_right = 1448.0
+offset_bottom = 589.0
 theme = ExtResource("2_1kp1x")
 text = "Press         to exit"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 844.0
+[node name="Label2" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 490.0
 offset_top = 516.0
-offset_right = 1100.0
+offset_right = 1449.0
 offset_bottom = 600.0
 theme = ExtResource("2_1kp1x")
 text = "Press         to resume"
 horizontal_alignment = 1
 
-[node name="ControllerTextureRect" type="TextureRect" parent="."]
+[node name="ControllerTextureRect" type="TextureRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
 process_mode = 3
 custom_minimum_size = Vector2(40, 40)
-offset_left = 930.0
+offset_left = 926.0
 offset_top = 508.0
-offset_right = 970.0
+offset_right = 966.0
 offset_bottom = 548.0
 texture = ExtResource("3_c1oyq")
 expand_mode = 1
 script = ExtResource("4_cow0x")
 path = "esc"
 
-[node name="ControllerTextureRect2" type="TextureRect" parent="."]
+[node name="ControllerTextureRect2" type="TextureRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
 process_mode = 3
 custom_minimum_size = Vector2(40, 40)
-offset_left = 930.0
-offset_top = 553.0
-offset_right = 970.0
-offset_bottom = 593.0
+offset_left = 944.0
+offset_top = 553.5
+offset_right = 984.0
+offset_bottom = 593.5
 texture = ExtResource("5_n83w1")
 expand_mode = 1
 script = ExtResource("4_cow0x")

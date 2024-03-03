@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=92 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
+[ext_resource type="PackedScene" uid="uid://b7k7vdwyhgqpd" path="res://addons/post_processing/node/children/screen_shake.tscn" id="41_agtbc"]
+[ext_resource type="PackedScene" uid="uid://cxsuld87nxd0v" path="res://addons/post_processing/node/children/blur.tscn" id="42_tsbgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
@@ -90,6 +92,43 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_pv1ye"]
+resource_name = "GotItem"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TickerRing:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 2.9, 2.5, 1), Color(3, 2.5, 2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l8khi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TickerRing:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2q55"]
+_data = {
+"GotItem": SubResource("Animation_pv1ye"),
+"RESET": SubResource("Animation_l8khi")
+}
 
 [sub_resource type="Animation" id="Animation_4w1xp"]
 resource_name = "CloseLevel"
@@ -480,6 +519,7 @@ value = 100.0
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
 process_mode = 1
+self_modulate = Color(2, 2, 2, 1)
 z_index = 50
 position = Vector2(0, 137)
 scale = Vector2(1.5, 1.5)
@@ -542,6 +582,11 @@ one_shot = true
 [node name="FadinHalfWaitTimer" type="Timer" parent="Camera/AbilityManager"]
 wait_time = 0.5
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/AbilityManager"]
+libraries = {
+"": SubResource("AnimationLibrary_o2q55")
+}
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
 process_mode = 3
@@ -999,6 +1044,15 @@ bus = &"SFX"
 [node name="CameraCloseFollowEndTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Blur" parent="." instance=ExtResource("42_tsbgy")]
+layer = 70
+
+[node name="ScreenShake" parent="." instance=ExtResource("41_agtbc")]
+
+[node name="ScreenShakeDisableTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
@@ -1016,3 +1070,4 @@ one_shot = true
 [connection signal="timeout" from="Player/HurtVibrationTimer" to="Player" method="_on_hurt_vibration_timer_timeout"]
 [connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]
 [connection signal="finished" from="Heartbeat" to="Player" method="_on_rocket_boost_finished"]
+[connection signal="timeout" from="ScreenShakeDisableTimer" to="." method="_on_screen_shake_disable_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cog3jp2ops40s"]
+[gd_scene load_steps=56 format=3 uid="uid://cog3jp2ops40s"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_b70f2"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="23_uehp8"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="25_tjqer"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/AnimationActivator.gd" id="26_6qcrf"]
+[ext_resource type="Texture2D" uid="uid://g33u6pnalcvl" path="res://Assets/Images/Objects/PrometheusLogoGlowingNoText.png" id="28_olsre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_b70f2")
@@ -786,6 +787,11 @@ points = PackedVector2Array(1062, -3176, 1062, -1718, 374, -1719)
 width = 2.0
 default_color = Color(0.27451, 0.27451, 0.27451, 1)
 joint_mode = 2
+
+[node name="PrometheusLogoGlowingNoText" type="Sprite2D" parent="."]
+position = Vector2(1147, 354)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("28_olsre")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

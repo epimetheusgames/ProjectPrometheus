@@ -15,6 +15,8 @@ var static_adder = 0
 var bulge_adder = 0
 @export var smoothing_1 = 0.05
 @export var smoothing_2 = 0.1
+var screenshake_enabled = false
+var blur_enabled = false
 
 func round_place(x, place):
 	return round(x * pow(10, place)) / pow(10, place)
@@ -35,21 +37,16 @@ func _process(delta):
 	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
 	
-	if $Camera.position.distance_to($Player.position) > 150:
+	if $Camera.position.distance_to($Player.position) > 100:
 		if smoothing_1 < 0.5:
 			smoothing_1 += 0.001
 		if smoothing_2 < 0.5:
 			smoothing_2 += 0.001
-			
-		target_zoom += Vector2(0.01, 0.01)
 	else:
 		if smoothing_1 > 0.05:
 			smoothing_1 -= 0.0003
 		if smoothing_2 > 0.1:
 			smoothing_2 -= 0.0003
-			
-		if target_zoom > start_zoom:
-			target_zoom -= Vector2(0.01, 0.01)
 	
 	var player_vel = 0
 	
@@ -82,3 +79,19 @@ func _process(delta):
 
 	if $Camera/BossBar.value <= -30 && get_parent().boss:
 		get_parent().get_node("DroneManager").get_node("Drone").get_node("DeathZone").get_node("CollisionPolygon2D").disabled = true
+
+	if screenshake_enabled:
+		$ScreenShake.visible = true
+	else:
+		$ScreenShake.visible = false
+		
+	if screenshake_enabled && $ScreenShakeDisableTimer.time_left <= 0:
+		$ScreenShakeDisableTimer.start()
+		
+	if blur_enabled:
+		$Blur.visible = true
+	else:
+		$Blur.visible = false
+
+func _on_screen_shake_disable_timer_timeout():
+	screenshake_enabled = false
