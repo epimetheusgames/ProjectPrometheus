@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ki2jkl2sfgj"
-path="res://.godot/imported/texture_03.png-10a2d13d96fe9dba00c822080243f048.ctex"
+uid="uid://bjsxvlsyb4pk1"
+path="res://.godot/imported/Swirl.png-1ad1b1933438c19f97d3063806e5251d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/kenney_prototype_textures/purple/texture_03.png"
-dest_files=["res://.godot/imported/texture_03.png-10a2d13d96fe9dba00c822080243f048.ctex"]
+source_file="res://addons/UniversalFade/Patterns/Swirl.png"
+dest_files=["res://.godot/imported/Swirl.png-1ad1b1933438c19f97d3063806e5251d.ctex"]
 
 [params]
 

@@ -51,6 +51,8 @@ func _process(delta):
 	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1 * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation
 	
+	$TextureProgressBar.value = 400 - $AbililtySwitchTimer.time_left * 20
+	
 	if $AbililtySwitchTimer.time_left < 10:
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
 		

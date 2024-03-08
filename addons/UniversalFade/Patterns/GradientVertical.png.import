@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be4kh4gki6cdk"
-path="res://.godot/imported/texture_06.png-352782bc60b4b3fe4a632b0a6af5553d.ctex"
+uid="uid://cachicobd5s46"
+path="res://.godot/imported/GradientVertical.png-d73fd2ef16dc23e36078647d72dc31d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/kenney_prototype_textures/purple/texture_06.png"
-dest_files=["res://.godot/imported/texture_06.png-352782bc60b4b3fe4a632b0a6af5553d.ctex"]
+source_file="res://addons/UniversalFade/Patterns/GradientVertical.png"
+dest_files=["res://.godot/imported/GradientVertical.png-d73fd2ef16dc23e36078647d72dc31d9.ctex"]
 
 [params]
 

@@ -211,7 +211,6 @@ gradient = SubResource("Gradient_46iuw")
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_sq3eu")
 level = 1
-lights_off = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")

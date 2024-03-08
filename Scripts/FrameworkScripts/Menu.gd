@@ -27,6 +27,8 @@ func activate():
 	# Activate all menu nodes!
 	
 func _ready():
+	Fade.fade_in()
+	
 	if first:
 		modulate.a = 0.00001
 	

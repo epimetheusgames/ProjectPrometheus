@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://7gkuoslfisye"]
+[gd_scene load_steps=4 format=3 uid="uid://7gkuoslfisye"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PistonSmasher.gd" id="1_4pgxl"]
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_y2klk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_khl2o"]
-size = Vector2(64, 128)
+[ext_resource type="Texture2D" uid="uid://cr2627frmvrbf" path="res://Assets/Images/Objects/FunctionalProps/PistonSmasher.png" id="2_n6x4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11uqa"]
-size = Vector2(54, 128)
+size = Vector2(54, 3)
 
 [node name="PistonSmasher" type="CharacterBody2D"]
+z_index = -1
 script = ExtResource("1_4pgxl")
 
 [node name="SmasherSprite" type="Sprite2D" parent="."]
-scale = Vector2(2, 4)
-texture = ExtResource("1_y2klk")
+position = Vector2(0, -3)
+texture = ExtResource("2_n6x4x")
 
-[node name="SmasherCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_khl2o")
+[node name="SmasherCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -2)
+polygon = PackedVector2Array(-32, 64, 32, 64, 32, 58, 17, 58, 8, 54, 8, -53, -8, -53, -8, 54, -17, 58, -32, 58)
 
 [node name="PistonDeathZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PistonDeathZone"]
+position = Vector2(0, 63.5)
 shape = SubResource("RectangleShape2D_11uqa")
 
 [node name="SmashTimer" type="Timer" parent="."]

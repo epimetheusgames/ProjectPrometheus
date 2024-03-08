@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cil462rk14e31"
-path="res://.godot/imported/texture_09.png-bfc57ad7b0bd0aecb6d4584eb0197660.ctex"
+uid="uid://cr2627frmvrbf"
+path="res://.godot/imported/PistonSmasher.png-00f296ba84afd9eddb20fc6a69a8c6ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/kenney_prototype_textures/purple/texture_09.png"
-dest_files=["res://.godot/imported/texture_09.png-bfc57ad7b0bd0aecb6d4584eb0197660.ctex"]
+source_file="res://Assets/Images/Objects/FunctionalProps/PistonSmasher.png"
+dest_files=["res://.godot/imported/PistonSmasher.png-00f296ba84afd9eddb20fc6a69a8c6ae.ctex"]
 
 [params]
 

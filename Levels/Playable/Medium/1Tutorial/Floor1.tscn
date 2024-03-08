@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=39 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_cmg21"]
 [ext_resource type="PackedScene" uid="uid://cflbjyiyjsdmf" path="res://Objects/StaticObjects/ARobot.tscn" id="21_yrnxa"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_pk4yi"]
-[ext_resource type="PackedScene" uid="uid://bory2q8wdwwns" path="res://Objects/StaticObjects/AVeryExtremelyEvilMeanHorribleBadRobot.tscn" id="23_26fu1"]
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="24_vk2bh"]
 [ext_resource type="Texture2D" uid="uid://du0cy54f0p3o3" path="res://Assets/Images/Objects/Props/PropBlankMonitorFaceForwardBroken2.png" id="25_iasj7"]
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="26_x4ghs"]
@@ -34,56 +33,104 @@
 texture = ExtResource("2_xrlir")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/z_index = -1
 0:0/0/metadata/_better_terrain = {
 "type": 0
 }
 1:0/0 = 0
+1:0/0/z_index = -1
 2:0/0 = 0
+2:0/0/z_index = -1
 3:0/0 = 0
+3:0/0/z_index = -1
 4:0/0 = 0
+4:0/0/z_index = -1
 5:0/0 = 0
+5:0/0/z_index = -1
 6:0/0 = 0
+6:0/0/z_index = -1
 7:0/0 = 0
+7:0/0/z_index = -1
 8:0/0 = 0
+8:0/0/z_index = -1
 9:0/0 = 0
+9:0/0/z_index = -1
 10:0/0 = 0
+10:0/0/z_index = -1
 11:0/0 = 0
+11:0/0/z_index = -1
 0:1/0 = 0
+0:1/0/z_index = -1
 1:1/0 = 0
+1:1/0/z_index = -1
 2:1/0 = 0
+2:1/0/z_index = -1
 3:1/0 = 0
+3:1/0/z_index = -1
 4:1/0 = 0
+4:1/0/z_index = -1
 5:1/0 = 0
+5:1/0/z_index = -1
 6:1/0 = 0
+6:1/0/z_index = -1
 7:1/0 = 0
+7:1/0/z_index = -1
 8:1/0 = 0
+8:1/0/z_index = -1
 9:1/0 = 0
+9:1/0/z_index = -1
 10:1/0 = 0
+10:1/0/z_index = -1
 11:1/0 = 0
+11:1/0/z_index = -1
 0:2/0 = 0
+0:2/0/z_index = -1
 1:2/0 = 0
+1:2/0/z_index = -1
 2:2/0 = 0
+2:2/0/z_index = -1
 3:2/0 = 0
+3:2/0/z_index = -1
 4:2/0 = 0
+4:2/0/z_index = -1
 5:2/0 = 0
+5:2/0/z_index = -1
 6:2/0 = 0
+6:2/0/z_index = -1
 7:2/0 = 0
+7:2/0/z_index = -1
 8:2/0 = 0
+8:2/0/z_index = -1
 9:2/0 = 0
+9:2/0/z_index = -1
 10:2/0 = 0
+10:2/0/z_index = -1
 11:2/0 = 0
+11:2/0/z_index = -1
 0:3/0 = 0
+0:3/0/z_index = -1
 1:3/0 = 0
+1:3/0/z_index = -1
 2:3/0 = 0
+2:3/0/z_index = -1
 3:3/0 = 0
+3:3/0/z_index = -1
 4:3/0 = 0
+4:3/0/z_index = -1
 5:3/0 = 0
+5:3/0/z_index = -1
 6:3/0 = 0
+6:3/0/z_index = -1
 7:3/0 = 0
+7:3/0/z_index = -1
 8:3/0 = 0
+8:3/0/z_index = -1
 9:3/0 = 0
+9:3/0/z_index = -1
 10:3/0 = 0
+10:3/0/z_index = -1
 11:3/0 = 0
+11:3/0/z_index = -1
 
 [sub_resource type="TileSet" id="TileSet_dgxbs"]
 tile_size = Vector2i(32, 32)
@@ -368,9 +415,6 @@ position = Vector2(331, -7)
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(1513, -256)
 texture = ExtResource("22_pk4yi")
-
-[node name="ARobot2" parent="." instance=ExtResource("23_26fu1")]
-position = Vector2(269, -7)
 
 [node name="PropDesk" type="Sprite2D" parent="."]
 position = Vector2(455, -17)
