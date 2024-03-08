@@ -6,9 +6,8 @@ on:
       - "version"
       - ".github/workflows/upload-itchio.yml"
       - "export_presets.html.example"
-
 env:
-  WORKING_DIRECTORY: game
+  WORKING_DIRECTORY: ./
 
 jobs:
   deploy:
