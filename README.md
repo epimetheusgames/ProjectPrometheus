@@ -1,8 +1,3 @@
-Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
-All rights reserved.
-
-Email us at <epimtheusgamesogpc@gmail.com>
-
 # Epimetheus Games OGPC Season 17
 
 Our entry for the Oregon Game Project Challenge Season 17.
@@ -28,3 +23,7 @@ You play as a human in a very gray and bleak facility, fighting your way through
 - We’re using Beepbox (and some Beepbox mods), and GarageBand (all with custom-made loops (we recorded our own instrument and/or created the entire melody)) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
 - We are using LibreSprite (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
 
+Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
+All rights reserved.
+
+Email us at <epimtheusgamesogpc@gmail.com>
