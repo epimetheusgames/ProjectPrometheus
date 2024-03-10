@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8wkn32xb6sat"]
+
+[ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="1_h3hc5"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Mark8Terminal.gd" id="1_o8bp7"]
+[ext_resource type="Texture2D" uid="uid://fpf256bbxhn1" path="res://Assets/Images/Objects/Props/Mark8Eyes.png" id="2_dqath"]
+
+[node name="Mark8Terminal" type="Node2D"]
+script = ExtResource("1_o8bp7")
+
+[node name="Mark8Terminal" type="Sprite2D" parent="."]
+position = Vector2(16, 11.5)
+texture = ExtResource("1_h3hc5")
+
+[node name="Mark8Eyes" type="Sprite2D" parent="."]
+self_modulate = Color(4, 3, 3, 1)
+position = Vector2(16, 11.5)
+texture = ExtResource("2_dqath")

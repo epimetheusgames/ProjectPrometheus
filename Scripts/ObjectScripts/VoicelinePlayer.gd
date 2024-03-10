@@ -15,7 +15,8 @@ var drone_deaths_this_level = 0
 var one_tutorial_c_grapple_swing_deaths_this_level = 0
 
 @onready var voicelines = {
-	"1TutorialCGrappleSwingDeath2": preload("res://Assets/Audio/Voicelines/1TutorialCGrappleSwingDeath2.ogg")
+	"1TutorialCGrappleSwingDeath2": preload("res://Assets/Audio/Voicelines/1TutorialCGrappleSwingDeath2.ogg"),
+	"Mark8Test": preload("res://Assets/Audio/Music/Mark8Test.wav"),
 }
 
 var queue = []
@@ -30,7 +31,7 @@ func play_voiceline(voiceline_name):
 	if !voiceline_name in already_played_voicelines:
 		already_played_voicelines.append(voiceline_name)
 		$VoicelineContainer.playing = false
-		#$VoicelineContainer.stream = voicelines[voiceline_name]
+		$VoicelineContainer.stream = voicelines[voiceline_name]
 		$VoicelineContainer.playing = true
 	
 func add_to_queue(voiceline_name):

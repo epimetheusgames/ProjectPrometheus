@@ -465,10 +465,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TimeCounter" parent="Player/Camera" index="5"]
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
+[node name="BossBar" parent="Player/Camera" index="7"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BossBar" parent="Player/Camera" index="9"]
+[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="8"]
