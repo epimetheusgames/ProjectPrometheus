@@ -31,7 +31,7 @@ func play_voiceline(voiceline_name):
 	if !voiceline_name in already_played_voicelines:
 		already_played_voicelines.append(voiceline_name)
 		$VoicelineContainer.playing = false
-		$VoicelineContainer.stream = voicelines[voiceline_name]
+		#$VoicelineContainer.stream = voicelines[voiceline_name]
 		$VoicelineContainer.playing = true
 	
 func add_to_queue(voiceline_name):

@@ -24,6 +24,7 @@ const ability_max = 3
 
 func _ready():
 	ideal_rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60) 
+	$TextureProgressBar.texture_progress.fill_to.x = 0.714
 
 func _on_abililty_switch_timer_timeout():
 	if (get_parent().get_parent().get_parent().is_multiplayer && get_parent().get_parent().is_multiplayer_authority()) || !get_parent().get_parent().get_parent().is_multiplayer:
@@ -54,6 +55,8 @@ func _process(delta):
 	$TextureProgressBar.value = 400 - $AbililtySwitchTimer.time_left * 20
 	
 	if $AbililtySwitchTimer.time_left < 10:
+		$TextureProgressBar.texture_progress.fill_to.x += 0.0001 * delta * 60
+		$TextureProgressBar.modulate.r += 0.001 * delta * 60
 		get_parent().get_node("DarkOverlay").color.a += 0.0015 * delta * 60
 		
 		if ability_lost_volume < 5:
@@ -80,6 +83,8 @@ func _on_fadin_wait_timer_timeout():
 	get_parent().get_parent().get_node("Player").get_node("SparkParticles").emitting = true
 
 func next_ability():
+	$TextureProgressBar.texture_progress.fill_to.x = 0.714
+	
 	if ability_index == 3:
 		ideal_rotation = deg_to_rad(0)
 		get_parent().get_parent().get_node("Player").current_ability = "Weapon"
