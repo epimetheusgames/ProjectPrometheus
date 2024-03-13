@@ -9,11 +9,13 @@
 extends Area2D
 
 var player = null
+var target_position = Vector2.ZERO
 
 
 func _process(delta):
 	if player:
-		position = player.position + player.get_parent().position
+		target_position = player.position + player.get_parent().position
+		position += (target_position - position) * 0.02
 
 func _on_area_entered(area):
 	if area.name == "PlayerHurtbox":

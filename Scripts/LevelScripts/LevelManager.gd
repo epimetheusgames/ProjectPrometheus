@@ -12,6 +12,7 @@ extends Node2D
 @export var boss = false
 @export var zoom_boss = false
 @export var is_multiplayer = false
+@export var intense_music = false
 var slot = -1
 var graphics_efficiency = false
 var is_max_level = true

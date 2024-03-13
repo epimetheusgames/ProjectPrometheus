@@ -120,6 +120,7 @@ var last_music_ind = -1
 var starting = true
 var force_time_scale = -1.0
 var playing_special_music = false
+var playing_intense_music = false
 
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 
@@ -132,6 +133,9 @@ func _ready():
 	get_parent().get_parent().get_node("ControllerIcons").process_mode = 3
 
 func _process(delta):
+	if !playing_intense_music && len(get_parent().get_node("Level").get_children()) > 0 && get_parent().get_node("Level").get_children()[0].intense_music:
+		start_intense_music()
+	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
 	elif starting:
@@ -153,12 +157,14 @@ func _process(delta):
 	#	force_time_scale -= 0.1
 	
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 4:
+		var musics_list = music_files if !get_parent().get_node("Level").get_children()[0].intense_music else intense_music_files
+		
 		var rng = RandomNumberGenerator.new()
-		var music_index = rng.randi_range(0, len(music_files) - 1)
-		while music_index == last_music_ind:
-			music_index = rng.randi_range(0, len(music_files) - 1)
+		var music_index = rng.randi_range(0, len(musics_list) - 1)
+		while music_index == last_music_ind && len(musics_list) != 1:
+			music_index = rng.randi_range(0, len(musics_list) - 1)
 			
-		var music_stream = music_files[music_index]
+		var music_stream = musics_list[music_index]
 		$BackgroundMusicPlayer.stream = music_stream
 		$BackgroundMusicPlayer.play()
 		$BackgroundMusicPlayer.playing = true
@@ -228,6 +234,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var slot_points = level_data[2]
 	var slot_time = level_data[3]
 	var slot_deaths = level_data[5]
+	
+	end_special_music()
 	
 	var global_data = load_data("global")
 	
@@ -325,3 +333,7 @@ func end_special_music():
 	if playing_special_music:
 		playing_special_music = false
 		$AudioFader.play("FadeinLevelMusic")
+		
+func start_intense_music():
+	$BackgroundMusicPlayer.stop()
+	playing_intense_music = true
