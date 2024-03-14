@@ -25,6 +25,10 @@ func enter_tutorial_area(tutorial_box_ind):
 		dialogue_displaying = $MouseToWeapon
 	if tutorial_box_ind == 4:
 		dialogue_displaying = $ShootSwitch
+	if tutorial_box_ind == 5:
+		dialogue_displaying = $YourItemHasChanged
+	if tutorial_box_ind == 6:
+		dialogue_displaying = $WASDToMove
 		
 	dialogue_displaying.visible = true
 	displaying_dialogue = true

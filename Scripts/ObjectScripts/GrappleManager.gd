@@ -32,14 +32,6 @@ func calc_closest_hook():
 	return closest_hook
 
 func _physics_process(delta):
-	if get_parent().is_on_floor():
-		if air_grapling:
-			grapling = false
-			hooked = false
-			hook = null
-		air_grapling = false
-		get_parent().disable_speed_cap = false
-		get_parent().low_gravity = false
 	
 	if !hooked && !air_grapling && get_parent().get_node("PlayerAnimation").animation == "GrappleHang":
 		get_parent().get_node("PlayerAnimation").play("Idle")
@@ -59,10 +51,10 @@ func _physics_process(delta):
 			var radius = get_parent().position - hook.position
 			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
 			
-			if Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump") && !get_parent().is_on_ceiling():
 				grapple_lock_rope_len -= 1.5 * delta * 60
 				
-			if Input.is_action_pressed("down"):
+			if Input.is_action_pressed("down") && !get_parent().is_on_floor() && $RayCast2D.get_collider() == null && $RayCast2D.get_collider() == null:
 				grapple_lock_rope_len += 1.4 * delta * 60
 			
 			var rad_vel = cos(angle) * get_parent().velocity.length()

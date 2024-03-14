@@ -703,6 +703,47 @@ expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
 
+[node name="YourItemHasChanged" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-157, 0)
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+position = Vector2(79.5, 59)
+scale = Vector2(-3.469, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+offset_left = 40.0
+offset_top = 37.0
+offset_right = 263.0
+offset_bottom = 170.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Your item has now changed."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+offset_left = 81.0
+offset_top = 66.0
+offset_right = 304.0
+offset_bottom = 199.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 70.0
+offset_top = 65.0
+offset_right = 110.0
+offset_bottom = 105.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
 [node name="MouseToShoot" type="Node2D" parent="Camera/TutorialDialogues"]
 visible = false
 position = Vector2(-143, -91)
@@ -756,6 +797,50 @@ scale = Vector2(0.3, 0.3)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 50
 text = "Shoot"
+
+[node name="WASDToMove" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/WASDToMove"]
+position = Vector2(79.5, 59)
+scale = Vector2(-3.469, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/WASDToMove"]
+offset_left = 80.0
+offset_top = 65.0
+offset_right = 303.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/WASDToMove"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 69.0
+offset_top = 64.0
+offset_right = 109.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/WASDToMove"]
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 283.0
+offset_bottom = 171.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 30
+text = "Use WASD or 
+Arrow Keys to 
+move"
 
 [node name="MouseToWeapon" type="Node2D" parent="Camera/TutorialDialogues"]
 visible = false
@@ -1106,6 +1191,14 @@ default_color = Color(0, 0.658824, 0.639216, 1)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0.560784, 0.560784, 0.560784, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="Player/GrappleManager"]
+position = Vector2(4, 16)
+target_position = Vector2(0, 8)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Player/GrappleManager"]
+position = Vector2(-7, 16)
+target_position = Vector2(0, 8)
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)

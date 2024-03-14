@@ -1,0 +1,1378 @@
+[gd_scene load_steps=95 format=3 uid="uid://dlchuo004ji5k"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
+[ext_resource type="PackedScene" uid="uid://dbql3q4vummfw" path="res://Objects/Overlays/PauseMenu.tscn" id="2_g88ux"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerCamera.gd" id="2_hyv1c"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraCollider.gd" id="2_mi2af"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
+[ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/UI/RocketBootsIcon.png" id="5_2fpqi"]
+[ext_resource type="Texture2D" uid="uid://cr2610b268u2o" path="res://Assets/Images/Objects/UI/Sword_Icon_Sprite.png" id="7_cocna"]
+[ext_resource type="Texture2D" uid="uid://duef5w4d6i5lt" path="res://Assets/Images/Objects/UI/TickerBackgroundMask.png" id="7_es82s"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
+[ext_resource type="Texture2D" uid="uid://chbgvy50r01t1" path="res://Assets/Images/Objects/UI/TickerSpritesheet.png" id="9_l4wr6"]
+[ext_resource type="Texture2D" uid="uid://dvk40sahmgybr" path="res://Assets/Images/Objects/UI/GrappleIcon.png" id="10_qna8r"]
+[ext_resource type="Texture2D" uid="uid://beg0uwi0f0c6h" path="res://Assets/Images/Objects/Misc/ScreenBorder.png" id="10_to3sf"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/CloseAnimator.gd" id="11_opf60"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
+[ext_resource type="Texture2D" uid="uid://bxkgsplc2qnf3" path="res://Assets/Images/Objects/Misc/BlackPixel.png" id="12_lk36j"]
+[ext_resource type="Texture2D" uid="uid://b1xwrqg427wio" path="res://Assets/Images/Objects/Misc/WhitePixel.png" id="13_7gte0"]
+[ext_resource type="Texture2D" uid="uid://hdpwng3ffpud" path="res://Assets/Images/Objects/UI/TutorialDialogueBox.png" id="15_b14rh"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/TutorialDialogueManager.gd" id="15_c3i4e"]
+[ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="16_bulim"]
+[ext_resource type="Texture2D" uid="uid://bp3tntuuapxp6" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment1.png" id="16_r6ffc"]
+[ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
+[ext_resource type="Texture2D" uid="uid://dk0yq6avys0cc" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment3.png" id="17_p4s3n"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="18_at8rc"]
+[ext_resource type="Texture2D" uid="uid://c4nfctlp6w8sn" path="res://Assets/Images/Objects/UI/Grapple.png" id="18_c1syy"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
+[ext_resource type="Texture2D" uid="uid://8u6qags5a5w4" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge2.png" id="18_tdjfb"]
+[ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
+[ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
+[ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
+[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="21_anil2"]
+[ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
+[ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
+[ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
+[ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
+[ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
+[ext_resource type="PackedScene" uid="uid://b7k7vdwyhgqpd" path="res://addons/post_processing/node/children/screen_shake.tscn" id="41_agtbc"]
+[ext_resource type="PackedScene" uid="uid://cxsuld87nxd0v" path="res://addons/post_processing/node/children/blur.tscn" id="42_tsbgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
+size = Vector2(478, 269)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4rsve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuv2x"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2t503"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuv2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yu0f"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sydkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yu0f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f857k"]
+atlas = ExtResource("9_l4wr6")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlsj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f857k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pv1ye"]
+resource_name = "GotItem"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TickerRing:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3, 2.9, 2.5, 1), Color(3, 2.5, 2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l8khi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TickerRing:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o2q55"]
+_data = {
+"GotItem": SubResource("Animation_pv1ye"),
+"RESET": SubResource("Animation_l8khi")
+}
+
+[sub_resource type="Gradient" id="Gradient_ekvjg"]
+offsets = PackedFloat32Array(0.971831, 1)
+colors = PackedColorArray(1, 0.85, 0, 1, 0.372549, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_22v3w"]
+gradient = SubResource("Gradient_ekvjg")
+width = 510
+height = 510
+fill = 1
+fill_from = Vector2(0.505, 0.5)
+fill_to = Vector2(0.714, 0.48)
+
+[sub_resource type="Animation" id="Animation_4w1xp"]
+resource_name = "CloseLevel"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120.245, 1000), Vector2(1500, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-524, -464)]
+}
+
+[sub_resource type="Animation" id="Animation_7p7jl"]
+resource_name = "OpenLevel"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1276, 1000), Vector2(134, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-482, -324), Vector2(406, -324)]
+}
+
+[sub_resource type="Animation" id="Animation_ai123"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120.245, 335)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-482, -324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7w7xl"]
+_data = {
+"CloseLevel": SubResource("Animation_4w1xp"),
+"OpenLevel": SubResource("Animation_7p7jl"),
+"RESET": SubResource("Animation_ai123")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
+size = Vector2(9, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mslx"]
+size = Vector2(16, 29)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3omib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ed8f"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxe4s"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct6ro"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14o4o"]
+atlas = ExtResource("22_rf8k5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83q08"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ypi"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0fov"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x513"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_328me"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xogro"]
+atlas = ExtResource("21_lg63c")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xeeve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ed8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxe4s")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ct6ro")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_14o4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83q08")
+}],
+"loop": false,
+"name": &"EndMoving",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ypi")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0fov")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x513")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_328me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xogro")
+}],
+"loop": false,
+"name": &"StartMoving",
+"speed": 15.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ws7le"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 39.6
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="Gradient" id="Gradient_vup00"]
+colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxmpe"]
+gradient = SubResource("Gradient_vup00")
+width = 1
+height = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ugayt"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xg2ih"]
+offsets = PackedFloat32Array(0, 0.197279, 0.326531, 0.707483, 0.965986)
+colors = PackedColorArray(0.137255, 0.129412, 1, 1, 1, 1, 1, 1, 1, 0.773333, 0.15, 1, 0.670588, 0, 0, 0.654902, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ajew4"]
+gradient = SubResource("Gradient_xg2ih")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvq35"]
+lifetime_randomness = 0.26
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 2, 0)
+spread = 28.96
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 500, 0)
+scale_min = 0.0
+scale_max = 0.8
+color = Color(1, 1, 1, 0.607843)
+color_ramp = SubResource("GradientTexture1D_ajew4")
+
+[sub_resource type="Gradient" id="Gradient_sgf2g"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wdwm"]
+gradient = SubResource("Gradient_sgf2g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iukvx"]
+lifetime_randomness = 0.07
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 7, 1)
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 80, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+damping_min = 31.683
+damping_max = 31.683
+color_ramp = SubResource("GradientTexture1D_1wdwm")
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 5.8
+turbulence_noise_speed = Vector3(-1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_u60xr"]
+colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq6ji"]
+gradient = SubResource("Gradient_u60xr")
+width = 1
+height = 1
+
+[sub_resource type="Gradient" id="Gradient_05jlk"]
+offsets = PackedFloat32Array(0, 0.346939, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pjexw"]
+gradient = SubResource("Gradient_05jlk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ase3h"]
+lifetime_randomness = 0.07
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+color_ramp = SubResource("GradientTexture1D_pjexw")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 7.1
+turbulence_noise_speed = Vector3(-1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_at02u"]
+colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
+gradient = SubResource("Gradient_at02u")
+width = 2
+height = 2
+
+[sub_resource type="Gradient" id="Gradient_5hxdt"]
+offsets = PackedFloat32Array(0, 0.31, 0.46, 0.74)
+colors = PackedColorArray(1, 1, 1, 1, 0.371795, 0.371795, 0.371795, 1, 0.190221, 0.190221, 0.190221, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ittv"]
+gradient = SubResource("Gradient_5hxdt")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PlayerManager" type="Node2D"]
+script = ExtResource("1_71342")
+
+[node name="CameraCollider" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_mi2af")
+
+[node name="CameraHitbox" type="CollisionShape2D" parent="CameraCollider"]
+position = Vector2(3, 1.5)
+shape = SubResource("RectangleShape2D_shfyb")
+
+[node name="Camera" type="Camera2D" parent="."]
+process_mode = 3
+zoom = Vector2(4, 4)
+script = ExtResource("2_hyv1c")
+
+[node name="PauseMenu" parent="Camera" instance=ExtResource("2_g88ux")]
+z_index = 20
+position = Vector2(-470, -271)
+scale = Vector2(0.5, 0.5)
+
+[node name="DialogueBoxContainer" type="Node2D" parent="Camera"]
+visible = false
+
+[node name="DarkOverlay" type="ColorRect" parent="Camera"]
+offset_left = -487.0
+offset_top = -282.0
+offset_right = 499.0
+offset_bottom = 344.0
+mouse_filter = 2
+color = Color(0.0823529, 0, 0, 0)
+
+[node name="FPSCounter" type="Label" parent="Camera"]
+z_index = 50
+offset_left = -234.0
+offset_top = 111.0
+offset_right = -95.0
+offset_bottom = 134.0
+text = "FPS: Calculating ...
+"
+
+[node name="PointsCounter" type="Label" parent="Camera"]
+z_index = 50
+offset_left = 99.0
+offset_top = -136.0
+offset_right = 238.0
+offset_bottom = -113.0
+text = "Points: 0"
+horizontal_alignment = 2
+
+[node name="TimeCounter" type="Label" parent="Camera"]
+z_index = 50
+offset_left = -234.0
+offset_top = -134.0
+offset_right = -95.0
+offset_bottom = -111.0
+text = "Time: 0"
+
+[node name="ScreenBorder" type="Sprite2D" parent="Camera"]
+z_index = 2000
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_to3sf")
+
+[node name="BossBar" type="ProgressBar" parent="Camera"]
+offset_left = -176.0
+offset_top = -209.0
+offset_right = 184.0
+offset_bottom = -182.0
+value = 100.0
+
+[node name="AbilityManager" type="Node2D" parent="Camera"]
+process_mode = 1
+self_modulate = Color(2, 2, 2, 1)
+z_index = 50
+position = Vector2(0, 137)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("4_ctc4a")
+
+[node name="TickerMask" type="Sprite2D" parent="Camera/AbilityManager"]
+clip_children = 2
+z_index = 1
+material = SubResource("CanvasItemMaterial_4rsve")
+position = Vector2(0.666594, -19.1667)
+texture = ExtResource("7_es82s")
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="TickerBackground" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(5.08626e-05, 0.999947)
+sprite_frames = SubResource("SpriteFrames_2t503")
+
+[node name="Line2D" type="Line2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(-99.9999, -47.5001)
+points = PackedVector2Array(100, 30.5, 100, 52.5)
+width = 1.0
+default_color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[node name="Ticker" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(0.500051, 19.9999)
+rotation = 6.14356
+sprite_frames = SubResource("SpriteFrames_sydkl")
+
+[node name="Item" type="Node2D" parent="Camera/AbilityManager/TickerMask"]
+position = Vector2(-1.60933e-06, 20)
+rotation = 6.14356
+
+[node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(0, -20)
+rotation = -0.785398
+texture = ExtResource("7_cocna")
+
+[node name="Boots" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(-20, 0)
+rotation = 4.71239
+texture = ExtResource("5_2fpqi")
+
+[node name="GrappleIcon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
+position = Vector2(14.8333, -1.99995)
+rotation = 1.5708
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("10_qna8r")
+
+[node name="TickerRing" type="AnimatedSprite2D" parent="Camera/AbilityManager"]
+position = Vector2(0.666666, -18.1667)
+sprite_frames = SubResource("SpriteFrames_nlsj1")
+
+[node name="AbililtySwitchTimer" type="Timer" parent="Camera/AbilityManager"]
+wait_time = 20.0
+autostart = true
+
+[node name="FadinWaitTimer" type="Timer" parent="Camera/AbilityManager"]
+one_shot = true
+
+[node name="FadinHalfWaitTimer" type="Timer" parent="Camera/AbilityManager"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/AbilityManager"]
+libraries = {
+"": SubResource("AnimationLibrary_o2q55")
+}
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Camera/AbilityManager"]
+modulate = Color(1, 1, 1, 0.6)
+z_index = -1
+texture_filter = 2
+offset_left = -50.5
+offset_top = -69.0
+offset_right = 461.5
+offset_bottom = 443.0
+scale = Vector2(0.2, 0.2)
+max_value = 400.0
+value = 400.0
+fill_mode = 4
+texture_progress = SubResource("GradientTexture2D_22v3w")
+
+[node name="CloseAnimator" type="Node2D" parent="Camera"]
+process_mode = 3
+z_index = 50
+script = ExtResource("11_opf60")
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+offset_left = -600.0
+offset_top = -218.0
+offset_right = 586.0
+offset_bottom = 203.0
+mouse_filter = 2
+color = Color(1, 0.8, 0.8, 0)
+
+[node name="BlackBarBottom" type="Sprite2D" parent="Camera/CloseAnimator"]
+z_index = 10
+position = Vector2(1, 500)
+scale = Vector2(2000, 1e-05)
+texture = ExtResource("12_lk36j")
+
+[node name="BlackBarTop" type="Sprite2D" parent="Camera/CloseAnimator"]
+z_index = 10
+position = Vector2(0, -500)
+scale = Vector2(2000, 1e-05)
+texture = ExtResource("12_lk36j")
+
+[node name="WhiteLine" type="Sprite2D" parent="Camera/CloseAnimator"]
+visible = false
+self_modulate = Color(5, 5, 5, 1)
+z_index = 11
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(700, 0.2)
+texture = ExtResource("13_7gte0")
+
+[node name="DeathWaitTimer" type="Timer" parent="Camera/CloseAnimator"]
+process_mode = 3
+wait_time = 0.8
+one_shot = true
+
+[node name="AnimDelayTimer" type="Timer" parent="Camera/CloseAnimator"]
+wait_time = 0.6
+one_shot = true
+
+[node name="TutorialDialogues" type="Node2D" parent="Camera"]
+z_index = 50
+script = ExtResource("15_c3i4e")
+
+[node name="ItemSwitcherDialogue" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
+position = Vector2(79.5, 59)
+scale = Vector2(3.46875, 1.9375)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
+offset_left = 50.0
+offset_top = 37.0
+offset_right = 273.0
+offset_bottom = 170.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "This shows your current item"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
+offset_left = 91.0
+offset_top = 66.0
+offset_right = 314.0
+offset_bottom = 199.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ItemSwitcherDialogue"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 80.0
+offset_top = 65.0
+offset_right = 120.0
+offset_bottom = 105.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="YourItemHasChanged" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-157, 0)
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+position = Vector2(79.5, 59)
+scale = Vector2(-3.469, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+offset_left = 40.0
+offset_top = 37.0
+offset_right = 263.0
+offset_bottom = 170.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Your item has now changed."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+offset_left = 81.0
+offset_top = 66.0
+offset_right = 304.0
+offset_bottom = 199.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/YourItemHasChanged"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 70.0
+offset_top = 65.0
+offset_right = 110.0
+offset_bottom = 105.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="MouseToShoot" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/MouseToShoot"]
+position = Vector2(79.5, 59)
+scale = Vector2(-3.469, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/MouseToShoot"]
+offset_left = 80.0
+offset_top = 65.0
+offset_right = 303.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/MouseToShoot"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 69.0
+offset_top = 64.0
+offset_right = 109.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="ControllerTextureRect2" type="TextureRect" parent="Camera/TutorialDialogues/MouseToShoot"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 37.0
+offset_top = 37.0
+offset_right = 77.0
+offset_bottom = 77.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_anil2")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "attack"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/MouseToShoot"]
+offset_left = 60.0
+offset_top = 36.0
+offset_right = 233.0
+offset_bottom = 109.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 50
+text = "Shoot"
+
+[node name="WASDToMove" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/WASDToMove"]
+position = Vector2(79.5, 59)
+scale = Vector2(-3.469, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/WASDToMove"]
+offset_left = 80.0
+offset_top = 65.0
+offset_right = 303.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/WASDToMove"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 69.0
+offset_top = 64.0
+offset_right = 109.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/WASDToMove"]
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 283.0
+offset_bottom = 171.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 30
+text = "Use WASD or 
+Arrow Keys to 
+move"
+
+[node name="MouseToWeapon" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-143, -91)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/MouseToWeapon"]
+position = Vector2(47.9285, 59)
+scale = Vector2(-5.44222, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/MouseToWeapon"]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/MouseToWeapon"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="ControllerTextureRect2" type="TextureRect" parent="Camera/TutorialDialogues/MouseToWeapon"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = -18.0
+offset_top = 37.0
+offset_right = 22.0
+offset_bottom = 77.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_anil2")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "attack"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/MouseToWeapon"]
+offset_top = 36.0
+offset_right = 316.0
+offset_bottom = 109.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 50
+text = "Use Weapon"
+
+[node name="ShootSwitch" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-144, -98)
+script = ExtResource("22_uhhpf")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/ShootSwitch"]
+position = Vector2(51.5159, 59)
+scale = Vector2(-5.21801, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/ShootSwitch"]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/ShootSwitch"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_at8rc")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/ShootSwitch"]
+offset_left = -6.0
+offset_top = 38.0
+offset_right = 314.0
+offset_bottom = 111.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 29
+text = "Shoot to unlock doors"
+
+[node name="Inventory" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -240.0
+offset_top = -136.0
+offset_right = 240.0
+offset_bottom = 135.0
+mouse_filter = 2
+script = ExtResource("23_4onkk")
+
+[node name="SlotBackgrounds" type="Control" parent="Camera/Inventory"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 249.0
+offset_right = 184.0
+offset_bottom = 265.0
+color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 184.0
+offset_top = 249.0
+offset_right = 200.0
+offset_bottom = 265.0
+color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 152.0
+offset_top = 249.0
+offset_right = 168.0
+offset_bottom = 265.0
+color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 280.0
+offset_top = 249.0
+offset_right = 296.0
+offset_bottom = 265.0
+color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 312.0
+offset_top = 249.0
+offset_right = 328.0
+offset_bottom = 265.0
+color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Camera/Inventory/SlotBackgrounds"]
+modulate = Color(1, 1, 1, 0.886275)
+layout_mode = 0
+offset_left = 296.0
+offset_top = 249.0
+offset_right = 312.0
+offset_bottom = 265.0
+color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[node name="SlotHighlights" type="Control" parent="Camera/Inventory"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Line2D" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+position = Vector2(16, 0)
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+position = Vector2(32, 0)
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+position = Vector2(128, 0)
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+position = Vector2(144, 0)
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="Camera/Inventory/SlotHighlights"]
+visible = false
+position = Vector2(160, 0)
+points = PackedVector2Array(152, 264, 152, 249, 168, 249, 168, 265, 152, 265)
+closed = true
+width = 1.0
+joint_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera/Inventory"]
+layer = 128
+follow_viewport_enabled = true
+
+[node name="SlotButtons" type="Control" parent="Camera/Inventory/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -240.0
+offset_top = -136.0
+offset_right = 245.0
+offset_bottom = 144.0
+
+[node name="TextureButton" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 249.0
+offset_right = 168.0
+offset_bottom = 265.0
+
+[node name="TextureButton2" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 249.0
+offset_right = 184.0
+offset_bottom = 265.0
+
+[node name="TextureButton3" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 249.0
+offset_right = 200.0
+offset_bottom = 265.0
+
+[node name="TextureButton4" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 249.0
+offset_right = 296.0
+offset_bottom = 265.0
+
+[node name="TextureButton5" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 249.0
+offset_right = 312.0
+offset_bottom = 265.0
+
+[node name="TextureButton6" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 249.0
+offset_right = 328.0
+offset_bottom = 265.0
+
+[node name="LevelTransitionAnimationPlayer" type="AnimationPlayer" parent="Camera"]
+libraries = {
+"": SubResource("AnimationLibrary_7w7xl")
+}
+autoplay = "OpenLevel"
+
+[node name="ColorRect" type="ColorRect" parent="Camera"]
+z_index = 100
+offset_left = -482.0
+offset_top = -324.0
+offset_right = -361.755
+offset_bottom = 11.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = 8
+collision_mask = 17
+platform_on_leave = 2
+script = ExtResource("2_7fkxw")
+
+[node name="ArmGunManager" type="Node2D" parent="Player"]
+script = ExtResource("8_bsb7n")
+
+[node name="Line2D" type="Line2D" parent="Player/ArmGunManager"]
+visible = false
+points = PackedVector2Array(-10, 1, -19, -5, -10, -21, 15, -22)
+width = 1.0
+default_color = Color(0.415686, 0.415686, 0.415686, 1)
+
+[node name="Segment1" type="Sprite2D" parent="Player/ArmGunManager"]
+position = Vector2(-14, -1)
+rotation = -0.837758
+texture = ExtResource("16_r6ffc")
+
+[node name="Segment2" type="Sprite2D" parent="Player/ArmGunManager"]
+position = Vector2(-16, -11)
+rotation = 0.47822
+texture = ExtResource("16_r6ffc")
+
+[node name="Segment3" type="Sprite2D" parent="Player/ArmGunManager"]
+position = Vector2(-12, -18)
+rotation = -1.5708
+texture = ExtResource("17_p4s3n")
+flip_v = true
+
+[node name="Hinge1" type="Sprite2D" parent="Player/ArmGunManager"]
+position = Vector2(-19, -8)
+texture = ExtResource("17_7qngq")
+
+[node name="Hinge2" type="Sprite2D" parent="Player/ArmGunManager"]
+position = Vector2(-14, -16)
+texture = ExtResource("18_tdjfb")
+
+[node name="GrappleManager" type="Node2D" parent="Player"]
+script = ExtResource("11_k2qbr")
+
+[node name="GrappleBody" type="CharacterBody2D" parent="Player/GrappleManager"]
+script = ExtResource("12_5gxux")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GrappleManager/GrappleBody"]
+texture = ExtResource("18_c1syy")
+
+[node name="GrappleColider" type="Area2D" parent="Player/GrappleManager/GrappleBody"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrappleManager/GrappleBody/GrappleColider"]
+shape = SubResource("RectangleShape2D_f6ify")
+
+[node name="LinePorabola" type="Line2D" parent="Player/GrappleManager"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 0.2
+default_color = Color(0, 0.658824, 0.639216, 1)
+
+[node name="GrappleRope" type="Line2D" parent="Player/GrappleManager"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0.560784, 0.560784, 0.560784, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="Player/GrappleManager"]
+position = Vector2(4, 17)
+target_position = Vector2(0, 8)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Player/GrappleManager"]
+position = Vector2(-7, 17)
+target_position = Vector2(0, 8)
+
+[node name="PlayerHurtbox" type="Area2D" parent="Player"]
+position = Vector2(-17, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerHurtbox"]
+position = Vector2(16.5, 19)
+shape = SubResource("RectangleShape2D_7c12t")
+
+[node name="SpikeHurtBox" type="Area2D" parent="Player"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SpikeHurtBox"]
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_1mslx")
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_3omib")
+position = Vector2(-2, 0)
+sprite_frames = ExtResource("23_3u55o")
+animation = &"DeathAnim"
+autoplay = "Walking"
+
+[node name="AntennaAnimation" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-2, 1)
+sprite_frames = SubResource("SpriteFrames_xeeve")
+animation = &"EndMoving"
+autoplay = "Idle"
+
+[node name="CoyoteJumpTimer" type="Timer" parent="Player"]
+wait_time = 0.07
+one_shot = true
+
+[node name="BulletHurtCooldown" type="Timer" parent="Player"]
+one_shot = true
+
+[node name="BulletBadHurtcooldown" type="Timer" parent="Player"]
+wait_time = 3.0
+one_shot = true
+
+[node name="DashStopCooldown" type="Timer" parent="Player"]
+wait_time = 0.2
+one_shot = true
+
+[node name="NewDashCooldown" type="Timer" parent="Player"]
+wait_time = 0.3
+one_shot = true
+
+[node name="HurtVibrationTimer" type="Timer" parent="Player"]
+process_mode = 3
+wait_time = 0.2
+one_shot = true
+
+[node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
+position = Vector2(-2, 16)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_ws7le")
+texture = SubResource("GradientTexture2D_vxmpe")
+
+[node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+material = SubResource("CanvasItemMaterial_ugayt")
+position = Vector2(-5.5, 15)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_nvq35")
+texture = ExtResource("23_1iden")
+lifetime = 0.4
+
+[node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+material = SubResource("CanvasItemMaterial_ugayt")
+position = Vector2(3.5, 15)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 800
+process_material = SubResource("ParticleProcessMaterial_nvq35")
+texture = ExtResource("23_1iden")
+lifetime = 0.4
+
+[node name="SparkParticles" type="GPUParticles2D" parent="Player"]
+position = Vector2(-11, -11)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_iukvx")
+texture = SubResource("GradientTexture2D_uq6ji")
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.68
+
+[node name="PlayerAmbianceParticles" type="GPUParticles2D" parent="Player"]
+self_modulate = Color(1.5, 1.5, 1.5, 1)
+position = Vector2(-11, -9)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_ase3h")
+texture = SubResource("GradientTexture2D_ia288")
+lifetime = 20.0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 6, 15, 2, -10, -3, -10, -8, 15, -8, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(0, -1)
+energy = 1.2
+range_z_max = 7
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_6ittv")
+
+[node name="MetalWalk1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_4311v")
+volume_db = 7.0
+bus = &"SFX"
+
+[node name="MetalWalk2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_kii0g")
+volume_db = 7.0
+bus = &"SFX"
+
+[node name="MetalWalkBoots1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_44at1")
+volume_db = 2.0
+bus = &"SFX"
+
+[node name="RocketBoost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_de7xa")
+pitch_scale = 1.74
+bus = &"SFX"
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_1136l")
+pitch_scale = 1.5
+bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+
+[node name="PhysicsPlayerContainer" type="Node" parent="."]
+
+[node name="CameraCloseFollowEndTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Blur" parent="." instance=ExtResource("42_tsbgy")]
+process_mode = 3
+layer = 70
+
+[node name="ScreenShake" parent="." instance=ExtResource("41_agtbc")]
+
+[node name="ScreenShakeDisableTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
+[connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/CloseAnimator/DeathWaitTimer" to="Camera/CloseAnimator" method="_on_death_wait_timer_timeout"]
+[connection signal="timeout" from="Camera/CloseAnimator/AnimDelayTimer" to="Camera/CloseAnimator" method="_on_anim_delay_timer_timeout"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton" to="Camera/Inventory" method="_on_texture_button_button_up"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton2" to="Camera/Inventory" method="_on_texture_button_2_button_up"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton3" to="Camera/Inventory" method="_on_texture_button_3_button_up"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton4" to="Camera/Inventory" method="_on_texture_button_4_button_up"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton5" to="Camera/Inventory" method="_on_texture_button_5_button_up"]
+[connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton6" to="Camera/Inventory" method="_on_texture_button_6_button_up"]
+[connection signal="animation_finished" from="Camera/LevelTransitionAnimationPlayer" to="Camera" method="_on_level_transition_animation_player_animation_finished"]
+[connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Player/PlayerHurtbox" to="Player" method="_on_player_hurtbox_area_exited"]
+[connection signal="body_entered" from="Player/SpikeHurtBox" to="Player" method="_on_spike_hurt_box_body_entered"]
+[connection signal="animation_finished" from="Player/PlayerAnimation" to="Player" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Player/AntennaAnimation" to="Player" method="_on_antenna_animation_animation_finished"]
+[connection signal="timeout" from="Player/BulletHurtCooldown" to="Player" method="_on_bullet_hurt_cooldown_timeout"]
+[connection signal="timeout" from="Player/BulletBadHurtcooldown" to="Player" method="_on_bullet_bad_hurtcooldown_timeout"]
+[connection signal="timeout" from="Player/DashStopCooldown" to="Player" method="_on_dash_stop_cooldown_timeout"]
+[connection signal="timeout" from="Player/HurtVibrationTimer" to="Player" method="_on_hurt_vibration_timer_timeout"]
+[connection signal="finished" from="RocketBoost" to="Player" method="_on_rocket_boost_finished"]
+[connection signal="finished" from="Heartbeat" to="Player" method="_on_rocket_boost_finished"]
+[connection signal="timeout" from="ScreenShakeDisableTimer" to="." method="_on_screen_shake_disable_timer_timeout"]

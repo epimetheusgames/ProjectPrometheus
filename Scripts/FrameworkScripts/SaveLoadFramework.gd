@@ -125,6 +125,9 @@ var playing_intense_music = false
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 
 func _ready():
+	# Load discord rpc
+	update_rpc_discord(-1, true)
+	
 	# Load mouse cursor.
 	Input.set_custom_mouse_cursor(loaded_carret, Input.CURSOR_IBEAM)
 	
@@ -133,6 +136,9 @@ func _ready():
 	get_parent().get_parent().get_node("ControllerIcons").process_mode = 3
 
 func _process(delta):
+	# Update DiscordSDK
+	DiscordSDK.run_callbacks()
+	
 	if !playing_intense_music && len(get_parent().get_node("Level").get_children()) > 0 && get_parent().get_node("Level").get_children()[0].intense_music:
 		start_intense_music()
 	
@@ -235,6 +241,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var slot_time = level_data[3]
 	var slot_deaths = level_data[5]
 	
+	update_rpc_discord(current_level + 1 if !level else level + 1)
 	end_special_music()
 	
 	var global_data = load_data("global")
@@ -337,3 +344,18 @@ func end_special_music():
 func start_intense_music():
 	$BackgroundMusicPlayer.stop()
 	playing_intense_music = true
+
+func update_rpc_discord(level, main_menu = false):
+	DiscordSDK.app_id = 1217656093074002020 # Application ID
+	
+	if main_menu:
+		DiscordSDK.state = "In Main Menu"
+	else:
+		DiscordSDK.state = "Playing level " + str(level) + "."
+
+	DiscordSDK.large_image = "prometheuslogoglowingnotext2" # Image key from "Art Assets"
+
+	DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
+	# DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00:00 remaining"
+
+	DiscordSDK.refresh() # Always refresh after changing the values!
