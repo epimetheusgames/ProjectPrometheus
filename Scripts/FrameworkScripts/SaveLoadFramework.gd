@@ -347,7 +347,7 @@ func start_intense_music():
 
 func update_rpc_discord(level, main_menu = false):
 	DiscordSDK.app_id = 1217656093074002020 # Application ID
-	
+
 	if main_menu:
 		DiscordSDK.state = "In Main Menu"
 	else:
