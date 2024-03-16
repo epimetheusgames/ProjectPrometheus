@@ -26,4 +26,4 @@ You play as a human in a very gray and bleak facility, fighting your way through
 Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
 All rights reserved.
 
-Email us at <epimtheusgamesogpc@gmail.com>
+Email us at <epimtheusgamesogpc@gmail.com>!
