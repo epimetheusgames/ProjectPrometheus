@@ -6,7 +6,7 @@ Our entry for the Oregon Game Project Challenge Season 17.
 
 Go play the latest beta at https://epimetheusgamesogpc.itch.io/season17beta !
 
-Visit our [website](https://epimetheusgames.onrender.com/) and our [YouTube Channel](https://www.youtube.com/@EpimetheusGamesOGPC)
+Visit our [website](https://epimetheusgames.onrender.com/) and our [YouTube Channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
 
 ## Game Summary:
 You play as a human in a very gray and bleak facility, fighting your way through robot drones, drills, and challenging platforming segments. You have 20 seconds to switch to a specific new item in a cycle, and otherwise you die.
