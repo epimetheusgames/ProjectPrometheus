@@ -32,7 +32,7 @@ var physics_drone_ingame = null
 @onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @onready var patrol_points_size = $DronePatrolPoints.points.size()
 
-@export var velocity_smoothing = 0.01
+@export var velocity_smoothing = 0.02
 @export var big_drone = false
 @export var firefly = false
 @export var drone_boss = false

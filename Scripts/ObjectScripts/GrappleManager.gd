@@ -32,6 +32,9 @@ func calc_closest_hook():
 	return closest_hook
 
 func _physics_process(delta):
+	if get_parent().is_on_floor() && air_grapling:
+		grapling = false
+		$GrappleBody.hooked = false
 	
 	if !hooked && !air_grapling && get_parent().get_node("PlayerAnimation").animation == "GrappleHang":
 		get_parent().get_node("PlayerAnimation").play("Idle")
@@ -138,6 +141,7 @@ func _physics_process(delta):
 					air_grapling = true
 				
 				$GrappleBody.velocity = mouse_direction * 15
+				$GrappleBody.position = Vector2.ZERO
 		else:
 			$LinePorabola.visible = false
 			
