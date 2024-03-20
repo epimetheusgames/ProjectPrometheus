@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvmdybceqknkh"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/PressEAreaPopup.gd" id="1_ov7vn"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="2_ouop0"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/Sprite.gd" id="3_xeex5"]
+
+[node name="PressEAreaPopup" type="Area2D"]
+script = ExtResource("1_ov7vn")
+
+[node name="ControllerSprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ouop0")
+script = ExtResource("3_xeex5")
+path = "interact"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

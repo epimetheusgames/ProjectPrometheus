@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=131 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="23_7in8k"]
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="23_ol755"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="24_2wxqt"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="25_jbes3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -810,6 +811,9 @@ size = Vector2(147, 92)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1nx2"]
 size = Vector2(382, 488)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8byov"]
+size = Vector2(40, 64)
+
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
 no_timer = true
@@ -1094,6 +1098,13 @@ tutorial_box_ind = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea5"]
 position = Vector2(-133, -173)
 shape = SubResource("RectangleShape2D_y1nx2")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("25_jbes3")]
+position = Vector2(-7554, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressEAreaPopup"]
+position = Vector2(38, 1)
+shape = SubResource("RectangleShape2D_8byov")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=190 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_oj1qr"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_qqyaf"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="22_0xelj"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_gv0uv"]
 [ext_resource type="Texture2D" uid="uid://c8sgdlcrofv4f" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueJumpSwingGrappleAnimation.png" id="22_srvhy"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_ognaq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_qqyaf")
@@ -1243,6 +1244,9 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb42a"]
+size = Vector2(40, 64)
+
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_oj1qr")
 level = 4
@@ -1474,6 +1478,13 @@ sprite_frames = SubResource("SpriteFrames_q7jrb")
 autoplay = "default"
 frame = 27
 frame_progress = 0.204653
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("23_ognaq")]
+position = Vector2(3135, 145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressEAreaPopup"]
+position = Vector2(-1, 47)
+shape = SubResource("RectangleShape2D_pb42a")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

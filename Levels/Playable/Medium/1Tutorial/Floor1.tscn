@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=41 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://7md2ixd8bat8" path="res://Assets/Images/Objects/Props/PropAnalogClock.png" id="27_usoey"]
 [ext_resource type="Texture2D" uid="uid://ggjny2mf5t8" path="res://Assets/Images/Objects/Props/PropBreakerBox2.png" id="28_ak06c"]
 [ext_resource type="Texture2D" uid="uid://bbtooxs6kll5f" path="res://Assets/Images/Objects/Props/PropBreakerBox1.png" id="29_cm6k2"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="29_nwbx0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -256,6 +257,9 @@ shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4wgv"]
+size = Vector2(40, 64)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_fl7hs")
 level = 4
@@ -440,6 +444,13 @@ texture = ExtResource("28_ak06c")
 [node name="PropBreakerBox1" type="Sprite2D" parent="."]
 position = Vector2(851, -20)
 texture = ExtResource("29_cm6k2")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("29_nwbx0")]
+position = Vector2(1514, -302)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressEAreaPopup"]
+position = Vector2(-1, 46)
+shape = SubResource("RectangleShape2D_a4wgv")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
