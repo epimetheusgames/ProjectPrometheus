@@ -80,7 +80,6 @@ func _process(delta):
 	elif !dropped_enemies:
 		dropped_enemies = true
 		spawn_mele($MeleSpawn.position)
-		spawn_mele($MeleSpawn2.position)
 		
 		if health < 50:
 			spawn_drill($MeleSpawn3.position)

@@ -278,8 +278,10 @@ material = SubResource("ShaderMaterial_0aues")
 color = Color(0.701961, 0.701961, 0.701961, 1)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_8w7sk")]
+z_index = -1
 position = Vector2(-16, 17)
 player_checkpoint_item = "Grapple"
+ignore_old_checkpoint = false
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("14_v0qdw")]
 position = Vector2(110, 17)

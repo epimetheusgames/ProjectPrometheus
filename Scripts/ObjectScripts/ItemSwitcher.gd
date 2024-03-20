@@ -12,6 +12,7 @@ extends Node2D
 @export var item_switch_type = "Weapon"
 @onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @export var dont_show_sprite = false
+@export var dont_checkpoint = false
 const next_item_key = {
 	"Weapon": "RocketBoost",
 	"RocketBoost": "ArmGun",
@@ -39,6 +40,9 @@ func _ready():
 			$GrappleCollect2.visible = true
 			
 	$SwitcherCheckPoint.player_checkpoint_item = item_switch_type
+	
+	if dont_checkpoint:
+		$SwitcherCheckPoint/CheckpointCollision/CollisionPolygon2D.polygon = PackedVector2Array([Vector2.ZERO])
 
 func _process(delta):
 	pulse_x += 0.07 * delta * 60
@@ -56,7 +60,7 @@ func _process(delta):
 		
 	if item_switch_type == player.current_ability:
 		$SwitcherCheckPoint/CheckpointCollision/CollisionPolygon2D.disabled = false
-	else:
+	elif !dont_checkpoint:
 		$SwitcherCheckPoint/CheckpointCollision/CollisionPolygon2D.disabled = true
 
 func wrong_item():

@@ -467,12 +467,14 @@ rotation = 1.5708
 item_switch_type = "Grapple"
 
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(126, 0)
 texture = ExtResource("21_d5oyl")
 
 [node name="Checkpoint5" parent="." instance=ExtResource("18_5qojb")]
-position = Vector2(-47, 16)
+position = Vector2(121, 16)
 player_checkpoint_item = "ArmGun"
+ignore_old_checkpoint = false
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

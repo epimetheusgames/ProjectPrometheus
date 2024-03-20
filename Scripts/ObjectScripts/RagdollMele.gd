@@ -12,6 +12,9 @@ extends Node2D
 
 func _on_despawn_timer_timeout():
 	modulate = Color(1, 1, 1, 0.5)
-	$Body.collision_layer = 0
-	$Head.collision_layer = 0
-	$Wheel.collision_layer = 0
+	$Head/CollisionShape2D.queue_free()
+	$Body/CollisionShape2D2.queue_free()
+	$Wheel/CollisionShape2D3.queue_free()
+
+func _on_queue_free_timer_timeout():
+	queue_free()

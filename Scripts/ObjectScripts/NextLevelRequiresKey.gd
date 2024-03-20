@@ -13,10 +13,11 @@ var active = false
 @export var disable_collision = false
 @export var enable_collision = false
 var do_enable_collision = false
+var player_in_area = false
 
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && !enable_collision:
-		add_level()
+		player_in_area = true
 	
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && disable_collision && !enable_collision:
 		if $StaticBody2D:
@@ -25,6 +26,10 @@ func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && enable_collision:
 		$StaticBody2D/CollisionShape2D.disabled = false
 		do_enable_collision = true
+		
+func _on_area_2d_area_exited(area):
+	if area.name == "PlayerHurtbox":
+		player_in_area = false
 		
 func add_level():
 	var level = get_parent().level
@@ -52,3 +57,7 @@ func restart_level(respawn_pos, respawn_ability):
 func _physics_process(delta):
 	if do_enable_collision:
 		$StaticBody2D/CollisionShape2D.disabled = false
+		
+	if Input.is_action_just_pressed("interact") && player_in_area:
+		add_level()
+

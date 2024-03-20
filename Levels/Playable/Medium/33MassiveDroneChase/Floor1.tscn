@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=71 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l03d8"]
@@ -28,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://btapf3hnoktcw" path="res://Assets/Images/Objects/FunctionalProps/JumpSlab.png" id="22_mlk43"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/33MassiveDroneChase/BossHealthDecreaser.gd" id="23_low3e"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="25_skvru"]
-[ext_resource type="Texture2D" uid="uid://b7024b2vpi32e" path="res://Assets/Images/Objects/Props/PropChair.png" id="28_5fmda"]
 [ext_resource type="Texture2D" uid="uid://dtabeb1lyjuc1" path="res://Assets/Images/Objects/PropDoorFaceForward-sheet.png" id="28_7q38o"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="29_1n0dn"]
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="31_qbi61"]
@@ -669,6 +668,7 @@ color = Color(1, 1, 1, 0.454902)
 position = Vector2(1557, 112)
 item_switch_type = "RocketBoost"
 dont_show_sprite = true
+dont_checkpoint = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="ItemSwitcher"]
 collision_layer = 257
@@ -695,6 +695,7 @@ sprite_frames = SubResource("SpriteFrames_gw78a")
 position = Vector2(2797, 8)
 item_switch_type = "ArmGun"
 dont_show_sprite = true
+dont_checkpoint = true
 
 [node name="RigidBody2D" type="RigidBody2D" parent="ItemSwitcher2"]
 collision_layer = 257
@@ -721,6 +722,7 @@ sprite_frames = SubResource("SpriteFrames_gw78a")
 position = Vector2(3611, 752)
 item_switch_type = "Grapple"
 dont_show_sprite = true
+dont_checkpoint = true
 
 [node name="StaticBody2D" parent="ItemSwitcher3" index="11"]
 visible = false
@@ -1020,6 +1022,7 @@ position = Vector2(5845, 293)
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("18_qv2pt")]
 position = Vector2(6088, 560)
+dont_checkpoint = true
 
 [node name="DrillManager2" parent="." instance=ExtResource("20_ktkfw")]
 position = Vector2(6275, 534)
@@ -1039,6 +1042,7 @@ shape = SubResource("RectangleShape2D_jbukt")
 [node name="ItemSwitcher5" parent="." instance=ExtResource("18_qv2pt")]
 position = Vector2(5967, 624)
 item_switch_type = "RocketBoost"
+dont_checkpoint = true
 
 [node name="PropDoorFaceForward-sheet" type="Sprite2D" parent="."]
 texture = ExtResource("28_7q38o")
@@ -1065,7 +1069,6 @@ mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D7"]
 position = Vector2(1, -8)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D7"]
 position = Vector2(1.5, -5)
@@ -1080,7 +1083,6 @@ mass = 100.0
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D8"]
 position = Vector2(1, -8)
 scale = Vector2(-1, 1)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D8"]
 position = Vector2(1.5, -5)
@@ -1144,7 +1146,6 @@ mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D13"]
 position = Vector2(1, -8)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D13"]
 position = Vector2(1.5, -5)
@@ -1159,7 +1160,6 @@ mass = 100.0
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D14"]
 position = Vector2(1, -8)
 scale = Vector2(-1, 1)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D14"]
 position = Vector2(1.5, -5)
@@ -1237,7 +1237,6 @@ mass = 100.0
 
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D19"]
 position = Vector2(1, -8)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D19"]
 position = Vector2(1.5, -5)
@@ -1252,7 +1251,6 @@ mass = 100.0
 [node name="PropBench" type="Sprite2D" parent="RigidBody2D20"]
 position = Vector2(1, -8)
 scale = Vector2(-1, 1)
-texture = ExtResource("28_5fmda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D20"]
 position = Vector2(1.5, -5)
