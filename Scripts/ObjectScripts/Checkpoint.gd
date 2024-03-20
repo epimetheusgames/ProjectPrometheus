@@ -9,9 +9,16 @@
 extends Node2D
 
 @export var player_checkpoint_item = "Weapon"
+@export var ignore_old_checkpoint = true
+@export var switcher_checkpoint = false
+
+func _ready():
+	if ignore_old_checkpoint:
+		$CheckpointCollision/CollisionPolygon2D.disabled = true
+		$AnimatedSprite2D.visible = false
 
 func activate():
-	if $AnimatedSprite2D.animation != "Activated":
+	if !switcher_checkpoint && $AnimatedSprite2D.animation != "Activated":
 		$AnimatedSprite2D.play("Activating")
 		$AudioStreamPlayer.play()
 

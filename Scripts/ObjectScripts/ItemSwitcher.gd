@@ -37,6 +37,8 @@ func _ready():
 		if item_switch_type == "Grapple":
 			$GrappleCollect.visible = true
 			$GrappleCollect2.visible = true
+			
+	$SwitcherCheckPoint.player_checkpoint_item = item_switch_type
 
 func _process(delta):
 	pulse_x += 0.07 * delta * 60
@@ -51,6 +53,11 @@ func _process(delta):
 		modulate = Color(1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1.3 + sin(pulse_x) / 2, 1)
 	else:
 		modulate = Color(0.8, 0.8, 0.8, 1)
+		
+	if item_switch_type == player.current_ability:
+		$SwitcherCheckPoint/CheckpointCollision/CollisionPolygon2D.disabled = false
+	else:
+		$SwitcherCheckPoint/CheckpointCollision/CollisionPolygon2D.disabled = true
 
 func wrong_item():
 	$AnimationPlayer.play("WrongItem")
