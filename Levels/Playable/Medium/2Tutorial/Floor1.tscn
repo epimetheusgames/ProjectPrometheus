@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=192 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_oj1qr"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_qqyaf"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_gv0uv"]
 [ext_resource type="Texture2D" uid="uid://c8sgdlcrofv4f" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueJumpSwingGrappleAnimation.png" id="22_srvhy"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_ognaq"]
+[ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="24_sf0ji"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_qqyaf")
@@ -1247,6 +1248,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb42a"]
 size = Vector2(40, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tuyu"]
+size = Vector2(220, 242)
+
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_oj1qr")
 level = 4
@@ -1310,7 +1314,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -1416,6 +1420,7 @@ position = Vector2(2657, 112)
 
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
+z_index = -1
 position = Vector2(1, 0)
 texture = ExtResource("15_10cv0")
 
@@ -1485,6 +1490,14 @@ position = Vector2(3135, 145)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PressEAreaPopup"]
 position = Vector2(-1, 47)
 shape = SubResource("RectangleShape2D_pb42a")
+
+[node name="TutorialDialogueArea" parent="." instance=ExtResource("24_sf0ji")]
+position = Vector2(1401, 281)
+tutorial_box_ind = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea"]
+position = Vector2(54, 52)
+shape = SubResource("RectangleShape2D_5tuyu")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

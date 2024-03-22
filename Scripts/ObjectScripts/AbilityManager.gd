@@ -65,15 +65,18 @@ func _process(delta):
 		if ability_lost_volume < -20:
 			ability_lost_volume = -20
 		
-		if get_parent().get_parent().get_node("Heartbeat").volume_db < 0:
-			get_parent().get_parent().get_node("Heartbeat").volume_db = ability_lost_volume
-			
-			if !get_parent().get_parent().get_node("Heartbeat").playing:
-				get_parent().get_parent().get_node("Heartbeat").play()
+		get_parent().get_parent().get_node("ClockTick").volume_db = ability_lost_volume
+		get_parent().get_parent().get_node("ClockTick").pitch_scale += 0.001
+		
+		if !get_parent().get_parent().get_node("ClockTick").playing:
+			get_parent().get_parent().get_node("ClockTick").play()
 		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1
 		ability_lost_volume = -40
+	
+	if $AbililtySwitchTimer.time_left > 10:
+		get_parent().get_parent().get_node("ClockTick").pitch_scale = 0.0001
 		
 	get_parent().get_parent().static_adder = get_parent().get_node("DarkOverlay").color.a / 10
 	get_parent().get_parent().bulge_adder = get_parent().get_node("DarkOverlay").color.a

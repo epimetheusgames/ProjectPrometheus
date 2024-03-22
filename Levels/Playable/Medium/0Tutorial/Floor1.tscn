@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=132 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -808,6 +808,9 @@ size = Vector2(59, 156)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mlac"]
 size = Vector2(147, 92)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jlsf"]
+size = Vector2(5, 8)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1nx2"]
 size = Vector2(382, 488)
 
@@ -875,7 +878,7 @@ polygon = PackedVector2Array(726, 316, -1026, 150, -2616, 170, -3360, 824, -1516
 
 [node name="Player" parent="." instance=ExtResource("6_ad5ab")]
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -1068,16 +1071,25 @@ position = Vector2(-12.5, -16)
 shape = SubResource("RectangleShape2D_6mlac")
 
 [node name="PropBreakerBox1" type="Sprite2D" parent="."]
+modulate = Color(0.717647, 0.717647, 0.717647, 1)
 position = Vector2(-7313, -49)
 texture = ExtResource("21_7l64e")
 
 [node name="PropBreakerBox2" type="Sprite2D" parent="."]
+modulate = Color(0.501961, 0.501961, 0.501961, 1)
 position = Vector2(-6927, 63)
 texture = ExtResource("22_k3idv")
 
-[node name="PropBeanCan" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(-3783, -4)
+mass = 0.02
+
+[node name="PropBeanCan" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("23_ol755")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_1jlsf")
 
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(-4639, 80)

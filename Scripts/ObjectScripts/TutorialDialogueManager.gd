@@ -17,6 +17,9 @@ var fading_in = false
 var fading_out = false
 
 func enter_tutorial_area(tutorial_box_ind):
+	if dialogue_displaying:
+		dialogue_displaying.visible = false
+	
 	if tutorial_box_ind == 1:
 		dialogue_displaying = $ItemSwitcherDialogue
 	if tutorial_box_ind == 2:
@@ -29,6 +32,8 @@ func enter_tutorial_area(tutorial_box_ind):
 		dialogue_displaying = $YourItemHasChanged
 	if tutorial_box_ind == 6:
 		dialogue_displaying = $WASDToMove
+	if tutorial_box_ind == 7:
+		dialogue_displaying = $JumpToSwing
 		
 	dialogue_displaying.visible = true
 	displaying_dialogue = true
