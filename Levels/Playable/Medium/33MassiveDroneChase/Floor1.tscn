@@ -620,7 +620,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BossBar" parent="Player/Camera" index="7"]
 z_index = 50
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88

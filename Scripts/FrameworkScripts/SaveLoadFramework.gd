@@ -263,8 +263,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.show_points = global_data[5]
 	level_loaded.show_timer = global_data[6]
 	
-	if !use_level_transition:
-		level_loaded.get_node("Player").get_node("Camera").get_node("LevelTransitionAnimationPlayer").play("RESET")
+	#if !use_level_transition:
+	#	level_loaded.get_node("Player").get_node("Camera").get_node("LevelTransitionAnimationPlayer").play("RESET")
 	
 	if !level_loaded.is_multiplayer:
 		level_loaded.get_node("Player").get_node("Player").character_type = player_type

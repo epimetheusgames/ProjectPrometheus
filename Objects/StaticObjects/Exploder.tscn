@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bttntkifyqc8w"]
+[gd_scene load_steps=13 format=3 uid="uid://bttntkifyqc8w"]
 
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_f5fa4"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ExploderPhysics.gd" id="1_nm13k"]
@@ -53,6 +53,9 @@ gradient = SubResource("Gradient_o4t61")
 fill = 1
 fill_from = Vector2(0.463303, 0.536697)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_01v2v"]
+radius = 13.0384
+
 [node name="Exploder" type="Node2D"]
 script = ExtResource("1_nm13k")
 
@@ -84,6 +87,11 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_01v2v")
 
 [connection signal="body_entered" from="ExplosionHitbox" to="." method="_on_explosion_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
