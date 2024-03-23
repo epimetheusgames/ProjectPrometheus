@@ -4,6 +4,7 @@ extends Node2D
 var active = false
 var controlling_ship = false
 var no_death = false
+var takeover_control = false
 
 var velocity = Vector2.ZERO
 		
@@ -151,7 +152,7 @@ func _process(delta):
 				if !no_death:
 					get_parent().get_node("Player/Camera/CloseAnimator").closing = true
 			
-		if controlling_ship && !no_death:
+		if controlling_ship && !no_death && !takeover_control:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
 			
 			velocity.x += get_horizontal_direction_pressed() * 0.02
@@ -167,6 +168,14 @@ func _process(delta):
 			rotation += 0.0002 * delta * 60
 			velocity.y += 0.002
 			velocity.x += 0.01
+			
+		if takeover_control && !no_death:
+			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
+			velocity.x += 0.02
+			velocity.y /= 1.01
+			
+			if velocity.x > 2:
+				velocity.x = 2
 		
 		if abs(velocity.x) > 3:
 			velocity.x = 3 if velocity.x > 0 else -3
@@ -202,3 +211,6 @@ func _on_ship_controls_activator_area_area_entered(area):
 func _on_explosion_maker_area_entered(area):
 	if area.name == "NoDeathActivationArea":
 		no_death = true
+		$FadeToBlackAnimationPlayer.play("FadeToBlack")
+	if area.name == "TakeOverControlArea":
+		takeover_control = true
