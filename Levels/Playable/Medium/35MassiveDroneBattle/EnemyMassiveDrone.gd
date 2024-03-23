@@ -2,6 +2,7 @@ extends StaticBody2D
 
 
 @onready var loaded_exploder = preload("res://Objects/StaticObjects/Exploder.tscn")
+@onready var loaded_physics_boss = preload("res://Objects/StaticObjects/PhysicsBigDrone.tscn")
 @onready var explosion_positions = [
 	$ExplosionPositions/Node2D,
 	$ExplosionPositions/Node2D2,
@@ -32,17 +33,43 @@ extends StaticBody2D
 	$ExplosionPositions/Node2D27,
 ]
 
+@export var acceleration = 0.0015
+
+var flying_toward_player = false
+var velocity = Vector2.ZERO
+var health = 2
+
+
+func _process(delta):
+	if flying_toward_player:
+		velocity.x -= acceleration * delta * 60
+	
+	position += velocity * delta * 60
+
 func _on_hurt_box_area_entered(area):
 	if area.name == "ExplosionArea":
 		for explosion_position in explosion_positions:
 			var instantiated_exploder = loaded_exploder.instantiate()
-			instantiated_exploder.position = explosion_position.position + position
+			instantiated_exploder.position = $ExplosionPositions.position + explosion_position.position + position
 			instantiated_exploder.get_node("ExplosionArea").queue_free()
 			
 			# Call deferred because we can't add a child while flushing collision detection.
 			get_parent().call_deferred("add_child", instantiated_exploder)
 	
-		$KillTimer.start()
+		health -= 1
+		if health <= 0:
+			$KillTimer.start()
+
+func _on_player_ship_activator_area_area_entered(area):
+	if area.name == "PlayerHurtbox":
+		flying_toward_player = true
 
 func _on_kill_timer_timeout():
 	queue_free()
+	
+	var instantiated_physics_boss = loaded_physics_boss.instantiate()
+	instantiated_physics_boss.set_queued_pos = true
+	instantiated_physics_boss.queued_position = position + $ExplosionPositions.position
+	get_parent().call_deferred("add_child", instantiated_physics_boss)
+
+

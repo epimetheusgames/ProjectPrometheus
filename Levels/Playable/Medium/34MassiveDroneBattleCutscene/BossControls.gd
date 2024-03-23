@@ -3,6 +3,8 @@ extends Node2D
 
 var active = false
 var controlling_ship = false
+var no_death = false
+
 var velocity = Vector2.ZERO
 		
 @onready var raycasts = [
@@ -143,10 +145,13 @@ func _process(delta):
 			if collisions[collision]:
 				var instantiated_missile = loaded_missile.instantiate()
 				instantiated_missile.position = position + raycasts[collision].position
+				instantiated_missile.no_damage = true
 				get_parent().add_child(instantiated_missile)
-				get_parent().get_node("Player/Camera/CloseAnimator").closing = true
+				
+				if !no_death:
+					get_parent().get_node("Player/Camera/CloseAnimator").closing = true
 			
-		if controlling_ship:
+		if controlling_ship && !no_death:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
 			
 			velocity.x += get_horizontal_direction_pressed() * 0.02
@@ -156,7 +161,13 @@ func _process(delta):
 			velocity.y += get_vertical_direction_pressed() * 0.02
 			if get_horizontal_direction_pressed() == 0:
 				velocity.x -= abs(get_vertical_direction_pressed()) * 0.02 if velocity.x > 0 else -abs(get_vertical_direction_pressed()) * 0.02
-			
+		
+		if no_death:
+			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
+			rotation += 0.0002 * delta * 60
+			velocity.y += 0.002
+			velocity.x += 0.01
+		
 		if abs(velocity.x) > 3:
 			velocity.x = 3 if velocity.x > 0 else -3
 		if abs(velocity.y) > 3:
@@ -166,6 +177,7 @@ func _process(delta):
 		velocity.y *= 0.99
 			
 		position += velocity * delta * 60
+		
 
 func _on_ship_movement_control_e_icon_activator_area_entered(area):
 	if area.name == "PlayerHurtbox" && active:
@@ -186,3 +198,7 @@ func _on_ship_missile_fire_e_icon_enabler_area_exited(area):
 func _on_ship_controls_activator_area_area_entered(area):
 	if area.name == "PlayerHurtbox":
 		active = true
+
+func _on_explosion_maker_area_entered(area):
+	if area.name == "NoDeathActivationArea":
+		no_death = true

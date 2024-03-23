@@ -4,7 +4,7 @@ extends Area2D
 var and_countdown = 10
 
 func _on_area_entered(area):
-	if area.name == "DeathZone" && and_countdown <= 0:
+	if area.name == "DeathZone" || area.name == "ExplosionMaker" && and_countdown <= 0:
 		get_parent().get_node("Player").get_node("Camera").get_node("BossBar").value -= 5
 		
 		for i in range(30):
