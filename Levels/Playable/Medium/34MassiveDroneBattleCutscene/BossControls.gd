@@ -55,6 +55,7 @@ var velocity = Vector2.ZERO
 		]
 
 @onready var loaded_missile = preload("res://Objects/StaticObjects/Exploder.tscn")
+@onready var loaded_missile_sprite = preload("res://Assets/Images/Objects/FunctionalProps/MissileSprite.png")
 
 func get_horizontal_direction_pressed():
 	return Input.get_axis("left", "right")
@@ -84,6 +85,9 @@ func _process(delta):
 			var missile_object = loaded_missile.instantiate()
 			missile_object.velocity.x = 15
 			missile_object.position = position + $MissileFirePosition.position
+			missile_object.gravity = false
+			missile_object.get_node("Sprite2D").texture = loaded_missile_sprite
+			missile_object.get_node("Sprite2D").scale = Vector2(-1, 1)
 			get_parent().add_child(missile_object)
 			
 		var collisions = [

@@ -707,7 +707,7 @@ script = ExtResource("17_e5bgd")
 auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(4955, -1051)
+position = Vector2(5401, -1028)
 shape = SubResource("RectangleShape2D_7eq71")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -784,28 +784,115 @@ texture = ExtResource("22_p5wib")
 position = Vector2(1728, 80.5)
 shape = SubResource("RectangleShape2D_j6shk")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="EnemyShip" type="StaticBody2D" parent="."]
 position = Vector2(3064, -385)
 script = ExtResource("23_k7ecs")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="EnemyShip"]
 texture = ExtResource("3_w0vt6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyShip"]
 visible = false
 polygon = PackedVector2Array(-206, 19, -198, 30, -174, 37, 108, 37, 157, 28, 192, 9, 209, -15, 202, -48, 96, -48, 87, -38, -7, -37, -9, -32, -51, -33, -55, -43, -70, -48, -121, -46, -127, -37, -158, -31, -171, -25, -172, -19, -183, -15, -189, 2, -200, 4)
 
-[node name="PlayerShipActivatorArea" type="Area2D" parent="StaticBody2D2"]
+[node name="PlayerShipActivatorArea" type="Area2D" parent="EnemyShip"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/PlayerShipActivatorArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyShip/PlayerShipActivatorArea"]
 position = Vector2(-445.5, -43)
 shape = SubResource("RectangleShape2D_spiai")
 
-[node name="HurtBox" type="Area2D" parent="StaticBody2D2"]
+[node name="HurtBox" type="Area2D" parent="EnemyShip"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2/HurtBox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyShip/HurtBox"]
 visible = false
 polygon = PackedVector2Array(-211, 19, -196, 38, -142, 37, 102, 37, 172, 23, 210, -20, 206, -47, -52, -32, -67, -48, -124, -45, -160, -35, -179, -22, -200, -1)
+
+[node name="ExplosionPositions" type="Node2D" parent="EnemyShip"]
+
+[node name="Node2D" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-184, 0)
+
+[node name="Node2D2" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-193, 6)
+
+[node name="Node2D3" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-202, 16)
+
+[node name="Node2D4" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-197, 25)
+
+[node name="Node2D5" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-188, 30)
+
+[node name="Node2D6" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-176, 33)
+
+[node name="Node2D7" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-161, 33)
+
+[node name="Node2D8" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-145, 33)
+
+[node name="Node2D9" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-129, 33)
+
+[node name="Node2D10" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-129, -31)
+
+[node name="Node2D11" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-145, -31)
+
+[node name="Node2D12" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-161, -27)
+
+[node name="Node2D13" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-169, -19)
+
+[node name="Node2D14" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-177, -11)
+
+[node name="Node2D15" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-153, -11)
+
+[node name="Node2D16" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-153, 5)
+
+[node name="Node2D17" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-169, 5)
+
+[node name="Node2D18" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-169, 21)
+
+[node name="Node2D19" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-153, 21)
+
+[node name="Node2D20" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-137, 21)
+
+[node name="Node2D21" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-137, 5)
+
+[node name="Node2D22" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-137, -11)
+
+[node name="Node2D23" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-185, 13)
+
+[node name="Node2D24" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-105, 13)
+
+[node name="Node2D25" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-105, -19)
+
+[node name="Node2D26" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-121, -3)
+
+[node name="Node2D27" type="Node2D" parent="EnemyShip/ExplosionPositions"]
+position = Vector2(-121, 29)
+
+[node name="KillTimer" type="Timer" parent="EnemyShip"]
+wait_time = 0.3
+one_shot = true
 
 [connection signal="area_entered" from="DeadBoss/ShipMovementControlEIconActivator" to="DeadBoss" method="_on_ship_movement_control_e_icon_activator_area_entered"]
 [connection signal="area_exited" from="DeadBoss/ShipMovementControlEIconActivator" to="DeadBoss" method="_on_ship_movement_control_e_icon_activator_area_exited"]
@@ -816,6 +903,7 @@ polygon = PackedVector2Array(-211, 19, -196, 38, -142, 37, 102, 37, 172, 23, 210
 [connection signal="area_entered" from="ENextLevel" to="ENextLevel" method="_on_area_entered"]
 [connection signal="area_exited" from="ENextLevel" to="ENextLevel" method="_on_area_exited"]
 [connection signal="area_entered" from="ShipControlsActivatorArea" to="DeadBoss" method="_on_ship_controls_activator_area_area_entered"]
-[connection signal="area_entered" from="StaticBody2D2/HurtBox" to="StaticBody2D2" method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="EnemyShip/HurtBox" to="EnemyShip" method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="EnemyShip/KillTimer" to="EnemyShip" method="_on_kill_timer_timeout"]
 
 [editable path="Player"]

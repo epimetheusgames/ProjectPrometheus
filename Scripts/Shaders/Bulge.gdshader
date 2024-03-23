@@ -59,24 +59,32 @@ void fragment() {
     float amount = (sin(-distortion_amm) * .5 ) ;
         
     uv = uv + distort(v, amount);
-	color += textureLod(screen_texture, uv, 0.0);
-	color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale * 1.3f;
-	color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
-	color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
 	
-	// Increase/decrease the pixel colour values slightly in a 
-	// chessboard pattern to achieve a simple dithering against banding.
-	// Assume 8-bit RGB values and offset values a bit to affect rounding.
-	if (mod(FRAGCOORD.x + FRAGCOORD.y, 2) == 1.0) {
-		color.rgb += vec3(QUARTER_COLOR);
-	} else {
-		color.rgb -= vec3(QUARTER_COLOR);
+	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0)
+	{
+		COLOR = vec4(0.0, 0.0, 0.0, 1.0);
 	}
-	if (mod(FRAGCOORD.x + FRAGCOORD.y, 4) == 1.0) {
-		color.rgb += vec3(QUARTER_COLOR);
-	} else {
-		color.rgb -= vec3(QUARTER_COLOR);
+	else
+	{
+		color += textureLod(screen_texture, uv, 0.0);
+		color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale * 1.3f;
+		color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+		color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+		
+		// Increase/decrease the pixel colour values slightly in a 
+		// chessboard pattern to achieve a simple dithering against banding.
+		// Assume 8-bit RGB values and offset values a bit to affect rounding.
+		if (mod(FRAGCOORD.x + FRAGCOORD.y, 2) == 1.0) {
+			color.rgb += vec3(QUARTER_COLOR);
+		} else {
+			color.rgb -= vec3(QUARTER_COLOR);
+		}
+		if (mod(FRAGCOORD.x + FRAGCOORD.y, 4) == 1.0) {
+			color.rgb += vec3(QUARTER_COLOR);
+		} else {
+			color.rgb -= vec3(QUARTER_COLOR);
+		}
+		
+		COLOR = color;
 	}
-	
-	COLOR = color;
 }

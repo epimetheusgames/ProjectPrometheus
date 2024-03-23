@@ -225,7 +225,7 @@ polygon = PackedVector2Array(-682, 236, 3164, 254, 3554, 254, 4322, -108, 4376, 
 
 [node name="Player" parent="." instance=ExtResource("7_nm8ya")]
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -294,10 +294,10 @@ position = Vector2(-452, -128)
 position = Vector2(-588, -128)
 
 [node name="DrillManager3" parent="." instance=ExtResource("12_3rx5p")]
-position = Vector2(-297, -128)
+position = Vector2(-185, -128)
 
 [node name="DrillManager4" parent="." instance=ExtResource("12_3rx5p")]
-position = Vector2(-163, -128)
+position = Vector2(-51, -128)
 
 [node name="WallTurret" parent="." instance=ExtResource("18_1ue77")]
 position = Vector2(617, -184)
