@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=57 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="9_j1xc2"]
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_d515k"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_dl7ks"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="12_bqtyk"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_2loc3"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_spvkw"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_86obi"]
@@ -418,6 +419,24 @@ texture = ExtResource("7_ccfip")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wu4db"]
+noise_type = 4
+seed = 204
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqowm"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_wu4db")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32nnn"]
+shader = ExtResource("12_bqtyk")
+shader_parameter/density = 0.127
+shader_parameter/speed = Vector2(0.02, 0.006)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jqowm")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28rdf"]
 size = Vector2(136.5, 90)
 
@@ -513,6 +532,9 @@ polygon = PackedVector2Array(3873, 35, 4303, 219, 4923, 246, 5381, 73)
 
 [node name="Player" parent="." instance=ExtResource("11_dl7ks")]
 
+[node name="PauseMenu" parent="Player/Camera" index="0"]
+position = Vector2(-545, -303)
+
 [node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
 
@@ -531,17 +553,32 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-500, -500)
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(1920, 640)
+
+[node name="Fog" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fog"]
+motion_mirroring = Vector2(600, 400)
+
+[node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
+material = SubResource("ShaderMaterial_32nnn")
+offset_left = -115.0
+offset_top = -163.0
+offset_right = 485.0
+offset_bottom = 237.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="DeathZone" type="Area2D" parent="."]
 
@@ -5118,23 +5155,6 @@ texture = ExtResource("37_kcmtn")
 position = Vector2(282, 336)
 player_checkpoint_item = "RocketBoost"
 
-[node name="ItemSwitcher4" parent="." instance=ExtResource("17_qjykc")]
-position = Vector2(381, 281)
-rotation = -1.29678
-item_switch_type = "ArmGun"
-dont_show_sprite = true
-
-[node name="ItemSwitcher5" parent="." instance=ExtResource("17_qjykc")]
-position = Vector2(381, 282)
-rotation = -1.29678
-item_switch_type = "Grapple"
-dont_show_sprite = true
-
-[node name="ItemSwitcher6" parent="." instance=ExtResource("17_qjykc")]
-position = Vector2(381, 283)
-rotation = -1.29678
-dont_show_sprite = true
-
 [node name="ItemSwitcher7" parent="." instance=ExtResource("17_qjykc")]
 position = Vector2(416, -304)
 item_switch_type = "ArmGun"
@@ -5199,6 +5219,7 @@ position = Vector2(6556, -5)
 rotation = 3.14159
 
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(6710, 352)
 texture = ExtResource("38_q85fv")
 

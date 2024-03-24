@@ -97,11 +97,20 @@ text = "Start Game
 
 [node name="ClearSlot" type="Button" parent="."]
 offset_left = 206.0
-offset_top = 985.0
+offset_top = 984.0
 offset_right = 339.0
-offset_bottom = 1016.0
+offset_bottom = 1020.0
+theme = ExtResource("2_m10j5")
 text = "Clear Slot
 "
+
+[node name="LevelName" type="Label" parent="."]
+offset_left = 206.0
+offset_top = 1029.0
+offset_right = 340.0
+offset_bottom = 1052.0
+theme = ExtResource("2_m10j5")
+text = "Level Name"
 
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
 [connection signal="value_changed" from="SlotSelect" to="." method="_on_slot_select_value_changed"]

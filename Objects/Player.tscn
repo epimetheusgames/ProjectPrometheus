@@ -1400,7 +1400,6 @@ one_shot = true
 [node name="Blur" parent="." instance=ExtResource("42_tsbgy")]
 process_mode = 3
 layer = 70
-visible = false
 
 [node name="ScreenShake" parent="." instance=ExtResource("41_agtbc")]
 

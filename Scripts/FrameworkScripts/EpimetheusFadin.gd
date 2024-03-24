@@ -16,3 +16,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Anim":
 		finished = true
 		Fade.fade_in()
+		
+func _process(delta):
+	if Input.is_anything_pressed():
+		finished = true
+		Fade.fade_in()

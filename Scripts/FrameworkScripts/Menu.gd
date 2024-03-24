@@ -86,6 +86,7 @@ func _process(_delta):
 
 	if name == "StartGameMenu":
 		$LevelSelect.max_value = get_parent().get_parent().load_data($SlotSelect.value)[0] + 1
+		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
 	
 	if name == "MainMenu":
 		$PlayHighlight.visible = false

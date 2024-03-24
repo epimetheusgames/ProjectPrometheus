@@ -41,7 +41,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(5.3, 7.5, 8.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.925025, 1.0472]
+"values": [0.0, -0.925025, -1.0472]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -163,6 +163,7 @@ vertical_alignment = 1
 [node name="LogoGreyscale" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.105882)
 position = Vector2(947, 560)
+scale = Vector2(-1, 1)
 texture = ExtResource("3_yipkc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
