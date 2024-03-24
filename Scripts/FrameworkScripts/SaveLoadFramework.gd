@@ -358,6 +358,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 	if is_max_level:
 		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths)
+	var saved_data = load_data(slot)
+	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths)
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
 	menu_instance.first = false
@@ -369,6 +371,10 @@ func switch_to_level(switch_level, switch_floor, current_level, current_floor, p
 	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths)
 	if is_max_level:
 		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths)
+	
+	var saved_data = load_data(slot)
+	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths)
+	
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode, true)
 
 # Saves artifact with uid in slot so you cannot collect it again.
