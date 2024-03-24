@@ -13,7 +13,7 @@ func _on_area_entered(area):
 			instantiated_exploder.position = position + $CollisionShape2D.position + Vector2(rng.randf_range(-100, 100), rng.randf_range(-100, 100))
 			instantiated_exploder.velocity = Vector2(rng.randf_range(-5, 5), rng.randf_range(-5, 5))
 			instantiated_exploder.no_damage = true
-			get_parent().add_child(instantiated_exploder)
+			get_parent().call_deferred("add_child", instantiated_exploder)
 
 func _process(delta):
 	and_countdown -= 1

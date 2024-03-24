@@ -28,6 +28,7 @@ func shoot_bullet(pos):
 func spawn_mele(pos):
 	var mele_to_add = loaded_mele.instantiate()
 	mele_to_add.position = position + pos
+	mele_to_add.health = 2
 	get_parent().add_child(mele_to_add)
 	
 func spawn_drill(pos):
@@ -49,7 +50,7 @@ func _on_new_explosion_timer_timeout():
 		spawn_bomb($BossShootPosition4.position, -5)
 
 func _on_new_bullet_timer_timeout():
-	if player.position.distance_to(position) < 600 && (player.current_ability == "ArmGun" || health <= 0):
+	if player.position.distance_to(position) < 600 && (player.current_ability == "ArmGun" || health <= 0) && health > 0:
 		shoot_bullet($BossShootPosition.position)
 		shoot_bullet($BossShootPosition2.position)
 

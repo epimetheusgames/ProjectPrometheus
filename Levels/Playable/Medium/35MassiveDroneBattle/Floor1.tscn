@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
-[ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_w0vt6"]
+[ext_resource type="SpriteFrames" uid="uid://r6y0rrbw7dft" path="res://Objects/StaticObjects/MassiveDroneAnimation.tres" id="3_lijwv"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="4_3gji8"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_of2sk"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="6_o578s"]
@@ -487,12 +487,13 @@ no_timer = true
 position = Vector2(464, -520)
 script = ExtResource("2_otdig")
 
-[node name="DeadBoss" type="Sprite2D" parent="DeadBoss"]
+[node name="DeadBoss" type="AnimatedSprite2D" parent="DeadBoss"]
 modulate = Color(1, 1, 1, 0.756863)
-position = Vector2(24, 68)
+position = Vector2(8, 68)
 rotation = 3.14159
 scale = Vector2(1, -1)
-texture = ExtResource("3_w0vt6")
+sprite_frames = ExtResource("3_lijwv")
+autoplay = "default"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="DeadBoss"]
 
@@ -506,6 +507,7 @@ position = Vector2(207.5, -451.5)
 shape = SubResource("RectangleShape2D_lh85m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeadBoss/CharacterBody2D"]
+visible = false
 polygon = PackedVector2Array(-35, 94, 211, 97, 209, 75, 206, 62, 200, 57, 186, 55, 186, 43, -167, 36, -180, 41, -179, 53, -158, 75, -139, 86, -124, 90, -37, 94, -37, 105, -195, 105, -205, 4, 179, 27, 183, 39, 194, 41, 196, 49, 206, 53, 209, 60, 211, 62, 211, 68, 223, 74, 229, 82, 231, 89, 225, 95, 219, 99, 211, 99, 209, 105, -32, 104)
 
 [node name="RayCast2D" type="RayCast2D" parent="DeadBoss/CharacterBody2D"]
@@ -950,10 +952,6 @@ shape = SubResource("RectangleShape2D_j6shk")
 [node name="EnemyBigDrone" type="StaticBody2D" parent="."]
 script = ExtResource("23_k7ecs")
 
-[node name="Sprite2D" type="Sprite2D" parent="EnemyBigDrone"]
-position = Vector2(3064, -385)
-texture = ExtResource("3_w0vt6")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyBigDrone"]
 visible = false
 position = Vector2(3064, -385)
@@ -1060,13 +1058,14 @@ position = Vector2(-121, 29)
 wait_time = 0.7
 one_shot = true
 
+[node name="Sprite2D" type="AnimatedSprite2D" parent="EnemyBigDrone"]
+position = Vector2(3078, -384)
+sprite_frames = ExtResource("3_lijwv")
+autoplay = "default"
+
 [node name="EnemyBigDrone2" type="StaticBody2D" parent="."]
 position = Vector2(-1080, 248)
 script = ExtResource("23_k7ecs")
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyBigDrone2"]
-position = Vector2(3064, -385)
-texture = ExtResource("3_w0vt6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyBigDrone2"]
 visible = false
@@ -1174,13 +1173,14 @@ position = Vector2(-121, 29)
 wait_time = 0.7
 one_shot = true
 
+[node name="Sprite2D" type="AnimatedSprite2D" parent="EnemyBigDrone2"]
+position = Vector2(3086, -384)
+sprite_frames = ExtResource("3_lijwv")
+autoplay = "default"
+
 [node name="EnemyBigDrone3" type="StaticBody2D" parent="."]
 position = Vector2(624, 216)
 script = ExtResource("23_k7ecs")
-
-[node name="Sprite2D" type="Sprite2D" parent="EnemyBigDrone3"]
-position = Vector2(3064, -385)
-texture = ExtResource("3_w0vt6")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyBigDrone3"]
 visible = false
@@ -1287,6 +1287,11 @@ position = Vector2(-121, 29)
 [node name="KillTimer" type="Timer" parent="EnemyBigDrone3"]
 wait_time = 0.7
 one_shot = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="EnemyBigDrone3"]
+position = Vector2(3078, -384)
+sprite_frames = ExtResource("3_lijwv")
+autoplay = "default"
 
 [node name="DroneManager" parent="." instance=ExtResource("24_j3l1g")]
 position = Vector2(3516, -1151)

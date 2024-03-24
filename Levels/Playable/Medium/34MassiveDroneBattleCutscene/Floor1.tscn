@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_0af0h"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_ass8i"]
-[ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_eeff2"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="4_r8o00"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_x6ib7"]
+[ext_resource type="SpriteFrames" uid="uid://r6y0rrbw7dft" path="res://Objects/StaticObjects/MassiveDroneAnimation.tres" id="5_x71ph"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="6_43a48"]
 [ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="7_vnf3h"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="8_xq2ha"]
@@ -449,18 +449,6 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(-16, -69), Vector2(-16, -573), Vector2(441, -577), Vector2(441, -520)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("DeadBoss/DeadBoss:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 48.5, 50),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.16777, 3.16777, 3.14159]
-}
 
 [sub_resource type="Animation" id="Animation_lrilj"]
 length = 0.001
@@ -596,18 +584,6 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(-16, -573)]
 }
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("DeadBoss/DeadBoss:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.16777]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dx5wd"]
 _data = {
@@ -653,13 +629,6 @@ no_timer = true
 [node name="DeadBoss" type="Node2D" parent="."]
 position = Vector2(-16, -573)
 script = ExtResource("2_ass8i")
-
-[node name="DeadBoss" type="Sprite2D" parent="DeadBoss"]
-modulate = Color(1, 1, 1, 0.756863)
-position = Vector2(24, 68)
-rotation = 3.16777
-scale = Vector2(1, -1)
-texture = ExtResource("3_eeff2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="DeadBoss"]
 
@@ -709,6 +678,13 @@ position = Vector2(152, 113)
 [node name="MissileFireCooldown" type="Timer" parent="DeadBoss"]
 wait_time = 2.0
 one_shot = true
+
+[node name="DeadBoss" type="AnimatedSprite2D" parent="DeadBoss"]
+modulate = Color(1, 1, 1, 0.756863)
+position = Vector2(8, 64)
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("5_x71ph")
+autoplay = "default"
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
@@ -773,10 +749,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BossBar" parent="Player/Camera" index="9"]
+[node name="BossBar" parent="Player/Camera" index="7"]
 z_index = 50
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88

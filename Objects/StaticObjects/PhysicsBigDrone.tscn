@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://be56ebyenxjwx"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/RigidBodyExtensions.gd" id="1_3hcvo"]
-[ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="1_cwg0x"]
+[ext_resource type="SpriteFrames" uid="uid://r6y0rrbw7dft" path="res://Objects/StaticObjects/MassiveDroneAnimation.tres" id="2_0w6hd"]
 
 [node name="PhysicsBigDrone" type="RigidBody2D"]
 mass = 300.0
 gravity_scale = 0.04
 script = ExtResource("1_3hcvo")
 
-[node name="BossSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_cwg0x")
+[node name="BossSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 0)
+sprite_frames = ExtResource("2_0w6hd")
+autoplay = "default"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
