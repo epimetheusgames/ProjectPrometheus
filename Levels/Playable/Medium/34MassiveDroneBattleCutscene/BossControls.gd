@@ -64,7 +64,7 @@ func get_horizontal_direction_pressed():
 	return Input.get_axis("left", "right")
 	
 func get_vertical_direction_pressed():
-	return Input.get_axis("jump", "down")
+	return Input.get_axis("jump" if len(Input.get_connected_joypads()) < 1 else "joy_up", "down")
 
 func _process(delta):
 	if !active:

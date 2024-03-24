@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://hyjgjb7gfloj"]
+[gd_scene load_steps=38 format=3 uid="uid://hyjgjb7gfloj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hpqmv"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pfxli"]
@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_luk4e"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="8_uuyu8"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="9_n57ke"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="10_cf0b7"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="10_ui22u"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_7p8sg"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="12_bw1ul"]
@@ -191,6 +192,24 @@ texture = ExtResource("6_fw4bx")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w0t5i"]
+noise_type = 4
+seed = 204
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_haql6"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_w0t5i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rilg6"]
+shader = ExtResource("10_cf0b7")
+shader_parameter/density = 0.127
+shader_parameter/speed = Vector2(0.02, 0.006)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_haql6")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdbj"]
 size = Vector2(136, 484)
 
@@ -271,10 +290,24 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
+
+[node name="Fog" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fog"]
+motion_mirroring = Vector2(600, 400)
+
+[node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
+material = SubResource("ShaderMaterial_rilg6")
+offset_left = 45.0
+offset_top = -163.0
+offset_right = 645.0
+offset_bottom = 237.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

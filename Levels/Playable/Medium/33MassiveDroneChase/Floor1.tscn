@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=111 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l03d8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_bxr1h"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_e66ut"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_5hgb7"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="18_o3fcg"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="18_qv2pt"]
 [ext_resource type="Texture2D" uid="uid://el4d7tmp3gfi" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherGrapple.png" id="19_qv2qf"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="20_ktkfw"]
@@ -558,6 +559,24 @@ texture = ExtResource("7_lus0u")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1iss7"]
+noise_type = 4
+seed = 204
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0pjrp"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_1iss7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rybr"]
+shader = ExtResource("18_o3fcg")
+shader_parameter/density = 0.127
+shader_parameter/speed = Vector2(0.02, 0.006)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_0pjrp")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_5hgb7")
 shader_parameter/distortion_amm = 0.0
@@ -868,6 +887,20 @@ z_index = 50
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
+
+[node name="Fog" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fog"]
+motion_mirroring = Vector2(600, 400)
+
+[node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
+material = SubResource("ShaderMaterial_0rybr")
+offset_left = 165.0
+offset_top = -51.0
+offset_right = 765.0
+offset_bottom = 349.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

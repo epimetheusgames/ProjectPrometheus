@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://csninrbdqanot"]
+[gd_scene load_steps=39 format=3 uid="uid://csninrbdqanot"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2k2wj"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="2_n33k5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="6_pm7tb"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_nkvx3"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="11_n8qbk"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="11_u5k0q"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_8cm7r"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="15_x1fny"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="18_dmsa8"]
@@ -185,6 +186,24 @@ texture = ExtResource("6_1lub2")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ls3ak"]
+noise_type = 4
+seed = 204
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q452c"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ls3ak")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2qk1"]
+shader = ExtResource("11_u5k0q")
+shader_parameter/density = 0.127
+shader_parameter/speed = Vector2(0.02, 0.006)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_q452c")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdbj"]
 size = Vector2(28, 64)
 
@@ -265,10 +284,24 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
+
+[node name="Fog" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fog"]
+motion_mirroring = Vector2(600, 400)
+
+[node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
+material = SubResource("ShaderMaterial_e2qk1")
+offset_left = -115.0
+offset_top = -131.0
+offset_right = 485.0
+offset_bottom = 269.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

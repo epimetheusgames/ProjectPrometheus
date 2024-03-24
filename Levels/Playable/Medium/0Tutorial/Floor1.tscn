@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=136 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_dr4u2"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="8_j5v6x"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_rgrfr"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="9_sblmb"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="10_p42e6"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="11_unlok"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="13_lj0mu"]
@@ -157,6 +158,24 @@ texture = ExtResource("4_mouxu")
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ulv0b"]
+noise_type = 4
+seed = 204
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqowm"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ulv0b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l1flo"]
+shader = ExtResource("9_sblmb")
+shader_parameter/density = 0.127
+shader_parameter/speed = Vector2(0.02, 0.006)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jqowm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
 size = Vector2(40, 64)
@@ -894,6 +913,20 @@ motion_mirroring = Vector2(1920, 640)
 position = Vector2(-475, 111)
 scale = Vector2(5, 5)
 centered = false
+
+[node name="Fog" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Fog"]
+motion_mirroring = Vector2(600, 400)
+
+[node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
+material = SubResource("ShaderMaterial_l1flo")
+offset_left = -115.0
+offset_top = -163.0
+offset_right = 485.0
+offset_bottom = 237.0
+color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="DeathZone" type="Area2D" parent="."]
 

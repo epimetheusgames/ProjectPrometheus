@@ -198,6 +198,8 @@ func _process(delta):
 	# Force time scale for TAS or something
 	if force_time_scale > 0:
 		Engine.time_scale = force_time_scale
+		
+	var rng = RandomNumberGenerator.new()
 	
 	# Time slow down for debugging lower fps issues
 	#if Input.is_action_just_pressed("ui_up"):
@@ -205,10 +207,12 @@ func _process(delta):
 	#if Input.is_action_just_pressed("ui_down"):
 	#	force_time_scale -= 0.1
 	
+	# Induce artificial lag
+	#OS.delay_msec(rng.randi_range(20, 60))
+	
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 4:
 		var musics_list = music_files if !get_parent().get_node("Level").get_children()[0].intense_music else intense_music_files
 		
-		var rng = RandomNumberGenerator.new()
 		var music_index = rng.randi_range(0, len(musics_list) - 1)
 		while music_index == last_music_ind && len(musics_list) != 1:
 			music_index = rng.randi_range(0, len(musics_list) - 1)
