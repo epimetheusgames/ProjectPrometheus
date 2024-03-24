@@ -695,7 +695,6 @@ position = Vector2(213, 92)
 target_position = Vector2(5, 4)
 
 [node name="ShipControlsEIcon" type="TextureRect" parent="DeadBoss"]
-visible = false
 custom_minimum_size = Vector2(40, 40)
 offset_left = 200.0
 offset_top = 32.0
@@ -709,7 +708,6 @@ path = "interact"
 metadata/_edit_use_anchors_ = true
 
 [node name="MissileFireEIcon" type="TextureRect" parent="DeadBoss"]
-visible = false
 custom_minimum_size = Vector2(40, 40)
 offset_left = -56.0
 offset_top = 40.0

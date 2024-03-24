@@ -16,6 +16,8 @@ var dead = false
 var bob_x = 0
 var has_weapon_time = 0
 var has_ability_time = 0
+var finished_down = false
+var finished_up = false
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -92,6 +94,15 @@ func _process(delta):
 		
 	if health < 50 && !position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		target_pos = $FiftyPercentPos.position
+	
+	if position.distance_to((start_pos + $FiftyPercentPos.position)) < 30:
+		if !get_parent().get_node("DrawbridgeAnimationPlayer").is_playing() && !finished_down:
+			finished_down = true
+			get_parent().get_node("DrawbridgeAnimationPlayer").play_backwards("DrawbridgeUp")
+	else:
+		if !get_parent().get_node("DrawbridgeAnimationPlayer").is_playing() && !finished_up:
+			finished_up = true
+			get_parent().get_node("DrawbridgeAnimationPlayer").play("DrawbridgeUp")
 	
 	if health <= 0:
 		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
