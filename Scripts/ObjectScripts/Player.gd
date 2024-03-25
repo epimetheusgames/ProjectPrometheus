@@ -26,7 +26,7 @@ var previous_direction = 0
 var character_type = 0
 var conveyor_speed = 0
 var conveyor_direction = 0
-var push_force = 20
+var push_force = 100
 
 var in_second_ladder_area = false
 var in_ladder_area = false

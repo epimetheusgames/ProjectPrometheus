@@ -22,7 +22,7 @@ position = Vector2(0, -27)
 script = ExtResource("1_jsocn")
 
 [node name="Head" type="RigidBody2D" parent="."]
-mass = 0.05
+mass = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="Head"]
 position = Vector2(1, 16)
@@ -33,7 +33,9 @@ position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_mf12s")
 
 [node name="Body" type="RigidBody2D" parent="."]
-mass = 0.5
+mass = 2.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, -8)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Body"]
 position = Vector2(1, 29)
@@ -44,7 +46,7 @@ position = Vector2(0, 29.5)
 shape = SubResource("CapsuleShape2D_d0wle")
 
 [node name="Wheel" type="RigidBody2D" parent="."]
-mass = 0.3
+mass = 5.0
 
 [node name="Sprite2D3" type="Sprite2D" parent="Wheel"]
 position = Vector2(1, 30)
@@ -69,7 +71,7 @@ node_b = NodePath("../../Wheel")
 motor_enabled = true
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 

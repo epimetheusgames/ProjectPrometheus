@@ -588,6 +588,7 @@ offset_left = -234.0
 offset_top = 111.0
 offset_right = -95.0
 offset_bottom = 134.0
+theme = ExtResource("16_bulim")
 text = "FPS: Calculating ...
 "
 
@@ -597,6 +598,7 @@ offset_left = 99.0
 offset_top = -136.0
 offset_right = 238.0
 offset_bottom = -113.0
+theme = ExtResource("16_bulim")
 text = "Points: 0"
 horizontal_alignment = 2
 
@@ -606,6 +608,7 @@ offset_left = -234.0
 offset_top = -134.0
 offset_right = -95.0
 offset_bottom = -111.0
+theme = ExtResource("16_bulim")
 text = "Time: 0"
 
 [node name="ScreenBorder" type="Sprite2D" parent="Camera"]

@@ -1115,7 +1115,7 @@ texture = ExtResource("22_k3idv")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(-3783, -4)
-mass = 0.02
+mass = 0.42
 
 [node name="PropBeanCan" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("23_ol755")
