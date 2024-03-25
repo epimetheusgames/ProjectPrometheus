@@ -21,6 +21,8 @@ var started_path_drone = false
 var flight_path_length = 0
 var player_follower_position = Vector2.ZERO
 var physics_drone_ingame = null
+var target_position_radians = 0
+var fly_to_correct_velocity = Vector2.ZERO
 
 @onready var flight_position = Vector2.ZERO 
 @onready var flight_rotation = Vector2.ZERO
@@ -117,7 +119,7 @@ func _process(delta):
 		$AttackLine/Sprite2D.position = $Drone.position
 	
 	var flight_index_int = int(flight_index) - 1
-	var is_close_to_player = ($Drone.position + position).distance_to(player.position) < 250
+	var is_close_to_player = ($Drone.position + position).distance_to(player.position) < 500
 	
 	if flight_index_int >= flight_path_length:
 		if !drone_boss:
@@ -160,12 +162,12 @@ func _process(delta):
 		physics_drone_ingame = null
 			
 	if !big_drone && is_close_to_player && !temp_disabled:
+		if $AttackLine.modulate.a < 1:
+			$AttackLine.modulate.a += 0.02 * delta * 60
+			
 		if !get_parent().graphics_efficiency:
 			$Drone/Turret.rotation = (($Drone.position + position) - player.position).normalized().angle() + ninety_deg_rad
 			
-		player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
-		$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 300
-		
 		$PlayerRaycast.position = $Drone.position
 		$AttackLine.points[0] = $Drone.position
 		
@@ -174,10 +176,13 @@ func _process(delta):
 			$PlayerRaycast.position = physics_drone_ingame.position
 			$PlayerRaycast.target_position = Vector2(cos(physics_drone_ingame.rotation), sin(physics_drone_ingame.rotation)).normalized() * 1000
 		
-		$LineRaycast.target_position = $PlayerRaycast.target_position
-		$LineRaycast.position = $PlayerRaycast.position
-		
 		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
+			player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
+			$PlayerRaycast.target_position = (player_follower_position - position - $PlayerRaycast.position).normalized() * 10000
+			
+			$LineRaycast.target_position = $PlayerRaycast.target_position
+			$LineRaycast.position = $PlayerRaycast.position
+			
 			if $TargetFoundTimer.time_left == 0:
 				$TargetFoundTimer.start()
 			
@@ -187,8 +192,6 @@ func _process(delta):
 				$WeaponDetected.play()
 				
 			$AttackLine.visible = true
-			if $AttackLine.modulate.a < 1:
-				$AttackLine.modulate.a += 0.02 * delta * 60
 			
 			$AttackLine.points[1] = ($LineRaycast.get_collision_point() - position)
 			
@@ -202,9 +205,18 @@ func _process(delta):
 					$TargetLost.play()
 			
 			player_previous_ability = "NoDistance"
-	elif !big_drone:
-		if $AttackLine.modulate.a > 0:
-			$AttackLine.modulate.a -= 0.04 * delta * 60
+			
+			target_position_radians += 0.02 * delta * 60
+			$LineRaycast.position = $Drone.position
+			$LineRaycast.target_position = Vector2(cos(target_position_radians), abs(sin(target_position_radians))) * 1000
+			
+			player_follower_position = $PlayerRaycast.target_position + $Drone.position + position
+			
+			$AttackLine.points[0] = $Drone.position
+			$AttackLine.points[1] += (($LineRaycast.get_collision_point() - position) - $AttackLine.points[1]) * 0.1
+	else:
+		if $AttackLine && $AttackLine.modulate.a > 0:
+			$AttackLine.modulate.a -= 0.01 * delta * 60
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():
 		$BulletCooldown.start()
@@ -245,7 +257,7 @@ func _on_area_2d_body_exited(body):
 		$Drone/DroneOutlineSpritesheet.visible = false
 
 func _on_drone_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" || area.name == "DeathZone" && !big_drone && !temp_disabled:
+	if (area.name == "PlayerBulletHurter" || area.name == "PlayerHurtbox" || area.name == "DeathZone") && !big_drone && !temp_disabled:
 		if !get_parent().is_multiplayer:
 			get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
 			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE

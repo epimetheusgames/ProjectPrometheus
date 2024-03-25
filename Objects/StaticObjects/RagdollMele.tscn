@@ -35,7 +35,7 @@ shape = SubResource("CapsuleShape2D_mf12s")
 [node name="Body" type="RigidBody2D" parent="."]
 mass = 2.0
 center_of_mass_mode = 1
-center_of_mass = Vector2(0, -8)
+center_of_mass = Vector2(0, -5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Body"]
 position = Vector2(1, 29)
