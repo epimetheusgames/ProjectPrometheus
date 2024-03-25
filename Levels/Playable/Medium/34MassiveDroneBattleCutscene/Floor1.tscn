@@ -643,6 +643,7 @@ animations = [{
 script = ExtResource("1_0af0h")
 level = 4
 boss = true
+is_cutscene = true
 no_timer = true
 
 [node name="DeadBoss" type="Node2D" parent="."]
@@ -770,6 +771,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BossBar" parent="Player/Camera" index="7"]
 z_index = 50
+
+[node name="AbilityManager" parent="Player/Camera" index="8"]
+visible = false
+
+[node name="Inventory" parent="Player/Camera" index="12"]
+visible = false
 
 [node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)

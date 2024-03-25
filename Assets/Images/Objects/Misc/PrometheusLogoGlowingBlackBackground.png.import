@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bef4ibrcxbyyv"
-path="res://.godot/imported/PrometheusLogoGlowing.png-4c2e43cba4e2765fa0e92cc680d8e2ae.ctex"
+uid="uid://pr06taxppesd"
+path="res://.godot/imported/PrometheusLogoGlowingBlackBackground.png-eb525b19d787c09b36aa9561223ee06c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Objects/PrometheusLogoGlowing.png"
-dest_files=["res://.godot/imported/PrometheusLogoGlowing.png-4c2e43cba4e2765fa0e92cc680d8e2ae.ctex"]
+source_file="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingBlackBackground.png"
+dest_files=["res://.godot/imported/PrometheusLogoGlowingBlackBackground.png-eb525b19d787c09b36aa9561223ee06c.ctex"]
 
 [params]
 

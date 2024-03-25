@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jtppdlwag7uj"
-path="res://.godot/imported/PrometheusLogoGlowingBlackBGNoText.png-a83cecc1c72a90941e99a045767536af.ctex"
+path="res://.godot/imported/PrometheusLogoGlowingBlackBGNoText.png-edc55a89d3c4f814038781d89517a0f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Objects/PrometheusLogoGlowingBlackBGNoText.png"
-dest_files=["res://.godot/imported/PrometheusLogoGlowingBlackBGNoText.png-a83cecc1c72a90941e99a045767536af.ctex"]
+source_file="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingBlackBGNoText.png"
+dest_files=["res://.godot/imported/PrometheusLogoGlowingBlackBGNoText.png-edc55a89d3c4f814038781d89517a0f7.ctex"]
 
 [params]
 

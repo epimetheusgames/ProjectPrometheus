@@ -27,7 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="23_uehp8"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="25_tjqer"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/AnimationActivator.gd" id="26_6qcrf"]
-[ext_resource type="Texture2D" uid="uid://g33u6pnalcvl" path="res://Assets/Images/Objects/PrometheusLogoGlowingNoText.png" id="28_olsre"]
+[ext_resource type="Texture2D" uid="uid://g33u6pnalcvl" path="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingNoText.png" id="28_olsre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_b70f2")

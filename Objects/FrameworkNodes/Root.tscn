@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ft8a"]
 shader = ExtResource("2_0worp")
-shader_parameter/distortion_amm = 0.0
+shader_parameter/distortion_amm = 1.0
 shader_parameter/static_scale = 0.0
 shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0

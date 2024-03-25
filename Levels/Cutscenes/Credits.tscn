@@ -1,28 +1,417 @@
-[gd_scene load_steps=3 format=3 uid="uid://claejn8lfpglk"]
+[gd_scene load_steps=9 format=3 uid="uid://bb31tfsygob7c"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/Credits.gd" id="1_ty6cr"]
+[ext_resource type="Texture2D" uid="uid://c33qcuu1jfeh5" path="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingBottomTextBlack.png" id="3_53i08"]
 [ext_resource type="AudioStream" uid="uid://5tae4t4rcgrt" path="res://Assets/Audio/Music/NothingIsHere.mp3" id="3_mmd7q"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="3_oyqsv"]
+[ext_resource type="Texture2D" uid="uid://j6nmubik80p2" path="res://Assets/Images/Objects/UI/LogoGreyscale.png" id="5_3qo0i"]
 
-[node name="Credits" type="Node2D"]
+[sub_resource type="Animation" id="Animation_dbxv8"]
+resource_name = "CreditsAnimation"
+length = 110.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Credits/OtherText/EpimetheusGamesText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3, 4.4, 6.8, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.380392, 0.380392, 0.380392, 1), Color(0.811765, 0.811765, 0.811765, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits/OtherText/EpimetheusGamesText:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, 432), Vector2(5, -352)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PeopleNames/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(16, 100),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 576), Vector2(6, -2712)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Images/PrometheusLogoGlowingBlackBgNoText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.4, 3, 6.9, 9.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.301961), Color(1, 1, 1, 0.647059), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Images/PrometheusLogoGlowingBlackBgNoText:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 8.1, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Images/LogoGreyscale:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(83, 90, 100),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(585, 1076), Vector2(585, 796), Vector2(585, 332)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Images/LogoGreyscale:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(102, 104, 105),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.74533, -0.929986, -0.698132]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Images/LogoGreyscale:modulate")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(104.2, 107),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.305882), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Images/LogoGreyscale:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(103.3, 107.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_apnjj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Credits/OtherText/EpimetheusGamesText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits/OtherText/EpimetheusGamesText:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 368)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PeopleNames/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 576)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Images/PrometheusLogoGlowingBlackBgNoText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Images/PrometheusLogoGlowingBlackBgNoText:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Images/LogoGreyscale:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(585, 1076)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Images/LogoGreyscale:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.39626]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Images/LogoGreyscale:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.65098)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Images/LogoGreyscale:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cblqd"]
+_data = {
+"CreditsAnimation": SubResource("Animation_dbxv8"),
+"RESET": SubResource("Animation_apnjj")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Credits" type="Node2D" parent="."]
+texture_filter = 2
 script = ExtResource("1_ty6cr")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Credits"]
 offset_right = 1173.0
 offset_bottom = 662.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="Credits"]
 stream = ExtResource("3_mmd7q")
 autoplay = true
+bus = &"SpecialMusic"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Credits"]
 position = Vector2(587, 332)
 zoom = Vector2(1.648, 1.648)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 497.0
-offset_top = 318.0
-offset_right = 646.0
-offset_bottom = 341.0
-text = "Epimetheus Games
+[node name="CreditsAnimationPlayer" type="AnimationPlayer" parent="Credits"]
+libraries = {
+"": SubResource("AnimationLibrary_cblqd")
+}
+
+[node name="Images" type="Control" parent="Credits"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PrometheusLogoGlowingBlackBgNoText" type="Sprite2D" parent="Credits/Images"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(563, 274)
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("3_53i08")
+
+[node name="LogoGreyscale" type="Sprite2D" parent="Credits/Images"]
+modulate = Color(1, 1, 1, 0.65098)
+position = Vector2(585, 1076)
+rotation = -1.39626
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("5_3qo0i")
+
+[node name="OtherText" type="Control" parent="Credits"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_oyqsv")
+metadata/_edit_use_anchors_ = true
+
+[node name="EpimetheusGamesText" type="Label" parent="Credits/OtherText"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -17.2863
+anchor_bottom = -10.2613
+offset_left = 5.0
+offset_top = 368.0
+offset_right = 1898.0
+offset_bottom = 1344.0
+scale = Vector2(0.615, 0.615)
+theme_override_font_sizes/font_size = 40
+text = "Created by Epimetheus Games"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PeopleNames" type="Control" parent="Credits"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/PeopleNames"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 576.0
+offset_right = 1169.0
+offset_bottom = 3355.0
+theme = ExtResource("3_oyqsv")
+bbcode_enabled = true
+text = "
+
+
+[center]
+[font_size=50]Programming[/font_size]
+[i]Carson Bates[/i]
+
+
+
+
+[font_size=50]Music[/font_size]
+Alejandro Belgique
+Carson Bates
+Ranier Szatlocky
+
+
+
+
+[font_size=50]Sound Effects[/font_size]
+Alejandro Belgique
+Liam Siegel
+Ranier Szatlocky
+
+
+
+
+[font_size=50]Art[/font_size]
+Liam Siegel
+
+
+
+
+[font_size=50]Level Design[/font_size]
+Carson Bates
+Elouan Grimm
+
+
+
+
+[font_size=50]Game Design/Story[/font_size]
+Liam Siegel
+Carson Bates
+Alejandro Belgique
+Ranier Szatlocky
+Elouan Grimm
+
+
+
+
+[font_size=50]Public Media[/font_size]
+Elouan Grimm 
+Liam Siegel
+
+
+
+
+[font_size=50]Playtesters[/font_size]
+May Rau
+Flynn
+Francesca Wrobel
+Isaac Phillips
+Oscar Logan
+Griffin
+Axel
+
+
+
+
+
+
+[font_size=30]Thank you so much for playing![/font_size]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright © 2024 Carson Bates, Liam Siegel, Alejandro Belgique, Ranier Szatlocky[/center]
+                                       All rights reserved.
 "
+
+[node name="Misc" type="Control" parent="Credits"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

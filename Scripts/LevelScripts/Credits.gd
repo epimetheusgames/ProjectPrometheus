@@ -7,6 +7,11 @@
 
 extends Node2D
 
+
+func _ready():
+	$CreditsAnimationPlayer.play("CreditsAnimation")
+
 func _process(delta):
 	if Input.is_action_just_pressed("esc"):
-		queue_free()
+		get_parent().queue_free()
+	

@@ -41,6 +41,7 @@ const level_display_names = [
 	"Hard 1",
 	"Hard 2",
 	"Hard 3",
+	"Elevator Transition",
 	"Hard 4",
 	"Boss Chase",
 	"Transition Cutscene",
@@ -91,7 +92,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/35MassiveDroneBattle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
-	[preload("res://Levels/Cutscenes/Credits.tscn")],
+	[preload("res://Levels/Cutscenes/Credits/Floor1.tscn")],
 	[preload("res://Levels/Playable/Multiplayer/Multiplayer1/Floor1.tscn")],
 	[preload("res://Levels/Playable/Multiplayer/Multiplayer2/Floor1.tscn")],
 ]

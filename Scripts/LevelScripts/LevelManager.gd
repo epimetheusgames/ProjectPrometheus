@@ -13,6 +13,7 @@ extends Node2D
 @export var zoom_boss = false
 @export var is_multiplayer = false
 @export var intense_music = false
+@export var is_cutscene = false
 var slot = -1
 var graphics_efficiency = false
 var is_max_level = true
@@ -28,6 +29,7 @@ var just_unpaused = false
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
+@export var is_credits = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
 
@@ -52,6 +54,10 @@ func _ready():
 			$Player/Camera/TimeCounter.visible = false
 
 func _process(delta):
+	if is_credits:
+		get_parent().get_parent().get_node("SaveLoadFramework").bulge_amm = 1.7
+		get_parent().get_parent().get_node("SaveLoadFramework").static_amm = 0.0
+	
 	if is_multiplayer:
 		if multiplayer.is_server():
 			client_player.set_multiplayer_authority(multiplayer.get_peers()[0])

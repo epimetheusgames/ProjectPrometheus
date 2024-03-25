@@ -280,7 +280,7 @@ func _physics_process(delta):
 			save_load_framework.bulge_amm = 0.4 + get_parent().bulge_adder
 			save_load_framework.static_amm = 0.05 + get_parent().static_adder
 			
-		elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5:
+		elif get_parent().get_node("Camera").get_node("AbilityManager").get_node("AbililtySwitchTimer").time_left > 5 && !get_parent().get_parent().is_credits:
 			save_load_framework.bulge_amm = 0 + get_parent().bulge_adder
 			save_load_framework.static_amm = 0 + get_parent().static_adder
 		

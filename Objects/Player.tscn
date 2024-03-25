@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=101 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -25,19 +25,20 @@
 [ext_resource type="Texture2D" uid="uid://bp3tntuuapxp6" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment1.png" id="16_r6ffc"]
 [ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
 [ext_resource type="Texture2D" uid="uid://dk0yq6avys0cc" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment3.png" id="17_p4s3n"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="18_0h0jo"]
 [ext_resource type="Texture2D" uid="uid://c4nfctlp6w8sn" path="res://Assets/Images/Objects/UI/Grapple.png" id="18_c1syy"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
-[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="18_q5qcl"]
 [ext_resource type="Texture2D" uid="uid://8u6qags5a5w4" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge2.png" id="18_tdjfb"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
+[ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="21_5hasi"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
-[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="21_cymnh"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/CutsceneAnimator.gd" id="23_2gvnx"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
@@ -145,6 +146,91 @@ height = 510
 fill = 1
 fill_from = Vector2(0.505, 0.5)
 fill_to = Vector2(0.714, 0.48)
+
+[sub_resource type="Animation" id="Animation_26o2t"]
+resource_name = "Open"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2007, 0), Vector2(2007, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2007, 0), Vector2(2007, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-62, 1084), Vector2(-62, 988)]
+}
+
+[sub_resource type="Animation" id="Animation_jnnxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2007, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2007, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-62, 1084)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2d1hn"]
+_data = {
+"Open": SubResource("Animation_26o2t"),
+"RESET": SubResource("Animation_jnnxy")
+}
 
 [sub_resource type="Animation" id="Animation_4w1xp"]
 resource_name = "CloseLevel"
@@ -705,7 +791,7 @@ offset_top = 65.0
 offset_right = 120.0
 offset_bottom = 105.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -746,7 +832,7 @@ offset_top = 65.0
 offset_right = 110.0
 offset_bottom = 105.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -778,7 +864,7 @@ offset_top = 64.0
 offset_right = 109.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -790,7 +876,7 @@ offset_top = 37.0
 offset_right = 77.0
 offset_bottom = 77.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("21_cymnh")
+texture = ExtResource("21_5hasi")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "attack"
@@ -832,7 +918,7 @@ offset_top = 64.0
 offset_right = 109.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -876,7 +962,7 @@ offset_top = 64.0
 offset_right = 93.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -888,7 +974,7 @@ offset_top = 37.0
 offset_right = 22.0
 offset_bottom = 77.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("21_cymnh")
+texture = ExtResource("21_5hasi")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "attack"
@@ -929,7 +1015,7 @@ offset_top = 64.0
 offset_right = 93.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -971,7 +1057,7 @@ offset_top = 64.0
 offset_right = 93.0
 offset_bottom = 104.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_q5qcl")
+texture = ExtResource("18_0h0jo")
 expand_mode = 1
 script = ExtResource("18_op56f")
 path = "interact"
@@ -986,6 +1072,31 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 29
 text = "Jump to swing with the
 grapple."
+
+[node name="CutsceneAnimator" type="Node2D" parent="Camera"]
+script = ExtResource("23_2gvnx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/CutsceneAnimator"]
+libraries = {
+"": SubResource("AnimationLibrary_2d1hn")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera/CutsceneAnimator"]
+layer = 50
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CutsceneAnimator/CanvasLayer"]
+offset_left = -62.0
+offset_top = -5.0
+offset_right = 1945.0
+offset_bottom = -5.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera/CutsceneAnimator/CanvasLayer"]
+offset_left = -62.0
+offset_top = 1084.0
+offset_right = 1945.0
+offset_bottom = 1084.0
+color = Color(0, 0, 0, 1)
 
 [node name="Inventory" type="Control" parent="Camera"]
 layout_mode = 3
