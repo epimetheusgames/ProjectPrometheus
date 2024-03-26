@@ -36,16 +36,18 @@ func _process(delta):
 	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
 	
-	if $Camera.position.distance_to($Player.position) > 100:
-		if smoothing_1 < 0.5:
-			smoothing_1 += 0.001
-		if smoothing_2 < 0.5:
-			smoothing_2 += 0.001
-	else:
-		if smoothing_1 > 0.05:
-			smoothing_1 -= 0.0003
-		if smoothing_2 > 0.1:
-			smoothing_2 -= 0.0003
+	print($CameraCollider.get_last_slide_collision())
+	if !$CameraCollider.get_last_slide_collision():
+		if $Camera.position.distance_to($Player.position) > 100:
+			if smoothing_1 < 0.5:
+				smoothing_1 += 0.001
+			if smoothing_2 < 0.5:
+				smoothing_2 += 0.001
+		else:
+			if smoothing_1 > 0.05:
+				smoothing_1 -= 0.0003
+			if smoothing_2 > 0.1:
+				smoothing_2 -= 0.0003
 	
 	var player_vel = 0
 	

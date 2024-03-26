@@ -34,6 +34,7 @@ DiscordSDKLoader="*res://addons/discord-sdk-gd/nodes/discord_autoload.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://Assets/Images/Objects/Misc/MouseCursor.png"
 
 [editor]
@@ -134,6 +135,7 @@ joy_up={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.121569, 0.121569, 0.121569, 1)
 anti_aliasing/quality/msaa_2d=3
 viewport/hdr_2d=true
