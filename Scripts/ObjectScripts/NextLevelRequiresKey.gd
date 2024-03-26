@@ -45,6 +45,7 @@ func add_level():
 	else:
 		floor_next += 1
 		
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard = false
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode)
 
 func restart_level(respawn_pos, respawn_ability):

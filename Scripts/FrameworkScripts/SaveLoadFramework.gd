@@ -165,6 +165,7 @@ var starting = true
 var force_time_scale = -1.0
 var playing_special_music = false
 var playing_intense_music = false
+var has_keycard = false
 
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 

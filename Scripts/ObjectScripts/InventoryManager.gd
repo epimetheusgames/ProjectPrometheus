@@ -1,7 +1,7 @@
 extends Control
 
 
-var slot_highlights_list = [
+@onready var slot_highlights_list = [
 	$SlotHighlights/Line2D,
 	$SlotHighlights/Line2D2,
 	$SlotHighlights/Line2D3,

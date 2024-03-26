@@ -53,6 +53,7 @@ var current_ability = "Weapon"
 
 @onready var respawn_pos = position
 @onready var respawn_ability = current_ability
+@onready var loaded_keycard = preload("res://Objects/StaticObjects/Key.tscn")
 
 func _ready():
 	var player_type_1 = preload("res://Objects/StaticObjects/PlayerType1.tres")
@@ -68,6 +69,12 @@ func _ready():
 		$PlayerAnimation.sprite_frames = player_type_3
 	if character_type == 4:
 		$PlayerAnimation.sprite_frames = player_type_4
+		
+	if get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard:
+		var instantiated_keycard = loaded_keycard.instantiate()
+		instantiated_keycard.position = position
+		instantiated_keycard.replacement_keycard = true
+		get_parent().get_parent().call_deferred("add_child", instantiated_keycard)
 
 # Figure out the velocity based on the inputs.
 func getInputVelocity(can_jump):
