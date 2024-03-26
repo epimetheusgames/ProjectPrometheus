@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbql3q4vummfw"]
+[gd_scene load_steps=9 format=3 uid="uid://dbql3q4vummfw"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/PauseMenu.gd" id="1_0l5na"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_1kp1x"]
-[ext_resource type="Texture2D" uid="uid://cnghdqiitl0fu" path="res://addons/controller_icons/assets/key/esc.png" id="3_c1oyq"]
-[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="4_cow0x"]
-[ext_resource type="Texture2D" uid="uid://coqj2fcsaxvcn" path="res://addons/controller_icons/assets/key/space.png" id="5_n83w1"]
+[ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_jldbb"]
 
 [sub_resource type="Animation" id="Animation_tbkda"]
 resource_name = "ExitMenu"
@@ -116,9 +114,10 @@ process_mode = 3
 script = ExtResource("1_0l5na")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 90
+layer = 128
 
 [node name="ForManipulatingTheseNodes" type="Node2D" parent="CanvasLayer"]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-976, -568)
 scale = Vector2(2, 2)
@@ -142,47 +141,63 @@ mouse_filter = 2
 theme = ExtResource("2_1kp1x")
 color = Color(0, 0, 0, 0)
 
-[node name="Label" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
+[node name="ResumeText" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 490.0
+offset_top = 476.0
+offset_right = 1449.0
+offset_bottom = 560.0
+theme = ExtResource("2_1kp1x")
+text = "Return to game"
+horizontal_alignment = 1
+
+[node name="SettingsText" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 490.0
+offset_top = 520.0
+offset_right = 1449.0
+offset_bottom = 604.0
+theme = ExtResource("2_1kp1x")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="ExitText" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
 offset_left = 487.0
 offset_top = 562.0
 offset_right = 1448.0
 offset_bottom = 589.0
 theme = ExtResource("2_1kp1x")
-text = "Press         to exit"
+text = "Exit to menu"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
-offset_left = 490.0
+[node name="SettingsMenu" parent="CanvasLayer/ForManipulatingTheseNodes" instance=ExtResource("3_jldbb")]
+process_mode = 3
+visible = false
+texture_filter = 2
+position = Vector2(1023.5, 186)
+scale = Vector2(0.4, 0.4)
+
+[node name="Panel8" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="14"]
+visible = false
+
+[node name="Panel7" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="19"]
+visible = false
+
+[node name="ResumeButton" type="TextureButton" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 885.0
+offset_top = 472.0
+offset_right = 1052.0
+offset_bottom = 507.0
+
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 922.0
 offset_top = 516.0
-offset_right = 1449.0
-offset_bottom = 600.0
-theme = ExtResource("2_1kp1x")
-text = "Press         to resume"
-horizontal_alignment = 1
+offset_right = 1016.0
+offset_bottom = 551.0
 
-[node name="ControllerTextureRect" type="TextureRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
-process_mode = 3
-custom_minimum_size = Vector2(40, 40)
-offset_left = 926.0
-offset_top = 508.0
-offset_right = 966.0
-offset_bottom = 548.0
-texture = ExtResource("3_c1oyq")
-expand_mode = 1
-script = ExtResource("4_cow0x")
-path = "esc"
-
-[node name="ControllerTextureRect2" type="TextureRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
-process_mode = 3
-custom_minimum_size = Vector2(40, 40)
-offset_left = 944.0
-offset_top = 553.5
-offset_right = 984.0
-offset_bottom = 593.5
-texture = ExtResource("5_n83w1")
-expand_mode = 1
-script = ExtResource("4_cow0x")
-path = "ui_accept"
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_left = 902.0
+offset_top = 558.0
+offset_right = 1028.0
+offset_bottom = 593.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -190,4 +205,9 @@ libraries = {
 "": SubResource("AnimationLibrary_f6kpe")
 }
 
+[connection signal="button_up" from="CanvasLayer/ForManipulatingTheseNodes/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/ForManipulatingTheseNodes/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/ForManipulatingTheseNodes/ExitButton" to="." method="_on_exit_button_button_up"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu"]

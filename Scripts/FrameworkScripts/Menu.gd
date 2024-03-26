@@ -33,7 +33,7 @@ func _ready():
 		modulate.a = 0.00001
 	
 	if name == "SettingsMenu":
-		var global_data = get_parent().get_parent().load_data("global")
+		var global_data = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").load_data("global")
 		$MusicSlider.value = global_data[1]
 		$SFXSlider.value = global_data[2]
 		$CheckButton.button_pressed = global_data[0]
@@ -52,7 +52,7 @@ func _process(_delta):
 	if name == "SettingsMenu":
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), $MusicSlider.value if $MusicSlider.value > -40 else -10000)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), $SFXSlider.value if $SFXSlider.value > -40 else -10000)
-		get_parent().get_parent().save_game(
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").save_game(
 			"[" + 
 			str($CheckButton.button_pressed) + "," + 
 			str($MusicSlider.value) + "," + 

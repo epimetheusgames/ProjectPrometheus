@@ -130,6 +130,7 @@ offset_right = 197.0
 offset_bottom = 1024.0
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
+visible = false
 position = Vector2(349, -37)
 first = false
 

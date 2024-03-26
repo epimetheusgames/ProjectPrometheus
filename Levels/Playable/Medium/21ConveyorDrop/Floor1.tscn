@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_msv6s"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wue0v"]
 [ext_resource type="TileSet" uid="uid://bwfmuon8djn7v" path="res://Objects/StaticObjects/Signs.tres" id="3_6mvsr"]
-[ext_resource type="TileSet" uid="uid://ptfffklmymce" path="res://Objects/StaticObjects/TilesetNoHitbox.tres" id="4_ngvmn"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_bag2g"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_lcaxu"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="6_bmxs0"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="7_m2rdp"]
@@ -248,7 +248,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1835116, 196608, 0, 1507431, 0, 0, 327743, 65536, 0, -65518, 0, 0, -65439, 196608, 0, -65449, 0, 0, 1048673, 196608, 0, 2359393, 65536, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("4_ngvmn")
+tile_set = ExtResource("4_bag2g")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"

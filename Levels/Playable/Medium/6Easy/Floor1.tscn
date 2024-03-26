@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_g6oud"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_njaqg"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_d1inc"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_1rd6p"]
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="4_b11w8"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="5_2pehq"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="5_t0gwr"]
-[ext_resource type="TileSet" uid="uid://ptfffklmymce" path="res://Objects/StaticObjects/TilesetNoHitbox.tres" id="5_wcpth"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_qin16"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_1q70i"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_7dbkh"]
@@ -229,7 +229,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(131129, 65536, 3, 131130, 131072, 3, 131131, 131072, 3, 131132, 131072, 3, 131133, 131072, 3, 131134, 131072, 3, 131135, 131072, 3, 131136, 131072, 3, 131137, 131072, 3, 131138, 131072, 3, 131139, 131072, 3, 131140, 131072, 3, 131141, 131072, 3, 131142, 131072, 3, 131143, 131072, 3, 131144, 196608, 3)
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("5_wcpth")
+tile_set = ExtResource("4_1rd6p")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"

@@ -1106,9 +1106,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -240.0
 offset_top = -136.0
-offset_right = 240.0
-offset_bottom = 135.0
-mouse_filter = 2
+offset_right = -237.0
+offset_bottom = -136.0
+mouse_filter = 1
 script = ExtResource("23_4onkk")
 
 [node name="SlotBackgrounds" type="Control" parent="Camera/Inventory"]
@@ -1231,8 +1231,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -240.0
 offset_top = -136.0
-offset_right = 245.0
-offset_bottom = 144.0
+offset_right = -225.0
+offset_bottom = -119.0
 
 [node name="TextureButton" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0

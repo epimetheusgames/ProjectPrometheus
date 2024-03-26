@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wvad8"]
 [ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="3_diq0k"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_keo7t"]
-[ext_resource type="TileSet" uid="uid://ptfffklmymce" path="res://Objects/StaticObjects/TilesetNoHitbox.tres" id="5_x2qvs"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_ryttd"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_s40xa"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="7_uxi6q"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="8_mewrp"]
@@ -334,7 +334,7 @@ rendering_quadrant_size = 32
 format = 2
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("5_x2qvs")
+tile_set = ExtResource("5_ryttd")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"

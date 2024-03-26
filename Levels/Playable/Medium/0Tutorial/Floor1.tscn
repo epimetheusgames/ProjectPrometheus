@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_0nphy"]
-[ext_resource type="TileSet" uid="uid://ptfffklmymce" path="res://Objects/StaticObjects/TilesetNoHitbox.tres" id="4_adhjv"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_eufvj"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="4_mouxu"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="5_ap23i"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="6_ad5ab"]
@@ -854,7 +854,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-262317, 65536, 0, -262307, 65536, 0, 130921, 131072, 0, 130989, 131072, 0, -262296, 65536, 0, -262341, 196608, 0, 196396, 65536, 0, 65307, 131072, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("4_adhjv")
+tile_set = ExtResource("3_eufvj")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -895,13 +895,6 @@ polygon = PackedVector2Array(-3406, -506, -4582, -252, -5020, -106, -5580, -120,
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(726, 316, -1026, 150, -2616, 170, -3360, 824, -1516, 574)
-
-[node name="Player" parent="." instance=ExtResource("6_ad5ab")]
-
-[node name="PointLight2D" parent="Player" index="9"]
-scale = Vector2(0.983491, 1)
-color = Color(0.941176, 1, 0.419608, 1)
-energy = 1.88
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -1152,10 +1145,18 @@ position = Vector2(-7554, 63)
 position = Vector2(38, 1)
 shape = SubResource("RectangleShape2D_8byov")
 
+[node name="Player" parent="." instance=ExtResource("6_ad5ab")]
+position = Vector2(0, 1)
+
+[node name="PointLight2D" parent="Player" index="9"]
+scale = Vector2(0.983491, 1)
+color = Color(0.941176, 1, 0.419608, 1)
+energy = 1.88
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
-[editable path="Player"]
 [editable path="DroneManager"]
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
+[editable path="Player"]

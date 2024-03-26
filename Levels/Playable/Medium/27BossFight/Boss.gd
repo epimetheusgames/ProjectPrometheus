@@ -87,6 +87,9 @@ func _process(delta):
 		if health < 50:
 			spawn_drill($MeleSpawn3.position)
 			
+	if health < 50:
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_fifty_percent = true
+			
 	if health < 50 && position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		position += (start_pos + $FiftyPercentPos.position - position).normalized()

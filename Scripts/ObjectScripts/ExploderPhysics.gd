@@ -20,6 +20,8 @@ func _ready():
 
 func _on_explosion_hitbox_body_entered(body):
 	if !exploded:
+		player = get_parent().get_node("Player").get_node("Player")
+		
 		exploded = true
 		$GPUParticles2D.emitting = true
 		$ExplosionHitbox/CollisionShape2D.shape.radius = 32
