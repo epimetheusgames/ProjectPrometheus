@@ -91,6 +91,11 @@ func _process(delta):
 		
 		$Label3.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str($Player.round_place(extra, 2)).lstrip("0.")
 		$Label4.text = "Deaths: " + str(deaths)
+	
+	if is_credits:
+		if $Credits/Credits.finished:
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(level, floor, slot, points, time, is_max_level, deaths)
+
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

@@ -299,7 +299,7 @@ anchor_bottom = -10.2613
 offset_left = 5.0
 offset_top = 368.0
 offset_right = 1898.0
-offset_bottom = 1344.0
+offset_bottom = 1625.0
 scale = Vector2(0.615, 0.615)
 theme_override_font_sizes/font_size = 40
 text = "Created by Epimetheus Games"
@@ -331,6 +331,12 @@ text = "
 
 
 
+[font_size=50]Art[/font_size]
+Liam Siegel
+
+
+
+
 [font_size=50]Music[/font_size]
 Alejandro Belgique
 Carson Bates
@@ -343,12 +349,6 @@ Ranier Szatlocky
 Alejandro Belgique
 Liam Siegel
 Ranier Szatlocky
-
-
-
-
-[font_size=50]Art[/font_size]
-Liam Siegel
 
 
 
@@ -415,3 +415,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="Credits/CreditsAnimationPlayer" to="Credits" method="_on_credits_animation_player_animation_finished"]
