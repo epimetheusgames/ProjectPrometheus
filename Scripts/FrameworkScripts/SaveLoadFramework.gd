@@ -3,8 +3,11 @@
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# --------------------------------------- SaveLoadFramework.gd ------------------------------------------|
+#                                                                                                        |
+# Base framework for handling interlevel stability, presesrvation of game state, loading the game and    |
+# switching between the level and the main menu.                                                         |
 # -------------------------------------------------------------------------------------------------------|
-
 
 extends Node2D
 # Save load framework should be the root node of the main menu.

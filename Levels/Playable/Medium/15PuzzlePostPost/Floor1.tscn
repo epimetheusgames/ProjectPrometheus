@@ -1,10 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://vbpf01w0tgt1"]
+[gd_scene load_steps=61 format=3 uid="uid://vbpf01w0tgt1"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_6m54r"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_srlvu"]
 [ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="3_kf4ma"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_sgrsi"]
-[ext_resource type="TileSet" uid="uid://ptfffklmymce" path="res://Objects/StaticObjects/TilesetNoHitbox.tres" id="5_c585e"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_tu411"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_0xrs5"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="7_q0ksc"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="8_84ue0"]
@@ -12,7 +12,9 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_nvlu8"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_1fae4"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="12_hrt7i"]
+[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="12_malpn"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_8c3dv"]
+[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="13_ytwlj"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_r56t1"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_cyr8t"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="16_v3a3m"]
@@ -356,7 +358,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-3, 0, 0, -65532, 0, 0, -10, 0, 0, -65517, 0, 0, 327726, 65536, 0, 327717, 65536, 0, -327661, 0, 0, -917458, 65536, 0, -917440, 65536, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
-tile_set = ExtResource("5_c585e")
+tile_set = ExtResource("5_tu411")
 rendering_quadrant_size = 32
 format = 2
 layer_0/name = "Layer 1"
@@ -403,6 +405,33 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ItemSwitcherDialogue" index="3"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/YourItemHasChanged" index="3"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="2"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="3"]
+texture = ExtResource("13_ytwlj")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/WASDToMove" index="2"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="2"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="3"]
+texture = ExtResource("13_ytwlj")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ShootSwitch" index="2"]
+texture = ExtResource("12_malpn")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/JumpToSwing" index="2"]
+texture = ExtResource("12_malpn")
 
 [node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)

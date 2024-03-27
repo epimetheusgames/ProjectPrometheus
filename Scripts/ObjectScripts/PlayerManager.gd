@@ -3,7 +3,9 @@
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
-# -------------------------------------------------------------------------------------------------------|
+# ------------------------------------------PlayerManager.gd---------------------------------------------|
+# Main player manager for miscelanious settings and camera movement and collision.                       |
+#--------------------------------------------------------------------------------------------------------|
 
 
 extends Node2D
@@ -16,6 +18,7 @@ var bulge_adder = 0
 @export var smoothing_1 = 0.05
 @export var smoothing_2 = 0.1
 var screenshake_enabled = false
+var body_in_camera_collider = false
 
 func round_place(x, place):
 	return round(x * pow(10, place)) / pow(10, place)
@@ -36,18 +39,20 @@ func _process(delta):
 	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
 	
-	print($CameraCollider.get_last_slide_collision())
-	if !$CameraCollider.get_last_slide_collision():
-		if $Camera.position.distance_to($Player.position) > 100:
-			if smoothing_1 < 0.5:
-				smoothing_1 += 0.001
-			if smoothing_2 < 0.5:
-				smoothing_2 += 0.001
-		else:
-			if smoothing_1 > 0.05:
-				smoothing_1 -= 0.0003
-			if smoothing_2 > 0.1:
-				smoothing_2 -= 0.0003
+	# Generally a stable camera is more important then allways being able to see the player at
+	# one time. If there's a hitbox colliding with the CameraCollider, disable smoothing 
+	# decrementation. The one caviat of this is that if the player is falling next to a wall
+	# the camera will miss them for a short time.
+	if $Camera.position.distance_to($Player.position) > 100 && !body_in_camera_collider:
+		if smoothing_1 < 0.5:
+			smoothing_1 += 0.001
+		if smoothing_2 < 0.5:
+			smoothing_2 += 0.001
+	else:
+		if smoothing_1 > 0.05:
+			smoothing_1 -= 0.0003
+		if smoothing_2 > 0.1:
+			smoothing_2 -= 0.0003
 	
 	var player_vel = 0
 	
@@ -91,3 +96,11 @@ func _process(delta):
 
 func _on_screen_shake_disable_timer_timeout():
 	screenshake_enabled = false
+
+func _on_camera_collider_collision_listener_body_entered(body):
+	if body.name != "CameraCollider":
+		body_in_camera_collider = true
+
+func _on_camera_collider_collision_listener_body_exited(body):
+	if body.name != "CameraCollider":
+		body_in_camera_collider = false

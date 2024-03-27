@@ -561,6 +561,14 @@ script = ExtResource("2_mi2af")
 position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_shfyb")
 
+[node name="CameraColliderCollisionListener" type="Area2D" parent="CameraCollider"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CameraHitbox" type="CollisionShape2D" parent="CameraCollider/CameraColliderCollisionListener"]
+position = Vector2(3, 2)
+shape = SubResource("RectangleShape2D_shfyb")
+
 [node name="Camera" type="Camera2D" parent="."]
 process_mode = 3
 zoom = Vector2(4, 4)
@@ -1521,6 +1529,8 @@ layer = 70
 wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="CameraCollider/CameraColliderCollisionListener" to="." method="_on_camera_collider_collision_listener_body_entered"]
+[connection signal="body_exited" from="CameraCollider/CameraColliderCollisionListener" to="." method="_on_camera_collider_collision_listener_body_exited"]
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]

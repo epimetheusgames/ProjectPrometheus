@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=139 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="23_ol755"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="24_2wxqt"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="25_jbes3"]
+[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="28_1qpvh"]
+[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="29_lymmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -1147,6 +1149,33 @@ shape = SubResource("RectangleShape2D_8byov")
 
 [node name="Player" parent="." instance=ExtResource("6_ad5ab")]
 position = Vector2(0, 1)
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ItemSwitcherDialogue" index="3"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/YourItemHasChanged" index="3"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="2"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="3"]
+texture = ExtResource("29_lymmd")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/WASDToMove" index="2"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="2"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="3"]
+texture = ExtResource("29_lymmd")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ShootSwitch" index="2"]
+texture = ExtResource("28_1qpvh")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/JumpToSwing" index="2"]
+texture = ExtResource("28_1qpvh")
 
 [node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)

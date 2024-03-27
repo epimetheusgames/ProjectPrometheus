@@ -53,8 +53,10 @@ func _on_resume_button_button_up():
 		$CanvasLayer/ForManipulatingTheseNodes/SettingsMenu.visible = false
 
 func _on_settings_button_button_up():
-	$CanvasLayer/ForManipulatingTheseNodes/SettingsMenu.visible = true
+	if showing && get_tree().paused:
+		$CanvasLayer/ForManipulatingTheseNodes/SettingsMenu.visible = true
 
 func _on_exit_button_button_up():
-	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").has_keycard = false
-	$AnimationPlayer.play("ExitMenu")
+	if showing && get_tree().paused:
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").has_keycard = false
+		$AnimationPlayer.play("ExitMenu")
