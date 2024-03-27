@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://tq755c4o5ojd"]
+[gd_scene load_steps=54 format=3 uid="uid://tq755c4o5ojd"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
@@ -117,6 +117,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdcgr"]
 size = Vector2(72, 88)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n0fk0"]
+polygon = PackedVector2Array(-142, 93, -166, 80, -186, 53, -183, 43, -169, 37, -65, 37, 166, 37, 182, 39, 189, 42, 192, 47, 192, 50, 202, 53, 209, 62, 210, 71, 220, 73, 227, 82, 224, 93, 208, 101, 193, 104, -88, 104, -117, 100, -137, 95, -136, 151, 304, 138, 297, -14, -220, 19, -184, 127)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("6_o578s")
@@ -794,6 +797,9 @@ visible = false
 position = Vector2(23, 68)
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-198, 30, -193, 32, -182, 35, -177, 36, 103, 37, 137, 33, 172, 22, 188, 12, 201, -1, 208, -14, 207, -44, 204, -47, 199, -48, 98, -48, 91, -44, 87, -37, -7, -37, -9, -33, -52, -33, -55, -43, -68, -47, -118, -46, -125, -43, -127, -37, -141, -32, -157, -31, -165, -27, -169, -27, -173, -18, -181, -16, -187, -6, -188, 2, -197, 4, -203, 10, -205, 17, -204, 23)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DeadBoss"]
+occluder = SubResource("OccluderPolygon2D_n0fk0")
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")

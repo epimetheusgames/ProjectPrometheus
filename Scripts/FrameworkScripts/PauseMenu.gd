@@ -4,6 +4,8 @@
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
+# Pause menu overlay and UI.                                                                             |                             
+# -------------------------------------------------------------------------------------------------------|
 
 
 # This should be a child of the Player node inside of PlayerManager.

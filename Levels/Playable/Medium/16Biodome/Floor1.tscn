@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=58 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -12,9 +12,7 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_d515k"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_dl7ks"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="12_bqtyk"]
-[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="12_sn4ea"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_2loc3"]
-[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="13_twryo"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_spvkw"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_86obi"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="16_mljpm"]
@@ -41,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="37_rmto2"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="38_ms1na"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="38_q85fv"]
+[ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="40_bqd3p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -554,33 +553,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ItemSwitcherDialogue" index="3"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/YourItemHasChanged" index="3"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="2"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="3"]
-texture = ExtResource("13_twryo")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/WASDToMove" index="2"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="2"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="3"]
-texture = ExtResource("13_twryo")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ShootSwitch" index="2"]
-texture = ExtResource("12_sn4ea")
-
-[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/JumpToSwing" index="2"]
-texture = ExtResource("12_sn4ea")
 
 [node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
@@ -5267,8 +5239,21 @@ position = Vector2(-158, -48)
 position = Vector2(-95, -176)
 item_switch_type = "RocketBoost"
 
+[node name="DroneManager2" parent="." instance=ExtResource("40_bqd3p")]
+position = Vector2(2217, 304)
+firefly = true
+speed = 0.2
+
+[node name="DronePatrolPoints" parent="DroneManager2" index="0"]
+visible = false
+points = PackedVector2Array(934, -87, 386, 139, 268.724, 113.981, 408.84, 18.1991, 592, -22, 457, 143, 425.488, 81.306, 1033, 13, 870, 167, 826, 72, 465, 169, 861, -16, 1017, 91, 1213.23, 91.171, 1280, 101, 1056, 159, 1217, 79, 1214, 68, 1256, 31, 1403, 53, 1316, 164, 1511, 89, 1458, -36, 1311, 99, 1350, -64, 1571.16, -117.754, 1537, -242, 1213, -2, -135, -13, 171.415, 25.9661, -140.816, 100.026, -9.72476, -44.1972, 24.1855, 162.635, -161.121, 27.3531, -113.808, 182.548, 448, -50, 1635.16, 44.448, 1608.63, 149.783, 1742, 30, 1668, 185, 1942, 57, 1581, -69, 1690, -216, 1672, -92, 1827, -183, 1789, -23, 1931, -183, 1970, 31, 2064, -191, 2066, 133, 2083, 36, 2273, -121, 2252.84, 139.278, 2325, -130, 2240.47, 26.7318, 2366, -7, 2561.68, 14.8483, 2711, 27, 2691.85, -65.8614, 2835, -109, 2931.89, 3.42422, 3043.17, -111.76, 2915.61, -81.7345, 3091.84, -31.8579, 3006.82, -76.1215, 3015.12, -44.543, 3122.67, -125.916, 3274, -114, 3365.6, -192.058, 3599.97, -44.372, 3497.82, -52.0577, 3714, 1, 3791, -118, 3742.31, 10.6171, 3754.79, -128.519, 3771.05, -6.17468, 3853.84, -141.567, 3777.85, -42.6159, 3882.92, -112.62, 3789.63, 4.20041, 3856.42, -118.729, 3859.57, 20.0211, 3788, -482)
+
+[node name="DroneSpritesheet" parent="DroneManager2/Drone" index="0"]
+self_modulate = Color(10, 7, 2.99, 1)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
+[editable path="DroneManager2"]

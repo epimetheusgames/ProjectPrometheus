@@ -157,22 +157,22 @@ func _process(delta):
 			
 			velocity.x += get_horizontal_direction_pressed() * 0.02
 			if get_vertical_direction_pressed() == 0:
-				velocity.y -= abs(get_horizontal_direction_pressed()) * 0.02 if velocity.y > 0 else -abs(get_horizontal_direction_pressed()) * 0.02
+				velocity.y -= (abs(get_horizontal_direction_pressed()) * 0.02 if velocity.y > 0 else -abs(get_horizontal_direction_pressed()) * 0.02) * delta * 60
 			
 			velocity.y += get_vertical_direction_pressed() * 0.02
 			if get_horizontal_direction_pressed() == 0:
-				velocity.x -= abs(get_vertical_direction_pressed()) * 0.02 if velocity.x > 0 else -abs(get_vertical_direction_pressed()) * 0.02
+				velocity.x -= (abs(get_vertical_direction_pressed()) * 0.02 if velocity.x > 0 else -abs(get_vertical_direction_pressed()) * 0.02) * delta * 60
 		
 		if no_death:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
 			rotation += 0.0002 * delta * 60
-			velocity.y += 0.002
-			velocity.x += 0.01
+			velocity.y += 0.002 * delta * 60
+			velocity.x += 0.01 * delta * 60
 			
 		if takeover_control && !no_death:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
-			velocity.x += 0.02
-			velocity.y /= 1.01
+			velocity.x += 0.02 * delta * 60
+			velocity.y /= 1.01 * delta * 60
 			
 			if velocity.x > 2:
 				velocity.x = 2
