@@ -1204,9 +1204,6 @@ scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
 
-[node name="PistonSmasher3" parent="." instance=ExtResource("18_cmg21")]
-position = Vector2(-1536, -129)
-
 [node name="PistonSmasher4" parent="." instance=ExtResource("18_cmg21")]
 position = Vector2(-1408, -129)
 

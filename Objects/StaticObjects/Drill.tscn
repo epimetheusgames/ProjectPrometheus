@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhan07vwy03tg"]
+[gd_scene load_steps=37 format=3 uid="uid://dhan07vwy03tg"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DrillManager.gd" id="1_axli8"]
 [ext_resource type="Texture2D" uid="uid://csjxt0ath58re" path="res://Assets/Images/Objects/Enemy/DrillSpritesheet.png" id="2_td8xb"]
@@ -148,6 +148,91 @@ radius = 364.232
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jsx41"]
 polygon = PackedVector2Array(2, 32, 2, 10, 3, 9, 4, 9, 4, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 4, 9, 4, 9, 3, 10, 3, 10, 2, 11, 2, 11, 1, 12, 1, 12, 0, 13, 0, 13, -1, 14, -1, 27, -1, 28, -1, 28, 0, 29, 0, 29, 1, 30, 1, 30, 2, 31, 2, 31, 3, 32, 3, 32, 4, 33, 4, 33, 5, 34, 5, 34, 6, 35, 6, 35, 7, 36, 7, 38, 10, 38, 32)
 
+[sub_resource type="Gradient" id="Gradient_67kcd"]
+offsets = PackedFloat32Array(0, 0.219512, 0.754098)
+colors = PackedColorArray(1, 0.945098, 0.894118, 1, 0.64, 0.64, 0.64, 0.878431, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gjakq"]
+gradient = SubResource("Gradient_67kcd")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_8xae5"]
+_data = [Vector2(0, 0.340659), 0.0, 0.0, 0, 0, Vector2(0.15894, 1), 0.0, 0.0, 0, 0, Vector2(0.682119, 1), 0.0, 0.0, 0, 0, Vector2(0.827815, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_1ffy7"]
+curve = SubResource("Curve_8xae5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4ynv"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+spread = 50.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -17.0
+linear_accel_max = -17.0
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_1ffy7")
+color_ramp = SubResource("GradientTexture1D_gjakq")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
+[sub_resource type="Gradient" id="Gradient_o4t61"]
+offsets = PackedFloat32Array(0, 0.363636)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dfpai"]
+gradient = SubResource("Gradient_o4t61")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.463303, 0.536697)
+
+[sub_resource type="Gradient" id="Gradient_yrddn"]
+offsets = PackedFloat32Array(0, 0.219512, 0.754098)
+colors = PackedColorArray(1, 0.945098, 0.894118, 1, 0.639216, 0.639216, 0.639216, 0.0156863, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2oe0y"]
+gradient = SubResource("Gradient_yrddn")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_6id23"]
+_data = [Vector2(0, 0.340659), 0.0, 0.0, 0, 0, Vector2(0.15894, 1), 0.0, 0.0, 0, 0, Vector2(0.682119, 1), 0.0, 0.0, 0, 0, Vector2(0.827815, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_xl0om"]
+curve = SubResource("Curve_6id23")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18o0m"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+spread = 50.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -17.0
+linear_accel_max = -17.0
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_xl0om")
+color_ramp = SubResource("GradientTexture1D_2oe0y")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+
 [node name="DrillManager" type="Node2D"]
 script = ExtResource("1_axli8")
 
@@ -187,6 +272,7 @@ position = Vector2(0, 16)
 target_position = Vector2(0, 16)
 
 [node name="JumpHurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
 position = Vector2(22, -8.25)
@@ -201,6 +287,7 @@ position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="JumpHurtBoxAllwaysActive" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
 position = Vector2(22, -8.5)
@@ -215,6 +302,7 @@ position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(38, 32, 38, 10, 27, -1, 14, -1, 2, 10, 2, 32)
@@ -228,6 +316,36 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jsx41")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1.6, 1.6, 1.6, 0.682)
+texture_filter = 2
+position = Vector2(7, 31)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_y4ynv")
+texture = SubResource("GradientTexture2D_dfpai")
+lifetime = 5.0
+randomness = 1.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+modulate = Color(1.6, 1.6, 1.6, 0.682)
+texture_filter = 2
+position = Vector2(33, 31)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_y4ynv")
+texture = SubResource("GradientTexture2D_dfpai")
+lifetime = 5.0
+randomness = 1.0
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+modulate = Color(1.6, 1.6, 1.6, 0.682)
+texture_filter = 2
+position = Vector2(24, 7)
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_18o0m")
+texture = SubResource("GradientTexture2D_dfpai")
+lifetime = 5.0
+randomness = 1.0
 
 [connection signal="animation_finished" from="DrillAnimation" to="." method="_on_drill_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]
