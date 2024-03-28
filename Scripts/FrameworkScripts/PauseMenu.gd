@@ -13,6 +13,7 @@ extends Node2D
 
 
 var showing = false
+var selected = 0
 
 
 func _process(delta):
@@ -30,6 +31,32 @@ func _process(delta):
 		get_tree().paused = true
 	elif !get_parent().open_dialogue == true:
 		get_tree().paused = false
+		
+	if selected == 0:
+		$CanvasLayer/ForManipulatingTheseNodes/ResumeText.text = "- Return to game -"
+		$CanvasLayer/ForManipulatingTheseNodes/SettingsText.text = "Settings"
+		$CanvasLayer/ForManipulatingTheseNodes/ExitText.text = "Exit to menu"
+	if selected == 1:
+		$CanvasLayer/ForManipulatingTheseNodes/ResumeText.text = "Return to game"
+		$CanvasLayer/ForManipulatingTheseNodes/SettingsText.text = "- Settings -"
+		$CanvasLayer/ForManipulatingTheseNodes/ExitText.text = "Exit to menu"
+	if selected == 2:
+		$CanvasLayer/ForManipulatingTheseNodes/ResumeText.text = "Return to game"
+		$CanvasLayer/ForManipulatingTheseNodes/SettingsText.text = "Settings"
+		$CanvasLayer/ForManipulatingTheseNodes/ExitText.text = "- Exit to menu -"
+		
+	if Input.is_action_just_pressed("ui_down") && selected < 2:
+		selected += 1
+	if Input.is_action_just_pressed("ui_up") && selected > 0:
+		selected -= 1
+		
+	if Input.is_action_just_pressed("ui_accept"):
+		if selected == 0:
+			_on_resume_button_button_up()
+		if selected == 1:
+			_on_settings_button_button_up()
+		if selected == 2:
+			_on_exit_button_button_up()
 
 func _on_hurt_pause_timer_timeout():
 	get_tree().paused = false
@@ -62,3 +89,12 @@ func _on_exit_button_button_up():
 	if showing && get_tree().paused:
 		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").has_keycard = false
 		$AnimationPlayer.play("ExitMenu")
+
+func _on_resume_button_mouse_entered():
+	selected = 0
+
+func _on_settings_button_mouse_entered():
+	selected = 1
+
+func _on_exit_button_mouse_entered():
+	selected = 2

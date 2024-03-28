@@ -14,6 +14,7 @@ extends Node2D
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
 @export var no_nockback = false
+@export var tank = false
 var gravity = 0.5
 var velocity = Vector2.ZERO
 var enabled = false
@@ -22,13 +23,19 @@ func _ready():
 	if direction == speed:
 		$JumpHurtBox/CollisionShape2D2.disabled = false
 		$JumpHurtBox/CollisionShape2D3.disabled = true
-		$DrillAnimation.scale.x = 1
+		$DrillAnimation.scale.x = 1 if !tank else -1
 		$DrillBreakOverlay.scale.x = 1
+		
+		if tank:
+			$StaticBody2D.scale.x = 1
 	elif direction == -speed:
 		$JumpHurtBox/CollisionShape2D2.disabled = true
 		$JumpHurtBox/CollisionShape2D3.disabled = false
-		$DrillAnimation.scale.x = -1
+		$DrillAnimation.scale.x = -1 if !tank else 1
 		$DrillBreakOverlay.scale.x = -1
+		
+		if tank:
+			$StaticBody2D.scale.x = -1
 		
 	if get_parent().multiplayer:
 		if multiplayer.is_server():
@@ -66,19 +73,25 @@ func _process(delta):
 				direction = speed
 				$JumpHurtBox/CollisionShape2D2.disabled = false
 				$JumpHurtBox/CollisionShape2D3.disabled = true
-				$DrillAnimation.scale.x = 1
+				$DrillAnimation.scale.x = 1 if !tank else -1
 				$DrillBreakOverlay.scale.x = 1
 				$DrillAnimation.play("LeftToRight")
 				$DrillBreakOverlay.visible = false
+				
+				if tank:
+					$StaticBody2D.scale.x = 1
 				
 			elif right_collision != null && right_collision.name != "Player" && direction == speed:
 				direction = -speed
 				$JumpHurtBox/CollisionShape2D2.disabled = true
 				$JumpHurtBox/CollisionShape2D3.disabled = false
-				$DrillAnimation.scale.x = -1
+				$DrillAnimation.scale.x = -1 if !tank else 1
 				$DrillBreakOverlay.scale.x = -1
 				$DrillAnimation.play("LeftToRight")
 				$DrillBreakOverlay.visible = false
+				
+				if tank:
+					$StaticBody2D.scale.x = -1
 			
 			if down_collision != null || down_collision_2 != null:
 				velocity.y = -0.05
@@ -88,6 +101,9 @@ func _process(delta):
 			$DrillBreakOverlay.play("Break3")
 			$DrillAnimation.play("Idle")
 			$DrillBreakOverlay.visible = true
+			$DeathParticles1.emitting = true
+			$DeathParticles2.emitting = true
+			$DeathParticles3.emitting = true
 			
 			if disable_hitbox_when_dead:
 				$StaticBody2D/CollisionPolygon2D.disabled = true
@@ -140,7 +156,7 @@ func _on_drill_animation_animation_finished():
 		$DrillAnimation.play("Moving")
 
 func _on_jump_hurt_box_allways_active_area_entered(area):
-	if area.name == "PlayerHurtbox" && health > 0:
+	if area.name == "PlayerHurtbox" && health > 0 && !tank:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0 || area.get_parent().is_swiping_sword:
 			health -= 1
 			

@@ -317,30 +317,36 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jsx41")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="DeathParticles1" type="GPUParticles2D" parent="."]
 modulate = Color(1.6, 1.6, 1.6, 0.682)
+z_index = 50
 texture_filter = 2
 position = Vector2(7, 31)
+emitting = false
 amount = 300
 process_material = SubResource("ParticleProcessMaterial_y4ynv")
 texture = SubResource("GradientTexture2D_dfpai")
 lifetime = 5.0
 randomness = 1.0
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+[node name="DeathParticles2" type="GPUParticles2D" parent="."]
 modulate = Color(1.6, 1.6, 1.6, 0.682)
+z_index = 50
 texture_filter = 2
 position = Vector2(33, 31)
+emitting = false
 amount = 300
 process_material = SubResource("ParticleProcessMaterial_y4ynv")
 texture = SubResource("GradientTexture2D_dfpai")
 lifetime = 5.0
 randomness = 1.0
 
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+[node name="DeathParticles3" type="GPUParticles2D" parent="."]
 modulate = Color(1.6, 1.6, 1.6, 0.682)
+z_index = 50
 texture_filter = 2
 position = Vector2(24, 7)
+emitting = false
 amount = 300
 process_material = SubResource("ParticleProcessMaterial_18o0m")
 texture = SubResource("GradientTexture2D_dfpai")

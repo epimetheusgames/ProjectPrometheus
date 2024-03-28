@@ -468,7 +468,7 @@ shader_parameter/speed = Vector2(0.02, 0.006)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_t5q5g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7eq71"]
-size = Vector2(1098, 468.5)
+size = Vector2(4042, 1197.25)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("19_6av2y")
@@ -861,6 +861,7 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="PauseMenu" parent="Player/Camera" index="0"]
 z_index = 30
+position = Vector2(-337, -276)
 
 [node name="DarkOverlay" parent="Player/Camera" index="2"]
 metadata/_edit_use_anchors_ = true
@@ -929,7 +930,7 @@ script = ExtResource("17_e5bgd")
 auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(5335, -588)
+position = Vector2(6837, -223.625)
 shape = SubResource("RectangleShape2D_7eq71")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]

@@ -215,7 +215,7 @@ func _process(delta):
 			$AttackLine.points[0] = $Drone.position
 			$AttackLine.points[1] += (($LineRaycast.get_collision_point() - position) - $AttackLine.points[1]) * 0.1
 	else:
-		if $AttackLine && $AttackLine.modulate.a > 0:
+		if get_node_or_null("AttackLine") && $AttackLine.modulate.a > 0:
 			$AttackLine.modulate.a -= 0.01 * delta * 60
 	
 	if !big_drone && (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && $RapidBulletCooldown.is_stopped() && $BulletCooldown.is_stopped():

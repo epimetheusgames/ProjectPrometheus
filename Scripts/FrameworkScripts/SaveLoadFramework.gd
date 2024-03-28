@@ -33,7 +33,6 @@ const level_display_names = [
 	"Medium 3",
 	"Medium 4",
 	"Medium 5",
-	"Medium 6",
 	"Tower 1",
 	"Tower 2",
 	"Tower 3",
@@ -76,7 +75,6 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/15PuzzlePostPost/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/16Biodome/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/18LongLevel/Floor1.tscn"),],
-	[preload("res://Levels/Playable/Medium/19LongLevel/Floor1.tscn"),],
 	[preload("res://Levels/Playable/Medium/21ConveyorDrop/Floor1.tscn"),],
 	[preload("res://Levels/Playable/Medium/22ConveyorDrop/Floor1.tscn"),],
 	[preload("res://Levels/Playable/Medium/23TowerLevel/Floor1.tscn"),],
@@ -283,6 +281,7 @@ func load_data(slot):
 		return data_received
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
+		print("Detected issue with save data in save_" + str(slot) + "!")
 		
 # Start the game with all this info which should be loaded from a save file.
 func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false, use_level_transition = false):
