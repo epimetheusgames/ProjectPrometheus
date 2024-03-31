@@ -402,9 +402,9 @@ position = Vector2(836, -384)
 position = Vector2(2121, -184)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-680.999, 118.61)
+position = Vector2(-720.019, 118.61)
 rotation = 1.5708
-scale = Vector2(1.58675, 615.474)
+scale = Vector2(1.58675, 96.0007)
 texture = SubResource("GradientTexture1D_fhjhb")
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("24_7b6p3")]

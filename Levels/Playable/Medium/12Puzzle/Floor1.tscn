@@ -368,7 +368,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(962, -233, 403, -255, -426, -187, 505, -359)
+polygon = PackedVector2Array(920, 76, 919, -233, 403, -255, -426, -187, 505, -359, 1164, -349)
 
 [node name="Player" parent="." instance=ExtResource("11_sc1gn")]
 
@@ -378,7 +378,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="8"]
+[node name="PointLight2D" parent="Player" index="9"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -447,9 +447,6 @@ position = Vector2(-129, -155)
 [node name="ItemSwitcher5" parent="." instance=ExtResource("16_koiyi")]
 position = Vector2(-160, -112)
 
-[node name="DrillManager" parent="." instance=ExtResource("19_1mu8t")]
-position = Vector2(-362, -13)
-
 [node name="Key" parent="." instance=ExtResource("24_38163")]
 position = Vector2(881, -178)
 
@@ -459,6 +456,9 @@ position = Vector2(-461, 26)
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(-428, 0)
 texture = ExtResource("21_yhtwx")
+
+[node name="DrillManager" parent="." instance=ExtResource("19_1mu8t")]
+position = Vector2(-362, -13)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

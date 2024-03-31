@@ -6,10 +6,10 @@ Our entry for the Oregon Game Project Challenge Season 17.
 
 Go play the latest beta at https://epimetheusgamesogpc.itch.io/season17beta !
 
-Visit our [website](https://epimetheusgames.onrender.com/) and our [YouTube Channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
+Visit our [website](https://epimetheusgames.onrender.com/) and our [YouTube channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
 
 ## Game Summary:
-You play as a human in a very gray and bleak facility, fighting your way through robot drones, drills, and challenging platforming segments. You have 20 seconds to switch to a specific new item in a cycle, and otherwise you die.
+Explore an abandoned facility, originally the secret government mission, Project Prometheus, where you are the only organic being in the entire planet. You will switch between 4 items using the Item Cyclers dispersed around the facility. For added efficiency and safety, you will be terminated if you do not reach the next Item Cycler within 20 seconds. Fight your way through robot drones, corrupted drills, and challenging platforming segments. 
 
 ## Technical Requirments & Information:
 
@@ -20,8 +20,10 @@ You play as a human in a very gray and bleak facility, fighting your way through
 - We have an efficiency mode which removes most particle systems and changes some calculations, so our game can run on most computers.
 - You probably need at least 1 GB of RAM to run.
 - Godot uses gdscript, which is Godot’s own programming language, along with GLSL for shaders.
-- We’re using Beepbox (and some Beepbox mods), and GarageBand (all with custom-made loops (we recorded our own instrument and/or created the entire melody)) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
+- We’re using Beepbox (and some Beepbox mods) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
 - We are using LibreSprite (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
+
+## Copyright
 
 Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
 All rights reserved.

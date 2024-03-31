@@ -18,14 +18,17 @@ var player_in_area = false
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && !enable_collision:
 		player_in_area = true
+		area.get_parent().key.queue_free()
 	
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && disable_collision && !enable_collision:
 		if $StaticBody2D:
 			$StaticBody2D.queue_free()
+			area.get_parent().key.queue_free()
 		
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && enable_collision:
 		$StaticBody2D/CollisionShape2D.disabled = false
 		do_enable_collision = true
+		area.get_parent().key.queue_free()
 		
 func _on_area_2d_area_exited(area):
 	if area.name == "PlayerHurtbox":

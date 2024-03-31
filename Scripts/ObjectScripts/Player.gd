@@ -46,6 +46,7 @@ var dead = false
 var in_conveyor_belt = false
 var dont_reset_conveyor = false
 var has_key = false
+var key = null
 var is_swiping_sword = false
 var disable_controlls = false
 
@@ -72,7 +73,7 @@ func _ready():
 		
 	if get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard:
 		var instantiated_keycard = loaded_keycard.instantiate()
-		instantiated_keycard.position = position
+		instantiated_keycard.position = position + get_parent().position
 		instantiated_keycard.replacement_keycard = true
 		get_parent().get_parent().call_deferred("add_child", instantiated_keycard)
 

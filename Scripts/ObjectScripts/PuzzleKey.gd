@@ -26,4 +26,5 @@ func _on_area_entered(area):
 	if area.name == "PlayerHurtbox":
 		player = area.get_parent()
 		player.has_key = true
+		player.key = self
 		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard = true

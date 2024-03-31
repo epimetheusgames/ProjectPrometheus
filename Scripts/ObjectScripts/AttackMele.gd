@@ -19,6 +19,7 @@ var friction_force = 1.2
 @onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @onready var loaded_ragdoll = preload("res://Objects/StaticObjects/RagdollMele.tscn")
 @export var health = 4
+@export var dont_fall = false
 var direction = 0
 var push_force = 40
 
@@ -151,6 +152,7 @@ func _on_hurt_box_area_entered(area):
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
 				var ragdoll = loaded_ragdoll.instantiate()
+				ragdoll.dont_fall = dont_fall
 				ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
 				add_child(ragdoll)
 				

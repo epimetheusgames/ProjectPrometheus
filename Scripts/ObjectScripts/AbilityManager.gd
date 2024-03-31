@@ -1,8 +1,10 @@
 # -------------------------------------------------------------------------------------------------------|
-# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, Ranier Szatlocky.      |
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# -------------------------------------------------------------------------------------------------------|
+# Sets current ability, moves to next ability, and triggers death on timeout.                            |
 # -------------------------------------------------------------------------------------------------------|
 
 extends Node2D
