@@ -18,17 +18,24 @@ var player_in_area = false
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && !enable_collision:
 		player_in_area = true
-		area.get_parent().key.queue_free()
+		if area:
+			area.get_parent().key.queue_free()
+			area.get_parent().has_key = false
 	
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && disable_collision && !enable_collision:
 		if $StaticBody2D:
 			$StaticBody2D.queue_free()
 			area.get_parent().key.queue_free()
+			area.get_parent().has_key = false
 		
 	if area.name == "PlayerHurtbox" && area.get_parent().has_key && !disable_collision && enable_collision:
-		$StaticBody2D/CollisionShape2D.disabled = false
-		do_enable_collision = true
-		area.get_parent().key.queue_free()
+		# Only do this if the door is unlocked because it results in the key being freed even
+		# if it hasn't done anything.
+		if $StaticBody2D/CollisionShape2D.disabled:
+			$StaticBody2D/CollisionShape2D.disabled = false
+			do_enable_collision = true
+			area.get_parent().key.queue_free()
+			area.get_parent().has_key = false
 		
 func _on_area_2d_area_exited(area):
 	if area.name == "PlayerHurtbox":
