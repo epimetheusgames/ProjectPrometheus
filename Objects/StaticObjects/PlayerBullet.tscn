@@ -96,6 +96,7 @@ lifetime = 2.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(6, 6, 5.5, 1)
 position = Vector2(2.5, 2.5)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_t5eoq")

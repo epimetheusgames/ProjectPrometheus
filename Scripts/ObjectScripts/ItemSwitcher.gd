@@ -66,4 +66,5 @@ func _process(delta):
 func wrong_item():
 	$AnimationPlayer.play("WrongItem")
 
-func right_item(): pass
+func right_item():
+	$Switch.play()

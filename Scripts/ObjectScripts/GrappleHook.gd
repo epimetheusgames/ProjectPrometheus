@@ -19,6 +19,8 @@ func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && !area.get_parent().get_node("GrappleManager").air_grapling:
 		area.get_parent().get_node("GrappleManager").hooked = false
 		area.get_parent().get_node("GrappleManager").grapling = false
+		area.get_parent().get_node("GrappleManager").get_node("GrappleUp").stop()
+		area.get_parent().get_node("GrappleManager").get_node("GrappleCollide").play()
 		area.get_parent().get_node("GrappleManager").get_node("GrappleBody").hooked = false
 		area.get_parent().grappling_effects = false
 		area.get_parent().get_node("GrappleManager").hook = null

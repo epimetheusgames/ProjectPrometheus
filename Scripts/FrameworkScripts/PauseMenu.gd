@@ -29,6 +29,7 @@ func _process(delta):
 		
 	if showing:
 		get_tree().paused = true
+		
 	elif !get_parent().open_dialogue == true:
 		get_tree().paused = false
 		

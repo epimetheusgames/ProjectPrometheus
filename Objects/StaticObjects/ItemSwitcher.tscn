@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwm1lj78dxm6r"]
+[gd_scene load_steps=36 format=3 uid="uid://cwm1lj78dxm6r"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="1_fge0x"]
 [ext_resource type="Texture2D" uid="uid://dc2hjawjefeds" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherSword.png" id="2_dcrik"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://duewia6ne4sxd" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherRocketBoost.png" id="3_x7nmn"]
 [ext_resource type="Texture2D" uid="uid://druajrlycxe1s" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherArmGun.png" id="5_b2shw"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Checkpoint.gd" id="8_s5l6g"]
+[ext_resource type="AudioStream" uid="uid://c3e5iry4m6flo" path="res://Assets/Audio/SFX/ItemSwitch.wav" id="9_orgvf"]
 [ext_resource type="AudioStream" uid="uid://cvwu22yaeeft0" path="res://Assets/Audio/SFX/CheckpointActivated.wav" id="12_qbesc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljhh0"]
@@ -308,6 +309,11 @@ polygon = PackedVector2Array(-1, -44, 7, -44, 7, 12, -2, 12)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SwitcherCheckPoint"]
 stream = ExtResource("12_qbesc")
+bus = &"SFX"
+
+[node name="Switch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_orgvf")
+volume_db = -8.0
 bus = &"SFX"
 
 [connection signal="area_entered" from="ItemSwitcherArea" to="." method="_on_item_switcher_area_area_entered"]

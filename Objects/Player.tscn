@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=114 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -41,7 +41,12 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CutsceneAnimator.gd" id="23_2gvnx"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
+[ext_resource type="Texture2D" uid="uid://c27fomfe71arm" path="res://Assets/Images/Objects/Misc/CRTOverlay.png" id="25_01sqx"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
+[ext_resource type="Texture2D" uid="uid://ck84ax1ludbp6" path="res://Assets/Images/Objects/Misc/CrosshairShootAnimation.png" id="32_wnpw3"]
+[ext_resource type="AudioStream" uid="uid://ce7ab4c58ti1d" path="res://Assets/Audio/SFX/Shoot.wav" id="36_dn26v"]
+[ext_resource type="AudioStream" uid="uid://d1o5abdd1b671" path="res://Assets/Audio/SFX/GrappleUp.wav" id="37_78x30"]
+[ext_resource type="AudioStream" uid="uid://ba2wde3omcsgy" path="res://Assets/Audio/SFX/GrappleCollide.wav" id="38_ykbtu"]
 [ext_resource type="PackedScene" uid="uid://b7k7vdwyhgqpd" path="res://addons/post_processing/node/children/screen_shake.tscn" id="41_agtbc"]
 [ext_resource type="AudioStream" uid="uid://1uq01414kjai" path="res://Assets/Audio/SFX/ClockTick1.wav" id="42_dvbrb"]
 [ext_resource type="PackedScene" uid="uid://cxsuld87nxd0v" path="res://addons/post_processing/node/children/blur.tscn" id="42_tsbgy"]
@@ -321,6 +326,68 @@ _data = {
 "OpenLevel": SubResource("Animation_7p7jl"),
 "RESET": SubResource("Animation_ai123")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i25fv"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v1ep"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtuxv"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opapk"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u7c0"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inotb"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kio31"]
+atlas = ExtResource("32_wnpw3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6cy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i25fv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v1ep")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_wtuxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opapk")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_5u7c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inotb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kio31")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 35.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
@@ -1299,6 +1366,13 @@ offset_bottom = 11.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="CrtOverlay" type="CanvasLayer" parent="Camera"]
+
+[node name="CrtOverlaySprite" type="Sprite2D" parent="Camera/CrtOverlay"]
+z_index = 50
+position = Vector2(960, 536)
+texture = ExtResource("25_01sqx")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 modulate = Color(1.5, 1.5, 1.5, 1)
 z_index = 8
@@ -1339,6 +1413,16 @@ texture = ExtResource("17_7qngq")
 position = Vector2(-14, -16)
 texture = ExtResource("18_tdjfb")
 
+[node name="CrosshairMouseOverlay" type="AnimatedSprite2D" parent="Player/ArmGunManager"]
+z_index = 200
+position = Vector2(24, 32)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_a6cy3")
+animation = &"Shoot"
+autoplay = "Idle"
+frame = 5
+frame_progress = 1.0
+
 [node name="GrappleManager" type="Node2D" parent="Player"]
 script = ExtResource("11_k2qbr")
 
@@ -1371,6 +1455,18 @@ target_position = Vector2(0, 8)
 [node name="RayCast2D2" type="RayCast2D" parent="Player/GrappleManager"]
 position = Vector2(-7, 16)
 target_position = Vector2(0, 8)
+
+[node name="GrappleShoot" type="AudioStreamPlayer" parent="Player/GrappleManager"]
+stream = ExtResource("36_dn26v")
+bus = &"SFX"
+
+[node name="GrappleUp" type="AudioStreamPlayer" parent="Player/GrappleManager"]
+stream = ExtResource("37_78x30")
+bus = &"SFX"
+
+[node name="GrappleCollide" type="AudioStreamPlayer" parent="Player/GrappleManager"]
+stream = ExtResource("38_ykbtu")
+bus = &"SFX"
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)
@@ -1543,6 +1639,7 @@ one_shot = true
 [connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton5" to="Camera/Inventory" method="_on_texture_button_5_button_up"]
 [connection signal="button_up" from="Camera/Inventory/CanvasLayer/SlotButtons/TextureButton6" to="Camera/Inventory" method="_on_texture_button_6_button_up"]
 [connection signal="animation_finished" from="Camera/LevelTransitionAnimationPlayer" to="Camera" method="_on_level_transition_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Player/ArmGunManager/CrosshairMouseOverlay" to="Player/ArmGunManager" method="_on_crosshair_mouse_overlay_animation_finished"]
 [connection signal="area_entered" from="Player/PlayerHurtbox" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Player/PlayerHurtbox" to="Player" method="_on_player_hurtbox_area_exited"]
 [connection signal="body_entered" from="Player/SpikeHurtBox" to="Player" method="_on_spike_hurt_box_body_entered"]

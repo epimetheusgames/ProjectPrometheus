@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpqs3h031dhae"]
+[gd_scene load_steps=14 format=3 uid="uid://bpqs3h031dhae"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
-[ext_resource type="Texture2D" uid="uid://cxeppn50cjf01" path="res://Assets/Images/Objects/Enemy/DroneBullet.png" id="2_6g3vu"]
+[ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="2_qdroe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
-radius = 2.54951
+radius = 1.58114
 
 [sub_resource type="Gradient" id="Gradient_wdq26"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -29,13 +29,49 @@ turbulence_noise_strength = 20.0
 turbulence_noise_scale = 10.0
 
 [sub_resource type="Gradient" id="Gradient_74hgf"]
-offsets = PackedFloat32Array(0.00598802, 1)
-colors = PackedColorArray(0.53, 0.38902, 0.3074, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.00645161, 1)
+colors = PackedColorArray(0.47806, 0.3074, 0.53, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0l7vx"]
 gradient = SubResource("Gradient_74hgf")
 width = 1
 height = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo16s"]
+atlas = ExtResource("2_qdroe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hllyl"]
+atlas = ExtResource("2_qdroe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15vm7"]
+atlas = ExtResource("2_qdroe")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46hii"]
+atlas = ExtResource("2_qdroe")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t442l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo16s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hllyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15vm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46hii")
+}],
+"loop": false,
+"name": &"Init",
+"speed": 13.0
+}]
 
 [node name="DroneBullet" type="Node2D"]
 script = ExtResource("1_50na5")
@@ -59,11 +95,15 @@ texture = SubResource("GradientTexture2D_0l7vx")
 lifetime = 2.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 
-[node name="BulletSprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.619608, 0.560784, 1)
+[node name="BulletSprite" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(6, 3, 3, 1)
 position = Vector2(2.5, 2.5)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_6g3vu")
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_t442l")
+animation = &"Init"
+autoplay = "Init"
+frame = 3
+frame_progress = 1.0
 
 [connection signal="body_entered" from="BulletHurter" to="." method="_on_bullet_hurter_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

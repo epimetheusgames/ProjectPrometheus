@@ -94,6 +94,7 @@ func _physics_process(delta):
 			if hook:
 				if !air_grapling:
 					get_parent().velocity = (hook.position - get_parent().position).normalized() * 5
+					$GrappleUp.stop()
 				if air_grapling:
 					get_parent().velocity *= 3
 			
@@ -135,10 +136,13 @@ func _physics_process(delta):
 			$LinePorabola.visible = true
 			
 			if Input.is_action_just_pressed("mouse_click"):
+				$GrappleShoot.play()
 				grapling = true
 				
 				if !get_parent().is_on_floor():
 					air_grapling = true
+				else:
+					$GrappleUp.play()
 				
 				$GrappleBody.velocity = mouse_direction * 15
 				$GrappleBody.position = Vector2.ZERO

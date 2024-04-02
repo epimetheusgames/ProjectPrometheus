@@ -338,7 +338,7 @@ rotation = 3.14159
 
 [node name="GrappleHook3" parent="." instance=ExtResource("16_da7k5")]
 position = Vector2(965, -200)
-rotation = 1.5708
+rotation = -1.5708
 
 [node name="Checkpoint" parent="." instance=ExtResource("17_0hskd")]
 position = Vector2(569, -336)
@@ -429,6 +429,9 @@ texture = SubResource("GradientTexture1D_72u3y")
 
 [node name="Artifact" parent="." instance=ExtResource("22_s18u7")]
 position = Vector2(-828, -207)
+
+[node name="ItemSwitcher4" parent="." instance=ExtResource("21_6dnwj")]
+position = Vector2(866, -80)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

@@ -31,6 +31,8 @@ func _process(delta):
 		
 		# For controller
 		if len(Input.get_connected_joypads()) > 0:
+			$CrosshairMouseOverlay.visible = false
+			
 			var controller_joy_dir_x
 			var controller_joy_dir_y
 			if len(Input.get_connected_joypads()) > 1:
@@ -71,9 +73,12 @@ func _process(delta):
 			$Segment3.flip_h = true
 			
 		$Segment3.rotation = atan2(mouse_direction.y, mouse_direction.x) - (1.0 / 2.0) * PI
-			
 		
-		if Input.is_action_just_pressed("mouse_click") || Input.is_action_just_pressed("attack"):
+		$CrosshairMouseOverlay.position = get_local_mouse_position()
+		$CrosshairMouseOverlay.rotation = $Segment3.rotation + deg_to_rad(225)
+		
+		if (Input.is_action_just_pressed("mouse_click") || Input.is_action_just_pressed("attack")) && $CrosshairMouseOverlay.animation == "Idle":
+			$CrosshairMouseOverlay.play("Shoot")
 			var bullet = loaded_bullet.instantiate()
 			bullet.position = get_parent().position + (Vector2(8, -18) if get_parent().previous_direction == -1 else Vector2(-12, -18)) + mouse_direction * 16
 			bullet.direction = mouse_direction
@@ -82,3 +87,7 @@ func _process(delta):
 			get_parent().get_parent().add_child(bullet)
 	else:
 		visible = false
+
+func _on_crosshair_mouse_overlay_animation_finished():
+	if $CrosshairMouseOverlay.animation == "Shoot":
+		$CrosshairMouseOverlay.play("Idle")

@@ -11,6 +11,7 @@ extends CharacterBody2D
 var position_y_offset = 0
 var smashing = false
 var retracting = false
+var played_sfx = false
 
 @onready var start_position = position
 @export var horizontal_smash = false
@@ -24,11 +25,16 @@ func _physics_process(delta):
 		$WaitRetractTimer.start()
 		smashing = false
 	
+	if position_y_offset > 60 && !played_sfx:
+		played_sfx = true
+		$AudioStreamPlayer2D.play()
+	
 	if position_y_offset > 0 && retracting:
 		position_y_offset -= 1 * delta * 60
 
 func _on_smash_timer_timeout():
 	smashing = true
+	played_sfx = false
 	retracting = false
 
 func _on_wait_retract_timer_timeout():
