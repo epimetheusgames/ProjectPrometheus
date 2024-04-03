@@ -204,7 +204,7 @@ z_index = 1
 tile_set = SubResource("TileSet_fpdeq")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -393195, 0, 0, -393194, 0, 0, -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -393189, 0, 0, -393196, 196608, 1, -458732, 65536, 0)
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0, -393195, 0, 0, -393194, 0, 0, -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -393189, 0, 0, -393196, 131072, 0)
 
 [node name="PipesSmall" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2gdyw")
@@ -273,6 +273,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="PropBench" type="Sprite2D" parent="."]
@@ -300,7 +301,8 @@ position = Vector2(-185, -128)
 position = Vector2(-51, -128)
 
 [node name="WallTurret" parent="." instance=ExtResource("18_1ue77")]
-position = Vector2(617, -184)
+position = Vector2(615, -169)
+rotation = -1.5708
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_tou6m")]
 position = Vector2(1808, -220)

@@ -1208,9 +1208,6 @@ scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
 
-[node name="PistonSmasher4" parent="." instance=ExtResource("18_cmg21")]
-position = Vector2(-1408, -129)
-
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="."]
 position = Vector2(-3296, -544)
 polygon = PackedVector2Array(2488, 470, 2421, 386, 2447, 397, 2489, 399, 2489, 434, 2512, 431, 2536, 417)
