@@ -39,8 +39,14 @@ func _physics_process(delta):
 		$Sprite2D.scale.x = -1 if velocity.x < 1 else 1
 
 		if health > 0:
-			if position.distance_to(player.position) < 75 && ($SpearAnimation.animation == "Walking" || $SpearAnimation.animation == "SpearReload"):
+			if position.distance_to(player.position) < 75 && (($SpearAnimation.animation == "Walking") || ($SpearAnimation.animation == "SpearReload" && !$SpearAnimation.is_playing())):
 				$SpearAnimation.play("SpearJustBeforeAttack")
+			
+			elif position.distance_to(player.position) > 75 && $SpearAnimation.animation == "SpearJustBeforeAttack" && !$SpearAnimation.is_playing():
+				$SpearAnimation.play("SpearReload")
+				
+			elif position.distance_to(player.position) > 75 && $SpearAnimation.animation == "SpearReload" && !$SpearAnimation.is_playing():
+				$SpearAnimation.play("Walking")
 			
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
@@ -112,6 +118,7 @@ func _physics_process(delta):
 		else:
 			$Collision.disabled = true
 			$Sprite2D.visible = false
+			$SpearAnimation.visible = false
 	
 	if get_parent().is_multiplayer && is_multiplayer_authority():
 		set_pos_and_motion_multiplayer.rpc(position, velocity, health)
@@ -189,5 +196,9 @@ func _on_spike_hurt_box_body_entered(body):
 		
 
 func _on_spear_animation_animation_finished():
+	if position.distance_to(player.position) < 75 && ($SpearAnimation.animation == "Walking" || $SpearAnimation.animation == "SpearReload"):
+		$SpearAnimation.play("SpearJustBeforeAttack")
+		
 	if $SpearAnimation.animation == "SpearAttack":
-		$SpearAnimation.animation = "SpearReload"
+		$SpearAnimation.play("SpearReload")
+		

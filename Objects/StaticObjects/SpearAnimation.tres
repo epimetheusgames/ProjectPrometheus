@@ -143,12 +143,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aigct")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_r30kn")
 }],
 "loop": false,
 "name": &"SpearAttack",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
