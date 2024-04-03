@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bttntkifyqc8w"]
 
-[ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_f5fa4"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ExploderPhysics.gd" id="1_nm13k"]
+[ext_resource type="Texture2D" uid="uid://o7gr05l8s3uo" path="res://Assets/Images/Objects/Enemy/Bomb.png" id="2_lnujj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_astfj"]
 radius = 7.07107
@@ -60,14 +60,14 @@ radius = 13.0384
 script = ExtResource("1_nm13k")
 
 [node name="ExplosionHitbox" type="Area2D" parent="."]
+visible = false
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionHitbox"]
 shape = SubResource("CircleShape2D_astfj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_f5fa4")
+texture = ExtResource("2_lnujj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(1.6, 1.6, 1.6, 0.682)
@@ -89,6 +89,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="ExplosionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 shape = SubResource("CircleShape2D_01v2v")

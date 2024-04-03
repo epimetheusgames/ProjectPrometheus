@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ces80e2ev3flu"]
+[gd_scene load_steps=8 format=3 uid="uid://ces80e2ev3flu"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
 [ext_resource type="SpriteFrames" uid="uid://corrgoc2jthw7" path="res://Objects/StaticObjects/AttackMeleAnimations.tres" id="2_6v6ej"]
+[ext_resource type="SpriteFrames" uid="uid://cvq50hlm1hhwg" path="res://Objects/StaticObjects/SpearAnimation.tres" id="3_38w03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lox5g"]
 size = Vector2(24, 49)
@@ -25,7 +26,13 @@ sprite_frames = ExtResource("2_6v6ej")
 autoplay = "default"
 frame_progress = 0.827694
 
+[node name="SpearAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 4)
+sprite_frames = ExtResource("3_38w03")
+animation = &"SpearAttack"
+
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_lox5g")
 
@@ -50,18 +57,21 @@ position = Vector2(0, 21)
 target_position = Vector2(0, 30)
 
 [node name="JumpHurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
 position = Vector2(-2, 13)
 shape = SubResource("RectangleShape2D_svidt")
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-1, 9)
 shape = SubResource("RectangleShape2D_w3ftl")
 
 [node name="SpikeHurtBox" type="Area2D" parent="."]
+visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeHurtBox"]
@@ -84,6 +94,7 @@ one_shot = true
 wait_time = 10000.0
 autostart = true
 
+[connection signal="animation_finished" from="SpearAnimation" to="." method="_on_spear_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="SpikeHurtBox" to="." method="_on_spike_hurt_box_body_entered"]

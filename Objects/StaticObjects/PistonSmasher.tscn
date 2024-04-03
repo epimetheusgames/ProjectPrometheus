@@ -40,8 +40,8 @@ autostart = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 102)
 stream = ExtResource("3_wryk7")
-max_distance = 500.0
-attenuation = 3.36358
+max_distance = 1500.0
+attenuation = 2.46229
 bus = &"SFX"
 
 [connection signal="timeout" from="SmashTimer" to="." method="_on_smash_timer_timeout"]

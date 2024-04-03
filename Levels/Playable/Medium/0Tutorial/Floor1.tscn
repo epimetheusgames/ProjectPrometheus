@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=147 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_rgrfr"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="9_sblmb"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="10_p42e6"]
+[ext_resource type="AudioStream" uid="uid://c3e5iry4m6flo" path="res://Assets/Audio/SFX/ItemSwitch.wav" id="11_434au"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="11_unlok"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="13_lj0mu"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_olqxp"]
@@ -956,6 +957,9 @@ color = Color(0.701961, 0.701961, 0.701961, 1)
 [node name="ItemSwitcher" parent="." instance=ExtResource("8_j5v6x")]
 position = Vector2(-1471, 16)
 item_switch_type = "RocketBoost"
+
+[node name="Switch" parent="ItemSwitcher" index="14"]
+stream = ExtResource("11_434au")
 
 [node name="ItemSwitcher2" parent="." instance=ExtResource("8_j5v6x")]
 position = Vector2(-3441, -16)
@@ -1932,6 +1936,7 @@ position = Vector2(35, -30)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 
+[editable path="ItemSwitcher"]
 [editable path="DroneManager"]
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]

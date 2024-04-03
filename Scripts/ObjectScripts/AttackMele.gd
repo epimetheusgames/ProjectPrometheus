@@ -39,6 +39,9 @@ func _physics_process(delta):
 		$Sprite2D.scale.x = -1 if velocity.x < 1 else 1
 
 		if health > 0:
+			if position.distance_to(player.position) < 75 && ($SpearAnimation.animation == "Walking" || $SpearAnimation.animation == "SpearReload"):
+				$SpearAnimation.play("SpearJustBeforeAttack")
+			
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				
@@ -139,6 +142,8 @@ func _on_jump_hurt_box_area_entered(area):
 		area.get_parent().jump()
 		area.get_parent().jump_vel = 4
 		area.get_parent().rocket_jump_vel = 6
+		
+		$SpearAnimation.play("SpearAttack")
 
 func _on_hurt_box_area_entered(area):
 	if area && area.name == "PlayerHurtbox" && health > 0:
@@ -182,3 +187,7 @@ func _on_spike_hurt_box_body_entered(body):
 	ragdoll.get_node("Body").apply_central_force(velocity * 1.5)
 	add_child(ragdoll)
 		
+
+func _on_spear_animation_animation_finished():
+	if $SpearAnimation.animation == "SpearAttack":
+		$SpearAnimation.animation = "SpearReload"
