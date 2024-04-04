@@ -62,10 +62,10 @@ func _on_boss_hurtbox_area_entered(area):
 			health -= 5
 			
 	if area.name == "PlayerBulletHurter":
-		health -= 1
+		health -= 2.5
 		
 		if health < 40:
-			health += 0.5
+			health += 2
 		
 		if health <= 0 && !dead:
 			dead = true

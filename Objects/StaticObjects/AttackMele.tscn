@@ -29,7 +29,8 @@ frame_progress = 0.827694
 [node name="SpearAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 4)
 sprite_frames = ExtResource("3_38w03")
-animation = &"SpearAttack"
+animation = &"Walking"
+autoplay = "Walking"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
