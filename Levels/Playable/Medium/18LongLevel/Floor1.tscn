@@ -357,7 +357,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88mdd"]
-size = Vector2(31.8817, 47.4231)
+size = Vector2(19.9261, 33.0974)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_btmls")
@@ -456,10 +456,9 @@ position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("13_yidp4")
-auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-641, -588)
+position = Vector2(-573, -413.5)
 scale = Vector2(2.00742, 2.02433)
 shape = SubResource("RectangleShape2D_88mdd")
 
