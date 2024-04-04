@@ -6,10 +6,10 @@ var bounces = 0
 var seconds_since_init = 0
 var hit_hearing_point = false
 var origin_node = null
-#@onready var loaded_audio_player = preload("res://Objects/StaticObjects/RaycastAudioPlayer.tscn")
+@onready var loaded_audio_player = preload("res://Objects/StaticObjects/RaycastAudioPlayer.tscn")
 var audio_stream = null
 var total_distance = 0
-var pixels_per_second = 300
+var pixels_per_second = 10
 
 
 func _process(delta):
@@ -24,21 +24,19 @@ func _process(delta):
 			if get_collider().name == "Player":
 				bounces = 10
 				hit_hearing_point = true
-				seconds_since_init -= total_distance / pixels_per_second
-				print(total_distance / pixels_per_second)
+				seconds_since_init += total_distance / pixels_per_second
 				
-				get_parent().last_100_raycasts.append(self)
+				get_tree().get_root().get_node("Root").get_node("Level").get_children()[0].last_100_raycasts.append(self)
+		
+				var instantiated_audio_player = loaded_audio_player.instantiate()
+				instantiated_audio_player.stream = audio_stream
+				add_child(instantiated_audio_player)
+				instantiated_audio_player.play(seconds_since_init)
 				
-				#var instantiated_audio_player = loaded_audio_player.instantiate()
-				#instantiated_audio_player.stream = audio_stream
-				#instantiated_audio_player.volume_db -= total_distance / 100
-				#add_child(instantiated_audio_player)
-				#instantiated_audio_player.play(seconds_since_init)
-				
-				if len(get_parent().last_100_raycasts) > 100:
-					if is_instance_valid(get_parent().last_100_raycasts[0]):
-						get_parent().last_100_raycasts[0].queue_free()
-					get_parent().last_100_raycasts.pop_front()
+				if len(get_tree().get_root().get_node("Root").get_node("Level").get_children()[0].last_100_raycasts) > 100:
+					if is_instance_valid(get_tree().get_root().get_node("Root").get_node("Level").get_children()[0].last_100_raycasts[0]):
+						get_tree().get_root().get_node("Root").get_node("Level").get_children()[0].last_100_raycasts[0].queue_free()
+					get_tree().get_root().get_node("Root").get_node("Level").get_children()[0].last_100_raycasts.pop_front()
 		else: 
 			position += (target_position).normalized() * delta * 60 * speed
 		
@@ -46,14 +44,6 @@ func _process(delta):
 		queue_free()
 	
 	seconds_since_init += delta
-
-func _on_audio_stream_player_2d_finished():
-	$AudioStreamPlayer2D.play()
-
-func _on_area_2d_area_entered(area):
-	return
-	if area.name == "PlayerHurtbox":
-		$AudioStreamPlayer2D.play($AudioStreamPlayer2D.get_playback_position() - seconds_since_init)
 
 func _on_queue_free_timer_timeout():
 	queue_free()

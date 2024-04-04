@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlxqh05174qu6"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/RaycastAudioPlayer.gd" id="1_1hsan"]
+
+[node name="RaycastAudioPlayer" type="AudioStreamPlayer"]
+volume_db = -10.0
+script = ExtResource("1_1hsan")

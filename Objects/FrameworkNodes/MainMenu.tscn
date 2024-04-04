@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=7 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
+[ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_hjrbd"]
 [ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_bljg4"]
 [ext_resource type="PackedScene" uid="uid://be1k51hweeaqw" path="res://Objects/FrameworkNodes/StartGameMenu.tscn" id="4_poeu2"]
@@ -16,6 +17,13 @@ offset_right = 1919.0
 offset_bottom = 1079.0
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+texture_filter = 1
+position = Vector2(959.5, 540)
+scale = Vector2(7.49609, 7.5)
+texture = ExtResource("2_cjyfc")
+
 [node name="Title" type="Label" parent="."]
 offset_left = 60.0
 offset_top = 42.0
@@ -28,18 +36,18 @@ text_overrun_behavior = 1
 
 [node name="Play" type="Label" parent="."]
 offset_left = 64.0
-offset_top = 764.0
+offset_top = 700.0
 offset_right = 184.0
-offset_bottom = 846.0
+offset_bottom = 782.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "Play"
 
 [node name="Settings" type="Label" parent="."]
 offset_left = 63.0
-offset_top = 834.0
+offset_top = 770.0
 offset_right = 302.0
-offset_bottom = 916.0
+offset_bottom = 852.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "Settings"
@@ -47,9 +55,9 @@ horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
 offset_left = 62.0
-offset_top = 899.0
+offset_top = 835.0
 offset_right = 272.0
-offset_bottom = 981.0
+offset_bottom = 917.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "Credits"
@@ -57,9 +65,9 @@ horizontal_alignment = 1
 
 [node name="Quit" type="Label" parent="."]
 offset_left = 59.0
-offset_top = 961.0
+offset_top = 897.0
 offset_right = 182.0
-offset_bottom = 1043.0
+offset_bottom = 979.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "Quit"
@@ -107,27 +115,27 @@ text = "-        -"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 13.0
-offset_top = 769.0
+offset_top = 705.0
 offset_right = 245.0
-offset_bottom = 832.0
+offset_bottom = 768.0
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 offset_left = 26.0
-offset_top = 843.0
+offset_top = 779.0
 offset_right = 313.0
-offset_bottom = 906.0
+offset_bottom = 842.0
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 offset_left = 26.0
-offset_top = 906.0
+offset_top = 842.0
 offset_right = 313.0
-offset_bottom = 969.0
+offset_bottom = 905.0
 
 [node name="QuitButton" type="TextureButton" parent="."]
 offset_left = 26.0
-offset_top = 961.0
+offset_top = 897.0
 offset_right = 197.0
-offset_bottom = 1024.0
+offset_bottom = 960.0
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
 visible = false
