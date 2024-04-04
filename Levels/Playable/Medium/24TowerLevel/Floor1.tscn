@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://hyjgjb7gfloj"]
+[gd_scene load_steps=39 format=3 uid="uid://hyjgjb7gfloj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hpqmv"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pfxli"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="19_e6a61"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="20_v2c8m"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_d5oyl"]
+[ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="23_453pd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_pfxli")
@@ -290,7 +291,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -338,20 +339,6 @@ auto_next = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(1556, -1278)
 shape = SubResource("RectangleShape2D_5kdbj")
-
-[node name="DroneManager4" parent="." instance=ExtResource("12_bw1ul")]
-position = Vector2(-141, -373)
-
-[node name="DronePatrolPoints" parent="DroneManager4" index="0"]
-visible = false
-position = Vector2(1, 5)
-points = PackedVector2Array(0, 81, 0, 327, -27, 271, -46, 321, -67, 329, -88, 307, -95, 277, -99, 315, -185, 310, -207, 263, -227, 301, -245, 308, -280, 353, -275, 278, -288, -30, -3, -28)
-
-[node name="WeaponDetected" parent="DroneManager4" index="7"]
-bus = &"Master"
-
-[node name="TargetLost" parent="DroneManager4" index="8"]
-bus = &"Master"
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 volume_db = -8.69
@@ -509,11 +496,17 @@ position = Vector2(121, 16)
 player_checkpoint_item = "ArmGun"
 ignore_old_checkpoint = false
 
+[node name="DroneManager" parent="." instance=ExtResource("23_453pd")]
+position = Vector2(-115, -314)
+
+[node name="DronePatrolPoints" parent="DroneManager" index="0"]
+points = PackedVector2Array(-107, -86, -311, -87, -310, 34, -311, 167, -307, 223, -221, 248, -64, 224, -46, 143, -56, 37)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
-[editable path="DroneManager4"]
 [editable path="DroneManager6"]
 [editable path="WallTurret8"]
 [editable path="DroneManager7"]
+[editable path="DroneManager"]
