@@ -32,6 +32,7 @@ var just_unpaused = false
 @export var is_credits = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
+var last_100_raycasts = []
 
 func _ready():
 	if graphics_efficiency:
