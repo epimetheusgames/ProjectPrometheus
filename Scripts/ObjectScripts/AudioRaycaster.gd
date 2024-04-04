@@ -6,7 +6,7 @@ var bounces = 0
 var seconds_since_init = 0
 var hit_hearing_point = false
 var origin_node = null
-@onready var loaded_audio_player = preload("res://Objects/StaticObjects/RaycastAudioPlayer.tscn")
+#@onready var loaded_audio_player = preload("res://Objects/StaticObjects/RaycastAudioPlayer.tscn")
 var audio_stream = null
 var total_distance = 0
 var pixels_per_second = 300
@@ -29,11 +29,11 @@ func _process(delta):
 				
 				get_parent().last_100_raycasts.append(self)
 				
-				var instantiated_audio_player = loaded_audio_player.instantiate()
-				instantiated_audio_player.stream = audio_stream
-				instantiated_audio_player.volume_db -= total_distance / 100
-				add_child(instantiated_audio_player)
-				instantiated_audio_player.play(seconds_since_init)
+				#var instantiated_audio_player = loaded_audio_player.instantiate()
+				#instantiated_audio_player.stream = audio_stream
+				#instantiated_audio_player.volume_db -= total_distance / 100
+				#add_child(instantiated_audio_player)
+				#instantiated_audio_player.play(seconds_since_init)
 				
 				if len(get_parent().last_100_raycasts) > 100:
 					if is_instance_valid(get_parent().last_100_raycasts[0]):
