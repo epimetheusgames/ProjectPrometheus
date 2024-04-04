@@ -55,6 +55,12 @@ var current_ability = "Weapon"
 @onready var respawn_pos = position
 @onready var respawn_ability = current_ability
 @onready var loaded_keycard = preload("res://Objects/StaticObjects/Key.tscn")
+@onready var dash_sound_effects = [
+	$"../SwordDash1",
+	$"../SwordDash2",
+	$"../SwordDash3",
+	$"../SwordDash4",
+]
 
 func _ready():
 	var player_type_1 = preload("res://Objects/StaticObjects/PlayerType1.tres")
@@ -182,6 +188,10 @@ func _physics_process(delta):
 			is_swiping_sword = true
 			
 			velocity.x = previous_direction * 7
+			
+			var rng = RandomNumberGenerator.new()
+			var sword_woosh_ind = rng.randi_range(0, 3)
+			dash_sound_effects[sword_woosh_ind].play()
 			
 		if $NewDashCooldown.time_left > 0 && $DashStopCooldown.time_left <= 0:
 			velocity.x = 0

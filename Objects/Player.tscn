@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=118 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -50,6 +50,10 @@
 [ext_resource type="PackedScene" uid="uid://b7k7vdwyhgqpd" path="res://addons/post_processing/node/children/screen_shake.tscn" id="41_agtbc"]
 [ext_resource type="AudioStream" uid="uid://1uq01414kjai" path="res://Assets/Audio/SFX/ClockTick1.wav" id="42_dvbrb"]
 [ext_resource type="PackedScene" uid="uid://cxsuld87nxd0v" path="res://addons/post_processing/node/children/blur.tscn" id="42_tsbgy"]
+[ext_resource type="AudioStream" uid="uid://euojhbtxjudv" path="res://Assets/Audio/SFX/Dash1.wav" id="49_q5pbd"]
+[ext_resource type="AudioStream" uid="uid://f2pm2j5ija3f" path="res://Assets/Audio/SFX/Dash2.wav" id="50_qf3dw"]
+[ext_resource type="AudioStream" uid="uid://lnyedbfk32t6" path="res://Assets/Audio/SFX/Dash3.wav" id="51_0b812"]
+[ext_resource type="AudioStream" uid="uid://chdfwltup4gko" path="res://Assets/Audio/SFX/Dash4.wav" id="52_g1161"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
@@ -1605,6 +1609,26 @@ bus = &"SFX"
 
 [node name="ClockTick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("42_dvbrb")
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="SwordDash1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("49_q5pbd")
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="SwordDash2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_qf3dw")
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="SwordDash3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_0b812")
+pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="SwordDash4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("52_g1161")
 pitch_scale = 0.6
 bus = &"SFX"
 
