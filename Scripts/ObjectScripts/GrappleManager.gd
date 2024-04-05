@@ -41,7 +41,7 @@ func _physics_process(delta):
 	
 	if active && grapling:
 		if hooked && hook && air_grapling:
-			if !was_hooked:
+			if !was_hooked && calc_closest_hook():
 				var closest_hook_dist = calc_closest_hook().position.distance_to(get_parent().position)
 				grapple_lock_rope_len = closest_hook_dist
 			

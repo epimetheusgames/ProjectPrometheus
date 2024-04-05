@@ -1203,7 +1203,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -1915,21 +1915,6 @@ position = Vector2(-612, -182)
 
 [node name="LeafBunch70" parent="." instance=ExtResource("35_cm661")]
 position = Vector2(-509, -177)
-
-[node name="BGLeafBunch158" parent="." instance=ExtResource("36_ck8f7")]
-position = Vector2(43, -27)
-
-[node name="BGLeafBunch159" parent="." instance=ExtResource("36_ck8f7")]
-position = Vector2(6, -25)
-
-[node name="BGLeafBunch160" parent="." instance=ExtResource("36_ck8f7")]
-position = Vector2(7, -42)
-
-[node name="BGLeafBunch161" parent="." instance=ExtResource("36_ck8f7")]
-position = Vector2(26, -38)
-
-[node name="BGLeafBunch162" parent="." instance=ExtResource("36_ck8f7")]
-position = Vector2(35, -30)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

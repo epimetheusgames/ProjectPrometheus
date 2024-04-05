@@ -43,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(16, 100),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(6, 576), Vector2(6, -2712)]
+"values": [Vector2(6, 576), Vector2(6, -3000)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -76,7 +76,7 @@ tracks/5/path = NodePath("Images/LogoGreyscale:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(83, 90, 100),
+"times": PackedFloat32Array(81.7, 91.1, 98.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(585, 1076), Vector2(585, 796), Vector2(585, 332)]
@@ -297,9 +297,9 @@ anchors_preset = -1
 anchor_top = -17.2863
 anchor_bottom = -10.2613
 offset_left = 5.0
-offset_top = 368.0
+offset_top = 1059.45
 offset_right = 1898.0
-offset_bottom = 3030.0
+offset_bottom = 3721.45
 scale = Vector2(0.615, 0.615)
 theme_override_font_sizes/font_size = 40
 text = "Created by Epimetheus Games"
@@ -318,7 +318,7 @@ layout_mode = 0
 offset_left = 6.0
 offset_top = 576.0
 offset_right = 1169.0
-offset_bottom = 3355.0
+offset_bottom = 3853.0
 theme = ExtResource("3_oyqsv")
 bbcode_enabled = true
 text = "
@@ -379,13 +379,23 @@ Liam Siegel
 
 [font_size=50]Playtesters[/font_size]
 May Rau
-Flynn
+Flynn Gorman
+Noah Johnson-Green
 Francesca Wrobel
 Isaac Phillips
 Oscar Logan
+Sequoia Haynes
 Griffin
 Axel
 
+
+
+
+[font_size=50]Special Thanks[/font_size]
+Francesca Wrobel
+Sequoia Haynes
+Noah Johnson-Green
+Dr. Garcia
 
 
 
