@@ -12,6 +12,7 @@ var finished = false
 
 func _ready():
 	$CreditsAnimationPlayer.play("CreditsAnimation")
+	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
 
 func _process(delta):
 	if Input.is_action_just_pressed("esc") && !get_parent().get_parent().get_node("Player"):

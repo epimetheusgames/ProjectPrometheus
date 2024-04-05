@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=8 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_bljg4"]
 [ext_resource type="PackedScene" uid="uid://be1k51hweeaqw" path="res://Objects/FrameworkNodes/StartGameMenu.tscn" id="4_poeu2"]
 [ext_resource type="AudioStream" uid="uid://cvcjj8cbkbm0t" path="res://Assets/Audio/Music/TitleTheme.ogg" id="5_1iyyo"]
+[ext_resource type="PackedScene" uid="uid://8wkn32xb6sat" path="res://Objects/StaticObjects/Mark8Terminal.tscn" id="7_45vfl"]
 
 [node name="MainMenu" type="Node2D"]
 editor_description = "This scene should include the UI for the main menu."
@@ -17,12 +18,26 @@ offset_right = 1919.0
 offset_bottom = 1079.0
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
-[node name="MainMenuBackground" type="Sprite2D" parent="."]
-self_modulate = Color(1.2, 1.2, 1.2, 1)
+[node name="Background" type="Node2D" parent="."]
+
+[node name="MainMenuBackground" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(959.5, 540)
-scale = Vector2(7.49609, 7.5)
+position = Vector2(958.5, 538.5)
+scale = Vector2(7.65234, 7.6875)
 texture = ExtResource("2_cjyfc")
+
+[node name="Mark8Terminal" parent="Background" instance=ExtResource("7_45vfl")]
+position = Vector2(953, 275)
+bus = 1
+offset = 1
+
+[node name="Mark8Terminal" parent="Background/Mark8Terminal" index="0"]
+visible = false
+
+[node name="Mark8Eyes" parent="Background/Mark8Terminal" index="1"]
+texture_filter = 1
+position = Vector2(28.595, -9.24)
+scale = Vector2(7.645, 7.645)
 
 [node name="Title" type="Label" parent="."]
 offset_left = 60.0
@@ -161,3 +176,5 @@ bus = &"Music"
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+
+[editable path="Background/Mark8Terminal"]

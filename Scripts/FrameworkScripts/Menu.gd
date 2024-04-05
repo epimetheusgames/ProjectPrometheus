@@ -15,6 +15,7 @@ var credits_open = false
 var hovered_button = "PlayButton"
 var selected_other_menu = false
 var settings_menu_selected = false
+var background_original_pos = Vector2.ZERO
 
 func deactivate():
 	hide()
@@ -94,36 +95,37 @@ func _process(_delta):
 		$CreditsHighlight.visible = false
 		$QuitHighlight.visible = false
 		
-		if !selected_other_menu:
-			if Input.is_action_just_pressed("ui_down"):
-				if hovered_button == "PlayHighlight":
-					hovered_button = "SettingsHighlight"
-				elif hovered_button == "SettingsHighlight":
-					hovered_button = "CreditsHighlight"
-				elif hovered_button == "CreditsHighlight":
-					hovered_button = "QuitHighlight"
-					
-			if Input.is_action_just_pressed("ui_up"):
-				if hovered_button == "SettingsHighlight":
-					hovered_button = "PlayHighlight"
-				elif hovered_button == "CreditsHighlight":
-					hovered_button = "SettingsHighlight"
-				elif hovered_button == "QuitHighlight":
-					hovered_button = "CreditsHighlight"
-					
-			if Input.is_action_just_pressed("ui_accept"):
-				if hovered_button == "PlayHighlight":
-					_on_play_button_button_up()
-				if hovered_button == "SettingsHighlight":
-					_on_settings_button_button_up()
-				if hovered_button == "CreditsHighlight":
-					_on_credits_button_button_up()
-				if hovered_button == "QuitHighlight":
-					_on_quit_button_button_up()
+		if Input.is_action_just_pressed("ui_down"):
+			if hovered_button == "PlayHighlight":
+				hovered_button = "SettingsHighlight"
+			elif hovered_button == "SettingsHighlight":
+				hovered_button = "CreditsHighlight"
+			elif hovered_button == "CreditsHighlight":
+				hovered_button = "QuitHighlight"
+				
+		if Input.is_action_just_pressed("ui_up"):
+			if hovered_button == "SettingsHighlight":
+				hovered_button = "PlayHighlight"
+			elif hovered_button == "CreditsHighlight":
+				hovered_button = "SettingsHighlight"
+			elif hovered_button == "QuitHighlight":
+				hovered_button = "CreditsHighlight"
+				
+		if Input.is_action_just_pressed("ui_accept"):
+			if hovered_button == "PlayHighlight":
+				_on_play_button_button_up()
+			if hovered_button == "SettingsHighlight":
+				_on_settings_button_button_up()
+			if hovered_button == "CreditsHighlight":
+				_on_credits_button_button_up()
+			if hovered_button == "QuitHighlight":
+				_on_quit_button_button_up()
 					
 				selected_other_menu = true
 			
-			get_node(hovered_button).visible = true
+		get_node(hovered_button).visible = true
+		
+		$Background.position = background_original_pos + get_local_mouse_position() / 100
 
 func _on_play_button_button_up():
 	$SettingsMenu.visible = false
