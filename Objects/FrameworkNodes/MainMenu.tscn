@@ -76,9 +76,9 @@ horizontal_alignment = 1
 [node name="PlayHighlight" type="Label" parent="."]
 visible = false
 offset_left = 33.0
-offset_top = 764.0
+offset_top = 700.0
 offset_right = 217.0
-offset_bottom = 846.0
+offset_bottom = 782.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "-        -"
@@ -86,9 +86,9 @@ text = "-        -"
 [node name="SettingsHighlight" type="Label" parent="."]
 visible = false
 offset_left = 31.0
-offset_top = 834.0
+offset_top = 770.0
 offset_right = 335.0
-offset_bottom = 916.0
+offset_bottom = 852.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "-                -"
@@ -96,9 +96,9 @@ text = "-                -"
 [node name="CreditsHighlight" type="Label" parent="."]
 visible = false
 offset_left = 29.0
-offset_top = 899.0
+offset_top = 835.0
 offset_right = 303.0
-offset_bottom = 981.0
+offset_bottom = 917.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "-              -"
@@ -106,9 +106,9 @@ text = "-              -"
 [node name="QuitHighlight" type="Label" parent="."]
 visible = false
 offset_left = 29.0
-offset_top = 964.0
+offset_top = 900.0
 offset_right = 213.0
-offset_bottom = 1046.0
+offset_bottom = 982.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
 text = "-        -"
