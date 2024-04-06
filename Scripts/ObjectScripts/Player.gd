@@ -167,7 +167,7 @@ func _physics_process(delta):
 			if !climbing:
 				velocity.y -= (jump_push_force if current_ability != "RocketBoost" else rocket_jump_push_force) * Engine.time_scale
 			else:
-				velocity.y -= jump_push_force
+				velocity.y -= jump_push_force * 2
 				
 			if in_ladder_area:
 				velocity.x /= 1.3

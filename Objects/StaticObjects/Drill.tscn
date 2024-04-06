@@ -272,11 +272,11 @@ position = Vector2(0, 16)
 target_position = Vector2(0, 16)
 
 [node name="JumpHurtBox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBox"]
 position = Vector2(22, -8.25)
 shape = SubResource("RectangleShape2D_6fc6h")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBox"]
 position = Vector2(40, 16)
@@ -287,11 +287,11 @@ position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
 [node name="JumpHurtBoxAllwaysActive" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
 position = Vector2(22, -8.5)
 shape = SubResource("RectangleShape2D_3tpe1")
+disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpHurtBoxAllwaysActive"]
 position = Vector2(40, 16)

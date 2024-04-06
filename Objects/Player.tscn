@@ -799,10 +799,10 @@ script = ExtResource("11_opf60")
 
 [node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]
 self_modulate = Color(1.4, 1.4, 1.4, 1)
-offset_left = -600.0
-offset_top = -218.0
-offset_right = 586.0
-offset_bottom = 203.0
+offset_left = -631.0
+offset_top = -221.0
+offset_right = 555.0
+offset_bottom = 200.0
 mouse_filter = 2
 color = Color(1, 0.8, 0.8, 0)
 
@@ -1155,6 +1155,90 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 29
 text = "Jump to swing with the
 grapple."
+
+[node name="TimerDialogue" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-148, 0)
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/TimerDialogue"]
+position = Vector2(44.3428, 59)
+scale = Vector2(-5.66633, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/TutorialDialogues/TimerDialogue"]
+offset_left = -20.0
+offset_top = 37.0
+offset_right = 357.0
+offset_bottom = 170.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "You now have 20 seconds to reach the next Item Switcher. Good luck."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/TimerDialogue"]
+offset_left = 65.0
+offset_top = 66.0
+offset_right = 288.0
+offset_bottom = 199.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/TimerDialogue"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 54.0
+offset_top = 65.0
+offset_right = 94.0
+offset_bottom = 105.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_0h0jo")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="SecretAreaAbove" type="Node2D" parent="Camera/TutorialDialogues"]
+visible = false
+position = Vector2(-144, -98)
+script = ExtResource("20_7lt1o")
+
+[node name="TutorialDialogueBox" type="Sprite2D" parent="Camera/TutorialDialogues/SecretAreaAbove"]
+position = Vector2(51.5159, 59)
+scale = Vector2(-5.21801, 1.938)
+texture = ExtResource("15_b14rh")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/SecretAreaAbove"]
+offset_left = 64.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/normal_font_size = 25
+text = "Dismiss"
+
+[node name="ControllerTextureRect" type="TextureRect" parent="Camera/TutorialDialogues/SecretAreaAbove"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 53.0
+offset_top = 64.0
+offset_right = 93.0
+offset_bottom = 104.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_0h0jo")
+expand_mode = 1
+script = ExtResource("18_op56f")
+path = "interact"
+
+[node name="Label" type="Label" parent="Camera/TutorialDialogues/SecretAreaAbove"]
+offset_left = -6.0
+offset_top = 38.0
+offset_right = 314.0
+offset_bottom = 111.0
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 29
+text = "The computer chips
+aren't neccesary."
 
 [node name="CutsceneAnimator" type="Node2D" parent="Camera"]
 script = ExtResource("23_2gvnx")

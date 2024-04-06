@@ -15,8 +15,12 @@ var displaying_opacity = 0
 var dialogue_displaying = null
 var fading_in = false
 var fading_out = false
+var numbers_already_displayed = []
 
 func enter_tutorial_area(tutorial_box_ind):
+	if tutorial_box_ind in numbers_already_displayed:
+		return
+	
 	if dialogue_displaying:
 		dialogue_displaying.visible = false
 	
@@ -34,6 +38,12 @@ func enter_tutorial_area(tutorial_box_ind):
 		dialogue_displaying = $WASDToMove
 	if tutorial_box_ind == 7:
 		dialogue_displaying = $JumpToSwing
+	if tutorial_box_ind == 8:
+		dialogue_displaying = $TimerDialogue
+	if tutorial_box_ind == 9:
+		dialogue_displaying = $SecretAreaAbove
+	
+	numbers_already_displayed.append(tutorial_box_ind)
 		
 	dialogue_displaying.visible = true
 	displaying_dialogue = true

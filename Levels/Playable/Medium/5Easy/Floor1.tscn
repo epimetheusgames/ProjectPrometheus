@@ -326,10 +326,10 @@ position = Vector2(-452, -128)
 position = Vector2(-588, -128)
 
 [node name="DrillManager3" parent="." instance=ExtResource("12_3rx5p")]
-position = Vector2(-185, -128)
+position = Vector2(194, -128)
 
 [node name="DrillManager4" parent="." instance=ExtResource("12_3rx5p")]
-position = Vector2(-51, -128)
+position = Vector2(328, -128)
 
 [node name="WallTurret" parent="." instance=ExtResource("18_1ue77")]
 position = Vector2(615, -169)

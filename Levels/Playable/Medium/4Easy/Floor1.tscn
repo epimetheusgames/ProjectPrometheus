@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=54 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="36_h0bk1"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="37_jtmfi"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="38_0tpy4"]
+[ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="39_nb238"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_t6j4e")
@@ -220,6 +221,9 @@ gradient = SubResource("Gradient_46iuw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b1gq"]
 size = Vector2(9.21678, 7.8045)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfmso"]
+size = Vector2(302, 224)
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_sq3eu")
@@ -675,6 +679,14 @@ position = Vector2(1412, -928)
 
 [node name="SidewaysDoor" parent="." instance=ExtResource("38_0tpy4")]
 position = Vector2(1568, -230)
+
+[node name="TutorialDialogueArea" parent="." instance=ExtResource("39_nb238")]
+position = Vector2(-46, -6)
+tutorial_box_ind = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea"]
+position = Vector2(-31, -31)
+shape = SubResource("RectangleShape2D_mfmso")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
