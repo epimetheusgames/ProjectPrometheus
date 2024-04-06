@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	if player:
 		target_position = player.position + player.get_parent().position
-		position += (target_position - position) * 0.03
+		position += (target_position - position) * 0.03 * delta * 60
 
 func _on_area_entered(area):
 	if area.name == "PlayerHurtbox":

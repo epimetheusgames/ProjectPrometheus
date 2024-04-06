@@ -92,7 +92,7 @@ func _process(delta):
 			
 	if health < 50 && position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
-		position += (start_pos + $FiftyPercentPos.position - position).normalized()
+		position += (start_pos + $FiftyPercentPos.position - position).normalized() * delta * 60
 		no_bob = true
 		
 	if health < 50 && !position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
@@ -110,7 +110,7 @@ func _process(delta):
 	if health <= 0:
 		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		get_parent().boss = false
-		position.y -= 1
+		position.y -= 1 * delta * 60
 		
 	if player.current_ability == "Grapple" || player.current_ability == "RocketBoost":
 		target_pos.y += has_ability_time + has_weapon_time

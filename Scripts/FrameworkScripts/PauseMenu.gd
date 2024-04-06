@@ -15,6 +15,8 @@ extends Node2D
 var showing = false
 var selected = 0
 
+@onready var loaded_arrow = preload("res://Assets/Images/Objects/Misc/MouseCursor.png")
+
 
 func _process(delta):
 	# Open and close options menu.
@@ -28,6 +30,7 @@ func _process(delta):
 		showing = !showing
 		
 	if showing:
+		Input.set_custom_mouse_cursor(loaded_arrow)
 		get_tree().paused = true
 		
 	elif !get_parent().open_dialogue == true:

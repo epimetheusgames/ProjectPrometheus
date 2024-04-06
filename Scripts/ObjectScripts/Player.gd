@@ -519,15 +519,23 @@ func _on_area_2d_area_entered(area):
 		if current_ability == "Weapon" && switch_ability == "RocketBoost":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
+			Input.start_joy_vibration(0, 1, 1)
+			$HurtVibrationTimer.start()
 		elif current_ability == "RocketBoost" && switch_ability == "ArmGun":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
+			Input.start_joy_vibration(0, 1, 1)
+			$HurtVibrationTimer.start()
 		elif current_ability == "ArmGun" && switch_ability == "Grapple":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
+			Input.start_joy_vibration(0, 1, 1)
+			$HurtVibrationTimer.start()
 		elif current_ability == "Grapple" && switch_ability == "Weapon":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
+			Input.start_joy_vibration(0, 1, 1)
+			$HurtVibrationTimer.start()
 		else:
 			area.get_parent().wrong_item()
 			get_parent().screenshake_enabled = true

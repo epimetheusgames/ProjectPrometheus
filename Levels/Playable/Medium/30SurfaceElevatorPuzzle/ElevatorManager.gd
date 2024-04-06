@@ -6,6 +6,7 @@ var going_up = false
 @export var elevator_max_speed = 2
 @export var acceleration = 0.05
 @export var use_animation = false
+@export var disable_collision_at_animation_end = false
 var velocity = Vector2.ZERO
 
 func _on_area_2d_area_entered(area):
@@ -28,12 +29,15 @@ func _process(delta):
 		
 	if going_up:
 		if abs(velocity.y) < elevator_max_speed:
-			velocity.y -= acceleration
+			velocity.y -= acceleration * delta * 60
 		
-		position += velocity
+		position += velocity * delta * 60
 	
 	if !$ElevatorMusicPlayer.playing:
 		$ElevatorMusicPlayer.play()
 
 func _on_animation_player_animation_finished(anim_name):
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").end_special_music()
+	
+	if disable_collision_at_animation_end:
+		$CharacterBody2D/CollisionPolygon2D2.disabled = true

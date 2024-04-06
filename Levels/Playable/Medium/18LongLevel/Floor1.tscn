@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://blr0p50lw5agw"]
+[gd_scene load_steps=37 format=3 uid="uid://blr0p50lw5agw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_t2e8v"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_bt8rd"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="22_117p4"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="23_1tl66"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="24_6j6mo"]
+[ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="25_7i7j3"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="25_fkjol"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="25_plp74"]
 
@@ -739,6 +740,12 @@ position = Vector2(2006, -443)
 
 [node name="DrillManager5" parent="." instance=ExtResource("25_fkjol")]
 position = Vector2(1282, -547)
+
+[node name="SidewaysDoor" parent="." instance=ExtResource("25_7i7j3")]
+position = Vector2(-32, -198)
+
+[node name="SidewaysDoor3" parent="." instance=ExtResource("25_7i7j3")]
+position = Vector2(1440, -38)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

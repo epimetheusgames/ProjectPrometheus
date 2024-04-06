@@ -278,6 +278,78 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
+[node name="PointsCounter" parent="Player/Camera" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeCounter" parent="Player/Camera" index="5"]
+metadata/_edit_use_anchors_ = true
+
+[node name="BossBar" parent="Player/Camera" index="7"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="6"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" parent="Player/Camera" index="12"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotBackgrounds" parent="Player/Camera/Inventory" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera/Inventory/SlotBackgrounds" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" parent="Player/Camera/Inventory/SlotBackgrounds" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" parent="Player/Camera/Inventory/SlotBackgrounds" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" parent="Player/Camera/Inventory/SlotBackgrounds" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect6" parent="Player/Camera/Inventory/SlotBackgrounds" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect5" parent="Player/Camera/Inventory/SlotBackgrounds" index="5"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotHighlights" parent="Player/Camera/Inventory" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera" index="14"]
+metadata/_edit_use_anchors_ = true
+
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -296,6 +368,7 @@ offset_top = -163.0
 offset_right = 613.0
 offset_bottom = 237.0
 color = Color(0.419608, 0.419608, 0.419608, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

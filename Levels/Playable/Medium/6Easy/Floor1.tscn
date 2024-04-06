@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cn1pph4o73jqw"]
+[gd_scene load_steps=41 format=3 uid="uid://cn1pph4o73jqw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_g6oud"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_njaqg"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="27_i2y2r"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="27_qdc0y"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="27_xmymx"]
+[ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="28_bw2yj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_njaqg")
@@ -275,7 +276,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -466,6 +467,9 @@ texture = ExtResource("27_qdc0y")
 
 [node name="ItemSwitcher10" parent="." instance=ExtResource("17_jyfs1")]
 position = Vector2(2240, -208)
+
+[node name="SidewaysDoor" parent="." instance=ExtResource("28_bw2yj")]
+position = Vector2(160, 282)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

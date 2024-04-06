@@ -58,9 +58,9 @@ const level_display_names = [
 
 const preloaded_levels = [
 	#[preload("res://Levels/Cutscenes/RocketLandStartCutscene/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/0Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/1Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/2Tutorial/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/3Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/4Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/5Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/6Easy/Floor1.tscn")],
@@ -72,7 +72,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/15PuzzlePost/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/13Puzzle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/14Puzzle/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/15PuzzlePostPost/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/15Exploration/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/16Biodome/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/18LongLevel/Floor1.tscn"),],
 	[preload("res://Levels/Playable/Medium/21ConveyorDrop/Floor1.tscn"),],
@@ -211,7 +211,7 @@ func _process(delta):
 	#	force_time_scale -= 0.1
 	
 	# Induce artificial lag
-	#OS.delay_msec(rng.randi_range(20, 60))
+	#OS.delay_msec(rng.randi_range(20, 200))
 	
 	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 4:
 		var musics_list = music_files if !get_parent().get_node("Level").get_children()[0].intense_music else intense_music_files

@@ -417,7 +417,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 23.1, 23.2, 25, 25.2, 25.4, 26, 26.5, 39.9, 40, 60),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1632), Vector2(0, -1632), Vector2(-54.5799, -1632), Vector2(-54.5799, -1632), Vector2(-32.5764, -1632), Vector2(29.1991, -1632), Vector2(29.1991, -1632), Vector2(320, -1632), Vector2(320, -1632), Vector2(320, -3008)]
+"values": [Vector2(544, -128), Vector2(0, -1632), Vector2(0, -1632), Vector2(-54.5799, -1632), Vector2(-54.5799, -1632), Vector2(-32.5764, -1632), Vector2(29.1991, -1632), Vector2(29.1991, -1632), Vector2(320, -1632), Vector2(320, -1632), Vector2(320, -3008)]
 }
 
 [sub_resource type="Animation" id="Animation_80vb5"]
@@ -636,7 +636,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88

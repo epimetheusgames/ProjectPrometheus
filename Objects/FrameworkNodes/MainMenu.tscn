@@ -246,7 +246,9 @@ sprite_frames = SubResource("SpriteFrames_hqegk")
 
 [node name="Polygon2D" type="Polygon2D" parent="Background"]
 color = Color(0.00784314, 0.00784314, 0.00784314, 0.290196)
+antialiased = true
 polygon = PackedVector2Array(926, 866, 882, 1081, 1058, 1081, 1010, 854, 986, 854, 987, 935, 956, 935, 950, 866)
+uv = PackedVector2Array(0, 0)
 
 [node name="Title" type="Label" parent="."]
 offset_left = 60.0
@@ -363,11 +365,13 @@ offset_bottom = 960.0
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
 visible = false
+z_index = 1
 position = Vector2(349, -37)
 first = false
 
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
 visible = false
+z_index = 2
 position = Vector2(342, -27)
 first = false
 
