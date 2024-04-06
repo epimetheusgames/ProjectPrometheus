@@ -1469,6 +1469,16 @@ collision_mask = 17
 platform_on_leave = 2
 script = ExtResource("2_7fkxw")
 
+[node name="RightWallRaycast" type="RayCast2D" parent="Player"]
+position = Vector2(6, 13)
+exclude_parent = false
+target_position = Vector2(6, 0)
+
+[node name="LeftWallRaycast" type="RayCast2D" parent="Player"]
+position = Vector2(-8, 13)
+exclude_parent = false
+target_position = Vector2(-6, 0)
+
 [node name="ArmGunManager" type="Node2D" parent="Player"]
 script = ExtResource("8_bsb7n")
 

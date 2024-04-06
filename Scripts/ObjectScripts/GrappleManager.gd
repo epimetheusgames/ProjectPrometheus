@@ -18,6 +18,7 @@ var grapple_lock_rope_len = -1
 @export var exit_grapple_vel_mult = 1.5
 @export var porab_line_length = 300
 @export var max_hook_dist = 300
+var grapple_lock_rope_len_velocity = 0
 
 func calc_closest_hook():
 	var closest_hook = null
@@ -55,7 +56,10 @@ func _physics_process(delta):
 			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
 			
 			if Input.is_action_pressed("jump") && !get_parent().is_on_ceiling():
-				grapple_lock_rope_len -= 1.5 * delta * 60
+				grapple_lock_rope_len_velocity -= 0.05
+				grapple_lock_rope_len += grapple_lock_rope_len_velocity
+			else:
+				grapple_lock_rope_len_velocity = 0
 				
 			if Input.is_action_pressed("down") && !get_parent().is_on_floor() && $RayCast2D.get_collider() == null && $RayCast2D.get_collider() == null:
 				grapple_lock_rope_len += 1.4 * delta * 60
@@ -87,10 +91,16 @@ func _physics_process(delta):
 				get_parent().grappling_effects = true
 		else:
 			hook = null
+			
+			if $"../RightWallRaycast".get_collider():
+				get_parent().position.x -= 7
+			if $"../LeftWallRaycast".get_collider():
+				get_parent().position.x += 7
+
 		
 		visible = true 
 		
-		if Input.is_action_just_released("mouse_click"):
+		if Input.is_action_just_released("mouse_click") || Input.is_action_just_released("mouse_right_click"):
 			if hook:
 				if !air_grapling:
 					get_parent().velocity = (hook.position - get_parent().position).normalized() * 5
@@ -139,13 +149,26 @@ func _physics_process(delta):
 				$GrappleShoot.play()
 				grapling = true
 				
-				if !get_parent().is_on_floor():
-					air_grapling = true
-				else:
-					$GrappleUp.play()
+				if get_parent().is_on_floor():
+					get_parent().velocity.y = -10
+					if $"../RightWallRaycast".get_collider():
+						get_parent().velocity.x = -0.5
+					if $"../LeftWallRaycast".get_collider():
+						get_parent().velocity.x = 0.5
+					
+				
+				air_grapling = true
 				
 				$GrappleBody.velocity = mouse_direction * 15
 				$GrappleBody.position = Vector2.ZERO
+			
+			if Input.is_action_just_pressed("mouse_right_click"):
+				$GrappleShoot.play()
+				$GrappleUp.play()
+				
+				$GrappleBody.velocity = mouse_direction * 15
+				$GrappleBody.position = Vector2.ZERO
+				grapling = true
 		else:
 			$LinePorabola.visible = false
 			
@@ -162,3 +185,6 @@ func _physics_process(delta):
 	else:
 		was_hooked = false
 
+func handle_hooked():
+	pass
+	
