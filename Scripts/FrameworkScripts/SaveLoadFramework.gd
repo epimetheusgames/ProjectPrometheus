@@ -21,6 +21,7 @@ const level_display_names = [
 	"Easy 2",
 	"Easy 3",
 	"Easy 4",
+	"Easy 5",
 	"Puzzle 1",
 	"Puzzle 2",
 	"Puzzle 3",

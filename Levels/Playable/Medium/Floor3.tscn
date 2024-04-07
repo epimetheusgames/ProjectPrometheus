@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ctkvp8tqrbrmp"]
+[gd_scene load_steps=36 format=3 uid="uid://dn21nakw22f3f"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_540bb"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ojf8g"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_s6lqv"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_cej6p"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="9_itaji"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="9_m38iy"]
+[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="9_sjjoh"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_024ya"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_y08x1"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_qcpyq"]
@@ -258,7 +258,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("9_m38iy")
+texture = ExtResource("9_sjjoh")
 
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
