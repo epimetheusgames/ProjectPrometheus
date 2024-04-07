@@ -1149,6 +1149,14 @@ tutorial_box_ind = 5
 position = Vector2(-133, -173)
 shape = SubResource("RectangleShape2D_y1nx2")
 
+[node name="TutorialDialogueArea6" parent="." instance=ExtResource("23_7in8k")]
+position = Vector2(-4810, 57)
+tutorial_box_ind = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea6"]
+position = Vector2(-133, -173)
+shape = SubResource("RectangleShape2D_y1nx2")
+
 [node name="TutorialDialogueArea5" parent="." instance=ExtResource("23_7in8k")]
 position = Vector2(-42, -15)
 tutorial_box_ind = 6

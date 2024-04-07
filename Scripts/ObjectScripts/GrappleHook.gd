@@ -7,21 +7,28 @@
 
 
 extends Node2D
+var area_entered = null
 
 func _ready():
 	add_to_group("hooks")
+	
+func _physics_process(delta):
+	if area_entered:
+		if area_entered.name == "GrappleColider":
+			area_entered.get_parent().get_parent().hooked = true
+			area_entered.get_parent().get_parent().hook = self
+			area_entered.get_parent().get_parent().handle_hooked()
+			
+		if area_entered.name == "PlayerHurtbox" && !area_entered.get_parent().get_node("GrappleManager").air_grapling:
+			area_entered.get_parent().get_node("GrappleManager").hooked = false
+			area_entered.get_parent().get_node("GrappleManager").grapling = false
+			area_entered.get_parent().get_node("GrappleManager").get_node("GrappleUp").stop()
+			area_entered.get_parent().get_node("GrappleManager").get_node("GrappleCollide").play()
+			area_entered.get_parent().get_node("GrappleManager").get_node("GrappleBody").hooked = false
+			area_entered.get_parent().grappling_effects = false
+			area_entered.get_parent().get_node("GrappleManager").hook = null
+		
+		area_entered = null
 
 func _on_area_2d_area_entered(area):
-	if area.name == "GrappleColider":
-		area.get_parent().get_parent().hooked = true
-		area.get_parent().get_parent().hook = self
-		area.get_parent().get_parent().handle_hooked()
-		
-	if area.name == "PlayerHurtbox" && !area.get_parent().get_node("GrappleManager").air_grapling:
-		area.get_parent().get_node("GrappleManager").hooked = false
-		area.get_parent().get_node("GrappleManager").grapling = false
-		area.get_parent().get_node("GrappleManager").get_node("GrappleUp").stop()
-		area.get_parent().get_node("GrappleManager").get_node("GrappleCollide").play()
-		area.get_parent().get_node("GrappleManager").get_node("GrappleBody").hooked = false
-		area.get_parent().grappling_effects = false
-		area.get_parent().get_node("GrappleManager").hook = null
+	area_entered = area

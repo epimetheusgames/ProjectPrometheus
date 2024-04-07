@@ -26,6 +26,7 @@ func round_place(x, place):
 func _ready():
 	if graphics_efficiency:
 		$Player/PlayerAmbianceParticles.queue_free()
+		$Camera/CrtOverlay.visible = false
 		
 	$Camera.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 	$CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position

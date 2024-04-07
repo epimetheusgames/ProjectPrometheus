@@ -42,6 +42,8 @@ func enter_tutorial_area(tutorial_box_ind):
 		dialogue_displaying = $TimerDialogue
 	if tutorial_box_ind == 9:
 		dialogue_displaying = $SecretAreaAbove
+	if tutorial_box_ind == 10:
+		dialogue_displaying = $MouseToGrapple
 	
 	numbers_already_displayed.append(tutorial_box_ind)
 		
