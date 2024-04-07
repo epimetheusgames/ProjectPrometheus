@@ -519,22 +519,22 @@ func _on_area_2d_area_entered(area):
 		if current_ability == "Weapon" && switch_ability == "RocketBoost":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
-			Input.start_joy_vibration(0, 1, 1)
+			Input.start_joy_vibration(0, 1, 0.1)
 			$HurtVibrationTimer.start()
 		elif current_ability == "RocketBoost" && switch_ability == "ArmGun":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
-			Input.start_joy_vibration(0, 1, 1)
+			Input.start_joy_vibration(0, 1, 0.1)
 			$HurtVibrationTimer.start()
 		elif current_ability == "ArmGun" && switch_ability == "Grapple":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
-			Input.start_joy_vibration(0, 1, 1)
+			Input.start_joy_vibration(0, 1, 0.1)
 			$HurtVibrationTimer.start()
 		elif current_ability == "Grapple" && switch_ability == "Weapon":
 			area.get_parent().right_item()
 			ability_manager.next_ability()
-			Input.start_joy_vibration(0, 1, 1)
+			Input.start_joy_vibration(0, 1, 0.1)
 			$HurtVibrationTimer.start()
 		else:
 			area.get_parent().wrong_item()
@@ -586,7 +586,7 @@ func _on_area_2d_area_entered(area):
 			if $DashStopCooldown.time_left > 0:
 				return
 				
-		Input.start_joy_vibration(0, 1, 1)
+		Input.start_joy_vibration(0, 0.5, 1)
 		Engine.time_scale = 0.6
 		$HurtVibrationTimer.start()
 		
