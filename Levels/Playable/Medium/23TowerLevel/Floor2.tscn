@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://hyjgjb7gfloj"]
+[gd_scene load_steps=40 format=3 uid="uid://hyjgjb7gfloj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hpqmv"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pfxli"]
@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="8_uuyu8"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="9_n57ke"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="10_cf0b7"]
+[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="10_f2gew"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="10_ui22u"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_7p8sg"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="12_bw1ul"]
@@ -287,6 +288,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
+texture = ExtResource("10_f2gew")
 
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://eenxnjuwwodx"]
+[gd_scene load_steps=42 format=3 uid="uid://eenxnjuwwodx"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_g6pb2"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_m1yor"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_uulin"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_8alde"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_1dpin"]
+[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="11_1xe33"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="12_1wrkc"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_inrqq"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_i1hdk"]
@@ -22,6 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="20_uyjn1"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_dayfl"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_iqgr4"]
+[ext_resource type="Texture2D" uid="uid://3uvtp35sttsd" path="res://Assets/Images/Objects/Props/PropWhiteBoard.png" id="24_yoyyk"]
+[ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="25_4lb1o"]
+[ext_resource type="Texture2D" uid="uid://ctsenv43f243c" path="res://Assets/Images/Objects/Props/PropForwardFaceChair.png" id="26_45ve0"]
+[ext_resource type="Texture2D" uid="uid://7md2ixd8bat8" path="res://Assets/Images/Objects/Props/PropAnalogClock.png" id="27_4hcrk"]
+[ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="28_31hfy"]
+[ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="29_inqga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_m1yor")
@@ -278,7 +285,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
+texture = ExtResource("11_1xe33")
+
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -399,6 +409,44 @@ position = Vector2(162, -336)
 [node name="Artifact" parent="." instance=ExtResource("22_iqgr4")]
 position = Vector2(-173, -463)
 uid = 812504
+
+[node name="PropWhiteBoard" type="Sprite2D" parent="."]
+position = Vector2(831, -623)
+texture = ExtResource("24_yoyyk")
+
+[node name="PropDesk" type="Sprite2D" parent="."]
+position = Vector2(834, -593)
+scale = Vector2(5.75, 1)
+texture = ExtResource("25_4lb1o")
+
+[node name="PropForwardFaceChair" type="Sprite2D" parent="."]
+position = Vector2(787, -596)
+texture = ExtResource("26_45ve0")
+
+[node name="PropForwardFaceChair2" type="Sprite2D" parent="."]
+position = Vector2(824, -596)
+texture = ExtResource("26_45ve0")
+
+[node name="PropForwardFaceChair4" type="Sprite2D" parent="."]
+position = Vector2(864, -596)
+texture = ExtResource("26_45ve0")
+
+[node name="PropForwardFaceChair5" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(901, -596)
+texture = ExtResource("26_45ve0")
+
+[node name="PropAnalogClock" type="Sprite2D" parent="."]
+position = Vector2(831, -655)
+texture = ExtResource("27_4hcrk")
+
+[node name="PropWiltedPlant" type="Sprite2D" parent="."]
+position = Vector2(908, -609)
+texture = ExtResource("28_31hfy")
+
+[node name="Mark8Terminal" type="Sprite2D" parent="."]
+position = Vector2(934, -587)
+texture = ExtResource("29_inqga")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
