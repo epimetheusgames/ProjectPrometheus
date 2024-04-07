@@ -22,6 +22,7 @@ var friction_force = 1.2
 @export var dont_fall = false
 var direction = 0
 var push_force = 40
+var is_idle = false
 
 
 func _ready():
@@ -40,13 +41,20 @@ func _physics_process(delta):
 		var player_direction = player.position - position
 		
 		$Sprite2D.scale.x = -1 if velocity.x < 0 else 1
-		$SpearAnimation.scale.x = -1 if player_direction.x < 0 else 1
+		
+		if !is_idle:
+			$SpearAnimation.scale.x = -1 if player_direction.x < 0 else 1
+		
+		if player.current_ability == "Weapon" || player.current_ability == "ArmGun":
+			is_idle = false
+		else:
+			is_idle = true
 
 		if health > 0:
-			if player_distance < 75 && (($SpearAnimation.animation == "Walking") || ($SpearAnimation.animation == "SpearReload" && !$SpearAnimation.is_playing())):
+			if player_distance < 75 && (($SpearAnimation.animation == "Walking") || ($SpearAnimation.animation == "SpearReload" && !$SpearAnimation.is_playing())) && !is_idle:
 				$SpearAnimation.play("SpearJustBeforeAttack")
 			
-			elif player_distance > 75 && $SpearAnimation.animation == "SpearJustBeforeAttack" && !$SpearAnimation.is_playing():
+			elif player_distance > 75 && $SpearAnimation.animation == "SpearJustBeforeAttack" && !$SpearAnimation.is_playing() && !is_idle:
 				$SpearAnimation.play("SpearReload")
 				
 			elif player_distance > 75 && $SpearAnimation.animation == "SpearReload" && !$SpearAnimation.is_playing():
@@ -86,10 +94,10 @@ func _physics_process(delta):
 			var player_near = (left_col && "Player" in left_col.name) || (right_col && "Player" in right_col.name)
 			var mele_near = (left_col && "AttackMele" in left_col.name && direction == -1) || (right_col && "AttackMele" in right_col.name && direction == 1)
 			
-			if is_on_floor() && jump && !player_near && !mele_near:
+			if is_on_floor() && jump && !player_near && !mele_near && !is_idle:
 				velocity.y = -jump_vel
 				
-			if (down_col && ("Player" in down_col.name || "AttackMele" in down_col.name)):
+			if (down_col && ("Player" in down_col.name || "AttackMele" in down_col.name)) && !is_idle:
 				velocity.y = -jump_vel
 				velocity.x = -direction * speed * 2
 				_on_jump_hurt_box_area_entered(down_col.get_node("PlayerHurtbox"))
@@ -97,10 +105,10 @@ func _physics_process(delta):
 			if player_near && $AttackTimer.time_left <= 0 && $AttackResetTimer.time_left <= 0:
 				$AttackTimer.start()
 			
-			if direction && !player_near && !mele_near && !$AttackResetTimer.time_left > 0:
+			if direction && !player_near && !mele_near && !$AttackResetTimer.time_left > 0 && !is_idle:
 				velocity.x += direction * speed
 				
-			if attacking:
+			if attacking && !is_idle:
 				$JumpHurtBox/CollisionShape2D.disabled = false
 			else:
 				$JumpHurtBox/CollisionShape2D.disabled = true
@@ -143,7 +151,7 @@ func _on_attack_reset_timer_timeout():
 	$AttackTimer.start()
 
 func _on_jump_hurt_box_area_entered(area):
-	if area && area.name == "PlayerHurtbox" && health > 0:
+	if area && area.name == "PlayerHurtbox" && health > 0 && !is_idle:
 		area.get_parent().jump_vel = 5
 		area.get_parent().rocket_jump_vel = 5
 		area.get_parent().velocity.x = -area.get_parent().velocity.x

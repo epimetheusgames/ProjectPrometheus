@@ -61,7 +61,7 @@ func _physics_process(delta):
 			else:
 				grapple_lock_rope_len_velocity = 0
 				
-			if Input.is_action_pressed("down") && !get_parent().is_on_floor() && $RayCast2D.get_collider() == null && $RayCast2D.get_collider() == null:
+			if Input.is_action_pressed("down") && !get_parent().is_on_floor():
 				grapple_lock_rope_len += 1.4 * delta * 60
 			
 			var rad_vel = cos(angle) * get_parent().velocity.length()

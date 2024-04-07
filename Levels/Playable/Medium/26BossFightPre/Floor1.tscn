@@ -17,7 +17,7 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_a4iv7"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="17_esuxi"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="18_2nelw"]
-[ext_resource type="Texture2D" uid="uid://b7024b2vpi32e" path="res://Assets/Images/Objects/Props/PropChair.png" id="19_5kx4f"]
+[ext_resource type="Texture2D" uid="uid://dhbp7wrxw1awv" path="res://Assets/Images/Objects/Props/PropChair.png" id="19_ylyn1"]
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="20_apivn"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="20_l1xa7"]
 [ext_resource type="Texture2D" uid="uid://bx4t5nr8u1xhl" path="res://Assets/Images/Objects/Props/PropComputer.png" id="21_j5yfl"]
@@ -396,7 +396,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -493,15 +493,15 @@ texture = ExtResource("20_apivn")
 [node name="PropChair" type="Sprite2D" parent="."]
 position = Vector2(733, 74)
 scale = Vector2(-1, 1)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair3" type="Sprite2D" parent="."]
 position = Vector2(801, 74)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair2" type="Sprite2D" parent="."]
 position = Vector2(653, 74)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropDesk" type="Sprite2D" parent="."]
 position = Vector2(771.25, 78.25)
@@ -532,12 +532,12 @@ texture = ExtResource("20_l1xa7")
 
 [node name="PropChair4" type="Sprite2D" parent="."]
 position = Vector2(1177, 106)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair5" type="Sprite2D" parent="."]
 position = Vector2(1051, 106)
 scale = Vector2(-1, 1)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="Stair4" parent="." instance=ExtResource("18_2nelw")]
 position = Vector2(1344, 96)
@@ -639,20 +639,20 @@ texture = ExtResource("20_apivn")
 [node name="PropChair6" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(3410, 522)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair7" type="Sprite2D" parent="."]
 position = Vector2(3294, 522)
 scale = Vector2(-1, 1)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair8" type="Sprite2D" parent="."]
 position = Vector2(3578, 522)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropChair9" type="Sprite2D" parent="."]
 position = Vector2(3494, 522)
-texture = ExtResource("19_5kx4f")
+texture = ExtResource("19_ylyn1")
 
 [node name="PropDesk8" type="Sprite2D" parent="."]
 position = Vector2(3537.75, 526.5)
