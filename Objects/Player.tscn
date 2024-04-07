@@ -664,21 +664,25 @@ color = Color(0.0823529, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
 z_index = 50
-offset_left = -234.0
-offset_top = 111.0
-offset_right = -95.0
-offset_bottom = 134.0
+offset_left = -233.0
+offset_top = 117.0
+offset_right = 271.0
+offset_bottom = 197.0
+scale = Vector2(0.25, 0.25)
 theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 57
 text = "FPS: Calculating ...
 "
 
 [node name="PointsCounter" type="Label" parent="Camera"]
 z_index = 50
-offset_left = 99.0
-offset_top = -136.0
-offset_right = 238.0
-offset_bottom = -113.0
+offset_left = 65.0
+offset_top = -133.0
+offset_right = 762.0
+offset_bottom = -53.0
+scale = Vector2(0.25, 0.25)
 theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 57
 text = "Points: 0"
 horizontal_alignment = 2
 
@@ -688,7 +692,9 @@ offset_left = -234.0
 offset_top = -134.0
 offset_right = -95.0
 offset_bottom = -111.0
+scale = Vector2(0.25, 0.25)
 theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 57
 text = "Time: 0"
 
 [node name="ScreenBorder" type="Sprite2D" parent="Camera"]

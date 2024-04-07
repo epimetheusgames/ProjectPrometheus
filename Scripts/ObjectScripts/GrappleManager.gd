@@ -92,10 +92,11 @@ func _physics_process(delta):
 		else:
 			hook = null
 			
-			if $"../RightWallRaycast".get_collider():
-				get_parent().position.x -= 7
-			if $"../LeftWallRaycast".get_collider():
-				get_parent().position.x += 7
+			if air_grapling:
+				if $"../RightWallRaycast".get_collider():
+					get_parent().position.x -= 7
+				if $"../LeftWallRaycast".get_collider():
+					get_parent().position.x += 7
 
 		
 		visible = true 

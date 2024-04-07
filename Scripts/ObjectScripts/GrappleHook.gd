@@ -31,4 +31,5 @@ func _physics_process(delta):
 		area_entered = null
 
 func _on_area_2d_area_entered(area):
-	area_entered = area
+	if area.name == "GrappleColider" || area.name == "PlayerHurtbox":
+		area_entered = area

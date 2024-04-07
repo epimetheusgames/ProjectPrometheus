@@ -75,12 +75,13 @@ func _process(delta):
 	# and I'm not going to do it.
 	$Camera/PointsCounter.text = "Points: " + str(get_parent().points * 10) 
 	
+	# Spogatios
 	var hours = int(get_parent().time / 60 / 60)
 	var minutes = int((get_parent().time - hours * 60 * 60) / 60)
 	var seconds = int(get_parent().time - (hours * 60 * 60) - (minutes * 60))
 	var extra = get_parent().time - (hours * 60 * 60) - (minutes * 60) - (seconds)
 	
-	$Camera/TimeCounter.text = "Time: " + (("0" if hours < 10 else "") + ("0" if hours < 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str(round_place(extra, 2)).lstrip("0.")
+	$Camera/TimeCounter.text = "" + (("0" if hours > 10 else "") + ("0" if hours > 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str(round_place(extra, 2)).lstrip("0.")
 	
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $CameraCollider.position - follow_position
 

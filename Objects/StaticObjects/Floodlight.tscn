@@ -1,10 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm566haiwff2j"]
+[gd_scene load_steps=8 format=3 uid="uid://cm566haiwff2j"]
 
 [ext_resource type="Texture2D" uid="uid://dpqjf8wl8h4o" path="res://Assets/Images/Objects/Props/Floodlight.png" id="1_1kwxt"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Floodlight.gd" id="1_7ptvu"]
+[ext_resource type="Texture2D" uid="uid://cucbprep2rong" path="res://Assets/Images/Objects/Misc/FloodlightParticle.png" id="3_0dqxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31011"]
 size = Vector2(60, 7)
+
+[sub_resource type="Gradient" id="Gradient_aokvv"]
+offsets = PackedFloat32Array(0, 0.344262, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.862745, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7rpdq"]
+gradient = SubResource("Gradient_aokvv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ax8nu"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+spread = 180.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+damping_min = 1.0
+damping_max = 1.0
+color_ramp = SubResource("GradientTexture1D_7rpdq")
 
 [node name="Floodlight" type="Node2D"]
 script = ExtResource("1_7ptvu")
@@ -19,5 +41,12 @@ texture = ExtResource("1_1kwxt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(28, 3.5)
 shape = SubResource("RectangleShape2D_31011")
+
+[node name="SparkParticles" type="GPUParticles2D" parent="."]
+position = Vector2(28, 7)
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_ax8nu")
+texture = ExtResource("3_0dqxq")
+lifetime = 3.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

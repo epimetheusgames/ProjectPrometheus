@@ -35,20 +35,20 @@ func _process(delta):
 		for child in $DialogueBoxContainer.get_children():
 			child.queue_free()
 			
-	var original_scale = Vector2(1, 1)
-	var original_pos = Vector2(-234, 111)
+	var original_scale = Vector2(0.25, 0.25)
+	var original_pos = Vector2(-236, 117)
 	
 	$FPSCounter.position = original_pos * (4 / zoom.x)
 	$FPSCounter.scale = original_scale * (4 / zoom.x)
 			
-	original_scale = Vector2(1, 1)
-	original_pos = Vector2(99, -136)
+	original_scale = Vector2(0.25, 0.25)
+	original_pos = Vector2(61, -133)
 	
 	$PointsCounter.position = original_pos * (4 / zoom.x)
 	$PointsCounter.scale = original_scale * (4 / zoom.x)
 	
-	original_scale = Vector2(1, 1)
-	original_pos = Vector2(-234, -134)
+	original_scale = Vector2(0.25, 0.25)
+	original_pos = Vector2(-236, -134)
 	
 	$TimeCounter.position = original_pos * (4 / zoom.x)
 	$TimeCounter.scale = original_scale * (4 / zoom.x)
