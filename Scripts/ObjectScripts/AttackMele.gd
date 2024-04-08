@@ -171,6 +171,8 @@ func _on_hurt_box_area_entered(area):
 			velocity.x = -direction * 7
 			velocity.y = -jump_vel / 1.7
 			
+			$SwordHit.play()
+			
 			if health == 0:
 				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()

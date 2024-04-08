@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ces80e2ev3flu"]
+[gd_scene load_steps=9 format=3 uid="uid://ces80e2ev3flu"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackMele.gd" id="1_7wlle"]
 [ext_resource type="SpriteFrames" uid="uid://corrgoc2jthw7" path="res://Objects/StaticObjects/AttackMeleAnimations.tres" id="2_6v6ej"]
 [ext_resource type="SpriteFrames" uid="uid://cvq50hlm1hhwg" path="res://Objects/StaticObjects/SpearAnimation.tres" id="3_38w03"]
+[ext_resource type="AudioStream" uid="uid://my48ww17lxuh" path="res://Assets/Audio/SFX/SwordHit.wav" id="4_72sbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lox5g"]
 size = Vector2(24, 49)
@@ -94,6 +95,12 @@ one_shot = true
 [node name="SwitchHurtboxEnabledTimer" type="Timer" parent="."]
 wait_time = 10000.0
 autostart = true
+
+[node name="SwordHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_72sbq")
+volume_db = 7.0
+pitch_scale = 0.6
+bus = &"SFX"
 
 [connection signal="animation_finished" from="SpearAnimation" to="." method="_on_spear_animation_animation_finished"]
 [connection signal="area_entered" from="JumpHurtBox" to="." method="_on_jump_hurt_box_area_entered"]

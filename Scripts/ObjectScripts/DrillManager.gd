@@ -159,6 +159,7 @@ func _on_jump_hurt_box_allways_active_area_entered(area):
 	if area.name == "PlayerHurtbox" && health > 0 && !tank:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0 || area.get_parent().is_swiping_sword:
 			health -= 1
+			$SwordHit.play()
 			
 			if health == 0:
 				get_parent().points += 5
