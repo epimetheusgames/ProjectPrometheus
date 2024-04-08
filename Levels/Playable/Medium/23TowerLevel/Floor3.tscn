@@ -270,9 +270,9 @@ motion_mirroring = Vector2(600, 400)
 [node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
 material = SubResource("ShaderMaterial_k17b7")
 offset_left = 40.0
-offset_top = -163.0
+offset_top = -40.0
 offset_right = 640.0
-offset_bottom = 237.0
+offset_bottom = 360.0
 color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

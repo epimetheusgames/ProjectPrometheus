@@ -37,12 +37,8 @@ func _process(delta):
 	
 	follow_position = $Player.position + ($PhysicsPlayerContainer.get_children()[0].position if $Player.physics_player else Vector2.ZERO)
 	$CameraCollider.position += (follow_position - $CameraCollider.position) * smoothing_1 * (delta * 60)
-	
-	var camera_velocity = ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
-	$Camera.position += camera_velocity
+	$Camera.position += ($CameraCollider.position - $Camera.position) * smoothing_2 * (delta * 60)
 	$Camera.zoom += (target_zoom - $Camera.zoom) * 0.01 * delta * 60
-	
-	$Camera.rotation = camera_velocity.x / 200
 	
 	# Generally a stable camera is more important then allways being able to see the player at
 	# one time. If there's a hitbox colliding with the CameraCollider, disable smoothing 

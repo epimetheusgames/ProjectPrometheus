@@ -1132,6 +1132,10 @@ position = Vector2(4048, -60)
 [node name="Ladder19" parent="." instance=ExtResource("21_je3sr")]
 position = Vector2(4048, -100)
 
+[node name="Artifact3" parent="." instance=ExtResource("30_nkey6")]
+position = Vector2(-493, -1228)
+uid = 404404404
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="ElevatorManager/Area2D" to="ElevatorManager" method="_on_area_2d_area_entered"]
