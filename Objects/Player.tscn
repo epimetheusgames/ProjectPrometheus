@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=124 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -92,6 +92,63 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lfc8"]
+size = Vector2(39.2308, 41.5385)
+
+[sub_resource type="Animation" id="Animation_a8bfa"]
+resource_name = "Fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sot3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_ln073"]
+resource_name = "Fadeout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.501961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8cff"]
+_data = {
+"Fadein": SubResource("Animation_a8bfa"),
+"Fadeout": SubResource("Animation_ln073"),
+"RESET": SubResource("Animation_sot3n")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f857k"]
 atlas = ExtResource("9_l4wr6")
@@ -717,6 +774,7 @@ value = 100.0
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
 process_mode = 1
+modulate = Color(1, 1, 1, 0.5)
 self_modulate = Color(2, 2, 2, 1)
 z_index = 50
 position = Vector2(0, 129)
@@ -765,6 +823,18 @@ position = Vector2(14.8333, -1.99995)
 rotation = 1.5708
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("10_qna8r")
+
+[node name="Transparentifier" type="Area2D" parent="Camera/AbilityManager"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/AbilityManager/Transparentifier"]
+position = Vector2(0.384616, -16.1539)
+shape = SubResource("RectangleShape2D_4lfc8")
+
+[node name="TransparentifierAnimationPlayer" type="AnimationPlayer" parent="Camera/AbilityManager"]
+libraries = {
+"": SubResource("AnimationLibrary_v8cff")
+}
+autoplay = "Fadein"
 
 [node name="TickerRing" type="AnimatedSprite2D" parent="Camera/AbilityManager"]
 position = Vector2(0.666666, -18.1667)
@@ -1814,6 +1884,8 @@ one_shot = true
 
 [connection signal="body_entered" from="CameraCollider/CameraColliderCollisionListener" to="." method="_on_camera_collider_collision_listener_body_entered"]
 [connection signal="body_exited" from="CameraCollider/CameraColliderCollisionListener" to="." method="_on_camera_collider_collision_listener_body_exited"]
+[connection signal="area_entered" from="Camera/AbilityManager/Transparentifier" to="Camera/AbilityManager" method="_on_transparentifier_area_entered"]
+[connection signal="area_exited" from="Camera/AbilityManager/Transparentifier" to="Camera/AbilityManager" method="_on_transparentifier_area_exited"]
 [connection signal="timeout" from="Camera/AbilityManager/AbililtySwitchTimer" to="Camera/AbilityManager" method="_on_abililty_switch_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinWaitTimer" to="Camera/AbilityManager" method="_on_fadin_wait_timer_timeout"]
 [connection signal="timeout" from="Camera/AbilityManager/FadinHalfWaitTimer" to="Camera/AbilityManager" method="_on_fadin_half_wait_timer_timeout"]

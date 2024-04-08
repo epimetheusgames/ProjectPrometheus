@@ -323,7 +323,7 @@ anchor_bottom = -10.2613
 offset_left = 5.0
 offset_top = 368.0
 offset_right = 1898.0
-offset_bottom = 3592.0
+offset_bottom = 3873.0
 scale = Vector2(0.615, 0.615)
 theme_override_font_sizes/font_size = 40
 text = "Created by Epimetheus Games"
@@ -410,8 +410,8 @@ Francesca Wrobel
 Isaac Phillips
 Oscar Logan
 Sequoia Haynes
-Griffin
-Axel
+Griffin Peet
+Axel Webber
 
 
 
@@ -420,7 +420,7 @@ Axel
 Francesca Wrobel
 Sequoia Haynes
 Noah Johnson-Green
-Dr. Garcia
+Dr. Alfonso Garcia
 
 
 

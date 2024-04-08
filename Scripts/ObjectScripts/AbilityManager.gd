@@ -140,3 +140,11 @@ func _on_fadin_half_wait_timer_timeout():
 		get_parent().get_parent().get_node("Player").current_ability = "Grapple"
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = true
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = false
+
+func _on_transparentifier_area_entered(area):
+	if area.name == "PlayerHurtbox":
+		$TransparentifierAnimationPlayer.play("Fadeout")
+
+func _on_transparentifier_area_exited(area):
+	if area.name == "PlayerHurtbox":
+		$TransparentifierAnimationPlayer.play("Fadein")
