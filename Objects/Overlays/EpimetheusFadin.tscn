@@ -6,66 +6,42 @@
 
 [sub_resource type="Animation" id="Animation_vdp20"]
 resource_name = "Anim"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LogoGreyscale:modulate")
+tracks/0/path = NodePath("LogoGreyscale:self_modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 2, 4, 10),
+"times": PackedFloat32Array(0, 1.7, 4.4, 8.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.176471), Color(1, 1, 1, 0.0823529), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0235294), Color(1, 1, 1, 0.14902), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Label:modulate")
+tracks/1/path = NodePath("Node2D/Label:self_modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 1.3, 6.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(4.5, 7, 8.3, 9.5, 10.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.0901961), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LogoGreyscale:rotation")
+tracks/2/path = NodePath("Node2D/Label:modulate")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.3, 7.5, 8.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(9.5, 10.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -0.925025, -1.0472]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LogoGreyscale:self_modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.7, 6.7, 9.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Label:self_modulate")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.7, 3.1, 4.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.239216), Color(1, 1, 1, 1), Color(1, 1, 1, 0.215686)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.160784)]
 }
 
 [sub_resource type="Animation" id="Animation_wesdj"]
@@ -73,62 +49,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LogoGreyscale:modulate")
+tracks/0/path = NodePath("LogoGreyscale:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.105882)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Label:modulate")
+tracks/1/path = NodePath("Node2D/Label:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("LogoGreyscale:rotation")
+tracks/2/path = NodePath("Node2D/Label:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LogoGreyscale:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/Label:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrxjc"]
@@ -154,16 +106,15 @@ self_modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("2_qao55")
-theme_override_font_sizes/font_size = 110
+theme_override_font_sizes/font_size = 128
 text = "Epimetheus Games
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LogoGreyscale" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.105882)
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(947, 560)
-scale = Vector2(-1, 1)
 texture = ExtResource("3_yipkc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

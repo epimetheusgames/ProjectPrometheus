@@ -38,6 +38,9 @@ func _ready():
 		if item_switch_type == "Grapple":
 			$GrappleCollect.visible = true
 			$GrappleCollect2.visible = true
+	
+	else:
+		$StaticBody2D.queue_free()
 			
 	$SwitcherCheckPoint.player_checkpoint_item = item_switch_type
 	

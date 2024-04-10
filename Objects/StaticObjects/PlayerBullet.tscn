@@ -74,6 +74,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
+z_index = 1
 script = ExtResource("1_des1p")
 
 [node name="PlayerBulletHurter" type="Area2D" parent="."]

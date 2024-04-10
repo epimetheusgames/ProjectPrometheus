@@ -554,7 +554,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -576,9 +576,9 @@ motion_mirroring = Vector2(600, 400)
 [node name="ColorRect" type="ColorRect" parent="Fog/ParallaxLayer"]
 material = SubResource("ShaderMaterial_32nnn")
 offset_left = -115.0
-offset_top = -163.0
+offset_top = 29.0
 offset_right = 485.0
-offset_bottom = 237.0
+offset_bottom = 429.0
 color = Color(0.419608, 0.419608, 0.419608, 1)
 
 [node name="DeathZone" type="Area2D" parent="."]

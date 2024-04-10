@@ -74,6 +74,7 @@ animations = [{
 }]
 
 [node name="DroneBullet" type="Node2D"]
+z_index = 1
 script = ExtResource("1_50na5")
 
 [node name="BulletHurter" type="Area2D" parent="."]

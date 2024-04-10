@@ -235,6 +235,7 @@ turbulence_noise_strength = 0.0
 turbulence_noise_scale = 0.0
 
 [node name="DrillManager" type="Node2D"]
+z_index = 1
 script = ExtResource("1_axli8")
 
 [node name="ExtRaycastDownRight" type="RayCast2D" parent="."]

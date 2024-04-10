@@ -7,4 +7,5 @@ func _on_timer_timeout():
 	var explosion_instance = explosion_loaded.instantiate()
 	explosion_instance.velocity.x = 10
 	explosion_instance.position = get_parent().get_parent().position + get_parent().position + position
+	explosion_instance.z_index = 10
 	get_parent().get_parent().get_parent().add_child(explosion_instance)

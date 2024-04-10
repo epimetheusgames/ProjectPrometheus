@@ -24,10 +24,12 @@ func round_place(x, place):
 	return round(x * pow(10, place)) / pow(10, place)
 
 func _ready():
+	# Do some stuff to make the graphics efficient.
 	if graphics_efficiency:
 		$Player/PlayerAmbianceParticles.queue_free()
 		$Camera/CrtOverlay.visible = false
-		
+	
+	# When transitioning between levels smoothly (not anymore) the camera should have the same offset as the last level.
 	$Camera.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 	$CameraCollider.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position
 
@@ -57,6 +59,7 @@ func _process(delta):
 	
 	var player_vel = 0
 	
+	# Light follows player.
 	$PointLight2D.position = $Player.position
 	
 	# You may notice here that I multiply the points by 10. This is to 
@@ -83,19 +86,25 @@ func _process(delta):
 	
 	$Camera/TimeCounter.text = "" + (("0" if hours > 10 else "") + ("0" if hours > 100 else "") + str(hours) + ":" if hours > 0 else "") + ("0" if minutes < 10 else "") + str(minutes) + ":" + ("0" if seconds < 10 else "") + str(seconds) + "." + str(round_place(extra, 2)).lstrip("0.")
 	
+	# Set camera offset.
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position = $CameraCollider.position - follow_position
-
+	
+	# Wow this code is so spaghetti this is for disabling the hurtbox of the 
+	# boss in the drone chase if the health is low enough.
 	if $Camera/BossBar.value <= -30 && get_parent().boss:
 		get_parent().get_node("DroneManager").get_node("Drone").get_node("DeathZone").get_node("CollisionPolygon2D").disabled = true
 
+	# Handle screenshake.
 	if screenshake_enabled:
 		$ScreenShake.visible = true
 	else:
 		$ScreenShake.visible = false
-		
+	
+	# It has to go away eventually.
 	if screenshake_enabled && $ScreenShakeDisableTimer.time_left <= 0:
 		$ScreenShakeDisableTimer.start()
-
+		
+# This is where it goes away.
 func _on_screen_shake_disable_timer_timeout():
 	screenshake_enabled = false
 
