@@ -4,6 +4,9 @@
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
+# Roomba robot -- Aaaaa Robot!                                                                           |
+# Duplicate of drill script (DrillManager.gd)                                                            |
+# -------------------------------------------------------------------------------------------------------|
 
 
 extends CharacterBody2D

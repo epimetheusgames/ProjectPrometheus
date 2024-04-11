@@ -1,8 +1,12 @@
 # -------------------------------------------------------------------------------------------------------|
-# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# -------------------------------------------------------------------------------------------------------|
+# Player physics and animations script. Probably should be seperated into two scripts. Handles death,    |
+# attacks, and runs animations of antenna and player. Grapple and ArmGun scripts are seperated into      |
+# child nodes.                                                                                           |
 # -------------------------------------------------------------------------------------------------------|
 
 
@@ -136,6 +140,8 @@ var disable_controlls = false
 # The string value of the current ability.
 var current_ability = "Weapon"
 
+
+# ------------------------ ON READY VALUES ------------------------
 
 # The position that we respawn at.
 @onready var respawn_pos = position
