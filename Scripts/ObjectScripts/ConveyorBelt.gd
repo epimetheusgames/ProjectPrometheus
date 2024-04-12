@@ -4,6 +4,8 @@
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
+# Conveyor belt variable code so that the player can be pushed around at the right speeds.               |
+# -------------------------------------------------------------------------------------------------------|
 
 
 extends Node2D

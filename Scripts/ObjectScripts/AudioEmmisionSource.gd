@@ -1,3 +1,12 @@
+# -------------------------------------------------------------------------------------------------------|
+# Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# All rights reserved.                                                                                   |
+#                                                                                                        |
+# Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# -------------------------------------------------------------------------------------------------------|
+# Raycast audio emmision source -- test node, has no comments.                                          /
+# -----------------------------------------------------------------------------------------------------
+
 extends Node2D
 
 

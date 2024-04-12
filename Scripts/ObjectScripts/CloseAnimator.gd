@@ -11,7 +11,10 @@
 extends Node2D
 
 
+# If the animation is closing right now.
 var closing = false
+
+# Check if we should start closing right now.
 var start = false
 
 func _process(delta):

@@ -4,13 +4,24 @@
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
+# Code for drills and other goomba-like objects.                                                         |
+# -------------------------------------------------------------------------------------------------------|
 
 
 extends Node2D
 
+
+# The direction to start in, on the x axis.
 @export var start_direction = 1
+
+# The health the drill has, before it's dead.
 @export var health = 3
+
+# If we should disable the hitbox when health reaches zero,
+# sometimes used on the boss levels.
 @export var disable_hitbox_when_dead = false
+
+# Per frame position increment for movement.
 @onready var speed = 0.5
 @onready var direction = speed * start_direction
 @export var no_nockback = false
