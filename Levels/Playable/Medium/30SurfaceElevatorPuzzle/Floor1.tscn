@@ -766,7 +766,6 @@ libraries = {
 [node name="ElevatorMusicPlayer" type="AudioStreamPlayer2D" parent="ElevatorManager"]
 position = Vector2(768, -40)
 stream = ExtResource("23_uehp8")
-volume_db = 15.0
 autoplay = true
 max_distance = 500.0
 bus = &"SpecialMusic"

@@ -18,6 +18,7 @@ size = Vector2(44, 52)
 size = Vector2(26, 42)
 
 [node name="AttackMele" type="CharacterBody2D"]
+z_index = 1
 platform_on_leave = 2
 script = ExtResource("1_7wlle")
 

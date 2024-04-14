@@ -312,6 +312,7 @@ bus = &"SFX"
 
 [node name="Switch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_r5njq")
+volume_db = -6.0
 bus = &"SFX"
 
 [connection signal="area_entered" from="ItemSwitcherArea" to="." method="_on_item_switcher_area_area_entered"]

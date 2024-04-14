@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=44 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -9,7 +9,6 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_5ewe1"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="7_nm8ya"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_lb0sn"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="9_cf24c"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_bxd2n"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="11_pcuoe"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="12_3rx5p"]
@@ -287,9 +286,6 @@ collision_mask = 2
 polygon = PackedVector2Array(-682, 236, 3164, 254, 3554, 254, 4322, -108, 4376, -150, 4412, -218, 4428, -350, 4422, -492, 4414, -804, 4408, -874, 4358, -942, 4288, -994, 4200, -1018, 4118, -1022, 4016, -1012, 3910, -966, 3856, -930, 3724, -902, 3520, -898, 3308, -902, 232, -870, 4998, -1356, 4692, 934)
 
 [node name="Player" parent="." instance=ExtResource("7_nm8ya")]
-
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("9_cf24c")
 
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)

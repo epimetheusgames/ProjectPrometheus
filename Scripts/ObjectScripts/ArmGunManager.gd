@@ -109,7 +109,7 @@ func _process(_delta):
 		$CrosshairMouseOverlay.rotation = $Segment3.rotation + deg_to_rad(225)
 		
 		# Spawn a bullet if the player presses shoot.
-		if (Input.is_action_just_pressed("mouse_click") || Input.is_action_just_pressed("attack")) && $CrosshairMouseOverlay.animation == "Idle":
+		if (Input.is_action_pressed("mouse_click") || Input.is_action_pressed("attack")) && $CrosshairMouseOverlay.animation == "Idle":
 			$CrosshairMouseOverlay.play("Shoot")
 			var bullet = loaded_bullet.instantiate()
 			bullet.position = get_parent().position + (Vector2(8, -18) if get_parent().previous_direction == -1 else Vector2(-12, -18)) + mouse_direction * 16

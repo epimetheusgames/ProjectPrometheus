@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------------------------------|
-# Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
 # All rights reserved.                                                                                   |
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
@@ -17,6 +17,11 @@ func _on_despawn_timer_timeout():
 		$Head/CollisionShape2D.queue_free()
 		$Body/CollisionShape2D2.queue_free()
 		$Wheel/CollisionShape2D3.queue_free()
+		
+		if $SpearLeft:
+			$SpearLeft.queue_free()
+		if $SpearRight:
+			$SpearRight.queue_free()
 
 func _on_queue_free_timer_timeout():
 	if !dont_fall:
