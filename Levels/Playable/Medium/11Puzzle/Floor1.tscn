@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://w4o65fm4hi32"]
+[gd_scene load_steps=34 format=3 uid="uid://w4o65fm4hi32"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_wt3c8"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_4bbdr"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_i1f5k"]
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="23_33m3n"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="23_g8e3j"]
+[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_yarlr"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="24_38163"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -457,6 +458,10 @@ tutorial_box_ind = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea"]
 position = Vector2(3.5, 5)
 shape = SubResource("RectangleShape2D_mtrpg")
+
+[node name="DoorAjarSprite" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("23_yarlr")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

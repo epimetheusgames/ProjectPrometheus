@@ -770,6 +770,7 @@ func _on_area_2d_area_entered(area):
 
 # Kill the player, with no animations, just restart.
 func die():
+	get_parent().get_parent().cannot_stop_special_music = true
 	get_parent().get_parent().deaths += 1
 	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
 

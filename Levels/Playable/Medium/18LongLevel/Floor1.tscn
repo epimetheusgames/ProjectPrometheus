@@ -441,7 +441,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BossBar" parent="Player/Camera" index="7"]
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="6"]
+[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
@@ -575,7 +575,7 @@ horizontal_smash = true
 wait_time = 2.0
 
 [node name="PistonSmasher5" parent="." instance=ExtResource("16_qlgxe")]
-position = Vector2(800, -96)
+position = Vector2(800, -84)
 rotation = -1.5708
 up_direction = Vector2(1, 0)
 horizontal_smash = true

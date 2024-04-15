@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=60 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="38_ms1na"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="38_q85fv"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="40_bqd3p"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/16Biodome/BiodomeMusicPlayerArea.gd" id="41_ev4nq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -469,6 +470,9 @@ animations = [{
 "name": &"Bird",
 "speed": 2.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioh01"]
+size = Vector2(5058, 938)
 
 [node name="Level4" type="Node2D"]
 position = Vector2(-72, 0)
@@ -5251,8 +5255,17 @@ points = PackedVector2Array(934, -87, 386, 139, 268.724, 113.981, 408.84, 18.199
 [node name="DroneSpritesheet" parent="DroneManager2/Drone" index="0"]
 self_modulate = Color(10, 7, 2.99, 1)
 
+[node name="BiodomeMusicPlayerArea" type="Area2D" parent="."]
+script = ExtResource("41_ev4nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BiodomeMusicPlayerArea"]
+position = Vector2(3794, 221)
+shape = SubResource("RectangleShape2D_ioh01")
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+[connection signal="area_entered" from="BiodomeMusicPlayerArea" to="BiodomeMusicPlayerArea" method="_on_area_entered"]
+[connection signal="area_exited" from="BiodomeMusicPlayerArea" to="BiodomeMusicPlayerArea" method="_on_area_exited"]
 
 [editable path="Player"]
 [editable path="DroneManager"]

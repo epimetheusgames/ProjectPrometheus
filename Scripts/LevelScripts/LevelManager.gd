@@ -33,6 +33,7 @@ var just_unpaused = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
 var last_100_raycasts = []
+var cannot_stop_special_music = false
 
 func _ready():
 	if graphics_efficiency:

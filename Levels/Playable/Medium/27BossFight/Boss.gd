@@ -7,6 +7,11 @@ extends CharacterBody2D
 @onready var loaded_mele = preload("res://Objects/StaticObjects/AttackMele.tscn")
 @onready var loaded_drill = preload("res://Objects/StaticObjects/Drill.tscn")
 @onready var loaded_bomb = preload("res://Objects/StaticObjects/Exploder.tscn")
+@onready var boss_fight_intro = preload("res://Assets/Audio/Music/BossFightThemeIntro.ogg")
+@onready var boss_fight_loop = preload("res://Assets/Audio/Music/BossFightThemeLoop.ogg")
+@onready var boss_fight_outro = preload("res://Assets/Audio/Music/BossFightOutro.wav")
+@onready var external_special_music_player = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer")
+@onready var save_load_framework = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework")
 @onready var start_pos = position 
 
 @export var health = 100
@@ -77,6 +82,25 @@ func _process(delta):
 	var target_pos = start_pos
 	var no_bob = false
 	bob_x += 0.01 * delta * 60
+	
+	if health <= 0 && position.y > -1250:
+		save_load_framework.end_special_music()
+	
+	if (!external_special_music_player.stream || external_special_music_player.playing == false) && health > 0:
+		if save_load_framework.boss_music_ind == -1:
+			save_load_framework.start_special_music()
+			external_special_music_player.stream = boss_fight_intro
+			external_special_music_player.play()
+			save_load_framework.boss_music_ind = 0
+		elif (save_load_framework.boss_music_ind == -1 || save_load_framework.boss_music_ind == 0) && health > 0:
+			external_special_music_player.stream = boss_fight_loop
+			external_special_music_player.play()
+		else:
+			external_special_music_player.stream = boss_fight_outro
+			external_special_music_player.play()
+			save_load_framework.boss_music_ind = 1
+			
+			
 	
 	if !player.current_ability == "Weapon":
 		dropped_enemies = false

@@ -148,6 +148,7 @@ const music_files = [
 	preload("res://Assets/Audio/Music/Arpeggiator.ogg"),
 	preload("res://Assets/Audio/Music/Winds-of-Exhilation.ogg"),
 	preload("res://Assets/Audio/Music/Metallic-Fire.ogg"),
+	preload("res://Assets/Audio/Music/AlejandroLevelMusic.wav")
 ]
 
 const intense_music_files = [
@@ -169,6 +170,7 @@ var playing_special_music = false
 var playing_intense_music = false
 var has_keycard = false
 var boss_fifty_percent = false
+var boss_music_ind = -1
 
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 
@@ -215,7 +217,7 @@ func _process(delta):
 	# Induce artificial lag
 	#OS.delay_msec(rng.randi_range(20, 200))
 	
-	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 4:
+	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 5:
 		var musics_list = music_files if !get_parent().get_node("Level").get_children()[0].intense_music else intense_music_files
 		
 		var music_index = rng.randi_range(0, len(musics_list) - 1)
@@ -228,13 +230,13 @@ func _process(delta):
 		$BackgroundMusicPlayer.playing = true
 		last_music_ind = music_index
 	
-	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 4:
+	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 5:
 		$BackgroundMusicPlayer.playing = false
 	
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
 	real_static += (static_amm - real_static) * 0.05 * delta * 60
 	
-	if len(get_children()) > 4:
+	if len(get_children()) > 5:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", 0.0)
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("static_scale", 0.0)
 	else:
@@ -295,7 +297,9 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	var slot_deaths = level_data[5]
 	
 	update_rpc_discord(current_level + 1 if !level else level + 1)
-	end_special_music()
+	
+	if !$SpecialAudioPlayer.playing:
+		end_special_music()
 	
 	var global_data = load_data("global")
 	
