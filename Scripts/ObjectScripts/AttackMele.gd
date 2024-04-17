@@ -245,6 +245,7 @@ func _on_hurt_box_area_entered(area):
 			$SwordHit.play()
 			
 			if health == 0:
+				$LightOccluder2D.visible = false
 				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE

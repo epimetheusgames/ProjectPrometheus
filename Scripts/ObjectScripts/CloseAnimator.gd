@@ -48,6 +48,12 @@ func _process(delta):
 			Engine.time_scale -= 0.01
 			
 		$ColorRect.color.a += 0.001 * delta * 60
+		
+	if closing:
+		get_parent().get_parent().get_node("Player").get_node("PointLight2D").visible = false
+		
+		if get_parent().get_parent().get_parent().get_node_or_null("Fog"):
+			get_parent().get_parent().get_parent().get_node("Fog").visible = false
 
 func _on_death_wait_timer_timeout():
 	if (get_parent().get_parent().get_parent().is_multiplayer && get_parent().get_parent().is_multiplayer_authority()) || !get_parent().get_parent().get_parent().is_multiplayer:

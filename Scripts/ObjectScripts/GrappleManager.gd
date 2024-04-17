@@ -146,7 +146,7 @@ func _physics_process(delta):
 			$LinePorabola.points[1] = mouse_direction * 10000
 			$LinePorabola.visible = true
 			
-			if Input.is_action_just_pressed("mouse_click"):
+			if Input.is_action_just_pressed("mouse_right_click"):
 				$GrappleShoot.play()
 				grapling = true
 				
@@ -155,15 +155,14 @@ func _physics_process(delta):
 					if $"../RightWallRaycast".get_collider():
 						get_parent().velocity.x = -0.5
 					if $"../LeftWallRaycast".get_collider():
-						get_parent().velocity.x = 0.5
-					
+						get_parent().velocity.x = 0.5 
 				
 				air_grapling = true
 				
 				$GrappleBody.velocity = mouse_direction * 15
 				$GrappleBody.position = Vector2.ZERO
 			
-			if Input.is_action_just_pressed("mouse_right_click"):
+			if Input.is_action_just_pressed("mouse_click"):
 				$GrappleShoot.play()
 				$GrappleUp.play()
 				

@@ -825,6 +825,7 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("10_qna8r")
 
 [node name="Transparentifier" type="Area2D" parent="Camera/AbilityManager"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/AbilityManager/Transparentifier"]
 position = Vector2(0.384616, -16.1539)
@@ -872,7 +873,7 @@ texture_progress = SubResource("GradientTexture2D_22v3w")
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
 process_mode = 3
-z_index = 50
+z_index = 100
 script = ExtResource("11_opf60")
 
 [node name="ColorRect" type="ColorRect" parent="Camera/CloseAnimator"]

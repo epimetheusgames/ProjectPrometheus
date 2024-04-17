@@ -233,7 +233,9 @@ func _physics_process(delta):
 	# authority or the game isn't in multiplayer mode.
 	if (get_parent().get_parent().is_multiplayer && get_parent().is_multiplayer_authority()) || !get_parent().get_parent().is_multiplayer:
 		if Input.is_action_just_pressed("respawn"):
-			die()
+			get_parent().get_node("Camera").get_node("CloseAnimator").closing = true
+			Engine.time_scale = 0.6
+			get_node("HurtVibrationTimer").start()
 		
 		# Set the player's light to be invisible if we're on efficient graphics
 		# mode.
