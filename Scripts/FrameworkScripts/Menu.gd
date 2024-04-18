@@ -191,3 +191,21 @@ func _on_credits_button_mouse_entered():
 
 func _on_quit_button_mouse_entered():
 	hovered_button = "QuitHighlight"
+
+func _on_type_1_button_up():
+	character_type = 1
+
+func _on_type_2_button_up():
+	character_type = 2
+
+func _on_type_3_button_up():
+	character_type = 3
+
+func _on_type_4_button_up():
+	character_type = 4
+
+func _on_select_character_start_button_up():
+	pass # Replace with function body.
+
+func _on_cancel_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectCharacterMenuRiseFromDepthsAnimation")
