@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://w4o65fm4hi32"]
+[gd_scene load_steps=37 format=3 uid="uid://w4o65fm4hi32"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_wt3c8"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_4bbdr"]
@@ -9,9 +9,12 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="8_glo58"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="9_57kgj"]
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_c1ru7"]
+[ext_resource type="Texture2D" uid="uid://jcc3t88rfxh0" path="res://addons/controller_icons/assets/xbox360/x.png" id="11_ey7xa"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_tc6ql"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="12_j0x3t"]
+[ext_resource type="Texture2D" uid="uid://d2qha4gd4x604" path="res://addons/controller_icons/assets/xbox360/rt.png" id="12_wamjk"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_3iboh"]
+[ext_resource type="Texture2D" uid="uid://dhhjoq01cc2oh" path="res://addons/controller_icons/assets/xbox360/lt.png" id="13_w2c7k"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_f1lqg"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_rx7ld"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_koiyi"]
@@ -269,6 +272,48 @@ metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ItemSwitcherDialogue" index="3"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/YourItemHasChanged" index="3"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToShoot" index="3"]
+texture = ExtResource("12_wamjk")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/WASDToMove" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToWeapon" index="3"]
+texture = ExtResource("12_wamjk")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/ShootSwitch" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/JumpToSwing" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/JumpToSwing" index="4"]
+texture = ExtResource("12_wamjk")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/TimerDialogue" index="3"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/SecretAreaAbove" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="2"]
+texture = ExtResource("11_ey7xa")
+
+[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
+texture = ExtResource("13_w2c7k")
 
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)

@@ -149,6 +149,13 @@ func _on_settings_back_button_button_up():
 
 func _on_start_button_up():
 	var global_data = get_parent().get_parent().load_data("global")
+	var local_slot_data = get_parent().get_parent().load_data("slot_" + str($SlotSelect.value))
+	
+	if !local_slot_data[6]:
+		# *Scoffs* ... "you think your name is long ... MINE IS LONGER"
+		get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
+		return
+	
 	get_parent().get_parent().start_game($SlotSelect.value, character_type, global_data[0], null, null, $LevelSelect.value - 1 if $LevelSelect.value != get_parent().get_parent().load_data($SlotSelect.value)[0] + 1 else null, 0)
 
 func _on_type_1_button_down():

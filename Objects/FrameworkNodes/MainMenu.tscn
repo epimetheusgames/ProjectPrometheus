@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=16 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cvcjj8cbkbm0t" path="res://Assets/Audio/Music/TitleTheme.ogg" id="5_1iyyo"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="5_gbr5l"]
 [ext_resource type="PackedScene" uid="uid://8wkn32xb6sat" path="res://Objects/StaticObjects/Mark8Terminal.tscn" id="7_45vfl"]
+[ext_resource type="PackedScene" uid="uid://b5jimb53wf7mf" path="res://Objects/FrameworkNodes/SelectCharacterMenu.tscn" id="10_efby5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avgeh"]
 atlas = ExtResource("5_gbr5l")
@@ -24,6 +25,43 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_m3kv1"]
+resource_name = "SelectCharacterMenuRiseFromDepthsAnimation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectCharacterMenu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(970, 1404), Vector2(970, 580)]
+}
+
+[sub_resource type="Animation" id="Animation_ocsnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectCharacterMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(962, 1404)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25fe3"]
+_data = {
+"RESET": SubResource("Animation_ocsnc"),
+"SelectCharacterMenuRiseFromDepthsAnimation": SubResource("Animation_m3kv1")
+}
 
 [node name="MainMenu" type="Node2D"]
 editor_description = "This scene should include the UI for the main menu."
@@ -66,6 +104,7 @@ scale = Vector2(7.645, 7.645)
 
 [node name="DronePile" type="Node2D" parent="Background"]
 modulate = Color(0.392157, 0.392157, 0.392157, 1)
+z_index = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="Background/DronePile"]
 color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -245,6 +284,7 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_hqegk")
 
 [node name="Polygon2D" type="Polygon2D" parent="Background"]
+z_index = 1
 color = Color(0.00784314, 0.00784314, 0.00784314, 0.290196)
 antialiased = true
 polygon = PackedVector2Array(926, 866, 882, 1081, 1058, 1081, 1010, 854, 986, 854, 987, 935, 956, 935, 950, 866)
@@ -379,6 +419,14 @@ first = false
 stream = ExtResource("5_1iyyo")
 autoplay = true
 bus = &"Music"
+
+[node name="SelectCharacterMenu" parent="." instance=ExtResource("10_efby5")]
+position = Vector2(962, 1404)
+
+[node name="SelectCharacterMenuRiseFromDepthsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_25fe3")
+}
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
