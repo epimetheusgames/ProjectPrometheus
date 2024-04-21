@@ -1,0 +1,220 @@
+[gd_scene load_steps=8 format=3 uid="uid://demml7f8xyw1n"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egacv"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_0kaei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbquh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.698039)
+shadow_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a804u"]
+bg_color = Color(0.568627, 0.568627, 0.568627, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 43
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3bx2"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb7rl"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.654902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu515"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 4
+
+[node name="SelectSlotMenu" type="Node2D"]
+script = ExtResource("1_egacv")
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(0.317647, 0.317647, 0.317647, 0.188235)
+offset_left = -495.0
+offset_top = -225.0
+offset_right = 495.0
+offset_bottom = 155.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1" type="Button" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+offset_left = -453.0
+offset_top = -131.0
+offset_right = 319.0
+offset_bottom = 645.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_0kaei")
+theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_font_sizes/font_size = 247
+theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+text = "Slot 1"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot2" type="Button" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+offset_left = -264.0
+offset_top = -131.0
+offset_right = 511.0
+offset_bottom = 642.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_0kaei")
+theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_font_sizes/font_size = 247
+theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+toggle_mode = true
+text = "Slot 2"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot3" type="Button" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+offset_left = -74.0
+offset_top = -131.0
+offset_right = 701.0
+offset_bottom = 642.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_0kaei")
+theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_font_sizes/font_size = 247
+theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+toggle_mode = true
+text = "Slot 3"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot4" type="Button" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+offset_left = 118.0
+offset_top = -131.0
+offset_right = 890.0
+offset_bottom = 645.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_0kaei")
+theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_font_sizes/font_size = 247
+theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+toggle_mode = true
+text = "Slot 4"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot5" type="Button" parent="."]
+modulate = Color(0.529412, 0.529412, 0.529412, 1)
+offset_left = 306.0
+offset_top = -131.0
+offset_right = 1064.0
+offset_bottom = 642.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_0kaei")
+theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_font_sizes/font_size = 247
+theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+toggle_mode = true
+text = "Slot 5"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -135.0
+offset_top = -182.0
+offset_right = 1215.0
+offset_bottom = -45.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_p3bx2")
+text = "Please select a game slot"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SelectSlotStart" type="Button" parent="."]
+offset_left = -85.0
+offset_top = 54.0
+offset_right = 86.0
+offset_bottom = 106.0
+theme = ExtResource("2_0kaei")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb7rl")
+text = "Continue"
+
+[node name="SelectSlotCancel" type="Button" parent="."]
+offset_left = -285.0
+offset_top = 54.0
+offset_right = -114.0
+offset_bottom = 106.0
+theme = ExtResource("2_0kaei")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
+text = "Cancel"
+
+[node name="ClearSlot" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 54.0
+offset_right = 291.0
+offset_bottom = 106.0
+theme = ExtResource("2_0kaei")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
+text = "Clear Slot"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = -485.0
+offset_top = -215.0
+offset_right = 485.0
+offset_bottom = 145.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelSelect" type="SpinBox" parent="."]
+texture_filter = 2
+offset_left = -454.0
+offset_top = -185.0
+offset_right = -282.0
+offset_bottom = -150.0
+theme = ExtResource("2_0kaei")
+min_value = 1.0
+max_value = 456743.0
+value = 1.0
+prefix = "Level Select"
+
+[node name="LevelName" type="Label" parent="."]
+texture_filter = 2
+offset_left = -271.0
+offset_top = -181.0
+offset_right = -137.0
+offset_bottom = -154.0
+theme = ExtResource("2_0kaei")
+text = "Level Name"
+
+[connection signal="button_up" from="Slot1" to="." method="_on_slot_1_button_up"]
+[connection signal="button_up" from="Slot2" to="." method="_on_slot_2_button_up"]
+[connection signal="button_up" from="Slot3" to="." method="_on_slot_3_button_up"]
+[connection signal="button_up" from="Slot4" to="." method="_on_slot_4_button_up"]
+[connection signal="button_up" from="Slot5" to="." method="_on_slot_5_button_up"]
+[connection signal="button_up" from="SelectSlotStart" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="SelectSlotCancel" to="." method="_on_select_slot_cancel_button_up"]
+[connection signal="button_up" from="ClearSlot" to="." method="_on_clear_slot_button_up"]

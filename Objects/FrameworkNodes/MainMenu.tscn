@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=20 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="5_gbr5l"]
 [ext_resource type="PackedScene" uid="uid://8wkn32xb6sat" path="res://Objects/StaticObjects/Mark8Terminal.tscn" id="7_45vfl"]
 [ext_resource type="PackedScene" uid="uid://b5jimb53wf7mf" path="res://Objects/FrameworkNodes/SelectCharacterMenu.tscn" id="10_efby5"]
+[ext_resource type="PackedScene" uid="uid://demml7f8xyw1n" path="res://Objects/FrameworkNodes/SelectSlotMenu.tscn" id="10_id2k6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avgeh"]
 atlas = ExtResource("5_gbr5l")
@@ -25,6 +26,93 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_ocsnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectCharacterMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(962, 1404)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SelectSlotMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(945, 1403)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StartGameFadeToBlack:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background/Mark8Terminal:disable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_m3kv1"]
 resource_name = "SelectCharacterMenuRiseFromDepthsAnimation"
@@ -42,25 +130,181 @@ tracks/0/keys = {
 "values": [Vector2(970, 1404), Vector2(970, 580)]
 }
 
-[sub_resource type="Animation" id="Animation_ocsnc"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hhovo"]
+resource_name = "SelectSlotMenuRiseFromDepthsAnimation"
+length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SelectCharacterMenu:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath("SelectSlotMenu:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(962, 1404)]
+"values": [Vector2(945, 1403), Vector2(945, 579)]
+}
+
+[sub_resource type="Animation" id="Animation_y7ud7"]
+resource_name = "SelectSlotMenuStartGameAnimation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectSlotMenu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(953, 579), Vector2(953, 1403)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.5, 2.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.1, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(952, 276)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Title:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartGameFadeToBlack:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/Mark8Terminal:disable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_1fm8l"]
+resource_name = "SelectCharacterMenuStartGameAnimation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.9, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.1, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(952, 276)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Title:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartGameFadeToBlack:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/Mark8Terminal:disable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SelectCharacterMenu:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(962, 580), Vector2(962, 1404)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_25fe3"]
 _data = {
 "RESET": SubResource("Animation_ocsnc"),
-"SelectCharacterMenuRiseFromDepthsAnimation": SubResource("Animation_m3kv1")
+"SelectCharacterMenuRiseFromDepthsAnimation": SubResource("Animation_m3kv1"),
+"SelectCharacterMenuStartGameAnimation": SubResource("Animation_1fm8l"),
+"SelectSlotMenuRiseFromDepthsAnimation": SubResource("Animation_hhovo"),
+"SelectSlotMenuStartGameAnimation": SubResource("Animation_y7ud7")
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -98,6 +342,7 @@ offset = 1
 visible = false
 
 [node name="Mark8Eyes" parent="Background/Mark8Terminal" index="1"]
+self_modulate = Color(1, 1, 1, 1)
 texture_filter = 1
 position = Vector2(28.595, -9.24)
 scale = Vector2(7.645, 7.645)
@@ -290,6 +535,11 @@ antialiased = true
 polygon = PackedVector2Array(926, 866, 882, 1081, 1058, 1081, 1010, 854, 986, 854, 987, 935, 956, 935, 950, 866)
 uv = PackedVector2Array(0, 0)
 
+[node name="StartGameFadeToBlack" type="ColorRect" parent="."]
+offset_right = 1930.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 0)
+
 [node name="Title" type="Label" parent="."]
 offset_left = 60.0
 offset_top = 42.0
@@ -406,27 +656,34 @@ offset_bottom = 960.0
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
 visible = false
 z_index = 1
-position = Vector2(349, -37)
+position = Vector2(317, -125)
 first = false
 
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
 visible = false
 z_index = 2
-position = Vector2(342, -27)
+position = Vector2(317, -210)
 first = false
+
+[node name="SelectCharacterMenu" parent="." instance=ExtResource("10_efby5")]
+position = Vector2(962, 1404)
+
+[node name="SelectSlotMenu" parent="." instance=ExtResource("10_id2k6")]
+position = Vector2(945, 1403)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_1iyyo")
 autoplay = true
 bus = &"Music"
 
-[node name="SelectCharacterMenu" parent="." instance=ExtResource("10_efby5")]
-position = Vector2(962, 1404)
-
 [node name="SelectCharacterMenuRiseFromDepthsAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_25fe3")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+position_smoothing_enabled = true
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
@@ -437,5 +694,6 @@ libraries = {
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="animation_finished" from="SelectCharacterMenuRiseFromDepthsAnimationPlayer" to="." method="_on_select_character_menu_rise_from_depths_animation_player_animation_finished"]
 
 [editable path="Background/Mark8Terminal"]

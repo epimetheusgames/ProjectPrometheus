@@ -8,6 +8,7 @@
 extends Node2D
 
 var character_type = 1
+var slot_num = 1
 var deactivated = false
 var credits_open = false
 @export var first = true
@@ -16,6 +17,7 @@ var hovered_button = "PlayButton"
 var selected_other_menu = false
 var settings_menu_selected = false
 var background_original_pos = Vector2.ZERO
+var open_character_select_menu = false
 
 func deactivate():
 	hide()
@@ -128,8 +130,7 @@ func _process(_delta):
 		$Background.position = background_original_pos + get_local_mouse_position() / 100
 
 func _on_play_button_button_up():
-	$SettingsMenu.visible = false
-	$StartGameMenu.visible = true
+	get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectSlotMenuRiseFromDepthsAnimation")
 	
 func _on_settings_button_button_up():
 	$SettingsMenu.visible = true
@@ -148,16 +149,20 @@ func _on_settings_back_button_button_up():
 	visible = false
 
 func _on_start_button_up():
+	print(character_type)
 	var global_data = get_parent().get_parent().load_data("global")
-	var local_slot_data = get_parent().get_parent().load_data("slot_" + str($SlotSelect.value))
+	var local_slot_data = get_parent().get_parent().load_data(slot_num)
+	
+	_on_select_slot_cancel_button_up()
 	
 	if !local_slot_data[6]:
 		# *Scoffs* ... "you think your name is long ... MINE IS LONGER"
-		get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
+		get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
+		open_character_select_menu = true
 		return
 	
-	get_parent().get_parent().start_game($SlotSelect.value, character_type, global_data[0], null, null, $LevelSelect.value - 1 if $LevelSelect.value != get_parent().get_parent().load_data($SlotSelect.value)[0] + 1 else null, 0)
-
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectSlotMenuStartGameAnimation")
+	
 func _on_type_1_button_down():
 	character_type = 1
 
@@ -171,7 +176,8 @@ func _on_type_4_button_down():
 	character_type = 4
 
 func _on_clear_slot_button_up():
-	get_parent().get_parent().save_data(0, 0, $SlotSelect.value, 0, 0, {}, 0)
+	print(slot_num)
+	get_parent().get_parent().save_data(0, 0, slot_num, 0, 0, {}, 0, false, 1)
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()
@@ -205,7 +211,50 @@ func _on_type_4_button_up():
 	character_type = 4
 
 func _on_select_character_start_button_up():
-	pass # Replace with function body.
-
+	_on_cancel_button_up()
+	var local_slot_data = get_parent().get_parent().load_data(slot_num)
+	
+	get_parent().get_parent().save_data(local_slot_data[0], local_slot_data[1], slot_num, local_slot_data[2], local_slot_data[3], local_slot_data[4], local_slot_data[5], true, character_type)
+	
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuStartGameAnimation")
+	
 func _on_cancel_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectCharacterMenuRiseFromDepthsAnimation")
+
+func _on_select_slot_cancel_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
+	
+func _on_slot_1_button_up():
+	$LevelSelect.max_value = get_parent().get_parent().load_data(1)[0] + 1
+	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(1)[0] + 1)
+	slot_num = 1
+	
+func _on_slot_2_button_up():
+	$LevelSelect.max_value = get_parent().get_parent().load_data(2)[0] + 1
+	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(2)[0] + 1)
+	slot_num = 2
+	
+func _on_slot_3_button_up():
+	$LevelSelect.max_value = get_parent().get_parent().load_data(3)[0] + 1
+	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(3)[0] + 1)
+	slot_num = 3
+	
+func _on_slot_4_button_up():
+	$LevelSelect.max_value = get_parent().get_parent().load_data(4)[0] + 1
+	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(4)[0] + 1)
+	slot_num = 4
+	
+func _on_slot_5_button_up():
+	$LevelSelect.max_value = get_parent().get_parent().load_data(5)[0] + 1
+	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(5)[0] + 1)
+	slot_num = 5
+
+func _on_select_character_menu_rise_from_depths_animation_player_animation_finished(anim_name):
+	var global_data = get_parent().load_data("global")
+	var local_slot_data = get_parent().load_data(slot_num)
+	
+	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation":
+		get_parent().start_game(slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectCharacterMenu.slot_num)[0] + 1 else null, 0)
+	if anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu:
+		$SelectSlotMenu.open_character_select_menu = false
+		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
