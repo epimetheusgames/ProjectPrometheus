@@ -159,6 +159,24 @@ offset_bottom = 1010.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
 
+[node name="Panel7" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 908.0
+offset_top = 890.0
+offset_right = 1167.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel8" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 908.0
+offset_top = 954.0
+offset_right = 1167.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
 [node name="Panel6" type="Panel" parent="."]
 modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
 offset_left = 642.0
@@ -178,5 +196,35 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("2_oee3f")
 text = "Show Death Counter"
 
+[node name="WindowTypeSelection" type="OptionButton" parent="."]
+offset_left = 911.0
+offset_top = 893.0
+offset_right = 1164.0
+offset_bottom = 943.0
+item_count = 2
+selected = 0
+popup/item_0/text = "Window Type: Fullscreen"
+popup/item_0/id = 1
+popup/item_1/text = "Window Type: Windowed"
+popup/item_1/id = 0
+
+[node name="VSyncModeSelection" type="OptionButton" parent="."]
+offset_left = 911.0
+offset_top = 957.0
+offset_right = 1164.0
+offset_bottom = 1007.0
+item_count = 4
+selected = 0
+popup/item_0/text = "VSync Mode: Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "VSync Mode: Disabled"
+popup/item_1/id = 1
+popup/item_2/text = "VSync Mode: Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "VSync Mode: Mailbox"
+popup/item_3/id = 3
+
 [connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
 [connection signal="mouse_entered" from="Panel3" to="." method="_on_panel_3_mouse_entered"]
+[connection signal="item_selected" from="WindowTypeSelection" to="." method="_on_window_type_selection_item_selected"]
+[connection signal="item_selected" from="VSyncModeSelection" to="." method="_on_v_sync_mode_selection_item_selected"]

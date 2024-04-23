@@ -45,6 +45,15 @@ func _ready():
 		$ShowPoints.button_pressed = global_data[5]
 		$ShowSpeedrunTimer.button_pressed = global_data[6]
 		
+		# Compatability with versions < Beta 1.2
+		if len(global_data) > 7:
+			$WindowTypeSelection.selected = global_data[7]
+			$VSyncModeSelection.selected = global_data[8]
+			
+			var index = global_data[8]
+			
+			
+			
 	if name == "StartGameMenu":
 		$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data($SlotSelect.value)[0] + 1)
 
@@ -63,7 +72,9 @@ func _process(_delta):
 			str($Difficulty.button_pressed) + "," + 
 			str($ShowFPS.button_pressed) + "," + 
 			str($ShowPoints.button_pressed) + "," + 
-			str($ShowSpeedrunTimer.button_pressed) + 
+			str($ShowSpeedrunTimer.button_pressed) + "," +
+			str($WindowTypeSelection.selected) + "," +
+			str($VSyncModeSelection.selected) + "," +
 			"]", "global")
 
 		if settings_menu_selected:
@@ -149,7 +160,6 @@ func _on_settings_back_button_button_up():
 	visible = false
 
 func _on_start_button_up():
-	print(character_type)
 	var global_data = get_parent().get_parent().load_data("global")
 	var local_slot_data = get_parent().get_parent().load_data(slot_num)
 	
@@ -176,7 +186,6 @@ func _on_type_4_button_down():
 	character_type = 4
 
 func _on_clear_slot_button_up():
-	print(slot_num)
 	get_parent().get_parent().save_data(0, 0, slot_num, 0, 0, {}, 0, false, 1)
 
 func _on_audio_stream_player_finished():
@@ -254,7 +263,24 @@ func _on_select_character_menu_rise_from_depths_animation_player_animation_finis
 	var local_slot_data = get_parent().load_data(slot_num)
 	
 	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation":
-		get_parent().start_game(slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectCharacterMenu.slot_num)[0] + 1 else null, 0)
+		print("DEBUG: Entered game in slot " + str(get_parent().load_data($SelectSlotMenu.slot_num)[0]))
+		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0)
 	if anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu:
 		$SelectSlotMenu.open_character_select_menu = false
 		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
+
+func _on_window_type_selection_item_selected(index):
+	if index == 0:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if index == 1:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_v_sync_mode_selection_item_selected(index):
+	if index == 0:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	if index == 1:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	if index == 2:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+	if index == 3:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)

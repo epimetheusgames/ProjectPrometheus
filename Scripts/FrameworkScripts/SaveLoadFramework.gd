@@ -332,9 +332,6 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	if level != null:
 		level_loaded.is_max_level = false
 	
-	if level != null:
-		level_loaded.is_max_level = false
-	
 	if player_spawn_pos && !level_loaded.is_multiplayer:
 		level_loaded.get_node("Player").get_node("Player").position = player_spawn_pos
 		level_loaded.get_node("Player").get_node("Player").current_ability = player_respawn_ability

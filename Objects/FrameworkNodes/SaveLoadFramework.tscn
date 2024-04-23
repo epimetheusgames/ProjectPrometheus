@@ -13,7 +13,6 @@ glow_levels/5 = 0.25
 glow_levels/7 = 2.0
 glow_intensity = 1.45
 glow_blend_mode = 1
-glow_hdr_scale = 1.0
 
 [sub_resource type="Animation" id="Animation_p8gmw"]
 resource_name = "FadeinLevelMusic"

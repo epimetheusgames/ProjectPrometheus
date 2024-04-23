@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy1jq84e4ww4"]
+[gd_scene load_steps=24 format=3 uid="uid://dy1jq84e4ww4"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneManager.gd" id="1_rkyvx"]
 [ext_resource type="Texture2D" uid="uid://dgvalkix6ijlb" path="res://Assets/Images/Objects/Misc/CloudThing.png" id="2_qrewg"]
@@ -111,6 +111,9 @@ width = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp6ji"]
 size = Vector2(4, 2)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x4p2t"]
+polygon = PackedVector2Array(-6, 2, -4, 2, -4, 1, 4, 1, 4, 2, 6, 2, 6, 0, 7, 0, 7, -2, 8, -2, 8, -4, 9, -4, 9, -5, 10, -5, 10, -3, 11, -3, 11, -8, 11, -9, 9, -9, 9, -7, 7, -7, 7, -6, 6, -6, 6, -5, 5, -5, 5, -4, 4, -4, 4, -5, -4, -5, -4, -4, -5, -4, -5, -5, -6, -5, -6, -6, -7, -6, -7, -7, -9, -7, -9, -8, -7, -8, -7, -9, -13, -9, -13, -8, -11, -8, -11, -3, -10, -3, -10, -5, -9, -5, -9, -4, -8, -4, -8, -2, -7, -2, -7, 0, -6, 0)
+
 [node name="DroneManager" type="Node2D"]
 script = ExtResource("1_rkyvx")
 
@@ -174,6 +177,9 @@ polygon = PackedVector2Array(6, 3, 12, -3, 12, -10, -12, -10, -12, -2, -6, 3)
 position = Vector2(0, 1)
 rotation = 1.5708
 texture = ExtResource("4_sscxf")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Drone"]
+occluder = SubResource("OccluderPolygon2D_x4p2t")
 
 [node name="BulletCooldown" type="Timer" parent="."]
 wait_time = 0.1

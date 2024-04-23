@@ -1,9 +1,10 @@
-[gd_scene load_steps=149 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=151 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_0nphy"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_eufvj"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="3_vr272"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="4_mouxu"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="5_ap23i"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="6_ad5ab"]
@@ -95,9 +96,14 @@ texture_region_size = Vector2i(32, 32)
 10:3/0 = 0
 11:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbm78"]
+texture = ExtResource("3_vr272")
+texture_region_size = Vector2i(32, 32)
+
 [sub_resource type="TileSet" id="TileSet_dgxbs"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_yd36w")
+sources/1 = SubResource("TileSetAtlasSource_lbm78")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
@@ -1185,7 +1191,7 @@ position = Vector2(0, 1)
 [node name="PointsCounter" parent="Player/Camera" index="4"]
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="6"]
+[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/Inventory/SlotBackgrounds" index="0"]

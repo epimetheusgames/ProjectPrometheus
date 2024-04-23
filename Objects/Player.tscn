@@ -1264,7 +1264,7 @@ offset_bottom = 170.0
 scale = Vector2(0.3, 0.3)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/normal_font_size = 25
-text = "You now have 20 seconds to reach the next Item Switcher. Good luck."
+text = "You now have 20 seconds to reach the next Item Cycler. Good luck."
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Camera/TutorialDialogues/TimerDialogue"]
 offset_left = 65.0
