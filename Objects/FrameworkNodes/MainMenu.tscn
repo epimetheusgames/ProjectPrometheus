@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=22 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://cvcjj8cbkbm0t" path="res://Assets/Audio/Music/TitleTheme.ogg" id="5_1iyyo"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="5_gbr5l"]
 [ext_resource type="PackedScene" uid="uid://8wkn32xb6sat" path="res://Objects/StaticObjects/Mark8Terminal.tscn" id="7_45vfl"]
+[ext_resource type="FontFile" uid="uid://eqwikaxl3884" path="res://Assets/Fonts/KodeMono-SemiBold.ttf" id="7_we6m2"]
+[ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="8_4st7b"]
 [ext_resource type="PackedScene" uid="uid://b5jimb53wf7mf" path="res://Objects/FrameworkNodes/SelectCharacterMenu.tscn" id="10_efby5"]
 [ext_resource type="PackedScene" uid="uid://demml7f8xyw1n" path="res://Objects/FrameworkNodes/SelectSlotMenu.tscn" id="10_id2k6"]
 
@@ -543,48 +545,53 @@ color = Color(0, 0, 0, 0)
 [node name="Title" type="Label" parent="."]
 offset_left = 60.0
 offset_top = 42.0
-offset_right = 1245.0
+offset_right = 1331.0
 offset_bottom = 202.0
 theme = ExtResource("2_hjrbd")
-theme_override_font_sizes/font_size = 114
+theme_override_fonts/font = ExtResource("7_we6m2")
+theme_override_font_sizes/font_size = 95
 text = "Project Prometheus"
 text_overrun_behavior = 1
 
 [node name="Play" type="Label" parent="."]
-offset_left = 64.0
+offset_left = 67.0
 offset_top = 700.0
-offset_right = 184.0
+offset_right = 187.0
 offset_bottom = 782.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
 text = "Play"
 
 [node name="Settings" type="Label" parent="."]
-offset_left = 63.0
+offset_left = 40.0
 offset_top = 770.0
-offset_right = 302.0
+offset_right = 279.0
 offset_bottom = 852.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
 text = "Settings"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
-offset_left = 62.0
+offset_left = 42.0
 offset_top = 835.0
-offset_right = 272.0
+offset_right = 252.0
 offset_bottom = 917.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
 text = "Credits"
 horizontal_alignment = 1
 
 [node name="Quit" type="Label" parent="."]
-offset_left = 59.0
+offset_left = 51.0
 offset_top = 897.0
-offset_right = 182.0
+offset_right = 174.0
 offset_bottom = 979.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
 text = "Quit"
 horizontal_alignment = 1
@@ -592,42 +599,42 @@ horizontal_alignment = 1
 [node name="PlayHighlight" type="Label" parent="."]
 visible = false
 offset_left = 33.0
-offset_top = 700.0
+offset_top = 690.0
 offset_right = 217.0
-offset_bottom = 782.0
+offset_bottom = 772.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
-text = "-        -"
+text = "-       -"
 
 [node name="SettingsHighlight" type="Label" parent="."]
 visible = false
 offset_left = 31.0
-offset_top = 770.0
+offset_top = 760.0
 offset_right = 335.0
-offset_bottom = 852.0
+offset_bottom = 842.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
-text = "-                -"
+text = "-             -"
 
 [node name="CreditsHighlight" type="Label" parent="."]
 visible = false
 offset_left = 29.0
-offset_top = 835.0
+offset_top = 825.0
 offset_right = 303.0
-offset_bottom = 917.0
+offset_bottom = 907.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
-text = "-              -"
+text = "-            -"
 
 [node name="QuitHighlight" type="Label" parent="."]
 visible = false
 offset_left = 29.0
-offset_top = 900.0
+offset_top = 890.0
 offset_right = 213.0
-offset_bottom = 982.0
+offset_bottom = 972.0
 theme = ExtResource("2_hjrbd")
 theme_override_font_sizes/font_size = 58
-text = "-        -"
+text = "-       -"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 13.0

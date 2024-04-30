@@ -98,8 +98,8 @@ func _process(_delta):
 				if hovered_button == "Panel6":
 					hovered_button = "Panel5"
 
-	if name == "StartGameMenu":
-		$LevelSelect.max_value = get_parent().get_parent().load_data($SlotSelect.value)[0] + 1
+	if name == "SelectSlotMenu":
+		$LevelSelect.max_value = get_parent().get_parent().load_data(slot_num)[0] + 1
 		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
 	
 	if name == "MainMenu":

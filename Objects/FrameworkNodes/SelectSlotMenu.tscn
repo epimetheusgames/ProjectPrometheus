@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://demml7f8xyw1n"]
+[gd_scene load_steps=9 format=3 uid="uid://demml7f8xyw1n"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egacv"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_0kaei"]
+[ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="3_21k4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbquh"]
 bg_color = Color(1, 1, 1, 1)
@@ -67,6 +68,7 @@ offset_bottom = 645.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 247
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 text = "Slot 1"
@@ -82,6 +84,7 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 247
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
@@ -98,6 +101,7 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 247
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
@@ -114,6 +118,7 @@ offset_bottom = 645.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 247
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
@@ -130,6 +135,7 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
+theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 247
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
@@ -143,7 +149,8 @@ offset_top = -182.0
 offset_right = 1215.0
 offset_bottom = -45.0
 scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 100
+theme = ExtResource("2_0kaei")
+theme_override_font_sizes/font_size = 124
 theme_override_styles/normal = SubResource("StyleBoxFlat_p3bx2")
 text = "Please select a game slot"
 horizontal_alignment = 1
@@ -155,7 +162,8 @@ offset_top = 54.0
 offset_right = 86.0
 offset_bottom = 106.0
 theme = ExtResource("2_0kaei")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("3_21k4g")
+theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_eb7rl")
 text = "Continue"
 
@@ -165,7 +173,8 @@ offset_top = 54.0
 offset_right = -114.0
 offset_bottom = 106.0
 theme = ExtResource("2_0kaei")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("3_21k4g")
+theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
 text = "Cancel"
 
@@ -175,7 +184,8 @@ offset_top = 54.0
 offset_right = 291.0
 offset_bottom = 106.0
 theme = ExtResource("2_0kaei")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("3_21k4g")
+theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
 text = "Clear Slot"
 
@@ -208,6 +218,7 @@ offset_top = -181.0
 offset_right = -137.0
 offset_bottom = -154.0
 theme = ExtResource("2_0kaei")
+theme_override_font_sizes/font_size = 26
 text = "Level Name"
 
 [connection signal="button_up" from="Slot1" to="." method="_on_slot_1_button_up"]

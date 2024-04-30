@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5jimb53wf7mf"]
+[gd_scene load_steps=13 format=3 uid="uid://b5jimb53wf7mf"]
 
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="1_0i2j1"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_kscwv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://basots7w6wl3l" path="res://Assets/Images/Objects/UI/CharacterIconType2.png" id="3_2pl31"]
 [ext_resource type="Texture2D" uid="uid://cihlwhrhtkp1e" path="res://Assets/Images/Objects/UI/CharacterIconType3.png" id="4_7ybwy"]
 [ext_resource type="Texture2D" uid="uid://cq3j01lx50erx" path="res://Assets/Images/Objects/UI/CharacterIconType4.png" id="5_skhgk"]
+[ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="7_bo22q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbquh"]
 bg_color = Color(1, 1, 1, 1)
@@ -123,7 +124,8 @@ offset_top = -182.0
 offset_right = 1459.0
 offset_bottom = -45.0
 scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("7_bo22q")
+theme_override_font_sizes/font_size = 125
 theme_override_styles/normal = SubResource("StyleBoxFlat_p3bx2")
 text = "Please choose a character type
 "
@@ -136,7 +138,8 @@ offset_top = 54.0
 offset_right = 193.0
 offset_bottom = 106.0
 theme = ExtResource("1_0i2j1")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("7_bo22q")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_eb7rl")
 text = "Start Game
 "
@@ -147,7 +150,8 @@ offset_top = 54.0
 offset_right = -23.0001
 offset_bottom = 106.0
 theme = ExtResource("1_0i2j1")
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("7_bo22q")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
 text = "Cancel"
 
