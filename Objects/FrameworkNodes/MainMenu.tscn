@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjnr6bfdx0uju"]
+[gd_scene load_steps=23 format=3 uid="uid://bjnr6bfdx0uju"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_ebplq"]
 [ext_resource type="Texture2D" uid="uid://dpg05a46orvpi" path="res://Assets/Images/Objects/UI/MainMenuBackground.png" id="2_cjyfc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://8wkn32xb6sat" path="res://Objects/StaticObjects/Mark8Terminal.tscn" id="7_45vfl"]
 [ext_resource type="FontFile" uid="uid://eqwikaxl3884" path="res://Assets/Fonts/KodeMono-SemiBold.ttf" id="7_we6m2"]
 [ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="8_4st7b"]
+[ext_resource type="FontFile" uid="uid://dfld0e118c5p1" path="res://Assets/Fonts/Poppins-Regular.ttf" id="9_5nu6k"]
 [ext_resource type="PackedScene" uid="uid://b5jimb53wf7mf" path="res://Objects/FrameworkNodes/SelectCharacterMenu.tscn" id="10_efby5"]
 [ext_resource type="PackedScene" uid="uid://demml7f8xyw1n" path="res://Objects/FrameworkNodes/SelectSlotMenu.tscn" id="10_id2k6"]
 
@@ -603,6 +604,7 @@ offset_top = 690.0
 offset_right = 217.0
 offset_bottom = 772.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
 text = "-       -"
 
@@ -613,6 +615,7 @@ offset_top = 760.0
 offset_right = 335.0
 offset_bottom = 842.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
 text = "-             -"
 
@@ -623,6 +626,7 @@ offset_top = 825.0
 offset_right = 303.0
 offset_bottom = 907.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
 text = "-            -"
 
@@ -633,6 +637,7 @@ offset_top = 890.0
 offset_right = 213.0
 offset_bottom = 972.0
 theme = ExtResource("2_hjrbd")
+theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
 text = "-       -"
 

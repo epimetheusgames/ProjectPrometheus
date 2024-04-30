@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://y65ckdnnfe7s"]
+[gd_scene load_steps=8 format=3 uid="uid://y65ckdnnfe7s"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/EpimetheusFadin.gd" id="1_iop6e"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_qao55"]
+[ext_resource type="FontFile" uid="uid://dfld0e118c5p1" path="res://Assets/Fonts/Poppins-Regular.ttf" id="3_ui8hr"]
 [ext_resource type="Texture2D" uid="uid://j6nmubik80p2" path="res://Assets/Images/Objects/UI/LogoGreyscale.png" id="3_yipkc"]
 
 [sub_resource type="Animation" id="Animation_vdp20"]
@@ -106,6 +107,7 @@ self_modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme = ExtResource("2_qao55")
+theme_override_fonts/font = ExtResource("3_ui8hr")
 theme_override_font_sizes/font_size = 128
 text = "Epimetheus Games
 "

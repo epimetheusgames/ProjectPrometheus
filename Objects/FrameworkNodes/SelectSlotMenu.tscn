@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://demml7f8xyw1n"]
+[gd_scene load_steps=10 format=3 uid="uid://demml7f8xyw1n"]
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egacv"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_0kaei"]
+[ext_resource type="FontFile" uid="uid://kq5pe5ver0ga" path="res://Assets/Fonts/KodeMono-VariableFont_wght.ttf" id="3_6rlta"]
 [ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="3_21k4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbquh"]
@@ -68,10 +69,10 @@ offset_bottom = 645.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
-theme_override_fonts/font = ExtResource("3_21k4g")
-theme_override_font_sizes/font_size = 247
+theme_override_fonts/font = ExtResource("3_6rlta")
+theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
-text = "Slot 1"
+text = " Slot 1 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -84,11 +85,11 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
-theme_override_fonts/font = ExtResource("3_21k4g")
-theme_override_font_sizes/font_size = 247
+theme_override_fonts/font = ExtResource("3_6rlta")
+theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
-text = "Slot 2"
+text = " Slot 2 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -101,11 +102,11 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
-theme_override_fonts/font = ExtResource("3_21k4g")
-theme_override_font_sizes/font_size = 247
+theme_override_fonts/font = ExtResource("3_6rlta")
+theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
-text = "Slot 3"
+text = " Slot 3 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -118,11 +119,11 @@ offset_bottom = 645.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
-theme_override_fonts/font = ExtResource("3_21k4g")
-theme_override_font_sizes/font_size = 247
+theme_override_fonts/font = ExtResource("3_6rlta")
+theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
-text = "Slot 4"
+text = " Slot 4 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -135,11 +136,11 @@ offset_bottom = 642.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("2_0kaei")
 theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
-theme_override_fonts/font = ExtResource("3_21k4g")
-theme_override_font_sizes/font_size = 247
+theme_override_fonts/font = ExtResource("3_6rlta")
+theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
 toggle_mode = true
-text = "Slot 5"
+text = " Slot 5 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -161,6 +162,7 @@ offset_left = -85.0
 offset_top = 54.0
 offset_right = 86.0
 offset_bottom = 106.0
+tooltip_text = "Start the game."
 theme = ExtResource("2_0kaei")
 theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 34
@@ -172,6 +174,7 @@ offset_left = -285.0
 offset_top = 54.0
 offset_right = -114.0
 offset_bottom = 106.0
+tooltip_text = "Return to main menu."
 theme = ExtResource("2_0kaei")
 theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 34
@@ -183,6 +186,7 @@ offset_left = 120.0
 offset_top = 54.0
 offset_right = 291.0
 offset_bottom = 106.0
+tooltip_text = "Delete the entire slot."
 theme = ExtResource("2_0kaei")
 theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 34
@@ -205,6 +209,7 @@ offset_left = -454.0
 offset_top = -185.0
 offset_right = -282.0
 offset_bottom = -150.0
+tooltip_text = "The number of the level that you want to play (defaults to the latest one unlocked in the slot)."
 theme = ExtResource("2_0kaei")
 min_value = 1.0
 max_value = 456743.0
