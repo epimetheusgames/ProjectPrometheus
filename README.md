@@ -1,11 +1,11 @@
-# Epimetheus Games OGPC Season 17
+# Project Promtheus
+## Epimetheus Games OGPC Season 17
 
 Our entry for the Oregon Game Project Challenge Season 17.
 
 ## Links:
 
-Go play the latest beta at https://epimetheusgamesogpc.itch.io/season17beta !
-
+Go play the latest beta at [our itch page](https://epimetheusgamesogpc.itch.io/season17beta)!
 Visit our [website](https://epimetheusgames.onrender.com/) and our [YouTube channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
 
 ## Game Summary:
@@ -25,7 +25,11 @@ Explore an abandoned facility, originally the secret government mission, Project
 
 ## Copyright
 
-Copyright (C) 2024 Carson Bates, Liam Siegal, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
+Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
 All rights reserved.
+
+Any scripts and assets (and file in general) in this repository are copyrighted even if they do not contain a copyright notice.
+
+## Contact
 
 Email us at <epimtheusgamesogpc@gmail.com>!

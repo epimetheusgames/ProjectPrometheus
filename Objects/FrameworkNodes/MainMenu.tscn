@@ -666,11 +666,11 @@ position = Vector2(317, -210)
 first = false
 
 [node name="SelectCharacterMenu" parent="." instance=ExtResource("10_efby5")]
-z_index = 1
+z_index = 2
 position = Vector2(962, 1404)
 
 [node name="SelectSlotMenu" parent="." instance=ExtResource("10_id2k6")]
-z_index = 1
+z_index = 2
 position = Vector2(945, 1403)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

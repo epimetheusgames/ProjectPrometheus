@@ -5,17 +5,13 @@
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
 
-extends Node2D
+extends Area2D
 
 
-var locked = false
+@export var door: Node2D
+var already_entered = false
 
-func _on_area_2d_area_entered(area):
-	if area.name == "PlayerHurtbox" && !locked:
-		$PropDoorSideways.visible = !$PropDoorSideways.visible
-		$PropDoorFaceForward.visible = !$PropDoorFaceForward.visible
-
-func _on_area_2d_area_exited(area):
-	if area.name == "PlayerHurtbox" && !locked:
-		$PropDoorSideways.visible = !$PropDoorSideways.visible
-		$PropDoorFaceForward.visible = !$PropDoorFaceForward.visible
+func _on_area_entered(area):
+	if area.name == "PlayerHurtbox" && !already_entered:
+		already_entered = true
+		door._on_area_2d_area_entered(area)

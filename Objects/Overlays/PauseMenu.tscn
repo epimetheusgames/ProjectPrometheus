@@ -177,15 +177,14 @@ horizontal_alignment = 1
 
 [node name="SettingsMenu" parent="CanvasLayer/ForManipulatingTheseNodes" instance=ExtResource("3_jldbb")]
 process_mode = 3
-visible = false
 texture_filter = 2
 position = Vector2(1023.5, 186)
 scale = Vector2(0.4, 0.4)
 
-[node name="Panel8" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="14"]
+[node name="Panel7" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="16"]
 visible = false
 
-[node name="Panel7" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="19"]
+[node name="Panel8" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="17"]
 visible = false
 
 [node name="ResumeButton" type="TextureButton" parent="CanvasLayer/ForManipulatingTheseNodes"]
