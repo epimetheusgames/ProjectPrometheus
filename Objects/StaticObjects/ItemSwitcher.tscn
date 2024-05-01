@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwm1lj78dxm6r"]
+[gd_scene load_steps=37 format=3 uid="uid://cwm1lj78dxm6r"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ItemSwitcher.gd" id="1_fge0x"]
 [ext_resource type="Texture2D" uid="uid://dc2hjawjefeds" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcherSword.png" id="2_dcrik"]
@@ -217,6 +217,12 @@ _data = {
 "WrongItem": SubResource("Animation_4t83j")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j06i5"]
+polygon = PackedVector2Array(-30, 16, 29, 16, 29, 15, 25, 15, 25, 14, 21, 14, 21, 13, 17, 13, 17, 12, -15, 12, -15, 13, -20, 13, -20, 14, -25, 14, -25, 15, -30, 15)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gu8bl"]
+polygon = PackedVector2Array(17, -44, -14, -44, -14, -45, -15, -45, -15, -48, 17, -48)
+
 [node name="ItemSwitcher" type="Node2D"]
 script = ExtResource("1_fge0x")
 
@@ -314,5 +320,11 @@ bus = &"SFX"
 stream = ExtResource("8_r5njq")
 volume_db = -6.0
 bus = &"SFX"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_j06i5")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_gu8bl")
 
 [connection signal="area_entered" from="ItemSwitcherArea" to="." method="_on_item_switcher_area_area_entered"]

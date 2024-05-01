@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/PauseMenu.gd" id="1_0l5na"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_1kp1x"]
-[ext_resource type="PackedScene" uid="uid://bhcou5wi6iu8x" path="res://Objects/FrameworkNodes/SettingsMenu.tscn" id="3_jldbb"]
+[ext_resource type="PackedScene" uid="uid://dibm8ajiah37v" path="res://Objects/FrameworkNodes/CondencedSettingsMenu.tscn" id="3_g0wkp"]
 
 [sub_resource type="Animation" id="Animation_tbkda"]
 resource_name = "ExitMenu"
@@ -41,10 +41,22 @@ tracks/0/path = NodePath("CanvasLayer/ForManipulatingTheseNodes:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ForManipulatingTheseNodes:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_p5ye5"]
@@ -56,7 +68,7 @@ tracks/0/path = NodePath("CanvasLayer/ForManipulatingTheseNodes:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -72,6 +84,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ForManipulatingTheseNodes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_qo7oe"]
@@ -99,6 +123,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ForManipulatingTheseNodes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6kpe"]
@@ -175,18 +211,6 @@ theme_override_font_sizes/font_size = 40
 text = "Exit to menu"
 horizontal_alignment = 1
 
-[node name="SettingsMenu" parent="CanvasLayer/ForManipulatingTheseNodes" instance=ExtResource("3_jldbb")]
-process_mode = 3
-texture_filter = 2
-position = Vector2(1023.5, 186)
-scale = Vector2(0.4, 0.4)
-
-[node name="Panel7" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="16"]
-visible = false
-
-[node name="Panel8" parent="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu" index="17"]
-visible = false
-
 [node name="ResumeButton" type="TextureButton" parent="CanvasLayer/ForManipulatingTheseNodes"]
 offset_left = 885.0
 offset_top = 472.0
@@ -205,6 +229,11 @@ offset_top = 558.0
 offset_right = 1028.0
 offset_bottom = 593.0
 
+[node name="SettingsMenu" parent="CanvasLayer/ForManipulatingTheseNodes" instance=ExtResource("3_g0wkp")]
+visible = false
+position = Vector2(1020, 149.5)
+scale = Vector2(0.44, 0.44)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
@@ -218,5 +247,3 @@ libraries = {
 [connection signal="button_up" from="CanvasLayer/ForManipulatingTheseNodes/ExitButton" to="." method="_on_exit_button_button_up"]
 [connection signal="mouse_entered" from="CanvasLayer/ForManipulatingTheseNodes/ExitButton" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-
-[editable path="CanvasLayer/ForManipulatingTheseNodes/SettingsMenu"]

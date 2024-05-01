@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bb31tfsygob7c"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/Credits.gd" id="1_ty6cr"]
+[ext_resource type="AudioStream" uid="uid://dveeig6p7ya0g" path="res://Assets/Audio/Music/NothingIsHereShort.wav" id="2_jr1lv"]
 [ext_resource type="Texture2D" uid="uid://c33qcuu1jfeh5" path="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingBottomTextBlack.png" id="3_53i08"]
-[ext_resource type="AudioStream" uid="uid://5tae4t4rcgrt" path="res://Assets/Audio/Music/NothingIsHere.mp3" id="3_mmd7q"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="3_oyqsv"]
 [ext_resource type="Texture2D" uid="uid://j6nmubik80p2" path="res://Assets/Images/Objects/UI/LogoGreyscale.png" id="5_3qo0i"]
 
@@ -272,9 +272,9 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Credits"]
-stream = ExtResource("3_mmd7q")
+stream = ExtResource("2_jr1lv")
 autoplay = true
-bus = &"SpecialMusic"
+bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="Credits"]
 position = Vector2(587, 332)
@@ -323,7 +323,7 @@ anchor_bottom = -10.2613
 offset_left = 5.0
 offset_top = 368.0
 offset_right = 1898.0
-offset_bottom = 6121.0
+offset_bottom = 6402.0
 scale = Vector2(0.615, 0.615)
 theme_override_font_sizes/font_size = 40
 text = "Created by Epimetheus Games"

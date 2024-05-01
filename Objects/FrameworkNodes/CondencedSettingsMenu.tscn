@@ -1,0 +1,238 @@
+[gd_scene load_steps=5 format=3 uid="uid://dibm8ajiah37v"]
+
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_od2mj"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_isvd7"]
+[ext_resource type="Texture2D" uid="uid://ck2lhk2sqjrb0" path="res://Assets/Images/Objects/UI/BackArrow.png" id="3_wf4cx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15yvs"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SettingsMenu" type="Node2D"]
+editor_description = "This scene should include the UI for the main menu."
+script = ExtResource("1_od2mj")
+
+[node name="MusicSlider" type="HSlider" parent="."]
+offset_left = 29.0
+offset_top = 960.0
+offset_right = 280.0
+offset_bottom = 981.0
+tooltip_text = "The volume of the music played in the game."
+mouse_default_cursor_shape = 10
+theme = ExtResource("2_isvd7")
+min_value = -40.0
+max_value = 6.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 981.0
+offset_right = 160.0
+offset_bottom = 1007.0
+mouse_filter = 0
+theme = ExtResource("2_isvd7")
+text = "Music Volume
+"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+offset_left = 28.0
+offset_top = 898.0
+offset_right = 280.0
+offset_bottom = 919.0
+tooltip_text = "The volume of Sound Effects played in the game."
+mouse_default_cursor_shape = 10
+theme = ExtResource("2_isvd7")
+min_value = -40.0
+max_value = 6.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 919.0
+offset_right = 139.0
+offset_bottom = 945.0
+mouse_filter = 0
+theme = ExtResource("2_isvd7")
+text = "SFX Volume
+"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 297.0
+offset_top = 896.0
+offset_right = 485.0
+offset_bottom = 941.0
+tooltip_text = "Efficient rendering mode for slower computers (requires you to exit to the main menu and enter the game again to take affect)."
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Efficient Rendering"
+
+[node name="BackArrow" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(44, 868)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_wf4cx")
+
+[node name="SettingsBackButton" type="TextureButton" parent="."]
+z_index = 1
+offset_left = 21.0
+offset_top = 848.0
+offset_right = 69.0
+offset_bottom = 886.0
+
+[node name="Difficulty" type="CheckButton" parent="."]
+visible = false
+offset_left = 911.0
+offset_top = 958.0
+offset_right = 1135.0
+offset_bottom = 1003.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Hard Mode                    "
+
+[node name="ShowFPS" type="CheckButton" parent="."]
+offset_left = 297.0
+offset_top = 959.0
+offset_right = 484.0
+offset_bottom = 1004.0
+tooltip_text = "Show an FPS counter ingame (requires you to respawn or go to the next level to take affect)."
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Show FPS Counter"
+
+[node name="ShowPoints" type="CheckButton" parent="."]
+offset_left = 501.0
+offset_top = 897.0
+offset_right = 697.0
+offset_bottom = 942.0
+tooltip_text = "Show a count of your total points ingame (requires you to respawn or go to the next level to take effect)."
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Show Points Counter"
+
+[node name="ShowSpeedrunTimer" type="CheckButton" parent="."]
+offset_left = 500.0
+offset_top = 959.0
+offset_right = 696.0
+offset_bottom = 1004.0
+tooltip_text = "Show a timer for the current slot ingame (requires you to respawn or go to the next level to take effect)."
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Show Speedrun Timer"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 23.0
+offset_top = 892.0
+offset_right = 286.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 23.0
+offset_top = 955.0
+offset_right = 286.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel3" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 294.0
+offset_top = 955.0
+offset_right = 491.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel4" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 294.0
+offset_top = 890.0
+offset_right = 491.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel5" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 498.0
+offset_top = 955.0
+offset_right = 708.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel7" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 716.0
+offset_top = 890.0
+offset_right = 961.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel8" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 716.0
+offset_top = 954.0
+offset_right = 961.0
+offset_bottom = 1010.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="Panel6" type="Panel" parent="."]
+modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
+offset_left = 498.0
+offset_top = 890.0
+offset_right = 708.0
+offset_bottom = 946.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15yvs")
+
+[node name="ShowDeaths" type="CheckButton" parent="."]
+visible = false
+offset_left = 909.0
+offset_top = 897.0
+offset_right = 1165.0
+offset_bottom = 942.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_isvd7")
+text = "Show Death Counter"
+
+[node name="WindowTypeSelection" type="OptionButton" parent="."]
+offset_left = 719.0
+offset_top = 893.0
+offset_right = 958.0
+offset_bottom = 943.0
+tooltip_text = "The way the window will be displayed ingame."
+item_count = 2
+selected = 0
+popup/item_0/text = "Window Type: Fullscreen"
+popup/item_0/id = 1
+popup/item_1/text = "Window Type: Windowed"
+popup/item_1/id = 0
+
+[node name="VSyncModeSelection" type="OptionButton" parent="."]
+offset_left = 719.0
+offset_top = 957.0
+offset_right = 958.0
+offset_bottom = 1007.0
+tooltip_text = "When enabled, FPS is synced to the monitors refresh rate. When disabled, FPS goes as high as possible."
+item_count = 4
+selected = 0
+popup/item_0/text = "VSync Mode: Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "VSync Mode: Disabled"
+popup/item_1/id = 1
+popup/item_2/text = "VSync Mode: Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "VSync Mode: Mailbox"
+popup/item_3/id = 3
+
+[connection signal="button_up" from="SettingsBackButton" to="." method="_on_settings_back_button_button_up"]
+[connection signal="mouse_entered" from="Panel3" to="." method="_on_panel_3_mouse_entered"]
+[connection signal="item_selected" from="WindowTypeSelection" to="." method="_on_window_type_selection_item_selected"]
+[connection signal="item_selected" from="VSyncModeSelection" to="." method="_on_v_sync_mode_selection_item_selected"]

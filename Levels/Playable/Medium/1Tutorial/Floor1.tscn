@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=165 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="38_oitav"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="39_843o4"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/SecondDoorCloser.gd" id="42_so2o2"]
+[ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="43_i4ym5"]
+[ext_resource type="Texture2D" uid="uid://etxao5kfq5qj" path="res://Assets/Images/Objects/Props/MistMaker.png" id="44_ay3la"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -866,8 +868,15 @@ size = Vector2(35, 86)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0fsm"]
 size = Vector2(4, 64)
 
+[sub_resource type="Curve" id="Curve_k5c85"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.513333, 0), -7.04296, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pkc6n"]
+curve = SubResource("Curve_k5c85")
+
 [sub_resource type="Gradient" id="Gradient_b1cys"]
-offsets = PackedFloat32Array(0, 0.729508, 1)
+offsets = PackedFloat32Array(0, 0.508197, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_2ugyc"]
@@ -885,29 +894,27 @@ particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
 emission_shape = 3
 emission_box_extents = Vector3(16, 1, 1)
-direction = Vector3(0, 1, 0)
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 20.0
+initial_velocity_min = 11.24
+initial_velocity_max = 78.65
+angular_velocity_min = -300.0
+angular_velocity_max = 300.0
+angular_velocity_curve = SubResource("CurveTexture_pkc6n")
 gravity = Vector3(0, 98, 0)
 damping_min = 12.0
 damping_max = 12.0
 damping_curve = SubResource("CurveTexture_mjlet")
-scale_min = 0.3
-scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_2ugyc")
-
-[sub_resource type="Gradient" id="Gradient_w06qm"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3gvy5"]
-gradient = SubResource("Gradient_w06qm")
-fill = 1
-fill_from = Vector2(0.458716, 0.527523)
-fill_to = Vector2(0.720183, 0.211009)
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
 no_timer = true
 
 [node name="Decorations" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource("TileSet_dgxbs")
 rendering_quadrant_size = 32
 format = 2
@@ -2063,21 +2070,26 @@ disabled = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = 50
-position = Vector2(-2464, 70)
+position = Vector2(-2464, 76)
 emitting = false
-amount = 500
+amount = 1000
 process_material = SubResource("ParticleProcessMaterial_66x88")
-texture = SubResource("GradientTexture2D_3gvy5")
-lifetime = 5.0
+texture = ExtResource("43_i4ym5")
+lifetime = 4.5
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 z_index = 50
-position = Vector2(-2432, 70)
+position = Vector2(-2432, 76)
 emitting = false
-amount = 500
+amount = 1000
 process_material = SubResource("ParticleProcessMaterial_66x88")
-texture = SubResource("GradientTexture2D_3gvy5")
-lifetime = 5.0
+texture = ExtResource("43_i4ym5")
+lifetime = 4.5
+
+[node name="MistMaker" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2449, 67)
+texture = ExtResource("44_ay3la")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
