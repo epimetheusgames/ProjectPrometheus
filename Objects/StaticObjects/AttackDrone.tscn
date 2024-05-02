@@ -140,10 +140,8 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[node name="WeaponDetected" type="AudioStreamPlayer" parent="."]
+[node name="WeaponDetected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_f36hb")
-volume_db = 5.0
-bus = &"SFX"
 
 [node name="TargetLost" type="AudioStreamPlayer" parent="."]
 volume_db = 1.0

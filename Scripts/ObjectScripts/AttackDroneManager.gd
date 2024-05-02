@@ -43,6 +43,7 @@ var chasing_player = false
 @export var drone_boss = false
 @export var bird = false
 @export var attack_drone = false
+@export var ignore_ability_type = false
 @export var speed = 1.0
 
 const ninety_deg_rad = deg_to_rad(90)
@@ -184,7 +185,7 @@ func _process(delta):
 		$LineRaycast.target_position = $PlayerRaycast.target_position
 		$LineRaycast.position = $PlayerRaycast.position
 		
-		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
+		if ((player.current_ability == "Weapon" || player.current_ability == "ArmGun") || ignore_ability_type) && ($Drone.position + position).distance_to(player.position) < 250:
 			if $TargetFoundTimer.time_left == 0:
 				$TargetFoundTimer.start()
 			
@@ -204,7 +205,7 @@ func _process(delta):
 			
 			player_previous_ability = player.current_ability
 		else:
-			if (player_previous_ability == "Weapon" || player_previous_ability == "ArmGun"):
+			if (player_previous_ability == "Weapon" || player_previous_ability == "ArmGun") || ignore_ability_type:
 				$TargetFoundCooldown.start()
 				
 				if can_play_target_lost:

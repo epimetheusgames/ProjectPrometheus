@@ -184,6 +184,27 @@ func _ready():
 	# Set controller icons process mode to allways so they can update in pause menu ... 
 	# this cannot be set in the editor.
 	get_parent().get_parent().get_node("ControllerIcons").process_mode = 3
+	
+	# Set window type to specified window type.
+	var global_save_data = load_data("global")
+	var window_type = global_save_data[7]
+	var vsync_type = global_save_data[8]
+	
+	# Fullscreen/windowed
+	if window_type == 0:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if window_type == 1:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+	# VSync type
+	if vsync_type == 0:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	if vsync_type == 1:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	if vsync_type == 2:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+	if vsync_type == 3:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
 
 func _process(delta):
 	# Update DiscordSDK

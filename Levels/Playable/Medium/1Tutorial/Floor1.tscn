@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=166 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="43_i4ym5"]
 [ext_resource type="Texture2D" uid="uid://etxao5kfq5qj" path="res://Assets/Images/Objects/Props/MistMaker.png" id="44_ay3la"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
+[ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="45_jaxy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -2091,6 +2092,14 @@ z_index = -1
 position = Vector2(-2449, 67)
 texture = ExtResource("44_ay3la")
 
+[node name="DroneManager3" parent="." instance=ExtResource("45_jaxy6")]
+position = Vector2(-2319, -471)
+ignore_ability_type = true
+
+[node name="DronePatrolPoints" parent="DroneManager3" index="0"]
+visible = false
+points = PackedVector2Array(4, 186, -2, 497, 333, 341, 345, -127, 608, -482)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
 [connection signal="timeout" from="TutorialDoorCloseArea/ParticlesStopTimer" to="TutorialDoorCloseArea" method="_on_particles_stop_timer_timeout"]
@@ -2103,3 +2112,4 @@ texture = ExtResource("44_ay3la")
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
 [editable path="Player"]
+[editable path="DroneManager3"]
