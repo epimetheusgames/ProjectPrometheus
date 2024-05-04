@@ -66,7 +66,7 @@ func _on_new_bullet_timer_timeout():
 func _on_boss_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
 		# First focus on taking out turrets
-		#health -= 2.5
+		health -= 2.5
 		
 		if health < 40:
 			health += 2
