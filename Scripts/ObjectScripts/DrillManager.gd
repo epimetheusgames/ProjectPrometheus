@@ -112,9 +112,6 @@ func _process(delta):
 			$DrillBreakOverlay.play("Break3")
 			$DrillAnimation.play("Idle")
 			$DrillBreakOverlay.visible = true
-			$DeathParticles1.emitting = true
-			$DeathParticles2.emitting = true
-			$DeathParticles3.emitting = true
 			
 			if disable_hitbox_when_dead:
 				$StaticBody2D/CollisionPolygon2D.disabled = true

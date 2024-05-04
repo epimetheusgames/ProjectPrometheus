@@ -658,6 +658,10 @@ func _physics_process(delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	# Set objective text
+	if area.name == "PlayerObjectiveSetter":
+		get_parent().get_node("Camera").set_objective_text(area.objective_text)
+	
 	# Handle entering a conveyor belt.
 	if area.name == "PlayerPusher":
 		if in_conveyor_belt:

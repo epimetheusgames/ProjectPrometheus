@@ -205,7 +205,7 @@ func _process(delta):
 			
 			player_previous_ability = player.current_ability
 		else:
-			if (player_previous_ability == "Weapon" || player_previous_ability == "ArmGun") || ignore_ability_type:
+			if (player_previous_ability == "Weapon" || player_previous_ability == "ArmGun"):
 				$TargetFoundCooldown.start()
 				
 				if can_play_target_lost:

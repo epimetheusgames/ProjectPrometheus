@@ -1,4 +1,4 @@
-[gd_scene load_steps=197 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=198 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_eaalj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_0w1hr"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="26_pjqgy"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="27_bccfk"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="28_usgxm"]
+[ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="29_6y01g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_0w1hr")
@@ -1516,6 +1517,10 @@ texture = ExtResource("28_usgxm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(-0.0090332, -0.852173)
 shape = SubResource("RectangleShape2D_jmwqu")
+
+[node name="PlayerObjectiveSetter" parent="." instance=ExtResource("29_6y01g")]
+position = Vector2(-175, 8)
+objective_text = "Objective: Complete the tutorial"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

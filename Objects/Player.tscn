@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=125 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://f2pm2j5ija3f" path="res://Assets/Audio/SFX/Dash2.wav" id="50_qf3dw"]
 [ext_resource type="AudioStream" uid="uid://lnyedbfk32t6" path="res://Assets/Audio/SFX/Dash3.wav" id="51_0b812"]
 [ext_resource type="AudioStream" uid="uid://chdfwltup4gko" path="res://Assets/Audio/SFX/Dash4.wav" id="52_g1161"]
+[ext_resource type="Texture2D" uid="uid://dr0ca74rtvmd0" path="res://Assets/Images/Objects/UI/ObjectiveBox.png" id="56_bu645"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
 size = Vector2(478, 269)
@@ -722,7 +723,7 @@ mouse_filter = 2
 color = Color(0.0823529, 0, 0, 0)
 
 [node name="FPSCounter" type="Label" parent="Camera"]
-z_index = 50
+z_index = 70
 offset_left = -233.0
 offset_top = 117.0
 offset_right = 271.0
@@ -734,7 +735,7 @@ text = "FPS: Calculating ...
 "
 
 [node name="PointsCounter" type="Label" parent="Camera"]
-z_index = 50
+z_index = 70
 offset_left = 65.0
 offset_top = -133.0
 offset_right = 762.0
@@ -746,7 +747,7 @@ text = "Points: 0"
 horizontal_alignment = 2
 
 [node name="TimeCounter" type="Label" parent="Camera"]
-z_index = 50
+z_index = 70
 offset_left = -234.0
 offset_top = -134.0
 offset_right = -95.0
@@ -755,6 +756,25 @@ scale = Vector2(0.25, 0.25)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 57
 text = "Time: 0"
+
+[node name="ObjectiveBoxManager" type="Node2D" parent="Camera"]
+z_index = 70
+position = Vector2(0, -122)
+scale = Vector2(1.35, 1.35)
+
+[node name="ObjectiveBoxSprite" type="Sprite2D" parent="Camera/ObjectiveBoxManager"]
+texture = ExtResource("56_bu645")
+
+[node name="ObjectiveBoxText" type="Label" parent="Camera/ObjectiveBoxManager"]
+offset_left = -47.0
+offset_top = -10.0
+offset_right = 1833.0
+offset_bottom = 170.0
+scale = Vector2(0.05, 0.05)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScreenBorder" type="Sprite2D" parent="Camera"]
 visible = false

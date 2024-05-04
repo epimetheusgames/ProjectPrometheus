@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bvk7aptr6r7ni"]
+[gd_scene load_steps=44 format=3 uid="uid://bvk7aptr6r7ni"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="29_nwbx0"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="30_tys77"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="31_fuydm"]
+[ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="32_vbu5c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -468,6 +469,10 @@ texture = ExtResource("30_tys77")
 [node name="Artifact" parent="." instance=ExtResource("31_fuydm")]
 position = Vector2(1468, -545)
 uid = 17389
+
+[node name="PlayerObjectiveSetter" parent="." instance=ExtResource("32_vbu5c")]
+position = Vector2(-31, 8)
+objective_text = "Objective: Complete the tutorial"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

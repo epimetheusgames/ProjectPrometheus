@@ -58,16 +58,15 @@ func _on_new_explosion_timer_timeout():
 
 func _on_new_bullet_timer_timeout():
 	if player.position.distance_to(position) < 600 && (player.current_ability == "ArmGun" || health <= 0) && health > 0:
-		shoot_bullet($BossShootPosition.position)
-		shoot_bullet($BossShootPosition2.position)
+		if get_node_or_null("LeftTurret"):
+			shoot_bullet($BossShootPosition.position)
+		if get_node_or_null("RightTurret"):
+			shoot_bullet($BossShootPosition2.position)
 
 func _on_boss_hurtbox_area_entered(area):
-	if area && area.name == "PlayerHurtbox" && health > 0:
-		if area.get_parent().get_node("DashStopCooldown").time_left > 0:
-			health -= 5
-			
 	if area.name == "PlayerBulletHurter":
-		health -= 2.5
+		# First focus on taking out turrets
+		#health -= 2.5
 		
 		if health < 40:
 			health += 2
@@ -85,6 +84,9 @@ func _process(delta):
 	
 	if health <= 0 && position.y > -1250:
 		save_load_framework.end_special_music()
+		
+	if (get_node_or_null("LeftTurret") || get_node_or_null("RightTurret")) && player.current_ability == "ArmGun":
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Objective: Take out the control tower turrets")
 	
 	if (!external_special_music_player.stream || external_special_music_player.playing == false) && health > 0:
 		if save_load_framework.boss_music_ind == -1:
@@ -99,8 +101,6 @@ func _process(delta):
 			external_special_music_player.stream = boss_fight_outro
 			external_special_music_player.play()
 			save_load_framework.boss_music_ind = 1
-			
-			
 	
 	if !player.current_ability == "Weapon":
 		dropped_enemies = false

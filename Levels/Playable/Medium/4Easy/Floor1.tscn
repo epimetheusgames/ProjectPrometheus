@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=57 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="38_0tpy4"]
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="39_nb238"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="40_0tklx"]
+[ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="41_nfr17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_t6j4e")
@@ -813,6 +814,10 @@ texture = ExtResource("40_0tklx")
 
 [node name="Floodlight" parent="." instance=ExtResource("37_jtmfi")]
 position = Vector2(-476, -288)
+
+[node name="PlayerObjectiveSetter" parent="." instance=ExtResource("41_nfr17")]
+position = Vector2(-7, 8)
+objective_text = "Objective: Complete the level"
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

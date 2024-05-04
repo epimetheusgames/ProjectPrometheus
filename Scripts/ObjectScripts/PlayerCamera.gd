@@ -24,6 +24,9 @@ var open_dialogue = false
 var was_open = false
 
 
+func _ready():
+	set_objective_text(get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").current_objective)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Set frames per second text.
@@ -67,6 +70,12 @@ func _process(delta):
 	
 	$TimeCounter.position = original_pos * (4 / zoom.x)
 	$TimeCounter.scale = original_scale * (4 / zoom.x)
+	
+	original_scale = Vector2(1.35, 1.35)
+	original_pos = Vector2(0, -122)
+	
+	$ObjectiveBoxManager.position = original_scale * (4 / zoom.x)
+	$ObjectiveBoxManager.scale = original_pos * (4 / zoom.x)
 
 # Whar.
 func open_dialogue_box():
@@ -78,3 +87,7 @@ func open_dialogue_box():
 func _on_level_transition_animation_player_animation_finished(anim_name):
 	if anim_name == "CloseLevel":
 		get_parent().get_parent().get_node("NextLevel").add_level()
+
+func set_objective_text(text):
+	$ObjectiveBoxManager/ObjectiveBoxText.text = text
+	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").current_objective = text
