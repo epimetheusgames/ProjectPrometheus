@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=69 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="8_8b0lo"]
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_eg7tb"]
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="10_230w6"]
+[ext_resource type="Texture2D" uid="uid://cd8dp42hpm1ky" path="res://Assets/Images/Objects/Enemy/ElevatorBossSpritePipeDoorOpenAnimation.png" id="10_kqucr"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_qip8k"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/Boss.gd" id="10_x31iv"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_7uef0"]
@@ -32,6 +33,7 @@
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="28_yqhjs"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="29_ihkdu"]
 [ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="30_iljxc"]
+[ext_resource type="Texture2D" uid="uid://cb2ln41exmwsd" path="res://Assets/Images/Objects/Enemy/ElevatorBossSpritePipe.png" id="34_sqlm3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_lvfhp")
@@ -201,6 +203,103 @@ texture = ExtResource("6_g12tu")
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x22a5"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(130, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p15mr"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(104, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xwib"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(78, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v26yl"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(52, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_510m5"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(26, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbbq0"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(0, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neic8"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(0, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j30u7"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(26, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5kkm"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(52, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n58gh"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(78, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgf2n"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(104, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pg8jj"]
+atlas = ExtResource("10_kqucr")
+region = Rect2(130, 0, 26, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctm70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x22a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p15mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xwib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v26yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_510m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbbq0")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 17.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neic8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j30u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5kkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n58gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgf2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pg8jj")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 20.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp0je"]
 radius = 14.0
@@ -418,6 +517,13 @@ layer_0/tile_data = PackedInt32Array(-983056, 524288, 0, -983055, 655360, 0, -98
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+
+[node name="DoorOpenAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-202.5, 13.5)
+sprite_frames = SubResource("SpriteFrames_ctm70")
+animation = &"Open"
+frame = 5
+frame_progress = 1.0
 
 [node name="Boss" type="CharacterBody2D" parent="."]
 position = Vector2(-207, -242)
@@ -792,6 +898,56 @@ objective_text = "Objective: Reach control tower"
 
 [node name="CollisionShape2D" parent="PlayerObjectiveSetter" index="0"]
 position = Vector2(-219, 0)
+
+[node name="ElevatorBossSpritePipe" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -55.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -230.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -405.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -580.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -748.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -916.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -1028.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -1132.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -1252.5)
+texture = ExtResource("34_sqlm3")
+
+[node name="ElevatorBossSpritePipe10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-194, -1364.5)
+texture = ExtResource("34_sqlm3")
 
 [connection signal="timeout" from="Boss/NewBulletTimer" to="Boss" method="_on_new_bullet_timer_timeout"]
 [connection signal="timeout" from="Boss/NewExplosionTimer" to="Boss" method="_on_new_explosion_timer_timeout"]

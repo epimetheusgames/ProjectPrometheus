@@ -321,7 +321,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_622en"]
-size = Vector2(107, 231)
+size = Vector2(39, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_a4iv7")
@@ -423,7 +423,7 @@ position = Vector2(4, -91)
 script = ExtResource("13_squm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(2859.5, 355)
+position = Vector2(2911.5, 416)
 shape = SubResource("RectangleShape2D_622en")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
