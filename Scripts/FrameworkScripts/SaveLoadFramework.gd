@@ -171,6 +171,9 @@ var playing_intense_music = false
 var has_keycard = false
 var boss_fifty_percent = false
 var boss_music_ind = -1
+var boss_health = 100
+var turret_one_health = 100
+var turret_two_health = 100
 var current_objective = ""
 
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")

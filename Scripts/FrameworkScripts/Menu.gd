@@ -166,7 +166,6 @@ func _on_start_button_up():
 	_on_select_slot_cancel_button_up()
 	
 	if !local_slot_data[6]:
-		# *Scoffs* ... "you think your name is long ... MINE IS LONGER"
 		get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
 		open_character_select_menu = true
 		return
@@ -260,10 +259,9 @@ func _on_slot_5_button_up():
 
 func _on_select_character_menu_rise_from_depths_animation_player_animation_finished(anim_name):
 	var global_data = get_parent().load_data("global")
-	var local_slot_data = get_parent().load_data(slot_num)
+	var local_slot_data = get_parent().load_data($SelectSlotMenu.slot_num)
 	
 	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation":
-		print("DEBUG: Entered game in slot " + str(get_parent().load_data($SelectSlotMenu.slot_num)[0]))
 		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0)
 	if anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu:
 		$SelectSlotMenu.open_character_select_menu = false

@@ -23,6 +23,10 @@ var has_weapon_time = 0
 var has_ability_time = 0
 var finished_down = false
 var finished_up = false
+var can_get_hurt_by_bullets = false
+
+func _ready():
+	health = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -64,7 +68,7 @@ func _on_new_bullet_timer_timeout():
 			shoot_bullet($BossShootPosition2.position)
 
 func _on_boss_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter":
+	if area.name == "PlayerBulletHurter" && can_get_hurt_by_bullets:
 		# First focus on taking out turrets
 		health -= 2.5
 		
@@ -78,6 +82,9 @@ func _on_boss_hurtbox_area_entered(area):
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
 func _process(delta):
+	player.get_parent().get_node("Camera").get_node("BossBar").value = health
+	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health = health
+	
 	var target_pos = start_pos
 	var no_bob = false
 	bob_x += 0.01 * delta * 60
@@ -87,6 +94,8 @@ func _process(delta):
 		
 	if (get_node_or_null("LeftTurret") || get_node_or_null("RightTurret")) && player.current_ability == "ArmGun":
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Objective: Take out the control tower turrets")
+	elif (!get_node_or_null("LeftTurret") && !get_node_or_null("RightTurret")) && player.current_ability == "ArmGun":
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Objective: Switch the boss shields off")
 	
 	if (!external_special_music_player.stream || external_special_music_player.playing == false) && health > 0:
 		if save_load_framework.boss_music_ind == -1:
@@ -106,10 +115,9 @@ func _process(delta):
 		dropped_enemies = false
 	elif !dropped_enemies:
 		dropped_enemies = true
-		spawn_mele($MeleSpawn.position)
-		
-		if health < 50:
-			spawn_drill($MeleSpawn3.position)
+		$MeleSpawnTimer.start()
+		get_parent().get_node("DoorOpenAnimation").play("Open")
+		get_parent().get_node("DoorOpenAnimationTop").play("Open")
 			
 	if health < 50:
 		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_fifty_percent = true
@@ -149,3 +157,9 @@ func _process(delta):
 
 	if health > 50 && !no_bob:
 		position += (Vector2(target_pos.x, target_pos.y + sin(bob_x) * 10) - position) * 0.01
+
+
+func _on_mele_spawn_timer_timeout():
+	spawn_mele($MeleSpawn.position)
+	get_parent().get_node("DoorOpenAnimation").play("Close")
+	get_parent().get_node("DoorOpenAnimationTop").play("Close")

@@ -71,11 +71,6 @@ func _process(delta):
 	$TimeCounter.position = original_pos * (4 / zoom.x)
 	$TimeCounter.scale = original_scale * (4 / zoom.x)
 	
-	original_scale = Vector2(1.35, 1.35)
-	original_pos = Vector2(0, -122)
-	
-	$ObjectiveBoxManager.position = original_scale * (4 / zoom.x)
-	$ObjectiveBoxManager.scale = original_pos * (4 / zoom.x)
 
 # Whar.
 func open_dialogue_box():
