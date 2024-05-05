@@ -91,11 +91,17 @@ func _process(delta):
 	
 	if health <= 0 && position.y > -1250:
 		save_load_framework.end_special_music()
-		
+	
 	if (get_node_or_null("LeftTurret") || get_node_or_null("RightTurret")) && player.current_ability == "ArmGun":
-		get_parent().get_node("Player").get_node("Camera").set_objective_text("Objective: Take out the control tower turrets")
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Take out the control tower turrets")
 	elif (!get_node_or_null("LeftTurret") && !get_node_or_null("RightTurret")) && player.current_ability == "ArmGun":
-		get_parent().get_node("Player").get_node("Camera").set_objective_text("Objective: Switch the boss shields off")
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Crash the control tower into the roof")
+		
+	if can_get_hurt_by_bullets:
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Follow the control tower to the next floor")
+		
+	if player.position.y < -450:
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Shoot the damaged spot on the blast shield")
 	
 	if (!external_special_music_player.stream || external_special_music_player.playing == false) && health > 0:
 		if save_load_framework.boss_music_ind == -1:

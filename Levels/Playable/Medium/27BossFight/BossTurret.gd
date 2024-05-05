@@ -10,8 +10,23 @@ func _on_turret_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
 		area.get_parent().call_deferred("queue_free")
 		$HealthBar.value -= 7
+
+func _ready():
+	if left_turret:
+		$HealthBar.value = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").turret_one_health
+	if right_turret:
+		$HealthBar.value = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").turret_two_health
 		
+	if $HealthBar.value <= 0:
+		already_exploded = true
+		queue_free()
+
 func _process(delta):
+	if left_turret:
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").turret_one_health = $HealthBar.value
+	if right_turret:
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").turret_two_health = $HealthBar.value
+		
 	if $HealthBar.value <= 0 && !already_exploded:
 		already_exploded = true
 		

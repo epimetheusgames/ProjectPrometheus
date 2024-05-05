@@ -474,6 +474,7 @@ _data = {
 script = ExtResource("1_5blyj")
 level = 4
 boss = true
+dont_show_bossbar = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
@@ -607,7 +608,7 @@ position = Vector2(112, 32)
 position = Vector2(0, 120)
 
 [node name="FiftyPercentPos" type="Node2D" parent="Boss"]
-position = Vector2(-3, -480)
+position = Vector2(-3, -490)
 
 [node name="BossHurtbox" type="Area2D" parent="Boss"]
 

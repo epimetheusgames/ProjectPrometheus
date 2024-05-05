@@ -758,7 +758,6 @@ theme_override_font_sizes/font_size = 57
 text = "Time: 0"
 
 [node name="ObjectiveBoxManager" type="Node2D" parent="Camera"]
-visible = false
 z_index = 70
 position = Vector2(0, -122)
 scale = Vector2(1.35, 1.35)
@@ -789,9 +788,9 @@ texture = ExtResource("10_to3sf")
 [node name="BossBar" type="ProgressBar" parent="Camera"]
 visible = false
 offset_left = -176.0
-offset_top = -209.0
+offset_top = -185.0
 offset_right = 184.0
-offset_bottom = -182.0
+offset_bottom = -158.0
 value = 100.0
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]

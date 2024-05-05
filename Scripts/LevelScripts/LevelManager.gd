@@ -30,6 +30,7 @@ var just_unpaused = false
 @export var lights_off = false
 @export var end_level = false
 @export var is_credits = false
+@export var dont_show_bossbar = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
 var last_100_raycasts = []

@@ -39,7 +39,7 @@ func _process(delta):
 	was_open = open_dialogue
 	
 	# Set boss bar to visible if this is a boss fight.
-	if get_parent().get_parent().boss:
+	if get_parent().get_parent().boss && !get_parent().get_parent().dont_show_bossbar:
 		$BossBar.visible = true
 
 	# Seriously what is this about.
@@ -71,6 +71,11 @@ func _process(delta):
 	$TimeCounter.position = original_pos * (4 / zoom.x)
 	$TimeCounter.scale = original_scale * (4 / zoom.x)
 	
+	original_scale = Vector2(1.35, 1.35)
+	original_pos = Vector2(0, -122)
+	
+	$ObjectiveBoxManager.scale = original_scale * (4 / zoom.x)
+	$ObjectiveBoxManager.position = original_pos * (4 / zoom.x)
 
 # Whar.
 func open_dialogue_box():
