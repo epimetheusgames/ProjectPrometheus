@@ -50,6 +50,11 @@ func _process(delta):
 		
 		for child in $DialogueBoxContainer.get_children():
 			child.queue_free()
+			
+	if $ObjectiveBoxManager/ObjectiveBoxText.text == "":
+		$ObjectiveBoxManager.visible = false
+	else:
+		$ObjectiveBoxManager.visible = true
 	
 	# Get the text to stay in the corners of the screen even when the camera
 	# zooms.

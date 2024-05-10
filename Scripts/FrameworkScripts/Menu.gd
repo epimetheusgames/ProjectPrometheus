@@ -151,7 +151,14 @@ func _on_settings_button_button_up():
 func _on_credits_button_button_up():
 	if !credits_open:
 		credits_open = true
-		call_deferred("add_child", credits_instance.instantiate())
+		$Camera2D.enabled = false
+		var instantiated_credits = credits_instance.instantiate()
+		
+		# Disable glow hopefully.
+		instantiated_credits.modulate = Color(0.5, 0.5, 0.5, 1)
+		instantiated_credits.position = Vector2(0, -10000)
+		
+		call_deferred("add_child", instantiated_credits)
 
 func _on_quit_button_button_up():
 	get_tree().quit()

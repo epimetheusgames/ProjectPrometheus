@@ -14,6 +14,7 @@ func _on_area_entered(area):
 			instantiated_exploder.velocity = Vector2(rng.randf_range(-5, 5), rng.randf_range(-5, 5))
 			instantiated_exploder.no_damage = true
 			get_parent().add_child(instantiated_exploder)
+			instantiated_exploder.get_node("Sprite2D").visible = false
 
 func _process(delta):
 	and_countdown -= 1

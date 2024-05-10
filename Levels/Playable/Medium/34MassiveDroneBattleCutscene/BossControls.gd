@@ -6,7 +6,7 @@ var controlling_ship = false
 var no_death = false
 var takeover_control = false
 
-var velocity = Vector2.ZERO
+var velocity = Vector2(0, -0.1)
 		
 @onready var raycasts = [
 			$CharacterBody2D/RayCast2D,
@@ -91,6 +91,7 @@ func _process(delta):
 			missile_object.gravity = false
 			missile_object.get_node("Sprite2D").texture = loaded_missile_sprite
 			missile_object.get_node("Sprite2D").scale = Vector2(-1, 1)
+			missile_object.get_node("Sprite2D").rotation_degrees = -90
 			get_parent().add_child(missile_object)
 			
 		var collisions = [
@@ -147,6 +148,7 @@ func _process(delta):
 				var instantiated_missile = loaded_missile.instantiate()
 				instantiated_missile.position = position + raycasts[collision].position
 				instantiated_missile.no_damage = true
+				instantiated_missile.get_node("Sprite2D").visible = false
 				get_parent().add_child(instantiated_missile)
 				
 				if !no_death:
@@ -162,6 +164,8 @@ func _process(delta):
 			velocity.y += get_vertical_direction_pressed() * 0.02
 			if get_horizontal_direction_pressed() == 0:
 				velocity.x -= (abs(get_vertical_direction_pressed()) * 0.02 if velocity.x > 0 else -abs(get_vertical_direction_pressed()) * 0.02) * delta * 60
+		
+			rotation = velocity.x / 50 + (velocity.y / 40 * velocity.x / 50)
 		
 		if no_death:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position

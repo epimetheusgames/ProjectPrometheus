@@ -1,3 +1,12 @@
+# -------------------------------------------------------------------------------------------------------|
+# Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.  |
+# All rights reserved.                                                                                   |
+#                                                                                                        |
+# Email us at <epimtheusgamesogpc@gmail.com>                                                             |
+# ------------------------------------------PlayerManager.gd---------------------------------------------|
+# Main player manager for miscelanious settings and camera movement and collision.                       |
+#--------------------------------------------------------------------------------------------------------|
+
 extends Node2D
 
 

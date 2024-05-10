@@ -24,9 +24,11 @@ var has_ability_time = 0
 var finished_down = false
 var finished_up = false
 var can_get_hurt_by_bullets = false
+var bridge_opened = false
 
 func _ready():
 	health = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health
+	print("BOSS HELATH" + str(get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health))
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -82,8 +84,15 @@ func _on_boss_hurtbox_area_entered(area):
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
 func _process(delta):
+	print(health)
+	
 	player.get_parent().get_node("Camera").get_node("BossBar").value = health
 	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health = health
+	
+	# Left turret
+	if get_node_or_null("LeftTurret"):
+		var direction_to_player = (player.position - position + player.get_parent().position - $LeftTurret.position).normalized()
+		$LeftTurret.rotation = atan2(direction_to_player.y, direction_to_player.x) - (1.0 / 2.0) * PI
 	
 	var target_pos = start_pos
 	var no_bob = false
@@ -148,7 +157,10 @@ func _process(delta):
 	if health <= 0:
 		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		get_parent().boss = false
-		position.y -= 1 * delta * 60
+		
+		if !bridge_opened:
+			$DrawbridgeAnimationPlayer.play("OpenBridge")
+			bridge_opened = true
 		
 	if player.current_ability == "Grapple" || player.current_ability == "RocketBoost":
 		target_pos.y += has_ability_time + has_weapon_time

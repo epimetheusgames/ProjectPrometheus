@@ -41,6 +41,7 @@ func _process(delta):
 		if gravity:
 			velocity.y += 0.2
 			
+		rotation = -atan2(velocity.x, velocity.y) + PI
 		position += velocity * delta * 60
 
 func _on_timer_timeout():

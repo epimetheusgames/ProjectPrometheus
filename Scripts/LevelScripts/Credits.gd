@@ -16,6 +16,8 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("esc") && !get_parent().get_parent().get_node("Player"):
+		get_parent().get_parent().get_node("Camera2D").enabled = true
+		get_parent().get_parent().credits_open = false
 		get_parent().queue_free()
 	
 
