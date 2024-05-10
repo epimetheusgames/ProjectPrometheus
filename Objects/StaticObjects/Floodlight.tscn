@@ -32,7 +32,7 @@ color_ramp = SubResource("GradientTexture1D_7rpdq")
 script = ExtResource("1_7ptvu")
 
 [node name="FloodlightSprite" type="Sprite2D" parent="."]
-self_modulate = Color(1.8, 1.4, 1.4, 1)
+self_modulate = Color(2, 1.6, 1.6, 1)
 position = Vector2(28, 16)
 texture = ExtResource("1_1kwxt")
 

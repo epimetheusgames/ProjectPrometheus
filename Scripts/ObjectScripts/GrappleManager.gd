@@ -54,21 +54,21 @@ func _physics_process(delta):
 			# This uses math that is way over my head. Literally magic.
 			var radius = get_parent().position - hook.position
 			var angle = acos(radius.dot(get_parent().velocity) / (radius.length() * get_parent().velocity.length()))
+			# End code I did not make.
 			
 			if Input.is_action_pressed("jump") && !get_parent().is_on_ceiling():
-				grapple_lock_rope_len_velocity -= 0.05
-				grapple_lock_rope_len += grapple_lock_rope_len_velocity
+				grapple_lock_rope_len_velocity -= 0.05 * delta * 60
+				grapple_lock_rope_len += grapple_lock_rope_len_velocity * delta * 60
 			else:
 				grapple_lock_rope_len_velocity = 0
 				
 			if Input.is_action_pressed("down") && !get_parent().is_on_floor():
-				grapple_lock_rope_len += 1.4 * delta * 60
+				grapple_lock_rope_len += 3 * delta * 60
 			
 			var rad_vel = cos(angle) * get_parent().velocity.length()
 			get_parent().velocity += radius.normalized() * -rad_vel
-			# End code I did not make.
 			
-			if hook.position.distance_to(get_parent().position) > grapple_lock_rope_len:
+			if hook.position.distance_to(get_parent().position) != grapple_lock_rope_len:
 				get_parent().position = hook.position + (get_parent().position - hook.position).normalized() * grapple_lock_rope_len
 		
 		else:
