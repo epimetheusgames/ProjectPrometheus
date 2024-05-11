@@ -25,10 +25,11 @@ var finished_down = false
 var finished_up = false
 var can_get_hurt_by_bullets = false
 var bridge_opened = false
+var player_in_final_area = false
+var elevator_enabled = false
 
 func _ready():
 	health = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health
-	print("BOSS HELATH" + str(get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health))
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -74,9 +75,6 @@ func _on_boss_hurtbox_area_entered(area):
 		# First focus on taking out turrets
 		health -= 2.5
 		
-		if health < 40:
-			health += 2
-		
 		if health <= 0 && !dead:
 			dead = true
 			get_parent().points += 100
@@ -84,7 +82,7 @@ func _on_boss_hurtbox_area_entered(area):
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
 func _process(delta):
-	print(health)
+	$BossHealth.value = health * 2
 	
 	player.get_parent().get_node("Camera").get_node("BossBar").value = health
 	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health = health
@@ -93,6 +91,10 @@ func _process(delta):
 	if get_node_or_null("LeftTurret"):
 		var direction_to_player = (player.position - position + player.get_parent().position - $LeftTurret.position).normalized()
 		$LeftTurret.rotation = atan2(direction_to_player.y, direction_to_player.x) - (1.0 / 2.0) * PI
+		
+	if get_node_or_null("RightTurret"):
+		var direction_to_player = (player.position - position + player.get_parent().position - $RightTurret.position).normalized()
+		$RightTurret.rotation = atan2(direction_to_player.y, direction_to_player.x) - (1.0 / 2.0) * PI
 	
 	var target_pos = start_pos
 	var no_bob = false
@@ -111,6 +113,21 @@ func _process(delta):
 		
 	if player.position.y < -450:
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Shoot the damaged spot on the blast shield")
+		
+	if health <= 0:
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Enter the control tower and unlock the elevator")
+	
+	if player_in_final_area && Input.is_action_just_pressed("interact"):
+		get_parent().get_node("ElevatorWalkBarrier").get_node("CollisionShape2D").disabled = true
+		get_parent().get_node("ElevatorPressE").visible = true
+		
+		elevator_enabled = true
+		
+	if elevator_enabled && player.position.y < -450:
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Return to the elevator")
+		
+	elif elevator_enabled:
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("")
 	
 	if (!external_special_music_player.stream || external_special_music_player.playing == false) && health > 0:
 		if save_load_framework.boss_music_ind == -1:
@@ -136,6 +153,9 @@ func _process(delta):
 			
 	if health < 50:
 		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_fifty_percent = true
+		
+	if health < 48:
+		$BossHealth.visible = true
 			
 	if health < 50 && position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		get_parent().get_node("BossHook1").get_node("Area2D").get_node("CollisionShape2D").disabled = false
@@ -164,12 +184,12 @@ func _process(delta):
 		
 	if player.current_ability == "Grapple" || player.current_ability == "RocketBoost":
 		target_pos.y += has_ability_time + has_weapon_time
-		has_ability_time -= 0.1 * delta * 60
+		has_ability_time -= 0.2 * delta * 60
 		if has_weapon_time > 0:
 			has_weapon_time -= 0.05 * delta * 60
 	if player.current_ability == "ArmGun" || player.current_ability == "Weapon":
 		target_pos.y += has_weapon_time + has_ability_time
-		has_weapon_time += 0.05 * delta * 60
+		has_weapon_time += 0.04 * delta * 60
 		if has_ability_time < 0:
 			has_ability_time += 0.1 * delta * 60
 
@@ -181,3 +201,9 @@ func _on_mele_spawn_timer_timeout():
 	spawn_mele($MeleSpawn.position)
 	get_parent().get_node("DoorOpenAnimation").play("Close")
 	get_parent().get_node("DoorOpenAnimationTop").play("Close")
+
+func _on_enable_elevator_area_area_entered(area):
+	player_in_final_area = true
+
+func _on_enable_elevator_area_area_exited(area):
+	player_in_final_area = false

@@ -23,7 +23,7 @@ func _on_area_2d_area_exited(area):
 		player_in_area = false
 		
 func _process(delta):
-	if Input.is_action_just_pressed("interact") && get_parent().get_node("Boss").health < 53:
+	if Input.is_action_just_pressed("interact") && get_parent().get_node("Boss").health < 53 && player_in_area:
 		get_parent().get_node("Boss").health = 49
 		get_parent().get_node("Boss").can_get_hurt_by_bullets = true
 		switched_up = true

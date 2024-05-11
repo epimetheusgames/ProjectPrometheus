@@ -19,6 +19,7 @@ func _on_turret_hurtbox_area_entered(area):
 	if area.name == "PlayerBulletHurter":
 		area.get_parent().call_deferred("queue_free")
 		$HealthBar.value -= 7
+		$HealthBar.visible = true
 
 func _ready():
 	if left_turret:

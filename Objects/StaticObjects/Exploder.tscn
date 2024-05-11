@@ -51,6 +51,7 @@ turbulence_noise_scale = 0.0
 radius = 13.0384
 
 [node name="Exploder" type="Node2D"]
+z_index = 60
 script = ExtResource("1_nm13k")
 
 [node name="ExplosionHitbox" type="Area2D" parent="."]

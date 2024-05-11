@@ -10,10 +10,12 @@ var going_up = false
 var velocity = Vector2.ZERO
 
 func _on_area_2d_area_entered(area):
-	player_in_area = true
+	if area.name == "PlayerHurtbox":
+		player_in_area = true
 
 func _on_area_2d_area_exited(area):
-	player_in_area = false
+	if area.name == "PlayerHurtbox":
+		player_in_area = false
 	
 func _process(delta):
 	if Input.is_action_just_pressed("interact") && player_in_area:
