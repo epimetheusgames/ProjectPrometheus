@@ -10,7 +10,6 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="8_uuyu8"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="9_n57ke"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="10_cf0b7"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="10_f2gew"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="10_ui22u"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_7p8sg"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="12_bw1ul"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="20_v2c8m"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_d5oyl"]
 [ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="23_453pd"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="24_xtjbv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_pfxli")
@@ -289,9 +289,6 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("10_f2gew")
-
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)
 
@@ -358,9 +355,6 @@ points = PackedVector2Array(-52, -208, 318, -209, 371, -245, 514, -247, 370, -27
 
 [node name="AttackLine" parent="DroneManager6" index="1"]
 points = PackedVector2Array(0, 0, 87, 9)
-
-[node name="WeaponDetected" parent="DroneManager6" index="7"]
-bus = &"Master"
 
 [node name="TargetLost" parent="DroneManager6" index="8"]
 bus = &"Master"
@@ -500,10 +494,6 @@ position = Vector2(-115, -314)
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
 points = PackedVector2Array(-107, -86, -311, -87, -310, 34, -311, 167, -307, 223, -221, 248, -64, 224, -46, 143, -56, 37)
 
-[node name="PropDoorFaceForward2" type="Sprite2D" parent="."]
-position = Vector2(1666, -1215)
-texture = ExtResource("14_mh0yh")
-
 [node name="GrappleHook4" parent="." instance=ExtResource("16_d8wsk")]
 position = Vector2(2603, -1445)
 rotation = 3.14159
@@ -523,6 +513,9 @@ position = Vector2(1798, -1723)
 [node name="Artifact3" parent="." instance=ExtResource("20_v2c8m")]
 position = Vector2(1480, -1688)
 uid = 76934
+
+[node name="PreviousLevel" parent="." instance=ExtResource("24_xtjbv")]
+position = Vector2(125, -1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

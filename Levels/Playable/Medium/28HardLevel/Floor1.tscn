@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://5vu83mjagwj3"]
+[gd_scene load_steps=36 format=3 uid="uid://5vu83mjagwj3"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hmli3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_uanwo"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="19_8tc31"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="20_tksiu"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="22_lq50t"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="23_6r4vq"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_rbfm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -193,7 +194,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whlic"]
-size = Vector2(229, 277)
+size = Vector2(38, 277)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("12_qvmc8")
@@ -300,7 +301,7 @@ position = Vector2(4, -91)
 script = ExtResource("10_wc7hr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1194.5, 569)
+position = Vector2(1087, 569)
 shape = SubResource("RectangleShape2D_whlic")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -415,6 +416,9 @@ texture = SubResource("GradientTexture1D_b7x2s")
 
 [node name="AttackMele" parent="." instance=ExtResource("15_mo43t")]
 position = Vector2(-637, -17)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("23_6r4vq")]
+position = Vector2(2, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

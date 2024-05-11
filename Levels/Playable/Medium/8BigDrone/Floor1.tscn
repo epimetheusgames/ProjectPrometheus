@@ -8,7 +8,6 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_lcb4g"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_dba0d"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="7_lb12w"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="8_2n6is"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_x137m"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="9_ggust"]
 [ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="10_osp52"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="14_5to6w"]
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="15_ss8gt"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_b2qe8"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="19_ukffx"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_8fs24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -172,9 +172,6 @@ layer_0/tile_data = PackedInt32Array(-65508, 65536, 0, -65507, 196608, 0)
 
 [node name="Player" parent="." instance=ExtResource("7_lb12w")]
 
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("8_2n6is")
-
 [node name="Player" parent="Player" index="2"]
 position = Vector2(-47, -29)
 
@@ -278,6 +275,9 @@ texture = ExtResource("15_ss8gt")
 [node name="PropDoorFaceForwardLocked2" type="Sprite2D" parent="."]
 position = Vector2(-209, -160)
 texture = ExtResource("21_8fs24")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("19_ukffx")]
+position = Vector2(-127, -32)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

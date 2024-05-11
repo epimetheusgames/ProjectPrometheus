@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl78yagbirxrk"]
+[gd_scene load_steps=35 format=3 uid="uid://dl78yagbirxrk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sf2si"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="2_ja1qo"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="22_7gc6c"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="23_iwhll"]
 [ext_resource type="PackedScene" uid="uid://bl0sonahek41k" path="res://Objects/StaticObjects/TutorialDialogueBox.tscn" id="24_4bfho"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_xl4hr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("3_rflqm")
@@ -271,7 +272,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -298,7 +299,7 @@ position = Vector2(4, -91)
 script = ExtResource("13_xrd17")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextLevel"]
-polygon = PackedVector2Array(-454, 315, -453, 189, -539, 256)
+polygon = PackedVector2Array(-434, 312, -433, 190, -539, 256)
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_7u6dv")
@@ -413,6 +414,9 @@ text = "YOU WILL DIE"
 [node name="Artifact2" parent="." instance=ExtResource("23_iwhll")]
 position = Vector2(-9, 111)
 uid = 98765
+
+[node name="PreviousLevel" parent="." instance=ExtResource("25_xl4hr")]
+position = Vector2(-2, 2)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

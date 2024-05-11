@@ -11,7 +11,6 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="9_uulin"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="10_8alde"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="11_1dpin"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="11_1xe33"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="12_1wrkc"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="13_inrqq"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="14_i1hdk"]
@@ -28,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ctsenv43f243c" path="res://Assets/Images/Objects/Props/PropForwardFaceChair.png" id="26_45ve0"]
 [ext_resource type="Texture2D" uid="uid://7md2ixd8bat8" path="res://Assets/Images/Objects/Props/PropAnalogClock.png" id="27_4hcrk"]
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="28_31hfy"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="29_2028l"]
 [ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="29_inqga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -285,9 +285,6 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("11_1xe33")
-
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -447,6 +444,9 @@ texture = ExtResource("28_31hfy")
 [node name="Mark8Terminal" type="Sprite2D" parent="."]
 position = Vector2(934, -587)
 texture = ExtResource("29_inqga")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("29_2028l")]
+position = Vector2(-2, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

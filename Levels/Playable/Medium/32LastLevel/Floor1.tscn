@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cl4n2wee540av"]
+[gd_scene load_steps=34 format=3 uid="uid://cl4n2wee540av"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_b8bn3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_tkhol"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="20_o3dyc"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="21_6dnwj"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_s18u7"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="23_04mwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_tkhol")
@@ -157,7 +158,7 @@ sources/1 = SubResource("TileSetAtlasSource_hrhx4")
 size = Vector2(375, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg4tm"]
-size = Vector2(91, 88)
+size = Vector2(110, 88)
 
 [sub_resource type="Gradient" id="Gradient_unp1f"]
 offsets = PackedFloat32Array(0.19, 1)
@@ -244,7 +245,7 @@ collision_mask = 2
 script = ExtResource("10_8kskt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(599.5, -103)
+position = Vector2(609, -103)
 shape = SubResource("RectangleShape2D_fg4tm")
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
@@ -378,10 +379,6 @@ position = Vector2(201, -438)
 [node name="WallTurret12" parent="." instance=ExtResource("15_uyx8t")]
 position = Vector2(457, -438)
 
-[node name="PropDoorFaceForward3" type="Sprite2D" parent="."]
-position = Vector2(-49, -352)
-texture = ExtResource("11_531xg")
-
 [node name="PropBench3" type="Sprite2D" parent="."]
 position = Vector2(-108, -336)
 texture = ExtResource("12_u04ld")
@@ -432,6 +429,9 @@ position = Vector2(-828, -207)
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("21_6dnwj")]
 position = Vector2(866, -80)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("23_04mwn")]
+position = Vector2(-2, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 

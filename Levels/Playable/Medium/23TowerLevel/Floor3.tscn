@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctkvp8tqrbrmp"]
+[gd_scene load_steps=36 format=3 uid="uid://ctkvp8tqrbrmp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_540bb"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ojf8g"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="19_6pery"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="20_a0g8o"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="21_vavub"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="23_7v5bg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_ojf8g")
@@ -190,7 +191,7 @@ shader_parameter/speed = Vector2(0.02, 0.006)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_cjk28")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hlqps"]
-size = Vector2(47.5, 96.5)
+size = Vector2(38, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("12_qcpyq")
@@ -297,7 +298,7 @@ position = Vector2(4, -91)
 script = ExtResource("10_024ya")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-230.75, -1584.25)
+position = Vector2(-208, -1568)
 shape = SubResource("RectangleShape2D_hlqps")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -474,6 +475,9 @@ uid = 27384
 [node name="PropDoorFaceForward2" type="Sprite2D" parent="."]
 position = Vector2(2, 1)
 texture = ExtResource("18_wix5k")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("23_7v5bg")]
+position = Vector2(1, 1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

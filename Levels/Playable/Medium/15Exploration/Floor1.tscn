@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://vbpf01w0tgt1"]
+[gd_scene load_steps=64 format=3 uid="uid://vbpf01w0tgt1"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_us68f"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_8dtln"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="50_8560a"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="50_ap12m"]
 [ext_resource type="AudioStream" uid="uid://dhfjl7k46xg8t" path="res://Assets/Audio/Voicelines/AlexHarveyRecording1.wav" id="51_ecdjl"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="51_r0yyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_8dtln")
@@ -1167,12 +1168,10 @@ texture = ExtResource("29_t51mi")
 
 [node name="TimerDisabler" type="Area2D" parent="."]
 position = Vector2(-5564, -56.0031)
-scale = Vector2(1, 1)
 script = ExtResource("50_ap12m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
 position = Vector2(-6.14844, -35.6373)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_75d1t")
 
 [node name="SecretAreaVoicelineLaptop" parent="." instance=ExtResource("50_8560a")]
@@ -1192,6 +1191,9 @@ position = Vector2(-704, 282)
 visible = true
 position = Vector2(15.5509, 6)
 scale = Vector2(1, 1)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("51_r0yyp")]
+position = Vector2(-0.987528, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

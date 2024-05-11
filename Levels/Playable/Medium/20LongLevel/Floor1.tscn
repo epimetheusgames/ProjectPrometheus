@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d04lorakbmnvu"]
+[gd_scene load_steps=37 format=3 uid="uid://d04lorakbmnvu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_vv11u"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_7rhfe"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="22_y2lhr"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="23_1axo7"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="24_dxvyg"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_1lj4r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_7rhfe")
@@ -321,6 +322,7 @@ shader_parameter/vignette_visibleness = 1.0
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_vv11u")
 level = 4
+no_timer = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
@@ -539,6 +541,9 @@ position = Vector2(-316, 128)
 
 [node name="Floodlight10" parent="." instance=ExtResource("24_dxvyg")]
 position = Vector2(-444, 128)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("25_1lj4r")]
+position = Vector2(-2, -1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

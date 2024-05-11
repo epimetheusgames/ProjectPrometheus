@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_7dbkh"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_lmdkm"]
 [ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_dsr0v"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="11_dttst"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_dyti8"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_68yyx"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="14_bywt3"]
@@ -29,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="27_qdc0y"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="27_xmymx"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="28_bw2yj"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="29_ua0s2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_njaqg")
@@ -277,9 +277,6 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="ControllerTextureRect2" parent="Player/Camera/TutorialDialogues/MouseToGrapple" index="3"]
-texture = ExtResource("11_dttst")
-
 [node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -474,6 +471,9 @@ position = Vector2(2240, -208)
 
 [node name="SidewaysDoor" parent="." instance=ExtResource("28_bw2yj")]
 position = Vector2(160, 282)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("29_ua0s2")]
+position = Vector2(-1, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

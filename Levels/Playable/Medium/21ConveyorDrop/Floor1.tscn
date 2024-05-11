@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://clylsw51pcy3t"]
+[gd_scene load_steps=34 format=3 uid="uid://clylsw51pcy3t"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_msv6s"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wue0v"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="22_fj27u"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="23_rxajx"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="24_q2fof"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_kayeo"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="25_pxyfg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -221,7 +222,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71ng8"]
-size = Vector2(118.75, 96)
+size = Vector2(39, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("13_xvg2g")
@@ -293,7 +294,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -320,7 +321,7 @@ position = Vector2(4, -91)
 script = ExtResource("11_ns75o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(3683, 1008)
+position = Vector2(3623.5, 1024)
 shape = SubResource("RectangleShape2D_71ng8")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -467,6 +468,9 @@ uid = 333454
 
 [node name="ItemSwitcher11" parent="." instance=ExtResource("15_k3uih")]
 position = Vector2(3553, 1040)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("25_kayeo")]
+position = Vector2(4, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

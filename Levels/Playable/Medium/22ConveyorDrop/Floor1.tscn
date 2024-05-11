@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d0ts7tu78v4at"]
+[gd_scene load_steps=41 format=3 uid="uid://d0ts7tu78v4at"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_7nrl6"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_aii4d"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="23_864dp"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="24_eo2fv"]
 [ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="26_gnmey"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="27_cf04b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_aii4d")
@@ -284,10 +285,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TimeCounter" parent="Player/Camera" index="5"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BossBar" parent="Player/Camera" index="7"]
+[node name="BossBar" parent="Player/Camera" index="8"]
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="6"]
+[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
@@ -299,7 +300,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" parent="Player/Camera" index="12"]
+[node name="Inventory" parent="Player/Camera" index="13"]
 metadata/_edit_use_anchors_ = true
 
 [node name="SlotBackgrounds" parent="Player/Camera/Inventory" index="0"]
@@ -347,7 +348,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" parent="Player/Camera" index="14"]
+[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="13"]
@@ -743,7 +744,11 @@ position = Vector2(-6048, -496)
 position = Vector2(-2428, 256)
 
 [node name="DronePatrolPoints" parent="DroneManager3" index="0"]
+visible = false
 points = PackedVector2Array(-9, -142, -5, -490, 291, -476, 305, -342, 661, -326, 704, -257, 981, -266, 1035, -322, 1025, -600)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("27_cf04b")]
+position = Vector2(3, 1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

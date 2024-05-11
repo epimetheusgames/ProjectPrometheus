@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=83 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://cb2ln41exmwsd" path="res://Assets/Images/Objects/Enemy/ElevatorBossSpritePipe.png" id="34_sqlm3"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="40_n1kei"]
 [ext_resource type="Texture2D" uid="uid://cfl4o66hvt3o4" path="res://Assets/Images/Objects/FunctionalProps/LadderSprite.png" id="41_f65v3"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="42_grr4g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_lvfhp")
@@ -1275,6 +1276,9 @@ texture = ExtResource("41_f65v3")
 [node name="LadderSprite5" type="Sprite2D" parent="."]
 position = Vector2(593, 12)
 texture = ExtResource("41_f65v3")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("42_grr4g")]
+position = Vector2(820, 0)
 
 [connection signal="area_entered" from="BossGoUpSwitch/Area2D" to="BossGoUpSwitch" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="BossGoUpSwitch/Area2D" to="BossGoUpSwitch" method="_on_area_2d_area_exited"]

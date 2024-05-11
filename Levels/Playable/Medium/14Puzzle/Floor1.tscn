@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://y3jh4yu32hcf"]
+[gd_scene load_steps=36 format=3 uid="uid://y3jh4yu32hcf"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5h223"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wvad8"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="22_ymflr"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="23_daf32"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="23_fg7ky"]
+[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="24_45r7w"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_jh5hp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_wvad8")
@@ -381,7 +383,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player/Player" index="18"]
+[node name="PointLight2D" parent="Player/Player" index="20"]
 visible = false
 
 [node name="PointLight2D" parent="Player" index="13"]
@@ -514,6 +516,13 @@ scale = Vector2(-1, 1)
 
 [node name="SidewaysDoor" parent="." instance=ExtResource("23_fg7ky")]
 position = Vector2(-352, 218)
+
+[node name="DoorAjarSprite" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("24_45r7w")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("25_jh5hp")]
+position = Vector2(-2, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bw5p5nv7srv3k"]
+[gd_scene load_steps=44 format=3 uid="uid://bw5p5nv7srv3k"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_kjdhf"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_v8b2d"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://br3ujcpoov8xe" path="res://Assets/Images/Objects/Props/PropDesk.png" id="29_xpy00"]
 [ext_resource type="Texture2D" uid="uid://ctsenv43f243c" path="res://Assets/Images/Objects/Props/PropForwardFaceChair.png" id="30_0gxad"]
 [ext_resource type="Texture2D" uid="uid://b273c03wg55ih" path="res://Assets/Images/Objects/Props/PropBlankMonitorFaceForward.png" id="31_555ks"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="32_303mg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_v8b2d")
@@ -532,6 +533,9 @@ texture = ExtResource("30_0gxad")
 [node name="PropBlankMonitorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(1114, 58)
 texture = ExtResource("31_555ks")
+
+[node name="PreviousLevel" parent="." instance=ExtResource("32_303mg")]
+position = Vector2(-1, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

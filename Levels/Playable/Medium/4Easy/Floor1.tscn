@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dj1p3qmivhmxq"]
+[gd_scene load_steps=58 format=3 uid="uid://dj1p3qmivhmxq"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sq3eu"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_t6j4e"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="39_nb238"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="40_0tklx"]
 [ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="41_nfr17"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="42_slqye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_t6j4e")
@@ -818,6 +819,9 @@ position = Vector2(-476, -288)
 [node name="PlayerObjectiveSetter" parent="." instance=ExtResource("41_nfr17")]
 position = Vector2(-7, 8)
 objective_text = "Objective: Complete the level"
+
+[node name="PreviousLevel" parent="." instance=ExtResource("42_slqye")]
+position = Vector2(97, 33)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

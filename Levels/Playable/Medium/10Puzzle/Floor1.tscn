@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cybjprcr0x2fs"]
+[gd_scene load_steps=33 format=3 uid="uid://cybjprcr0x2fs"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ni2ku"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jci7s"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="20_dq1lk"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="20_jsktq"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="21_2mfyo"]
+[ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="22_vimuj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_jci7s")
@@ -378,7 +379,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="9"]
+[node name="PointLight2D" parent="Player" index="13"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -468,6 +469,9 @@ position = Vector2(-272, -148)
 
 [node name="Ladder10" parent="." instance=ExtResource("21_2mfyo")]
 position = Vector2(-272, -188)
+
+[node name="PreviousLevel" parent="." instance=ExtResource("22_vimuj")]
+position = Vector2(-1, 0)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
