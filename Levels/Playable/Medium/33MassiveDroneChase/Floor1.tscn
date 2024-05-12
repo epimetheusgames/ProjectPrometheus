@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=141 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l03d8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="5_82pr2"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_gnftb"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_h01v7"]
+[ext_resource type="AudioStream" uid="uid://dspkowyxamntk" path="res://Assets/Audio/SFX/HelicopterSFX.wav" id="5_mvo6i"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_lfboh"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="6_wsl1f"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="7_lus0u"]
@@ -990,6 +991,15 @@ script = ExtResource("4_1nnyn")
 wait_time = 0.5
 autostart = true
 
+[node name="HellicopterWoosh" type="AudioStreamPlayer2D" parent="DroneManager/Drone" index="11"]
+position = Vector2(56, -56)
+stream = ExtResource("5_mvo6i")
+volume_db = 10.0
+autoplay = true
+max_distance = 500.0
+panning_strength = 1.2
+bus = &"SFX"
+
 [node name="DeadBoss" type="Node2D" parent="."]
 visible = false
 position = Vector2(5616, 461)
@@ -1079,10 +1089,10 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="BossBar" parent="Player/Camera" index="7"]
+[node name="BossBar" parent="Player/Camera" index="8"]
 z_index = 50
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -1804,6 +1814,7 @@ position = Vector2(5675, 524)
 shape = SubResource("RectangleShape2D_rf3sw")
 
 [connection signal="timeout" from="DroneManager/Drone/ExplosionDropper/Timer" to="DroneManager/Drone/ExplosionDropper" method="_on_timer_timeout"]
+[connection signal="finished" from="DroneManager/Drone/HellicopterWoosh" to="DroneManager" method="_on_hellicopter_woosh_finished"]
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="BossHealthDecreaser" to="BossHealthDecreaser" method="_on_area_entered"]

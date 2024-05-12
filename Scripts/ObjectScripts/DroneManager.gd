@@ -30,6 +30,7 @@ var fly_to_correct_velocity = Vector2.ZERO
 @onready var loaded_bullet = preload("res://Objects/StaticObjects/DroneBullet.tscn")
 @onready var loaded_physics_drone = preload("res://Objects/StaticObjects/PhysicsDrone.tscn")
 @onready var loaded_physics_bird = preload("res://Objects/StaticObjects/PhysicsBird.tscn")
+@onready var loaded_boss_music = preload("res://Assets/Audio/Music/BossMusic.ogg")
 @onready var graphics_efficiency = get_parent().graphics_efficiency
 @onready var player = get_parent().get_node("Player").get_node("Player") if !get_parent().is_multiplayer else null
 @onready var patrol_points_size = $DronePatrolPoints.points.size()
@@ -48,6 +49,9 @@ func smooth(a, b, smoothing):
 	return (a + ((b - a) * smoothing))
 	
 func _ready():
+	if drone_boss:
+		$Drone/HellicopterWoosh.play()
+	
 	if !big_drone:
 		$LineRaycast.add_exception(player)
 	
@@ -127,8 +131,16 @@ func _process(delta):
 			return
 		else:
 			get_parent().get_node("DeadBoss").visible = true
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").end_special_music()
 			queue_free()
 			return
+			
+	if drone_boss:
+		if !get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").playing:
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream = loaded_boss_music
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").play()
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").volume_db = -10
 	
 	var current_pos_data = precalculated_flight_path[flight_index_int]
 	
@@ -279,3 +291,6 @@ func _on_drone_hurtbox_area_entered(area):
 
 func _on_target_found_timer_timeout():
 	can_play_target_lost = true
+
+func _on_hellicopter_woosh_finished():
+	$Drone/HellicopterWoosh.play()
