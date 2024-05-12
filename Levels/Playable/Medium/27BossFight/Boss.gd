@@ -203,7 +203,9 @@ func _on_mele_spawn_timer_timeout():
 	get_parent().get_node("DoorOpenAnimationTop").play("Close")
 
 func _on_enable_elevator_area_area_entered(area):
-	player_in_final_area = true
+	if area.name == "PlayerHurtbox":
+		player_in_final_area = true
 
 func _on_enable_elevator_area_area_exited(area):
-	player_in_final_area = false
+	if area.name == "PlayerHurtbox":
+		player_in_final_area = false

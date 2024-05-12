@@ -47,9 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="47_j4app"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="48_qpd8n"]
 [ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="49_4pfmv"]
+[ext_resource type="AudioStream" uid="uid://bbqs0wxitb4iq" path="res://Assets/Audio/Voicelines/AlexHarveyRecording1.ogg" id="50_0m3oq"]
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="50_8560a"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="50_ap12m"]
-[ext_resource type="AudioStream" uid="uid://dhfjl7k46xg8t" path="res://Assets/Audio/Voicelines/AlexHarveyRecording1.wav" id="51_ecdjl"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="51_r0yyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -411,7 +411,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -1178,7 +1178,8 @@ shape = SubResource("RectangleShape2D_75d1t")
 position = Vector2(-5564, -56.0031)
 
 [node name="VoicelinePlayer" parent="SecretAreaVoicelineLaptop" index="3"]
-stream = ExtResource("51_ecdjl")
+stream = ExtResource("50_0m3oq")
+volume_db = 3.0
 attenuation = 2.92818
 
 [node name="SidewaysDoor7" parent="." instance=ExtResource("31_2q0fu")]

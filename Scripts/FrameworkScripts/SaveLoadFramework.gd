@@ -394,6 +394,7 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
 	var saved_data = load_data(slot)
 	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7])
+	end_special_music()
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
 	menu_instance.first = false

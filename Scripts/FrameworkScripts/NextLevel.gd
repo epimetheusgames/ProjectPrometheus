@@ -46,6 +46,7 @@ func add_level():
 	
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard = false
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").end_special_music()
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").current_objective = ""
 	
 	if floors_this_level[floor] == floors_this_level[-1]:
 		level_next += 1

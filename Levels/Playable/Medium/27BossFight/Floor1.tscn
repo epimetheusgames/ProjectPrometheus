@@ -947,7 +947,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="Player" index="2"]
 position = Vector2(832, 15)
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88

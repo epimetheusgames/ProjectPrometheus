@@ -196,7 +196,12 @@ func _process(delta):
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream = loaded_boss_music
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").play()
+			
 		
+		if !get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").playing_special_music:
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
+		
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("BackgroundMusicPlayer").volume_db = -60
 		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").volume_db = -10
 
 func _on_ship_movement_control_e_icon_activator_area_entered(area):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bw5p5nv7srv3k"]
+[gd_scene load_steps=48 format=3 uid="uid://bw5p5nv7srv3k"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_kjdhf"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_v8b2d"]
@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://ctsenv43f243c" path="res://Assets/Images/Objects/Props/PropForwardFaceChair.png" id="30_0gxad"]
 [ext_resource type="Texture2D" uid="uid://b273c03wg55ih" path="res://Assets/Images/Objects/Props/PropBlankMonitorFaceForward.png" id="31_555ks"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="32_303mg"]
+[ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="33_l33j8"]
+[ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="34_qwqua"]
+[ext_resource type="AudioStream" uid="uid://cy1ygwycfo052" path="res://Assets/Audio/Voicelines/AlexHarveyRecording4.ogg" id="35_2d75g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_v8b2d")
@@ -326,6 +329,9 @@ shader_parameter/vignette_visibleness = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybeds"]
 size = Vector2(5.74615, 7.52753)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yggbj"]
+size = Vector2(92.9998, 110)
+
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_kjdhf")
 level = 4
@@ -389,7 +395,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -537,8 +543,28 @@ texture = ExtResource("31_555ks")
 [node name="PreviousLevel" parent="." instance=ExtResource("32_303mg")]
 position = Vector2(-1, 0)
 
+[node name="TimerDisabler" type="Area2D" parent="."]
+position = Vector2(-4341, 32.9969)
+script = ExtResource("33_l33j8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
+position = Vector2(5585.5, 44.0031)
+shape = SubResource("RectangleShape2D_yggbj")
+
+[node name="SecretAreaVoicelineLaptop" parent="." instance=ExtResource("34_qwqua")]
+position = Vector2(1223, 89)
+
+[node name="CollisionShape2D" parent="SecretAreaVoicelineLaptop/EArea" index="0"]
+position = Vector2(0.5, -6.5)
+
+[node name="VoicelinePlayer" parent="SecretAreaVoicelineLaptop" index="3"]
+stream = ExtResource("35_2d75g")
+volume_db = 13.0
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+[connection signal="area_entered" from="TimerDisabler" to="TimerDisabler" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
+[editable path="SecretAreaVoicelineLaptop"]

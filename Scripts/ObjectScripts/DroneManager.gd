@@ -132,6 +132,7 @@ func _process(delta):
 		else:
 			get_parent().get_node("DeadBoss").visible = true
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").end_special_music()
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stop()
 			queue_free()
 			return
 			
