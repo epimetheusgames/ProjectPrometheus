@@ -5,8 +5,9 @@ var active = false
 var controlling_ship = false
 var no_death = false
 var takeover_control = false
-
 var velocity = Vector2(0, -0.1)
+
+@onready var loaded_boss_music = preload("res://Assets/Audio/Music/BossMusic.ogg")
 		
 @onready var raycasts = [
 			$CharacterBody2D/RayCast2D,
@@ -191,6 +192,12 @@ func _process(delta):
 			
 		position += velocity * delta * 60
 		
+		if !get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").playing:
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream = loaded_boss_music
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").play()
+		
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").volume_db = -10
 
 func _on_ship_movement_control_e_icon_activator_area_entered(area):
 	if area.name == "PlayerHurtbox" && active:

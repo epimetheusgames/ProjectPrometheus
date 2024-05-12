@@ -7,13 +7,7 @@
 
 extends Node2D
 
-@export var level = 0
-@export var floor = 0
-@export var boss = false
-@export var zoom_boss = false
-@export var is_multiplayer = false
-@export var intense_music = false
-@export var is_cutscene = false
+
 var slot = -1
 var graphics_efficiency = false
 var is_max_level = true
@@ -26,6 +20,17 @@ var points = 0
 var time = 0
 var deaths = 0
 var just_unpaused = false
+var last_100_raycasts = []
+var cannot_stop_special_music = false
+
+@export var level = 0
+@export var floor = 0
+@export var boss = false
+@export var zoom_boss = false
+@export var is_multiplayer = false
+@export var intense_music = false
+@export var is_cutscene = false
+
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
@@ -33,8 +38,7 @@ var just_unpaused = false
 @export var dont_show_bossbar = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
-var last_100_raycasts = []
-var cannot_stop_special_music = false
+
 
 func _ready():
 	if graphics_efficiency:

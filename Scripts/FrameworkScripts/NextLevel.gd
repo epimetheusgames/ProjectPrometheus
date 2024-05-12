@@ -43,7 +43,9 @@ func add_level():
 	var level_next = level
 	var floor_next = floor
 	var graphics_efficiency = get_parent().graphics_efficiency
+	
 	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").has_keycard = false
+	get_parent().get_parent().get_parent().get_node("SaveLoadFramework").end_special_music()
 	
 	if floors_this_level[floor] == floors_this_level[-1]:
 		level_next += 1
