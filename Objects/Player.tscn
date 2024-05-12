@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=126 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -55,6 +55,7 @@
 [ext_resource type="AudioStream" uid="uid://f2pm2j5ija3f" path="res://Assets/Audio/SFX/Dash2.wav" id="50_qf3dw"]
 [ext_resource type="AudioStream" uid="uid://lnyedbfk32t6" path="res://Assets/Audio/SFX/Dash3.wav" id="51_0b812"]
 [ext_resource type="AudioStream" uid="uid://chdfwltup4gko" path="res://Assets/Audio/SFX/Dash4.wav" id="52_g1161"]
+[ext_resource type="AudioStream" uid="uid://ctxdq8ymtbx6a" path="res://Assets/Audio/SFX/GrassWalk1.wav" id="55_dmj16"]
 [ext_resource type="Texture2D" uid="uid://dr0ca74rtvmd0" path="res://Assets/Images/Objects/UI/ObjectiveBox.png" id="56_bu645"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shfyb"]
@@ -1885,6 +1886,12 @@ bus = &"SFX"
 [node name="SwordDash4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("52_g1161")
 pitch_scale = 0.6
+bus = &"SFX"
+
+[node name="GrassWalk1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("55_dmj16")
+volume_db = 6.0
+pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

@@ -693,10 +693,6 @@ position = Vector2(1708, -3.5)
 rotation = 0.872665
 texture = ExtResource("22_2s6dg")
 
-[node name="PlayerObjectiveSetter" parent="." instance=ExtResource("24_xsxm0")]
-position = Vector2(-7, 8)
-objective_text = "Objective: Complete the level"
-
 [node name="PlayerObjectiveSetter2" parent="." instance=ExtResource("24_xsxm0")]
 position = Vector2(689, -136)
 objective_text = "Objective: Find a way around the drills"

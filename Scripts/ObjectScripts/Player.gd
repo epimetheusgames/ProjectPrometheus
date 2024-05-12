@@ -357,6 +357,7 @@ func _physics_process(delta):
 		# more efficient.
 		var metal_walk_boots_1 = get_parent().get_node("MetalWalkBoots1")
 		var metal_walk_1 = get_parent().get_node("MetalWalk1")
+		var grass_walk_1 = get_parent().get_node("GrassWalk1")
 		
 		# Play dumb audio.
 		if metal_walk_boots_1.playing && !current_ability == "RocketBoost":
@@ -371,38 +372,57 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if !get_parent().graphics_efficiency:
 				$GravelWalkingParticles.emitting = false
+				
 			var play_metal_walk = false
+			var play_grass_walk = false
 			
 			if collision && collision.get_collider() is RigidBody2D:
 				collision.get_collider().apply_central_impulse(-collision.get_normal() * push_force)
 			
 			if collision && collision.get_collider() is TileMap:
 				if (velocity.x > 1 || velocity.x < -1):
+					var collided_tile_source_id = collision.get_collider().get_cell_source_id(0, collision.get_collider().local_to_map(collision.get_collider().to_local(collision.get_position())))
+					
 					if collision.get_collider().name == "Gravel" && !get_parent().graphics_efficiency:
 						$GravelWalkingParticles.emitting = true
 					if collision.get_collider().name == "Ingame":
-						play_metal_walk = true
-						
-						if metal_walk_1.volume_db < 7:
-							metal_walk_1.volume_db += 1
-							get_parent().get_node("MetalWalk2").volume_db += 1
-						if metal_walk_boots_1.volume_db < 2:
-							metal_walk_boots_1.volume_db += 0.5
+						if collided_tile_source_id != 0:
+							play_metal_walk = true
 							
-							if metal_walk_boots_1.volume_db < -8:
-								metal_walk_boots_1.volume_db = -8
-						
-						if metal_walk_1.playing == false && get_parent().get_node("MetalWalk2").playing == false && metal_walk_boots_1.playing == false:
-							if current_ability == "RocketBoost":
-								metal_walk_boots_1.play()
-							else: 
-								metal_walk_1.play()
+							if metal_walk_1.volume_db < 7:
+								metal_walk_1.volume_db += 1
+								get_parent().get_node("MetalWalk2").volume_db += 1
+							if metal_walk_boots_1.volume_db < 2:
+								metal_walk_boots_1.volume_db += 0.5
+								
+								if metal_walk_boots_1.volume_db < -8:
+									metal_walk_boots_1.volume_db = -8
+							
+							if metal_walk_1.playing == false && get_parent().get_node("MetalWalk2").playing == false && metal_walk_boots_1.playing == false:
+								if current_ability == "RocketBoost":
+									metal_walk_boots_1.play()
+								else: 
+									metal_walk_1.play()
+						else:
+							play_grass_walk = true
+							
+							if grass_walk_1.volume_db < 6:
+								grass_walk_1.volume_db = 6
+							
+							if grass_walk_1.playing == false:
+								grass_walk_1.play()
 			
 			if !play_metal_walk:
 				if metal_walk_1.volume_db > -20:
 					metal_walk_1.volume_db -= 1
 					get_parent().get_node("MetalWalk2").volume_db -= 1
 					metal_walk_boots_1.volume_db -= 1
+					
+			if !play_grass_walk:
+				grass_walk_1.stop()
+		
+		if get_slide_collision_count() == 0:
+			grass_walk_1.stop()
 		
 		if !can_jump:
 			# Line 400!
