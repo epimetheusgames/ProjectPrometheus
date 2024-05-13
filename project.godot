@@ -15,10 +15,13 @@ universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
 [application]
 
 config/name="Project Prometheus"
-config/description="
+config/description="Explore an abandoned facility, originally the secret government mission, Project Prometheus, where you are the only organic being in the entire planet. You will switch between 4 items using the Item Cyclers dispersed around the facility. For added efficiency and safety, you will be terminated if you do not reach the next Item Cycler within 20 seconds. Fight your way through robot drones, corrupted drills, and challenging platforming segments.
 
-Explore an abandoned facility, originally the secret government mission, Project Prometheus, where you are the only organic being in the entire planet. You will switch between 4 items using the Item Cyclers dispersed around the facility. For added efficiency and safety, you will be terminated if you do not reach the next Item Cycler within 20 seconds. Fight your way through robot drones, corrupted drills, and challenging platforming segments."
-config/version="Beta 1.3"
+Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
+All rights reserved.
+
+Any scripts and assets (and files in general) in this repository are copyrighted even if they do not contain a copyright notice. Any generated persistant data files (for example in %APPDATA% or .local folders of the machine) may be shared freely."
+config/version="Beta 1.4"
 run/main_scene="res://Objects/FrameworkNodes/Root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)

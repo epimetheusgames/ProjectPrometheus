@@ -1,7 +1,8 @@
 # Project Promtheus
 ## Epimetheus Games OGPC Season 17
 
-Our entry for the Oregon Game Project Challenge Season 17.
+Our entry for Season 17 of Oregon Game Project Challenge.
+Created by Epimetheus Games (creaters of EyeSore, OGPC Season 16 best in show)
 
 ## Links:
 
@@ -18,17 +19,24 @@ Explore an abandoned facility, originally the secret government mission, Project
 - We will have working exports for Windows, Linux, and Mac. The game will also be able to run on a browser using HTML5.
 - This game is designed to be used with a keyboard and a mouse or a bluetooth/USB controller.
 - We have an efficiency mode which removes most particle systems and changes some calculations, so our game can run on most computers.
-- You probably need at least 1 GB of RAM to run.
 - Godot uses gdscript, which is Godot’s own programming language, along with GLSL for shaders.
 - We’re using Beepbox (and some Beepbox mods) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
 - We are using LibreSprite (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
+
+## Recomended requirements (does not require efficiency rendering mode)
+
+This section will be updated once we have tested the game on different hardware.
+
+## Minimum requirements (requires efficiency rendering mode)
 
 ## Copyright
 
 Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
 All rights reserved.
 
-Any scripts and assets (and file in general) in this repository are copyrighted even if they do not contain a copyright notice.
+Any scripts and assets (and files in general) in this repository are copyrighted EVEN if they do not contain a copyright notice. 
+Any generated persistant data files (for example in %APPDATA% or .local folders of the machine) may be shared freely.
+Epimetheus Games is not a legal entity or corporation. Epimetheus Games refers to Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky.
 
 ## Contact
 

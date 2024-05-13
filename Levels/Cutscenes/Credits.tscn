@@ -321,9 +321,9 @@ anchors_preset = -1
 anchor_top = -17.2863
 anchor_bottom = -10.2613
 offset_left = 5.0
-offset_top = 368.0
+offset_top = 1059.45
 offset_right = 1898.0
-offset_bottom = 6683.0
+offset_bottom = 7374.45
 scale = Vector2(0.615, 0.615)
 theme_override_font_sizes/font_size = 40
 text = "Created by Epimetheus Games"
@@ -440,8 +440,8 @@ Dr. Alfonso Garcia
 
 
 
-Copyright © 2024 Carson Bates, Liam Siegel, Alejandro Belgique, Ranier Szatlocky[/center]
-                                       All rights reserved.
+Copyright © 2024 Carson Bates, Liam Siegel, Alejandro Belgique, Ranier Szatlocky, Elouan Grimm[/center]
+                              All rights reserved.
 "
 
 [node name="Misc" type="Control" parent="Credits"]
