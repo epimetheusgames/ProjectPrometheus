@@ -429,7 +429,7 @@ position = Vector2(-222, 9)
 
 [node name="VoicelinePlayer" parent="SecretAreaVoicelineLaptop" index="3"]
 stream = ExtResource("28_817lj")
-volume_db = 10.0
+volume_db = 15.0
 
 [node name="PropWiltedPlant" type="Sprite2D" parent="."]
 position = Vector2(-193, 29)

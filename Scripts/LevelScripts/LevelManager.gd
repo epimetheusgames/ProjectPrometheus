@@ -27,10 +27,10 @@ var cannot_stop_special_music = false
 @export var floor = 0
 @export var boss = false
 @export var zoom_boss = false
+@export var camera_zoom = false
 @export var is_multiplayer = false
 @export var intense_music = false
 @export var is_cutscene = false
-
 @export var no_timer = false
 @export var lights_off = false
 @export var end_level = false
@@ -82,7 +82,7 @@ func _process(delta):
 	if !end_level:
 		time += delta
 	
-	if boss:
+	if boss || camera_zoom:
 		get_node("Player").target_zoom = Vector2(2.5, 2.5)
 		
 	if zoom_boss:

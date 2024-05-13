@@ -504,6 +504,7 @@ level = 4
 boss = true
 zoom_boss = true
 no_timer = true
+dont_show_bossbar = true
 
 [node name="DeadBoss" type="Node2D" parent="."]
 position = Vector2(464, -520)

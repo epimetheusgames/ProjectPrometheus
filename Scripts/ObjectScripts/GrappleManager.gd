@@ -91,12 +91,6 @@ func _physics_process(delta):
 				get_parent().grappling_effects = true
 		else:
 			hook = null
-			
-			if air_grapling:
-				if $"../RightWallRaycast".get_collider():
-					get_parent().position.x -= 7
-				if $"../LeftWallRaycast".get_collider():
-					get_parent().position.x += 7
 
 		
 		visible = true 
@@ -152,10 +146,6 @@ func _physics_process(delta):
 				
 				if get_parent().is_on_floor():
 					get_parent().velocity.y = -10
-					if $"../RightWallRaycast".get_collider():
-						get_parent().velocity.x = -0.5
-					if $"../LeftWallRaycast".get_collider():
-						get_parent().velocity.x = 0.5 
 				
 				air_grapling = true
 				
