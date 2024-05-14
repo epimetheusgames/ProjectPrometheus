@@ -14,6 +14,7 @@ extends Node2D
 # menu.
 
 const level_display_names = [
+	"Cutscene",
 	"Tutorial 1",
 	"Tutorial 2",
 	"Tutorial 3",
@@ -389,7 +390,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
 # Exit to menu while saving the game.
-func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
+func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_fade):
 	if is_max_level:
 		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
 	var saved_data = load_data(slot)
@@ -397,13 +398,14 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths):
 	end_special_music()
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
+	menu_instance.dont_fade = dont_fade
 	menu_instance.first = false
 	add_child(menu_instance)
 
 # Background function for switching levels. Exits to menu first, saves data,
 # and starts the game again.
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
-	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths)
+	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths, switch_level == 1)
 	if is_max_level:
 		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
 	

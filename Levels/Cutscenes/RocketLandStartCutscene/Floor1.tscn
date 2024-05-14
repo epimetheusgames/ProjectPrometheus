@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvm66qwbsg2tw"]
+[gd_scene load_steps=40 format=3 uid="uid://dvm66qwbsg2tw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5eoh3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ivvic"]
@@ -17,6 +17,7 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_v7tjj"]
 [ext_resource type="Texture2D" uid="uid://lmu0hho8kukf" path="res://Assets/Images/Objects/FunctionalProps/PlayerRocketShip.png" id="16_w3ylf"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="17_nr7rp"]
+[ext_resource type="Texture2D" uid="uid://cinj6wgfbgbp1" path="res://Assets/Images/Objects/FunctionalProps/EggDoorRegisteredTrademarkCopyright2253SpaceZCorporationLLCLimited.png" id="18_vg2n8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_ivvic")
@@ -337,7 +338,7 @@ color_ramp = SubResource("GradientTexture1D_sd64m")
 
 [sub_resource type="Animation" id="Animation_sei8r"]
 resource_name = "BetterRocketLanding"
-length = 15.0
+length = 32.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -345,10 +346,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 5, 7, 10),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 7, 9, 12, 15, 19.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(320, 408), Vector2(144, 904), Vector2(256, 1032), Vector2(256, 1082)]
+"values": [Vector2(-336, -1656), Vector2(0, 0), Vector2(320, 408), Vector2(144, 904), Vector2(256, 1032), Vector2(256, 1077)]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -359,7 +360,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(2.96706, -0.25, 0, 0.25, 0, 3.36849, -0.25, 0, 0.25, 0, 3.66519, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.174533, -0.25, 0, 0.25, 0, 0.0872665, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.5, 3, 5, 5.5, 6.5, 9)
+"times": PackedFloat32Array(7, 8.5, 10, 12, 12.5, 13.5, 16)
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -368,7 +369,7 @@ tracks/2/path = NodePath("FireParticlesBootsLeft:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 9.5),
+"times": PackedFloat32Array(0, 19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -380,10 +381,58 @@ tracks/3/path = NodePath("FireParticlesBootsRight:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 9.5),
+"times": PackedFloat32Array(0, 19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireParticlesBootsRight2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited:rotation")
+tracks/5/interp = 4
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(19.9, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.26893, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(19.9, 25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-31, 26), Vector2(-32, 16)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(14, 22, 26.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_epxsi"]
@@ -446,6 +495,54 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [PackedVector2Array(-19, 22, 8, 21, 6, -18, -13, -14, -13, 21, -23, -62, 91, 49)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FireParticlesBootsRight2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.26893]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-32, 16)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GPUParticles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_4i0tr"]
@@ -518,6 +615,27 @@ _data = {
 "RESET": SubResource("Animation_epxsi"),
 "RocketLanding": SubResource("Animation_4i0tr")
 }
+
+[sub_resource type="Gradient" id="Gradient_drd70"]
+offsets = PackedFloat32Array(0, 0.163934, 0.655738)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.321569, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o1w7v"]
+gradient = SubResource("Gradient_drd70")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3o3rh"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 1
+emission_sphere_radius = 16.36
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(-1, 0.4, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_o1w7v")
 
 [node name="RocketLandCutscene" type="Node2D"]
 script = ExtResource("1_5eoh3")
@@ -655,7 +773,7 @@ polygon = PackedVector2Array(-19, 22, 8, 21, 6, -18, -13, -14, -13, 21, -23, -62
 [node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="LandingRocket"]
 self_modulate = Color(0.9, 0.9, 0.9, 1)
 material = SubResource("CanvasItemMaterial_ugayt")
-position = Vector2(-7.5, 43)
+position = Vector2(-5.71014, 39.8701)
 scale = Vector2(0.5, 0.5)
 amount = 2000
 process_material = SubResource("ParticleProcessMaterial_ijxgf")
@@ -665,7 +783,7 @@ lifetime = 0.4
 [node name="FireParticlesBootsRight" type="GPUParticles2D" parent="LandingRocket"]
 self_modulate = Color(0.9, 0.9, 0.9, 1)
 material = SubResource("CanvasItemMaterial_ugayt")
-position = Vector2(9.5, 41)
+position = Vector2(15.2805, 37.5962)
 scale = Vector2(0.5, 0.5)
 emitting = false
 amount = 2000
@@ -673,16 +791,43 @@ process_material = SubResource("ParticleProcessMaterial_ijxgf")
 texture = ExtResource("17_nr7rp")
 lifetime = 0.4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LandingRocket"]
+[node name="FireParticlesBootsRight2" type="GPUParticles2D" parent="LandingRocket"]
+self_modulate = Color(0.9, 0.9, 0.9, 1)
+material = SubResource("CanvasItemMaterial_ugayt")
+position = Vector2(-26.7578, 38.4768)
+scale = Vector2(0.5, 0.5)
+amount = 2000
+process_material = SubResource("ParticleProcessMaterial_ijxgf")
+texture = ExtResource("17_nr7rp")
+lifetime = 0.4
+
+[node name="Egg" type="AnimationPlayer" parent="LandingRocket"]
 libraries = {
 "": SubResource("AnimationLibrary_0xg62")
 }
 autoplay = "BetterRocketLanding"
 
+[node name="EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited" type="Node2D" parent="LandingRocket"]
+position = Vector2(-32, 16)
+rotation = 2.26893
+
+[node name="EggDoor" type="Sprite2D" parent="LandingRocket/EggDoorContainerRegisteredTrademarkCopyright2254SpaceZCorporationLLCLimited"]
+position = Vector2(-32.7233, 11.2998)
+texture = ExtResource("18_vg2n8")
+
 [node name="Camera2D" type="Camera2D" parent="LandingRocket"]
 zoom = Vector2(3, 3)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LandingRocket"]
+position = Vector2(-28, 4)
+emitting = false
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_3o3rh")
+texture = ExtResource("17_nr7rp")
+lifetime = 8.0
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+[connection signal="animation_finished" from="LandingRocket/Egg" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="Player"]

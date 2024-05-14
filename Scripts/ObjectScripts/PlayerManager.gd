@@ -28,6 +28,9 @@ func _ready():
 	if graphics_efficiency:
 		$Player/PlayerAmbianceParticles.queue_free()
 		$Camera/CrtOverlay.visible = false
+		
+	if get_parent().dont_open_level_with_fade:
+		$Camera/LevelTransitionAnimationPlayer.play("RESET")
 	
 	# When transitioning between levels smoothly (not anymore) the camera should have the same offset as the last level.
 	$Camera.position += get_parent().get_parent().get_parent().get_node("SaveLoadFramework").player_camera_position

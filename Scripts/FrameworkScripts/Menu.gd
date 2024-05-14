@@ -18,6 +18,7 @@ var selected_other_menu = false
 var settings_menu_selected = false
 var background_original_pos = Vector2.ZERO
 var open_character_select_menu = false
+var dont_fade = false
 
 func deactivate():
 	hide()
@@ -30,7 +31,8 @@ func activate():
 	# Activate all menu nodes!
 	
 func _ready():
-	Fade.fade_in()
+	if !dont_fade:
+		Fade.fade_in()
 	
 	if first:
 		modulate.a = 0.00001

@@ -36,6 +36,7 @@ var cannot_stop_special_music = false
 @export var end_level = false
 @export var is_credits = false
 @export var dont_show_bossbar = false
+@export var dont_open_level_with_fade = false
 @onready var server_player = $ServerPlayer
 @onready var client_player = $ClientPlayer
 
@@ -103,10 +104,9 @@ func _process(delta):
 		if $Credits/Credits.finished:
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(level, floor, slot, points, time, is_max_level, deaths)
 
-
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "ExtractLargeDrone":
+	if anim_name == "ExtractLargeDrone" || anim_name == "BetterRocketLanding":
 		$NextLevel.add_level()

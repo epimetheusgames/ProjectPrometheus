@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=168 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -44,8 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="43_i4ym5"]
 [ext_resource type="Texture2D" uid="uid://etxao5kfq5qj" path="res://Assets/Images/Objects/Props/MistMaker.png" id="44_ay3la"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
-[ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="45_jaxy6"]
 [ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="46_6ebp4"]
+[ext_resource type="Texture2D" uid="uid://lmu0hho8kukf" path="res://Assets/Images/Objects/FunctionalProps/PlayerRocketShip.png" id="47_ec3rt"]
+[ext_resource type="Texture2D" uid="uid://cinj6wgfbgbp1" path="res://Assets/Images/Objects/FunctionalProps/EggDoorRegisteredTrademarkCopyright2253SpaceZCorporationLLCLimited.png" id="48_ibtjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -926,6 +927,7 @@ color_ramp = SubResource("GradientTexture1D_2ugyc")
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
 no_timer = true
+dont_open_level_with_fade = true
 
 [node name="Decorations" type="TileMap" parent="."]
 z_index = -1
@@ -1234,7 +1236,7 @@ position = Vector2(-133, -173)
 shape = SubResource("RectangleShape2D_y1nx2")
 
 [node name="TutorialDialogueArea5" parent="." instance=ExtResource("23_7in8k")]
-position = Vector2(-42, -15)
+position = Vector2(1374, -15)
 tutorial_box_ind = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea5"]
@@ -1334,7 +1336,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
-position = Vector2(1264, -88)
+position = Vector2(1254, -108)
 
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
@@ -2142,16 +2144,8 @@ z_index = -1
 position = Vector2(-2449, 67)
 texture = ExtResource("44_ay3la")
 
-[node name="DroneManager3" parent="." instance=ExtResource("45_jaxy6")]
-position = Vector2(-2319, -471)
-ignore_ability_type = true
-
-[node name="DronePatrolPoints" parent="DroneManager3" index="0"]
-visible = false
-points = PackedVector2Array(4, 186, -2, 497, 333, 341, 345, -127, 608, -482)
-
 [node name="PlayerObjectiveSetter2" parent="." instance=ExtResource("46_6ebp4")]
-position = Vector2(1256, -93)
+position = Vector2(407, -12)
 objective_text = "Objective: Reach the facility entrance"
 
 [node name="PlayerObjectiveSetter" parent="." instance=ExtResource("46_6ebp4")]
@@ -2167,6 +2161,20 @@ wait_time = 5.0
 [node name="PistonSmasher4" parent="." instance=ExtResource("18_cmg21")]
 position = Vector2(544, -120)
 
+[node name="RocketBody" type="StaticBody2D" parent="."]
+position = Vector2(1258, -107)
+
+[node name="PlayerRocketShip" type="Sprite2D" parent="RocketBody"]
+z_index = 50
+texture = ExtResource("47_ec3rt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RocketBody"]
+polygon = PackedVector2Array(19, 19, 22, 18, 19.7634, 21, 1, 19, -43, 19, -43, 27, -61, 27, -61, 35, -76, 35, -76, 43, 29, 42, 24, 17, 18, 18, 12, -27, 0, -37, -11, -38, -19, -32, -25, -24, -27, -17, -17, -30, -7, -34, 5, -30, 12, -15, 14, 13, 18, 20, 19.7609, 20.3522, 20.5321, 18.8883)
+
+[node name="EggDoorRegisteredTrademarkCopyright2253SpaceZCorporationLlcLimited" type="Sprite2D" parent="."]
+position = Vector2(1210, -79)
+texture = ExtResource("48_ibtjl")
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
 [connection signal="timeout" from="TutorialDoorCloseArea/ParticlesStopTimer" to="TutorialDoorCloseArea" method="_on_particles_stop_timer_timeout"]
@@ -2179,5 +2187,4 @@ position = Vector2(544, -120)
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
 [editable path="Player"]
-[editable path="DroneManager3"]
 [editable path="PistonSmasher3"]
