@@ -34,7 +34,7 @@ This section will be updated once we have tested the game on different hardware.
 
 ## Copyright
 
-Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky. 
+Copyright (C) 2024 Carson Bates, Liam Siegel, Alejandro Belgique, and Ranier Szatlocky. 
 All rights reserved.
 
 Any scripts and assets (and files in general) in this repository are copyrighted EVEN if they do not contain a copyright notice. 
