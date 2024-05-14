@@ -2,7 +2,7 @@
 ## Epimetheus Games OGPC Season 17
 
 Our entry for Season 17 of Oregon Game Project Challenge.
-Created by Epimetheus Games (creaters of EyeSore, OGPC Season 16 best in show)
+Created by Epimetheus Games (creaters of [EyeSore](https://github.com/epimetheusgames/OGPC-Season-16), OGPC Season 16 best in show)
 
 ## Links:
 
@@ -14,20 +14,23 @@ Explore an abandoned facility, originally the secret government mission, Project
 
 ## Technical Requirments & Information:
 
-- We are using Godot 4.2, which requires the machine to support the Vulkan graphics library. We will also export a compatibility version which uses OpenGL 3.0 (GLES3), which might have visual bugs/artifacts, but this will not be the official release.
+- We are using [Godot 4.2](https://godotengine.org/), which requires the machine to support the Vulkan graphics library. We will also export a compatibility version which uses OpenGL 3.0 (GLES3), which might have visual bugs/artifacts, but this will not be the official release.
 - There will be an option for an efficiency mode so that the game can run on most mid-range and some low-range laptops.
-- We will have working exports for Windows, Linux, and Mac. The game will also be able to run on a browser using HTML5.
+- We will have working exports for Windows, Linux, and Mac. The game will also be able to run on a browser using [HTML5](https://www.w3schools.com/html/).
 - This game is designed to be used with a keyboard and a mouse or a bluetooth/USB controller.
 - We have an efficiency mode which removes most particle systems and changes some calculations, so our game can run on most computers.
-- Godot uses gdscript, which is Godot’s own programming language, along with GLSL for shaders.
-- We’re using Beepbox (and some Beepbox mods) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
-- We are using LibreSprite (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
+- Godot uses [GDscript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html), which is Godot’s own programming language, along with GLSL for shaders.
+- We’re using [Beepbox](https://www.beepbox.co/) (and some Beepbox [mods](https://ultraabox.github.io/)) for music, Audacity for editing voice lines and recorded sound effects, and possibly SFXR for more rudimentary sounds.
+- We are using [LibreSprite](https://libresprite.github.io/#!/) (A free and open source fork of Aseprite) and GIMP (GNU Image Manipulation Program) to make textures, which will be pixel art. 
 
 ## Recomended requirements (does not require efficiency rendering mode)
 
 This section will be updated once we have tested the game on different hardware.
 
 ## Minimum requirements (requires efficiency rendering mode)
+
+This section will be updated once we have tested the game on different hardware.
+
 
 ## Copyright
 
