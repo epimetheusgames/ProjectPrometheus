@@ -181,11 +181,11 @@ position = Vector2(16, 16)
 target_position = Vector2(28, 0)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-position = Vector2(40, 16)
+position = Vector2(32, 16)
 target_position = Vector2(0, 16)
 
 [node name="RayCastDown2" type="RayCast2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(6, 16)
 target_position = Vector2(0, 16)
 
 [node name="JumpHurtBox" type="Area2D" parent="."]

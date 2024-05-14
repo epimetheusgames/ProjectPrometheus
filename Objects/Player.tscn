@@ -689,6 +689,7 @@ collision_mask = 2
 script = ExtResource("2_mi2af")
 
 [node name="CameraHitbox" type="CollisionShape2D" parent="CameraCollider"]
+visible = false
 position = Vector2(3, 1.5)
 shape = SubResource("RectangleShape2D_shfyb")
 
@@ -697,6 +698,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CameraHitbox" type="CollisionShape2D" parent="CameraCollider/CameraColliderCollisionListener"]
+visible = false
 position = Vector2(3, 2)
 shape = SubResource("RectangleShape2D_shfyb")
 
