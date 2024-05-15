@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=3 uid="uid://tq755c4o5ojd"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
+[ext_resource type="Script" path="res://Levels/Cutscenes/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
 [ext_resource type="SpriteFrames" uid="uid://r6y0rrbw7dft" path="res://Objects/StaticObjects/MassiveDroneAnimation.tres" id="3_lijwv"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="4_d1te8"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_of2sk"]

@@ -94,7 +94,7 @@ const preloaded_levels = [
 	[preload("res://Levels/Playable/Medium/31EndElevatorRide/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/32LastLevel/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/33MassiveDroneChase/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/34MassiveDroneBattleCutscene/Floor1.tscn")],
+	[preload("res://Levels/Cutscenes/34MassiveDroneBattleCutscene/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/35MassiveDroneBattle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
 	[preload("res://Levels/Cutscenes/Credits/Floor1.tscn")],

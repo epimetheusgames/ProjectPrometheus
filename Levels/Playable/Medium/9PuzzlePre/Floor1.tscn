@@ -381,7 +381,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -455,6 +455,7 @@ position = Vector2(-395, -315)
 
 [node name="Artifact" parent="." instance=ExtResource("20_lu5a6")]
 position = Vector2(-336, -368)
+uid = 12849
 
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(-687, -256)
