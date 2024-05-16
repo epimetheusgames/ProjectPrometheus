@@ -157,6 +157,9 @@ func _process(delta):
 			
 		if controlling_ship && !no_death && !takeover_control:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
+			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").play("Idle")
+			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").scale.x = 1
+			get_parent().get_node("Player").get_node("Player").get_node("AntennaAnimation").scale.x = 1
 			
 			velocity.x += get_horizontal_direction_pressed() * 0.02
 			if get_vertical_direction_pressed() == 0:
@@ -170,6 +173,10 @@ func _process(delta):
 		
 		if no_death:
 			get_parent().get_node("Player").get_node("Player").position = position + $PlayerControllingPosition.position
+			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").play("Idle")
+			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").scale.x = 1
+			get_parent().get_node("Player").get_node("Player").get_node("AntennaAnimation").scale.x = 1
+			
 			rotation += 0.0002 * delta * 60
 			velocity.y += 0.002 * delta * 60
 			velocity.x += 0.01 * delta * 60
