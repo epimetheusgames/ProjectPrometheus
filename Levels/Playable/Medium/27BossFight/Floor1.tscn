@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=108 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_herbc"]
 [ext_resource type="Texture2D" uid="uid://disx64hw02a8j" path="res://Assets/Images/Objects/Enemy/ElevatorTurretHingeLeft.png" id="16_w2ape"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_20vt3"]
+[ext_resource type="Texture2D" uid="uid://dpmle8m7pehpg" path="res://Assets/Images/Objects/Enemy/ElevatorBossSpriteBlastShieldsRetractAnimation.png" id="17_hb884"]
+[ext_resource type="Texture2D" uid="uid://ctetwchabqyf3" path="res://Assets/Images/Objects/Enemy/ElevatorBossSpriteBlastShieldsOverlay.png" id="17_sv30q"]
 [ext_resource type="Texture2D" uid="uid://d2cmwu4co3yr1" path="res://Assets/Images/Objects/Enemy/ElevatorTurret.png" id="18_2b50x"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="21_olvbb"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="21_p5mvj"]
@@ -315,6 +317,127 @@ size = Vector2(20, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjik0"]
 size = Vector2(28.5714, 51.4286)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oxj8"]
+atlas = ExtResource("17_sv30q")
+region = Rect2(0, 0, 138, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tich"]
+atlas = ExtResource("17_hb884")
+region = Rect2(528, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg1nm"]
+atlas = ExtResource("17_hb884")
+region = Rect2(396, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr0d8"]
+atlas = ExtResource("17_hb884")
+region = Rect2(264, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x14k3"]
+atlas = ExtResource("17_hb884")
+region = Rect2(132, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ih1t"]
+atlas = ExtResource("17_hb884")
+region = Rect2(0, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssju1"]
+atlas = ExtResource("17_hb884")
+region = Rect2(0, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrbwf"]
+atlas = ExtResource("17_sv30q")
+region = Rect2(0, 0, 138, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_377hv"]
+atlas = ExtResource("17_hb884")
+region = Rect2(0, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1j0t"]
+atlas = ExtResource("17_hb884")
+region = Rect2(132, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyws"]
+atlas = ExtResource("17_hb884")
+region = Rect2(264, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63lo7"]
+atlas = ExtResource("17_hb884")
+region = Rect2(396, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udf6m"]
+atlas = ExtResource("17_hb884")
+region = Rect2(528, 0, 132, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3v2f"]
+atlas = ExtResource("17_sv30q")
+region = Rect2(0, 0, 138, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u8jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oxj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tich")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg1nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr0d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x14k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ih1t")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssju1")
+}],
+"loop": true,
+"name": &"IdleClose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrbwf")
+}],
+"loop": true,
+"name": &"IdleOpen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_377hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1j0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okyws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63lo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udf6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3v2f")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 15.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp0je"]
 radius = 14.0
@@ -721,6 +844,41 @@ autostart = true
 [node name="NewExplosionTimer" type="Timer" parent="Boss"]
 autostart = true
 
+[node name="ExplosionSpawnPositions" type="Node2D" parent="Boss"]
+
+[node name="SpawnPosition1" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(60, 13.3333)
+
+[node name="SpawnPosition2" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(53.3334, 13.3333)
+
+[node name="SpawnPosition3" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(53.3334, 26.6667)
+
+[node name="SpawnPosition4" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(60, 26.6667)
+
+[node name="SpawnPosition5" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(60, 20)
+
+[node name="SpawnPosition6" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(53.3334, 20)
+
+[node name="SpawnPosition7" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(46.6667, 20)
+
+[node name="SpawnPosition8" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(66.6667, 20)
+
+[node name="SpawnPosition9" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(66.6667, 13.3333)
+
+[node name="SpawnPosition10" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(46.6667, 13.3333)
+
+[node name="SpawnPosition11" type="Node2D" parent="Boss/ExplosionSpawnPositions"]
+position = Vector2(46.6667, 26.6667)
+
 [node name="Sprite2D" type="Sprite2D" parent="Boss"]
 position = Vector2(0, 17)
 texture = ExtResource("11_vqais")
@@ -729,6 +887,13 @@ texture = ExtResource("11_vqais")
 z_index = 40
 position = Vector2(-0.5, 3.5)
 texture = ExtResource("16_6rxa7")
+
+[node name="BlastShieldsOpen" type="AnimatedSprite2D" parent="Boss"]
+z_index = 41
+position = Vector2(3.5, 19)
+sprite_frames = SubResource("SpriteFrames_7u8jp")
+animation = &"Close"
+autoplay = "IdleClose"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
 modulate = Color(1, 1, 1, 0.0901961)
@@ -1318,6 +1483,7 @@ position = Vector2(1022, -11)
 [connection signal="timeout" from="Boss/MeleSpawnTimer" to="Boss" method="_on_mele_spawn_timer_timeout"]
 [connection signal="timeout" from="Boss/NewBulletTimer" to="Boss" method="_on_new_bullet_timer_timeout"]
 [connection signal="timeout" from="Boss/NewExplosionTimer" to="Boss" method="_on_new_explosion_timer_timeout"]
+[connection signal="animation_finished" from="Boss/BlastShieldsOpen" to="Boss" method="_on_blast_shields_open_animation_finished"]
 [connection signal="area_entered" from="Boss/BossHurtbox" to="Boss" method="_on_boss_hurtbox_area_entered"]
 [connection signal="area_entered" from="Boss/LeftTurret/TurretHurtbox" to="Boss/LeftTurret" method="_on_turret_hurtbox_area_entered"]
 [connection signal="area_entered" from="Boss/RightTurret/TurretHurtbox" to="Boss/RightTurret" method="_on_turret_hurtbox_area_entered"]

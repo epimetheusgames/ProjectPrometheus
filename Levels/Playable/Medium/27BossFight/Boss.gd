@@ -13,6 +13,19 @@ extends CharacterBody2D
 @onready var external_special_music_player = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer")
 @onready var save_load_framework = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework")
 @onready var start_pos = position 
+@onready var explosion_spawn_position_node_list = [
+	$ExplosionSpawnPositions/SpawnPosition1,
+	$ExplosionSpawnPositions/SpawnPosition2,
+	$ExplosionSpawnPositions/SpawnPosition3,
+	$ExplosionSpawnPositions/SpawnPosition4,
+	$ExplosionSpawnPositions/SpawnPosition5,
+	$ExplosionSpawnPositions/SpawnPosition6,
+	$ExplosionSpawnPositions/SpawnPosition7,
+	$ExplosionSpawnPositions/SpawnPosition8,
+	$ExplosionSpawnPositions/SpawnPosition9,
+	$ExplosionSpawnPositions/SpawnPosition10,
+	$ExplosionSpawnPositions/SpawnPosition11,
+]
 
 @export var health = 100
 
@@ -71,13 +84,29 @@ func _on_new_bullet_timer_timeout():
 			shoot_bullet($BossShootPosition2.position)
 
 func _on_boss_hurtbox_area_entered(area):
-	if area.name == "PlayerBulletHurter" && can_get_hurt_by_bullets:
+	if area.name == "PlayerBulletHurter" && can_get_hurt_by_bullets && health >= 0:
 		# First focus on taking out turrets
 		health -= 2.5
+		
+		var rng = RandomNumberGenerator.new()
+		var explosion_pos = explosion_spawn_position_node_list[rng.randi_range(0, 10)]
+		
+		var instantiated_explosion = loaded_bomb.instantiate()
+		instantiated_explosion.get_node("Sprite2D").visible = false
+		instantiated_explosion.position = position + explosion_pos.position
+		get_parent().call_deferred("add_child", instantiated_explosion)
+		instantiated_explosion.call_deferred("_on_explosion_hitbox_body_entered", self)
 		
 		if health <= 0 && !dead:
 			dead = true
 			get_parent().points += 100
+			
+			for explosion_position in explosion_spawn_position_node_list:
+				instantiated_explosion = loaded_bomb.instantiate()
+				instantiated_explosion.get_node("Sprite2D").visible = false
+				instantiated_explosion.position = position + explosion_position.position
+				get_parent().call_deferred("add_child", instantiated_explosion)
+				instantiated_explosion.call_deferred("_on_explosion_hitbox_body_entered", self)
 		
 		player.get_parent().get_node("Camera").get_node("BossBar").value = health
 		
@@ -112,7 +141,7 @@ func _process(delta):
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Follow the control tower to the next floor")
 		
 	if player.position.y < -450:
-		get_parent().get_node("Player").get_node("Camera").set_objective_text("Shoot the damaged spot on the blast shield")
+		get_parent().get_node("Player").get_node("Camera").set_objective_text("Shoot the exposed windows of the control tower")
 		
 	if health <= 0:
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Enter the control tower and unlock the elevator")
@@ -162,6 +191,13 @@ func _process(delta):
 		position += (start_pos + $FiftyPercentPos.position - position).normalized() * delta * 60
 		no_bob = true
 		
+	if health < 50:
+		if $BlastShieldsOpen.animation == "IdleOpen" || $BlastShieldsOpen.animation == "Open":
+			$BlastShieldsOpen.play("Close")
+			
+	elif player.current_ability == "RocketBoost" && $BlastShieldsOpen.animation == "IdleClose":
+		$BlastShieldsOpen.play("Open")
+		
 	if health < 50 && !position.distance_to((start_pos + $FiftyPercentPos.position)) > 10 && health > 0:
 		target_pos = $FiftyPercentPos.position
 	
@@ -184,7 +220,7 @@ func _process(delta):
 		
 	if player.current_ability == "Grapple" || player.current_ability == "RocketBoost":
 		target_pos.y += has_ability_time + has_weapon_time
-		has_ability_time -= 0.2 * delta * 60
+		has_ability_time -= 0.07 * delta * 60
 		if has_weapon_time > 0:
 			has_weapon_time -= 0.05 * delta * 60
 	if player.current_ability == "ArmGun" || player.current_ability == "Weapon":
@@ -209,3 +245,9 @@ func _on_enable_elevator_area_area_entered(area):
 func _on_enable_elevator_area_area_exited(area):
 	if area.name == "PlayerHurtbox":
 		player_in_final_area = false
+
+func _on_blast_shields_open_animation_finished():
+	if $BlastShieldsOpen.animation == "Open":
+		$BlastShieldsOpen.play("IdleOpen")
+	if $BlastShieldsOpen.animation == "Close":
+		$BlastShieldsOpen.play("IdleClose")
