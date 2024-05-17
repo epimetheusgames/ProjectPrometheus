@@ -6,7 +6,7 @@ Created by Epimetheus Games (creators of [EyeSore](https://github.com/epimetheus
 
 ## Links:
 
-Go play the latest beta at [our itch.io page](https://epimetheusgamesogpc.itch.io/season17beta)!
+Go play or download the game at [our itch.io page](https://epimetheusgamesogpc.itch.io/season17beta)!
 Visit our [website](https://epimetheus.games/) and our [YouTube channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
 
 ## Game Summary:
