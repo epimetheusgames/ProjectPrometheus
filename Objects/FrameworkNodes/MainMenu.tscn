@@ -555,9 +555,9 @@ text_overrun_behavior = 1
 
 [node name="Play" type="Label" parent="."]
 offset_left = 67.0
-offset_top = 700.0
+offset_top = 764.0
 offset_right = 187.0
-offset_bottom = 782.0
+offset_bottom = 846.0
 theme = ExtResource("2_hjrbd")
 theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
@@ -565,24 +565,13 @@ text = "Play"
 
 [node name="Settings" type="Label" parent="."]
 offset_left = 40.0
-offset_top = 770.0
+offset_top = 834.0
 offset_right = 279.0
-offset_bottom = 852.0
+offset_bottom = 916.0
 theme = ExtResource("2_hjrbd")
 theme_override_fonts/font = ExtResource("8_4st7b")
 theme_override_font_sizes/font_size = 58
 text = "Settings"
-horizontal_alignment = 1
-
-[node name="Credits" type="Label" parent="."]
-offset_left = 42.0
-offset_top = 835.0
-offset_right = 252.0
-offset_bottom = 917.0
-theme = ExtResource("2_hjrbd")
-theme_override_fonts/font = ExtResource("8_4st7b")
-theme_override_font_sizes/font_size = 58
-text = "Credits"
 horizontal_alignment = 1
 
 [node name="Quit" type="Label" parent="."]
@@ -599,9 +588,9 @@ horizontal_alignment = 1
 [node name="PlayHighlight" type="Label" parent="."]
 visible = false
 offset_left = 33.0
-offset_top = 690.0
+offset_top = 754.0
 offset_right = 217.0
-offset_bottom = 772.0
+offset_bottom = 836.0
 theme = ExtResource("2_hjrbd")
 theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
@@ -610,24 +599,13 @@ text = "-       -"
 [node name="SettingsHighlight" type="Label" parent="."]
 visible = false
 offset_left = 31.0
-offset_top = 760.0
+offset_top = 824.0
 offset_right = 335.0
-offset_bottom = 842.0
+offset_bottom = 906.0
 theme = ExtResource("2_hjrbd")
 theme_override_fonts/font = ExtResource("9_5nu6k")
 theme_override_font_sizes/font_size = 58
 text = "-             -"
-
-[node name="CreditsHighlight" type="Label" parent="."]
-visible = false
-offset_left = 29.0
-offset_top = 825.0
-offset_right = 303.0
-offset_bottom = 907.0
-theme = ExtResource("2_hjrbd")
-theme_override_fonts/font = ExtResource("9_5nu6k")
-theme_override_font_sizes/font_size = 58
-text = "-            -"
 
 [node name="QuitHighlight" type="Label" parent="."]
 visible = false
@@ -642,21 +620,15 @@ text = "-       -"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 offset_left = 13.0
-offset_top = 705.0
+offset_top = 761.0
 offset_right = 245.0
-offset_bottom = 768.0
+offset_bottom = 824.0
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 offset_left = 26.0
-offset_top = 779.0
+offset_top = 835.0
 offset_right = 313.0
-offset_bottom = 842.0
-
-[node name="CreditsButton" type="TextureButton" parent="."]
-offset_left = 26.0
-offset_top = 842.0
-offset_right = 313.0
-offset_bottom = 905.0
+offset_bottom = 898.0
 
 [node name="QuitButton" type="TextureButton" parent="."]
 offset_left = 26.0
@@ -665,9 +637,8 @@ offset_right = 197.0
 offset_bottom = 960.0
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
-visible = false
 z_index = 1
-position = Vector2(317, -125)
+position = Vector2(317, 3)
 first = false
 
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]
@@ -702,8 +673,6 @@ position_smoothing_enabled = true
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]
 [connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
-[connection signal="button_up" from="CreditsButton" to="." method="_on_credits_button_button_up"]
-[connection signal="mouse_entered" from="CreditsButton" to="." method="_on_credits_button_mouse_entered"]
 [connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

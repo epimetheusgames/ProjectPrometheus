@@ -107,7 +107,6 @@ func _process(_delta):
 	if name == "MainMenu":
 		$PlayHighlight.visible = false
 		$SettingsHighlight.visible = false
-		$CreditsHighlight.visible = false
 		$QuitHighlight.visible = false
 		
 		if Input.is_action_just_pressed("ui_down"):

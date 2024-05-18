@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d04lorakbmnvu"]
+[gd_scene load_steps=36 format=3 uid="uid://d04lorakbmnvu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_vv11u"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_7rhfe"]
@@ -17,7 +17,6 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_wojou"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="16_h0nt3"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="18_berva"]
-[ext_resource type="Texture2D" uid="uid://4jmd0y5crx2q" path="res://Assets/Images/Objects/Props/PropDoorSideways.png" id="18_sisdy"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="19_pilg1"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="20_dr4dv"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_gmo4w"]
@@ -397,7 +396,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -444,11 +443,6 @@ offset_top = 90.0
 offset_right = 14.0
 offset_bottom = 360.0
 color = Color(1, 1, 1, 0.454902)
-
-[node name="PropDoorSideways" type="Sprite2D" parent="."]
-position = Vector2(-400, 0)
-scale = Vector2(-1, 1)
-texture = ExtResource("18_sisdy")
 
 [node name="DrillManager" parent="." instance=ExtResource("16_h0nt3")]
 position = Vector2(342, -1)
