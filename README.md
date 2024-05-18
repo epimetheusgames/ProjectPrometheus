@@ -10,7 +10,7 @@ Go play or download the game at [our itch.io page](https://epimetheusgamesogpc.i
 Visit our [website](https://epimetheus.games/) and our [YouTube channel](https://www.youtube.com/@EpimetheusGamesOGPC)!
 
 ## Game Summary:
-Explore an abandoned facility, originally the secret government mission, Project Prometheus, where you are the only organic being in the entire planet. You will switch between 4 items using the Item Cyclers dispersed around the facility. For added efficiency and safety, you will be terminated if you do not reach the next Item Cycler within 20 seconds. Fight your way through robot drones, corrupted drills, and challenging platforming segments. 
+Explore a long-abandoned facility, originally the international government energy project known as Project Prometheus, that is being taken over by an awakening facility management AI. You will switch between 4 items using the Item Cyclers dispersed around the facility. For added efficiency and safety, you will be terminated if you do not reach the next Item Cycler within 20 seconds. Fight your way through robot drones, corrupted drills, and challenging platforming segments.
 
 ## Technical Requirments & Information:
 
