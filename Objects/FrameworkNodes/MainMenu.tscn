@@ -637,8 +637,9 @@ offset_right = 197.0
 offset_bottom = 960.0
 
 [node name="SettingsMenu" parent="." instance=ExtResource("3_bljg4")]
+visible = false
 z_index = 1
-position = Vector2(317, 3)
+position = Vector2(261, 3)
 first = false
 
 [node name="StartGameMenu" parent="." instance=ExtResource("4_poeu2")]

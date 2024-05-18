@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=127 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://hdpwng3ffpud" path="res://Assets/Images/Objects/UI/TutorialDialogueBox.png" id="15_b14rh"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/TutorialDialogueManager.gd" id="15_c3i4e"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
+[ext_resource type="Texture2D" uid="uid://cckjfxxfjy7f3" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment2.png" id="15_fa7j4"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="16_bulim"]
 [ext_resource type="Texture2D" uid="uid://bp3tntuuapxp6" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment1.png" id="16_r6ffc"]
 [ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
@@ -825,12 +826,12 @@ default_color = Color(0.631373, 0.631373, 0.631373, 1)
 
 [node name="Ticker" type="AnimatedSprite2D" parent="Camera/AbilityManager/TickerMask"]
 position = Vector2(0.500051, 19.9999)
-rotation = 6.14356
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_sydkl")
 
 [node name="Item" type="Node2D" parent="Camera/AbilityManager/TickerMask"]
-position = Vector2(-1.60933e-06, 20)
-rotation = 6.14356
+position = Vector2(-1.66893e-06, 20)
+rotation = 3.14159
 
 [node name="Weapon" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item"]
 position = Vector2(0, -20)
@@ -847,6 +848,40 @@ position = Vector2(14.8333, -1.99995)
 rotation = 1.5708
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("10_qna8r")
+
+[node name="ArmGun" type="Node2D" parent="Camera/AbilityManager/TickerMask/Item"]
+modulate = Color(1.5, 1.5, 1.5, 1)
+position = Vector2(-2.35468, -2.3075)
+
+[node name="ArmGunSegment1" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item/ArmGun"]
+position = Vector2(-1.84284, 15.5229)
+rotation = 1.24791
+scale = Vector2(0.769231, 0.769231)
+texture = ExtResource("16_r6ffc")
+
+[node name="ArmGunSegment2" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item/ArmGun"]
+position = Vector2(2.87758, 17.6945)
+rotation = 0.829031
+scale = Vector2(0.769231, 0.769231)
+texture = ExtResource("15_fa7j4")
+
+[node name="ArmGunSegment3" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item/ArmGun"]
+position = Vector2(3.6468, 23.8483)
+rotation = 1.82387
+scale = Vector2(-0.769, 0.769)
+texture = ExtResource("17_p4s3n")
+
+[node name="ArmGunHinge1" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item/ArmGun"]
+position = Vector2(5.9512, 15.9682)
+rotation = 3.10669
+scale = Vector2(0.769231, 0.769231)
+texture = ExtResource("17_7qngq")
+
+[node name="ArmGunHinge2" type="Sprite2D" parent="Camera/AbilityManager/TickerMask/Item/ArmGun"]
+position = Vector2(-0.89274, 19.7323)
+rotation = 3.10669
+scale = Vector2(0.769231, 0.769231)
+texture = ExtResource("18_tdjfb")
 
 [node name="Transparentifier" type="Area2D" parent="Camera/AbilityManager"]
 collision_layer = 0
