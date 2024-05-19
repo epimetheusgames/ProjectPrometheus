@@ -1228,14 +1228,17 @@ script = ExtResource("22_eak4u")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCheckpointUpdater"]
 position = Vector2(-40, 0)
 polygon = PackedVector2Array(-640, -512, -400, -512, -399, -543, -608, -570, -640, -544)
+disabled = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BossCheckpointUpdater"]
 position = Vector2(616, 0)
 polygon = PackedVector2Array(-640, -512, -294, -508, -296, -970, -644, -974)
+disabled = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="BossCheckpointUpdater"]
 position = Vector2(640, -288)
 polygon = PackedVector2Array(-640, -512, -575, -512, -575, -544, -608, -570, -640, -544)
+disabled = true
 
 [node name="DontSetupTimer" type="Timer" parent="BossCheckpointUpdater"]
 wait_time = 5.0

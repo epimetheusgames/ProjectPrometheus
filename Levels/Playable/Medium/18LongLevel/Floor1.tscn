@@ -505,7 +505,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -566,11 +566,17 @@ rotation = -1.5708
 up_direction = Vector2(1, 0)
 horizontal_smash = true
 
+[node name="CollisionShape2D" parent="PistonSmasher3/PistonDeathZone" index="0"]
+position = Vector2(-0.000228882, 63.5)
+
 [node name="PistonSmasher4" parent="." instance=ExtResource("16_qlgxe")]
 position = Vector2(800, 0)
 rotation = -1.5708
 up_direction = Vector2(1, 0)
 horizontal_smash = true
+
+[node name="CollisionShape2D" parent="PistonSmasher4/PistonDeathZone" index="0"]
+position = Vector2(0.499769, 63.5)
 
 [node name="StartDelayTimer" parent="PistonSmasher4" index="5"]
 wait_time = 2.0

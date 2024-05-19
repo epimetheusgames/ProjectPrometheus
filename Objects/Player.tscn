@@ -1793,7 +1793,7 @@ animation = &"EndMoving"
 autoplay = "Idle"
 
 [node name="CoyoteJumpTimer" type="Timer" parent="Player"]
-wait_time = 0.07
+wait_time = 0.12
 one_shot = true
 
 [node name="BulletHurtCooldown" type="Timer" parent="Player"]

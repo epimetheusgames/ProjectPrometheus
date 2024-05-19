@@ -215,7 +215,7 @@ func _ready():
 
 func _process(delta):
 	# Update DiscordSDK
-	DiscordSDK.run_callbacks()
+	#DiscordSDK.run_callbacks()
 	
 	if !playing_intense_music && len(get_parent().get_node("Level").get_children()) > 0 && get_parent().get_node("Level").get_children()[0].intense_music:
 		start_intense_music()
@@ -326,9 +326,6 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	
 	update_rpc_discord(current_level + 1 if !level else level + 1)
 	
-	if !$SpecialAudioPlayer.playing:
-		end_special_music()
-	
 	var global_data = load_data("global")
 	
 	if level != null:
@@ -436,16 +433,4 @@ func start_intense_music():
 	playing_intense_music = true
 
 func update_rpc_discord(level, main_menu = false):
-	DiscordSDK.app_id = 1217656093074002020 # Application ID
-
-	if main_menu:
-		DiscordSDK.state = "In Main Menu"
-	else:
-		DiscordSDK.state = "Playing level " + str(level) + "."
-
-	DiscordSDK.large_image = "prometheuslogoglowingnotext2" # Image key from "Art Assets"
-
-	DiscordSDK.start_timestamp = int(Time.get_unix_time_from_system()) # "02:46 elapsed"
-	# DiscordSDK.end_timestamp = int(Time.get_unix_time_from_system()) + 3600 # +1 hour in unix time / "01:00:00 remaining"
-
-	DiscordSDK.refresh() # Always refresh after changing the values!
+	pass

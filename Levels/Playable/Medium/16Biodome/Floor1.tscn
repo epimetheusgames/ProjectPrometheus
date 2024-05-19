@@ -699,6 +699,7 @@ polygon = PackedVector2Array(2668, 422, 2696.63, 440.406, 2711, 446, 2745, 448, 
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(4385, 352, 4385, 363, 4429, 340, 4431, 335, 4408, 348, 4394, 352)
+disabled = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(4365, 269, 4324, 244, 4324, 238, 4345, 253, 4356, 256, 4365, 256)
@@ -5261,6 +5262,7 @@ self_modulate = Color(10, 7, 2.99, 1)
 script = ExtResource("41_ev4nq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BiodomeMusicPlayerArea"]
+visible = false
 position = Vector2(3794, 221)
 shape = SubResource("RectangleShape2D_ioh01")
 

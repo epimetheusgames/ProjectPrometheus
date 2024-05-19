@@ -292,7 +292,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -492,6 +492,7 @@ ignore_old_checkpoint = false
 position = Vector2(-115, -314)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 points = PackedVector2Array(-107, -86, -311, -87, -310, 34, -311, 167, -307, 223, -221, 248, -64, 224, -46, 143, -56, 37)
 
 [node name="GrappleHook4" parent="." instance=ExtResource("16_d8wsk")]

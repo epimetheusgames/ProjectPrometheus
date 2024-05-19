@@ -755,6 +755,7 @@ offset_top = -397.0
 offset_right = 787.0
 offset_bottom = 464.0
 color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="FadeToBlackAnimationPlayer" type="AnimationPlayer" parent="DeadBoss"]
 libraries = {
@@ -775,7 +776,7 @@ position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_xdcgr")
 
 [node name="MissileFirePosition" type="Node2D" parent="DeadBoss"]
-position = Vector2(152, 113)
+position = Vector2(152, 121)
 
 [node name="PlayerControllingPosition" type="Node2D" parent="DeadBoss"]
 position = Vector2(189, 78)
@@ -876,6 +877,9 @@ metadata/_edit_use_anchors_ = true
 [node name="TimeCounter" parent="Player/Camera" index="5"]
 metadata/_edit_use_anchors_ = true
 
+[node name="ObjectiveBoxText" parent="Player/Camera/ObjectiveBoxManager" index="1"]
+metadata/_edit_use_anchors_ = true
+
 [node name="ScreenBorder" parent="Player/Camera" index="7"]
 scale = Vector2(0.4, 0.4)
 
@@ -883,7 +887,40 @@ scale = Vector2(0.4, 0.4)
 z_index = 50
 metadata/_edit_use_anchors_ = true
 
+[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
+metadata/_edit_use_anchors_ = true
+
 [node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
@@ -907,6 +944,7 @@ offset_top = -51.0
 offset_right = 1205.0
 offset_bottom = 749.0
 color = Color(0.419608, 0.419608, 0.419608, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
