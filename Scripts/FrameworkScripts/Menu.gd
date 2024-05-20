@@ -113,25 +113,19 @@ func _process(_delta):
 			if hovered_button == "PlayHighlight":
 				hovered_button = "SettingsHighlight"
 			elif hovered_button == "SettingsHighlight":
-				hovered_button = "CreditsHighlight"
-			elif hovered_button == "CreditsHighlight":
 				hovered_button = "QuitHighlight"
 				
 		if Input.is_action_just_pressed("ui_up"):
 			if hovered_button == "SettingsHighlight":
 				hovered_button = "PlayHighlight"
-			elif hovered_button == "CreditsHighlight":
-				hovered_button = "SettingsHighlight"
 			elif hovered_button == "QuitHighlight":
-				hovered_button = "CreditsHighlight"
+				hovered_button = "SettingsHighlight"
 				
 		if Input.is_action_just_pressed("ui_accept"):
 			if hovered_button == "PlayHighlight":
 				_on_play_button_button_up()
 			if hovered_button == "SettingsHighlight":
 				_on_settings_button_button_up()
-			if hovered_button == "CreditsHighlight":
-				_on_credits_button_button_up()
 			if hovered_button == "QuitHighlight":
 				_on_quit_button_button_up()
 					
@@ -142,7 +136,10 @@ func _process(_delta):
 		$Background.position = background_original_pos + get_local_mouse_position() / 100
 
 func _on_play_button_button_up():
-	get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectSlotMenuRiseFromDepthsAnimation")
+	if !get_parent().demo_mode:
+		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectSlotMenuRiseFromDepthsAnimation")
+	else:
+		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
 	
 func _on_settings_button_button_up():
 	$SettingsMenu.visible = true

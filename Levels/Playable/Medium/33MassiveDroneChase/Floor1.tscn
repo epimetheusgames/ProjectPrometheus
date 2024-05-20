@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ctx4k1neq3ggc" path="res://Assets/Images/Objects/Enemy/BossSprite.png" id="3_wxg2b"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/33MassiveDroneChase/ExplosionDropper.gd" id="4_1nnyn"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_a0w3r"]
-[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="5_82pr2"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_gnftb"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_h01v7"]
 [ext_resource type="AudioStream" uid="uid://dspkowyxamntk" path="res://Assets/Audio/SFX/HelicopterSFX.wav" id="5_mvo6i"]
 [ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="6_lfboh"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="6_r4icc"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="6_wsl1f"]
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="7_lus0u"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="8_6nvjs"]
@@ -1012,7 +1012,7 @@ position = Vector2(5616, 461)
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("5_82pr2")
+texture = ExtResource("6_r4icc")
 expand_mode = 1
 script = ExtResource("5_gnftb")
 path = "interact"

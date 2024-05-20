@@ -20,7 +20,7 @@ var selected = 0
 
 func _process(delta):
 	# Open and close options menu.
-	if ((Input.is_action_just_pressed("esc") && showing) || (Input.is_action_just_pressed("pause_open") && !showing)) && !get_parent().was_open:
+	if ((Input.is_action_just_pressed("esc") && showing) || (Input.is_action_just_pressed("pause_open") && !showing)) && !get_parent().was_open && !get_parent().get_parent().get_parent().demo_max:
 		if showing:
 			get_parent().get_parent().get_node("Blur").get_node("AnimationPlayer").play("FadeoutBlur")
 			$AnimationPlayer.play("FadeoutPauseMenu")

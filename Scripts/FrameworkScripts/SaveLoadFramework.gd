@@ -179,6 +179,11 @@ var turret_one_health = 100
 var turret_two_health = 100
 var current_objective = ""
 
+# Very important! This should be checked to create an export in demo mode!
+@export var demo_mode = false
+@export var demo_mode_max_level = 2
+@onready var demo_mode_ad_level = preload("res://Levels/Cutscenes/DemoModeFinishLevel/Floor1.tscn")
+
 @onready var loaded_carret = preload("res://Assets/Images/Objects/Misc/Carret.png")
 
 func _ready():
@@ -333,6 +338,15 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 		level_floor = floor 
 	
 	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
+	
+	# Perform demo check.
+	if demo_mode && current_level > demo_mode_max_level:
+		level_loaded = demo_mode_ad_level.instantiate()
+		level_loaded.demo_running = true
+		level_loaded.demo_max = true
+	elif demo_mode:
+		level_loaded.demo_running = true
+	
 	current_level_ind = current_level
 	level_loaded.slot = slot
 	level_loaded.level = current_level

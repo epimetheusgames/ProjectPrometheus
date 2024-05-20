@@ -67,11 +67,14 @@ func _process(delta):
 		if ability_lost_volume < -20:
 			ability_lost_volume = -20
 		
-		get_parent().get_parent().get_node("ClockTick").volume_db = ability_lost_volume
-		get_parent().get_parent().get_node("ClockTick").pitch_scale += 0.001
-		
-		if !get_parent().get_parent().get_node("ClockTick").playing:
-			get_parent().get_parent().get_node("ClockTick").play()
+		if !get_parent().get_parent().get_parent().demo_max:
+			get_parent().get_parent().get_node("ClockTick").volume_db = ability_lost_volume
+			get_parent().get_parent().get_node("ClockTick").pitch_scale += 0.001
+			
+			if !get_parent().get_parent().get_node("ClockTick").playing:
+				get_parent().get_parent().get_node("ClockTick").play()
+		else:
+			get_parent().get_parent().get_node("ClockTick").volume_db = -80
 		
 	elif get_parent().get_node("DarkOverlay").color.a > 0:
 		get_parent().get_node("DarkOverlay").color.a -= 0.1

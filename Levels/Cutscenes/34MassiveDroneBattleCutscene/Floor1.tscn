@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_uw6eh"]
 [ext_resource type="Script" path="res://Levels/Cutscenes/34MassiveDroneBattleCutscene/BossControls.gd" id="2_up1g4"]
-[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="3_074hl"]
+[ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="3_oh0uj"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="4_7k3gp"]
 [ext_resource type="SpriteFrames" uid="uid://r6y0rrbw7dft" path="res://Objects/StaticObjects/MassiveDroneAnimation.tres" id="5_t1hdj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="6_fl6ys"]
@@ -662,7 +662,7 @@ offset_top = 32.0
 offset_right = 240.0
 offset_bottom = 72.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_074hl")
+texture = ExtResource("3_oh0uj")
 expand_mode = 1
 script = ExtResource("4_7k3gp")
 path = "interact"
@@ -674,7 +674,7 @@ offset_top = 40.0
 offset_right = -16.0
 offset_bottom = 80.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_074hl")
+texture = ExtResource("3_oh0uj")
 expand_mode = 1
 script = ExtResource("4_7k3gp")
 path = "interact"

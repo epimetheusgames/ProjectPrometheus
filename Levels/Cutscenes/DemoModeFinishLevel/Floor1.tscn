@@ -1,0 +1,367 @@
+[gd_scene load_steps=24 format=3 uid="uid://cj7cuuj3wh8cx"]
+
+[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_ea23y"]
+[ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="2_i7vkf"]
+[ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_chrmu"]
+[ext_resource type="Texture2D" uid="uid://bgm2y5q0lc5ji" path="res://Assets/Images/Tilesets/PipeTileset.png" id="4_v5sx7"]
+[ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="5_u110f"]
+[ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_34u37"]
+[ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_c15rn"]
+[ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="8_d8cs5"]
+[ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="9_6rgj0"]
+[ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="10_cbkw3"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="11_1m85w"]
+[ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="12_qxqdr"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="13_ys5no"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="14_0v27q"]
+[ext_resource type="Script" path="res://Scripts/FrameworkScripts/DemoModeFinishAdContainer.gd" id="14_15382"]
+
+[sub_resource type="TileSet" id="TileSet_dgxbs"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["3DMetal", Color(0.619633, 0.80742, 0.554222, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
+texture = ExtResource("2_i7vkf")
+texture_region_size = Vector2i(36, 20)
+1:0/0 = 0
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vceaj"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_de7lc")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["3DMetal", Color(0.619633, 0.80742, 0.554222, 1), 0, [], {
+"path": ""
+}]],
+"version": "0.2"
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fx8ic"]
+texture = ExtResource("4_v5sx7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_yk64r"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_fx8ic")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
+texture = ExtResource("5_u110f")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_2gdyw"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_7qd54")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
+shader = ExtResource("13_ys5no")
+shader_parameter/distortion_amm = 0.0
+shader_parameter/static_scale = 0.0
+shader_parameter/vignette_softness = 0.45
+shader_parameter/vignette_visibleness = 1.0
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_ea23y")
+level = 4
+
+[node name="Decorations" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_dgxbs")
+rendering_quadrant_size = 32
+format = 2
+
+[node name="Signs" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vceaj")
+rendering_quadrant_size = 32
+format = 2
+
+[node name="Ingame" type="TileMap" parent="."]
+tile_set = ExtResource("3_chrmu")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "Layer 1"
+
+[node name="Pipes" type="TileMap" parent="."]
+modulate = Color(0.458824, 0.458824, 0.458824, 1)
+z_index = 1
+tile_set = SubResource("TileSet_yk64r")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
+
+[node name="PipesSmall" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2gdyw")
+format = 2
+layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
+
+[node name="Gravel" type="TileMap" parent="."]
+tile_set = ExtResource("6_34u37")
+format = 2
+
+[node name="Spikes" type="TileMap" parent="."]
+self_modulate = Color(1.7, 1.7, 1.7, 1)
+tile_set = ExtResource("7_c15rn")
+rendering_quadrant_size = 32
+format = 2
+
+[node name="TransparentMetal" type="TileMap" parent="."]
+modulate = Color(1, 1, 1, 0.290196)
+tile_set = ExtResource("8_d8cs5")
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Player" parent="." instance=ExtResource("9_6rgj0")]
+visible = false
+
+[node name="Camera" parent="Player" index="1"]
+enabled = false
+
+[node name="ColorRect" parent="Player/Camera/PauseMenu/CanvasLayer/ForManipulatingTheseNodes" index="0"]
+visible = false
+
+[node name="ColorRect2" parent="Player/Camera/PauseMenu/CanvasLayer/ForManipulatingTheseNodes" index="1"]
+visible = false
+
+[node name="DarkOverlay" parent="Player/Camera" index="2"]
+visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="FPSCounter" parent="Player/Camera" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[node name="AbililtySwitchTimer" parent="Player/Camera/AbilityManager" index="4"]
+autostart = false
+
+[node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect" parent="Player/Camera/Inventory/SlotBackgrounds" index="0"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect2" parent="Player/Camera/Inventory/SlotBackgrounds" index="1"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect3" parent="Player/Camera/Inventory/SlotBackgrounds" index="2"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect4" parent="Player/Camera/Inventory/SlotBackgrounds" index="3"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect6" parent="Player/Camera/Inventory/SlotBackgrounds" index="4"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect5" parent="Player/Camera/Inventory/SlotBackgrounds" index="5"]
+visible = false
+mouse_filter = 2
+
+[node name="ColorRect" parent="Player/Camera" index="15"]
+visible = false
+
+[node name="CrtOverlay" parent="Player/Camera" index="16"]
+visible = false
+
+[node name="ClockTick" parent="Player" index="8"]
+volume_db = -80.0
+pitch_scale = 0.01
+
+[node name="PointLight2D" parent="Player" index="14"]
+scale = Vector2(0.983491, 1)
+color = Color(0.941176, 1, 0.419608, 1)
+energy = 1.88
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-500, -500)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1920, 640)
+
+[node name="ParalaxPlaceholder" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-475, 111)
+scale = Vector2(5, 5)
+texture = ExtResource("10_cbkw3")
+centered = false
+
+[node name="DeathZone" type="Area2D" parent="."]
+
+[node name="RespawnPos" type="Node2D" parent="."]
+position = Vector2(4, -91)
+
+[node name="NextLevel" type="Area2D" parent="."]
+script = ExtResource("11_1m85w")
+
+[node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_qxqdr")
+volume_db = -8.69
+autoplay = true
+bus = &"SFX"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+material = SubResource("ShaderMaterial_0aues")
+color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[node name="SizeChecker" type="ColorRect" parent="."]
+visible = false
+offset_left = -466.0
+offset_top = 90.0
+offset_right = 14.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.454902)
+
+[node name="DemoModeFinishAdContainer" type="Node2D" parent="."]
+script = ExtResource("14_15382")
+
+[node name="Camera2D" type="Camera2D" parent="DemoModeFinishAdContainer"]
+position = Vector2(8, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DemoModeFinishAdContainer"]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="DemoModeFinishAdContainer/CanvasLayer"]
+offset_left = -40.0
+offset_top = -34.0
+offset_right = 1962.0
+offset_bottom = 1102.0
+mouse_filter = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="Label" type="Label" parent="DemoModeFinishAdContainer/CanvasLayer"]
+offset_left = 342.0
+offset_top = 224.0
+offset_right = 1564.0
+offset_bottom = 291.0
+theme = ExtResource("14_0v27q")
+theme_override_font_sizes/font_size = 66
+text = "Thanks for playing the Project Prometheus demo!"
+
+[node name="Label2" type="Label" parent="DemoModeFinishAdContainer/CanvasLayer"]
+offset_left = 774.0
+offset_top = 296.0
+offset_right = 1131.0
+offset_bottom = 363.0
+theme = ExtResource("14_0v27q")
+theme_override_font_sizes/font_size = 43
+text = "Coming soon to Steam!"
+
+[node name="Button" type="Button" parent="DemoModeFinishAdContainer/CanvasLayer"]
+offset_left = 414.0
+offset_top = 544.0
+offset_right = 686.0
+offset_bottom = 609.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("14_0v27q")
+theme_override_font_sizes/font_size = 53
+text = "Exit to Menu"
+
+[node name="Button2" type="Button" parent="DemoModeFinishAdContainer/CanvasLayer"]
+offset_left = 706.0
+offset_top = 544.0
+offset_right = 1506.0
+offset_bottom = 609.0
+theme = ExtResource("14_0v27q")
+theme_override_font_sizes/font_size = 56
+text = "Check out our website for more info!"
+
+[node name="Line2D" type="Line2D" parent="DemoModeFinishAdContainer/CanvasLayer"]
+position = Vector2(0, -2)
+points = PackedVector2Array(713, 599, 1496, 597)
+width = 1.1
+
+[connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
+[connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
+[connection signal="button_up" from="DemoModeFinishAdContainer/CanvasLayer/Button" to="DemoModeFinishAdContainer" method="_on_button_button_up"]
+[connection signal="button_up" from="DemoModeFinishAdContainer/CanvasLayer/Button2" to="DemoModeFinishAdContainer" method="_on_button_2_button_up"]
+
+[editable path="Player"]
+[editable path="Player/Camera/PauseMenu"]
+[editable path="Player/Camera/PauseMenu/CanvasLayer/ForManipulatingTheseNodes/SettingsMenu"]
