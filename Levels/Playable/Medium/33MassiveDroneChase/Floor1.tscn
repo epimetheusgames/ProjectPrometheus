@@ -1517,6 +1517,7 @@ points = PackedVector2Array(-3, 151, -2, 858, 223, 809, 211, -8)
 
 [node name="GrappleHook2" parent="." instance=ExtResource("25_skvru")]
 position = Vector2(5845, 293)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("18_qv2pt")]
 position = Vector2(6088, 560)
@@ -1524,6 +1525,7 @@ dont_checkpoint = true
 
 [node name="GrappleHook3" parent="." instance=ExtResource("25_skvru")]
 position = Vector2(4331, 517)
+dont_use_swing_mode = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 

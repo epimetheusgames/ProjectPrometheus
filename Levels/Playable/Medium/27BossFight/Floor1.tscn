@@ -1163,6 +1163,7 @@ color = Color(1, 1, 1, 0.454902)
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(-25, -187)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("17_20vt3")]
 position = Vector2(0, -144)
@@ -1182,6 +1183,7 @@ item_switch_type = "Grapple"
 [node name="BossHook1" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(-400, -230)
 rotation = 3.14159
+dont_use_swing_mode = true
 
 [node name="CollisionShape2D" parent="BossHook1/Area2D" index="0"]
 disabled = true
@@ -1191,6 +1193,7 @@ position = Vector2(0, 2)
 
 [node name="GrappleHook3" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(-647, -603)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher5" parent="." instance=ExtResource("17_20vt3")]
 position = Vector2(-447, -528)
@@ -1210,6 +1213,7 @@ item_switch_type = "Grapple"
 
 [node name="BossHook2" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(11, -891)
+dont_use_swing_mode = true
 
 [node name="CollisionShape2D" parent="BossHook2/Area2D" index="0"]
 disabled = true
@@ -1319,6 +1323,7 @@ default_color = Color(0.27451, 0.27451, 0.27451, 1)
 
 [node name="GrappleHook6" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(255, -731)
+dont_use_swing_mode = true
 
 [node name="DrawbridgeHalf" type="Sprite2D" parent="."]
 position = Vector2(-320, -496)
@@ -1354,6 +1359,7 @@ texture = ExtResource("29_ihkdu")
 
 [node name="GrappleHook2" parent="." instance=ExtResource("16_herbc")]
 position = Vector2(-429, -443)
+dont_use_swing_mode = true
 
 [node name="PlayerObjectiveSetter" parent="." instance=ExtResource("30_iljxc")]
 position = Vector2(763, -2)

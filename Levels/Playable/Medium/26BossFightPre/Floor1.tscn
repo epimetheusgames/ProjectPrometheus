@@ -397,7 +397,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -589,6 +589,7 @@ position = Vector2(5, -87)
 [node name="GrappleHook" parent="." instance=ExtResource("31_54uup")]
 position = Vector2(-357, -106)
 rotation = 1.5708
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher3" parent="." instance=ExtResource("25_rq7eb")]
 position = Vector2(-292, 144)
@@ -671,6 +672,7 @@ item_switch_type = "ArmGun"
 [node name="GrappleHook2" parent="." instance=ExtResource("31_54uup")]
 position = Vector2(3813, 270)
 rotation = -1.5708
+dont_use_swing_mode = true
 
 [node name="DrillManager" parent="." instance=ExtResource("31_v38qp")]
 position = Vector2(2622, 90)
@@ -755,6 +757,7 @@ texture = ExtResource("35_cd7yc")
 
 [node name="GrappleHook3" parent="." instance=ExtResource("31_54uup")]
 position = Vector2(3092, 37)
+dont_use_swing_mode = true
 
 [node name="PropForwardFaceChair4" type="Sprite2D" parent="."]
 position = Vector2(3351, 524)

@@ -339,10 +339,12 @@ position = Vector2(-567, -147)
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_da7k5")]
 position = Vector2(789, -540)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("16_da7k5")]
 position = Vector2(506, -644)
 rotation = 3.14159
+dont_use_swing_mode = true
 
 [node name="GrappleHook3" parent="." instance=ExtResource("16_da7k5")]
 position = Vector2(965, -200)
