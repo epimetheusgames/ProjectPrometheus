@@ -8,6 +8,7 @@
 
 extends Node2D
 var area_entered = null
+@export var dont_use_swing_mode = false
 
 func _ready():
 	add_to_group("hooks")

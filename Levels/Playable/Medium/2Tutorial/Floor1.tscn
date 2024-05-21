@@ -329,7 +329,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -401,9 +401,11 @@ item_switch_type = "ArmGun"
 
 [node name="GrappleHook" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(1255, -315)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(919, -187)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher3" parent="." instance=ExtResource("8_j5v6x")]
 position = Vector2(1212, -80)

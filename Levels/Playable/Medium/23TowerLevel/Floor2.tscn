@@ -389,6 +389,7 @@ position = Vector2(-869.954, -444)
 
 [node name="GrappleHook7" parent="." instance=ExtResource("16_d8wsk")]
 position = Vector2(-965.954, -188)
+dont_use_swing_mode = true
 
 [node name="WallTurret8" parent="." instance=ExtResource("17_cbpqw")]
 position = Vector2(-1054.95, -175)
@@ -498,6 +499,7 @@ points = PackedVector2Array(-107, -86, -311, -87, -310, 34, -311, 167, -307, 223
 [node name="GrappleHook4" parent="." instance=ExtResource("16_d8wsk")]
 position = Vector2(2603, -1445)
 rotation = 3.14159
+dont_use_swing_mode = true
 
 [node name="GrappleHook6" parent="." instance=ExtResource("16_d8wsk")]
 position = Vector2(2478, -1595)
@@ -510,6 +512,7 @@ position = Vector2(2118, -1595)
 
 [node name="GrappleHook10" parent="." instance=ExtResource("16_d8wsk")]
 position = Vector2(1798, -1723)
+dont_use_swing_mode = true
 
 [node name="Artifact3" parent="." instance=ExtResource("20_v2c8m")]
 position = Vector2(1480, -1688)

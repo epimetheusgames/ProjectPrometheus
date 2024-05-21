@@ -446,12 +446,14 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("18_uwlia")]
 position = Vector2(449, -315)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("17_fs2r2")]
 position = Vector2(448, -240)
 
 [node name="GrappleHook2" parent="." instance=ExtResource("18_uwlia")]
 position = Vector2(-395, -315)
+dont_use_swing_mode = true
 
 [node name="Artifact" parent="." instance=ExtResource("20_lu5a6")]
 position = Vector2(-336, -368)

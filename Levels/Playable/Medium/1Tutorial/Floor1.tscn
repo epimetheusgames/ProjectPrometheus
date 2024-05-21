@@ -1066,12 +1066,14 @@ visible = false
 
 [node name="GrappleHook" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(-4838, -187)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(-5199, -251)
 
 [node name="GrappleHook3" parent="." instance=ExtResource("10_p42e6")]
 position = Vector2(-5623, -187)
+dont_use_swing_mode = true
 
 [node name="Checkpoint" parent="." instance=ExtResource("11_unlok")]
 position = Vector2(-2483, 112)
@@ -1232,7 +1234,7 @@ position = Vector2(-4810, 57)
 tutorial_box_ind = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialDialogueArea6"]
-position = Vector2(-133, -173)
+position = Vector2(-99, -180)
 shape = SubResource("RectangleShape2D_y1nx2")
 
 [node name="TutorialDialogueArea5" parent="." instance=ExtResource("23_7in8k")]

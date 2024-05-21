@@ -289,7 +289,7 @@ polygon = PackedVector2Array(-682, 236, 3164, 254, 3554, 254, 4322, -108, 4376, 
 
 [node name="Player" parent="." instance=ExtResource("7_nm8ya")]
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -370,9 +370,11 @@ rotation = -1.5708
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_tou6m")]
 position = Vector2(1808, -219)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("16_tou6m")]
 position = Vector2(2095, -380)
+dont_use_swing_mode = true
 
 [node name="WallTurret2" parent="." instance=ExtResource("18_1ue77")]
 position = Vector2(905, -221)

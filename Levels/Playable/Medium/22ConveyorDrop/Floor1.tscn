@@ -351,7 +351,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -465,6 +465,7 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("19_5xoyw")]
 position = Vector2(-2185, -283)
+dont_use_swing_mode = true
 
 [node name="Checkpoint" parent="." instance=ExtResource("20_6eiss")]
 position = Vector2(-977, 17)
@@ -733,9 +734,11 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook3" parent="." instance=ExtResource("19_5xoyw")]
 position = Vector2(-4979, -635)
+dont_use_swing_mode = true
 
 [node name="GrappleHook4" parent="." instance=ExtResource("19_5xoyw")]
 position = Vector2(-5741, -571)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher9" parent="." instance=ExtResource("15_2nk1o")]
 position = Vector2(-6048, -496)

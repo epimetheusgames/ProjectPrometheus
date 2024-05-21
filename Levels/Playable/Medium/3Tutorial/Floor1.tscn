@@ -1396,6 +1396,7 @@ position = Vector2(1683, 133)
 
 [node name="GrappleHook2" parent="." instance=ExtResource("13_8s0sm")]
 position = Vector2(2386, 37)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher" parent="." instance=ExtResource("14_4dr1d")]
 position = Vector2(450, 16)

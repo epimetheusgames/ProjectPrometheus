@@ -294,7 +294,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -356,6 +356,7 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("16_qkgcd")]
 position = Vector2(2667, -59)
+dont_use_swing_mode = true
 
 [node name="WallTurret" parent="." instance=ExtResource("17_ki12s")]
 position = Vector2(3593, -61)

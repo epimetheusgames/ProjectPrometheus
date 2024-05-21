@@ -488,9 +488,11 @@ points = PackedVector2Array(7, 140, 107, 376, 310, 376, 312, -85)
 
 [node name="GrappleHook" parent="." instance=ExtResource("17_gt75n")]
 position = Vector2(-1113, -476)
+dont_use_swing_mode = true
 
 [node name="GrappleHook3" parent="." instance=ExtResource("17_gt75n")]
 position = Vector2(-1113, -476)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("17_gt75n")]
 position = Vector2(-69, -572)
@@ -683,6 +685,7 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook6" parent="." instance=ExtResource("17_gt75n")]
 position = Vector2(180, -763)
+dont_use_swing_mode = true
 
 [node name="Artifact" parent="." instance=ExtResource("26_bh74c")]
 position = Vector2(688, -112)

@@ -620,6 +620,7 @@ position = Vector2(-144, -539)
 [node name="GrappleHook2" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(-251, -395)
 rotation = -1.5708
+dont_use_swing_mode = true
 
 [node name="Artifact" parent="." instance=ExtResource("23_1tl66")]
 position = Vector2(-80, -48)
@@ -657,9 +658,11 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook3" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(3577, -443)
+dont_use_swing_mode = true
 
 [node name="GrappleHook4" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(1849, -539)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher8" parent="." instance=ExtResource("18_hfl85")]
 position = Vector2(1774, -528)
@@ -705,6 +708,7 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook5" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(-685, -635)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher20" parent="." instance=ExtResource("18_hfl85")]
 position = Vector2(-286, -48)
@@ -741,9 +745,11 @@ position = Vector2(3404, -238)
 
 [node name="GrappleHook6" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(2902, -443)
+dont_use_swing_mode = true
 
 [node name="GrappleHook7" parent="." instance=ExtResource("22_117p4")]
 position = Vector2(2006, -443)
+dont_use_swing_mode = true
 
 [node name="DrillManager5" parent="." instance=ExtResource("25_fkjol")]
 position = Vector2(1282, -547)

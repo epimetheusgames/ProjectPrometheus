@@ -257,7 +257,7 @@ metadata/_edit_use_anchors_ = true
 [node name="FPSCounter" parent="Player/Camera" index="3"]
 metadata/_edit_use_anchors_ = true
 
-[node name="PointLight2D" parent="Player" index="13"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -323,6 +323,7 @@ item_switch_type = "Grapple"
 
 [node name="GrappleHook" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(-474, -188)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(-292, -316)
@@ -359,9 +360,11 @@ polygon = PackedVector2Array(96, -224, -32, -288, -31, -222)
 
 [node name="GrappleHook3" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(100, -284)
+dont_use_swing_mode = true
 
 [node name="GrappleHook4" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(-84, -476)
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher2" parent="." instance=ExtResource("14_v0qdw")]
 position = Vector2(-254, -432)
@@ -400,6 +403,7 @@ rotation = -1.5708
 [node name="GrappleHook7" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(-316, -1177)
 rotation = -1.5708
+dont_use_swing_mode = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_dqher")
@@ -448,10 +452,12 @@ position = Vector2(88, -1211)
 
 [node name="GrappleHook8" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(368, -1211)
+dont_use_swing_mode = true
 
 [node name="GrappleHook9" parent="." instance=ExtResource("15_ycnv8")]
 position = Vector2(528, -1029)
 rotation = 3.14159
+dont_use_swing_mode = true
 
 [node name="ItemSwitcher8" parent="." instance=ExtResource("14_v0qdw")]
 position = Vector2(407, -848)
