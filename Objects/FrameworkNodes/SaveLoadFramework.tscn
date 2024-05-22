@@ -107,7 +107,6 @@ _data = {
 [node name="SaveLoadFramework" type="Node2D"]
 editor_description = "This should be the root scene of the project."
 script = ExtResource("1_7se8a")
-demo_mode = null
 demo_mode_max_level = 3
 
 [node name="EpimetheusFadin" parent="." instance=ExtResource("4_a7fay")]

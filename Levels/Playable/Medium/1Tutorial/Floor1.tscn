@@ -940,7 +940,7 @@ layer_0/tile_data = PackedInt32Array(130972, 0, 0, 196508, 0, 0, 262044, 0, 0, 1
 tile_set = SubResource("TileSet_dapuw")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-262317, 65536, 0, -262307, 65536, 0, 130921, 131072, 0, 130989, 131072, 0, -262296, 65536, 0, -262341, 196608, 0, 196396, 65536, 0, 65307, 131072, 0)
+layer_0/tile_data = PackedInt32Array(-262317, 65536, 0, -262307, 65536, 0, 130921, 131072, 0, 130989, 131072, 0, -262296, 65536, 0, -262341, 196608, 0, 196396, 65536, 0, 65307, 131072, 0, -65642, 65536, 0, 196388, 65536, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("3_eufvj")
@@ -2155,13 +2155,13 @@ position = Vector2(-2862, -41)
 objective_text = "Objective: Reach the end of the level"
 
 [node name="PistonSmasher3" parent="." instance=ExtResource("18_cmg21")]
-position = Vector2(416, -120)
+position = Vector2(416, -128)
 
 [node name="StartDelayTimer" parent="PistonSmasher3" index="5"]
 wait_time = 5.0
 
 [node name="PistonSmasher4" parent="." instance=ExtResource("18_cmg21")]
-position = Vector2(544, -120)
+position = Vector2(544, -128)
 
 [node name="RocketBody" type="StaticBody2D" parent="."]
 position = Vector2(1258, -107)
