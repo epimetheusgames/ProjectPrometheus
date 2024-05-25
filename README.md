@@ -1,4 +1,4 @@
-# Project Promtheus
+# Project Prometheus
 ## Epimetheus Games OGPC Season 17
 
 Our entry for Season 17 of Oregon Game Project Challenge.
