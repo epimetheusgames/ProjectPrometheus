@@ -34,7 +34,7 @@ All rights reserved.
 
 Any scripts and assets (and files) in this repository are co-copyrighted under Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky EVEN if they do not contain an explicit copyright notice. 
 Epimetheus Games is not a legal entity or corporation. Epimetheus Games refers to Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, and Ranier Szatlocky who have copyright of Project Prometheus.
-Do not distribute copies of this software without WRITTEN permission from one of the copyright holders.
+You may only distribute copies of this software if you have WRITTEN permission from one of the copyright holders and if you are not earning anything of monetary value from distributing the sotware.
 
 If you've received a copy of this software from anywhere other than an official Epimetheus Games source (for example our Steam page, our [itch.io](https://epimetheusgamesogpc.itch.io/projectprometheus) page, or our [website](epimetheus.games)) do not run it and delete it immediately as it could contain malware and is not a legitimate copy of the game.
 
