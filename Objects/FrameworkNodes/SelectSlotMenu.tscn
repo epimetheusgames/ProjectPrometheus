@@ -12,7 +12,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 20
-shadow_color = Color(0, 0, 0, 0.698039)
+shadow_color = Color(0, 0, 0, 0)
 shadow_size = 13
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a804u"]
@@ -56,6 +56,16 @@ offset_left = -495.0
 offset_top = -225.0
 offset_right = 495.0
 offset_bottom = 155.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="."]
+modulate = Color(0.317647, 0.317647, 0.317647, 0.188235)
+offset_left = 294.0
+offset_top = -142.0
+offset_right = 470.315
+offset_bottom = 34.545
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
 metadata/_edit_use_anchors_ = true
@@ -225,6 +235,21 @@ offset_bottom = -154.0
 theme = ExtResource("2_0kaei")
 theme_override_font_sizes/font_size = 26
 text = "Level Name"
+
+[node name="Slot1HighlightPos" type="Node2D" parent="."]
+position = Vector2(-464, -142)
+
+[node name="Slot2HighlightPos" type="Node2D" parent="."]
+position = Vector2(-275, -142)
+
+[node name="Slot3HighlightPos" type="Node2D" parent="."]
+position = Vector2(-84, -142)
+
+[node name="Slot4HighlightPos" type="Node2D" parent="."]
+position = Vector2(107, -142)
+
+[node name="Slot5HighlightPos" type="Node2D" parent="."]
+position = Vector2(294, -142)
 
 [connection signal="button_up" from="Slot1" to="." method="_on_slot_1_button_up"]
 [connection signal="button_up" from="Slot2" to="." method="_on_slot_2_button_up"]

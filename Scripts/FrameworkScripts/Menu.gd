@@ -20,6 +20,14 @@ var background_original_pos = Vector2.ZERO
 var open_character_select_menu = false
 var dont_fade = false
 
+@onready var slot_highlight_positions = [
+	$Slot1HighlightPos,
+	$Slot2HighlightPos,
+	$Slot3HighlightPos,
+	$Slot4HighlightPos,
+	$Slot5HighlightPos,
+]
+
 func deactivate():
 	hide()
 	deactivated = true
@@ -103,6 +111,8 @@ func _process(_delta):
 	if name == "SelectSlotMenu":
 		$LevelSelect.max_value = get_parent().get_parent().load_data(slot_num)[0] + 1
 		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
+		
+		$Panel3.position += (slot_highlight_positions[slot_num - 1].position - $Panel3.position) * 0.3
 	
 	if name == "MainMenu":
 		$PlayHighlight.visible = false
