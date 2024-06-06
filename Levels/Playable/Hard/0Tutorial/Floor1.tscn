@@ -226,7 +226,7 @@ polygon = PackedVector2Array(726, 316, -1026, 150, -2616, 170, -3360, 824, -1516
 
 [node name="Player" parent="." instance=ExtResource("8_g128v")]
 
-[node name="PointLight2D" parent="Player" index="7"]
+[node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
 energy = 1.88
@@ -281,6 +281,7 @@ item_switch_type = "Grapple"
 position = Vector2(-4492, -579)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
+visible = false
 position = Vector2(0, 2)
 points = PackedVector2Array(172, 40, 111, 509, 275, 438, 378, 512, 507, 418, 633, 491, 768.135, 431.566, 892, 499, 931.585, 438.608, 938, 265)
 
@@ -289,12 +290,14 @@ visible = false
 
 [node name="GrappleHook" parent="." instance=ExtResource("12_vjsyc")]
 position = Vector2(-4838, -187)
+dont_use_swing_mode = true
 
 [node name="GrappleHook2" parent="." instance=ExtResource("12_vjsyc")]
 position = Vector2(-5199, -251)
 
 [node name="GrappleHook3" parent="." instance=ExtResource("12_vjsyc")]
 position = Vector2(-5623, -187)
+dont_use_swing_mode = true
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_wsw2x")]
 position = Vector2(-2538, 112)

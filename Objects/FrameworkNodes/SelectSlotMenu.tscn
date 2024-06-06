@@ -61,7 +61,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel3" type="Panel" parent="."]
-modulate = Color(0.317647, 0.317647, 0.317647, 0.188235)
+modulate = Color(0.317647, 0.317647, 0.317647, 0.521569)
 offset_left = 294.0
 offset_top = -142.0
 offset_right = 470.315
@@ -82,6 +82,8 @@ theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
 theme_override_fonts/font = ExtResource("3_6rlta")
 theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
+action_mode = 0
+keep_pressed_outside = true
 text = " Slot 1 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -98,7 +100,7 @@ theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
 theme_override_fonts/font = ExtResource("3_6rlta")
 theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
-toggle_mode = true
+keep_pressed_outside = true
 text = " Slot 2 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -115,7 +117,7 @@ theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
 theme_override_fonts/font = ExtResource("3_6rlta")
 theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
-toggle_mode = true
+keep_pressed_outside = true
 text = " Slot 3 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -132,7 +134,7 @@ theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
 theme_override_fonts/font = ExtResource("3_6rlta")
 theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
-toggle_mode = true
+keep_pressed_outside = true
 text = " Slot 4 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -149,7 +151,7 @@ theme_override_colors/font_color = Color(1.4, 1.4, 1.4, 1)
 theme_override_fonts/font = ExtResource("3_6rlta")
 theme_override_font_sizes/font_size = 156
 theme_override_styles/normal = SubResource("StyleBoxFlat_a804u")
-toggle_mode = true
+keep_pressed_outside = true
 text = " Slot 5 "
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -202,6 +204,18 @@ theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
 text = "Clear Slot"
+
+[node name="SelectDifficultyButton" type="Button" parent="."]
+offset_left = 218.0
+offset_top = -203.0
+offset_right = 471.0
+offset_bottom = -151.0
+tooltip_text = "Delete the entire slot."
+theme = ExtResource("2_0kaei")
+theme_override_fonts/font = ExtResource("3_21k4g")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
+text = "Difficulty: Medium"
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0.392157, 0.392157, 0.392157, 0.188235)
@@ -259,3 +273,4 @@ position = Vector2(294, -142)
 [connection signal="button_up" from="SelectSlotStart" to="." method="_on_start_button_up"]
 [connection signal="button_up" from="SelectSlotCancel" to="." method="_on_select_slot_cancel_button_up"]
 [connection signal="button_up" from="ClearSlot" to="." method="_on_clear_slot_button_up"]
+[connection signal="button_up" from="SelectDifficultyButton" to="." method="_on_select_difficulty_button_button_up"]

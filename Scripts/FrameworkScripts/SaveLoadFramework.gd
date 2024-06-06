@@ -110,9 +110,9 @@ const preloaded_levels = [
 
 const preloaded_hard_levels = [
 	[preload("res://Levels/Cutscenes/RocketLandStartCutscene/Floor1.tscn")],
+	[preload("res://Levels/Playable/Hard/0Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/1Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/2Tutorial/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/3Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/3Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/4Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/5Easy/Floor1.tscn")],
@@ -372,7 +372,7 @@ func load_data(slot):
 		print("Detected issue with save data in save_" + str(slot) + "!")
 		
 # Start the game with all this info which should be loaded from a save file.
-func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false, use_level_transition = false):
+func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false, use_level_transition = false, difficulty = 1):
 	var level_data = load_data(slot)
 	var current_level = level_data[0]
 	var level_floor = level_data[1]
@@ -388,7 +388,12 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 		current_level = level 
 		level_floor = floor 
 	
-	var level_loaded = preloaded_levels[current_level][level_floor].instantiate()
+	var level_list = preloaded_levels
+	
+	if difficulty == 1:
+		level_list = preloaded_hard_levels
+	
+	var level_loaded = level_list[current_level][level_floor].instantiate()
 	
 	# Perform demo check.
 	if demo_mode && current_level > demo_mode_max_level:

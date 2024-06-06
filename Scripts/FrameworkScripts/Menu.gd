@@ -277,7 +277,7 @@ func _on_select_character_menu_rise_from_depths_animation_player_animation_finis
 	var local_slot_data = get_parent().load_data($SelectSlotMenu.slot_num)
 	
 	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation":
-		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0)
+		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0, get_node("SelectDifficultyMenu").get_node("OptionButton").selected)
 	if anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu:
 		$SelectSlotMenu.open_character_select_menu = false
 		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
@@ -297,3 +297,22 @@ func _on_v_sync_mode_selection_item_selected(index):
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	if index == 3:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_MAILBOX)
+
+func _on_option_button_item_selected(index):
+	if index == 0:
+		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Casual"
+	if index == 1:
+		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Standard"
+	if index == 2:
+		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Expert"
+	if index == 3:
+		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Fremen"
+
+func _on_select_difficulty_button_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectDifficultyMenuRiseFromDepthsAnimation")
+
+func _on_select_difficulty_continue_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectDifficultyMenuRiseFromDepthsAnimation")
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")
+
