@@ -390,7 +390,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	
 	var level_list = preloaded_levels
 	
-	if difficulty == 1:
+	if difficulty == 2:
 		level_list = preloaded_hard_levels
 	
 	var level_loaded = level_list[current_level][level_floor].instantiate()

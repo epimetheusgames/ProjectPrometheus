@@ -88,11 +88,11 @@ theme = ExtResource("3_hll20")
 theme_override_font_sizes/font_size = 36
 item_count = 3
 selected = 1
-popup/item_0/text = "Easy"
+popup/item_0/text = "Casual"
 popup/item_0/id = 0
-popup/item_1/text = "Medium"
+popup/item_1/text = "Standard"
 popup/item_1/id = 1
-popup/item_2/text = "Hard"
+popup/item_2/text = "Expert"
 popup/item_2/id = 2
 
 [connection signal="button_up" from="SelectDifficultyContinue" to="." method="_on_select_difficulty_continue_button_up"]

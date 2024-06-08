@@ -15,6 +15,9 @@ var velocity = Vector2.ZERO
 func _process(delta):
 	position += velocity * (delta * 60)
 	rotation = atan2(velocity.y, velocity.x) + (1.0/2.0 * PI)
+	
+	if !$BulletAmbientSFX.playing:
+		$BulletAmbientSFX.play()
 
 func _on_despawn_timer_timeout():
 	queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpqs3h031dhae"]
+[gd_scene load_steps=15 format=3 uid="uid://bpqs3h031dhae"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
 [ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="2_qdroe"]
+[ext_resource type="AudioStream" uid="uid://c5dfjr0r10par" path="res://Assets/Audio/SFX/BulletAmbientNoise.mp3" id="3_kq20q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
 radius = 1.58114
@@ -105,6 +106,14 @@ animation = &"Init"
 autoplay = "Init"
 frame = 3
 frame_progress = 1.0
+
+[node name="BulletAmbientSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kq20q")
+volume_db = -10.0
+autoplay = true
+max_distance = 500.0
+attenuation = 0.812252
+panning_strength = 2.0
 
 [connection signal="body_entered" from="BulletHurter" to="." method="_on_bullet_hurter_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
