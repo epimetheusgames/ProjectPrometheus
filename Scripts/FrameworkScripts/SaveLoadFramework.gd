@@ -344,15 +344,15 @@ func load_game(load_num, character_type = 1):
 			save_game("[false, 0, 0, false, false, false, false]", "global")
 			return load_game("global")
 		
-		save_data(0, 0, load_num, 0, 0, {}, 0, false, character_type)
+		save_data(0, 0, load_num, 0, 0, {}, 0, false, character_type, 1)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
 	var content = file.get_as_text()
 	return content
 
 # Convert level to json and save in respective slot.
-func save_data(level, floor, slot, points, time, artifact_data, deaths, is_character_type_selected, character_value):
-	var data = [level, floor, points, time, artifact_data, deaths, is_character_type_selected, character_value]
+func save_data(level, floor, slot, points, time, artifact_data, deaths, is_character_type_selected, character_value, difficulty):
+	var data = [level, floor, points, time, artifact_data, deaths, is_character_type_selected, character_value, difficulty]
 	var json_data = JSON.stringify(data)
 	save_game(json_data, slot)
 	
@@ -458,11 +458,11 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	get_parent().get_node("Level").call_deferred("add_child", level_loaded)
 	
 # Exit to menu while saving the game.
-func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_fade):
+func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_fade, difficulty):
 	if is_max_level:
-		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
+		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7], difficulty)
 	var saved_data = load_data(slot)
-	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7])
+	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7], difficulty)
 	end_special_music()
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
@@ -473,12 +473,12 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_f
 # Background function for switching levels. Exits to menu first, saves data,
 # and starts the game again.
 func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false, difficulty = 1):
-	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths, switch_level == 1)
+	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths, switch_level == 1, difficulty)
 	if is_max_level:
-		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
+		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7], difficulty)
 	
 	var saved_data = load_data(slot)
-	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7])
+	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, saved_data[7], difficulty)
 	
 	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode, true, difficulty)
 
@@ -486,7 +486,7 @@ func switch_to_level(switch_level, switch_floor, current_level, current_floor, p
 func collect_artifact(slot, uid):
 	var data = load_data(slot)
 	data[4][uid] = true
-	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5], true, data[7])
+	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5], true, data[7], data[8] if len(data > 8) else 1)
 	
 # Special music like boss of elevator.
 func start_special_music():

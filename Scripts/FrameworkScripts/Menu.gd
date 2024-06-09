@@ -248,28 +248,63 @@ func _on_select_slot_cancel_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
 	
 func _on_slot_1_button_up():
-	$LevelSelect.max_value = get_parent().get_parent().load_data(1)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(1)[0] + 1)
+	var loaded_data = get_parent().get_parent().load_data(1)
+	
+	$LevelSelect.max_value = loaded_data[0] + 1
+	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	
+	if len(loaded_data) > 8:
+		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
+		get_parent().get_node("SelectDifficultyMenu")._on_option_button_item_selected(loaded_data[8])
+	
 	slot_num = 1
 	
 func _on_slot_2_button_up():
-	$LevelSelect.max_value = get_parent().get_parent().load_data(2)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(2)[0] + 1)
+	var loaded_data = get_parent().get_parent().load_data(2)
+	
+	$LevelSelect.max_value = loaded_data[0] + 1
+	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	
+	if len(loaded_data) > 8:
+		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
+		get_parent().get_node("SelectDifficultyMenu")._on_option_button_item_selected(loaded_data[8])
+		
 	slot_num = 2
 	
 func _on_slot_3_button_up():
-	$LevelSelect.max_value = get_parent().get_parent().load_data(3)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(3)[0] + 1)
+	var loaded_data = get_parent().get_parent().load_data(3)
+	
+	$LevelSelect.max_value = loaded_data[0] + 1
+	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	
+	if len(loaded_data) > 8:
+		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
+		get_parent().get_node("SelectDifficultyMenu")._on_option_button_item_selected(loaded_data[8])
+		
 	slot_num = 3
 	
 func _on_slot_4_button_up():
-	$LevelSelect.max_value = get_parent().get_parent().load_data(4)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(4)[0] + 1)
+	var loaded_data = get_parent().get_parent().load_data(4)
+	
+	$LevelSelect.max_value = loaded_data[0] + 1
+	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	
+	if len(loaded_data) > 8:
+		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
+		get_parent().get_node("SelectDifficultyMenu")._on_option_button_item_selected(loaded_data[8])
+		
 	slot_num = 4
 	
 func _on_slot_5_button_up():
-	$LevelSelect.max_value = get_parent().get_parent().load_data(5)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(5)[0] + 1)
+	var loaded_data = get_parent().get_parent().load_data(5)
+	
+	$LevelSelect.max_value = loaded_data[0] + 1
+	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	
+	if len(loaded_data) > 8:
+		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
+		get_parent().get_node("SelectDifficultyMenu")._on_option_button_item_selected(loaded_data[8])
+		
 	slot_num = 5
 
 func _on_select_character_menu_rise_from_depths_animation_player_animation_finished(anim_name):
