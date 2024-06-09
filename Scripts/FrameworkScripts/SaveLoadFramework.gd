@@ -410,6 +410,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.points = slot_points
 	level_loaded.time = slot_time
 	level_loaded.deaths = slot_deaths
+	level_loaded.difficulty = difficulty
 	level_loaded.graphics_efficiency = graphics_efficiency
 	level_loaded.show_fps = global_data[4]
 	level_loaded.show_points = global_data[5]
@@ -471,7 +472,7 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_f
 
 # Background function for switching levels. Exits to menu first, saves data,
 # and starts the game again.
-func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false):
+func switch_to_level(switch_level, switch_floor, current_level, current_floor, player_type, slot, graphics_efficiency, points, time, deaths, is_max_level = true, respawn_pos = null, respawn_ability = null, level = null, floor = null, easy_mode = false, difficulty = 1):
 	exit_to_menu(current_level, current_floor, slot, points, time, is_max_level, deaths, switch_level == 1)
 	if is_max_level:
 		save_data(switch_level, switch_floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7])
@@ -479,7 +480,7 @@ func switch_to_level(switch_level, switch_floor, current_level, current_floor, p
 	var saved_data = load_data(slot)
 	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7])
 	
-	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode, true)
+	start_game(slot, player_type, graphics_efficiency, respawn_pos, respawn_ability, null if is_max_level else switch_level, null if is_max_level else switch_floor, easy_mode, true, difficulty)
 
 # Saves artifact with uid in slot so you cannot collect it again.
 func collect_artifact(slot, uid):

@@ -21,6 +21,7 @@ var deaths_this_level = 0
 var points = 0
 var time = 0
 var deaths = 0
+var difficulty = 1
 var just_unpaused = false
 var last_100_raycasts = []
 var cannot_stop_special_music = false

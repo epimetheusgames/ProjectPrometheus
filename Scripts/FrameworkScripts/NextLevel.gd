@@ -56,7 +56,7 @@ func add_level():
 	
 	# Scary.
 	if !get_parent().is_multiplayer:
-		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode)
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, null, null, null, null, get_parent().easy_mode, get_parent().difficulty)
 
 func previous_level():
 	var level = get_parent().level
@@ -75,7 +75,7 @@ func previous_level():
 		
 	# Scary.
 	if !get_parent().is_multiplayer:
-		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, false, null, null, null, null, get_parent().easy_mode)
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level_next, floor_next, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, false, null, null, null, null, get_parent().easy_mode, get_parent().difficulty)
 
 func restart_level(respawn_pos, respawn_ability):
 	var level = get_parent().level
@@ -83,7 +83,7 @@ func restart_level(respawn_pos, respawn_ability):
 	var graphics_efficiency = get_parent().graphics_efficiency
 	
 	if !get_parent().is_multiplayer:
-		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, get_parent().easy_mode)
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").switch_to_level(level, floor, level, floor, get_parent().get_node("Player").get_node("Player").character_type, get_parent().slot, graphics_efficiency, get_parent().points, get_parent().time, get_parent().deaths, get_parent().is_max_level, respawn_pos, respawn_ability, null, null, get_parent().easy_mode, get_parent().difficulty)
 	else:
 		var respawning_player = null
 		
