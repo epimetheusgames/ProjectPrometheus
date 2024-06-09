@@ -136,7 +136,7 @@ const preloaded_hard_levels = [
 	[preload("res://Levels/Playable/Hard/23TowerLevel/Floor2.tscn"),],
 	[preload("res://Levels/Playable/Hard/23TowerLevel/Floor3.tscn"),],
 	[preload("res://Levels/Playable/Medium/26BossFightPre/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/27BossFight/Floor1.tscn")],
+	[preload("res://Levels/Playable/Hard/27BossFight/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/28BossFightPost/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/28HardLevel/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/30SurfaceElevatorPuzzle/Floor1.tscn")],
