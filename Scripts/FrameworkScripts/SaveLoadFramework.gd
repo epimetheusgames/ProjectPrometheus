@@ -115,7 +115,6 @@ const preloaded_hard_levels = [
 	[preload("res://Levels/Playable/Hard/2Tutorial/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/3Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/4Easy/Floor1.tscn")],
-	[preload("res://Levels/Playable/Hard/5Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/6Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/7Easy/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/8BigDrone/Floor1.tscn")],
@@ -143,7 +142,7 @@ const preloaded_hard_levels = [
 	[preload("res://Levels/Playable/Medium/31EndElevatorRide/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/32LastLevel/Floor1.tscn")],
 	[preload("res://Levels/Playable/Hard/29HardLevel/Floor1.tscn")],
-	[preload("res://Levels/Playable/Medium/33MassiveDroneChase/Floor1.tscn")],
+	[preload("res://Levels/Playable/Hard/33MassiveDroneChase/Floor1.tscn")],
 	[preload("res://Levels/Cutscenes/34MassiveDroneBattleCutscene/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/35MassiveDroneBattle/Floor1.tscn")],
 	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
@@ -463,7 +462,6 @@ func exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, dont_f
 		save_data(level, floor, slot, points, time, load_data(slot)[4], deaths, true, load_data(slot)[7], difficulty)
 	var saved_data = load_data(slot)
 	save_data(saved_data[0], saved_data[1], slot, points, time, saved_data[4], deaths, true, load_data(slot)[7], difficulty)
-	end_special_music()
 	get_parent().get_node("Level").get_children()[0].queue_free()
 	var menu_instance = menu.instantiate()
 	menu_instance.dont_fade = dont_fade

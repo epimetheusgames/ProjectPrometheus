@@ -15,6 +15,8 @@ func _ready():
 	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").start_special_music()
 
 func _process(delta):
+	get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream = null
+	
 	if Input.is_action_just_pressed("esc") && !get_parent().get_parent().get_node("Player"):
 		get_parent().get_parent().get_node("Camera2D").enabled = true
 		get_parent().get_parent().credits_open = false

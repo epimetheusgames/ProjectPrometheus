@@ -351,3 +351,5 @@ func _on_select_difficulty_continue_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectDifficultyMenuRiseFromDepthsAnimation")
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")
 
+func _on_special_music_fade_out_timer_timeout():
+	get_parent().end_special_music()

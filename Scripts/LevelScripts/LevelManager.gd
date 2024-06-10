@@ -105,7 +105,7 @@ func _process(delta):
 	
 	if is_credits:
 		if $Credits/Credits.finished:
-			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, false)
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, false, difficulty)
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

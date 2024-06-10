@@ -80,9 +80,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="OptionButton" type="OptionButton" parent="."]
 modulate = Color(1, 1, 1, 0.835294)
-offset_left = -66.0
+offset_left = -77.0
 offset_top = -143.0
-offset_right = 66.0
+offset_right = 80.0
 offset_bottom = -98.0
 theme = ExtResource("3_hll20")
 theme_override_font_sizes/font_size = 36

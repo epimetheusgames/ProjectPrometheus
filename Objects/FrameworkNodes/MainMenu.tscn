@@ -704,6 +704,9 @@ libraries = {
 position = Vector2(960, 540)
 position_smoothing_enabled = true
 
+[node name="SpecialMusicFadeOutTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="button_up" from="SettingsButton" to="." method="_on_settings_button_button_up"]
@@ -712,5 +715,6 @@ position_smoothing_enabled = true
 [connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="SelectCharacterMenuRiseFromDepthsAnimationPlayer" to="." method="_on_select_character_menu_rise_from_depths_animation_player_animation_finished"]
+[connection signal="timeout" from="SpecialMusicFadeOutTimer" to="." method="_on_special_music_fade_out_timer_timeout"]
 
 [editable path="Background/Mark8Terminal"]
