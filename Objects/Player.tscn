@@ -725,6 +725,7 @@ offset_right = 499.0
 offset_bottom = 344.0
 mouse_filter = 2
 color = Color(0.0823529, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="FPSCounter" type="Label" parent="Camera"]
 z_index = 70
@@ -737,6 +738,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 57
 text = "FPS: Calculating ...
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="PointsCounter" type="Label" parent="Camera"]
 z_index = 70
@@ -749,6 +751,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 57
 text = "Points: 0"
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TimeCounter" type="Label" parent="Camera"]
 z_index = 70
@@ -760,6 +763,7 @@ scale = Vector2(0.25, 0.25)
 theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 57
 text = "Time: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="ObjectiveBoxManager" type="Node2D" parent="Camera"]
 z_index = 70
@@ -779,6 +783,7 @@ theme = ExtResource("16_bulim")
 theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ScreenBorder" type="Sprite2D" parent="Camera"]
 visible = false
@@ -929,6 +934,7 @@ max_value = 400.0
 value = 400.0
 fill_mode = 4
 texture_progress = SubResource("GradientTexture2D_22v3w")
+metadata/_edit_use_anchors_ = true
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
 process_mode = 3
@@ -943,6 +949,7 @@ offset_right = 555.0
 offset_bottom = 200.0
 mouse_filter = 2
 color = Color(1, 0.8, 0.8, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="BlackBarBottom" type="Sprite2D" parent="Camera/CloseAnimator"]
 z_index = 10
@@ -1603,6 +1610,7 @@ offset_left = -240.0
 offset_top = -136.0
 offset_right = -225.0
 offset_bottom = -119.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1610,6 +1618,7 @@ offset_left = 152.0
 offset_top = 249.0
 offset_right = 168.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton2" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1617,6 +1626,7 @@ offset_left = 168.0
 offset_top = 249.0
 offset_right = 184.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton3" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1624,6 +1634,7 @@ offset_left = 184.0
 offset_top = 249.0
 offset_right = 200.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton4" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1631,6 +1642,7 @@ offset_left = 280.0
 offset_top = 249.0
 offset_right = 296.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton5" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1638,6 +1650,7 @@ offset_left = 296.0
 offset_top = 249.0
 offset_right = 312.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton6" type="TextureButton" parent="Camera/Inventory/CanvasLayer/SlotButtons"]
 layout_mode = 0
@@ -1645,6 +1658,7 @@ offset_left = 312.0
 offset_top = 249.0
 offset_right = 328.0
 offset_bottom = 265.0
+metadata/_edit_use_anchors_ = true
 
 [node name="LevelTransitionAnimationPlayer" type="AnimationPlayer" parent="Camera"]
 libraries = {
@@ -1660,6 +1674,7 @@ offset_right = -361.755
 offset_bottom = 11.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="CrtOverlay" type="CanvasLayer" parent="Camera"]
 
@@ -1764,6 +1779,10 @@ bus = &"SFX"
 [node name="GrappleCollide" type="AudioStreamPlayer" parent="Player/GrappleManager"]
 stream = ExtResource("38_ykbtu")
 bus = &"SFX"
+
+[node name="MoveDownEnableTimer" type="Timer" parent="Player/GrappleManager"]
+wait_time = 2.0
+one_shot = true
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]
 position = Vector2(-17, -17)

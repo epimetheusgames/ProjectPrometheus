@@ -62,7 +62,7 @@ func _physics_process(delta):
 			else:
 				grapple_lock_rope_len_velocity = 0
 				
-			if Input.is_action_pressed("down") && !get_parent().is_on_floor():
+			if Input.is_action_pressed("down") && !get_parent().is_on_floor() && $MoveDownEnableTimer.time_left <= 0:
 				grapple_lock_rope_len += 3 * delta * 60
 			
 			var rad_vel = cos(angle) * get_parent().velocity.length()
@@ -151,6 +151,8 @@ func _physics_process(delta):
 				
 				$GrappleBody.velocity = mouse_direction * 15
 				$GrappleBody.position = Vector2.ZERO
+				
+				$MoveDownEnableTimer.start()
 			
 			if Input.is_action_just_pressed("mouse_click") && closest_hook.dont_use_swing_mode:
 				$GrappleShoot.play()

@@ -1297,7 +1297,6 @@ position = Vector2(-5.5, -39.0001)
 shape = SubResource("RectangleShape2D_mxxnw")
 
 [node name="ElevatorPressE" type="TextureRect" parent="."]
-visible = false
 custom_minimum_size = Vector2(40, 40)
 offset_left = 908.0
 offset_top = 39.0001
