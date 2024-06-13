@@ -1781,7 +1781,7 @@ stream = ExtResource("38_ykbtu")
 bus = &"SFX"
 
 [node name="MoveDownEnableTimer" type="Timer" parent="Player/GrappleManager"]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
 [node name="PlayerHurtbox" type="Area2D" parent="Player"]

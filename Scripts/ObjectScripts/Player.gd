@@ -761,7 +761,7 @@ func _on_area_2d_area_entered(area):
 		
 	# Get hurt here but we don't die (unless we do).
 	if area.name == "BulletHurter" || area.name == "JumpHurtBox" || area.name == "ExplosionHitbox":
-		if area.name == "ExplosionHitbox" && area.get_parent().no_damage:
+		if (area.name == "ExplosionHitbox" && area.get_parent().no_damage) || get_parent().get_parent().difficulty == 0:
 			return
 		
 		if area.name == "BulletHurter":

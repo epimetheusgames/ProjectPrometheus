@@ -231,8 +231,13 @@ func _on_drone_hurtbox_area_entered(area):
 	if area.name != "DroneHurtbox" && area.name != "SmallBox" && area.name != "CheckpointCollision" && area.name != "ExplosionHitbox" && !big_drone && !temp_disabled:
 		var instantiated_exploder = loaded_bomb.instantiate()
 		instantiated_exploder.position = position + $Drone.position
+		
+		if get_parent().difficulty == 0:
+			instantiated_exploder.no_damage = true
+			
 		get_parent().add_child(instantiated_exploder)
 		instantiated_exploder._on_explosion_hitbox_body_entered(area)
+		
 		queue_free()
 
 func _on_target_found_timer_timeout():

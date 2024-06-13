@@ -6,7 +6,7 @@
 
 [node name="WallTurret" type="Node2D"]
 script = ExtResource("1_xu3ei")
-shoot_velocity = 6.0
+shoot_velocity = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, 6)

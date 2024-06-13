@@ -484,7 +484,7 @@ func switch_to_level(switch_level, switch_floor, current_level, current_floor, p
 func collect_artifact(slot, uid):
 	var data = load_data(slot)
 	data[4][uid] = true
-	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5], true, data[7], data[8] if len(data > 8) else 1)
+	save_data(data[0], data[1], slot, data[2], data[3], data[4], data[5], true, data[7], data[8] if len(data) > 8 else 1)
 	
 # Special music like boss of elevator.
 func start_special_music():

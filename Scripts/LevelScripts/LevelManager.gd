@@ -45,6 +45,7 @@ var cannot_stop_special_music = false
 
 
 func _ready():
+	print(difficulty)
 	if graphics_efficiency:
 		if lights_off:
 			$CanvasModulate.color = Color(0.15, 0.15, 0.15, 1)
@@ -63,6 +64,10 @@ func _ready():
 			$Player/Camera/PointsCounter.visible = false
 		if !show_timer:
 			$Player/Camera/TimeCounter.visible = false
+	
+	# Remove spikes for easy mode, should be good enough. Silly hack to add exceptions.
+	if difficulty == 0 && get_node_or_null("Spikes") && !name == "SpikeException":
+		get_node("Spikes").queue_free()
 
 func _process(delta):
 	if is_credits:
