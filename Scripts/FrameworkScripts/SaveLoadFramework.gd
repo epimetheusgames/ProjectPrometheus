@@ -151,6 +151,50 @@ const preloaded_hard_levels = [
 	[preload("res://Levels/Playable/Multiplayer/Multiplayer2/Floor1.tscn")],
 ]
 
+# Yeah I know
+const preloaded_easy_levels = [
+	[preload("res://Levels/Cutscenes/RocketLandStartCutscene/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/1Tutorial/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/2Tutorial/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/3Tutorial/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/4Easy/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/5Easy/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/6Easy/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/7Easy/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/8BigDrone/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/9PuzzlePre/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/10Puzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/11Puzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/12Puzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/15PuzzlePost/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/13Puzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/14Puzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/15Exploration/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/16Biodome/Floor1.tscn")],
+	[preload("res://Levels/Playable/Easy/18LongLevel/Floor1.tscn"),],
+	[preload("res://Levels/Playable/Medium/20LongLevel/Floor1.tscn"),],
+	[preload("res://Levels/Playable/Medium/21ConveyorDrop/Floor1.tscn"),],
+	[preload("res://Levels/Playable/Medium/22ConveyorDrop/Floor1.tscn"),],
+	[preload("res://Levels/Playable/Medium/23TowerLevel/Floor1.tscn"),],
+	[preload("res://Levels/Playable/Medium/23TowerLevel/Floor2.tscn"),],
+	[preload("res://Levels/Playable/Medium/23TowerLevel/Floor3.tscn"),],
+	[preload("res://Levels/Playable/Medium/26BossFightPre/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/27BossFight/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/28BossFightPost/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/28HardLevel/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/31EndElevatorRide/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/32LastLevel/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/29HardLevel/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/33MassiveDroneChase/Floor1.tscn")],
+	[preload("res://Levels/Cutscenes/34MassiveDroneBattleCutscene/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/35MassiveDroneBattle/Floor1.tscn")],
+	[preload("res://Levels/Playable/Medium/EndScreen/Floor1.tscn")],
+	[preload("res://Levels/Cutscenes/Credits/Floor1.tscn")],
+	[preload("res://Levels/Playable/Multiplayer/Multiplayer1/Floor1.tscn")],
+	[preload("res://Levels/Playable/Multiplayer/Multiplayer2/Floor1.tscn")],
+]
+
 
 const level_node_names = [
 	["Level1",],
@@ -391,6 +435,8 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	
 	if difficulty == 2:
 		level_list = preloaded_hard_levels
+	if difficulty == 0:
+		level_list = preloaded_easy_levels
 	
 	var level_loaded = level_list[current_level][level_floor].instantiate()
 	

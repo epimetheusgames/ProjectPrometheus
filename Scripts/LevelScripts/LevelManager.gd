@@ -38,6 +38,7 @@ var cannot_stop_special_music = false
 @export var lights_off = false
 @export var end_level = false
 @export var is_credits = false
+@export var spike_exception = false
 @export var dont_show_bossbar = false
 @export var dont_open_level_with_fade = false
 @onready var server_player = $ServerPlayer
@@ -45,7 +46,6 @@ var cannot_stop_special_music = false
 
 
 func _ready():
-	print(difficulty)
 	if graphics_efficiency:
 		if lights_off:
 			$CanvasModulate.color = Color(0.15, 0.15, 0.15, 1)
@@ -66,7 +66,7 @@ func _ready():
 			$Player/Camera/TimeCounter.visible = false
 	
 	# Remove spikes for easy mode, should be good enough. Silly hack to add exceptions.
-	if difficulty == 0 && get_node_or_null("Spikes") && !name == "SpikeException":
+	if difficulty == 0 && get_node_or_null("Spikes") && !spike_exception:
 		get_node("Spikes").queue_free()
 
 func _process(delta):

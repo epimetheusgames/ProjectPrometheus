@@ -320,6 +320,7 @@ shader_parameter/vignette_visibleness = 1.0
 script = ExtResource("1_5h223")
 level = 4
 no_timer = true
+spike_exception = true
 
 [node name="Decorations" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dgxbs")
