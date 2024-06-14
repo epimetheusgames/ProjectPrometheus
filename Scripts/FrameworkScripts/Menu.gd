@@ -237,7 +237,7 @@ func _on_select_character_start_button_up():
 	_on_cancel_button_up()
 	var local_slot_data = get_parent().get_parent().load_data(slot_num)
 	
-	get_parent().get_parent().save_data(local_slot_data[0], local_slot_data[1], slot_num, local_slot_data[2], local_slot_data[3], local_slot_data[4], local_slot_data[5], true, character_type)
+	get_parent().get_parent().save_data(local_slot_data[0], local_slot_data[1], slot_num, local_slot_data[2], local_slot_data[3], local_slot_data[4], local_slot_data[5], true, character_type, local_slot_data[8])
 	
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuStartGameAnimation")
 	
