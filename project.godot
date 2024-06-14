@@ -21,7 +21,7 @@ Copyright (C) 2024 Carson Bates, Liam Siegel, Elouan Grimm, Alejandro Belgique, 
 All rights reserved.
 
 Any scripts and assets (and files in general) in this repository are copyrighted even if they do not contain a copyright notice. Any generated persistant data files (for example in %APPDATA% or .local folders of the machine) may be shared freely."
-config/version="Beta 1.4"
+config/version="Beta 1.5"
 run/main_scene="res://Objects/FrameworkNodes/Root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
