@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PistonSmasher.gd" id="1_4pgxl"]
 [ext_resource type="Texture2D" uid="uid://cr2627frmvrbf" path="res://Assets/Images/Objects/FunctionalProps/PistonSmasher.png" id="2_n6x4x"]
-[ext_resource type="AudioStream" uid="uid://cuocq7k8fcr7c" path="res://Assets/Audio/SFX/PistonSmasher.wav" id="3_wryk7"]
+[ext_resource type="AudioStream" uid="uid://5y3tr74f31hp" path="res://Assets/Audio/SFX/PistonSmasher.ogg" id="3_ys3wl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11uqa"]
 size = Vector2(54, 3)
@@ -42,7 +42,7 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 102)
-stream = ExtResource("3_wryk7")
+stream = ExtResource("3_ys3wl")
 max_distance = 1500.0
 attenuation = 2.46229
 bus = &"SFX"

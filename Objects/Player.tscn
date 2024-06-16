@@ -205,12 +205,12 @@ _data = {
 "RESET": SubResource("Animation_l8khi")
 }
 
-[sub_resource type="Gradient" id="Gradient_ekvjg"]
+[sub_resource type="Gradient" id="Gradient_eqpt7"]
 offsets = PackedFloat32Array(0.971831, 1)
 colors = PackedColorArray(1, 0.85, 0, 1, 0.372549, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_22v3w"]
-gradient = SubResource("Gradient_ekvjg")
+gradient = SubResource("Gradient_eqpt7")
 width = 510
 height = 510
 fill = 1
@@ -566,11 +566,11 @@ direction = Vector3(0, -1, 0)
 initial_velocity_max = 39.6
 gravity = Vector3(0, 98, 0)
 
-[sub_resource type="Gradient" id="Gradient_vup00"]
+[sub_resource type="Gradient" id="Gradient_hwxu2"]
 colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vxmpe"]
-gradient = SubResource("Gradient_vup00")
+gradient = SubResource("Gradient_hwxu2")
 width = 1
 height = 1
 
@@ -581,7 +581,7 @@ blend_mode = 1
 offsets = PackedFloat32Array(0, 0.197279, 0.326531, 0.707483, 0.965986)
 colors = PackedColorArray(0.137255, 0.129412, 1, 1, 1, 1, 1, 1, 1, 0.773333, 0.15, 1, 0.670588, 0, 0, 0.654902, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ajew4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ef33u"]
 gradient = SubResource("Gradient_xg2ih")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nvq35"]
@@ -599,12 +599,12 @@ gravity = Vector3(0, 500, 0)
 scale_min = 0.0
 scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
-color_ramp = SubResource("GradientTexture1D_ajew4")
+color_ramp = SubResource("GradientTexture1D_ef33u")
 
 [sub_resource type="Gradient" id="Gradient_sgf2g"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wdwm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y2bt2"]
 gradient = SubResource("Gradient_sgf2g")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iukvx"]
@@ -620,17 +620,17 @@ tangential_accel_min = 100.0
 tangential_accel_max = 100.0
 damping_min = 31.683
 damping_max = 31.683
-color_ramp = SubResource("GradientTexture1D_1wdwm")
+color_ramp = SubResource("GradientTexture1D_y2bt2")
 turbulence_enabled = true
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 5.8
 turbulence_noise_speed = Vector3(-1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_u60xr"]
+[sub_resource type="Gradient" id="Gradient_l8y8s"]
 colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uq6ji"]
-gradient = SubResource("Gradient_u60xr")
+gradient = SubResource("Gradient_l8y8s")
 width = 1
 height = 1
 
@@ -638,7 +638,7 @@ height = 1
 offsets = PackedFloat32Array(0, 0.346939, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_pjexw"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qldy0"]
 gradient = SubResource("Gradient_05jlk")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ase3h"]
@@ -654,7 +654,7 @@ initial_velocity_max = 400.0
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -100.0
 tangential_accel_max = 100.0
-color_ramp = SubResource("GradientTexture1D_pjexw")
+color_ramp = SubResource("GradientTexture1D_qldy0")
 hue_variation_min = -0.01
 hue_variation_max = 0.01
 turbulence_enabled = true
@@ -662,20 +662,20 @@ turbulence_noise_strength = 0.0
 turbulence_noise_scale = 7.1
 turbulence_noise_speed = Vector3(-1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_at02u"]
+[sub_resource type="Gradient" id="Gradient_asldv"]
 colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
-gradient = SubResource("Gradient_at02u")
+gradient = SubResource("Gradient_asldv")
 width = 2
 height = 2
 
-[sub_resource type="Gradient" id="Gradient_5hxdt"]
+[sub_resource type="Gradient" id="Gradient_81bg7"]
 offsets = PackedFloat32Array(0, 0.31, 0.46, 0.74)
 colors = PackedColorArray(1, 1, 1, 1, 0.371795, 0.371795, 0.371795, 1, 0.190221, 0.190221, 0.190221, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6ittv"]
-gradient = SubResource("Gradient_5hxdt")
+gradient = SubResource("Gradient_81bg7")
 width = 256
 height = 256
 fill = 1

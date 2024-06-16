@@ -381,12 +381,6 @@ position = Vector2(176, 40)
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(176, 40)
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointsCounter" parent="Player/Camera" index="4"]
 visible = false
 

@@ -6,7 +6,7 @@
 # -------------------------------------------------------------------------------------------------------|
 # Player physics and animations script. Probably should be seperated into two scripts. Handles death,    |
 # attacks, and runs animations of antenna and player. Grapple and ArmGun scripts are seperated into      |
-# child nodes.                                                                                           |
+# child nodes. This handles sword and rocket boost                                                       |
 # -------------------------------------------------------------------------------------------------------|
 
 
@@ -751,7 +751,7 @@ func _on_area_2d_area_entered(area):
 			
 		ability_manager.next_ability()
 		
-	# This is actually where we die.
+	# This is actually where we start the death animation (after this death is inevitable)
 	if area.name == "DeathZone" || area.name == "PistonDeathZone":
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 		if area.name == "PistonDeathZone":

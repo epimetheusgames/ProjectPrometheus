@@ -887,21 +887,21 @@ size = Vector2(4, 64)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.513333, 0), -7.04296, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_pkc6n"]
+[sub_resource type="CurveTexture" id="CurveTexture_mfiaf"]
 curve = SubResource("Curve_k5c85")
 
 [sub_resource type="Gradient" id="Gradient_b1cys"]
 offsets = PackedFloat32Array(0, 0.508197, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2ugyc"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vyvrj"]
 gradient = SubResource("Gradient_b1cys")
 
 [sub_resource type="Curve" id="Curve_55fub"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.273333, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mjlet"]
+[sub_resource type="CurveTexture" id="CurveTexture_oirbc"]
 curve = SubResource("Curve_55fub")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_66x88"]
@@ -917,12 +917,12 @@ initial_velocity_min = 11.24
 initial_velocity_max = 78.65
 angular_velocity_min = -300.0
 angular_velocity_max = 300.0
-angular_velocity_curve = SubResource("CurveTexture_pkc6n")
+angular_velocity_curve = SubResource("CurveTexture_mfiaf")
 gravity = Vector3(0, 98, 0)
 damping_min = 12.0
 damping_max = 12.0
-damping_curve = SubResource("CurveTexture_mjlet")
-color_ramp = SubResource("GradientTexture1D_2ugyc")
+damping_curve = SubResource("CurveTexture_oirbc")
+color_ramp = SubResource("GradientTexture1D_vyvrj")
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
@@ -940,7 +940,7 @@ layer_0/tile_data = PackedInt32Array(130972, 0, 0, 196508, 0, 0, 262044, 0, 0, 1
 tile_set = SubResource("TileSet_dapuw")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(-262317, 65536, 0, -262307, 65536, 0, 130921, 131072, 0, 130989, 131072, 0, -262296, 65536, 0, -262341, 196608, 0, 196396, 65536, 0, 65307, 131072, 0, -65642, 65536, 0, 196388, 65536, 0)
+layer_0/tile_data = PackedInt32Array(-262317, 65536, 0, -262307, 65536, 0, 130921, 131072, 0, -262296, 65536, 0, -262341, 196608, 0, 196396, 65536, 0, 65307, 131072, 0, -65642, 65536, 0, 196388, 65536, 0, 65453, 131072, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("3_eufvj")
@@ -1268,27 +1268,6 @@ position = Vector2(1264, -80)
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(1264, -80)
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsCounter" parent="Player/Camera" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeCounter" parent="Player/Camera" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ObjectiveBoxText" parent="Player/Camera/ObjectiveBoxManager" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
-metadata/_edit_use_anchors_ = true
-
 [node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
 
@@ -1311,30 +1290,6 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect5" parent="Player/Camera/Inventory/SlotBackgrounds" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
