@@ -12,6 +12,8 @@ var slot_num = 1
 var deactivated = false
 var credits_open = false
 @export var first = true
+@export var max_artifacts = 23
+@export var max_levels = 37
 @onready var credits_instance = preload("res://Levels/Cutscenes/Credits.tscn")
 var hovered_button = "PlayButton"
 var selected_other_menu = false
@@ -19,6 +21,7 @@ var settings_menu_selected = false
 var background_original_pos = Vector2.ZERO
 var open_character_select_menu = false
 var dont_fade = false
+var start_game_on_next_animation_finish = false
 
 @onready var slot_highlight_positions = [
 	$Slot1HighlightPos,
@@ -26,6 +29,14 @@ var dont_fade = false
 	$Slot3HighlightPos,
 	$Slot4HighlightPos,
 	$Slot5HighlightPos,
+]
+
+@onready var slot_progress_bars = [
+	$SlotProgressPercentage,
+	$SlotProgressPercentage2,
+	$SlotProgressPercentage3,
+	$SlotProgressPercentage4,
+	$SlotProgressPercentage5,
 ]
 
 func deactivate():
@@ -62,10 +73,11 @@ func _ready():
 			
 			var index = global_data[8]
 			
-			
-			
 	if name == "StartGameMenu":
 		$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data($SlotSelect.value)[0] + 1)
+		
+	if name == "SelectSlotMenu":
+		reload_percentages()
 
 func _process(_delta):
 	if modulate.a < 1:
@@ -108,10 +120,13 @@ func _process(_delta):
 				if hovered_button == "Panel6":
 					hovered_button = "Panel5"
 
-	if name == "SelectSlotMenu":
+	if name == "SelectLevelMenu":
 		$LevelSelect.max_value = get_parent().get_parent().load_data(slot_num)[0] + 1
 		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
 		
+		get_parent().get_node("SelectSlotMenu").get_node("SelectLevelButton").text = "Level: " + str($LevelSelect.value)
+		
+	if name == "SelectSlotMenu":
 		$Panel3.position += (slot_highlight_positions[slot_num - 1].position - $Panel3.position) * 0.3
 	
 	if name == "MainMenu":
@@ -186,7 +201,21 @@ func _on_start_button_up():
 		return
 	
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectSlotMenuStartGameAnimation")
+
+func reload_percentages():
+	for slot in range(1, 6):
+		var loaded_data = get_parent().get_parent().load_data(slot)
+		
+		# Get game percentage
+		var num_artifacts_collected = loaded_data[4].size() 
+		var num_levels_completed = loaded_data[0]
+		var percentage_completed = ((num_artifacts_collected + num_levels_completed) / (max_artifacts + max_levels)) * 100
 	
+		slot_progress_bars[slot - 1].value = percentage_completed
+		
+		if percentage_completed == 0:
+			slot_progress_bars[slot - 1].visible = false
+
 func _on_type_1_button_down():
 	character_type = 1
 
@@ -200,14 +229,15 @@ func _on_type_4_button_down():
 	character_type = 4
 
 func _on_clear_slot_button_up():
-	get_parent().get_parent().save_data(0, 0, slot_num, 0, 0, {}, 0, false, 1)
+	get_parent().get_parent().save_data(0, 0, slot_num, 0, 0, {}, 0, false, 1, 1)
+	reload_percentages()
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play()
 
 func _on_slot_select_value_changed(value):
-	$LevelSelect.max_value = get_parent().get_parent().load_data($SlotSelect.value)[0] + 1
-	$LevelSelect.set_value_no_signal(get_parent().get_parent().load_data(value)[0] + 1)
+	get_parent().get_node("SelectLevelMenu").max_value = get_parent().get_parent().load_data($SlotSelect.value)[0] + 1
+	get_parent().get_node("SelectLevelMenu").set_value_no_signal(get_parent().get_parent().load_data(value)[0] + 1)
 
 func _on_play_button_mouse_entered():
 	hovered_button = "PlayHighlight"
@@ -250,8 +280,8 @@ func _on_select_slot_cancel_button_up():
 func _on_slot_1_button_up():
 	var loaded_data = get_parent().get_parent().load_data(1)
 	
-	$LevelSelect.max_value = loaded_data[0] + 1
-	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").max_value = loaded_data[0] + 1
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").set_value_no_signal(loaded_data[0] + 1)
 	
 	if len(loaded_data) > 8:
 		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
@@ -262,8 +292,8 @@ func _on_slot_1_button_up():
 func _on_slot_2_button_up():
 	var loaded_data = get_parent().get_parent().load_data(2)
 	
-	$LevelSelect.max_value = loaded_data[0] + 1
-	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").max_value = loaded_data[0] + 1
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").set_value_no_signal(loaded_data[0] + 1)
 	
 	if len(loaded_data) > 8:
 		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
@@ -274,8 +304,8 @@ func _on_slot_2_button_up():
 func _on_slot_3_button_up():
 	var loaded_data = get_parent().get_parent().load_data(3)
 	
-	$LevelSelect.max_value = loaded_data[0] + 1
-	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").max_value = loaded_data[0] + 1
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").set_value_no_signal(loaded_data[0] + 1)
 	
 	if len(loaded_data) > 8:
 		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
@@ -286,8 +316,8 @@ func _on_slot_3_button_up():
 func _on_slot_4_button_up():
 	var loaded_data = get_parent().get_parent().load_data(4)
 	
-	$LevelSelect.max_value = loaded_data[0] + 1
-	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").max_value = loaded_data[0] + 1
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").set_value_no_signal(loaded_data[0] + 1)
 	
 	if len(loaded_data) > 8:
 		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
@@ -298,8 +328,8 @@ func _on_slot_4_button_up():
 func _on_slot_5_button_up():
 	var loaded_data = get_parent().get_parent().load_data(5)
 	
-	$LevelSelect.max_value = loaded_data[0] + 1
-	$LevelSelect.set_value_no_signal(loaded_data[0] + 1)
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").max_value = loaded_data[0] + 1
+	get_parent().get_node("SelectLevelMenu").get_node("LevelSelect").set_value_no_signal(loaded_data[0] + 1)
 	
 	if len(loaded_data) > 8:
 		get_parent().get_node("SelectDifficultyMenu").get_node("OptionButton").selected = loaded_data[8]
@@ -311,9 +341,13 @@ func _on_select_character_menu_rise_from_depths_animation_player_animation_finis
 	var global_data = get_parent().load_data("global")
 	var local_slot_data = get_parent().load_data($SelectSlotMenu.slot_num)
 	
-	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation":
-		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectSlotMenu/LevelSelect.value - 1 if $SelectSlotMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0, false, false, get_node("SelectDifficultyMenu").get_node("OptionButton").selected)
-	if anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu:
+	if start_game_on_next_animation_finish:
+		start_game_on_next_animation_finish = false
+		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectLevelMenuStartGameAnimation")
+		
+	if anim_name == "SelectSlotMenuStartGameAnimation" || anim_name == "SelectCharacterMenuStartGameAnimation" || anim_name == "SelectLevelMenuStartGameAnimation":
+		get_parent().start_game($SelectSlotMenu.slot_num, local_slot_data[7], global_data[0], null, null, $SelectLevelMenu/LevelSelect.value - 1 if $SelectLevelMenu/LevelSelect.value != get_parent().load_data($SelectSlotMenu.slot_num)[0] + 1 else null, 0, false, false, get_node("SelectDifficultyMenu").get_node("OptionButton").selected)
+	if (anim_name == "SelectSlotMenuRiseFromDepthsAnimation" && $SelectSlotMenu.open_character_select_menu):
 		$SelectSlotMenu.open_character_select_menu = false
 		get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play("SelectCharacterMenuRiseFromDepthsAnimation")
 
@@ -347,9 +381,21 @@ func _on_select_difficulty_button_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectDifficultyMenuRiseFromDepthsAnimation")
 
+func _on_select_level_button_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectSlotMenuRiseFromDepthsAnimation")
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectLevelMenuRiseFromDepthsAnimation")
+
 func _on_select_difficulty_continue_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectDifficultyMenuRiseFromDepthsAnimation")
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")
 
+func _on_select_level_continue_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectLevelMenuRiseFromDepthsAnimation")
+	get_parent().start_game_on_next_animation_finish = true
+
 func _on_special_music_fade_out_timer_timeout():
 	get_parent().end_special_music()
+
+func _on_select_level_back_button_up():
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectLevelMenuRiseFromDepthsAnimation")
+	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")

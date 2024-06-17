@@ -435,6 +435,7 @@ texture = SubResource("GradientTexture1D_72u3y")
 
 [node name="Artifact" parent="." instance=ExtResource("22_s18u7")]
 position = Vector2(-828, -207)
+uid = 93574
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("21_6dnwj")]
 position = Vector2(866, -80)
