@@ -1680,7 +1680,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CrtOverlaySprite" type="Sprite2D" parent="Camera/CrtOverlay"]
 z_index = 50
-position = Vector2(960, 536)
+position = Vector2(959.25, 540.5)
+scale = Vector2(0.99974, 1.00093)
 texture = ExtResource("25_01sqx")
 
 [node name="Player" type="CharacterBody2D" parent="."]

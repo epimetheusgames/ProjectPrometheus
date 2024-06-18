@@ -66,7 +66,7 @@ func _on_hurt_pause_timer_timeout():
 	get_tree().paused = false
 	
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT && !get_parent().get_parent().get_parent().is_multiplayer:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT && !get_parent().get_parent().get_parent().is_multiplayer && false:
 		showing = true
 		get_parent().get_parent().get_node("Blur").get_node("AnimationPlayer").play("FadeinBlur")
 		$AnimationPlayer.play("FadeinPauseMenu")
