@@ -252,6 +252,36 @@ const intense_music_files = [
 	preload("res://Assets/Audio/Music/Dronium.ogg"),
 ]
 
+# Level, ID, for highlighting levels where you haven't found all the secret areas.
+const secret_area_data = [
+	[45634, 4],
+	[567295, 4],
+	[90909, 6],
+	[38478, 6],
+	[812504, 7],
+	[12849, 9],
+	[10101054, 11],
+	[656456111, 16],
+	[45634, 17],
+	[42069, 18],
+	[333454, 20],
+	[69420, 21],
+	[91274, 22],
+	[111884, 22],
+	[404404404, 22],
+	[424242424, 23],
+	[10106778, 23],
+	[76934, 23],
+	[999945, 24],
+	[27384, 24],
+	[909087655, 25],
+	[333456743, 25],
+	[924447954, 30],
+	[93574, 31],
+	[9876543, 32],
+	[98765, 32],
+]
+
 const menu = preload("res://Objects/FrameworkNodes/MainMenu.tscn")
 var current_level_name = ""
 var current_level_ind = -1

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3ewuvklj47wl"]
+
+[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="1_vxxi6"]
+
+[resource]
+shader = ExtResource("1_vxxi6")
+shader_parameter/distortion_amm = 1.0
+shader_parameter/static_scale = 0.0
+shader_parameter/vignette_softness = 0.45
+shader_parameter/vignette_visibleness = 1.0

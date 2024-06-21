@@ -14,6 +14,8 @@ extends Area2D
 @export var uid = 0
 
 func _ready():
+	print(uid, " ", get_parent().level)
+	
 	# Play sprite animation on ready.
 	$AnimatedSprite2D.play("Animation")
 

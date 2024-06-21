@@ -115,11 +115,14 @@ update_on_text_changed = true
 prefix = "Level Select"
 
 [node name="LevelName" type="Label" parent="."]
+modulate = Color(0.729412, 1, 0.929412, 1)
 texture_filter = 2
 offset_left = -67.0
 offset_top = -109.0
 offset_right = 67.0
 offset_bottom = -82.0
+tooltip_text = "If the text here is blue, there are secrets you can unlock in this level."
+mouse_filter = 0
 theme = ExtResource("3_hvjev")
 theme_override_font_sizes/font_size = 26
 text = "Level Name"

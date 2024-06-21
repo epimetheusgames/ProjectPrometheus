@@ -12,7 +12,7 @@ var slot_num = 1
 var deactivated = false
 var credits_open = false
 @export var first = true
-@export var max_artifacts = 23
+@export var max_artifacts = 25
 @export var max_levels = 37
 @onready var credits_instance = preload("res://Levels/Cutscenes/Credits.tscn")
 var hovered_button = "PlayButton"
@@ -56,6 +56,9 @@ func _ready():
 	if first:
 		modulate.a = 0.00001
 	
+	if name == "MainMenu":
+		$AudioStreamPlayer.play()
+		
 	if name == "SettingsMenu":
 		var global_data = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").load_data("global")
 		$MusicSlider.value = global_data[1]
@@ -121,10 +124,23 @@ func _process(_delta):
 					hovered_button = "Panel5"
 
 	if name == "SelectLevelMenu":
-		$LevelSelect.max_value = get_parent().get_parent().load_data(slot_num)[0] + 1
+		var loaded_data = get_parent().get_parent().load_data(get_parent().get_node("SelectSlotMenu").slot_num)
+		$LevelSelect.max_value = loaded_data[0] + 1
 		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
 		
 		get_parent().get_node("SelectSlotMenu").get_node("SelectLevelButton").text = "Level: " + str($LevelSelect.value)
+		
+		var undiscovered_secret_area_uids_on_current_level = false
+		for uid_level_tuple in get_parent().get_parent().secret_area_data:
+			if uid_level_tuple[1] == $LevelSelect.value - 1 && !str(uid_level_tuple[0]) in loaded_data[4].keys():
+				undiscovered_secret_area_uids_on_current_level = true
+		
+		# Set color to blue, magic numbers are just the color, divide by
+		# 255 to make the channel from 0 to 1 becuase that's what Godot supports
+		if undiscovered_secret_area_uids_on_current_level:
+			$LevelName.modulate = Color(0.7, 1, 0.9)
+		else:
+			$LevelName.modulate = Color(1, 1, 1)
 		
 	if name == "SelectSlotMenu":
 		$Panel3.position += (slot_highlight_positions[slot_num - 1].position - $Panel3.position) * 0.3
@@ -158,7 +174,8 @@ func _process(_delta):
 			
 		get_node(hovered_button).visible = true
 		
-		$Background.position = background_original_pos + get_local_mouse_position() / 100
+		# Move the background towards the mouse, not sure if we want this.
+		#$Background.position = background_original_pos + get_local_mouse_position() / 100
 
 func _on_play_button_button_up():
 	if !get_parent().demo_mode:
