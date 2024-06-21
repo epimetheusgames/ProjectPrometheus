@@ -230,6 +230,11 @@ tile_set = ExtResource("4_b11w8")
 format = 2
 layer_0/tile_data = PackedInt32Array(131129, 65536, 3, 131130, 131072, 3, 131131, 131072, 3, 131132, 131072, 3, 131133, 131072, 3, 131134, 131072, 3, 131135, 131072, 3, 131136, 131072, 3, 131137, 131072, 3, 131138, 131072, 3, 131139, 131072, 3, 131140, 131072, 3, 131141, 131072, 3, 131142, 131072, 3, 131143, 131072, 3, 131144, 196608, 3)
 
+[node name="Gravel" type="TileMap" parent="."]
+tile_set = ExtResource("6_qin16")
+format = 2
+layer_0/tile_data = PackedInt32Array(131081, 0, 1, 65550, 0, 0, 65551, 0, 3, 16, 0, 0, -65519, 0, 0, 17, 0, 2, 36, 0, 0, 37, 0, 1, 65553, 0, 3, 65552, 0, 3, 131088, 0, 3, 131087, 0, 3, 131086, 0, 3, 196617, 0, 3, 196616, 0, 3, 131080, 0, 0, -65518, 0, 1)
+
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("4_1rd6p")
 rendering_quadrant_size = 32
@@ -250,11 +255,6 @@ tile_set = SubResource("TileSet_2gdyw")
 format = 2
 layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 
-[node name="Gravel" type="TileMap" parent="."]
-tile_set = ExtResource("6_qin16")
-format = 2
-layer_0/tile_data = PackedInt32Array(131081, 0, 1, 65550, 0, 0, 65551, 0, 3, 16, 0, 0, -65519, 0, 0, 17, 0, 2, 36, 0, 0, 37, 0, 1)
-
 [node name="Spikes" type="TileMap" parent="."]
 self_modulate = Color(1.8, 1.8, 1.8, 1)
 tile_set = ExtResource("7_1q70i")
@@ -270,12 +270,6 @@ collision_mask = 2
 polygon = PackedVector2Array(2307, -443, 2971, -444, 2975, -132, 2975, -115, 2964, -98, 2947, -86, 2936, -76, 2902, -50, 2880, -37, 2859, -18, 2852, 1, 2845, 27, 2842, 51, 2840, 81, 2818, 152, 2802, 195, 2801, 254, 2801, 316, 2798, 338, 2793, 354, 2782, 376, 2760, 396, 2751, 422, 2704, 444, 900, 435, 779, 464, 359, 466, 320, 461, 279, 436, 252, 422, 205, 399, 31, 374, -474, 381, -504, 379, -522, 372, -544, 353, -557, 322, -575, 281, -601, 188, -619, 58, -616, -18, -596, -73, -586, -102, -558, -130, -517, -159, -422, -171, 92, -178, -715, -376, -800, 622, 3186, 589, 3253, -575)
 
 [node name="Player" parent="." instance=ExtResource("8_7dbkh")]
-
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)

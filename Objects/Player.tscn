@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=128 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://c27fomfe71arm" path="res://Assets/Images/Objects/Misc/CRTOverlay.png" id="25_01sqx"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
 [ext_resource type="Texture2D" uid="uid://ck84ax1ludbp6" path="res://Assets/Images/Objects/Misc/CrosshairShootAnimation.png" id="32_wnpw3"]
+[ext_resource type="AudioStream" uid="uid://7ojvn1e0tmbi" path="res://Assets/Audio/SFX/ShootLaser.wav" id="36_7xri5"]
 [ext_resource type="AudioStream" uid="uid://ce7ab4c58ti1d" path="res://Assets/Audio/SFX/Shoot.wav" id="36_dn26v"]
 [ext_resource type="AudioStream" uid="uid://d1o5abdd1b671" path="res://Assets/Audio/SFX/GrappleUp.wav" id="37_78x30"]
 [ext_resource type="AudioStream" uid="uid://ba2wde3omcsgy" path="res://Assets/Audio/SFX/GrappleCollide.wav" id="38_ykbtu"]
@@ -1743,6 +1744,10 @@ animation = &"Shoot"
 autoplay = "Idle"
 frame = 5
 frame_progress = 1.0
+
+[node name="ShootLaser" type="AudioStreamPlayer" parent="Player/ArmGunManager"]
+stream = ExtResource("36_7xri5")
+volume_db = -20.0
 
 [node name="GrappleManager" type="Node2D" parent="Player"]
 script = ExtResource("11_k2qbr")
