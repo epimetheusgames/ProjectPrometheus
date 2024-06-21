@@ -10,20 +10,18 @@ point_count = 2
 curve = SubResource("Curve_wvn7c")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_564g1"]
-emission_shape = 3
-emission_box_extents = Vector3(700, 1, 1)
 particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(7000, 1, 1)
+angle_curve = SubResource("CurveTexture_miryq")
 direction = Vector3(0, 1, 0)
 spread = 5.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 3000.0
-initial_velocity_max = 3000.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_curve = SubResource("CurveTexture_miryq")
+collision_mode = 2
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
-collision_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_8ci5c"]
 offsets = PackedFloat32Array(0, 0.780645)
@@ -39,11 +37,9 @@ fill_to = Vector2(0.547009, 1)
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s0dnw"]
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
-gravity = Vector3(0, 500, 0)
 initial_velocity_min = 242.11
 initial_velocity_max = 242.11
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 500, 0)
 
 [sub_resource type="Gradient" id="Gradient_e4t11"]
 colors = PackedColorArray(1, 1, 1, 0.278431, 1, 1, 1, 0)
@@ -61,13 +57,14 @@ editor_description = "Add a LightOccluder2D hitbox in your scene for splashes."
 
 [node name="Drop" type="GPUParticles2D" parent="."]
 position = Vector2(570, -89)
-amount = 700
+amount = 7000
 sub_emitter = NodePath("../Splash")
 process_material = SubResource("ParticleProcessMaterial_564g1")
 texture = SubResource("GradientTexture2D_pm1g8")
 lifetime = 100.0
 fixed_fps = 60
 collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -1000, 20000, 20000)
 trail_lifetime = 5.0
 trail_sections = 5
 trail_section_subdivisions = 5

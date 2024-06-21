@@ -12,16 +12,13 @@ curve = SubResource("Curve_x5ce8")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12ys7"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(700, 1, 1)
+emission_box_extents = Vector3(7000, 1, 1)
 angle_curve = SubResource("CurveTexture_27ip7")
 direction = Vector3(0, 1, 0)
 spread = 5.0
 initial_velocity_min = 1000.0
 initial_velocity_max = 1000.0
 gravity = Vector3(0, 0, 0)
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
 
 [sub_resource type="Gradient" id="Gradient_8ci5c"]
 offsets = PackedFloat32Array(0, 0.780645)
@@ -39,12 +36,13 @@ editor_description = "More of a rain overlaw without the splash effects."
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(570, -89)
-amount = 50
+amount = 500
 process_material = SubResource("ParticleProcessMaterial_12ys7")
 texture = SubResource("GradientTexture2D_pm1g8")
 lifetime = 10.0
 fixed_fps = 60
 collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -10000, 20000, 20000)
 trail_enabled = true
 trail_lifetime = 5.0
 trail_sections = 5
