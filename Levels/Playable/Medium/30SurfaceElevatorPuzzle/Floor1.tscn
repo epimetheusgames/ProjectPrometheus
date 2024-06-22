@@ -858,3 +858,4 @@ position = Vector2(-3, 33)
 [editable path="Player"]
 [editable path="NextLevelRequiresKey2"]
 [editable path="PistonSmasher"]
+[editable path="PistonSmasher/AudioStreamPlayer2D/DynamicReverbEngine"]
