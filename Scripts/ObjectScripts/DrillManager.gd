@@ -173,6 +173,12 @@ func _on_jump_hurt_box_allways_active_area_entered(area):
 				get_parent().points += 5
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
 				area.get_parent().get_node("PlayerAnimation").modulate = Color.WHITE
+				
+				var total_drill_kills = get_parent().get_parent().get_parent().get_node("SaveLoadFramework").load_achievement_tracking("drill_kills") + 1
+				get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement_tracking("drill_kills", total_drill_kills)
+				
+				if total_drill_kills == 50:
+					get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("kill_50_drills")
 
 func _on_player_in_range_detector_area_entered(area):
 	if area.name == "PlayerHurtbox":

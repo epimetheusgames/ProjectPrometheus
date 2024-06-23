@@ -799,6 +799,15 @@ func die():
 	get_parent().get_parent().cannot_stop_special_music = true
 	get_parent().get_parent().deaths += 1
 	get_parent().get_parent().get_node("NextLevel").restart_level(respawn_pos, respawn_ability)
+	
+	var total_deaths = get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").load_achievement_tracking("total_deaths") + 1
+	get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement_tracking("total_deaths", total_deaths)
+	
+	# Check if deaths are past threshold for achievement.
+	if total_deaths == 200:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("200_deaths")
+	if total_deaths == 500:
+		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("500_deaths")
 
 # When an area exits the hurtbox.
 func _on_player_hurtbox_area_exited(area):

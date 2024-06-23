@@ -274,11 +274,13 @@ func _on_drone_hurtbox_area_entered(area):
 		if !get_parent().is_multiplayer:
 			get_parent().get_node("Player").get_node("Player").get_node("BulletBadHurtcooldown").stop()
 			get_parent().get_node("Player").get_node("Player").get_node("PlayerAnimation").modulate = Color.WHITE
+			
 		var dead_drone = loaded_physics_drone.instantiate() if !bird else loaded_physics_bird.instantiate()
 		dead_drone.queued_position = $Drone.position + position
 		dead_drone.queued_rotation = $Drone.rotation
 		dead_drone.set_queued_pos = true
 		physics_drone_ingame = dead_drone
+		
 		if area.name == "PlayerHurtbox":
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
@@ -288,6 +290,15 @@ func _on_drone_hurtbox_area_entered(area):
 			dead_drone.no_respawn = true
 			get_parent().call_deferred("add_child", dead_drone)
 			get_parent().points += 1
+			
+			var total_drone_kills = get_parent().get_parent().get_parent().get_node("SaveLoadFramework").load_achievement_tracking("drone_kills") + 1
+			get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement_tracking("drone_kills", total_drone_kills)
+			
+			if total_drone_kills == 50:
+				get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("kill_50_drones")
+			if total_drone_kills == 200:
+				get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("kill_200_drones")
+			
 			queue_free()
 
 func _on_target_found_timer_timeout():

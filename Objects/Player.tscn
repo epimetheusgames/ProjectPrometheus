@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=127 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -42,7 +42,6 @@
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/CutsceneAnimator.gd" id="23_2gvnx"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
-[ext_resource type="Texture2D" uid="uid://cy7e67qj2flir" path="res://addons/controller_icons/assets/mouse/right.png" id="23_8jtlk"]
 [ext_resource type="Texture2D" uid="uid://c27fomfe71arm" path="res://Assets/Images/Objects/Misc/CRTOverlay.png" id="25_01sqx"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
 [ext_resource type="Texture2D" uid="uid://ck84ax1ludbp6" path="res://Assets/Images/Objects/Misc/CrosshairShootAnimation.png" id="32_wnpw3"]
@@ -1309,10 +1308,10 @@ offset_top = 37.0
 offset_right = 30.0
 offset_bottom = 77.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("23_8jtlk")
+texture = ExtResource("21_ltk4y")
 expand_mode = 1
 script = ExtResource("18_op56f")
-path = "mouse_right_click"
+path = "mouse_click"
 
 [node name="TimerDialogue" type="Node2D" parent="Camera/TutorialDialogues"]
 visible = false

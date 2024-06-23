@@ -255,6 +255,12 @@ func _on_hurt_box_area_entered(area):
 				ragdoll.get_node("SpearRight" if velocity.x > 0 else "SpearLeft").queue_free()
 				add_child(ragdoll)
 				
+				var total_melee_kills = get_parent().get_parent().get_parent().get_node("SaveLoadFramework").load_achievement_tracking("melee_kills") + 1
+				get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement_tracking("melee_kills", total_melee_kills)
+				
+				if total_melee_kills == 50:
+					get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("kill_50_melee")
+				
 	elif area && area.name == "PlayerBulletHurter" && health > 0:
 		health -= 0.5
 		velocity.x = -direction * 4

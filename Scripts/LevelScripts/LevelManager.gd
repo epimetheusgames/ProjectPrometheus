@@ -25,6 +25,7 @@ var difficulty = 1
 var just_unpaused = false
 var last_100_raycasts = []
 var cannot_stop_special_music = false
+var previous_points = 0
 
 @export var level = 0
 @export var floor = 0
@@ -111,6 +112,19 @@ func _process(delta):
 	if is_credits:
 		if $Credits/Credits.finished:
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").exit_to_menu(level, floor, slot, points, time, is_max_level, deaths, false, difficulty)
+	
+	if previous_points != points:
+		var saved_total = get_parent().get_parent().get_node("SaveLoadFramework").load_achievement_tracking("total_points")
+		var total_points = saved_total - previous_points + points
+		get_parent().get_parent().get_node("SaveLoadFramework").save_achievement_tracking("total_points", total_points)
+		
+		# Check if we've passed the threshold for achievements.
+		if total_points >= 500 && previous_points < 500:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("5k_points")
+		if total_points >= 1000 && previous_points < 1000:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("10k_points")
+	
+	previous_points = points
 
 func _on_ambiant_background_finished():
 	$AmbiantBackground.play()

@@ -410,18 +410,84 @@ func save_game(content, save_num):
 
 # Load game via its respective 
 func load_game(load_num, character_type = 1):
-	var file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
+	var file = "NOT LOADED"
+	var config: ConfigFile
+	var err: Error
 	
-	if not file:
+	if !str(load_num) == "achievements":
+		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
+	else:
+		config = ConfigFile.new()
+		err = config.load("user://achievements.cfg")
+	
+	if not file || err != OK:
+		print("Possibly error loading achievements. Error code " + str(err))
+		
 		if str(load_num) == "global":
-			save_game("[false, 0, 0, false, false, false, false, 1, 0]", "global")
+			save_game("[false, 0, 0, false, false, false, false, 0, 0]", "global")
 			return load_game("global")
+		
+		# Use ConfigFile to save encrypted data for achievements. 
+		if str(load_num) == "achievements":
+			var achievements_config := ConfigFile.new()
+			
+			# Store default achievement values.
+			# Achievements taken from https://docs.google.com/spreadsheets/d/15wk3SlIrOhFVZB0BcL3EusQI8U8TWn-LlSPo1d7INYw
+			achievements_config.set_value("achievements", "open_game", false)
+			achievements_config.set_value("achievements", "5k_points", false)
+			achievements_config.set_value("achievements", "10k_points", false)
+			achievements_config.set_value("achievements", "200_deaths", false)
+			achievements_config.set_value("achievements", "500_deaths", false)
+			achievements_config.set_value("achievements", "kill_50_drills", false)
+			achievements_config.set_value("achievements", "kill_50_drones", false)
+			achievements_config.set_value("achievements", "kill_50_melee", false)
+			achievements_config.set_value("achievements", "kill_200_drones", false)
+			achievements_config.set_value("achievements", "die_spec_10x", false)
+			achievements_config.set_value("achievements", "col_1_artifact", false)
+			achievements_config.set_value("achievements", "col_10_artifacts", false)
+			achievements_config.set_value("achievements", "kill_boss_1", false)
+			achievements_config.set_value("achievements", "kill_boss_final", false)
+			achievements_config.set_value("achievements", "escape", false)
+			achievements_config.set_value("achievements", "10_achievements", false)
+			achievements_config.set_value("achievements", "20_achievements", false)
+			achievements_config.set_value("achievements", "all_achievements", false)
+			achievements_config.set_value("achievements", "finish_50_min", false)
+			achievements_config.set_value("achievements", "finish_35_min", false)
+			achievements_config.set_value("achievements", "finish_25_min", false)
+			achievements_config.set_value("achievements", "start_hard", false)
+			achievements_config.set_value("achievements", "finish_hard", false)
+			achievements_config.set_value("achievements", "finish_no_deaths", false)
+			achievements_config.set_value("achievements", "finish_20_deaths", false)
+			achievements_config.set_value("achievements", "finish_50_deaths", false)
+			achievements_config.set_value("achievements", "kill_50_birds", false)
+			achievements_config.set_value("achievements", "100_percent", false)
+			
+			# Tracking things required for achievements.
+			achievements_config.set_value("tracking", "total_points", 0)
+			achievements_config.set_value("tracking", "total_deaths", 0)
+			achievements_config.set_value("tracking", "total_artifacts", 0)
+			achievements_config.set_value("tracking", "drill_kills", 0)
+			achievements_config.set_value("tracking", "drone_kills", 0)
+			achievements_config.set_value("tracking", "melee_kills", 0)
+			achievements_config.set_value("tracking", "drill_kills", 0)
+			achievements_config.set_value("tracking", "bird_kills", 0)
+			achievements_config.set_value("tracking", "achievements_collected", 0)
+			
+			# Save to achievements file
+			achievements_config.save("user://achievements.cfg")
+			
+			# Return the actual ConfigFile, this is probably what we're trying
+			# to get out of the function.
+			return achievements_config
 		
 		save_data(0, 0, load_num, 0, 0, {}, 0, false, character_type, 1)
 		file = FileAccess.open("user://save_" + str(load_num) + ".json", FileAccess.READ)
 	
-	var content = file.get_as_text()
-	return content
+	if str(load_num) != "achievements":
+		var content = file.get_as_text()
+		return content
+	else:
+		return config
 
 # Convert level to json and save in respective slot.
 func save_data(level, floor, slot, points, time, artifact_data, deaths, is_character_type_selected, character_value, difficulty):
@@ -443,7 +509,21 @@ func load_data(slot):
 	else:
 		print("JSON Parse Error: ", json.get_error_message(), " in ", json_data, " at line ", json.get_error_line())
 		print("Detected issue with save data in save_" + str(slot) + "!")
-		
+
+func save_achievement(achievement_name):
+	var achievements_config = load_game("achievements")
+	achievements_config.set_value("achievements", achievement_name, true)
+	achievements_config.save("user://achievements.cfg")
+	
+func save_achievement_tracking(tracker_name, value):
+	var achievements_config = load_game("achievements")
+	achievements_config.set_value("tracking", tracker_name, value)
+	achievements_config.save("user://achievements.cfg")
+	
+func load_achievement_tracking(tracker_name):
+	var achievements_config = load_game("achievements")
+	return achievements_config.get_value("tracking", tracker_name)
+
 # Start the game with all this info which should be loaded from a save file.
 func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null, player_respawn_ability = null, level = null, floor = null, easy_mode = false, use_level_transition = false, difficulty = 1):
 	var level_data = load_data(slot)
@@ -483,6 +563,7 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	level_loaded.level = current_level
 	level_loaded.floor = level_floor
 	level_loaded.points = slot_points
+	level_loaded.previous_points = slot_points
 	level_loaded.time = slot_time
 	level_loaded.deaths = slot_deaths
 	level_loaded.difficulty = difficulty
