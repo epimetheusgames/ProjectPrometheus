@@ -302,6 +302,7 @@ var boss_health = 100
 var turret_one_health = 100
 var turret_two_health = 100
 var current_objective = ""
+var achievement_popup_queue = []
 
 # Very important! This should be checked to create an export in demo mode!
 @export var demo_mode = false
@@ -348,6 +349,12 @@ func _process(delta):
 	
 	if !playing_intense_music && len(get_parent().get_node("Level").get_children()) > 0 && get_parent().get_node("Level").get_children()[0].intense_music:
 		start_intense_music()
+		
+	if achievement_popup_queue.size() > 0:
+		if !$AchievementPopup/AchievementPopupAnimationPlayer.is_playing():
+			$AchievementPopup/Container/AchievementPopup/Name.text = achievement_popup_queue[-1]
+			$AchievementPopup/AchievementPopupAnimationPlayer.play("Popup")
+			achievement_popup_queue.pop_back()
 	
 	if starting && !$EpimetheusFadin.finished:
 		$MainMenu.modulate.a = 0
@@ -374,7 +381,7 @@ func _process(delta):
 	# Induce artificial lag
 	#OS.delay_msec(rng.randi_range(20, 200))
 	
-	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 5:
+	if $BackgroundMusicPlayer.playing == false && len(get_children()) <= 6:
 		var musics_list = music_files if !get_parent().get_node("Level").get_children()[0].intense_music else intense_music_files
 		
 		var music_index = rng.randi_range(0, len(musics_list) - 1)
@@ -387,13 +394,13 @@ func _process(delta):
 		$BackgroundMusicPlayer.playing = true
 		last_music_ind = music_index
 	
-	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 5:
+	if $BackgroundMusicPlayer.playing == true && len(get_children()) > 6:
 		$BackgroundMusicPlayer.playing = false
 	
 	real_bulge += (bulge_amm - real_bulge) * 0.01 * delta * 60
 	real_static += (static_amm - real_static) * 0.05 * delta * 60
 	
-	if len(get_children()) > 5:
+	if len(get_children()) > 6:
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("distortion_amm", 0.0)
 		get_parent().get_node("CanvasLayer/ColorRect").material.set_shader_parameter("static_scale", 0.0)
 	else:
@@ -526,7 +533,8 @@ func save_achievement(achievement_name):
 		if total_achievements == 27:
 			achievements_config.set_value("achievements", "all_achievements", true)
 			
-		# UI popup in the corner of the screen in the future.
+		# UI popup in the corner of the screen.
+		achievement_popup_queue.append(achievement_name)
 		
 	achievements_config.save("user://achievements.cfg")
 	

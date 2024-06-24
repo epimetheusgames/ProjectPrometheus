@@ -229,7 +229,7 @@ func reload_percentages():
 		var percentage_completed = ((num_artifacts_collected + num_levels_completed) / (max_artifacts + max_levels)) * 100
 		
 		if percentage_completed >= 100: # Greater than 100? HOW
-			get_parent().save_achievement("100_percent")
+			get_parent().get_parent().save_achievement("100_percent")
 	
 		slot_progress_bars[slot - 1].value = percentage_completed
 		
