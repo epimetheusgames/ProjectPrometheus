@@ -152,6 +152,8 @@ func _process(delta):
 		
 		elevator_enabled = true
 		
+		get_parent().get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("kill_boss_1")
+		
 	if elevator_enabled && player.position.y < -450:
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Return to the elevator")
 		

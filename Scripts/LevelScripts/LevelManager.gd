@@ -69,6 +69,25 @@ func _ready():
 	# Remove spikes for easy mode, should be good enough. Silly hack to add exceptions.
 	if difficulty == 0 && get_node_or_null("Spikes") && !spike_exception:
 		get_node("Spikes").queue_free()
+		
+	# Player finished the game!
+	if end_level:
+		get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("escape")
+		
+		if time < 3000: # 50 minutes
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_50_min")
+		if time < 2100: # 35 minutes
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_35_min")
+		if time < 1500: # 25 minutes
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_25_min")
+		if deaths <= 50:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_50_deaths")
+		if deaths <= 20:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_20_deaths")
+		if deaths == 0:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_no_deaths")
+		if difficulty == 2:
+			get_parent().get_parent().get_node("SaveLoadFramework").save_achievement("finish_hard")
 
 func _process(delta):
 	if is_credits:

@@ -133,6 +133,7 @@ func _process(delta):
 			get_parent().get_node("DeadBoss").visible = true
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").end_special_music()
 			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stop()
+			get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").save_achievement("kill_boss_final")
 			queue_free()
 			return
 			

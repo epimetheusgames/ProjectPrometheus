@@ -512,7 +512,22 @@ func load_data(slot):
 
 func save_achievement(achievement_name):
 	var achievements_config = load_game("achievements")
-	achievements_config.set_value("achievements", achievement_name, true)
+	
+	if !achievements_config.get_value("achievements", achievement_name):
+		achievements_config.set_value("achievements", achievement_name, true)
+		
+		var total_achievements = achievements_config.get_value("tracking", "achievements_collected") + 1
+		achievements_config.set_value("tracking", "achievements_collected", total_achievements)
+		
+		if total_achievements == 10:
+			achievements_config.set_value("achievements", "10_achievements", true)
+		if total_achievements == 20:
+			achievements_config.set_value("achievements", "20_achievements", true)
+		if total_achievements == 27:
+			achievements_config.set_value("achievements", "all_achievements", true)
+			
+		# UI popup in the corner of the screen in the future.
+		
 	achievements_config.save("user://achievements.cfg")
 	
 func save_achievement_tracking(tracker_name, value):
@@ -545,6 +560,10 @@ func start_game(slot, player_type, graphics_efficiency, player_spawn_pos = null,
 	
 	if difficulty == 2:
 		level_list = preloaded_hard_levels
+		
+		# This is the easy way to implement this achievement.
+		save_achievement("start_hard")
+		
 	if difficulty == 0:
 		level_list = preloaded_easy_levels
 	

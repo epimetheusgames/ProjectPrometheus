@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://tq755c4o5ojd"]
+[gd_scene load_steps=55 format=3 uid="uid://tq755c4o5ojd"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_41ryj"]
 [ext_resource type="Script" path="res://Levels/Cutscenes/34MassiveDroneBattleCutscene/BossControls.gd" id="2_otdig"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="4_d1te8"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="5_of2sk"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="6_o578s"]
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="6_qyll3"]
 [ext_resource type="Texture2D" uid="uid://btst251lko84t" path="res://Assets/Images/Tilesets/DryWall.png" id="7_kpxhr"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="8_kqsia"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="9_x6svd"]
@@ -732,6 +733,16 @@ script = ExtResource("5_of2sk")
 path = "interact"
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="DeadBoss/ShipControlsEIcon"]
+offset_left = 36.0
+offset_top = 8.0
+offset_right = 116.0
+offset_bottom = 31.0
+scale = Vector2(0.1, 0.1)
+theme = ExtResource("6_qyll3")
+theme_override_font_sizes/font_size = 216
+text = "Disengage/Engage Controls"
+
 [node name="MissileFireEIcon" type="Node2D" parent="DeadBoss"]
 visible = false
 position = Vector2(-56, 40)
@@ -746,6 +757,13 @@ expand_mode = 1
 script = ExtResource("5_of2sk")
 path = "interact"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="DeadBoss/MissileFireEIcon"]
+offset_left = 36.0
+offset_top = 8.0
+offset_right = 76.0
+offset_bottom = 31.0
+text = "Fire"
 
 [node name="FadeToBlack" type="ColorRect" parent="DeadBoss"]
 modulate = Color(1, 1, 1, 0)
@@ -865,21 +883,6 @@ zoom = Vector2(2.5, 2.5)
 z_index = 30
 position = Vector2(-337, -276)
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsCounter" parent="Player/Camera" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeCounter" parent="Player/Camera" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ObjectiveBoxText" parent="Player/Camera/ObjectiveBoxManager" index="1"]
-metadata/_edit_use_anchors_ = true
-
 [node name="ScreenBorder" parent="Player/Camera" index="7"]
 scale = Vector2(0.4, 0.4)
 
@@ -887,40 +890,10 @@ scale = Vector2(0.4, 0.4)
 z_index = 50
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
-metadata/_edit_use_anchors_ = true
-
 [node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
