@@ -252,6 +252,37 @@ const intense_music_files = [
 	preload("res://Assets/Audio/Music/Dronium.ogg"),
 ]
 
+const achievement_name_key = {
+	"open_game": ["The Beginning", "Open the game for the first time"],
+	"5k_points": ["A Healthy Amount", "Get 5000 points"],
+	"10k_points": ["Serious Grind", "Get 10000 points"],
+	"200_deaths": ["Learn by Failure", "Die 200 times"],
+	"500_deaths": ["I Believe In You!", "Die 500 times"],
+	"kill_50_drills": ["Manual Labor", "Dismantle 50 drills"],
+	"kill_50_drones": ["Aerial Assassin", "Shoot down 50 surveillance drones"],
+	"kill_50_melee": ["Swordsman", "Kill 50 melee robots"],
+	"kill_200_drones": ["Battery Acid", "Shoot down 200 surveillance drones"],
+	"die_spec_10x": ["Rivals", "Die to the same enemy 10 times"],
+	"col_1_artifact": ["What's This?", "Collect your first artifact"],
+	"col_10_artifacts": ["Obsession", "Collect 10 artifacts"],
+	"kill_boss_1": ["It's Not Over Yet", "Defeat the control tower boss"],
+	"kill_boss_final": ["This Still Isn't The End", "Kill the final boss"],
+	"escape": ["The End", "Escape the facility"],
+	"10_achievements": ["Overachiever", "Get 10 achievements"],
+	"20_achievements": ["Overoverachiever", "Get 20 achievements"],
+	"all_achievements": ["Overoveroverachiever", "Get all the achievements"],
+	"finish_50_min": ["Speedrunner", "Beat the game in under 50 minutes"],
+	"finish_35_min": ["Fast", "Beat the game in under 35 minutes"],
+	"finish_25_min": ["Quite Fast", "Beat the game in under 25 minutes"],
+	"start_hard": ["Are you sure?", "Start the game in hard mode"],
+	"finish_hard": ["A State of Mind.", "Beat the game in hard mode"],
+	"finish_no_deaths": ["God...", "Beat the game with no deaths"],
+	"finish_20_deaths": ["Heavenly", "Beat the game with less than 20 deaths"],
+	"finish_50_deaths": ["Ascent", "Beat the game with less than 50 deaths"],
+	"kill_50_birds": ["Ornithophobia", "Kill 50 birds"],
+	"100_percent": ["Perfect", "Get 100% completion"],
+}
+
 # Level, ID, for highlighting levels where you haven't found all the secret areas.
 const secret_area_data = [
 	[45634, 4],
@@ -352,7 +383,8 @@ func _process(delta):
 		
 	if achievement_popup_queue.size() > 0:
 		if !$AchievementPopup/AchievementPopupAnimationPlayer.is_playing():
-			$AchievementPopup/Container/AchievementPopup/Name.text = achievement_popup_queue[-1]
+			$AchievementPopup/Container/AchievementPopup/Name.text = achievement_name_key[achievement_popup_queue[-1]][0]
+			$AchievementPopup/Container/AchievementPopup/Desc.text = achievement_name_key[achievement_popup_queue[-1]][1]
 			$AchievementPopup/AchievementPopupAnimationPlayer.play("Popup")
 			achievement_popup_queue.pop_back()
 	
