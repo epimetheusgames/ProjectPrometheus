@@ -353,6 +353,9 @@ func _ready():
 	# this cannot be set in the editor.
 	get_parent().get_parent().get_node("ControllerIcons").process_mode = 3
 	
+	# First achievement.
+	save_achievement("open_game")
+	
 	# Set window type to specified window type.
 	var global_save_data = load_data("global")
 	var window_type = global_save_data[7]
