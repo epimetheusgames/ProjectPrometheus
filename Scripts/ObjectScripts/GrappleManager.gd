@@ -91,7 +91,6 @@ func _physics_process(delta):
 				get_parent().grappling_effects = true
 		else:
 			hook = null
-
 		
 		visible = true 
 		
@@ -115,6 +114,7 @@ func _physics_process(delta):
 		
 		$GrappleRope.visible = true
 		$LinePorabola.visible = false
+		
 	elif active:
 		hook = null
 		hooked = false
@@ -129,6 +129,10 @@ func _physics_process(delta):
 		$LinePorabola.visible = true
 		
 		var closest_hook = calc_closest_hook()
+		
+		if closest_hook.get_node("Area2D").get_node("CollisionShape2D").disabled:
+			$LinePorabola.visible = false
+			return
 		
 		var closest_hook_dist = null
 		if closest_hook:

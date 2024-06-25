@@ -520,6 +520,7 @@ sprite_frames = ExtResource("3_lijwv")
 autoplay = "default"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="DeadBoss"]
+collision_layer = 16
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DeadBoss/CharacterBody2D"]
 position = Vector2(-464, 520)
@@ -720,6 +721,7 @@ target_position = Vector2(5, 4)
 
 [node name="ShipControlsEIcon" type="Node2D" parent="DeadBoss"]
 visible = false
+z_index = 100
 position = Vector2(200, 32)
 scale = Vector2(0.5, 0.5)
 
@@ -741,10 +743,11 @@ offset_bottom = 31.0
 scale = Vector2(0.1, 0.1)
 theme = ExtResource("6_qyll3")
 theme_override_font_sizes/font_size = 216
-text = "Disengage/Engage Controls"
+text = "Engage/Disengage Controls"
 
 [node name="MissileFireEIcon" type="Node2D" parent="DeadBoss"]
 visible = false
+z_index = 100
 position = Vector2(-56, 40)
 scale = Vector2(0.5, 0.5)
 
@@ -794,7 +797,7 @@ position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_xdcgr")
 
 [node name="MissileFirePosition" type="Node2D" parent="DeadBoss"]
-position = Vector2(152, 121)
+position = Vector2(152, 97)
 
 [node name="PlayerControllingPosition" type="Node2D" parent="DeadBoss"]
 position = Vector2(189, 78)

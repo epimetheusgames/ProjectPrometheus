@@ -378,22 +378,7 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("11_5o7do")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsCounter" parent="Player/Camera" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeCounter" parent="Player/Camera" index="5"]
-metadata/_edit_use_anchors_ = true
-
 [node name="BossBar" parent="Player/Camera" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="14"]

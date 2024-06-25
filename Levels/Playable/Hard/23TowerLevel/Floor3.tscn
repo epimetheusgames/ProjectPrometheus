@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://csei8vi0vqmln"]
+[gd_scene load_steps=37 format=3 uid="uid://csei8vi0vqmln"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_gcntk"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_gafsg"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="21_5ogqv"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="22_yi45s"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="23_g4bxr"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="24_722fr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_gafsg")
@@ -251,12 +252,6 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("8_ch4vg")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -484,6 +479,12 @@ texture = ExtResource("19_5ke6g")
 
 [node name="PreviousLevel" parent="." instance=ExtResource("23_g4bxr")]
 position = Vector2(1, 1)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("24_722fr")]
+position = Vector2(-242, -1569)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(14, -31, 53, -31, 54, 33, 14, 33)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

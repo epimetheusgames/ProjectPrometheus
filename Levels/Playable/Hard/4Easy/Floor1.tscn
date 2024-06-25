@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bqshv2bepoq82"]
+[gd_scene load_steps=30 format=3 uid="uid://bqshv2bepoq82"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_vnac1"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_j7ayb"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://centqdm3rkc8p" path="res://Assets/Images/Objects/Props/StairSpriteNonTransparent.png" id="16_31236"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="17_3suv3"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="18_fye6v"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="19_2wtvp"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="19_351o6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -171,7 +172,7 @@ sources/1 = SubResource("TileSetAtlasSource_7qd54")
 size = Vector2(1542.5, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glhqo"]
-size = Vector2(88, 92.5)
+size = Vector2(39, 63)
 
 [sub_resource type="Gradient" id="Gradient_7jd0s"]
 offsets = PackedFloat32Array(0, 0.259036, 0.879518)
@@ -255,7 +256,7 @@ position = Vector2(4, -91)
 script = ExtResource("9_doihj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-45, -142.75)
+position = Vector2(-1.5, -127.5)
 shape = SubResource("RectangleShape2D_glhqo")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -349,6 +350,12 @@ position = Vector2(656, -197)
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
 visible = false
 points = PackedVector2Array(86, 20, 287, 21, 330, -17, 440, -27, 543, 18, 501, 45, 409, 64, 355, 20, 146, 25)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("19_2wtvp")]
+position = Vector2(-1, -173)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 13, 19, 14, 20, 77, -20, 77)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

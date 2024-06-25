@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ce7mrdot1mojx"]
+[gd_scene load_steps=39 format=3 uid="uid://ce7mrdot1mojx"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_bmwqx"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_nr7ha"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="24_8hsob"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="25_4damy"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="26_of1ai"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="27_2cble"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_nr7ha")
@@ -427,25 +428,7 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("11_sk7sf")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsCounter" parent="Player/Camera" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeCounter" parent="Player/Camera" index="5"]
-metadata/_edit_use_anchors_ = true
-
 [node name="BossBar" parent="Player/Camera" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
@@ -479,30 +462,6 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SlotHighlights" parent="Player/Camera/Inventory" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="PointLight2D" parent="Player" index="14"]
@@ -763,14 +722,25 @@ position = Vector2(1440, -38)
 [node name="PreviousLevel" parent="." instance=ExtResource("26_of1ai")]
 position = Vector2(-3, 0)
 
+[node name="PressEAreaPopup" parent="." instance=ExtResource("27_2cble")]
+position = Vector2(-608, -399)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(15, -48, 55, -48, 55, 15, 15, 15)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
 [editable path="Player"]
 [editable path="PistonSmasher3"]
+[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher4"]
+[editable path="PistonSmasher4/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher5"]
+[editable path="PistonSmasher5/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="DroneManager"]
 [editable path="ItemSwitcher2"]
 [editable path="PistonSmasher6"]
+[editable path="PistonSmasher6/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher8"]
+[editable path="PistonSmasher8/AudioStreamPlayer2D/DynamicReverbEngine"]

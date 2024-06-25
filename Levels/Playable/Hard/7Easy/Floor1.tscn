@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bit1ans07kcnc"]
+[gd_scene load_steps=35 format=3 uid="uid://bit1ans07kcnc"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_yvbgw"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_mwau1"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="19_qh7hk"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="20_ittxk"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_4t76y"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="22_q5t12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_mwau1")
@@ -388,6 +389,12 @@ texture = SubResource("GradientTexture1D_yposk")
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(71, -352)
 texture = ExtResource("21_4t76y")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("22_q5t12")]
+position = Vector2(36, -355)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(15, -29, 55, -29, 55, 35, 15, 35)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://fp7n7lsovtuu"]
+[gd_scene load_steps=36 format=3 uid="uid://fp7n7lsovtuu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_d64x3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ih0g7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="24_6asds"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_h88ky"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="26_p432n"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="27_kaj8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_ih0g7")
@@ -289,12 +290,6 @@ polygon = PackedVector2Array(2106, -470, 1420, -485, 2138, -121, 3657, -104, 364
 
 [node name="Player" parent="." instance=ExtResource("9_fqgah")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -516,6 +511,12 @@ position = Vector2(2366, 180)
 [node name="DrillManager11" parent="." instance=ExtResource("23_s06y2")]
 position = Vector2(2457, 178)
 
+[node name="PressEAreaPopup" parent="." instance=ExtResource("27_kaj8d")]
+position = Vector2(3626, 976)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-22, 16, 18, 16, 18, 80, -22, 79)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 
@@ -523,5 +524,8 @@ position = Vector2(2457, 178)
 [editable path="DroneManager"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher2"]
+[editable path="PistonSmasher2/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher3"]
+[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher4"]
+[editable path="PistonSmasher4/AudioStreamPlayer2D/DynamicReverbEngine"]

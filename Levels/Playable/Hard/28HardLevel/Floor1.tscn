@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2ytyb4axregm"]
+[gd_scene load_steps=44 format=3 uid="uid://c2ytyb4axregm"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_k7ggy"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ynbtr"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="27_el2ub"]
 [ext_resource type="Texture2D" uid="uid://dg2g03ffmhsby" path="res://Assets/Images/Objects/Props/PropWaterBottle.png" id="28_nfrx6"]
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="29_mbdh1"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="30_7fgia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_ynbtr")
@@ -277,12 +278,6 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("10_eb6fh")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -488,6 +483,12 @@ position = Vector2(16, 444)
 
 [node name="DrillManager11" parent="." instance=ExtResource("15_ovq1g")]
 position = Vector2(153, 448)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("30_7fgia")]
+position = Vector2(1121, 594)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-54, -50, -14, -50, -14, 15, -53, 15)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

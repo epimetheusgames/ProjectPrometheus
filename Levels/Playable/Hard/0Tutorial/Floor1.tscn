@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://5k37mhwsayws"]
+[gd_scene load_steps=144 format=3 uid="uid://5k37mhwsayws"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_wa77t"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_58au1"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="18_i85de"]
 [ext_resource type="Texture2D" uid="uid://c14mtny14n2gr" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueItemSwitcherAnimation.png" id="23_v84if"]
 [ext_resource type="PackedScene" uid="uid://x3b070bc0tds" path="res://Objects/StaticObjects/TutorialDialogueArea.tscn" id="24_f0vhs"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="29_y7off"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="68_u7hwl"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="69_lhoto"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/SecondDoorCloser.gd" id="70_hkwju"]
@@ -174,7 +175,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
-size = Vector2(70, 64)
+size = Vector2(39, 64)
 
 [sub_resource type="Gradient" id="Gradient_unp1f"]
 offsets = PackedFloat32Array(0.19, 1)
@@ -980,7 +981,7 @@ position = Vector2(4, -91)
 script = ExtResource("9_fsylo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-7549, -64)
+position = Vector2(-7516.5, -64)
 shape = SubResource("RectangleShape2D_fuwdw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -1269,6 +1270,12 @@ tutorial_box_ind = 3
 position = Vector2(-12.5, -16)
 shape = SubResource("RectangleShape2D_6dl3m")
 
+[node name="PressEAreaPopup" parent="." instance=ExtResource("29_y7off")]
+position = Vector2(-7554, -66)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(59, 35, 59, -40, 16, -30, 20, 38)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
 [connection signal="timeout" from="TutorialDoorCloseArea/ParticlesStopTimer" to="TutorialDoorCloseArea" method="_on_particles_stop_timer_timeout"]
@@ -1280,5 +1287,7 @@ shape = SubResource("RectangleShape2D_6dl3m")
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
+[editable path="PistonSmasher/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher3"]
+[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="VoicelinePlayerArea2"]

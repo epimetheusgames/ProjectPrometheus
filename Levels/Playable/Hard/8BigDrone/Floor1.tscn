@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhswtptlotga2"]
+[gd_scene load_steps=30 format=3 uid="uid://bhswtptlotga2"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_wuvga"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_27quj"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="20_sw8xx"]
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="21_6hkom"]
 [ext_resource type="AudioStream" uid="uid://bjrj0rc2d5n3x" path="res://Assets/Audio/Voicelines/AlexHarveyRecording6.ogg" id="22_lcq4b"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_fobjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_27quj")
@@ -299,6 +300,12 @@ position = Vector2(-142, -152)
 [node name="VoicelinePlayer" parent="SecretAreaVoicelineLaptop" index="3"]
 stream = ExtResource("22_lcq4b")
 volume_db = 3.0
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("23_fobjb")]
+position = Vector2(1173, -76)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 13, 19, 13, 19, 78, -20, 77)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

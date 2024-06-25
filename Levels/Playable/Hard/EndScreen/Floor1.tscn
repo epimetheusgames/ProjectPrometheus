@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bkvquyegtq5jy"]
+[gd_scene load_steps=32 format=3 uid="uid://bkvquyegtq5jy"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_gnnmw"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wt7g0"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="17_sefey"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="18_negmc"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_ljbho"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="20_aef53"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_wt7g0")
@@ -304,7 +305,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ogrx"]
-size = Vector2(64, 96)
+size = Vector2(40, 96)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_rtwa3")
@@ -420,7 +421,7 @@ position = Vector2(4, -91)
 script = ExtResource("13_ku7rf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(352, 112)
+position = Vector2(320, 112)
 shape = SubResource("RectangleShape2D_0ogrx")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -492,6 +493,12 @@ position = Vector2(245, -4)
 
 [node name="AttackMele2" parent="." instance=ExtResource("17_sefey")]
 position = Vector2(216, -6)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("20_aef53")]
+position = Vector2(354, 127)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-54, -30, -14, -31, -14, 33, -54, 32)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://hn1bqvufj36b"]
+[gd_scene load_steps=41 format=3 uid="uid://hn1bqvufj36b"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_qr1qh"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_he3mj"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="25_6oxuh"]
 [ext_resource type="Texture2D" uid="uid://ihc38o5sadbo" path="res://Assets/Images/Objects/Props/WorkerHelmetProp.png" id="26_wy7xx"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="27_mf48k"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="28_hsqeg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_he3mj")
@@ -190,7 +191,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7qd54")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irn65"]
-size = Vector2(66, 96)
+size = Vector2(40, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("14_a41xn")
@@ -296,7 +297,7 @@ position = Vector2(4, -91)
 script = ExtResource("12_kr7ls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1985, -240)
+position = Vector2(2017, -224)
 shape = SubResource("RectangleShape2D_irn65")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -458,6 +459,12 @@ player_checkpoint_item = "ArmGun"
 [node name="Artifact" parent="." instance=ExtResource("27_mf48k")]
 position = Vector2(-399, -24)
 uid = 90909
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("28_hsqeg")]
+position = Vector2(2017, -270)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-19, 14, 17, 14, 19, 77, -19, 77)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

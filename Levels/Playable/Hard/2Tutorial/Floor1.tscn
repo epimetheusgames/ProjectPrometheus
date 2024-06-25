@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://ctp0k4sak1a7j"]
+[gd_scene load_steps=185 format=3 uid="uid://ctp0k4sak1a7j"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_2c5dp"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_en6vg"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="19_8b3ai"]
 [ext_resource type="Script" path="res://Scripts/CustomVoicelineScripts/1TutorialCGrappleSwingDeath.gd" id="21_4x8uy"]
 [ext_resource type="Texture2D" uid="uid://c8sgdlcrofv4f" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueJumpSwingGrappleAnimation.png" id="22_aqi2k"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="22_mitmi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_en6vg")
@@ -1421,6 +1422,12 @@ player_checkpoint_item = "Grapple"
 position = Vector2(1379, 270)
 sprite_frames = SubResource("SpriteFrames_yl0fw")
 autoplay = "default"
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("22_mitmi")]
+position = Vector2(3135, 145)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-19, 16, 19, 16, 19, 78, -19, 78)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cf78qgfr07x56"]
+[gd_scene load_steps=60 format=3 uid="uid://cf78qgfr07x56"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fttyi"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_63hr7"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="32_ndsgr"]
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="33_jirop"]
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="34_6xrqs"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="35_2w6tb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_63hr7")
@@ -325,7 +326,7 @@ shader_parameter/speed = Vector2(0.02, 0.006)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_q452c")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdbj"]
-size = Vector2(28, 64)
+size = Vector2(48, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("18_nirr8")
@@ -489,12 +490,6 @@ position = Vector2(0, -240)
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(0, -240)
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="Player" parent="Player" index="2"]
 position = Vector2(0, -240)
 
@@ -551,7 +546,7 @@ bus = &"Master"
 script = ExtResource("16_yuwkx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(-2882, -800)
+position = Vector2(-2872, -800)
 shape = SubResource("RectangleShape2D_5kdbj")
 
 [node name="DroneManager2" parent="." instance=ExtResource("15_0fg1k")]
@@ -1148,6 +1143,12 @@ position = Vector2(-362, -83)
 
 [node name="AttackMele3" parent="." instance=ExtResource("34_6xrqs")]
 position = Vector2(397, -191)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("35_2w6tb")]
+position = Vector2(-2903, -802)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(15, -30, 55, -30, 55, 34, 15, 34)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

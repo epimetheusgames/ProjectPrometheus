@@ -288,12 +288,6 @@ polygon = PackedVector2Array(2106, -470, 1420, -485, 2138, -121, 3657, -104, 364
 
 [node name="Player" parent="." instance=ExtResource("9_w8tyd")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
@@ -480,4 +474,6 @@ position = Vector2(4, 0)
 [editable path="DroneManager"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher2"]
+[editable path="PistonSmasher2/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher3"]
+[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]

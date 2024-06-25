@@ -1058,55 +1058,10 @@ position = Vector2(832, 0)
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(832, 0)
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsCounter" parent="Player/Camera" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeCounter" parent="Player/Camera" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ObjectiveBoxText" parent="Player/Camera/ObjectiveBoxManager" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureProgressBar" parent="Player/Camera/AbilityManager" index="8"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera/CloseAnimator" index="0"]
-metadata/_edit_use_anchors_ = true
-
 [node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="SlotButtons" parent="Player/Camera/Inventory/CanvasLayer" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton2" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="1"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton3" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton4" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton5" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="4"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton6" parent="Player/Camera/Inventory/CanvasLayer/SlotButtons" index="5"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/Camera" index="15"]
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="Player" index="2"]
@@ -1486,6 +1441,10 @@ position = Vector2(820, 0)
 
 [node name="PlayerObjectiveSetter2" parent="." instance=ExtResource("30_iljxc")]
 position = Vector2(1022, -11)
+
+[node name="ItemSwitcher9" parent="." instance=ExtResource("17_20vt3")]
+position = Vector2(193, -528)
+item_switch_type = "Grapple"
 
 [connection signal="area_entered" from="BossGoUpSwitch/Area2D" to="BossGoUpSwitch" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="BossGoUpSwitch/Area2D" to="BossGoUpSwitch" method="_on_area_2d_area_exited"]

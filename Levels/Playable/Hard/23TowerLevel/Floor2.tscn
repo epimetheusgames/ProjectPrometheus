@@ -290,12 +290,6 @@ collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("9_rxbus")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="Player" parent="Player" index="2"]
 position = Vector2(126, 16)
 
