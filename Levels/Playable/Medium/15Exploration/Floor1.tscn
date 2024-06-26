@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://vbpf01w0tgt1"]
+[gd_scene load_steps=75 format=3 uid="uid://vbpf01w0tgt1"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_us68f"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_8dtln"]
@@ -349,15 +349,15 @@ size = Vector2(105.666, 157.241)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0f05"]
 size = Vector2(29, 72)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a16vn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfftl"]
 atlas = ExtResource("52_8a0xc")
 region = Rect2(0, 0, 64, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jscs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe2hc"]
 atlas = ExtResource("52_8a0xc")
 region = Rect2(0, 96, 64, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4nux"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqy07"]
 atlas = ExtResource("52_8a0xc")
 region = Rect2(0, 192, 64, 96)
 
@@ -365,13 +365,13 @@ region = Rect2(0, 192, 64, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a16vn")
+"texture": SubResource("AtlasTexture_dfftl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1jscs")
+"texture": SubResource("AtlasTexture_fe2hc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4nux")
+"texture": SubResource("AtlasTexture_cqy07")
 }],
 "loop": true,
 "name": &"default",
@@ -414,6 +414,9 @@ _data = {
 "ElevatorUp": SubResource("Animation_p0un5"),
 "RESET": SubResource("Animation_80vb5")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owj78"]
+size = Vector2(101.667, 70.1072)
 
 [node name="Level3" type="Node2D"]
 scale = Vector2(1.01263, 0.998468)
@@ -1307,6 +1310,14 @@ stream = ExtResource("53_btrpk")
 autoplay = true
 max_distance = 500.0
 bus = &"SpecialMusic"
+
+[node name="TimerDisabler2" type="Area2D" parent="."]
+script = ExtResource("50_ap12m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler2"]
+position = Vector2(469.446, -622.954)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_owj78")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

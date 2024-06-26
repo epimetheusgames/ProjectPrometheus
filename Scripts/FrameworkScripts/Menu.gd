@@ -4,6 +4,8 @@
 #                                                                                                        |
 # Email us at <epimtheusgamesogpc@gmail.com>                                                             |
 # -------------------------------------------------------------------------------------------------------|
+# Handles ALL the menus. I don't remember why I did it like this.                                        |
+# -------------------------------------------------------------------------------------------------------|
 
 extends Node2D
 
@@ -391,7 +393,7 @@ func _on_option_button_item_selected(index):
 	if index == 0:
 		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Casual"
 	if index == 1:
-		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Standard"
+		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Normal"
 	if index == 2:
 		get_parent().get_node("SelectSlotMenu").get_node("SelectDifficultyButton").text = "Difficutly: Expert"
 	if index == 3:

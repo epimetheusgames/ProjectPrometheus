@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://n0730mrns6er"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/TimerEnabler.gd" id="1_i3rto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_holvd"]
+size = Vector2(45, 71)
+
+[node name="TimerEnabler" type="Area2D"]
+script = ExtResource("1_i3rto")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_holvd")

@@ -291,7 +291,7 @@ theme = ExtResource("2_0kaei")
 theme_override_fonts/font = ExtResource("3_21k4g")
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_xu515")
-text = "Difficulty: Medium"
+text = "Difficulty: Normal"
 
 [node name="SelectLevelButton" type="Button" parent="."]
 offset_left = -473.0
