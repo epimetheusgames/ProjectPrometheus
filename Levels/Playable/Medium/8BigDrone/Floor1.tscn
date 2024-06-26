@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=30 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jkpvj"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="20_73ci2"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_8fs24"]
 [ext_resource type="AudioStream" uid="uid://bjrj0rc2d5n3x" path="res://Assets/Audio/Voicelines/AlexHarveyRecording6.ogg" id="22_sjndb"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_ymgl5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_jkpvj")
@@ -133,7 +134,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nxdxs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24ive"]
-size = Vector2(140, 96)
+size = Vector2(39, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flsgb"]
 size = Vector2(92.9998, 110)
@@ -203,7 +204,7 @@ position = Vector2(4, -91)
 script = ExtResource("9_ggust")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1242, -48)
+position = Vector2(1172.5, -32)
 shape = SubResource("RectangleShape2D_24ive")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -299,6 +300,12 @@ position = Vector2(-142, -152)
 [node name="VoicelinePlayer" parent="SecretAreaVoicelineLaptop" index="3"]
 stream = ExtResource("22_sjndb")
 volume_db = 3.0
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("23_ymgl5")]
+position = Vector2(1172, -78)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 14, 19, 14, 21, 79, -20, 79)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

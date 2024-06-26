@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://5vu83mjagwj3"]
+[gd_scene load_steps=44 format=3 uid="uid://5vu83mjagwj3"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hmli3"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_uanwo"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="26_836hv"]
 [ext_resource type="Texture2D" uid="uid://dg2g03ffmhsby" path="res://Assets/Images/Objects/Props/PropWaterBottle.png" id="27_6djw2"]
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="28_qpql7"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="30_lmki4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_uanwo")
@@ -455,6 +456,12 @@ texture = ExtResource("27_6djw2")
 [node name="PrometheusMug" type="Sprite2D" parent="."]
 position = Vector2(1263, 876.5)
 texture = ExtResource("28_qpql7")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("30_lmki4")]
+position = Vector2(1119, 595)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-52, -50, -12, -50, -12, 14, -52, 14)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

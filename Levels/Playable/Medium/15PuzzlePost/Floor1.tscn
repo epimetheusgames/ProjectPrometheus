@@ -346,6 +346,7 @@ layer_0/tile_data = PackedInt32Array(-262155, 0, 0, -196619, 0, 0, -131083, 0, 0
 tile_set = SubResource("TileSet_vceaj")
 rendering_quadrant_size = 32
 format = 2
+layer_0/tile_data = PackedInt32Array(-655334, 65536, 0, -655331, 65536, 0, -851957, 131072, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("5_32ix3")

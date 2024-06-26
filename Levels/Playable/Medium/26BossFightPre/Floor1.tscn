@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bjgxijbajixgk"]
+[gd_scene load_steps=53 format=3 uid="uid://bjgxijbajixgk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_d2w5j"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_wfvtm"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cav42aqtqlv7l" path="res://Assets/Images/Objects/Props/PropBeanCan.png" id="38_g5uht"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="39_k7g8f"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="40_sqaak"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="41_ecbj0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_wfvtm")
@@ -346,7 +347,7 @@ layer_0/tile_data = PackedInt32Array(-262132, 0, 0, -196596, 65537, 0, -131060, 
 tile_set = SubResource("TileSet_vceaj")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(131138, 0, 0, 720972, 65536, 0, 720973, 65536, 0, 720974, 65536, 0, 720967, 65536, 0, 720968, 65536, 0, 720969, 65536, 0, 786519, 65536, 0, 786520, 65536, 0, 786521, 65536, 0, 786524, 0, 0, 786525, 0, 0, 786526, 0, 0, 720983, 65536, 0, 720984, 65536, 0, 720985, 65536, 0, 655447, 65536, 0, 655448, 65536, 0, 655449, 65536, 0)
+layer_0/tile_data = PackedInt32Array(131138, 0, 0, 720972, 65536, 0, 720973, 65536, 0, 720974, 65536, 0, 720967, 65536, 0, 720968, 65536, 0, 720969, 65536, 0, 786519, 65536, 0, 786520, 65536, 0, 786521, 65536, 0, 786524, 0, 0, 786525, 0, 0, 786526, 0, 0, 720983, 65536, 0, 720984, 65536, 0, 720985, 65536, 0, 655447, 65536, 0, 655448, 65536, 0, 655449, 65536, 0, 524382, 196608, 0, 458848, 65536, 0, 327776, 196608, 0)
 
 [node name="Ingame" type="TileMap" parent="."]
 tile_set = ExtResource("5_aefgl")
@@ -808,6 +809,12 @@ position = Vector2(2388, 72)
 uid = 333456743
 
 [node name="PreviousLevel" parent="." instance=ExtResource("40_sqaak")]
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("41_ecbj0")]
+position = Vector2(2912, 370)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 14, 20, 14, 19, 78, -20, 77)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

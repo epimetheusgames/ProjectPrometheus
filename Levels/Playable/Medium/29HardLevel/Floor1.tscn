@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dl78yagbirxrk"]
+[gd_scene load_steps=41 format=3 uid="uid://dl78yagbirxrk"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_sf2si"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="2_ja1qo"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="27_m751q"]
 [ext_resource type="AudioStream" uid="uid://bj0fakhu5vw5f" path="res://Assets/Audio/Voicelines/AlexHarveyRecording5.ogg" id="28_817lj"]
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="29_k6c6d"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="30_uqvqo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("3_rflqm")
@@ -432,6 +433,12 @@ volume_db = 15.0
 position = Vector2(-193, 29)
 rotation = -0.759218
 texture = ExtResource("29_k6c6d")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("30_uqvqo")]
+position = Vector2(-416, 255)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-54, -31, -14, -31, -14, 33, -54, 33)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

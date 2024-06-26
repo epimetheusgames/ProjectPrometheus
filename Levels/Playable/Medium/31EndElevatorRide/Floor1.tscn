@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ub8v2jpohowo"]
+[gd_scene load_steps=55 format=3 uid="uid://ub8v2jpohowo"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_0eu8e"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_l1lk4"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://famiy6dwwhqn" path="res://Assets/Images/Objects/Props/EyeSoreEyeballHamsterWheelSecretAreaPropSpriteSheet.png" id="20_deryk"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="21_5ayd3"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="21_te3rr"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="22_r1wrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_l1lk4")
@@ -595,7 +596,7 @@ position = Vector2(4, -91)
 script = ExtResource("13_m2cq7")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NextLevel"]
-polygon = PackedVector2Array(-421, 57, -421, -74, -511, 4)
+polygon = PackedVector2Array(-395, 52, -403, -80, -511, 4)
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_3a1v7")
@@ -711,6 +712,12 @@ points = PackedVector2Array(381, -2147, 381, -2627)
 width = 2.0
 default_color = Color(0.27451, 0.27451, 0.27451, 1)
 joint_mode = 2
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("22_r1wrr")]
+position = Vector2(-383, 19)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-48, -54, -22, -51, -15, 13, -53, 12)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

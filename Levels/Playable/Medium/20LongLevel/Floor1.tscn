@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d04lorakbmnvu"]
+[gd_scene load_steps=37 format=3 uid="uid://d04lorakbmnvu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_vv11u"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_7rhfe"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="23_1axo7"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="24_dxvyg"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_1lj4r"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="25_1lno5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_7rhfe")
@@ -526,6 +527,12 @@ position = Vector2(-444, 128)
 
 [node name="PreviousLevel" parent="." instance=ExtResource("25_1lj4r")]
 position = Vector2(-2, -1)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("25_1lno5")]
+position = Vector2(336, 190)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(19, -30, 57, -30, 58, 34, 18, 34, 18, -31)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

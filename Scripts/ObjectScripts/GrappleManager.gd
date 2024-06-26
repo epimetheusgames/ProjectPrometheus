@@ -130,9 +130,10 @@ func _physics_process(delta):
 		
 		var closest_hook = calc_closest_hook()
 		
-		if closest_hook.get_node("Area2D").get_node("CollisionShape2D").disabled:
-			$LinePorabola.visible = false
-			return
+		if closest_hook && closest_hook.get_node_or_null("Area2D") && closest_hook.get_node("Area2D").get_node_or_null("CollisionShape2D"):
+			if closest_hook.get_node("Area2D").get_node("CollisionShape2D").disabled:
+				$LinePorabola.visible = false
+				return
 		
 		var closest_hook_dist = null
 		if closest_hook:

@@ -910,7 +910,7 @@ size = Vector2(7, 9)
 size = Vector2(60, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf3sw"]
-size = Vector2(178, 169)
+size = Vector2(125, 169)
 
 [node name="Level4" type="Node2D"]
 script = ExtResource("1_q3u7p")
@@ -1810,7 +1810,7 @@ shape = SubResource("RectangleShape2D_io6g7")
 script = ExtResource("35_pc451")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENextLevel"]
-position = Vector2(5675, 524)
+position = Vector2(5648.5, 524)
 shape = SubResource("RectangleShape2D_rf3sw")
 
 [connection signal="timeout" from="DroneManager/Drone/ExplosionDropper/Timer" to="DroneManager/Drone/ExplosionDropper" method="_on_timer_timeout"]

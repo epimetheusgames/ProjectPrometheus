@@ -41,11 +41,11 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="38_q85fv"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="40_bqd3p"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/16Biodome/BiodomeMusicPlayerArea.gd" id="41_ev4nq"]
-[ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="42_3gbqv"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="43_joumw"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="44_kt648"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="45_88bri"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="46_oiufj"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="47_qe8uy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -5376,10 +5376,6 @@ visible = false
 position = Vector2(3794, 221)
 shape = SubResource("RectangleShape2D_ioh01")
 
-[node name="DoorAjarSprite" type="Sprite2D" parent="."]
-position = Vector2(-2, 0)
-texture = ExtResource("42_3gbqv")
-
 [node name="PreviousLevel" parent="." instance=ExtResource("43_joumw")]
 position = Vector2(-3, 0)
 
@@ -5426,6 +5422,12 @@ stream = ExtResource("46_oiufj")
 autoplay = true
 max_distance = 500.0
 bus = &"SpecialMusic"
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("47_qe8uy")]
+position = Vector2(6675, 370)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(15, -49, 55, -49, 55, 14, 15, 14)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

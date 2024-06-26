@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ctkvp8tqrbrmp"]
+[gd_scene load_steps=37 format=3 uid="uid://ctkvp8tqrbrmp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_540bb"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_ojf8g"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="20_a0g8o"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="21_vavub"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="23_7v5bg"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="24_ip2pl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_ojf8g")
@@ -421,7 +422,7 @@ scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_dqher")
 
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
-position = Vector2(-208, -1568)
+position = Vector2(-204, -1568)
 texture = ExtResource("18_wix5k")
 
 [node name="ItemSwitcher6" parent="." instance=ExtResource("14_v0qdw")]
@@ -478,6 +479,12 @@ texture = ExtResource("18_wix5k")
 
 [node name="PreviousLevel" parent="." instance=ExtResource("23_7v5bg")]
 position = Vector2(1, 1)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("24_ip2pl")]
+position = Vector2(-168, -1567)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-56, -33, -16, -33, -16, 31, -56, 31)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

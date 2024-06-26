@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://eenxnjuwwodx"]
+[gd_scene load_steps=43 format=3 uid="uid://eenxnjuwwodx"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_g6pb2"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_m1yor"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cleutoplv7lfb" path="res://Assets/Images/Objects/Props/PropWiltedPlant.png" id="28_31hfy"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="29_2028l"]
 [ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="29_inqga"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="30_r716f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_m1yor")
@@ -426,7 +427,7 @@ position = Vector2(864, -596)
 texture = ExtResource("26_45ve0")
 
 [node name="PropForwardFaceChair5" type="Sprite2D" parent="."]
-z_index = 10
+z_index = 1
 position = Vector2(901, -596)
 texture = ExtResource("26_45ve0")
 
@@ -444,6 +445,12 @@ texture = ExtResource("29_inqga")
 
 [node name="PreviousLevel" parent="." instance=ExtResource("29_2028l")]
 position = Vector2(-2, 0)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("30_r716f")]
+position = Vector2(71, -397)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 13, 20, 13, 20, 77, -20, 77)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
