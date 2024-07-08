@@ -436,6 +436,15 @@ centered = false
 
 [node name="DeathZone" type="Area2D" parent="."]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(-229, -210, 74, -208, 77, -184, -232, -181)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(692, 51, 964, 50, 950, 72, 698, 72)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(1014, -41, 1076, -44, 1070, -22)
+
 [node name="RespawnPos" type="Node2D" parent="."]
 position = Vector2(4, -91)
 

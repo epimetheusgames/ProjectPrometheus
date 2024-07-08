@@ -21,7 +21,7 @@ extends Node2D
 
 @export var use_double_parent_position = false
 
-func _physics_process(delta):
+func _ready():
 	reload_distances()
 
 func reload_distances():
@@ -43,16 +43,11 @@ func reload_distances():
 		
 	var average_distance = array_sum / distances.size()
 	
-	print(average_distance)
-	
 	# If average distance is less than 50, the room is way too small.
 	var parent = get_parent()
 	if average_distance > 50 && average_distance < 100:
-		print("Loaded dynamic reverb SMALL")
 		parent.bus = &"SmallSpaceSFX"
 	if average_distance >= 100 && average_distance < 200:
-		print("Loaded dynamic reverb MEDIUM")
 		parent.bus = &"MediumSpaceSFX"
 	if average_distance >= 200:
-		print("Loaded dynamic reverb LARGE")
 		parent.bus = &"LargeSpaceSFX"

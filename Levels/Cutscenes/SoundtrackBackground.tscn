@@ -1,0 +1,456 @@
+[gd_scene load_steps=19 format=3 uid="uid://c707ipg2anb6x"]
+
+[ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="1_ojttx"]
+[ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="2_qnv86"]
+[ext_resource type="PackedScene" uid="uid://ccxkudlhbgmv7" path="res://addons/post_processing/node/children/ChromaticAberration.tscn" id="3_te2cr"]
+[ext_resource type="Texture2D" uid="uid://b34yiu87jcjrl" path="res://Assets/Images/Objects/Props/Mark8Terminal.png" id="4_67yqj"]
+[ext_resource type="Texture2D" uid="uid://p47netecr3li" path="res://Assets/Images/Objects/CharacterSpritesheetIdleMele-sheet-sheet.png" id="5_60tq3"]
+[ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="6_50h47"]
+[ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="7_dp6rw"]
+
+[sub_resource type="Environment" id="Environment_gbcg8"]
+background_mode = 3
+glow_enabled = true
+glow_levels/3 = 0.1
+glow_levels/5 = 0.25
+glow_levels/7 = 2.0
+glow_intensity = 1.45
+glow_blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_mveay"]
+resource_name = "SoundtrackBG"
+length = 2990.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 252.6, 262.2, 680.3, 689.3, 944, 955.3, 1219.5, 1230.3, 1485.6, 1496.3, 1785.9, 1795.7, 1953.8, 1963.8, 2214.9, 2224.9, 2384.4, 2394.4, 2695.7, 2706.5, 2744.7, 2755.5, 2786.5, 2795.2, 2961.8, 2971.8, 2980.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Title Theme
+", "Title Theme", "Metalic Fire", "Metalic Fire", "Dronium", "Dronium", "Arpeggiator", "Arpeggiator", "Oskillate", "Oskillate", "Winds of Exhilation", "Winds of Exhilation", "Level Theme", "Level Theme", "A Walk in The Park", "A Walk in The Park", "Boss Theme 1", "Boss Theme 1", "Boss Theme 2", "Boss Theme 2", "DataQuest Solutions", "DataQuest Solutions", "snoituloS tseuQataD", "snoituloS tseuQataD", "Nothing Is Here", "Nothing Is Here", "^$#$)>:.'F7}[4*$./174953834[999]", "Project Prometheus"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mark8Terminal:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-125, 166), Vector2(539, 742), Vector2(1739, 302), Vector2(2091, 30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mark8Terminal:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.846485, -0.898845, -1.4748]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1948, 1174), Vector2(1364, 694), Vector2(1396, 398), Vector2(876, -106)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:rotation")
+tracks/4/interp = 4
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.41372, 1.12574, -1.02974, 1.23918]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(714.4, 733.9, 750),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-112, 664), Vector2(704, 728), Vector2(2072, 376)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:rotation")
+tracks/6/interp = 4
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(714.4, 741.9, 768.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.18326, 0.270526, 0.0959931]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerBullet:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(739.3, 739.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerBullet:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(739.3, 741.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1201, 596), Vector2(1225, -68)]
+}
+
+[sub_resource type="Animation" id="Animation_oofp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Title Goes Here"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mark8Terminal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-125, 166)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mark8Terminal:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1948, 1174)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-112, 664)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerBullet:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerBullet:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1201, 596)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbtl8"]
+_data = {
+"RESET": SubResource("Animation_oofp0"),
+"SoundtrackBG": SubResource("Animation_mveay")
+}
+
+[sub_resource type="Shader" id="Shader_vwksl"]
+code = "shader_type canvas_item;
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform float distortion_amm = 0.0f;
+uniform float static_scale = 0.0f;
+uniform float vignette_softness = 1.0f;
+uniform float vignette_visibleness = 1.0f;
+
+const float QUARTER_COLOR = 0.0001; // 1.0 / 1024.0
+
+vec2 distort(vec2 r, float alpha)
+{
+    return r * -alpha * (dot(r, r));
+}
+
+// A single iteration of Bob Jenkins' One-At-A-Time hashing algorithm.
+uint hash( uint x ) {
+    x += ( x << 10u );
+    x ^= ( x >>  6u );
+    x += ( x <<  3u );
+    x ^= ( x >> 11u );
+    x += ( x << 15u );
+    return x;
+}
+
+// Construct a float with half-open range [0:1] using low 23 bits.
+// All zeroes yields 0.0, all ones yields the next smallest representable value below 1.0.
+float floatConstruct( uint m ) {
+    const uint ieeeMantissa = 0x007FFFFFu; // binary32 mantissa bitmask
+    const uint ieeeOne      = 0x3F800000u; // 1.0 in IEEE binary32
+
+    m &= ieeeMantissa;                     // Keep only mantissa bits (fractional part)
+    m |= ieeeOne;                          // Add fractional part to 1.0
+
+    float  f = uintBitsToFloat( m );       // Range [1:2]
+    return f - 1.0;                        // Range [0:1]
+}
+
+// Pseudo-random value in half-open range [0:1].
+float random( float x ) { return floatConstruct(hash(floatBitsToUint(x))); }
+
+
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	float scale = 1.0f;
+	uv.x -= 0.5f;
+	uv.y -= 0.5f;
+	uv *= scale;
+	uv.x += 0.5f;
+	uv.y += 0.5f;
+    vec2 v = (uv - vec2(.5, .5));
+	
+	vec4 color = vec4(0, 0, 0, 0);
+	
+	//
+	// vignette here
+	
+    //float amount = m.x;
+    float amount = (sin(-distortion_amm) * .5 ) ;
+        
+    uv = uv + distort(v, amount);
+	
+	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0)
+	{
+		COLOR = vec4(0.0, 0.0, 0.0, 1.0);
+	}
+	else
+	{
+		color += textureLod(screen_texture, uv, 0.0);
+		color.x += (random(uv.x * uv.y * color.x * random(uv.x * uv.y)) - 0.5) * static_scale * 1.3f;
+		color.y += (random(uv.x * uv.y * color.y * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+		color.z += (random(uv.x * uv.y * color.z * random(uv.x * uv.y)) - 0.5) * static_scale * 0.7f;
+		
+		// Increase/decrease the pixel colour values slightly in a 
+		// chessboard pattern to achieve a simple dithering against banding.
+		// Assume 8-bit RGB values and offset values a bit to affect rounding.
+		if (mod(FRAGCOORD.x + FRAGCOORD.y, 2) == 1.0) {
+			color.rgb += vec3(QUARTER_COLOR);
+		} else {
+			color.rgb -= vec3(QUARTER_COLOR);
+		}
+		if (mod(FRAGCOORD.x + FRAGCOORD.y, 4) == 1.0) {
+			color.rgb += vec3(QUARTER_COLOR);
+		} else {
+			color.rgb -= vec3(QUARTER_COLOR);
+		}
+		
+		COLOR = color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bibjq"]
+shader = SubResource("Shader_vwksl")
+shader_parameter/distortion_amm = 2.415
+shader_parameter/static_scale = 0.015
+shader_parameter/vignette_softness = 0.29
+shader_parameter/vignette_visibleness = 4.93
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4jj"]
+atlas = ExtResource("6_50h47")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b36qc"]
+atlas = ExtResource("6_50h47")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1na2"]
+atlas = ExtResource("6_50h47")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6eb2"]
+atlas = ExtResource("6_50h47")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klyb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b36qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1na2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6eb2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[node name="SoundtrackBackground" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gbcg8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -18.0
+offset_top = -23.0
+offset_right = 1951.0
+offset_bottom = 1111.0
+color = Color(0.0313726, 0.0352941, 0.0666667, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lbtl8")
+}
+autoplay = "SoundtrackBG"
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1.5, 1.5, 1.5, 1)
+offset_right = 1918.0
+offset_bottom = 1078.0
+theme = ExtResource("1_ojttx")
+theme_override_fonts/font = ExtResource("2_qnv86")
+theme_override_font_sizes/font_size = 86
+text = "Title Goes Here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChromaticAberration" parent="." instance=ExtResource("3_te2cr")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_bibjq")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Mark8Terminal" type="Sprite2D" parent="."]
+modulate = Color(0.847059, 0.847059, 0.847059, 1)
+position = Vector2(-125, 166)
+scale = Vector2(4, 4)
+texture = ExtResource("4_67yqj")
+
+[node name="CharacterSpritesheetIdleMele-sheet-sheet" type="Sprite2D" parent="."]
+position = Vector2(1948, 1174)
+scale = Vector2(4, 4)
+texture = ExtResource("5_60tq3")
+region_enabled = true
+region_rect = Rect2(0.11969, 0.196016, 31.5444, 33.1376)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-112, 664)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_klyb2")
+animation = &"Idle"
+
+[node name="PlayerBullet" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1.85098, 0.203922, 0.498039, 1)
+position = Vector2(1201, 596)
+rotation = 1.6057
+scale = Vector2(4, 4)
+texture = ExtResource("7_dp6rw")
+region_enabled = true
+region_rect = Rect2(0, 96.6125, 32, 42.9187)
