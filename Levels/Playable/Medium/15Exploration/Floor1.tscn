@@ -1316,7 +1316,6 @@ script = ExtResource("50_ap12m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler2"]
 position = Vector2(469.446, -622.954)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_owj78")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]

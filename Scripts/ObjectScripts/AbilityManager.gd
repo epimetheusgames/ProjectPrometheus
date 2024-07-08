@@ -21,10 +21,20 @@ var ability_lost_volume = -40.0
 @onready var loaded_crosshair = preload("res://Assets/Images/Objects/Misc/Crosshair.png")
 @onready var loaded_arrow = preload("res://Assets/Images/Objects/Misc/MouseCursor.png")
 
+@export var start_ability = 0
+
 const ability_max = 3
 
 
 func _ready():
+	ideal_rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60) 
+	$TextureProgressBar.texture_progress.fill_to.x = 0.714
+	
+	while start_ability != ability_index:
+		next_ability()
+
+# To prevent infinite recursion.
+func ready_no_next():
 	ideal_rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60) 
 	$TextureProgressBar.texture_progress.fill_to.x = 0.714
 
@@ -99,25 +109,25 @@ func next_ability():
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkSword")
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = false
 		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").get_out_weapon()
-		_ready()
+		ready_no_next()
 	elif ability_index == 0:
 		ideal_rotation = deg_to_rad(90)
 		get_parent().get_parent().get_node("Player").current_ability = "RocketBoost"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalkRockets")
-		_ready()
+		ready_no_next()
 	elif ability_index == 1:
 		ideal_rotation = deg_to_rad(180)
 		get_parent().get_parent().get_node("Player").current_ability = "ArmGun"
 		get_parent().get_parent().get_node("Player").get_node("PlayerAnimation").play("StartWalk")
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = true
-		_ready()
+		ready_no_next()
 		get_parent().get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").get_out_weapon()
 	elif ability_index == 2:
 		ideal_rotation = deg_to_rad(270)
 		get_parent().get_parent().get_node("Player").current_ability = "Grapple"
 		get_parent().get_parent().get_node("Player").get_node("GrappleManager").active = true
 		get_parent().get_parent().get_node("Player").get_node("ArmGunManager").active = false
-		_ready()
+		ready_no_next()
 	
 	ability_index += 1
 	

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://7gkuoslfisye"]
+[gd_scene load_steps=6 format=3 uid="uid://7gkuoslfisye"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PistonSmasher.gd" id="1_4pgxl"]
 [ext_resource type="Texture2D" uid="uid://cr2627frmvrbf" path="res://Assets/Images/Objects/FunctionalProps/PistonSmasher.png" id="2_n6x4x"]
 [ext_resource type="AudioStream" uid="uid://5y3tr74f31hp" path="res://Assets/Audio/SFX/PistonSmasher.ogg" id="3_ys3wl"]
-[ext_resource type="PackedScene" uid="uid://fqk180swy2an" path="res://Objects/FrameworkNodes/DynamicReverbEngine.tscn" id="4_iby2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11uqa"]
 size = Vector2(54, 3)
@@ -46,9 +45,7 @@ position = Vector2(0, 102)
 stream = ExtResource("3_ys3wl")
 max_distance = 1500.0
 attenuation = 2.46229
-bus = &"LargeSpaceSFX"
-
-[node name="DynamicReverbEngine" parent="AudioStreamPlayer2D" instance=ExtResource("4_iby2b")]
+bus = &"MediumSpaceSFX"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_s8pt7")
@@ -56,5 +53,3 @@ occluder = SubResource("OccluderPolygon2D_s8pt7")
 [connection signal="timeout" from="SmashTimer" to="." method="_on_smash_timer_timeout"]
 [connection signal="timeout" from="WaitRetractTimer" to="." method="_on_wait_retract_timer_timeout"]
 [connection signal="timeout" from="StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]
-
-[editable path="AudioStreamPlayer2D/DynamicReverbEngine"]

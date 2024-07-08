@@ -33,7 +33,7 @@ func calc_closest_hook():
 	return closest_hook
 
 func _physics_process(delta):
-	if get_parent().is_on_floor() && air_grapling:
+	if get_parent().is_on_floor() && air_grapling && (!hook || hook.movement_progress <= 0):
 		grapling = false
 		$GrappleBody.hooked = false
 	
@@ -41,7 +41,7 @@ func _physics_process(delta):
 		get_parent().get_node("PlayerAnimation").play("Idle")
 	
 	if active && grapling:
-		if hooked && hook && air_grapling:
+		if hooked && hook && air_grapling && is_instance_valid(hook):
 			if !was_hooked && calc_closest_hook():
 				var closest_hook_dist = calc_closest_hook().position.distance_to(get_parent().position)
 				grapple_lock_rope_len = closest_hook_dist

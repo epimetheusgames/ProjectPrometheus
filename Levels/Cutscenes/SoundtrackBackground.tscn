@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c707ipg2anb6x"]
+[gd_scene load_steps=28 format=3 uid="uid://c707ipg2anb6x"]
 
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="1_ojttx"]
 [ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="2_qnv86"]
@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://p47netecr3li" path="res://Assets/Images/Objects/CharacterSpritesheetIdleMele-sheet-sheet.png" id="5_60tq3"]
 [ext_resource type="Texture2D" uid="uid://dp40aepcpmf30" path="res://Assets/Images/Objects/Enemy/DroneSpritesheet.png" id="6_50h47"]
 [ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="7_dp6rw"]
+[ext_resource type="Texture2D" uid="uid://cg75lqqdfu7qv" path="res://Assets/Images/Objects/FunctionalProps/ItemSwitcher.png" id="8_vkbc8"]
+[ext_resource type="Texture2D" uid="uid://bv6ysk1bpjcxp" path="res://Assets/Images/Objects/FunctionalProps/Roomba.png" id="9_m0fld"]
+[ext_resource type="Texture2D" uid="uid://bwrbubeu2hism" path="res://Assets/Images/Objects/CharacterSpritesheet/CharacterSpritesheet.png" id="10_xkg35"]
+[ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="11_7ek3k"]
+[ext_resource type="Texture2D" uid="uid://g33u6pnalcvl" path="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingNoText.png" id="12_tny1a"]
 
 [sub_resource type="Environment" id="Environment_gbcg8"]
 background_mode = 3
@@ -16,119 +21,6 @@ glow_levels/5 = 0.25
 glow_levels/7 = 2.0
 glow_intensity = 1.45
 glow_blend_mode = 1
-
-[sub_resource type="Animation" id="Animation_mveay"]
-resource_name = "SoundtrackBG"
-length = 2990.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 2, 252.6, 262.2, 680.3, 689.3, 944, 955.3, 1219.5, 1230.3, 1485.6, 1496.3, 1785.9, 1795.7, 1953.8, 1963.8, 2214.9, 2224.9, 2384.4, 2394.4, 2695.7, 2706.5, 2744.7, 2755.5, 2786.5, 2795.2, 2961.8, 2971.8, 2980.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": ["", "Title Theme
-", "Title Theme", "Metalic Fire", "Metalic Fire", "Dronium", "Dronium", "Arpeggiator", "Arpeggiator", "Oskillate", "Oskillate", "Winds of Exhilation", "Winds of Exhilation", "Level Theme", "Level Theme", "A Walk in The Park", "A Walk in The Park", "Boss Theme 1", "Boss Theme 1", "Boss Theme 2", "Boss Theme 2", "DataQuest Solutions", "DataQuest Solutions", "snoituloS tseuQataD", "snoituloS tseuQataD", "Nothing Is Here", "Nothing Is Here", "^$#$)>:.'F7}[4*$./174953834[999]", "Project Prometheus"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mark8Terminal:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-125, 166), Vector2(539, 742), Vector2(1739, 302), Vector2(2091, 30)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mark8Terminal:rotation")
-tracks/2/interp = 4
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.846485, -0.898845, -1.4748]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1948, 1174), Vector2(1364, 694), Vector2(1396, 398), Vector2(876, -106)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:rotation")
-tracks/4/interp = 4
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-1.41372, 1.12574, -1.02974, 1.23918]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimatedSprite2D:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(714.4, 733.9, 750),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-112, 664), Vector2(704, 728), Vector2(2072, 376)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite2D:rotation")
-tracks/6/interp = 4
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(714.4, 741.9, 768.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.18326, 0.270526, 0.0959931]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PlayerBullet:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(739.3, 739.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("PlayerBullet:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(739.3, 741.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1201, 596), Vector2(1225, -68)]
-}
 
 [sub_resource type="Animation" id="Animation_oofp0"]
 length = 0.001
@@ -239,6 +131,383 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1201, 596)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ItemSwitcher:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1466, 1265)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ItemSwitcher:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.226893]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Roomba:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Roomba:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-119, 879)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimatedSprite2D2:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, -256)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Line2D:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -8)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Line2D:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Line2D2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(176, -8)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Line2D2:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CharacterSpritesheet:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(286, 1365)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PrometheusLogoGlowingNoText:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(931, 1258)]
+}
+
+[sub_resource type="Animation" id="Animation_mveay"]
+resource_name = "SoundtrackBG"
+length = 2990.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 252.6, 262.2, 680.3, 689.3, 944, 955.3, 1219.5, 1230.3, 1485.6, 1496.3, 1785.9, 1795.7, 1953.8, 1963.8, 2214.9, 2224.9, 2384.4, 2394.4, 2695.7, 2706.5, 2744.7, 2755.5, 2786.5, 2795.2, 2961.8, 2971.8, 2980.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Title Theme
+", "Title Theme", "Metallic Fire", "Metallic Fire", "Dronium", "Dronium", "Arpeggiator", "Arpeggiator", "Oskillate", "Oskillate", "Winds of Exhilation", "Winds of Exhilation", "Level Theme", "Level Theme", "A Walk in The Park", "A Walk in The Park", "Boss Theme 1", "Boss Theme 1", "Boss Theme 2", "Boss Theme 2", "DataQuest Solutions", "DataQuest Solutions", "snoituloS tseuQataD", "snoituloS tseuQataD", "Nothing Is Here", "Nothing Is Here", "^$#$)>:.'F7}[4*$./174953834[999]", "Project Prometheus"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mark8Terminal:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-125, 166), Vector2(539, 742), Vector2(1739, 302), Vector2(2091, 30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mark8Terminal:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 116.3, 321.4, 473.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.846485, -0.898845, -1.4748]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1948, 1174), Vector2(1364, 694), Vector2(1396, 398), Vector2(876, -106)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CharacterSpritesheetIdleMele-sheet-sheet:rotation")
+tracks/4/interp = 4
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(368.6, 524.7, 637.6, 880.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.41372, 1.12574, -1.02974, 1.23918]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(714.4, 733.9, 750),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-112, 664), Vector2(704, 728), Vector2(2072, 376)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:rotation")
+tracks/6/interp = 4
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(714.4, 741.9, 768.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.18326, 0.270526, 0.0959931]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerBullet:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(739.3, 739.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerBullet:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(739.3, 741.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1201, 596), Vector2(1225, -68)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ItemSwitcher:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(910.5, 1037, 1116.4, 1275.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1466, 1265), Vector2(1362, 665), Vector2(1386, 385), Vector2(882, -175)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ItemSwitcher:rotation")
+tracks/10/interp = 4
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(910.5, 1037, 1116.4, 1275.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.226893, 2.51327, 0.802851, -1.31772]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Roomba:rotation")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1235.6, 1457.2, 1494.8, 1584.7, 1609.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.741765, -0.741765, -1.63188]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Roomba:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(1235.6, 1457.2, 1584.7, 1877.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-119, 879), Vector2(1281, 879), Vector2(1553, 551), Vector2(1553, -201)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AnimatedSprite2D2:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1789.6, 2220.2, 2452.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(288, -256), Vector2(288, 1304), Vector2(288, -194.055)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Line2D:position")
+tracks/14/interp = 2
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(1799, 1805.7, 1805.8, 2454.1, 2454.2, 2463.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-936, 760), Vector2(16, -8), Vector2(16, -8), Vector2(16, -8), Vector2(16, -8), Vector2(-296, -1032)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Line2D:rotation")
+tracks/15/interp = 4
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1799, 1805.7, 1805.8, 2454.1, 2454.2, 2463.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.837758, 0.0, 0.0, 0.0, 0.0, 0.724312]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Line2D2:position")
+tracks/16/interp = 2
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(1799, 1805.7, 1805.8, 2454.1, 2454.2, 2463.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2064, 792), Vector2(176, -8), Vector2(176, -8), Vector2(176, -8), Vector2(176, -8), Vector2(1280, -992)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Line2D2:rotation")
+tracks/17/interp = 4
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(1799, 1805.7, 1805.8, 2454.1, 2454.2, 2463.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.759218, 0.0, 0.0, 0.0, 0.0, -0.767945]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CharacterSpritesheet:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(2220.2, 2452.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(286, 1365), Vector2(286, -139)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PrometheusLogoGlowingNoText:position")
+tracks/19/interp = 2
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(2738.7, 2802.6, 2803.9, 2983.7, 2984.4, 2990),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(931, 1258), Vector2(931, 762), Vector2(931, 762), Vector2(931, 762), Vector2(931, 762), Vector2(931, 1298)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lbtl8"]
@@ -382,6 +651,35 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6p3l"]
+atlas = ExtResource("11_7ek3k")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd73h"]
+atlas = ExtResource("11_7ek3k")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r62gq"]
+atlas = ExtResource("11_7ek3k")
+region = Rect2(0, 192, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ck6jn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6p3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd73h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r62gq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="SoundtrackBackground" type="Node2D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -401,7 +699,7 @@ libraries = {
 autoplay = "SoundtrackBG"
 
 [node name="Label" type="Label" parent="."]
-self_modulate = Color(1.5, 1.5, 1.5, 1)
+self_modulate = Color(1.6, 1.6, 1.6, 1)
 offset_right = 1918.0
 offset_bottom = 1078.0
 theme = ExtResource("1_ojttx")
@@ -444,13 +742,57 @@ position = Vector2(-112, 664)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_klyb2")
 animation = &"Idle"
+autoplay = "Idle"
 
 [node name="PlayerBullet" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1.85098, 0.203922, 0.498039, 1)
+self_modulate = Color(6, 1.2, 2.4, 1)
 position = Vector2(1201, 596)
 rotation = 1.6057
 scale = Vector2(4, 4)
 texture = ExtResource("7_dp6rw")
 region_enabled = true
 region_rect = Rect2(0, 96.6125, 32, 42.9187)
+
+[node name="ItemSwitcher" type="Sprite2D" parent="."]
+position = Vector2(1466, 1265)
+rotation = 0.226893
+scale = Vector2(4, 4)
+texture = ExtResource("8_vkbc8")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64.0001)
+
+[node name="Roomba" type="Sprite2D" parent="."]
+position = Vector2(-119, 879)
+scale = Vector2(6, 6)
+texture = ExtResource("9_m0fld")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(16, -8)
+points = PackedVector2Array(191, -21, 191, 1133)
+default_color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(176, -8)
+points = PackedVector2Array(191, -21, 191, 1133)
+default_color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[node name="CharacterSpritesheet" type="Sprite2D" parent="."]
+position = Vector2(286, 1365)
+scale = Vector2(4, 4)
+texture = ExtResource("10_xkg35")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32.215)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(288, -256)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ck6jn")
+autoplay = "default"
+frame = 2
+frame_progress = 0.688395
+
+[node name="PrometheusLogoGlowingNoText" type="Sprite2D" parent="."]
+position = Vector2(931, 1258)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_tny1a")
