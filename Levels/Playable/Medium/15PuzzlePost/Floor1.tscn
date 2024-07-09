@@ -543,6 +543,7 @@ position = Vector2(-1, 0)
 [node name="TimerDisabler" type="Area2D" parent="."]
 position = Vector2(-4341, 32.9969)
 script = ExtResource("33_l33j8")
+temporary = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
 position = Vector2(5585.5, 44.0031)
@@ -561,6 +562,7 @@ volume_db = 13.0
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="TimerDisabler" to="TimerDisabler" method="_on_area_entered"]
+[connection signal="area_exited" from="TimerDisabler" to="TimerDisabler" method="_on_area_exited"]
 
 [editable path="Player"]
 [editable path="DroneManager"]

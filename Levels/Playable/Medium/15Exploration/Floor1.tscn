@@ -1244,6 +1244,7 @@ texture = ExtResource("29_t51mi")
 [node name="TimerDisabler" type="Area2D" parent="."]
 position = Vector2(-5564, -56.0031)
 script = ExtResource("50_ap12m")
+temporary = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
 position = Vector2(-6.14844, -35.6373)

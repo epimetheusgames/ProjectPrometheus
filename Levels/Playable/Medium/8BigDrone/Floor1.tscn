@@ -289,6 +289,7 @@ position = Vector2(-127, -32)
 [node name="TimerDisabler" type="Area2D" parent="."]
 position = Vector2(-5706, -208.003)
 script = ExtResource("20_73ci2")
+temporary = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
 position = Vector2(5585.5, 44.0031)
