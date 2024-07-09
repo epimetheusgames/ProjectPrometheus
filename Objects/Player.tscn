@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=128 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/UI/RocketBootsIcon.png" id="5_2fpqi"]
 [ext_resource type="Texture2D" uid="uid://cr2610b268u2o" path="res://Assets/Images/Objects/UI/Sword_Icon_Sprite.png" id="7_cocna"]
 [ext_resource type="Texture2D" uid="uid://duef5w4d6i5lt" path="res://Assets/Images/Objects/UI/TickerBackgroundMask.png" id="7_es82s"]
+[ext_resource type="Script" path="res://Scripts/ObjectScripts/DQScrollTextManager.gd" id="8_12kyt"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="Texture2D" uid="uid://chbgvy50r01t1" path="res://Assets/Images/Objects/UI/TickerSpritesheet.png" id="9_l4wr6"]
 [ext_resource type="Texture2D" uid="uid://dvk40sahmgybr" path="res://Assets/Images/Objects/UI/GrappleIcon.png" id="10_qna8r"]
@@ -801,6 +802,25 @@ offset_top = -185.0
 offset_right = 184.0
 offset_bottom = -158.0
 value = 100.0
+
+[node name="DQScrollText" type="Node2D" parent="Camera"]
+process_mode = 1
+script = ExtResource("8_12kyt")
+speed = 0.8
+
+[node name="TextHolder" type="Label" parent="Camera/DQScrollText"]
+z_index = 100
+offset_left = 248.0
+offset_top = 117.0
+offset_right = 4928.0
+offset_bottom = 314.0
+scale = Vector2(0.1, 0.1)
+theme = ExtResource("16_bulim")
+theme_override_font_sizes/font_size = 146
+text = "Text Placeholder -- Text Placeholder -- Text Placeholder -- Text Placeholder -- Text Placeholder -- Text Placeholder -- Text Placeholder"
+
+[node name="TextStartPos" type="Node2D" parent="Camera/DQScrollText"]
+position = Vector2(248, 117)
 
 [node name="AbilityManager" type="Node2D" parent="Camera"]
 process_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=169 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -46,6 +46,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
 [ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="46_6ebp4"]
 [ext_resource type="Texture2D" uid="uid://lmu0hho8kukf" path="res://Assets/Images/Objects/FunctionalProps/PlayerRocketShip.png" id="47_ec3rt"]
+[ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="48_abwk2"]
 [ext_resource type="Texture2D" uid="uid://cinj6wgfbgbp1" path="res://Assets/Images/Objects/FunctionalProps/EggDoorRegisteredTrademarkCopyright2253SpaceZCorporationLLCLimited.png" id="48_ibtjl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -2132,6 +2133,34 @@ polygon = PackedVector2Array(19, 19, 22, 18, 19.7634, 21, 1, 19, -43, 19, -43, 2
 position = Vector2(1210, -79)
 texture = ExtResource("48_ibtjl")
 
+[node name="TextScrollActivator" parent="." instance=ExtResource("48_abwk2")]
+position = Vector2(1093, -82)
+scroll_text = "Incoming message from DQGC: Your task is to collect data, to do that just walk around. Don't worry if you find yourself in trouble, we're watching you."
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator"]
+polygon = PackedVector2Array(37, -112, 39, 138, -133, 160)
+
+[node name="TextScrollActivator2" parent="." instance=ExtResource("48_abwk2")]
+position = Vector2(-1592, -25)
+scroll_text = "Incoming message from DQGC: There's no need to worry, but it looks like your item just got changed by that thing you walked through. We're checking it out right now."
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator2"]
+polygon = PackedVector2Array(15, -51, 19, 94, -72, 71)
+
+[node name="TextScrollActivator3" parent="." instance=ExtResource("48_abwk2")]
+position = Vector2(-3304, -19)
+scroll_text = "Incoming message from DQGC: Okay, it looks like when you walked through that thing a massive power source turned on somewhere in your vicinity."
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator3"]
+polygon = PackedVector2Array(17, -82, 21, 64, -197, 58, -148, -79)
+
+[node name="TextScrollActivator4" parent="." instance=ExtResource("48_abwk2")]
+position = Vector2(-6464, 78)
+scroll_text = "Incoming message from DQGC: We recommend that you don't touch any moving things, like that drill. We're searching for an exit route right now."
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator4"]
+polygon = PackedVector2Array(16, -33, 12, 45, -49, 28)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
 [connection signal="timeout" from="TutorialDoorCloseArea/ParticlesStopTimer" to="TutorialDoorCloseArea" method="_on_particles_stop_timer_timeout"]
@@ -2143,7 +2172,5 @@ texture = ExtResource("48_ibtjl")
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
-[editable path="PistonSmasher/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="Player"]
 [editable path="PistonSmasher3"]
-[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]

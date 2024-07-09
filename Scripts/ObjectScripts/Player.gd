@@ -681,6 +681,11 @@ func _on_area_2d_area_entered(area):
 	# Set objective text
 	if area.name.contains("PlayerObjectiveSetter"):
 		get_parent().get_node("Camera").set_objective_text(area.objective_text)
+		
+	# Initiate DQ text scroll
+	if area.name == "TextScrollActivator" && !area.scrolled:
+		area.scrolled = true
+		get_parent().get_node("Camera").get_node("DQScrollText").scroll(area.scroll_text)
 	
 	# Handle entering a conveyor belt.
 	if area.name == "PlayerPusher":
