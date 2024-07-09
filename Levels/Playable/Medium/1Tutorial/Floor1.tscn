@@ -2145,7 +2145,7 @@ position = Vector2(-1592, -25)
 scroll_text = "Incoming message from DQGC: There's no need to worry, but it looks like your item just got changed by that thing you walked through. We're checking it out right now."
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator2"]
-polygon = PackedVector2Array(15, -51, 19, 94, -72, 71)
+polygon = PackedVector2Array(-24, -106, 56, -11, 19, 94, -72, 71)
 
 [node name="TextScrollActivator3" parent="." instance=ExtResource("48_abwk2")]
 position = Vector2(-3304, -19)

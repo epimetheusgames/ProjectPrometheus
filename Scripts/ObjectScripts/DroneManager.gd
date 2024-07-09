@@ -52,8 +52,8 @@ func _ready():
 	if drone_boss:
 		$Drone/HellicopterWoosh.play()
 	
-	if !big_drone:
-		$LineRaycast.add_exception(player)
+	#if !big_drone:
+#		$LineRaycast.add_exception(player)
 	
 	if precalculated_flight_path == null:
 		precalculated_flight_path = []

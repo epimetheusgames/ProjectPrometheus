@@ -683,7 +683,7 @@ func _on_area_2d_area_entered(area):
 		get_parent().get_node("Camera").set_objective_text(area.objective_text)
 		
 	# Initiate DQ text scroll
-	if area.name == "TextScrollActivator" && !area.scrolled:
+	if area.name.contains("TextScrollActivator") && !area.scrolled:
 		area.scrolled = true
 		get_parent().get_node("Camera").get_node("DQScrollText").scroll(area.scroll_text)
 	

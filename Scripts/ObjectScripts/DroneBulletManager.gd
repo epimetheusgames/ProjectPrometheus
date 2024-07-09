@@ -12,6 +12,8 @@ extends Node2D
 var graphics_efficiency = false
 var velocity = Vector2.ZERO
 
+var stopped_moving = false
+
 func _process(delta):
 	position += velocity * (delta * 60)
 	rotation = atan2(velocity.y, velocity.x) + (1.0/2.0 * PI)
@@ -24,4 +26,7 @@ func _on_despawn_timer_timeout():
 
 func _on_bullet_hurter_body_entered(body):
 	if body.name != "Player" && body.name != "DroneHitbox":
-		queue_free()
+		$BulletSprite.queue_free()
+		$BulletHurter.queue_free()
+		$GPUParticles2D.emitting = false
+		stopped_moving = true

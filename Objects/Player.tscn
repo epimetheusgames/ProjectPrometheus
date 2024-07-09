@@ -805,6 +805,7 @@ value = 100.0
 
 [node name="DQScrollText" type="Node2D" parent="Camera"]
 process_mode = 1
+position = Vector2(104, 0)
 script = ExtResource("8_12kyt")
 speed = 0.8
 
