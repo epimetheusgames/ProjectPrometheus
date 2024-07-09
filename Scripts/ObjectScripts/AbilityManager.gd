@@ -30,8 +30,9 @@ func _ready():
 	ideal_rotation -= ((1.0 / 2.0) * PI) / ($FadinHalfWaitTimer.wait_time * 60) 
 	$TextureProgressBar.texture_progress.fill_to.x = 0.714
 	
-	while start_ability != ability_index:
-		next_ability()
+	if get_parent().get_parent().get_node("Player").position == Vector2.ZERO:
+		while start_ability != ability_index:
+			next_ability()
 
 # To prevent infinite recursion.
 func ready_no_next():

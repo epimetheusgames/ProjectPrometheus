@@ -318,7 +318,7 @@ bus = &"SFX"
 
 [node name="Switch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_r5njq")
-volume_db = -6.0
+volume_db = -7.72
 bus = &"SFX"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

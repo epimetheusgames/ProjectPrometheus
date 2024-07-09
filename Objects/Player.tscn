@@ -1746,7 +1746,8 @@ frame_progress = 1.0
 
 [node name="ShootLaser" type="AudioStreamPlayer" parent="Player/ArmGunManager"]
 stream = ExtResource("36_7xri5")
-volume_db = -20.0
+volume_db = -8.857
+bus = &"MediumSpaceSFX"
 
 [node name="GrappleManager" type="Node2D" parent="Player"]
 script = ExtResource("11_k2qbr")

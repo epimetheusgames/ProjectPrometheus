@@ -43,6 +43,12 @@ var elevator_enabled = false
 
 func _ready():
 	health = get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").boss_health
+	
+	if health < 50:
+		position = start_pos + $FiftyPercentPos.position
+	if health > 0 && health < 50:
+		health = 48
+		can_get_hurt_by_bullets = true
 
 func shoot_bullet(pos):
 	var direction_to_player = (player.position - position + player.get_parent().position - pos).normalized()
@@ -72,7 +78,7 @@ func spawn_bomb(pos, vel_scale):
 	get_parent().add_child(bomb_to_add)
 
 func _on_new_explosion_timer_timeout():
-	if player.position.distance_to(position) < 600 && (player.current_ability == "RocketBoost" || player.current_ability == "Grapple"):
+	if player.position.distance_to(position) < 600 && (player.current_ability == "RocketBoost" || player.current_ability == "Grapple") && !dead && health > 0:
 		spawn_bomb($BossShootPosition3.position, 5)
 		spawn_bomb($BossShootPosition4.position, -5)
 
@@ -153,6 +159,7 @@ func _process(delta):
 		elevator_enabled = true
 		
 	if elevator_enabled && player.position.y < -450:
+		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		get_parent().get_node("Player").get_node("Camera").set_objective_text("Return to the elevator")
 		
 	elif elevator_enabled:
@@ -211,7 +218,6 @@ func _process(delta):
 			get_parent().get_node("DrawbridgeAnimationPlayer").play("DrawbridgeUp")
 	
 	if health <= 0:
-		get_parent().get_node("BossHook2").get_node("Area2D").get_node("CollisionShape2D").disabled = false
 		get_parent().boss = false
 		
 		if !bridge_opened:

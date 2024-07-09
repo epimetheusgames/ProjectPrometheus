@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://cnlmye4x30qis"]
+[gd_scene load_steps=109 format=3 uid="uid://cnlmye4x30qis"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_5blyj"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_lvfhp"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/BossCheckpointUpdater.gd" id="22_eak4u"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="22_wa5og"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="24_1ioqx"]
+[ext_resource type="SpriteFrames" uid="uid://6rx833lfrv5n" path="res://Objects/StaticObjects/AlarmLightsAnimation.tres" id="25_uyvuj"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="25_xmgre"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="26_3luxv"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="26_pl7s8"]
@@ -1049,6 +1050,22 @@ scale = Vector2(0.2, 0.2)
 theme = ExtResource("22_wa5og")
 value = 100.0
 texture_progress = SubResource("GradientTexture2D_lkcc3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
+self_modulate = Color(5, 5, 5, 1)
+position = Vector2(-57.5, -5.83334)
+sprite_frames = ExtResource("25_uyvuj")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.194857
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Boss"]
+self_modulate = Color(5, 5, 5, 1)
+position = Vector2(63.3333, -5.83334)
+sprite_frames = ExtResource("25_uyvuj")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.492997
 
 [node name="Player" parent="." instance=ExtResource("10_qip8k")]
 

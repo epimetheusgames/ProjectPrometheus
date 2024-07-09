@@ -220,14 +220,14 @@ func _process(delta):
 			
 			player_previous_ability = "NoDistance"
 			
-			target_position_radians += 0.02 * delta * 60
+			target_position_radians += 0.01 * delta * 60
 			$LineRaycast.position = $Drone.position
-			$LineRaycast.target_position = Vector2(cos(target_position_radians), abs(sin(target_position_radians))) * 1000
+			$LineRaycast.target_position += ((Vector2(cos(target_position_radians), abs(sin(target_position_radians))) * 1000) - $LineRaycast.target_position) * 0.1
 			
 			player_follower_position = $PlayerRaycast.target_position + $Drone.position + position
 			
 			$AttackLine.points[0] = $Drone.position
-			$AttackLine.points[1] += (($LineRaycast.get_collision_point() - position) - $AttackLine.points[1]) * 0.1
+			$AttackLine.points[1] += (($LineRaycast.get_collision_point() - position) - $AttackLine.points[1])
 	else:
 		if get_node_or_null("AttackLine") && $AttackLine.modulate.a > 0:
 			$AttackLine.modulate.a -= 0.01 * delta * 60
