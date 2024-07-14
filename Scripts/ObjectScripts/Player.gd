@@ -136,6 +136,9 @@ var is_swiping_sword = false
 # Disable controls for death.
 var disable_controlls = false
 
+# Check if we are in a steam emitter boost area.
+var in_boost_area = false
+
 
 # The string value of the current ability.
 var current_ability = "Weapon"
@@ -246,7 +249,7 @@ func _physics_process(delta):
 		if in_conveyor_belt:
 			position.x += conveyor_speed * conveyor_direction * delta * 60
 		
-		# You.
+		# Disable animation if dead.
 		if dead:
 			$AntennaAnimation.visible = false
 		
@@ -255,7 +258,7 @@ func _physics_process(delta):
 			return
 		
 		# Apply gravity if not grappling
-		if !grappling_effects && !climbing:
+		if !grappling_effects && !climbing && !in_boost_area:
 			velocity.y += gravity * Engine.time_scale
 		
 		# Ladder sloow.
@@ -278,6 +281,10 @@ func _physics_process(delta):
 		# Go down a ladder.
 		if Input.is_action_pressed("down") && climbing && !dead:
 			velocity.y += jump_push_force * 2
+		
+		# Increase velocity for steam boost.
+		if in_boost_area && !velocity.y < -4:
+			velocity.y -= 0.5 * delta * 60
 			
 		# Implement coyote jumping system.
 		if could_jump && !can_jump:
@@ -678,6 +685,8 @@ func _physics_process(delta):
 
 # If the player enters a death zone, respawn it.
 func _on_area_2d_area_entered(area):
+	var hurt_player = false
+	
 	# Set objective text
 	if area.name.contains("PlayerObjectiveSetter"):
 		get_parent().get_node("Camera").set_objective_text(area.objective_text)
@@ -686,6 +695,11 @@ func _on_area_2d_area_entered(area):
 	if area.name.contains("TextScrollActivator") && !area.scrolled:
 		area.scrolled = true
 		get_parent().get_node("Camera").get_node("DQScrollText").scroll(area.scroll_text)
+		
+	# Steam Pipe boost.
+	if area.name == "PlayerBoostArea":
+		in_boost_area = true
+		hurt_player = true
 	
 	# Handle entering a conveyor belt.
 	if area.name == "PlayerPusher":
@@ -765,7 +779,7 @@ func _on_area_2d_area_entered(area):
 		get_parent().get_node("Camera/CloseAnimator").closing = true
 		
 	# Get hurt here but we don't die (unless we do).
-	if area.name == "BulletHurter" || area.name == "JumpHurtBox" || area.name == "ExplosionHitbox":
+	if area.name == "BulletHurter" || area.name == "JumpHurtBox" || area.name == "ExplosionHitbox" || hurt_player:
 		if (area.name == "ExplosionHitbox" && area.get_parent().no_damage) || get_parent().get_parent().difficulty == 0:
 			return
 		
@@ -835,6 +849,10 @@ func _on_player_hurtbox_area_exited(area):
 		else:
 			velocity.x = area.get_parent().speed * area.get_parent().direction
 			in_conveyor_belt = false
+	
+	# Steam Pipe boost.
+	if area.name == "PlayerBoostArea":
+		in_boost_area = false
 			
 # PlayerAnimation is never finished. The function name is a lie.
 func _on_animated_sprite_2d_animation_finished():

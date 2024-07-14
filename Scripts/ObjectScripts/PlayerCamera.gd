@@ -81,6 +81,12 @@ func _process(delta):
 	
 	$ObjectiveBoxManager.scale = original_scale * (4 / zoom.x)
 	$ObjectiveBoxManager.position = original_pos * (4 / zoom.x)
+	
+	original_scale = Vector2(1, 1)
+	original_pos = Vector2(104, 0)
+	
+	$DQScrollText.scale = original_scale * (4 / zoom.x)
+	$DQScrollText.position = original_pos * (4 / zoom.x)
 
 # Whar.
 func open_dialogue_box():

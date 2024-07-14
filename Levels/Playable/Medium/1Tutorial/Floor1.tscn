@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=170 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://lmu0hho8kukf" path="res://Assets/Images/Objects/FunctionalProps/PlayerRocketShip.png" id="47_ec3rt"]
 [ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="48_abwk2"]
 [ext_resource type="Texture2D" uid="uid://cinj6wgfbgbp1" path="res://Assets/Images/Objects/FunctionalProps/EggDoorRegisteredTrademarkCopyright2253SpaceZCorporationLLCLimited.png" id="48_ibtjl"]
+[ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="49_jlxkg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_xrlir")
@@ -1133,8 +1134,14 @@ position = Vector2(-1536, -128)
 [node name="StartDelayTimer" parent="PistonSmasher" index="5"]
 wait_time = 5.0
 
+[node name="AudioStreamPlayer2D" parent="PistonSmasher" index="6"]
+bus = &"SmallSpaceSFX"
+
 [node name="PistonSmasher2" parent="." instance=ExtResource("18_cmg21")]
 position = Vector2(-1408, -128)
+
+[node name="AudioStreamPlayer2D" parent="PistonSmasher2" index="6"]
+bus = &"SmallSpaceSFX"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3503.96, 303.459)
@@ -2116,8 +2123,14 @@ position = Vector2(416, -128)
 [node name="StartDelayTimer" parent="PistonSmasher3" index="5"]
 wait_time = 5.0
 
+[node name="AudioStreamPlayer2D" parent="PistonSmasher3" index="6"]
+bus = &"SmallSpaceSFX"
+
 [node name="PistonSmasher4" parent="." instance=ExtResource("18_cmg21")]
 position = Vector2(544, -128)
+
+[node name="AudioStreamPlayer2D" parent="PistonSmasher4" index="6"]
+bus = &"SmallSpaceSFX"
 
 [node name="RocketBody" type="StaticBody2D" parent="."]
 position = Vector2(1258, -107)
@@ -2161,6 +2174,9 @@ scroll_text = "Incoming message from DQGC: We recommend that you don't touch any
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator4"]
 polygon = PackedVector2Array(16, -33, 12, 45, -49, 28)
 
+[node name="SteamPipe" parent="." instance=ExtResource("49_jlxkg")]
+position = Vector2(753, 48)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="area_entered" from="TutorialDoorCloseArea" to="TutorialDoorCloseArea" method="_on_area_entered"]
 [connection signal="timeout" from="TutorialDoorCloseArea/ParticlesStopTimer" to="TutorialDoorCloseArea" method="_on_particles_stop_timer_timeout"]
@@ -2172,5 +2188,7 @@ polygon = PackedVector2Array(16, -33, 12, 45, -49, 28)
 [editable path="VoicelinePlayerArea"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher"]
+[editable path="PistonSmasher2"]
 [editable path="Player"]
 [editable path="PistonSmasher3"]
+[editable path="PistonSmasher4"]

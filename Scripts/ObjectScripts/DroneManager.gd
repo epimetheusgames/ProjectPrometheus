@@ -52,9 +52,6 @@ func _ready():
 	if drone_boss:
 		$Drone/HellicopterWoosh.play()
 	
-	#if !big_drone:
-#		$LineRaycast.add_exception(player)
-	
 	if precalculated_flight_path == null:
 		precalculated_flight_path = []
 		
@@ -152,6 +149,7 @@ func _process(delta):
 	else:
 		temp_disabled = false
 		$Drone.visible = true
+		$AttackLine.visible = true
 		$Drone.position += (current_pos_data[0] - $Drone.position).normalized() * speed * delta * 60
 		$Drone.rotation -= $Drone.rotation * 0.1 * delta * 60
 		
@@ -285,6 +283,7 @@ func _on_drone_hurtbox_area_entered(area):
 		if area.name == "PlayerHurtbox":
 			call_deferred("add_child", dead_drone)
 			$Drone.visible = false
+			$AttackLine.visible = false
 			fly_to_correct = false
 			temp_disabled = true
 		if area.name == "PlayerBulletHurter" || area.name == "DeathZone":
