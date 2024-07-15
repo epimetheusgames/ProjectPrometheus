@@ -12,10 +12,8 @@ var locked = false
 
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && !locked:
-		$PropDoorSideways.visible = !$PropDoorSideways.visible
-		$PropDoorFaceForward.visible = !$PropDoorFaceForward.visible
+		$DoorOpenAnimation.play("Open")
 
 func _on_area_2d_area_exited(area):
 	if area.name == "PlayerHurtbox" && !locked:
-		$PropDoorSideways.visible = !$PropDoorSideways.visible
-		$PropDoorFaceForward.visible = !$PropDoorFaceForward.visible
+		$DoorOpenAnimation.play_backwards("Open")

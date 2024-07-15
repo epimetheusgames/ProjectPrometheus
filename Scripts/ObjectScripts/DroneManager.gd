@@ -186,7 +186,7 @@ func _process(delta):
 		if physics_drone_ingame && is_instance_valid(physics_drone_ingame):
 			$AttackLine.points[0] = physics_drone_ingame.position
 			$PlayerRaycast.position = physics_drone_ingame.position
-			$PlayerRaycast.target_position = Vector2(cos(physics_drone_ingame.rotation), sin(physics_drone_ingame.rotation)).normalized() * 1000
+			$PlayerRaycast.target_position = Vector2(cos(physics_drone_ingame.rotation), sin(physics_drone_ingame.rotation)).normalized() * 10000
 		
 		if (player.current_ability == "Weapon" || player.current_ability == "ArmGun") && ($Drone.position + position).distance_to(player.position) < 250:
 			player_follower_position += (player.position - player_follower_position) * 0.05 * delta * 60
@@ -205,7 +205,7 @@ func _process(delta):
 				
 			$AttackLine.visible = true
 			
-			$AttackLine.points[1] = ($LineRaycast.get_collision_point() - position)
+			$AttackLine.points[1] = ($LineRaycast.get_collision_point())
 			
 			player_previous_ability = player.current_ability
 		else:
@@ -220,7 +220,7 @@ func _process(delta):
 			
 			target_position_radians += 0.01 * delta * 60
 			$LineRaycast.position = $Drone.position
-			$LineRaycast.target_position += ((Vector2(cos(target_position_radians), abs(sin(target_position_radians))) * 1000) - $LineRaycast.target_position) * 0.1
+			$LineRaycast.target_position += ((Vector2(cos(target_position_radians), abs(sin(target_position_radians))) * 10000) - $LineRaycast.target_position) * 0.1
 			
 			player_follower_position = $PlayerRaycast.target_position + $Drone.position + position
 			
