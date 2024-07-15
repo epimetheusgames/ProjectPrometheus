@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=130 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -50,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://ce7ab4c58ti1d" path="res://Assets/Audio/SFX/Shoot.wav" id="36_dn26v"]
 [ext_resource type="AudioStream" uid="uid://d1o5abdd1b671" path="res://Assets/Audio/SFX/GrappleUp.wav" id="37_78x30"]
 [ext_resource type="AudioStream" uid="uid://ba2wde3omcsgy" path="res://Assets/Audio/SFX/GrappleCollide.wav" id="38_ykbtu"]
+[ext_resource type="Texture2D" uid="uid://dcsvmfthw2m2g" path="res://Assets/Images/Objects/Misc/CloudThingGreyScale.png" id="40_dmirs"]
 [ext_resource type="PackedScene" uid="uid://b7k7vdwyhgqpd" path="res://addons/post_processing/node/children/screen_shake.tscn" id="41_agtbc"]
 [ext_resource type="AudioStream" uid="uid://1uq01414kjai" path="res://Assets/Audio/SFX/ClockTick1.wav" id="42_dvbrb"]
 [ext_resource type="PackedScene" uid="uid://cxsuld87nxd0v" path="res://addons/post_processing/node/children/blur.tscn" id="42_tsbgy"]
@@ -457,6 +458,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
+
+[sub_resource type="Gradient" id="Gradient_bvr1n"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c12t"]
 size = Vector2(9, 20)
@@ -1786,9 +1790,22 @@ visible = false
 shape = SubResource("RectangleShape2D_f6ify")
 
 [node name="LinePorabola" type="Line2D" parent="Player/GrappleManager"]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 0.2
-default_color = Color(0, 0.658824, 0.639216, 1)
+clip_children = 1
+texture_filter = 4
+points = PackedVector2Array(122, 37, 33, 26)
+width = 0.1
+default_color = Color(0, 0.537255, 0.611765, 1)
+gradient = SubResource("Gradient_bvr1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/GrappleManager/LinePorabola"]
+modulate = Color(0.964706, 1, 0.960784, 1)
+self_modulate = Color(1, 4, 4, 1)
+texture_filter = 4
+texture_repeat = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("40_dmirs")
+region_enabled = true
+region_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="GrappleRope" type="Line2D" parent="Player/GrappleManager"]
 points = PackedVector2Array(0, 0, 0, 0)

@@ -33,6 +33,8 @@ func calc_closest_hook():
 	return closest_hook
 
 func _physics_process(delta):
+	$LinePorabola/Sprite2D.rotation += 0.003 * delta * 60
+	
 	if get_parent().is_on_floor() && air_grapling && (!hook || hook.movement_progress <= 0):
 		grapling = false
 		$GrappleBody.hooked = false
@@ -141,8 +143,7 @@ func _physics_process(delta):
 		
 		if closest_hook && closest_hook_dist < max_hook_dist:
 			var mouse_direction = (closest_hook.position - get_parent().get_parent().position - get_parent().position).normalized()
-			$LinePorabola.points[0] = Vector2.ZERO
-			$LinePorabola.points[1] = mouse_direction * 10000
+			$LinePorabola.points[1] += ((closest_hook.position - position - get_parent().position) - $LinePorabola.points[1]) * 0.2 * ((abs(get_parent().velocity.length()) / 2 + 1) if $LinePorabola.points[1].distance_to(closest_hook.position - position - get_parent().position) < 20 else 1)
 			$LinePorabola.visible = true
 			
 			if Input.is_action_just_pressed("mouse_click") && !closest_hook.dont_use_swing_mode:
