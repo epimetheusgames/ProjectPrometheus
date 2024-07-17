@@ -169,6 +169,7 @@ func _physics_process(delta):
 				grapling = true
 		else:
 			$LinePorabola.visible = false
+			$LinePorabola.points[1] = Vector2.ZERO
 			
 	if active:
 		visible = true

@@ -1792,7 +1792,7 @@ shape = SubResource("RectangleShape2D_f6ify")
 [node name="LinePorabola" type="Line2D" parent="Player/GrappleManager"]
 clip_children = 1
 texture_filter = 4
-points = PackedVector2Array(122, 37, 33, 26)
+points = PackedVector2Array(0, 0, 33, 26)
 width = 0.1
 default_color = Color(0, 0.537255, 0.611765, 1)
 gradient = SubResource("Gradient_bvr1n")

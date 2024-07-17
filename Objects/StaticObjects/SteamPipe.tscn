@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdiesn1utq8vv"]
+[gd_scene load_steps=10 format=3 uid="uid://cdiesn1utq8vv"]
 
 [ext_resource type="Texture2D" uid="uid://dcfkiv764iaqk" path="res://Assets/Images/Objects/Misc/PlaceHolder1-1.png" id="1_e26f8"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/SteamPipeManager.gd" id="1_vgh0u"]
@@ -32,10 +32,14 @@ color_ramp = SubResource("GradientTexture1D_yt5du")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqto4"]
 size = Vector2(20, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h6si"]
+size = Vector2(8, 32)
+
 [node name="SteamPipe" type="Node2D"]
 script = ExtResource("1_vgh0u")
 
 [node name="SteamPipeSprite" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(0.25, 1)
 texture = ExtResource("1_e26f8")
 
@@ -69,6 +73,11 @@ one_shot = true
 stream = ExtResource("4_by5c8")
 max_distance = 300.0
 panning_strength = 2.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5h6si")
 
 [connection signal="timeout" from="SteamEmissionTimer" to="." method="_on_steam_emission_timer_timeout"]
 [connection signal="timeout" from="StartWaitTime" to="." method="_on_start_wait_time_timeout"]

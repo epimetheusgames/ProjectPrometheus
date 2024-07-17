@@ -56,7 +56,7 @@ func _ready():
 		precalculated_flight_path = []
 		
 		while true:
-			var finished = calculate_flight_frame()
+			var finished = calculate_flight_frame(len(precalculated_flight_path))
 			
 			if finished == "finished":
 				break
@@ -84,7 +84,7 @@ func _ready():
 		if big_drone:
 			$Drone/GPUParticles2D2.queue_free()
 		
-func calculate_flight_frame():
+func calculate_flight_frame(frame_num):
 	var direction_to_next_point = ($DronePatrolPoints.points[current_line_point] - flight_position).normalized()
 
 	movement_velocity = Vector2(smooth(movement_velocity.x, direction_to_next_point.x, velocity_smoothing * 1.5),
@@ -94,7 +94,7 @@ func calculate_flight_frame():
 		$AttackLine.clip_children = false
 		$AttackLine/Sprite2D.visible = false
 	
-	flight_position += movement_velocity * speed
+	flight_position += movement_velocity * speed + (Vector2(0, sin(frame_num / 20) / 5) if drone_boss else Vector2.ZERO)
 	flight_rotation = movement_velocity.x / (3 if !big_drone else 15)
 	calc_close_to_checkpoint = false
 	
@@ -205,7 +205,7 @@ func _process(delta):
 				
 			$AttackLine.visible = true
 			
-			$AttackLine.points[1] = ($LineRaycast.get_collision_point())
+			$AttackLine.points[1] = ($LineRaycast.get_collision_point() - position)
 			
 			player_previous_ability = player.current_ability
 		else:

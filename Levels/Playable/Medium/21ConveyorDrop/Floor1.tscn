@@ -233,7 +233,6 @@ shader_parameter/vignette_softness = 0.45
 shader_parameter/vignette_visibleness = 1.0
 
 [node name="Level3" type="Node2D"]
-position = Vector2(30, -10)
 script = ExtResource("1_msv6s")
 level = 4
 
@@ -481,6 +480,4 @@ polygon = PackedVector2Array(-21, 14, 19, 14, 19, 78, -21, 78)
 [editable path="DroneManager"]
 [editable path="DroneManager2"]
 [editable path="PistonSmasher2"]
-[editable path="PistonSmasher2/AudioStreamPlayer2D/DynamicReverbEngine"]
 [editable path="PistonSmasher3"]
-[editable path="PistonSmasher3/AudioStreamPlayer2D/DynamicReverbEngine"]

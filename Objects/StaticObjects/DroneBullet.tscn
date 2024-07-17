@@ -79,6 +79,7 @@ z_index = 1
 script = ExtResource("1_50na5")
 
 [node name="BulletHurter" type="Area2D" parent="."]
+collision_layer = 2147483649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHurter"]
 position = Vector2(2.5, 2.5)

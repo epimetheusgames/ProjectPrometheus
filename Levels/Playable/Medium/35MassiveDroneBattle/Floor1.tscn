@@ -520,7 +520,7 @@ sprite_frames = ExtResource("3_lijwv")
 autoplay = "default"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="DeadBoss"]
-collision_layer = 16
+collision_layer = 2147483664
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DeadBoss/CharacterBody2D"]
 position = Vector2(-464, 520)
