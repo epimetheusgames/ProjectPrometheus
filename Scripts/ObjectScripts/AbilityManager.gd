@@ -20,6 +20,7 @@ var ability_lost_volume = -40.0
 @onready var original_scale = scale
 @onready var loaded_crosshair = preload("res://Assets/Images/Objects/Misc/Crosshair.png")
 @onready var loaded_arrow = preload("res://Assets/Images/Objects/Misc/MouseCursor.png")
+@onready var pixel = preload("res://Assets/Images/Objects/Misc/CloudThing.png")
 
 @export var start_ability = 0
 
@@ -57,10 +58,11 @@ func _process(delta):
 	else:
 		$AbililtySwitchTimer.start()
 		
-	if ability_index == 2:
+	if ability_index == 2 || len(Input.get_connected_joypads()) > 0:
 		Input.set_custom_mouse_cursor(loaded_crosshair)
 	else:
 		Input.set_custom_mouse_cursor(loaded_arrow)
+		
 		
 	$TickerMask/Ticker.rotation += (ideal_rotation - $TickerMask/Ticker.rotation) * 0.1 * delta * 60
 	$TickerMask/Item.rotation = $TickerMask/Ticker.rotation

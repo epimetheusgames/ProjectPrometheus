@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://dlchuo004ji5k"]
+[gd_scene load_steps=131 format=3 uid="uid://dlchuo004ji5k"]
 
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
 [ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
@@ -456,6 +456,10 @@ animations = [{
 "speed": 35.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_dn4sv"]
+offsets = PackedFloat32Array(0, 0.844037)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6ify"]
 size = Vector2(4, 4)
 
@@ -814,6 +818,7 @@ script = ExtResource("8_12kyt")
 speed = 0.8
 
 [node name="TextHolder" type="Label" parent="Camera/DQScrollText"]
+visible = false
 z_index = 100
 offset_left = 248.0
 offset_top = 117.0
@@ -1773,6 +1778,24 @@ frame_progress = 1.0
 stream = ExtResource("36_7xri5")
 volume_db = -8.857
 bus = &"MediumSpaceSFX"
+
+[node name="LinePorabola" type="Line2D" parent="Player/ArmGunManager"]
+clip_children = 1
+texture_filter = 4
+points = PackedVector2Array(-12, -19, 42, -17)
+width = 0.1
+default_color = Color(0, 0.537255, 0.611765, 1)
+gradient = SubResource("Gradient_dn4sv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/ArmGunManager/LinePorabola"]
+modulate = Color(0.964706, 1, 0.960784, 1)
+self_modulate = Color(4, 0, 3, 1)
+texture_filter = 4
+texture_repeat = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("40_dmirs")
+region_enabled = true
+region_rect = Rect2(-5000, -5000, 10000, 10000)
 
 [node name="GrappleManager" type="Node2D" parent="Player"]
 script = ExtResource("11_k2qbr")

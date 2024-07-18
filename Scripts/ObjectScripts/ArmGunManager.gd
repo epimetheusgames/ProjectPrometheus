@@ -21,6 +21,8 @@ extends Node2D
 # If the current player ability is the ArmGun.
 var active = false
 
+var mouse_direction = Vector2.ZERO
+
 func _process(_delta):
 	# Only run ArmGun if active.
 	if active:
@@ -39,12 +41,15 @@ func _process(_delta):
 		$Line2D.points[2].y = -25 - (mouse_pos.x / 150) + (mouse_pos.y / 200)
 		
 		var reversed_points_2 = Vector2(-$Line2D.points[2].x, $Line2D.points[2].y)
-
-		# Get the direction from the ArmGun to the mouse.
-		var mouse_direction = (get_global_mouse_position() - (get_parent().position + get_parent().get_parent().position + (Vector2(-12, -18) if get_parent().previous_direction == 1 else Vector2(8, -18)))).normalized()
 		
-		# Reversed mouse direction because the player faces in two directions.
-		var reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
+		var reversed_mouse_dir: Vector2
+
+		if len(Input.get_connected_joypads()) == 0:
+			# Get the direction from the ArmGun to the mouse.
+			mouse_direction += ((get_global_mouse_position() - (get_parent().position + get_parent().get_parent().position + (Vector2(-12, -18) if get_parent().previous_direction == 1 else Vector2(8, -18)))).normalized() - mouse_direction) * 0.5
+			
+			# Reversed mouse direction because the player faces in two directions.
+			reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
 		
 		# For controller
 		if len(Input.get_connected_joypads()) > 0:
@@ -63,7 +68,7 @@ func _process(_delta):
 				controller_joy_dir_y = Input.get_joy_axis(Input.get_connected_joypads()[0], JOY_AXIS_RIGHT_Y)
 
 			# Override mouse_direction with controller joystick direction.
-			mouse_direction = Vector2(controller_joy_dir_x, controller_joy_dir_y).normalized()
+			mouse_direction += (Vector2(controller_joy_dir_x, controller_joy_dir_y).normalized() - mouse_direction) * 0.25
 			reversed_mouse_dir = Vector2(-mouse_direction.x, mouse_direction.y)
 
 			# The mouse is actually a lot farther away than 1 pixel.
@@ -107,6 +112,10 @@ func _process(_delta):
 
 		# Set rotation of mouse because that looks cool.
 		$CrosshairMouseOverlay.rotation = $Segment3.rotation + deg_to_rad(225)
+		
+		# Point the laser in the direction of the mouse
+		$LinePorabola.points[0] = $Segment3.position
+		$LinePorabola.points[1] = $Segment3.position + mouse_direction * 500
 		
 		# Spawn a bullet if the player presses shoot.
 		if (Input.is_action_pressed("mouse_click") || Input.is_action_pressed("attack")) && $CrosshairMouseOverlay.animation == "Idle":

@@ -178,6 +178,11 @@ mouse_filter = 2
 theme = ExtResource("2_1kp1x")
 color = Color(0, 0, 0, 0)
 
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/ForManipulatingTheseNodes"]
+offset_right = 2020.0
+offset_bottom = 1053.0
+color = Color(0, 0, 0, 0.52549)
+
 [node name="ResumeText" type="Label" parent="CanvasLayer/ForManipulatingTheseNodes"]
 offset_left = 490.0
 offset_top = 476.0

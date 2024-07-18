@@ -1,15 +1,7 @@
-@tool
 extends TextureRect
 class_name ControllerTextureRect
 
-@export var path : String = "":
-	set(_path):
-		path = _path
-		if is_inside_tree():
-			if force_type > 0:
-				texture = ControllerIcons.parse_path(path, force_type - 1)
-			else:
-				texture = ControllerIcons.parse_path(path)
+@export var path : String = ""
 
 @export_enum("Both", "Keyboard/Mouse", "Controller") var show_only : int = 0:
 	set(_show_only):
@@ -40,14 +32,16 @@ func _ready():
 	self.path = path
 	self.max_width = max_width
 
-func _on_input_type_changed(input_type):
-	if show_only == 0 or \
-		(show_only == 1 and input_type == ControllerIcons.InputType.KEYBOARD_MOUSE) or \
-		(show_only == 2 and input_type == ControllerIcons.InputType.CONTROLLER):
-		visible = true
-		self.path = path
+func _process(delta):
+	if len(Input.get_connected_joypads()) > 0 && Input.get_joy_name(0) != "vJoy Device":
+		force_type = 2
+		texture = ControllerIcons.parse_path(path, 1)
 	else:
-		visible = false
+		force_type = 1
+		texture = ControllerIcons.parse_path(path, 0)
+
+func _on_input_type_changed(input_type):
+	pass
 
 func get_tts_string() -> String:
 	if force_type:

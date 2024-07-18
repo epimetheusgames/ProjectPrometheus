@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://t7g6qv74t52o"]
+[gd_scene load_steps=138 format=3 uid="uid://t7g6qv74t52o"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_q3u7p"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="2_vrg08"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="33_yemmr"]
 [ext_resource type="Texture2D" uid="uid://dhbp7wrxw1awv" path="res://Assets/Images/Objects/Props/PropChair.png" id="34_c2lbq"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/33MassiveDroneChase/ENextLevel.gd" id="35_pc451"]
+[ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="39_0wk8q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cx3ih"]
 atlas = ExtResource("3_wxg2b")
@@ -1632,6 +1633,12 @@ script = ExtResource("35_pc451")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENextLevel"]
 position = Vector2(5648.5, 524)
 shape = SubResource("RectangleShape2D_rf3sw")
+
+[node name="SteamPipe" parent="." instance=ExtResource("39_0wk8q")]
+position = Vector2(842, 77)
+
+[node name="SteamPipe2" parent="." instance=ExtResource("39_0wk8q")]
+position = Vector2(1061, 77)
 
 [connection signal="timeout" from="DroneManager/Drone/ExplosionDropper/Timer" to="DroneManager/Drone/ExplosionDropper" method="_on_timer_timeout"]
 [connection signal="finished" from="DroneManager/Drone/HellicopterWoosh" to="DroneManager" method="_on_hellicopter_woosh_finished"]

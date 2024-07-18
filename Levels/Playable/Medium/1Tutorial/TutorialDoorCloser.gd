@@ -18,7 +18,7 @@ var already_entered = false
 func _on_area_entered(area):
 	if area.name == "PlayerHurtbox" && !already_entered:
 		already_entered = true
-		door._on_area_2d_area_entered(area)
+		door._on_area_2d_area_exited(area)
 		door.locked = true
 		door_collision_1.get_node("CollisionShape2D").set_deferred("disabled", false)
 		door_collision_2.get_node("CollisionShape2D").set_deferred("disabled", false)

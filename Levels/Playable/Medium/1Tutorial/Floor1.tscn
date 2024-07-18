@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://duynmnq82mben"]
+[gd_scene load_steps=170 format=3 uid="uid://duynmnq82mben"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
@@ -219,12 +219,12 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_jqowm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
 size = Vector2(40, 64)
 
-[sub_resource type="Gradient" id="Gradient_unp1f"]
+[sub_resource type="Gradient" id="Gradient_072du"]
 offsets = PackedFloat32Array(0.19, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_uyp5a"]
-gradient = SubResource("Gradient_unp1f")
+gradient = SubResource("Gradient_072du")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbeoq"]
 atlas = ExtResource("22_geleh")
@@ -875,6 +875,9 @@ size = Vector2(382, 488)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8byov"]
 size = Vector2(40, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhfa4"]
+size = Vector2(53, 104)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcj7m"]
 size = Vector2(27, 67)
 
@@ -888,21 +891,21 @@ size = Vector2(4, 64)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.513333, 0), -7.04296, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mfiaf"]
+[sub_resource type="CurveTexture" id="CurveTexture_brajh"]
 curve = SubResource("Curve_k5c85")
 
 [sub_resource type="Gradient" id="Gradient_b1cys"]
 offsets = PackedFloat32Array(0, 0.508197, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vyvrj"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a3rfl"]
 gradient = SubResource("Gradient_b1cys")
 
 [sub_resource type="Curve" id="Curve_55fub"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.273333, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_oirbc"]
+[sub_resource type="CurveTexture" id="CurveTexture_4ui4e"]
 curve = SubResource("Curve_55fub")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_66x88"]
@@ -918,12 +921,12 @@ initial_velocity_min = 11.24
 initial_velocity_max = 78.65
 angular_velocity_min = -300.0
 angular_velocity_max = 300.0
-angular_velocity_curve = SubResource("CurveTexture_mfiaf")
+angular_velocity_curve = SubResource("CurveTexture_brajh")
 gravity = Vector3(0, 98, 0)
 damping_min = 12.0
 damping_max = 12.0
-damping_curve = SubResource("CurveTexture_oirbc")
-color_ramp = SubResource("GradientTexture1D_vyvrj")
+damping_curve = SubResource("CurveTexture_4ui4e")
+color_ramp = SubResource("GradientTexture1D_a3rfl")
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_fl7hs")
@@ -1274,6 +1277,9 @@ position = Vector2(1264, -80)
 
 [node name="Camera" parent="Player" index="1"]
 position = Vector2(1264, -80)
+
+[node name="TextHolder" parent="Player/Camera/DQScrollText" index="0"]
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" parent="Player/Camera/CutsceneAnimator/CanvasLayer" index="0"]
 metadata/_edit_use_anchors_ = true
@@ -2039,6 +2045,10 @@ position = Vector2(-2396, 90)
 [node name="SidewaysDoor3" parent="." instance=ExtResource("38_oitav")]
 position = Vector2(-2491, 90)
 
+[node name="CollisionShape2D" parent="SidewaysDoor3/Area2D" index="0"]
+position = Vector2(-28.5, 7)
+shape = SubResource("RectangleShape2D_bhfa4")
+
 [node name="TutorialDoorCloseArea" type="Area2D" parent="." node_paths=PackedStringArray("door", "door_collision_1", "door_collision_2", "mist_particles_1", "mist_particles_2")]
 position = Vector2(-2435, 97)
 script = ExtResource("44_xp1je")
@@ -2186,5 +2196,7 @@ polygon = PackedVector2Array(16, -33, 12, 45, -49, 28)
 [editable path="PistonSmasher"]
 [editable path="PistonSmasher2"]
 [editable path="Player"]
+[editable path="SidewaysDoor2"]
+[editable path="SidewaysDoor3"]
 [editable path="PistonSmasher3"]
 [editable path="PistonSmasher4"]
