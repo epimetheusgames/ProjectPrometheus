@@ -7,7 +7,7 @@ var no_death = false
 var takeover_control = false
 var velocity = Vector2(0, -0.1)
 
-@onready var loaded_boss_music = preload("res://Assets/Audio/Music/BossMusic.ogg")
+@onready var loaded_boss_music = preload("res://Assets/Audio/Music/BossTheme3.wav")
 		
 @onready var raycasts = [
 			$CharacterBody2D/RayCast2D,
@@ -67,6 +67,10 @@ func get_horizontal_direction_pressed():
 func get_vertical_direction_pressed():
 	return Input.get_axis("jump" if len(Input.get_connected_joypads()) < 1 else "joy_up", "down")
 
+func _ready():
+	if !get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream == loaded_boss_music:
+		get_tree().get_root().get_node("Root").get_node("SaveLoadFramework").get_node("SpecialAudioPlayer").stream = loaded_boss_music
+
 func _process(delta):
 	if !active:
 		$ShipMovementControlEIconActivator/CollisionShape2D.disabled = true
@@ -90,6 +94,7 @@ func _process(delta):
 			missile_object.velocity.x = 15
 			missile_object.position = position + $MissileFirePosition.position
 			missile_object.gravity = false
+			missile_object.wait_to_activate_collision = true
 			missile_object.get_node("Sprite2D").texture = loaded_missile_sprite
 			missile_object.get_node("Sprite2D").scale = Vector2(-1, 1)
 			missile_object.get_node("Sprite2D").rotation_degrees = -90

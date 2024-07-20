@@ -14,7 +14,7 @@ func _on_area_entered(area):
 			get_parent().get_parent().boss = false
 
 func _on_area_exited(area):
-	if area.name == "PlayerHurtbox":
+	if area.name == "PlayerHurtbox" && temporary:
 		if !double_get_parent:
 			get_parent().no_timer = false
 		else:

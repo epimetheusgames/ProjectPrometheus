@@ -447,7 +447,7 @@ shader_parameter/speed = Vector2(0.02, 0.006)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_tyf37")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28rdf"]
-size = Vector2(290, 70)
+size = Vector2(290, 423)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aues"]
 shader = ExtResource("15_86obi")
@@ -698,7 +698,7 @@ position = Vector2(-545, -303)
 [node name="BossBar" parent="Player/Camera" index="8"]
 metadata/_edit_use_anchors_ = true
 
-[node name="AbilityManager" parent="Player/Camera" index="9"]
+[node name="AbilityManager" parent="Player/Camera" index="10"]
 start_ability = 2
 
 [node name="PointLight2D" parent="Player" index="14"]
@@ -735,9 +735,10 @@ position = Vector2(4, -91)
 
 [node name="NextLevel" type="Area2D" parent="."]
 script = ExtResource("13_2loc3")
+auto_next = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(6792, 1475)
+position = Vector2(6792, 1651.5)
 shape = SubResource("RectangleShape2D_28rdf")
 
 [node name="AmbiantBackground" type="AudioStreamPlayer" parent="."]
@@ -5543,6 +5544,7 @@ position = Vector2(1659, 496)
 [connection signal="animation_finished" from="ElevatorManager/AnimationPlayer" to="ElevatorManager" method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="ElevatorManager2/Area2D" to="ElevatorManager2" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ElevatorManager2/Area2D" to="ElevatorManager2" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="TimerDisabler2" to="TimerDisabler2" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="DroneManager"]

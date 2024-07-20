@@ -102,7 +102,7 @@ func _physics_process(delta):
 					get_parent().velocity = (hook.position - get_parent().position).normalized() * 5
 					$GrappleUp.stop()
 				if air_grapling:
-					get_parent().velocity *= 3
+					get_parent().velocity *= 8
 			
 			get_parent().disable_speed_cap = false
 			get_parent().low_gravity = false

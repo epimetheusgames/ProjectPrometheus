@@ -50,7 +50,7 @@ func _process(delta):
 	original_scale = Vector2(1.5, 1.5)
 	original_pos = Vector2(0, 137)
 	
-	position = original_pos * (4 / get_parent().zoom.x)
+	position = original_pos * (4 / get_parent().zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 	scale = original_scale * (4 / get_parent().zoom.x)
 	
 	if !get_parent().get_parent().get_parent().no_timer:

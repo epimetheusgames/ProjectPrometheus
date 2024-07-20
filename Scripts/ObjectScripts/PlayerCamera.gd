@@ -61,32 +61,39 @@ func _process(delta):
 	var original_scale = Vector2(0.25, 0.25)
 	var original_pos = Vector2(-236, 117)
 	
-	$FPSCounter.position = original_pos * (4 / zoom.x)
-	$FPSCounter.scale = original_scale * (4 / zoom.x)
+	$FPSCounter.position = original_pos * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$FPSCounter.scale = original_scale * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 			
 	original_scale = Vector2(0.25, 0.25)
 	original_pos = Vector2(61, -133)
 	
-	$PointsCounter.position = original_pos * (4 / zoom.x)
-	$PointsCounter.scale = original_scale * (4 / zoom.x)
+	$PointsCounter.position = original_pos * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$PointsCounter.scale = original_scale * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 	
 	original_scale = Vector2(0.25, 0.25)
 	original_pos = Vector2(-236, -134)
 	
-	$TimeCounter.position = original_pos * (4 / zoom.x)
-	$TimeCounter.scale = original_scale * (4 / zoom.x)
+	$TimeCounter.position = original_pos * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$TimeCounter.scale = original_scale * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 	
 	original_scale = Vector2(1.35, 1.35)
 	original_pos = Vector2(0, -122)
 	
-	$ObjectiveBoxManager.scale = original_scale * (4 / zoom.x)
-	$ObjectiveBoxManager.position = original_pos * (4 / zoom.x)
+	$ObjectiveBoxManager.scale = original_scale * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$ObjectiveBoxManager.position = original_pos * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 	
 	original_scale = Vector2(1, 1)
 	original_pos = Vector2(104, 0)
 	
-	$DQScrollText.scale = original_scale * (4 / zoom.x)
-	$DQScrollText.position = original_pos * (4 / zoom.x)
+	$DQScrollText.scale = original_scale * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$DQScrollText.position = original_pos * (4 / zoom.x) * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	
+	original_scale = Vector2(1, 1)
+	original_pos = Vector2(959.25, 540.5)
+	
+	# TODO: Swap out sprites instead.
+	$CrtOverlay/CrtOverlaySprite.scale = original_scale * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
+	$CrtOverlay/CrtOverlaySprite.position = original_pos * Vector2(get_viewport_rect().size.x / 1920, get_viewport_rect().size.y / 1080)
 
 # Whar.
 func open_dialogue_box():

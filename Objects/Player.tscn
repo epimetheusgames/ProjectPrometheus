@@ -1711,7 +1711,6 @@ metadata/_edit_use_anchors_ = true
 [node name="CrtOverlaySprite" type="Sprite2D" parent="Camera/CrtOverlay"]
 z_index = 50
 position = Vector2(959.25, 540.5)
-scale = Vector2(0.99974, 1.00093)
 texture = ExtResource("25_01sqx")
 
 [node name="Player" type="CharacterBody2D" parent="."]
@@ -1780,6 +1779,7 @@ volume_db = -8.857
 bus = &"MediumSpaceSFX"
 
 [node name="LinePorabola" type="Line2D" parent="Player/ArmGunManager"]
+visible = false
 clip_children = 1
 texture_filter = 4
 points = PackedVector2Array(-12, -19, 42, -17)

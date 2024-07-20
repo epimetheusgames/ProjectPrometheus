@@ -449,19 +449,19 @@ texture_filter = 1
 
 [node name="MainMenuBackground" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(958.5, 538.5)
+position = Vector2(958.5, 530.5)
 scale = Vector2(7.65234, 7.6875)
 texture = ExtResource("2_cjyfc")
 
 [node name="CharacterBackSword" type="Sprite2D" parent="Background"]
 modulate = Color(0.678431, 0.678431, 0.678431, 1)
 z_index = 1
-position = Vector2(968, 776)
+position = Vector2(968, 768)
 scale = Vector2(6, 6)
 texture = ExtResource("3_whw4v")
 
 [node name="Mark8Terminal" parent="Background" instance=ExtResource("7_45vfl")]
-position = Vector2(953, 275)
+position = Vector2(953, 267)
 bus = 1
 offset = 1
 
@@ -477,6 +477,7 @@ scale = Vector2(7.645, 7.645)
 [node name="DronePile" type="Node2D" parent="Background"]
 modulate = Color(0.392157, 0.392157, 0.392157, 1)
 z_index = 1
+position = Vector2(0, -8)
 
 [node name="Polygon2D" type="Polygon2D" parent="Background/DronePile"]
 color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -657,6 +658,7 @@ sprite_frames = SubResource("SpriteFrames_hqegk")
 
 [node name="Polygon2D" type="Polygon2D" parent="Background"]
 z_index = 1
+position = Vector2(0, -8)
 color = Color(0.00784314, 0.00784314, 0.00784314, 0.290196)
 antialiased = true
 polygon = PackedVector2Array(926, 866, 882, 1081, 1058, 1081, 1010, 854, 986, 854, 987, 935, 956, 935, 950, 866)

@@ -176,6 +176,10 @@ func _process(_delta):
 			
 		get_node(hovered_button).visible = true
 		
+		# Handle irregular screen sizes in menu.
+		$Background.scale = Vector2(get_viewport_rect().size.y / 1080, get_viewport_rect().size.y / 1080)
+		$Background.position = Vector2((get_viewport_rect().size.x - get_viewport_rect().size.x * $Background.scale.x) / 2, (get_viewport_rect().size.y - get_viewport_rect().size.y * $Background.scale.y) / 2)
+		
 		# Move the background towards the mouse, not sure if we want this.
 		#$Background.position = background_original_pos + get_local_mouse_position() / 100
 
@@ -421,3 +425,4 @@ func _on_special_music_fade_out_timer_timeout():
 func _on_select_level_back_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectLevelMenuRiseFromDepthsAnimation")
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")
+

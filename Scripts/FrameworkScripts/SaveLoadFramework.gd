@@ -444,6 +444,8 @@ func _process(delta):
 	
 	if len(get_parent().get_node("Level").get_children()) > 1:
 		get_parent().get_node("Level").get_children()[-1].queue_free()
+	
+	$AchievementPopup/Container.position = Vector2(get_viewport_rect().size.x - 1920, get_viewport_rect().size.y - 1080)
 
 # Save game via its respective slot.
 func save_game(content, save_num):

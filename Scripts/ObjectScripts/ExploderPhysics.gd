@@ -11,12 +11,18 @@ extends Node2D
 
 var velocity = Vector2.ZERO
 var exploded = false
+@export var wait_to_activate_collision = false
 @export var no_damage = false
 @export var gravity = true
 @onready var player = get_parent().get_node("Player").get_node("Player")
 
 func _ready():
 	$ExplosionHitbox/CollisionShape2D.shape = $ExplosionHitbox/CollisionShape2D.shape.duplicate()
+	
+	if wait_to_activate_collision:
+		$CollisionActivationTimer.start()
+	else:
+		$ExplosionHitbox/CollisionShape2D.disabled = false
 
 func _on_explosion_hitbox_body_entered(body):
 	if !exploded:
@@ -49,3 +55,6 @@ func _on_timer_timeout():
 
 func _on_timer_2_timeout():
 	$ExplosionHitbox.queue_free()
+
+func _on_collision_activation_timer_timeout():
+	$ExplosionHitbox/CollisionShape2D.disabled = false

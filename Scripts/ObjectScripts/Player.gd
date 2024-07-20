@@ -932,6 +932,7 @@ func _on_spike_hurt_box_body_entered(body):
 	if body.name == "Spikes":
 		get_parent().get_parent().get_parent().get_parent().get_node("SaveLoadFramework").get_node("VoicelinePlayer").death_by_hazard()
 		get_parent().get_node("Camera/CloseAnimator").closing = true
+		velocity = -velocity
 
 # Set multiplayer, it's not unreliable this just makes it faster or something.
 @rpc("unreliable")
