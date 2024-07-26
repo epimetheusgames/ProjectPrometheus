@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dgpt1q7317noh"]
+[gd_scene load_steps=88 format=3 uid="uid://dgpt1q7317noh"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_cmf1l"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_15djx"]
@@ -17,7 +17,6 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_86obi"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="16_mljpm"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_qjykc"]
-[ext_resource type="PackedScene" uid="uid://ces80e2ev3flu" path="res://Objects/StaticObjects/AttackMele.tscn" id="19_o1ebc"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="20_27b7i"]
 [ext_resource type="PackedScene" uid="uid://qvsrwgkheuap" path="res://Objects/StaticObjects/Artifact.tscn" id="21_8nsv3"]
 [ext_resource type="Texture2D" uid="uid://cdxvgm1lfk23y" path="res://Assets/Images/Objects/Props/PropTrunkMiddle.png" id="22_cwwka"]
@@ -34,8 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://dary5muymue13" path="res://Objects/StaticObjects/BGLeafBunch.tscn" id="33_e28eo"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="34_6ntr8"]
 [ext_resource type="Texture2D" uid="uid://dgpt4u3xygxnc" path="res://Assets/Images/Objects/Enemy/EvilBird.png" id="35_yhvx7"]
-[ext_resource type="Texture2D" uid="uid://bkuhx6xm405i1" path="res://Assets/Images/Objects/Props/PropLargeBush.png" id="36_aajqt"]
-[ext_resource type="Texture2D" uid="uid://6ocnahhe2c0v" path="res://Assets/Images/Objects/Props/PropGiganticBush.png" id="37_kcmtn"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="37_rmto2"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="38_ms1na"]
 [ext_resource type="PackedScene" uid="uid://bqpcogb5wnma" path="res://Objects/StaticObjects/Firefly.tscn" id="40_bqd3p"]
@@ -44,10 +41,17 @@
 [ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="44_kt648"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="45_88bri"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="46_oiufj"]
+[ext_resource type="Texture2D" uid="uid://cxefr7dc0y3xx" path="res://Assets/Images/Objects/Props/Grass.png" id="46_pt6ub"]
 [ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="46_xf27h"]
 [ext_resource type="Texture2D" uid="uid://flrsmalygi3x" path="res://Assets/Images/Objects/FunctionalProps/GrappleRailRopeHook.png" id="47_48x6f"]
+[ext_resource type="Texture2D" uid="uid://doxfcqj1or5pb" path="res://Assets/Images/Objects/Props/TallGrass.png" id="47_ls6uk"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="47_qe8uy"]
+[ext_resource type="Texture2D" uid="uid://deqy164cqx38a" path="res://Assets/Images/Objects/Props/DrapeVine.png" id="48_lockf"]
 [ext_resource type="PackedScene" uid="uid://l211bcssnggm" path="res://Objects/StaticObjects/GrappleHookRail.tscn" id="48_usdim"]
+[ext_resource type="Texture2D" uid="uid://cosyu1tmt6cgd" path="res://Assets/Images/Objects/Props/DrapeVineLong.png" id="49_5tq80"]
+[ext_resource type="PackedScene" uid="uid://n0730mrns6er" path="res://Objects/StaticObjects/TimerEnabler.tscn" id="50_xejmu"]
+[ext_resource type="Texture2D" uid="uid://b1vsc13vy0fcf" path="res://Assets/Images/Objects/Props/DrapeVineReallyLong.png" id="51_4k3bi"]
+[ext_resource type="Texture2D" uid="uid://vn6bmqsnus6g" path="res://Assets/Images/Objects/Props/LightMoss.png" id="52_5tjya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_15djx")
@@ -629,8 +633,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22sb5"]
 size = Vector2(93.8335, 131.946)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at2cp"]
+size = Vector2(4397, 622)
+
 [node name="Level5" type="Node2D"]
-position = Vector2(-72, 0)
 script = ExtResource("1_cmf1l")
 level = 4
 
@@ -675,7 +681,7 @@ self_modulate = Color(1.7, 1.7, 1.7, 1)
 tile_set = ExtResource("9_j1xc2")
 rendering_quadrant_size = 32
 format = 2
-layer_0/tile_data = PackedInt32Array(983096, 65536, 1, 983097, 196608, 1, 262201, 65536, 3, 327737, 65536, 3, 393273, 65536, 3, 458809, 65536, 3, 524345, 65536, 3, 589881, 65536, 3, 655417, 65536, 3, 720953, 65536, 3, 786489, 65536, 3, 852025, 65536, 3, 262200, 0, 3, 327736, 0, 3, 393272, 0, 3, 458808, 0, 3, 524344, 0, 3, 589880, 0, 3, 655416, 0, 3, 720952, 0, 3, 786488, 0, 3, 852024, 0, 3, 56, 0, 3, 65592, 0, 3, 131128, 0, 3, 196664, 0, 3, 57, 65536, 3, 65593, 65536, 3, 131129, 65536, 3, 196665, 65536, 3, -327688, 65536, 0, -327687, 196608, 0, -524296, 65536, 0, -524295, 131072, 0, -524294, 196608, 0, -655372, 0, 2, -589836, 0, 3, -524300, 0, 3, -458764, 0, 3, -393228, 0, 3, -327692, 0, 4, -655371, 65536, 1, -655370, 196608, 1, -655355, 65536, 0, -655354, 196608, 0, 1048655, 1, 0, 1114193, 1, 0, 1114194, 1, 0, 1114196, 1, 0, 983118, 1, 0, 983114, 1, 0, 983115, 1, 0, 983116, 1, 0, 1114195, 1, 0, 1114198, 1, 0, 1114199, 1, 0, 1114200, 1, 0, 1114201, 1, 0, 1114202, 1, 0, 1114203, 1, 0, 1114204, 1, 0, 1114205, 1, 0, 1114206, 1, 0, 1114207, 1, 0, 1114175, 1, 0, 1114176, 1, 0, 1114177, 1, 0, 1245284, 1, 0, 1245285, 1, 0, 1245286, 1, 0, 1245287, 1, 0, 1245288, 1, 0, 1245289, 1, 0, 1245290, 1, 0, 1245291, 1, 0, 1245292, 1, 0, 1245293, 1, 0, 1245294, 1, 0, 1245295, 1, 0, 1245296, 1, 0, 1245297, 1, 0, 1245298, 1, 0, 1245299, 1, 0, 1179746, 1, 0, 1179747, 1, 0, 1179766, 1, 0, 1179767, 1, 0, 1179768, 1, 0, 1179774, 1, 0, 1179775, 1, 0, 1179773, 1, 0, 1179772, 1, 0, 1179771, 1, 0, 1179770, 1, 0, 1179769, 1, 0, 590019, 65536, 1, 590020, 196608, 1, 458947, 0, 3, 393411, 0, 3, 327875, 0, 3, 262339, 0, 3, 195, 0, 3, 65731, 0, 3, 131267, 0, 3, 196803, 0, 3, 196, 65536, 3, 65732, 65536, 3, 131268, 65536, 3, 196804, 65536, 3, 262340, 65536, 3, 327876, 65536, 3, 393412, 65536, 3, 458948, 65536, 3, 917656, 1, 0, 917657, 1, 0, 917658, 1, 0, 917675, 1, 0, 1376251, 1, 0, 1376252, 1, 0, 1376253, 1, 0, 1376254, 1, 0, 720895, 65536, 0, 1376255, 1, 0, 655360, 196608, 0, 1310720, 1, 0, 1310721, 1, 0, 524290, 65536, 1, 655362, 65536, 0, 1310722, 1, 0, 524291, 131072, 1, 655363, 131072, 0, 1310723, 1, 0, 524292, 196608, 1, 655364, 196608, 0, 1310724, 1, 0, 1048581, 1, 0, 1310725, 1, 0, 655366, 65536, 0, 655367, 196608, 0, 458764, 0, 0, 524302, 0, 2, 589838, 0, 3, 655374, 0, 4, 720911, 0, 2, 786447, 0, 3, 851983, 0, 4, 917520, 0, 2, 983056, 0, 4, -524232, 0, 3, -458696, 0, 3, -393160, 0, 3, -327624, 0, 3, -262088, 0, 3, -196552, 0, 3, -131016, 0, 3, -65480, 0, 3, -524231, 65536, 3, -458695, 65536, 3, -393159, 65536, 3, -327623, 65536, 3, -262087, 65536, 3, -196551, 65536, 3, -131015, 65536, 3, -65479, 65536, 3, -524093, 0, 3, -458557, 0, 3, -393021, 0, 3, -327485, 0, 3, -261949, 0, 3, -196413, 0, 3, -130877, 0, 3, -65341, 0, 3, -524092, 65536, 3, -458556, 65536, 3, -393020, 65536, 3, -327484, 65536, 3, -261948, 65536, 3, -196412, 65536, 3, -130876, 65536, 3, -65340, 65536, 3, -589628, 65536, 3, -655164, 65536, 3, -720700, 65536, 3, -786236, 65536, 3, -851772, 65536, 3, -917308, 65536, 3, -982844, 65536, 3, -1048380, 65536, 3, -1113916, 65536, 3, -1113917, 0, 3, -1048381, 0, 3, -982845, 0, 3, -917309, 0, 3, -851773, 0, 3, -786237, 0, 3, -720701, 0, 3, -655165, 0, 3, -589629, 0, 3, 1048715, 1, 0, 1048716, 1, 0, 1048717, 1, 0, 1048718, 1, 0, 1048719, 1, 0, 1179793, 1, 0, 1179797, 1, 0)
+layer_0/tile_data = PackedInt32Array(983096, 65536, 1, 983097, 196608, 1, 262201, 65536, 3, 327737, 65536, 3, 393273, 65536, 3, 458809, 65536, 3, 524345, 65536, 3, 589881, 65536, 3, 655417, 65536, 3, 720953, 65536, 3, 786489, 65536, 3, 852025, 65536, 3, 262200, 0, 3, 327736, 0, 3, 393272, 0, 3, 458808, 0, 3, 524344, 0, 3, 589880, 0, 3, 655416, 0, 3, 720952, 0, 3, 786488, 0, 3, 852024, 0, 3, 56, 0, 3, 65592, 0, 3, 131128, 0, 3, 196664, 0, 3, 57, 65536, 3, 65593, 65536, 3, 131129, 65536, 3, 196665, 65536, 3, -327688, 65536, 0, -327687, 196608, 0, -524296, 65536, 0, -524295, 131072, 0, -524294, 196608, 0, -655372, 0, 2, -589836, 0, 3, -524300, 0, 3, -458764, 0, 3, -393228, 0, 3, -327692, 0, 4, -655371, 65536, 1, -655370, 196608, 1, -655355, 65536, 0, -655354, 196608, 0, 1048655, 1, 0, 1114193, 1, 0, 1114194, 1, 0, 1114196, 1, 0, 983118, 1, 0, 983114, 1, 0, 983115, 1, 0, 983116, 1, 0, 1114195, 1, 0, 1114198, 1, 0, 1114199, 1, 0, 1114200, 1, 0, 1114201, 1, 0, 1114202, 1, 0, 1114203, 1, 0, 1114204, 1, 0, 1114205, 1, 0, 1114206, 1, 0, 1114207, 1, 0, 1179766, 1, 0, 1179767, 1, 0, 1179768, 1, 0, 1179774, 1, 0, 1179775, 1, 0, 1179773, 1, 0, 1179772, 1, 0, 1179771, 1, 0, 1179770, 1, 0, 1179769, 1, 0, 590019, 65536, 1, 590020, 196608, 1, 458947, 0, 3, 393411, 0, 3, 327875, 0, 3, 262339, 0, 3, 195, 0, 3, 65731, 0, 3, 131267, 0, 3, 196803, 0, 3, 196, 65536, 3, 65732, 65536, 3, 131268, 65536, 3, 196804, 65536, 3, 262340, 65536, 3, 327876, 65536, 3, 393412, 65536, 3, 458948, 65536, 3, 917656, 1, 0, 917657, 1, 0, 917658, 1, 0, 1376251, 1, 0, 1376252, 1, 0, 1376253, 1, 0, 1376254, 1, 0, 720895, 65536, 0, 1376255, 1, 0, 655360, 196608, 0, 1310720, 1, 0, 1310721, 1, 0, 524290, 65536, 1, 655362, 65536, 0, 1310722, 1, 0, 524291, 131072, 1, 655363, 131072, 0, 1310723, 1, 0, 524292, 196608, 1, 655364, 196608, 0, 1310724, 1, 0, 1048581, 1, 0, 1310725, 1, 0, 655366, 65536, 0, 655367, 196608, 0, 458764, 0, 0, 524302, 0, 2, 589838, 0, 3, 655374, 0, 4, 720911, 0, 2, 786447, 0, 3, 851983, 0, 4, 917520, 0, 2, 983056, 0, 4, -524232, 0, 3, -458696, 0, 3, -393160, 0, 3, -327624, 0, 3, -262088, 0, 3, -196552, 0, 3, -131016, 0, 3, -65480, 0, 3, -524231, 65536, 3, -458695, 65536, 3, -393159, 65536, 3, -327623, 65536, 3, -262087, 65536, 3, -196551, 65536, 3, -131015, 65536, 3, -65479, 65536, 3, -524093, 0, 3, -458557, 0, 3, -393021, 0, 3, -327485, 0, 3, -261949, 0, 3, -196413, 0, 3, -130877, 0, 3, -65341, 0, 3, -524092, 65536, 3, -458556, 65536, 3, -393020, 65536, 3, -327484, 65536, 3, -261948, 65536, 3, -196412, 65536, 3, -130876, 65536, 3, -65340, 65536, 3, -589628, 65536, 3, -655164, 65536, 3, -720700, 65536, 3, -786236, 65536, 3, -851772, 65536, 3, -917308, 65536, 3, -982844, 65536, 3, -1048380, 65536, 3, -1113916, 65536, 3, -1113917, 0, 3, -1048381, 0, 3, -982845, 0, 3, -917309, 0, 3, -851773, 0, 3, -786237, 0, 3, -720701, 0, 3, -655165, 0, 3, -589629, 0, 3, 1048715, 1, 0, 1048716, 1, 0, 1048717, 1, 0, 1048718, 1, 0, 1048719, 1, 0, 1179793, 1, 0, 1179797, 1, 0)
 
 [node name="TransparentMetal" type="TileMap" parent="."]
 modulate = Color(1, 1, 1, 0.290196)
@@ -689,6 +695,9 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 polygon = PackedVector2Array(3873, 35, 4303, 219, 4923, 246, 5381, 73)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(4769, 702, 5009, 531, 5743, 522, 5987, 428, 6490, 589, 6255, 822, 4409, 904, 2362, 849, 3162, 677, 3790, 677)
 
 [node name="Player" parent="." instance=ExtResource("11_dl7ks")]
 
@@ -769,7 +778,7 @@ position = Vector2(1888, 415)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(392, 48)
-polygon = PackedVector2Array(3752, 393, 3757, 412, 3415, 527, 3356, 528)
+polygon = PackedVector2Array(3804, 373, 3757, 412, 3415, 527, 3356, 528)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D2"]
 visible = false
@@ -789,31 +798,13 @@ polygon = PackedVector2Array(2745.78, 479.802, 2764, 478, 2784, 467, 2804, 450, 
 position = Vector2(248, -32)
 polygon = PackedVector2Array(2668, 420, 2696.63, 440.406, 2711, 446, 2745, 448, 2703, 452, 2693, 443)
 
-[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(768, 64)
-polygon = PackedVector2Array(2668, 422, 2696.63, 440.406, 2711, 446, 2745, 448, 2746, 461, 2724, 459, 2693, 443)
-
-[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(776, 88)
-polygon = PackedVector2Array(2739, 466, 2740, 456, 2758, 453, 2769, 447, 2776, 443, 2783, 439, 2787, 457, 2770, 462, 2759, 466)
-
 [node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(248, 64)
 polygon = PackedVector2Array(2668, 422, 2696.63, 440.406, 2711, 446, 2745, 448, 2725, 459, 2693, 443)
 
-[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(592, 66)
-polygon = PackedVector2Array(2668, 422, 2696.63, 440.406, 2711, 446, 2738, 450, 2738, 480.358, 2801, 484, 2820, 487, 2819.08, 532.806, 2827, 536, 2841, 532, 2865, 522, 2810, 557, 2724, 493, 2725, 459, 2693, 443)
-
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(3, -27)
 polygon = PackedVector2Array(4184, 533, 4197, 531, 4209, 527, 4236, 519, 4184, 544)
-
-[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(3680, 528, 3707, 541, 3734, 547, 3736, 538, 3718, 537, 3701, 534, 3685, 526, 3663, 508)
-
-[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(3737, 494, 3760, 483, 3778, 468, 3757, 478, 3739, 483)
 
 [node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2(-224, -24)
@@ -857,14 +848,6 @@ item_switch_type = "RocketBoost"
 position = Vector2(4656, 277)
 rotation = 3.10669
 item_switch_type = "ArmGun"
-
-[node name="AttackMele2" parent="." instance=ExtResource("19_o1ebc")]
-z_index = 60
-position = Vector2(5438, 420)
-
-[node name="AttackMele3" parent="." instance=ExtResource("19_o1ebc")]
-z_index = 60
-position = Vector2(5361, 424)
 
 [node name="Checkpoint" parent="." instance=ExtResource("20_27b7i")]
 position = Vector2(1712, 560)
@@ -1847,8 +1830,18 @@ rotation = 0.767945
 texture = ExtResource("29_8l1iq")
 
 [node name="PropTwig117" type="Sprite2D" parent="."]
-position = Vector2(4317, 393)
+position = Vector2(4307, 385)
 rotation = -0.933751
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig119" type="Sprite2D" parent="."]
+position = Vector2(4296, 379)
+rotation = -1.07711
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig121" type="Sprite2D" parent="."]
+position = Vector2(4283, 373)
+rotation = -1.14686
 texture = ExtResource("29_8l1iq")
 
 [node name="Trunk194" type="Sprite2D" parent="."]
@@ -1862,11 +1855,6 @@ texture = ExtResource("28_qmoel")
 [node name="PropTwig118" type="Sprite2D" parent="."]
 position = Vector2(4440, 425)
 rotation = 0.767945
-texture = ExtResource("29_8l1iq")
-
-[node name="PropTwig119" type="Sprite2D" parent="."]
-position = Vector2(4317, 393)
-rotation = -0.933751
 texture = ExtResource("29_8l1iq")
 
 [node name="Trunk195" type="Sprite2D" parent="."]
@@ -1894,11 +1882,6 @@ position = Vector2(4440, 425)
 rotation = 0.767945
 texture = ExtResource("29_8l1iq")
 
-[node name="PropTwig121" type="Sprite2D" parent="."]
-position = Vector2(4317, 393)
-rotation = -0.933751
-texture = ExtResource("29_8l1iq")
-
 [node name="Trunk198" type="Sprite2D" parent="."]
 position = Vector2(4376, 399)
 texture = ExtResource("22_cwwka")
@@ -1914,11 +1897,6 @@ texture = ExtResource("28_qmoel")
 [node name="PropTwig122" type="Sprite2D" parent="."]
 position = Vector2(4440, 425)
 rotation = 0.767945
-texture = ExtResource("29_8l1iq")
-
-[node name="PropTwig123" type="Sprite2D" parent="."]
-position = Vector2(4317, 393)
-rotation = -0.933751
 texture = ExtResource("29_8l1iq")
 
 [node name="Trunk199" type="Sprite2D" parent="."]
@@ -2854,6 +2832,57 @@ position = Vector2(2002, 489)
 
 [node name="BGLeafBunch165" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(1983, 487)
+
+[node name="BGLeafBunch401" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1983, 567)
+
+[node name="BGLeafBunch402" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(2007, 567)
+
+[node name="BGLeafBunch403" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1995, 554)
+
+[node name="BGLeafBunch404" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1979, 554)
+
+[node name="BGLeafBunch405" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1979, 538)
+
+[node name="BGLeafBunch406" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1979, 522)
+
+[node name="BGLeafBunch407" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1979, 506)
+
+[node name="BGLeafBunch408" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1963, 490)
+
+[node name="BGLeafBunch409" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1955, 474)
+
+[node name="BGLeafBunch410" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1939, 466)
+
+[node name="BGLeafBunch411" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1939, 482)
+
+[node name="BGLeafBunch412" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1931, 490)
+
+[node name="BGLeafBunch413" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1955, 498)
+
+[node name="BGLeafBunch414" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1971, 514)
+
+[node name="BGLeafBunch415" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1971, 538)
+
+[node name="BGLeafBunch416" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1971, 522)
+
+[node name="BGLeafBunch417" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(1971, 538)
 
 [node name="BGLeafBunch166" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(2024, 468)
@@ -3909,7 +3938,7 @@ rotation = -0.933751
 texture = ExtResource("29_8l1iq")
 
 [node name="PropBranch51" type="Sprite2D" parent="."]
-position = Vector2(5628, 381)
+position = Vector2(5627, 381)
 texture = ExtResource("30_lqdv7")
 
 [node name="PropBranch52" type="Sprite2D" parent="."]
@@ -3979,6 +4008,55 @@ position = Vector2(5581, 321)
 
 [node name="LeafBunch190" parent="." instance=ExtResource("32_sssd4")]
 position = Vector2(5644, 372)
+
+[node name="LeafBunch389" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5644, 372)
+
+[node name="LeafBunch390" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5644, 372)
+
+[node name="LeafBunch391" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5604, 468)
+
+[node name="LeafBunch392" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5604, 444)
+
+[node name="LeafBunch393" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5572, 468)
+
+[node name="LeafBunch397" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5550, 469)
+rotation = 0.972218
+
+[node name="LeafBunch398" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5548, 444)
+
+[node name="LeafBunch399" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5532, 460)
+
+[node name="LeafBunch400" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5524, 467)
+
+[node name="LeafBunch404" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5171, 466)
+
+[node name="LeafBunch401" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5508, 466)
+
+[node name="LeafBunch402" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5508, 444)
+
+[node name="LeafBunch403" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5524, 436)
+
+[node name="LeafBunch394" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5580, 452)
+
+[node name="LeafBunch395" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5572, 444)
+
+[node name="LeafBunch396" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(5588, 436)
 
 [node name="BGLeafBunch110" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(5623, 371)
@@ -4118,6 +4196,416 @@ position = Vector2(5260, 371)
 [node name="BGLeafBunch134" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(5223, 372)
 
+[node name="BGLeafBunch171" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5191, 380)
+
+[node name="BGLeafBunch172" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5175, 396)
+
+[node name="BGLeafBunch173" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5159, 412)
+
+[node name="BGLeafBunch174" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5159, 428)
+
+[node name="BGLeafBunch175" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5175, 412)
+
+[node name="BGLeafBunch176" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5191, 396)
+
+[node name="BGLeafBunch177" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5215, 388)
+
+[node name="BGLeafBunch178" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5247, 388)
+
+[node name="BGLeafBunch179" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5255, 404)
+
+[node name="BGLeafBunch180" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5271, 420)
+
+[node name="BGLeafBunch181" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5271, 436)
+
+[node name="BGLeafBunch182" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5271, 452)
+
+[node name="BGLeafBunch183" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5279, 468)
+
+[node name="BGLeafBunch184" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5295, 468)
+
+[node name="BGLeafBunch185" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5319, 468)
+
+[node name="BGLeafBunch186" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5343, 468)
+
+[node name="BGLeafBunch187" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5367, 468)
+
+[node name="BGLeafBunch188" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5367, 444)
+
+[node name="BGLeafBunch206" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5399, 308)
+
+[node name="BGLeafBunch207" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5399, 325)
+
+[node name="BGLeafBunch208" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5391, 341)
+
+[node name="BGLeafBunch209" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5399, 349)
+
+[node name="BGLeafBunch210" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5399, 365)
+
+[node name="BGLeafBunch211" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5391, 293)
+
+[node name="BGLeafBunch212" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5391, 317)
+
+[node name="BGLeafBunch213" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5391, 381)
+
+[node name="BGLeafBunch214" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5375, 397)
+
+[node name="BGLeafBunch215" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5392, 406)
+
+[node name="BGLeafBunch216" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5400, 390)
+
+[node name="BGLeafBunch217" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5408, 382)
+
+[node name="BGLeafBunch218" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5408, 414)
+
+[node name="BGLeafBunch219" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5440, 438)
+
+[node name="BGLeafBunch220" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5456, 430)
+
+[node name="BGLeafBunch221" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5480, 430)
+
+[node name="BGLeafBunch222" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5496, 438)
+
+[node name="BGLeafBunch223" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5496, 454)
+
+[node name="BGLeafBunch224" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5496, 469)
+
+[node name="BGLeafBunch225" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5472, 470)
+
+[node name="BGLeafBunch226" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5472, 446)
+
+[node name="BGLeafBunch227" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5456, 454)
+
+[node name="BGLeafBunch228" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5456, 470)
+
+[node name="BGLeafBunch229" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5432, 470)
+
+[node name="BGLeafBunch230" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5432, 454)
+
+[node name="BGLeafBunch231" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5432, 454)
+
+[node name="BGLeafBunch232" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5584, 422)
+
+[node name="BGLeafBunch233" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5568, 430)
+
+[node name="BGLeafBunch234" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5576, 406)
+
+[node name="BGLeafBunch337" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5616, 398)
+
+[node name="BGLeafBunch338" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5632, 382)
+
+[node name="BGLeafBunch339" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5648, 366)
+
+[node name="BGLeafBunch340" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5664, 350)
+
+[node name="BGLeafBunch341" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5680, 342)
+
+[node name="BGLeafBunch342" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5704, 342)
+
+[node name="BGLeafBunch343" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5736, 342)
+
+[node name="BGLeafBunch344" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5752, 342)
+
+[node name="BGLeafBunch345" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5752, 366)
+
+[node name="BGLeafBunch346" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5768, 374)
+
+[node name="BGLeafBunch347" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5760, 390)
+
+[node name="BGLeafBunch362" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5792, 374)
+
+[node name="BGLeafBunch363" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5792, 358)
+
+[node name="BGLeafBunch364" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5784, 342)
+
+[node name="BGLeafBunch377" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5792, 326)
+
+[node name="BGLeafBunch378" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5801, 315)
+
+[node name="BGLeafBunch379" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5809, 307)
+
+[node name="BGLeafBunch380" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5809, 307)
+
+[node name="BGLeafBunch381" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5793, 339)
+
+[node name="BGLeafBunch382" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5801, 371)
+
+[node name="BGLeafBunch383" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5817, 379)
+
+[node name="BGLeafBunch384" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5833, 382)
+
+[node name="BGLeafBunch386" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5841, 374)
+
+[node name="BGLeafBunch387" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 366)
+
+[node name="BGLeafBunch388" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 374)
+
+[node name="BGLeafBunch389" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5873, 358)
+
+[node name="BGLeafBunch390" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5865, 366)
+
+[node name="BGLeafBunch391" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5865, 366)
+
+[node name="BGLeafBunch392" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5865, 366)
+
+[node name="BGLeafBunch393" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5865, 366)
+
+[node name="BGLeafBunch394" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5865, 366)
+
+[node name="BGLeafBunch385" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5817, 294)
+
+[node name="BGLeafBunch365" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5776, 326)
+
+[node name="BGLeafBunch366" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5792, 310)
+
+[node name="BGLeafBunch367" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5768, 314)
+
+[node name="BGLeafBunch368" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5808, 298)
+
+[node name="BGLeafBunch369" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5818, 286)
+
+[node name="BGLeafBunch370" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5817, 272)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch395" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5833, 256)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch396" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 248)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch397" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 232)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch398" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 216)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch399" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 208)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch400" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5857, 208)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch371" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5837, 255)
+
+[node name="BGLeafBunch372" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5841, 238)
+
+[node name="BGLeafBunch373" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5849, 222)
+
+[node name="BGLeafBunch374" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5849, 206)
+
+[node name="BGLeafBunch375" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5809, 286)
+
+[node name="BGLeafBunch376" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5785, 302)
+scale = Vector2(-1, 1)
+
+[node name="BGLeafBunch348" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5760, 406)
+
+[node name="BGLeafBunch349" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5736, 406)
+
+[node name="BGLeafBunch350" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5736, 390)
+
+[node name="BGLeafBunch351" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5736, 366)
+
+[node name="BGLeafBunch352" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5712, 366)
+
+[node name="BGLeafBunch353" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5696, 358)
+
+[node name="BGLeafBunch354" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5672, 358)
+
+[node name="BGLeafBunch355" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5720, 374)
+
+[node name="BGLeafBunch356" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5724, 385)
+
+[node name="BGLeafBunch357" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5719, 400)
+
+[node name="BGLeafBunch358" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5703, 416)
+
+[node name="BGLeafBunch359" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5606, 410)
+
+[node name="BGLeafBunch360" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5606, 420)
+
+[node name="BGLeafBunch361" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5612, 438)
+
+[node name="BGLeafBunch235" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5576, 390)
+
+[node name="BGLeafBunch236" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5568, 374)
+
+[node name="BGLeafBunch237" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5544, 438)
+
+[node name="BGLeafBunch238" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5624, 454)
+
+[node name="BGLeafBunch239" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5624, 470)
+
+[node name="BGLeafBunch240" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5624, 470)
+
+[node name="BGLeafBunch189" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5367, 452)
+
+[node name="BGLeafBunch190" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5343, 452)
+
+[node name="BGLeafBunch191" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5319, 452)
+
+[node name="BGLeafBunch192" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5295, 452)
+
+[node name="BGLeafBunch193" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5279, 444)
+
+[node name="BGLeafBunch194" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5295, 428)
+
+[node name="BGLeafBunch195" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5311, 444)
+
+[node name="BGLeafBunch196" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5327, 436)
+
+[node name="BGLeafBunch197" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5343, 428)
+
+[node name="BGLeafBunch198" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5343, 412)
+
+[node name="BGLeafBunch199" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5335, 388)
+
+[node name="BGLeafBunch200" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5327, 404)
+
+[node name="BGLeafBunch201" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5327, 420)
+
+[node name="BGLeafBunch202" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5303, 412)
+
+[node name="BGLeafBunch203" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5287, 412)
+
+[node name="BGLeafBunch204" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5303, 396)
+
+[node name="BGLeafBunch205" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(5311, 372)
+
 [node name="BGLeafBunch135" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(5251, 357)
 
@@ -4132,20 +4620,6 @@ position = Vector2(5234, 346)
 
 [node name="BGLeafBunch139" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(5243, 354)
-
-[node name="AttackMele6" parent="." instance=ExtResource("19_o1ebc")]
-position = Vector2(3526, 580)
-
-[node name="AttackMele7" parent="." instance=ExtResource("19_o1ebc")]
-position = Vector2(3449, 584)
-
-[node name="AttackMele8" parent="." instance=ExtResource("19_o1ebc")]
-z_index = 50
-position = Vector2(3376, 595)
-
-[node name="AttackMele9" parent="." instance=ExtResource("19_o1ebc")]
-z_index = 50
-position = Vector2(3300, 593)
 
 [node name="Trunk111" type="Sprite2D" parent="."]
 position = Vector2(3400, 623)
@@ -4615,6 +5089,79 @@ texture = ExtResource("29_8l1iq")
 [node name="LeafBunch367" parent="." instance=ExtResource("32_sssd4")]
 position = Vector2(3287, 526)
 
+[node name="LeafBunch405" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3255, 624)
+
+[node name="LeafBunch406" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3239, 624)
+
+[node name="LeafBunch407" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3223, 624)
+
+[node name="LeafBunch408" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3215, 625)
+
+[node name="LeafBunch409" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3215, 609)
+
+[node name="LeafBunch410" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3220, 626)
+
+[node name="LeafBunch411" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3212, 594)
+
+[node name="LeafBunch412" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3188, 594)
+
+[node name="LeafBunch413" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3172, 594)
+
+[node name="LeafBunch414" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3153, 594)
+
+[node name="LeafBunch415" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3153, 585)
+rotation = 0.375246
+
+[node name="LeafBunch416" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3175, 586)
+
+[node name="LeafBunch417" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3199, 588)
+
+[node name="LeafBunch418" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3232, 601)
+rotation = 0.532325
+
+[node name="LeafBunch419" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3253, 614)
+rotation = 0.532325
+
+[node name="LeafBunch420" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3236, 614)
+rotation = 0.532325
+
+[node name="LeafBunch421" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3580, 624)
+
+[node name="LeafBunch422" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3564, 624)
+
+[node name="LeafBunch423" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3540, 624)
+
+[node name="LeafBunch424" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3548, 608)
+
+[node name="LeafBunch425" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3564, 608)
+
+[node name="LeafBunch426" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3575, 608)
+
+[node name="LeafBunch427" parent="." instance=ExtResource("32_sssd4")]
+position = Vector2(3559, 601)
+
 [node name="LeafBunch368" parent="." instance=ExtResource("32_sssd4")]
 position = Vector2(3266, 494)
 
@@ -4653,6 +5200,294 @@ position = Vector2(3348, 531)
 
 [node name="BGLeafBunch157" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(3311, 532)
+
+[node name="BGLeafBunch241" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3287, 532)
+
+[node name="BGLeafBunch242" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3279, 548)
+
+[node name="BGLeafBunch243" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3271, 564)
+
+[node name="BGLeafBunch244" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3263, 572)
+
+[node name="BGLeafBunch245" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3246, 586)
+
+[node name="BGLeafBunch246" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3224, 591)
+
+[node name="BGLeafBunch247" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3257, 600)
+
+[node name="BGLeafBunch248" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3273, 584)
+
+[node name="BGLeafBunch249" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3289, 568)
+
+[node name="BGLeafBunch250" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3297, 552)
+
+[node name="BGLeafBunch251" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3313, 552)
+
+[node name="BGLeafBunch252" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3313, 576)
+
+[node name="BGLeafBunch253" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3297, 584)
+
+[node name="BGLeafBunch254" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3289, 600)
+
+[node name="BGLeafBunch256" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3273, 616)
+
+[node name="BGLeafBunch257" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3273, 632)
+
+[node name="BGLeafBunch258" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3297, 632)
+
+[node name="BGLeafBunch259" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3313, 632)
+
+[node name="BGLeafBunch260" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3313, 616)
+
+[node name="BGLeafBunch261" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3297, 616)
+
+[node name="BGLeafBunch262" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3305, 600)
+
+[node name="BGLeafBunch263" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3281, 600)
+
+[node name="BGLeafBunch264" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3337, 576)
+
+[node name="BGLeafBunch265" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3353, 568)
+
+[node name="BGLeafBunch266" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3369, 568)
+
+[node name="BGLeafBunch267" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3389, 572)
+
+[node name="BGLeafBunch268" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3389, 564)
+
+[node name="BGLeafBunch269" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3333, 556)
+
+[node name="BGLeafBunch270" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3333, 556)
+
+[node name="BGLeafBunch271" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3421, 556)
+
+[node name="BGLeafBunch272" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3421, 556)
+
+[node name="BGLeafBunch273" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3405, 532)
+
+[node name="BGLeafBunch274" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3429, 572)
+
+[node name="BGLeafBunch275" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3405, 588)
+
+[node name="BGLeafBunch276" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3409, 603)
+
+[node name="BGLeafBunch277" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3433, 587)
+
+[node name="BGLeafBunch278" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3433, 611)
+
+[node name="BGLeafBunch279" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3449, 603)
+
+[node name="BGLeafBunch280" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3449, 620)
+
+[node name="BGLeafBunch281" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3449, 628)
+
+[node name="BGLeafBunch282" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3425, 628)
+
+[node name="BGLeafBunch283" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3473, 628)
+
+[node name="BGLeafBunch284" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3497, 620)
+
+[node name="BGLeafBunch285" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3513, 612)
+
+[node name="BGLeafBunch286" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3537, 604)
+
+[node name="BGLeafBunch287" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3457, 556)
+
+[node name="BGLeafBunch288" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3473, 548)
+
+[node name="BGLeafBunch289" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3489, 540)
+
+[node name="BGLeafBunch290" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3489, 524)
+
+[node name="BGLeafBunch291" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3489, 500)
+
+[node name="BGLeafBunch292" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3489, 476)
+
+[node name="BGLeafBunch293" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3489, 460)
+
+[node name="BGLeafBunch294" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3481, 500)
+
+[node name="BGLeafBunch295" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3484, 494)
+
+[node name="BGLeafBunch296" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3476, 518)
+
+[node name="BGLeafBunch297" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3460, 534)
+
+[node name="BGLeafBunch298" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3460, 534)
+
+[node name="BGLeafBunch299" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3516, 470)
+
+[node name="BGLeafBunch300" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3532, 454)
+
+[node name="BGLeafBunch301" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3508, 486)
+
+[node name="BGLeafBunch302" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3508, 502)
+
+[node name="BGLeafBunch303" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3516, 518)
+
+[node name="BGLeafBunch304" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3524, 534)
+
+[node name="BGLeafBunch305" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3532, 550)
+
+[node name="BGLeafBunch306" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3548, 566)
+
+[node name="BGLeafBunch307" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3556, 582)
+
+[node name="BGLeafBunch308" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3556, 582)
+
+[node name="BGLeafBunch309" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3572, 590)
+
+[node name="BGLeafBunch310" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3596, 590)
+
+[node name="BGLeafBunch311" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3612, 593)
+
+[node name="BGLeafBunch312" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3633, 595)
+
+[node name="BGLeafBunch313" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3649, 595)
+
+[node name="BGLeafBunch314" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3673, 595)
+
+[node name="BGLeafBunch315" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3681, 611)
+
+[node name="BGLeafBunch316" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3681, 627)
+
+[node name="BGLeafBunch317" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3657, 627)
+
+[node name="BGLeafBunch318" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3625, 627)
+
+[node name="BGLeafBunch319" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3641, 627)
+
+[node name="BGLeafBunch320" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3601, 627)
+
+[node name="BGLeafBunch321" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3593, 611)
+
+[node name="BGLeafBunch322" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3617, 611)
+
+[node name="BGLeafBunch323" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3633, 611)
+
+[node name="BGLeafBunch324" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3657, 611)
+
+[node name="BGLeafBunch325" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3657, 611)
+
+[node name="BGLeafBunch326" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3657, 611)
+
+[node name="BGLeafBunch327" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3665, 587)
+
+[node name="BGLeafBunch328" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3681, 578)
+
+[node name="BGLeafBunch329" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3697, 562)
+
+[node name="BGLeafBunch330" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3713, 562)
+
+[node name="BGLeafBunch331" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3705, 546)
+
+[node name="BGLeafBunch332" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3713, 538)
+
+[node name="BGLeafBunch333" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3713, 530)
+
+[node name="BGLeafBunch334" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3721, 514)
+
+[node name="BGLeafBunch335" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(3726, 495)
+
+[node name="BGLeafBunch336" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(0, -1)
+
+[node name="BGLeafBunch255" parent="." instance=ExtResource("33_e28eo")]
+position = Vector2(0, 9)
 
 [node name="BGLeafBunch158" parent="." instance=ExtResource("33_e28eo")]
 position = Vector2(3339, 517)
@@ -5288,19 +6123,6 @@ polygon = PackedVector2Array(5, -1, 8, -3, 9, -7, -8, -7, -10, -2, -8, 0, -5, -2
 [node name="Turret" parent="DroneManager/Drone" index="5"]
 visible = false
 
-[node name="PropLargeBush" type="Sprite2D" parent="."]
-position = Vector2(5529, 448)
-texture = ExtResource("36_aajqt")
-
-[node name="PropLargeBush2" type="Sprite2D" parent="."]
-z_index = 10
-position = Vector2(5583, 448)
-texture = ExtResource("36_aajqt")
-
-[node name="PropGiganticBush" type="Sprite2D" parent="."]
-position = Vector2(5107, 353)
-texture = ExtResource("37_kcmtn")
-
 [node name="ItemSwitcher7" parent="." instance=ExtResource("17_qjykc")]
 position = Vector2(416, -304)
 item_switch_type = "ArmGun"
@@ -5535,6 +6357,606 @@ item_switch_type = "Grapple"
 [node name="ItemSwitcher15" parent="." instance=ExtResource("17_qjykc")]
 position = Vector2(1659, 496)
 
+[node name="PropTwig102" type="Sprite2D" parent="."]
+position = Vector2(4316, 392)
+rotation = -0.927407
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig103" type="Sprite2D" parent="."]
+position = Vector2(5550, 459)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig104" type="Sprite2D" parent="."]
+position = Vector2(5521, 453)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig105" type="Sprite2D" parent="."]
+position = Vector2(5530, 454)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig123" type="Sprite2D" parent="."]
+position = Vector2(5512, 460)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig126" type="Sprite2D" parent="."]
+position = Vector2(5553, 459)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig127" type="Sprite2D" parent="."]
+position = Vector2(5545, 457)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig128" type="Sprite2D" parent="."]
+position = Vector2(5608, 458)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig129" type="Sprite2D" parent="."]
+position = Vector2(5576, 461)
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig130" type="Sprite2D" parent="."]
+position = Vector2(5502, 432)
+rotation = -0.614416
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig131" type="Sprite2D" parent="."]
+position = Vector2(5578, 425)
+texture = ExtResource("29_8l1iq")
+
+[node name="Grass" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5478, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass13" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5582, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass14" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5616, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5446, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass3" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5414, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass4" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5382, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass5" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5350, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass6" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5318, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass7" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5286, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass8" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5254, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass9" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5254, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass10" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5222, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass11" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5190, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass12" type="Sprite2D" parent="."]
+modulate = Color(1, 0.905882, 0.74902, 1)
+z_index = 50
+position = Vector2(5168, 477)
+texture = ExtResource("46_pt6ub")
+
+[node name="TallGrass" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5276, 473)
+scale = Vector2(-1, 1)
+texture = ExtResource("47_ls6uk")
+
+[node name="TallGrass2" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5204, 471)
+texture = ExtResource("47_ls6uk")
+
+[node name="TallGrass3" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5416, 472)
+texture = ExtResource("47_ls6uk")
+
+[node name="PropTwig132" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5158, 462)
+rotation = 2.41728
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig133" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5185, 469)
+rotation = 5.74213
+texture = ExtResource("29_8l1iq")
+
+[node name="DrapeVine" type="Sprite2D" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
+z_index = -50
+position = Vector2(5217, 417)
+texture = ExtResource("48_lockf")
+
+[node name="DrapeVine5" type="Sprite2D" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
+z_index = -50
+position = Vector2(4913, 257)
+texture = ExtResource("48_lockf")
+
+[node name="DrapeVine2" type="Sprite2D" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
+z_index = -50
+position = Vector2(5401, 441)
+texture = ExtResource("48_lockf")
+
+[node name="DrapeVineLong" type="Sprite2D" parent="."]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+z_index = -40
+position = Vector2(5551, 405)
+texture = ExtResource("49_5tq80")
+
+[node name="DrapeVineLong2" type="Sprite2D" parent="."]
+modulate = Color(0.67451, 0.67451, 0.67451, 1)
+z_index = -40
+position = Vector2(5372, 330)
+texture = ExtResource("49_5tq80")
+
+[node name="TimerEnabler" parent="." instance=ExtResource("50_xejmu")]
+position = Vector2(6294, 353)
+
+[node name="TimerDisabler" type="Area2D" parent="."]
+position = Vector2(-4341, 32.9969)
+script = ExtResource("46_xf27h")
+temporary = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler"]
+visible = false
+position = Vector2(8356.5, 381.003)
+shape = SubResource("RectangleShape2D_at2cp")
+
+[node name="Grass15" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3276, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass16" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3308, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass17" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3340, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass18" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3372, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass19" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3404, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass20" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3436, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass21" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3468, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass22" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3500, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass23" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3532, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass24" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3564, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass25" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3596, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass26" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3628, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass27" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3660, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass28" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3664, 637)
+texture = ExtResource("46_pt6ub")
+
+[node name="TallGrass4" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3365, 633)
+texture = ExtResource("47_ls6uk")
+
+[node name="TallGrass5" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(3633, 632)
+texture = ExtResource("47_ls6uk")
+
+[node name="DrapeVine3" type="Sprite2D" parent="."]
+modulate = Color(0.619608, 0.619608, 0.619608, 1)
+z_index = -40
+position = Vector2(3358, 596)
+texture = ExtResource("48_lockf")
+
+[node name="DrapeVine4" type="Sprite2D" parent="."]
+modulate = Color(0.619608, 0.619608, 0.619608, 1)
+z_index = -40
+position = Vector2(3500, 564)
+texture = ExtResource("48_lockf")
+
+[node name="DrapeVineLong3" type="Sprite2D" parent="."]
+modulate = Color(0.729412, 0.729412, 0.729412, 1)
+z_index = -40
+position = Vector2(3460, 478)
+texture = ExtResource("49_5tq80")
+
+[node name="DrapeVineReallyLong" type="Sprite2D" parent="."]
+modulate = Color(0.772549, 0.772549, 0.772549, 1)
+z_index = -50
+position = Vector2(3620, 499)
+texture = ExtResource("51_4k3bi")
+region_enabled = true
+region_rect = Rect2(0, 0, 216.494, 32)
+
+[node name="Grass29" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5780, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass30" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5812, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass31" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5844, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass32" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5876, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass33" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5908, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass34" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5940, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass35" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5972, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass36" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6004, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass37" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6036, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass38" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6068, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass39" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6100, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass40" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6132, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass41" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6157, 380)
+texture = ExtResource("46_pt6ub")
+
+[node name="TallGrass6" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(5937, 375)
+texture = ExtResource("47_ls6uk")
+
+[node name="TallGrass7" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(6169, 376)
+texture = ExtResource("47_ls6uk")
+
+[node name="LightMoss" type="Sprite2D" parent="."]
+position = Vector2(6172, 304)
+rotation = -1.5708
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss2" type="Sprite2D" parent="."]
+position = Vector2(6172, 272)
+rotation = -1.5708
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss3" type="Sprite2D" parent="."]
+position = Vector2(6172, 240)
+rotation = -1.5708
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss4" type="Sprite2D" parent="."]
+position = Vector2(6192, 220)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss5" type="Sprite2D" parent="."]
+position = Vector2(6192, 380)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss6" type="Sprite2D" parent="."]
+position = Vector2(6224, 380)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss7" type="Sprite2D" parent="."]
+z_index = -30
+position = Vector2(6160, 381)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss8" type="Sprite2D" parent="."]
+z_index = -30
+position = Vector2(6160, 382)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss9" type="Sprite2D" parent="."]
+z_index = -30
+position = Vector2(6160, 383)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss10" type="Sprite2D" parent="."]
+position = Vector2(4820, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss11" type="Sprite2D" parent="."]
+position = Vector2(4852, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss12" type="Sprite2D" parent="."]
+position = Vector2(4884, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss13" type="Sprite2D" parent="."]
+position = Vector2(4916, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss14" type="Sprite2D" parent="."]
+position = Vector2(4940, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss15" type="Sprite2D" parent="."]
+position = Vector2(4972, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss16" type="Sprite2D" parent="."]
+position = Vector2(4996, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss17" type="Sprite2D" parent="."]
+position = Vector2(5028, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="LightMoss18" type="Sprite2D" parent="."]
+position = Vector2(5040, 476)
+texture = ExtResource("52_5tjya")
+
+[node name="Grass42" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4114, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass43" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4146, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass44" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4178, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass45" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4210, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass46" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4242, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass47" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4274, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass51" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4306, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass52" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4338, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass53" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4370, 540)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass54" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4352, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass55" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4376, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass56" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4400, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass57" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4424, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass58" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4424, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass48" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4178, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass50" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4210, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass49" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(4154, 541)
+texture = ExtResource("46_pt6ub")
+
+[node name="PropTwig134" type="Sprite2D" parent="."]
+position = Vector2(3364, 625)
+rotation = -0.191986
+texture = ExtResource("29_8l1iq")
+
+[node name="PropTwig135" type="Sprite2D" parent="."]
+position = Vector2(5390, 466)
+rotation = 0.165806
+texture = ExtResource("29_8l1iq")
+
+[node name="Grass59" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(1937, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass60" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(1969, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass61" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2001, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass62" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2033, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass63" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2065, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass64" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2097, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass65" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2129, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass66" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2161, 573)
+texture = ExtResource("46_pt6ub")
+
+[node name="Grass67" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(2192, 573)
+texture = ExtResource("46_pt6ub")
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="BiodomeMusicPlayerArea" to="BiodomeMusicPlayerArea" method="_on_area_entered"]
@@ -5545,6 +6967,8 @@ position = Vector2(1659, 496)
 [connection signal="area_entered" from="ElevatorManager2/Area2D" to="ElevatorManager2" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ElevatorManager2/Area2D" to="ElevatorManager2" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="TimerDisabler2" to="TimerDisabler2" method="_on_area_entered"]
+[connection signal="area_entered" from="TimerDisabler" to="TimerDisabler" method="_on_area_entered"]
+[connection signal="area_exited" from="TimerDisabler" to="TimerDisabler" method="_on_area_exited"]
 
 [editable path="Player"]
 [editable path="DroneManager"]
