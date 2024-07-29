@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://hyjgjb7gfloj"]
+[gd_scene load_steps=41 format=3 uid="uid://hyjgjb7gfloj"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hpqmv"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_pfxli"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="21_d5oyl"]
 [ext_resource type="PackedScene" uid="uid://1ydef646f5s8" path="res://Objects/StaticObjects/AttackDrone.tscn" id="23_453pd"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="24_xtjbv"]
+[ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="25_hepfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_pfxli")
@@ -514,6 +515,9 @@ uid = 76934
 
 [node name="PreviousLevel" parent="." instance=ExtResource("24_xtjbv")]
 position = Vector2(125, -1)
+
+[node name="BiodomeCamera" parent="." instance=ExtResource("25_hepfo")]
+position = Vector2(0, -18)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

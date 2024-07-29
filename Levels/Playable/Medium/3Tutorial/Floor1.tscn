@@ -1,4 +1,4 @@
-[gd_scene load_steps=198 format=3 uid="uid://b565mgc8l6dsu"]
+[gd_scene load_steps=199 format=3 uid="uid://b565mgc8l6dsu"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_eaalj"]
 [ext_resource type="TileSet" uid="uid://bfmnlsmvueif0" path="res://Objects/StaticObjects/Decorations.tres" id="2_lh4u6"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="30_g4twa"]
 [ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="31_cgemy"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="32_af80i"]
+[ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="33_q38r4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
 texture = ExtResource("3_7024m")
@@ -1465,6 +1466,10 @@ scale = Vector2(-1, 1)
 
 [node name="SidewaysDoor2" parent="." instance=ExtResource("32_af80i")]
 position = Vector2(1989, 282)
+
+[node name="BiodomeCamera" parent="." instance=ExtResource("33_q38r4")]
+position = Vector2(1952, 194)
+scale = Vector2(-1, 1)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

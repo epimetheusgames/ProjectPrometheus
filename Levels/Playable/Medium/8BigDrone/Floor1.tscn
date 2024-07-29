@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1im61j16trjv"]
+[gd_scene load_steps=31 format=3 uid="uid://c1im61j16trjv"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jkpvj"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_8fs24"]
 [ext_resource type="AudioStream" uid="uid://bjrj0rc2d5n3x" path="res://Assets/Audio/Voicelines/AlexHarveyRecording6.ogg" id="22_sjndb"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_ymgl5"]
+[ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="24_yvf3g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_jkpvj")
@@ -308,6 +309,17 @@ position = Vector2(1172, -78)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
 polygon = PackedVector2Array(-20, 14, 19, 14, 21, 79, -20, 79)
 
+[node name="BiodomeCamera" parent="." instance=ExtResource("24_yvf3g")]
+position = Vector2(0, -118)
+
+[node name="BiodomeCamera2" parent="." instance=ExtResource("24_yvf3g")]
+position = Vector2(1312, -79)
+scale = Vector2(-1, 1)
+
+[node name="BiodomeCamera" parent="BiodomeCamera2" index="1"]
+position = Vector2(16.6219, -3.31818)
+rotation = 0.279253
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="TimerDisabler" to="TimerDisabler" method="_on_area_entered"]
@@ -316,3 +328,4 @@ polygon = PackedVector2Array(-20, 14, 19, 14, 21, 79, -20, 79)
 [editable path="DroneManager"]
 [editable path="DroneManager2"]
 [editable path="SecretAreaVoicelineLaptop"]
+[editable path="BiodomeCamera2"]

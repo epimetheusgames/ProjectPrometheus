@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://buupb1t66acfw"]
+[gd_scene load_steps=49 format=3 uid="uid://buupb1t66acfw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_cra30"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="26_sakk7"]
 [ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="27_0bfiu"]
+[ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="28_t2kvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_k7tq6")
@@ -704,6 +705,9 @@ scroll_text = "Incoming message from DQGC: DON'T GO THr⇜⧭❄🗆🗆🗆🗆
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextScrollActivator"]
 polygon = PackedVector2Array(18, -56, 2, 63, -55, -4)
+
+[node name="BiodomeCamera" parent="." instance=ExtResource("28_t2kvm")]
+position = Vector2(-768, -175)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bw5p5nv7srv3k"]
+[gd_scene load_steps=51 format=3 uid="uid://bw5p5nv7srv3k"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_kjdhf"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_v8b2d"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="34_qwqua"]
 [ext_resource type="AudioStream" uid="uid://cy1ygwycfo052" path="res://Assets/Audio/Voicelines/AlexHarveyRecording4.ogg" id="35_2d75g"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="36_4gujl"]
+[ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="37_5r10d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_v8b2d")
@@ -577,6 +578,9 @@ shape = SubResource("RectangleShape2D_okvw5")
 [node name="PropDoorSideways2" type="Sprite2D" parent="."]
 position = Vector2(300, -512)
 texture = ExtResource("36_4gujl")
+
+[node name="BiodomeCamera" parent="." instance=ExtResource("37_5r10d")]
+position = Vector2(-864, -551)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
