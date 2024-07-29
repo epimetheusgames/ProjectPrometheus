@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cvy3v64tsv3k5"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cvy3v64tsv3k5"]
 
 [ext_resource type="Texture2D" uid="uid://c0yd1rk3hrv32" path="res://Assets/Images/Tilesets/SpikeTileset.png" id="1_t7k5q"]
 [ext_resource type="Texture2D" uid="uid://d0jjgjj2h7h8p" path="res://Assets/Images/Objects/FunctionalProps/EvilThistle.png" id="2_pldfp"]
+[ext_resource type="Texture2D" uid="uid://c24jqcg4uvmsv" path="res://Assets/Images/Tilesets/StallagtiteSpikes.png" id="3_mfk35"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_773xo"]
 texture = ExtResource("1_t7k5q")
@@ -79,11 +80,28 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 10.75, 11.75, 10.5, 16, 16, -16, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_su5sn"]
+texture = ExtResource("3_mfk35")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.5, 16, 6.75, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.5, 16, 6.75, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.5, 16, 6.75, 16, 16, -16, 16)
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_773xo")
 sources/1 = SubResource("TileSetAtlasSource_ye6hb")
+sources/2 = SubResource("TileSetAtlasSource_su5sn")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
