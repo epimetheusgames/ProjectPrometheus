@@ -967,7 +967,7 @@ texture_progress = SubResource("GradientTexture2D_22v3w")
 metadata/_edit_use_anchors_ = true
 
 [node name="CloseAnimator" type="Node2D" parent="Camera"]
-process_mode = 3
+process_mode = 1
 z_index = 100
 script = ExtResource("11_opf60")
 

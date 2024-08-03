@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bw5p5nv7srv3k"]
+[gd_scene load_steps=52 format=3 uid="uid://bw5p5nv7srv3k"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_kjdhf"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_v8b2d"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://cy1ygwycfo052" path="res://Assets/Audio/Voicelines/AlexHarveyRecording4.ogg" id="35_2d75g"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="36_4gujl"]
 [ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="37_5r10d"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="38_8a72h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
 texture = ExtResource("2_v8b2d")
@@ -581,6 +582,12 @@ texture = ExtResource("36_4gujl")
 
 [node name="BiodomeCamera" parent="." instance=ExtResource("37_5r10d")]
 position = Vector2(-864, -551)
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("38_8a72h")]
+position = Vector2(-770, -556)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-20, 13, 21, 12, 20, 76, -20, 76)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

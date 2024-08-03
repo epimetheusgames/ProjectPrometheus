@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dqi1j5bbwwg5i"]
+[gd_scene load_steps=39 format=3 uid="uid://dqi1j5bbwwg5i"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_c6ane"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_tq1of"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cgior0ycjjdm3" path="res://Assets/Images/Objects/Props/PropTable.png" id="24_asnt1"]
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="26_nk5mv"]
 [ext_resource type="AudioStream" uid="uid://dyxpislvj1app" path="res://Assets/Audio/Voicelines/AlexHarveyRecording2.ogg" id="27_ndvku"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="28_kbqag"]
 [ext_resource type="Texture2D" uid="uid://drlpojpfrkrs7" path="res://Assets/Images/Objects/Props/PrometheusMug.png" id="28_mlank"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -482,6 +483,13 @@ volume_db = 20.0
 [node name="PrometheusMug" type="Sprite2D" parent="."]
 position = Vector2(1295, -245)
 texture = ExtResource("28_mlank")
+
+[node name="PressEAreaPopup" parent="." instance=ExtResource("28_kbqag")]
+position = Vector2(-395, 19)
+requires_key = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-53, 13, -54, -53, -13, -58, -15, 13, -55, 13)
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://vbpf01w0tgt1"]
+[gd_scene load_steps=73 format=3 uid="uid://vbpf01w0tgt1"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_us68f"]
 [ext_resource type="TileSet" uid="uid://bfmnlsmvueif0" path="res://Objects/StaticObjects/Decorations.tres" id="2_e2bru"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="51_r0yyp"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="52_8a0xc"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="53_btrpk"]
+[ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="54_02r1p"]
 [ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="54_r4esc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
@@ -1061,6 +1062,15 @@ temporary = true
 position = Vector2(-6.14844, -35.6373)
 shape = SubResource("RectangleShape2D_75d1t")
 
+[node name="TimerDisabler3" type="Area2D" parent="."]
+position = Vector2(460, -608.003)
+script = ExtResource("50_ap12m")
+temporary = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler3"]
+position = Vector2(-6.14844, -35.6373)
+shape = SubResource("RectangleShape2D_75d1t")
+
 [node name="SecretAreaVoicelineLaptop" parent="." instance=ExtResource("50_8560a")]
 position = Vector2(-5564, -56.0031)
 
@@ -1115,12 +1125,14 @@ libraries = {
 [node name="ElevatorMusicPlayer" type="AudioStreamPlayer2D" parent="ElevatorManager"]
 position = Vector2(768, -40)
 stream = ExtResource("53_btrpk")
+volume_db = 5.0
 autoplay = true
 max_distance = 500.0
 bus = &"SpecialMusic"
 
 [node name="TimerDisabler2" type="Area2D" parent="."]
 script = ExtResource("50_ap12m")
+temporary = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimerDisabler2"]
 position = Vector2(469.446, -622.954)
@@ -1153,10 +1165,18 @@ scale = Vector2(-1, 1)
 [node name="SidewaysDoor10" parent="." instance=ExtResource("31_2q0fu")]
 position = Vector2(-5052, -70)
 
+[node name="PressEAreaPopup" parent="." instance=ExtResource("54_02r1p")]
+position = Vector2(449, -686)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PressEAreaPopup"]
+polygon = PackedVector2Array(-36, 17, 32, 17, 32, 110, -33, 111)
+
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
 [connection signal="area_entered" from="TimerDisabler" to="TimerDisabler" method="_on_area_entered"]
 [connection signal="area_exited" from="TimerDisabler" to="TimerDisabler" method="_on_area_exited"]
+[connection signal="area_entered" from="TimerDisabler3" to="TimerDisabler3" method="_on_area_entered"]
+[connection signal="area_exited" from="TimerDisabler3" to="TimerDisabler3" method="_on_area_exited"]
 [connection signal="area_entered" from="ElevatorManager/Area2D" to="ElevatorManager" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="ElevatorManager/Area2D" to="ElevatorManager" method="_on_area_2d_area_exited"]
 [connection signal="animation_finished" from="ElevatorManager/AnimationPlayer" to="ElevatorManager" method="_on_animation_player_animation_finished"]
