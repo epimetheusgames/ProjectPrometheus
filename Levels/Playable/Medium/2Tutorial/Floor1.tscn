@@ -322,12 +322,6 @@ polygon = PackedVector2Array(-279, 118, 177, 121, 966, 95, 1434, -14, 1651, -49,
 
 [node name="Player" parent="." instance=ExtResource("6_ad5ab")]
 
-[node name="DarkOverlay" parent="Player/Camera" index="2"]
-metadata/_edit_use_anchors_ = true
-
-[node name="FPSCounter" parent="Player/Camera" index="3"]
-metadata/_edit_use_anchors_ = true
-
 [node name="PointLight2D" parent="Player" index="14"]
 scale = Vector2(0.983491, 1)
 color = Color(0.941176, 1, 0.419608, 1)
