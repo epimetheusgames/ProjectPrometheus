@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://cog3jp2ops40s"]
+[gd_scene load_steps=56 format=3 uid="uid://cog3jp2ops40s"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
 [ext_resource type="TileSet" uid="uid://bfmnlsmvueif0" path="res://Objects/StaticObjects/Decorations.tres" id="2_tssok"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="29_lvhg8"]
 [ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="30_iivlj"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="30_tywci"]
+[ext_resource type="Texture2D" uid="uid://bi8q28g1vkm6i" path="res://Assets/Images/Objects/Props/PropRock.png" id="31_w7pju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_de7lc"]
 texture = ExtResource("4_s2duu")
@@ -638,6 +639,15 @@ position = Vector2(85, 270)
 
 [node name="SteamPipe2" parent="." instance=ExtResource("30_iivlj")]
 position = Vector2(205, 269)
+
+[node name="PropRock" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-501, 250)
+texture = ExtResource("31_w7pju")
+
+[node name="PropRock2" type="Sprite2D" parent="."]
+position = Vector2(720, 378)
+texture = ExtResource("31_w7pju")
 
 [connection signal="area_entered" from="NextLevel" to="NextLevel" method="_on_area_entered"]
 [connection signal="finished" from="AmbiantBackground" to="." method="_on_ambiant_background_finished"]
