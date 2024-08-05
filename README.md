@@ -1,10 +1,9 @@
 # Project Prometheus
 ## Epimetheus Games OGPC Season 17
 
-UPDATE: Project Prometheus has won the Best In Show award for Season 17 of the Oregon Game Project Challenge!
+**UPDATE: Project Prometheus has won the Best In Show award for Season 17 of the Oregon Game Project Challenge!**
 
-Our entry for Season 17 of Oregon Game Project Challenge.
-Created by Epimetheus Games (creators of [EyeSore](https://github.com/epimetheusgames/OGPC-Season-16), OGPC Season 16 Best In Show)
+Created by Epimetheus Games (creators of [EyeSore](https://github.com/epimetheusgames/EyeSore), OGPC Season 16 Best In Show)
 
 ## Links:
 
