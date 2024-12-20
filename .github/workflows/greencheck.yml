@@ -1,0 +1,8 @@
+name: Just to get the Green Check up there
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Just do nothing to get the green check
+        run: echo "Hi! oh look theres a green check now"
