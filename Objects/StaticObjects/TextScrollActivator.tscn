@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddynqq6tu5pqi"]
-
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/TextScrollActivator.gd" id="1_3e3e1"]
-
-[node name="TextScrollActivator" type="Area2D"]
-script = ExtResource("1_3e3e1")

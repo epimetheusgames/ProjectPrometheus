@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd32ctvu15uo6"]
-
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/MultiplayerNextLevel.gd" id="1_hilqt"]
-
-[node name="Area2D" type="Area2D"]
-script = ExtResource("1_hilqt")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
