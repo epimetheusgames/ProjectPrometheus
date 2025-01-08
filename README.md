@@ -1,5 +1,6 @@
-# Project Prometheus
-## Epimetheus Games OGPC Season 17
+# Project Prometheus (Epimetheus Games: OGPC Season 17)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/88998d86-9a21-42a0-99e2-fecc0c478174/deploy-status)](https://projectprometheus.netlify.app/)
 
 **UPDATE: Project Prometheus has won the Best In Show award for Season 17 of the Oregon Game Project Challenge!**
 
