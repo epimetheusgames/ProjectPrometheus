@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=3 uid="uid://cog3jp2ops40s"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
+[ext_resource type="Script" uid="uid://nduqecan1fld" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_y5xwq"]
 [ext_resource type="TileSet" uid="uid://bfmnlsmvueif0" path="res://Objects/StaticObjects/Decorations.tres" id="2_tssok"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="4_s2duu"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="5_n3b1c"]
@@ -11,21 +11,21 @@
 [ext_resource type="TileSet" uid="uid://c15403c3j8mi2" path="res://Objects/StaticObjects/TransparentMetal.tres" id="10_mjc51"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="11_m5piq"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="12_15hnn"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_66gg7"]
+[ext_resource type="Script" uid="uid://dsxmj5jix14a2" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="13_66gg7"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="14_brjks"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="15_s4chd"]
+[ext_resource type="Shader" uid="uid://dnksso1vjltix" path="res://Scripts/Shaders/Bulge.gdshader" id="15_s4chd"]
 [ext_resource type="PackedScene" uid="uid://bbjsnlu46xco0" path="res://Objects/StaticObjects/Key.tscn" id="16_l1asd"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="17_8njnc"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="18_ao25b"]
 [ext_resource type="PackedScene" uid="uid://dpgkdmaf2nwpc" path="res://Objects/StaticObjects/NextLevelRequiresKey.tscn" id="19_5d67w"]
 [ext_resource type="Texture2D" uid="uid://ydc0ydkg2c3r" path="res://Assets/Images/Objects/Props/PropDoorSideways2.png" id="20_3txb6"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="21_3al8j"]
+[ext_resource type="Script" uid="uid://bqa25s8a682nh" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/ElevatorManager.gd" id="21_3al8j"]
 [ext_resource type="Texture2D" uid="uid://b8sqcnj3m3ksh" path="res://Assets/Images/Objects/FunctionalProps/ElevatorCharage.png" id="21_3e8m8"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="22_metxa"]
-[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="23_bw2sv"]
+[ext_resource type="Script" uid="uid://c35v1akp1r2rs" path="res://addons/controller_icons/objects/TextureRect.gd" id="23_bw2sv"]
 [ext_resource type="AudioStream" uid="uid://cqppk2cadvdk5" path="res://Assets/Audio/Music/ElevatorMusic.ogg" id="23_uehp8"]
 [ext_resource type="PackedScene" uid="uid://7gkuoslfisye" path="res://Objects/StaticObjects/PistonSmasher.tscn" id="25_tjqer"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/AnimationActivator.gd" id="26_6qcrf"]
+[ext_resource type="Script" uid="uid://n5bkdisdhklg" path="res://Levels/Playable/Medium/30SurfaceElevatorPuzzle/AnimationActivator.gd" id="26_6qcrf"]
 [ext_resource type="Texture2D" uid="uid://g33u6pnalcvl" path="res://Assets/Images/Objects/Misc/PrometheusLogoGlowingNoText.png" id="28_olsre"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="29_lvhg8"]
 [ext_resource type="PackedScene" uid="uid://cdiesn1utq8vv" path="res://Objects/StaticObjects/SteamPipe.tscn" id="30_iivlj"]
@@ -57,36 +57,20 @@ metadata/_better_terrain = {
 texture = ExtResource("6_cjnlc")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_yk64r"]
@@ -97,36 +81,20 @@ sources/0 = SubResource("TileSetAtlasSource_fx8ic")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
 texture = ExtResource("7_w4nc3")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
@@ -210,8 +178,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cghqg"]
 _data = {
-"ElevatorUp": SubResource("Animation_uks5k"),
-"RESET": SubResource("Animation_80vb5")
+&"ElevatorUp": SubResource("Animation_uks5k"),
+&"RESET": SubResource("Animation_80vb5")
 }
 
 [sub_resource type="Animation" id="Animation_1nfsu"]
@@ -333,10 +301,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtwqf"]
 _data = {
-"DOWN": SubResource("Animation_1nfsu"),
-"RESET": SubResource("Animation_2s6i3"),
-"SmasherUp": SubResource("Animation_3ciao"),
-"UP": SubResource("Animation_texy7")
+&"DOWN": SubResource("Animation_1nfsu"),
+&"RESET": SubResource("Animation_2s6i3"),
+&"SmasherUp": SubResource("Animation_3ciao"),
+&"UP": SubResource("Animation_texy7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrvtc"]
@@ -487,6 +455,11 @@ dont_use_swing_mode = true
 position = Vector2(-174, 196)
 dont_use_swing_mode = true
 
+[node name="GrappleHook4" parent="." instance=ExtResource("18_ao25b")]
+position = Vector2(-572, 358)
+rotation = -1.5707964
+dont_use_swing_mode = true
+
 [node name="GrappleHook3" parent="." instance=ExtResource("18_ao25b")]
 position = Vector2(-454, -4)
 rotation = 3.14159
@@ -546,7 +519,7 @@ autoplay = "default"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ElevatorManager"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_cghqg")
+&"": SubResource("AnimationLibrary_cghqg")
 }
 
 [node name="ElevatorMusicPlayer" type="AudioStreamPlayer2D" parent="ElevatorManager"]
@@ -579,7 +552,7 @@ wait_time = 1000.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mtwqf")
+&"": SubResource("AnimationLibrary_mtwqf")
 }
 
 [node name="AnimationActivator" type="Area2D" parent="."]

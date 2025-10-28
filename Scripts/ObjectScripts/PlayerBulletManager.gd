@@ -23,7 +23,7 @@ func _process(delta):
 		if drone_following && is_instance_valid(drone_following):
 			var direction_to_drone = ((drone_following.get_parent().position + drone_following.position) - position).normalized()
 			var direction_to_drone_to_direction = (direction_to_drone - direction).normalized()
-			direction = (direction + direction_to_drone_to_direction / 10).normalized()
+			direction = (direction + (direction_to_drone_to_direction / 10) * delta * 60).normalized()
 
 func _on_despawn_timer_timeout():
 	queue_free()
