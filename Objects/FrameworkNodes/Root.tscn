@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dk8o56bdo51ex" path="res://Objects/FrameworkNodes/SaveLoadFramework.tscn" id="1_kbqhr"]
 [ext_resource type="Material" uid="uid://3ewuvklj47wl" path="res://Objects/StaticObjects/FullScreenMaterial.tres" id="2_0kjrc"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NetworkingManager.gd" id="3_1aj02"]
+[ext_resource type="Script" uid="uid://cli4y7fxfv5sj" path="res://Scripts/FrameworkScripts/NetworkingManager.gd" id="3_1aj02"]
 
 [node name="Root" type="Node"]
 

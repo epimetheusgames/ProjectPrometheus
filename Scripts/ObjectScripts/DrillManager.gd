@@ -130,14 +130,17 @@ func _process(delta):
 		$DrillAnimation.play("Idle")
 
 func _on_jump_hurt_box_area_entered(area):
-	var no_damage = false
-	
 	if area.name == "PlayerHurtbox" && health > 0:
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0 || area.get_parent().is_swiping_sword:
-			no_damage = true
-			
 			if !no_nockback:
-				position.x += -velocity.x * 50
+				var raycast = PhysicsRayQueryParameters2D.create(global_position, global_position - Vector2(velocity.x * 50, 0))
+				raycast.exclude.append($StaticBody2D.get_rid())
+				raycast.exclude.append(area.get_parent().get_rid())
+				var result = get_world_2d().direct_space_state.intersect_ray(raycast)
+				if !result:
+					position.x += -velocity.x * 50
+				else:
+					position.x = result.position.x
 			
 			if health == 0:
 				area.get_parent().get_node("BulletBadHurtcooldown").stop()
