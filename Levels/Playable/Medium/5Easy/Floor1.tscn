@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://buupb1t66acfw"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
+[ext_resource type="Script" uid="uid://nduqecan1fld" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_3ry76"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_k7tq6"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_3igbv"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_hmu40"]
@@ -9,14 +9,13 @@
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="6_5ewe1"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="7_nm8ya"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_lb0sn"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_bxd2n"]
+[ext_resource type="Script" uid="uid://dsxmj5jix14a2" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_bxd2n"]
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="11_pcuoe"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="12_3rx5p"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="13_3lsyc"]
 [ext_resource type="PackedScene" uid="uid://cm566haiwff2j" path="res://Objects/StaticObjects/Floodlight.tscn" id="16_ioa5m"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="16_tou6m"]
 [ext_resource type="PackedScene" uid="uid://dvftqxgnkhk7v" path="res://Objects/StaticObjects/WallTurret.tscn" id="18_1ue77"]
-[ext_resource type="Texture2D" uid="uid://centqdm3rkc8p" path="res://Assets/Images/Objects/Props/StairSpriteNonTransparent.png" id="18_gqwt1"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="19_2rb5e"]
 [ext_resource type="PackedScene" uid="uid://bdwnporw18dhy" path="res://Objects/StaticObjects/LightEmitter.tscn" id="20_51f2t"]
 [ext_resource type="Texture2D" uid="uid://dg2g03ffmhsby" path="res://Assets/Images/Objects/Props/PropWaterBottle.png" id="20_k5ujn"]
@@ -27,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="25_cra30"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="26_sakk7"]
 [ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="27_0bfiu"]
+[ext_resource type="PackedScene" uid="uid://dyuudd0mcchkr" path="res://Objects/StaticObjects/Stair.tscn" id="28_l0bb5"]
 [ext_resource type="PackedScene" uid="uid://bhgftpn5phvwc" path="res://Objects/StaticObjects/BiodomeCamera.tscn" id="28_t2kvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yd36w"]
@@ -122,36 +122,20 @@ metadata/_better_terrain = {
 texture = ExtResource("4_ayq1c")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_fpdeq"]
@@ -162,36 +146,20 @@ sources/0 = SubResource("TileSetAtlasSource_khs7b")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
 texture = ExtResource("5_pdj0b")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
@@ -282,6 +250,9 @@ layer_0/tile_data = PackedInt32Array(-26280076, 0, 0)
 tile_set = ExtResource("6_5ewe1")
 format = 2
 
+[node name="Stair" parent="." instance=ExtResource("28_l0bb5")]
+position = Vector2(1600, 0)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
@@ -340,8 +311,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+color = Color(0.7019608, 0.7019608, 0.7019608, 1)
 
 [node name="PropBench" type="Sprite2D" parent="."]
 position = Vector2(64, 16)
@@ -480,15 +450,6 @@ item_switch_type = "Grapple"
 
 [node name="ItemSwitcher4" parent="." instance=ExtResource("24_7b6p3")]
 position = Vector2(2031, -304)
-
-[node name="StairSprite" type="Sprite2D" parent="."]
-position = Vector2(1568, 16)
-texture = ExtResource("18_gqwt1")
-
-[node name="StairCollision" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StairCollision"]
-polygon = PackedVector2Array(1536, 32, 1584, 0, 1633, 0, 1584, 32)
 
 [node name="LightEmitter" parent="." instance=ExtResource("20_51f2t")]
 visible = false

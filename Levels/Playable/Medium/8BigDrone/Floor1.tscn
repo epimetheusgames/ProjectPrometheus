@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://c1im61j16trjv"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
+[ext_resource type="Script" uid="uid://nduqecan1fld" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_hjtrt"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_jkpvj"]
 [ext_resource type="Texture2D" uid="uid://47vvy211o436" path="res://Assets/Images/Objects/Props/PropDoorFaceForward.png" id="3_s3kju"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_wpm32"]
@@ -9,7 +9,7 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_dba0d"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="7_lb12w"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="8_x137m"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="9_ggust"]
+[ext_resource type="Script" uid="uid://dsxmj5jix14a2" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="9_ggust"]
 [ext_resource type="PackedScene" uid="uid://bqy1gmd6wwrqx" path="res://Objects/StaticObjects/LargeDrone.tscn" id="10_osp52"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="11_sjoqh"]
 [ext_resource type="Texture2D" uid="uid://cwxh4s8o0yiko" path="res://Assets/Images/Objects/Props/PropBench.png" id="12_hrvsf"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="16_b2qe8"]
 [ext_resource type="PackedScene" uid="uid://bmu0h2ahup28b" path="res://Objects/StaticObjects/PreviousLevelArea.tscn" id="19_ukffx"]
 [ext_resource type="PackedScene" uid="uid://cwa3y585mpfea" path="res://Objects/StaticObjects/SecretAreaVoicelineLaptop.tscn" id="20_0drmv"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="20_73ci2"]
+[ext_resource type="Script" uid="uid://g83tj0axoggb" path="res://Levels/Playable/Medium/27BossFight/TimerDisabler.gd" id="20_73ci2"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_8fs24"]
 [ext_resource type="AudioStream" uid="uid://bjrj0rc2d5n3x" path="res://Assets/Audio/Voicelines/AlexHarveyRecording6.ogg" id="22_sjndb"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_ymgl5"]
@@ -97,36 +97,20 @@ metadata/_better_terrain = {
 texture = ExtResource("5_3mykt")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_k7pq2"]
@@ -271,6 +255,7 @@ position = Vector2(451, -80)
 item_switch_type = "RocketBoost"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.7019608, 0.7019608, 0.7019608, 1)
 
 [node name="PropDoorFaceForwardLocked" type="Sprite2D" parent="."]
 position = Vector2(1172, -31)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://demml7f8xyw1n"]
 
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egacv"]
+[ext_resource type="Script" uid="uid://bg6gjg1kn2jxy" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_egacv"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="2_0kaei"]
 [ext_resource type="FontFile" uid="uid://kq5pe5ver0ga" path="res://Assets/Fonts/KodeMono-VariableFont_wght.ttf" id="3_6rlta"]
 [ext_resource type="FontFile" uid="uid://d8ujl3e7yh8r" path="res://Assets/Fonts/VT323-Regular.ttf" id="3_21k4g"]

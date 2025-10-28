@@ -83,6 +83,7 @@ func _ready():
 		
 	if name == "SelectSlotMenu":
 		reload_percentages()
+		_on_slot_1_button_up()
 
 func _process(_delta):
 	if modulate.a < 1:
@@ -425,4 +426,3 @@ func _on_special_music_fade_out_timer_timeout():
 func _on_select_level_back_button_up():
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").play_backwards("SelectLevelMenuRiseFromDepthsAnimation")
 	get_parent().get_node("SelectCharacterMenuRiseFromDepthsAnimationPlayer").queue("SelectSlotMenuRiseFromDepthsAnimation")
-
