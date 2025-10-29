@@ -218,9 +218,9 @@ shape = SubResource("RectangleShape2D_bxb5c")
 position = Vector2(-4, 16)
 shape = SubResource("RectangleShape2D_dncpn")
 
-[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+[node name="DrillCollider" type="CharacterBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrillCollider"]
 polygon = PackedVector2Array(38, 32, 38, 10, 27, -1, 14, -1, 2, 10, 2, 32)
 
 [node name="PlayerInRangeDetector" type="Area2D" parent="."]

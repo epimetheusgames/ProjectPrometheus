@@ -1,6 +1,6 @@
 [gd_scene load_steps=199 format=3 uid="uid://b565mgc8l6dsu"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_eaalj"]
+[ext_resource type="Script" uid="uid://nduqecan1fld" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_eaalj"]
 [ext_resource type="TileSet" uid="uid://bfmnlsmvueif0" path="res://Objects/StaticObjects/Decorations.tres" id="2_lh4u6"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_7024m"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="4_1soib"]
@@ -9,9 +9,9 @@
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_4tu40"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="8_tt3as"]
 [ext_resource type="Texture2D" uid="uid://bato62a53682m" path="res://Assets/Images/Tilesets/TileMap3DWallBlank.png" id="9_lcr3h"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_ljfe1"]
+[ext_resource type="Script" uid="uid://dsxmj5jix14a2" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="10_ljfe1"]
 [ext_resource type="AudioStream" uid="uid://dgahhl602nprq" path="res://Assets/Audio/SFX/AmbientBackground1.wav" id="11_udjhp"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Bulge.gdshader" id="12_ryuys"]
+[ext_resource type="Shader" uid="uid://dnksso1vjltix" path="res://Scripts/Shaders/Bulge.gdshader" id="12_ryuys"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="13_8s0sm"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="14_4dr1d"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="15_v2egd"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://sffyncbf6klt" path="res://Assets/Images/Objects/Props/DoorAjarSprite.png" id="17_7g20o"]
 [ext_resource type="PackedScene" uid="uid://dhan07vwy03tg" path="res://Objects/StaticObjects/Drill.tscn" id="18_a0eqb"]
 [ext_resource type="PackedScene" uid="uid://cbcnjn41x1p84" path="res://Objects/StaticObjects/VoicelinePlayerArea.tscn" id="19_16wel"]
-[ext_resource type="Script" path="res://Scripts/CustomVoicelineScripts/1TutorialCGrappleSwingDeath.gd" id="20_i54lg"]
+[ext_resource type="Script" uid="uid://dqen8t1xtfmve" path="res://Scripts/CustomVoicelineScripts/1TutorialCGrappleSwingDeath.gd" id="20_i54lg"]
 [ext_resource type="Texture2D" uid="uid://d2sayxj4530sd" path="res://Assets/Images/Objects/Props/PropDoorFaceForwardLocked.png" id="21_wqpw6"]
 [ext_resource type="Texture2D" uid="uid://c8sgdlcrofv4f" path="res://Assets/Images/Objects/FunctionalProps/TutorialDialogueJumpSwingGrappleAnimation.png" id="22_1j87t"]
 [ext_resource type="PackedScene" uid="uid://dvmdybceqknkh" path="res://Objects/StaticObjects/PressEAreaPopup.tscn" id="23_k5xq2"]
@@ -62,36 +62,20 @@ physics_layer_0/collision_layer = 1
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
 texture = ExtResource("5_fm878")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
@@ -1307,7 +1291,7 @@ bus = &"SFX"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 material = SubResource("ShaderMaterial_0aues")
-color = Color(0.701961, 0.701961, 0.701961, 1)
+color = Color(0.56078434, 0.56078434, 0.56078434, 1)
 
 [node name="SizeChecker" type="ColorRect" parent="."]
 visible = false

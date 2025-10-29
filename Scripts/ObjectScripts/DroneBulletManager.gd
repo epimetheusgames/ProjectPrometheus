@@ -29,4 +29,5 @@ func _on_bullet_hurter_body_entered(body):
 		$BulletSprite.queue_free()
 		$BulletHurter.queue_free()
 		$GPUParticles2D.emitting = false
+		$PointLight2D.queue_free()
 		stopped_moving = true

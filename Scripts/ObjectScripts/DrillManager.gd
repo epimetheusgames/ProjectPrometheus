@@ -38,7 +38,7 @@ func _ready():
 		$DrillBreakOverlay.scale.x = 1
 		
 		if tank:
-			$StaticBody2D.scale.x = 1
+			$DrillCollider.scale.x = 1
 	elif direction == -speed:
 		$JumpHurtBox/CollisionShape2D2.disabled = true
 		$JumpHurtBox/CollisionShape2D3.disabled = false
@@ -46,7 +46,7 @@ func _ready():
 		$DrillBreakOverlay.scale.x = -1
 		
 		if tank:
-			$StaticBody2D.scale.x = -1
+			$DrillCollider.scale.x = -1
 		
 	if get_parent().multiplayer:
 		if multiplayer.is_server():
@@ -80,7 +80,7 @@ func _process(delta):
 				node_with_name.name = "Drill worked!"
 				right_collision = node_with_name
 			
-			if left_collision != null && left_collision.name != "Player" && direction == -speed:
+			if left_collision != null && left_collision.name != "Player" && left_collision.name != "DrillCollider" && direction == -speed:
 				direction = speed
 				$JumpHurtBox/CollisionShape2D2.disabled = false
 				$JumpHurtBox/CollisionShape2D3.disabled = true
@@ -90,9 +90,10 @@ func _process(delta):
 				$DrillBreakOverlay.visible = false
 				
 				if tank:
-					$StaticBody2D.scale.x = 1
+					$DrillCollider.scale.x = 1
 				
-			elif right_collision != null && right_collision.name != "Player" && direction == speed:
+			elif right_collision != null && right_collision.name != "Player" && right_collision.name != "DrillCollider" && direction == speed:
+				print(right_collision.name)
 				direction = -speed
 				$JumpHurtBox/CollisionShape2D2.disabled = true
 				$JumpHurtBox/CollisionShape2D3.disabled = false
@@ -102,7 +103,7 @@ func _process(delta):
 				$DrillBreakOverlay.visible = false
 				
 				if tank:
-					$StaticBody2D.scale.x = -1
+					$DrillCollider.scale.x = -1
 			
 			if down_collision != null || down_collision_2 != null:
 				velocity.y = -0.05
@@ -114,7 +115,7 @@ func _process(delta):
 			$DrillBreakOverlay.visible = true
 			
 			if disable_hitbox_when_dead:
-				$StaticBody2D/CollisionPolygon2D.disabled = true
+				$DrillCollider/CollisionPolygon2D.disabled = true
 	
 	if get_parent().is_multiplayer && is_multiplayer_authority():
 		set_pos_and_motion_multiplayer.rpc(position, velocity, health, $DrillAnimation.scale.x)
@@ -134,7 +135,7 @@ func _on_jump_hurt_box_area_entered(area):
 		if area.get_parent().get_node("DashStopCooldown").time_left > 0 || area.get_parent().is_swiping_sword:
 			if !no_nockback:
 				var raycast = PhysicsRayQueryParameters2D.create(global_position, global_position - Vector2(velocity.x * 50, 0))
-				raycast.exclude.append($StaticBody2D.get_rid())
+				raycast.exclude.append($DrillCollider.get_rid())
 				raycast.exclude.append(area.get_parent().get_rid())
 				var result = get_world_2d().direct_space_state.intersect_ray(raycast)
 				if !result:

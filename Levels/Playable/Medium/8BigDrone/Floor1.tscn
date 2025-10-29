@@ -214,9 +214,6 @@ position = Vector2(991, -242)
 visible = false
 points = PackedVector2Array(-210, 4, -404, -54, -763, 90, -876, 7, -518, -88, -302, -193, -38, -190, 127, -298)
 
-[node name="DroneOutlineSpritesheet" parent="DroneManager2/Drone" index="1"]
-visible = true
-
 [node name="PropDoorFaceForward" type="Sprite2D" parent="."]
 position = Vector2(-126, -32)
 texture = ExtResource("3_s3kju")

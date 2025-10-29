@@ -1,11 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpqs3h031dhae"]
+[gd_scene load_steps=17 format=3 uid="uid://bpqs3h031dhae"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
+[ext_resource type="Script" uid="uid://bscostx7xb3nq" path="res://Scripts/ObjectScripts/DroneBulletManager.gd" id="1_50na5"]
 [ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="2_qdroe"]
 [ext_resource type="AudioStream" uid="uid://c5dfjr0r10par" path="res://Assets/Audio/SFX/BulletAmbientNoise.mp3" id="3_kq20q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4cqu"]
 radius = 1.58114
+
+[sub_resource type="Gradient" id="Gradient_74hgf"]
+offsets = PackedFloat32Array(0.00645161, 1)
+colors = PackedColorArray(0.47806, 0.3074, 0.53, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0l7vx"]
+gradient = SubResource("Gradient_74hgf")
+width = 1
+height = 1
 
 [sub_resource type="Gradient" id="Gradient_wdq26"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -28,15 +37,6 @@ hue_variation_min = -0.02
 hue_variation_max = 0.02
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 10.0
-
-[sub_resource type="Gradient" id="Gradient_74hgf"]
-offsets = PackedFloat32Array(0.00645161, 1)
-colors = PackedColorArray(0.47806, 0.3074, 0.53, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0l7vx"]
-gradient = SubResource("Gradient_74hgf")
-width = 1
-height = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qo16s"]
 atlas = ExtResource("2_qdroe")
@@ -74,6 +74,17 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_kvee5"]
+offsets = PackedFloat32Array(0, 0.07838542, 0.37734374, 0.7032812)
+colors = PackedColorArray(1, 1, 1, 1, 0.55146873, 0.55146873, 0.55146873, 1, 0.41768497, 0.41768497, 0.41768497, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f06ok"]
+gradient = SubResource("Gradient_kvee5")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="DroneBullet" type="Node2D"]
 z_index = 1
 script = ExtResource("1_50na5")
@@ -93,13 +104,13 @@ autostart = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(2.5, 2.5)
 amount = 100
-process_material = SubResource("ParticleProcessMaterial_4quri")
 texture = SubResource("GradientTexture2D_0l7vx")
 lifetime = 2.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
+process_material = SubResource("ParticleProcessMaterial_4quri")
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(6, 3, 3, 1)
+self_modulate = Color(2.454227, 0.8776983, 0.753506, 1)
 position = Vector2(2.5, 2.5)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_t442l")
@@ -115,6 +126,15 @@ autoplay = true
 max_distance = 350.0
 attenuation = 0.812252
 panning_strength = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.9720437, 0.35285103, 0.43903503, 1)
+energy = 3.0
+range_z_max = 7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_f06ok")
 
 [connection signal="body_entered" from="BulletHurter" to="." method="_on_bullet_hurter_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -101,6 +101,7 @@ func _physics_process(delta):
 				if !air_grapling:
 					get_parent().velocity = (hook.position - get_parent().position).normalized() * 5
 					$GrappleUp.stop()
+					$GrappleShoot.stop()
 				if air_grapling:
 					get_parent().velocity *= 8
 			

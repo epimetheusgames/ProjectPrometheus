@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn1vatgdq214p"]
+[gd_scene load_steps=17 format=3 uid="uid://dn1vatgdq214p"]
 
 [ext_resource type="Script" uid="uid://bdhmnv2gp3pv7" path="res://Scripts/ObjectScripts/PlayerBulletManager.gd" id="1_des1p"]
 [ext_resource type="Texture2D" uid="uid://lp8wja5hyqkb" path="res://Assets/Images/Objects/PlayerProps/PlayerBullet.png" id="3_aobxr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_63qep"]
-radius = 6.67083
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvee5"]
+radius = 3.5
 
 [sub_resource type="Gradient" id="Gradient_552lm"]
 offsets = PackedFloat32Array(0.00598802, 1)
@@ -76,6 +76,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_o200d"]
 radius = 45.5027
 
+[sub_resource type="Gradient" id="Gradient_kvee5"]
+offsets = PackedFloat32Array(0, 0.07838542, 0.37734374, 0.7032812)
+colors = PackedColorArray(1, 1, 1, 1, 0.55146873, 0.55146873, 0.55146873, 1, 0.41768497, 0.41768497, 0.41768497, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xadyr"]
+gradient = SubResource("Gradient_kvee5")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Node2D" type="Node2D"]
 z_index = 1
 script = ExtResource("1_des1p")
@@ -84,7 +95,7 @@ script = ExtResource("1_des1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBulletHurter"]
 position = Vector2(2.5, 2.5)
-shape = SubResource("CircleShape2D_63qep")
+shape = SubResource("CapsuleShape2D_kvee5")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -100,18 +111,29 @@ visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 process_material = SubResource("ParticleProcessMaterial_ak2wy")
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(6, 6, 5.5, 1)
+self_modulate = Color(1, 1, 0.91330606, 1)
 position = Vector2(2.5, 2.5)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_t5eoq")
 animation = &"Init"
 autoplay = "Init"
+frame = 3
+frame_progress = 1.0
 
 [node name="EnemyDetectionRadius" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionRadius"]
 position = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_o200d")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.2983501, 0.82875246, 0.9109187, 1)
+energy = 3.0
+range_z_max = 7
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 0.1
+texture = SubResource("GradientTexture2D_xadyr")
 
 [connection signal="area_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_area_entered"]
 [connection signal="body_entered" from="PlayerBulletHurter" to="." method="_on_player_bullet_hurter_body_entered"]

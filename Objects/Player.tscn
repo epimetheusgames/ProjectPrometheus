@@ -1,26 +1,26 @@
 [gd_scene load_steps=131 format=3 uid="uid://dlchuo004ji5k"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
+[ext_resource type="Script" uid="uid://doyjml83ktndn" path="res://Scripts/ObjectScripts/PlayerManager.gd" id="1_71342"]
+[ext_resource type="Script" uid="uid://bf2lud2nx2xjv" path="res://Scripts/ObjectScripts/Player.gd" id="2_7fkxw"]
 [ext_resource type="PackedScene" uid="uid://dbql3q4vummfw" path="res://Objects/Overlays/PauseMenu.tscn" id="2_g88ux"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/PlayerCamera.gd" id="2_hyv1c"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/CameraCollider.gd" id="2_mi2af"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
+[ext_resource type="Script" uid="uid://bjjitudsyd48l" path="res://Scripts/ObjectScripts/PlayerCamera.gd" id="2_hyv1c"]
+[ext_resource type="Script" uid="uid://difqtscy0b4k7" path="res://Scripts/ObjectScripts/CameraCollider.gd" id="2_mi2af"]
+[ext_resource type="Script" uid="uid://ba8nkj7efsb41" path="res://Scripts/ObjectScripts/AbilityManager.gd" id="4_ctc4a"]
 [ext_resource type="Texture2D" uid="uid://f5lawmwpwrel" path="res://Assets/Images/Objects/UI/RocketBootsIcon.png" id="5_2fpqi"]
 [ext_resource type="Texture2D" uid="uid://cr2610b268u2o" path="res://Assets/Images/Objects/UI/Sword_Icon_Sprite.png" id="7_cocna"]
 [ext_resource type="Texture2D" uid="uid://duef5w4d6i5lt" path="res://Assets/Images/Objects/UI/TickerBackgroundMask.png" id="7_es82s"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/DQScrollTextManager.gd" id="8_12kyt"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
+[ext_resource type="Script" uid="uid://inr8mdfu6re4" path="res://Scripts/ObjectScripts/DQScrollTextManager.gd" id="8_12kyt"]
+[ext_resource type="Script" uid="uid://dnng7h5ve3lvc" path="res://Scripts/ObjectScripts/ArmGunManager.gd" id="8_bsb7n"]
 [ext_resource type="Texture2D" uid="uid://chbgvy50r01t1" path="res://Assets/Images/Objects/UI/TickerSpritesheet.png" id="9_l4wr6"]
 [ext_resource type="Texture2D" uid="uid://dvk40sahmgybr" path="res://Assets/Images/Objects/UI/GrappleIcon.png" id="10_qna8r"]
 [ext_resource type="Texture2D" uid="uid://beg0uwi0f0c6h" path="res://Assets/Images/Objects/Misc/ScreenBorder.png" id="10_to3sf"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/CloseAnimator.gd" id="11_opf60"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
+[ext_resource type="Script" uid="uid://b7d2rdxkrjgep" path="res://Scripts/ObjectScripts/GrappleManager.gd" id="11_k2qbr"]
+[ext_resource type="Script" uid="uid://dposm26nhs4p7" path="res://Scripts/ObjectScripts/CloseAnimator.gd" id="11_opf60"]
+[ext_resource type="Script" uid="uid://cd74erfq4wrmd" path="res://Scripts/ObjectScripts/GrapplePhysics.gd" id="12_5gxux"]
 [ext_resource type="Texture2D" uid="uid://bxkgsplc2qnf3" path="res://Assets/Images/Objects/Misc/BlackPixel.png" id="12_lk36j"]
 [ext_resource type="Texture2D" uid="uid://b1xwrqg427wio" path="res://Assets/Images/Objects/Misc/WhitePixel.png" id="13_7gte0"]
 [ext_resource type="Texture2D" uid="uid://hdpwng3ffpud" path="res://Assets/Images/Objects/UI/TutorialDialogueBox.png" id="15_b14rh"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/TutorialDialogueManager.gd" id="15_c3i4e"]
+[ext_resource type="Script" uid="uid://hr0wyoh5gs8r" path="res://Scripts/ObjectScripts/TutorialDialogueManager.gd" id="15_c3i4e"]
 [ext_resource type="AudioStream" uid="uid://eehcc4l7a0ik" path="res://Assets/Audio/SFX/RocketBoost.wav" id="15_de7xa"]
 [ext_resource type="Texture2D" uid="uid://cckjfxxfjy7f3" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment2.png" id="15_fa7j4"]
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="16_bulim"]
@@ -28,21 +28,21 @@
 [ext_resource type="Texture2D" uid="uid://cq3xk2rk1477j" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge1.png" id="17_7qngq"]
 [ext_resource type="Texture2D" uid="uid://dk0yq6avys0cc" path="res://Assets/Images/Objects/PlayerProps/ArmGunSegment3.png" id="17_p4s3n"]
 [ext_resource type="Texture2D" uid="uid://c4nfctlp6w8sn" path="res://Assets/Images/Objects/UI/Grapple.png" id="18_c1syy"]
-[ext_resource type="Script" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
+[ext_resource type="Script" uid="uid://c35v1akp1r2rs" path="res://addons/controller_icons/objects/TextureRect.gd" id="18_op56f"]
 [ext_resource type="Texture2D" uid="uid://8u6qags5a5w4" path="res://Assets/Images/Objects/PlayerProps/ArmGunHinge2.png" id="18_tdjfb"]
 [ext_resource type="Texture2D" uid="uid://xe4n818le3p8" path="res://addons/controller_icons/assets/key/e.png" id="18_wk6du"]
 [ext_resource type="AudioStream" uid="uid://cv0hqy5xo61mh" path="res://Assets/Audio/SFX/MetalWalk1.wav" id="19_4311v"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
+[ext_resource type="Script" uid="uid://dy7ep4h464yj5" path="res://Scripts/ObjectScripts/MouseToShootDialoguePlayerFollow.gd" id="20_7lt1o"]
 [ext_resource type="AudioStream" uid="uid://ci3s1ff1pp2l2" path="res://Assets/Audio/SFX/MetalWalk2.wav" id="20_kii0g"]
 [ext_resource type="AudioStream" uid="uid://bwsp5uex5fxid" path="res://Assets/Audio/SFX/MetalWalkBoots1.wav" id="21_44at1"]
 [ext_resource type="Texture2D" uid="uid://l4penwlrdaif" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetLeft.png" id="21_lg63c"]
 [ext_resource type="Texture2D" uid="uid://b8vuy7l8npt6w" path="res://addons/controller_icons/assets/mouse/left.png" id="21_ltk4y"]
 [ext_resource type="Texture2D" uid="uid://bkp2mj4se0ken" path="res://Assets/Images/Objects/CharacterSpritesheet/AntennaSpritesheetRight.png" id="22_rf8k5"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
+[ext_resource type="Script" uid="uid://d1idm8u4jn1kf" path="res://Scripts/ObjectScripts/ShootingSwitchFollowingDialogue.gd" id="22_uhhpf"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="23_1iden"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/CutsceneAnimator.gd" id="23_2gvnx"]
+[ext_resource type="Script" uid="uid://c751k2tqljsti" path="res://Scripts/ObjectScripts/CutsceneAnimator.gd" id="23_2gvnx"]
 [ext_resource type="SpriteFrames" uid="uid://ppqwdqxml1ls" path="res://Objects/StaticObjects/PlayerType4.tres" id="23_3u55o"]
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
+[ext_resource type="Script" uid="uid://bg485g5wmekhs" path="res://Scripts/ObjectScripts/InventoryManager.gd" id="23_4onkk"]
 [ext_resource type="Texture2D" uid="uid://c27fomfe71arm" path="res://Assets/Images/Objects/Misc/CRTOverlay.png" id="25_01sqx"]
 [ext_resource type="AudioStream" uid="uid://jcuobp0ocbbi" path="res://Assets/Audio/SFX/HeartbeatSFX.wav" id="31_1136l"]
 [ext_resource type="Texture2D" uid="uid://ck84ax1ludbp6" path="res://Assets/Images/Objects/Misc/CrosshairShootAnimation.png" id="32_wnpw3"]
@@ -150,9 +150,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8cff"]
 _data = {
-"Fadein": SubResource("Animation_a8bfa"),
-"Fadeout": SubResource("Animation_ln073"),
-"RESET": SubResource("Animation_sot3n")
+&"Fadein": SubResource("Animation_a8bfa"),
+&"Fadeout": SubResource("Animation_ln073"),
+&"RESET": SubResource("Animation_sot3n")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f857k"]
@@ -203,8 +203,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o2q55"]
 _data = {
-"GotItem": SubResource("Animation_pv1ye"),
-"RESET": SubResource("Animation_l8khi")
+&"GotItem": SubResource("Animation_pv1ye"),
+&"RESET": SubResource("Animation_l8khi")
 }
 
 [sub_resource type="Gradient" id="Gradient_eqpt7"]
@@ -300,8 +300,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2d1hn"]
 _data = {
-"Open": SubResource("Animation_26o2t"),
-"RESET": SubResource("Animation_jnnxy")
+&"Open": SubResource("Animation_26o2t"),
+&"RESET": SubResource("Animation_jnnxy")
 }
 
 [sub_resource type="Animation" id="Animation_4w1xp"]
@@ -389,9 +389,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7w7xl"]
 _data = {
-"CloseLevel": SubResource("Animation_4w1xp"),
-"OpenLevel": SubResource("Animation_7p7jl"),
-"RESET": SubResource("Animation_ai123")
+&"CloseLevel": SubResource("Animation_4w1xp"),
+&"OpenLevel": SubResource("Animation_7p7jl"),
+&"RESET": SubResource("Animation_ai123")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i25fv"]
@@ -567,14 +567,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ws7le"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(10, 1, 1)
-direction = Vector3(0, -1, 0)
-initial_velocity_max = 39.6
-gravity = Vector3(0, 98, 0)
-
 [sub_resource type="Gradient" id="Gradient_hwxu2"]
 colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
 
@@ -582,6 +574,14 @@ colors = PackedColorArray(0.47, 0.47, 0.47, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_hwxu2")
 width = 1
 height = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ws7le"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 39.6
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ugayt"]
 blend_mode = 1
@@ -610,6 +610,14 @@ scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
 color_ramp = SubResource("GradientTexture1D_ef33u")
 
+[sub_resource type="Gradient" id="Gradient_l8y8s"]
+colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq6ji"]
+gradient = SubResource("Gradient_l8y8s")
+width = 1
+height = 1
+
 [sub_resource type="Gradient" id="Gradient_sgf2g"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
@@ -635,13 +643,13 @@ turbulence_noise_strength = 0.0
 turbulence_noise_scale = 5.8
 turbulence_noise_speed = Vector3(-1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_l8y8s"]
-colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)
+[sub_resource type="Gradient" id="Gradient_asldv"]
+colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq6ji"]
-gradient = SubResource("Gradient_l8y8s")
-width = 1
-height = 1
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
+gradient = SubResource("Gradient_asldv")
+width = 2
+height = 2
 
 [sub_resource type="Gradient" id="Gradient_05jlk"]
 offsets = PackedFloat32Array(0, 0.346939, 1)
@@ -670,14 +678,6 @@ turbulence_enabled = true
 turbulence_noise_strength = 0.0
 turbulence_noise_scale = 7.1
 turbulence_noise_speed = Vector3(-1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_asldv"]
-colors = PackedColorArray(0.3666, 0.3666, 0.39, 1, 0.39, 0.39, 0.39, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia288"]
-gradient = SubResource("Gradient_asldv")
-width = 2
-height = 2
 
 [sub_resource type="Gradient" id="Gradient_81bg7"]
 offsets = PackedFloat32Array(0, 0.31, 0.46, 0.74)
@@ -927,7 +927,7 @@ shape = SubResource("RectangleShape2D_4lfc8")
 
 [node name="TransparentifierAnimationPlayer" type="AnimationPlayer" parent="Camera/AbilityManager"]
 libraries = {
-"": SubResource("AnimationLibrary_v8cff")
+&"": SubResource("AnimationLibrary_v8cff")
 }
 autoplay = "Fadein"
 
@@ -948,7 +948,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/AbilityManager"]
 libraries = {
-"": SubResource("AnimationLibrary_o2q55")
+&"": SubResource("AnimationLibrary_o2q55")
 }
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Camera/AbilityManager"]
@@ -995,7 +995,7 @@ texture = ExtResource("12_lk36j")
 
 [node name="WhiteLine" type="Sprite2D" parent="Camera/CloseAnimator"]
 visible = false
-self_modulate = Color(5, 5, 5, 1)
+self_modulate = Color(10.5787325, 10.5787325, 10.5787325, 1)
 z_index = 11
 position = Vector2(-7.62939e-06, 0)
 scale = Vector2(700, 0.2)
@@ -1487,7 +1487,7 @@ script = ExtResource("23_2gvnx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/CutsceneAnimator"]
 libraries = {
-"": SubResource("AnimationLibrary_2d1hn")
+&"": SubResource("AnimationLibrary_2d1hn")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera/CutsceneAnimator"]
@@ -1692,7 +1692,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LevelTransitionAnimationPlayer" type="AnimationPlayer" parent="Camera"]
 libraries = {
-"": SubResource("AnimationLibrary_7w7xl")
+&"": SubResource("AnimationLibrary_7w7xl")
 }
 autoplay = "OpenLevel"
 
@@ -1905,8 +1905,8 @@ one_shot = true
 [node name="GravelWalkingParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-2, 16)
 emitting = false
-process_material = SubResource("ParticleProcessMaterial_ws7le")
 texture = SubResource("GradientTexture2D_vxmpe")
+process_material = SubResource("ParticleProcessMaterial_ws7le")
 
 [node name="FireParticlesBootsLeft" type="GPUParticles2D" parent="Player"]
 self_modulate = Color(0.7, 0.7, 0.7, 1)
@@ -1915,9 +1915,9 @@ position = Vector2(-5.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false
 amount = 800
-process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = ExtResource("23_1iden")
 lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_nvq35")
 
 [node name="FireParticlesBootsRight" type="GPUParticles2D" parent="Player"]
 self_modulate = Color(0.7, 0.7, 0.7, 1)
@@ -1926,27 +1926,27 @@ position = Vector2(3.5, 15)
 scale = Vector2(0.5, 0.5)
 emitting = false
 amount = 800
-process_material = SubResource("ParticleProcessMaterial_nvq35")
 texture = ExtResource("23_1iden")
 lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_nvq35")
 
 [node name="SparkParticles" type="GPUParticles2D" parent="Player"]
 position = Vector2(-11, -11)
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_iukvx")
 texture = SubResource("GradientTexture2D_uq6ji")
 lifetime = 5.0
 one_shot = true
 explosiveness = 0.68
+process_material = SubResource("ParticleProcessMaterial_iukvx")
 
 [node name="PlayerAmbianceParticles" type="GPUParticles2D" parent="Player"]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(-11, -9)
 amount = 15
-process_material = SubResource("ParticleProcessMaterial_ase3h")
 texture = SubResource("GradientTexture2D_ia288")
 lifetime = 20.0
+process_material = SubResource("ParticleProcessMaterial_ase3h")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-8, 16, 6, 16, 6, 16, 6, 15, 2, -10, -3, -10, -8, 15, -8, 16)

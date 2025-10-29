@@ -34,7 +34,7 @@ func _process(delta):
 		if !use_parent_add:
 			get_parent().get_node("Player").get_node("Camera").get_node("LevelTransitionAnimationPlayer").play("CloseLevel")
 		else:
-			get_parent().add_level
+			get_parent().add_level()
 		
 func add_level():
 	var level = get_parent().level

@@ -63,5 +63,4 @@ func _physics_process(delta):
 		$StaticBody2D/CollisionShape2D.disabled = false
 		
 	if Input.is_action_just_pressed("interact") && player_in_area:
-		add_level()
-
+		get_parent().get_node("Player").get_node("Camera").get_node("LevelTransitionAnimationPlayer").play("CloseLevel")
