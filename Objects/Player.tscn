@@ -609,6 +609,10 @@ scale_min = 0.0
 scale_max = 0.8
 color = Color(1, 1, 1, 0.607843)
 color_ramp = SubResource("GradientTexture1D_ef33u")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.5
+collision_use_scale = true
 
 [sub_resource type="Gradient" id="Gradient_l8y8s"]
 colors = PackedColorArray(0.2581, 0.89, 0.82681, 1, 0.388235, 0.388235, 0.388235, 0)

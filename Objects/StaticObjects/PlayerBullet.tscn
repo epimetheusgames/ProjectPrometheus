@@ -111,7 +111,7 @@ visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 process_material = SubResource("ParticleProcessMaterial_ak2wy")
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(1, 1, 0.91330606, 1)
+self_modulate = Color(1.8247963, 1.8247963, 1.671208, 1)
 position = Vector2(2.5, 2.5)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_t5eoq")

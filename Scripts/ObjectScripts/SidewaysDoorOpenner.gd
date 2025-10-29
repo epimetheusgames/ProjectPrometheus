@@ -8,7 +8,7 @@
 extends Node2D
 
 
-var locked = false
+@export var locked = false
 
 func _on_area_2d_area_entered(area):
 	if area.name == "PlayerHurtbox" && !locked:

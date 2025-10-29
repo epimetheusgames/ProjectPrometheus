@@ -131,7 +131,7 @@ func _process(_delta):
 		$LevelSelect.max_value = loaded_data[0] + 1
 		$LevelName.text = get_parent().get_parent().level_display_names[$LevelSelect.value - 1]
 		
-		get_parent().get_node("SelectSlotMenu").get_node("SelectLevelButton").text = "Level: " + str($LevelSelect.value)
+		get_parent().get_node("SelectSlotMenu").get_node("SelectLevelButton").text = "Level: " + str(int($LevelSelect.value))
 		
 		var undiscovered_secret_area_uids_on_current_level = false
 		for uid_level_tuple in get_parent().get_parent().secret_area_data:
