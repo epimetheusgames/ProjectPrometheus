@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b5jimb53wf7mf"]
 
 [ext_resource type="Theme" uid="uid://by6yqsmwuyf3i" path="res://Objects/UIThemes/Menu.tres" id="1_0i2j1"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_kscwv"]
+[ext_resource type="Script" uid="uid://bg6gjg1kn2jxy" path="res://Scripts/FrameworkScripts/Menu.gd" id="1_kscwv"]
 [ext_resource type="Texture2D" uid="uid://x77mfqnbr3mo" path="res://Assets/Images/Objects/UI/CharacterIconType1.png" id="2_t6g8c"]
 [ext_resource type="Texture2D" uid="uid://basots7w6wl3l" path="res://Assets/Images/Objects/UI/CharacterIconType2.png" id="3_2pl31"]
 [ext_resource type="Texture2D" uid="uid://cihlwhrhtkp1e" path="res://Assets/Images/Objects/UI/CharacterIconType3.png" id="4_7ybwy"]
@@ -26,14 +26,6 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_size = 43
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3bx2"]
-bg_color = Color(0.262745, 0.262745, 0.262745, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 25
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb7rl"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 3
@@ -49,6 +41,14 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3bx2"]
+bg_color = Color(0.262745, 0.262745, 0.262745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 25
 
 [node name="SelectCharacterMenu" type="Node2D"]
 script = ExtResource("1_kscwv")
@@ -122,20 +122,6 @@ icon = ExtResource("5_skhgk")
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = -161.0
-offset_top = -182.0
-offset_right = 1459.0
-offset_bottom = -45.0
-scale = Vector2(0.2, 0.2)
-theme_override_fonts/font = ExtResource("7_bo22q")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/normal = SubResource("StyleBoxFlat_p3bx2")
-text = "Please choose a character type
-"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="SelectCharacterStart" type="Button" parent="."]
 offset_left = 22.0
 offset_top = 54.0
@@ -169,6 +155,20 @@ offset_right = 415.0
 offset_bottom = 139.79
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dbquh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -161.0
+offset_top = -190.0
+offset_right = 1459.0
+offset_bottom = 63.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("7_bo22q")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/normal = SubResource("StyleBoxFlat_p3bx2")
+text = "Please choose a character type
+"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="Type1" to="." method="_on_type_1_button_up"]

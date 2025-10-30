@@ -1,6 +1,6 @@
 [gd_scene load_steps=171 format=3 uid="uid://duynmnq82mben"]
 
-[ext_resource type="Script" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
+[ext_resource type="Script" uid="uid://nduqecan1fld" path="res://Scripts/LevelScripts/LevelManager.gd" id="1_fl7hs"]
 [ext_resource type="Texture2D" uid="uid://bu0stjydydrdj" path="res://Assets/Images/Tilesets/TileMap3DWall.png" id="2_xrlir"]
 [ext_resource type="Texture2D" uid="uid://vfxsefxanr00" path="res://Assets/Images/Tilesets/DirectionalSignsTileset.png" id="3_0nphy"]
 [ext_resource type="TileSet" uid="uid://dtsvfundbj5" path="res://Objects/StaticObjects/Tileset.tres" id="3_eufvj"]
@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dx3pyxtqxduw3" path="res://Assets/Images/Tilesets/PipeTilesetSmallTest.png" id="4_mouxu"]
 [ext_resource type="TileSet" uid="uid://b8wvvoyytbju2" path="res://Objects/StaticObjects/Gravel.tres" id="5_ap23i"]
 [ext_resource type="PackedScene" uid="uid://dlchuo004ji5k" path="res://Objects/Player.tscn" id="6_ad5ab"]
-[ext_resource type="Script" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_6b3e4"]
+[ext_resource type="Script" uid="uid://dsxmj5jix14a2" path="res://Scripts/FrameworkScripts/NextLevel.gd" id="7_6b3e4"]
 [ext_resource type="TileSet" uid="uid://cvy3v64tsv3k5" path="res://Objects/StaticObjects/Spikes.tres" id="7_dr4u2"]
 [ext_resource type="PackedScene" uid="uid://cwm1lj78dxm6r" path="res://Objects/StaticObjects/ItemSwitcher.tscn" id="8_j5v6x"]
 [ext_resource type="PackedScene" uid="uid://dy1jq84e4ww4" path="res://Objects/StaticObjects/Drone.tscn" id="9_rgrfr"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/Fog.gdshader" id="9_sblmb"]
+[ext_resource type="Shader" uid="uid://b13tifkdi2pjq" path="res://Scripts/Shaders/Fog.gdshader" id="9_sblmb"]
 [ext_resource type="PackedScene" uid="uid://btl0cv6b8cmh" path="res://Objects/StaticObjects/GrappleHook.tscn" id="10_p42e6"]
 [ext_resource type="AudioStream" uid="uid://c3e5iry4m6flo" path="res://Assets/Audio/SFX/ItemSwitch.wav" id="11_434au"]
 [ext_resource type="PackedScene" uid="uid://kupdltxkw0wt" path="res://Objects/StaticObjects/Checkpoint.tscn" id="11_unlok"]
@@ -40,10 +40,10 @@
 [ext_resource type="PackedScene" uid="uid://dary5muymue13" path="res://Objects/StaticObjects/BGLeafBunch.tscn" id="36_ck8f7"]
 [ext_resource type="PackedScene" uid="uid://dpkkyo8c5driy" path="res://Objects/StaticObjects/SidewaysDoor.tscn" id="38_oitav"]
 [ext_resource type="PackedScene" uid="uid://bcwrdriivsxv0" path="res://Objects/StaticObjects/Ladder.tscn" id="39_843o4"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/SecondDoorCloser.gd" id="42_so2o2"]
+[ext_resource type="Script" uid="uid://bgqw4b085oj2" path="res://Levels/Playable/Medium/1Tutorial/SecondDoorCloser.gd" id="42_so2o2"]
 [ext_resource type="Texture2D" uid="uid://failsjwtufog" path="res://Assets/Images/Objects/Misc/FireParticle1.png" id="43_i4ym5"]
 [ext_resource type="Texture2D" uid="uid://etxao5kfq5qj" path="res://Assets/Images/Objects/Props/MistMaker.png" id="44_ay3la"]
-[ext_resource type="Script" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
+[ext_resource type="Script" uid="uid://d4fa0qbqrtjfb" path="res://Levels/Playable/Medium/1Tutorial/TutorialDoorCloser.gd" id="44_xp1je"]
 [ext_resource type="PackedScene" uid="uid://bt786e16fyak1" path="res://Objects/StaticObjects/PlayerObjectiveSetter.tscn" id="46_6ebp4"]
 [ext_resource type="Texture2D" uid="uid://lmu0hho8kukf" path="res://Assets/Images/Objects/FunctionalProps/PlayerRocketShip.png" id="47_ec3rt"]
 [ext_resource type="PackedScene" uid="uid://ddynqq6tu5pqi" path="res://Objects/StaticObjects/TextScrollActivator.tscn" id="48_abwk2"]
@@ -163,36 +163,20 @@ physics_layer_0/collision_layer = 1
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
 texture = ExtResource("4_mouxu")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2gdyw"]
@@ -207,15 +191,15 @@ frequency = 0.003
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jqowm"]
 width = 1024
 height = 1024
+noise = SubResource("FastNoiseLite_ulv0b")
 seamless = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_ulv0b")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l1flo"]
 shader = ExtResource("9_sblmb")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jqowm")
 shader_parameter/density = 0.127
 shader_parameter/speed = Vector2(0.02, 0.006)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_jqowm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuwdw"]
 size = Vector2(40, 64)
@@ -916,7 +900,7 @@ emission_shape = 3
 emission_box_extents = Vector3(16, 1, 1)
 angle_min = -720.0
 angle_max = 720.0
-direction = Vector3(0, 0, 0)
+direction = Vector3(0, 1, 0)
 spread = 20.0
 initial_velocity_min = 11.24
 initial_velocity_max = 78.65
@@ -2101,18 +2085,18 @@ z_index = 50
 position = Vector2(-2464, 76)
 emitting = false
 amount = 1000
-process_material = SubResource("ParticleProcessMaterial_66x88")
 texture = ExtResource("43_i4ym5")
 lifetime = 4.5
+process_material = SubResource("ParticleProcessMaterial_66x88")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 z_index = 50
 position = Vector2(-2432, 76)
 emitting = false
 amount = 1000
-process_material = SubResource("ParticleProcessMaterial_66x88")
 texture = ExtResource("43_i4ym5")
 lifetime = 4.5
+process_material = SubResource("ParticleProcessMaterial_66x88")
 
 [node name="MistMaker" type="Sprite2D" parent="."]
 z_index = -1
