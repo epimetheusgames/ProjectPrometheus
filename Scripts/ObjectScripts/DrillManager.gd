@@ -80,7 +80,7 @@ func _process(delta):
 				node_with_name.name = "Drill worked!"
 				right_collision = node_with_name
 			
-			if left_collision != null && left_collision.name != "Player" && left_collision.name != "DrillCollider" && direction == -speed:
+			if left_collision != null && left_collision.name != "Player" && left_collision != $DrillCollider && direction == -speed:
 				direction = speed
 				$JumpHurtBox/CollisionShape2D2.disabled = false
 				$JumpHurtBox/CollisionShape2D3.disabled = true
@@ -92,7 +92,7 @@ func _process(delta):
 				if tank:
 					$DrillCollider.scale.x = 1
 				
-			elif right_collision != null && right_collision.name != "Player" && right_collision.name != "DrillCollider" && direction == speed:
+			elif right_collision != null && right_collision.name != "Player" && right_collision != $DrillCollider && direction == speed:
 				print(right_collision.name)
 				direction = -speed
 				$JumpHurtBox/CollisionShape2D2.disabled = true

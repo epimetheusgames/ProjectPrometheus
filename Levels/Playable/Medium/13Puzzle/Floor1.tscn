@@ -314,8 +314,7 @@ position = Vector2(641, -749)
 
 [node name="DronePatrolPoints" parent="DroneManager" index="0"]
 visible = false
-position = Vector2(0, 256)
-points = PackedVector2Array(-2, 109, 3, 587, -42, 620, -84, -240)
+points = PackedVector2Array(-2, 109, -6, 810, -44, 852, -84, -240)
 
 [node name="DoorAjarSprite" type="Sprite2D" parent="."]
 position = Vector2(15, 0)

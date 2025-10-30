@@ -281,6 +281,9 @@ func _physics_process(delta):
 		# Go down a ladder.
 		if Input.is_action_pressed("down") && climbing && !dead:
 			velocity.y += jump_push_force * 2
+			
+			if $PlayerAnimation.animation != "Climbing" || !$PlayerAnimation.is_playing():
+				$PlayerAnimation.play("Climbing")
 		
 		# Increase velocity for steam boost.
 		if in_boost_area && !velocity.y < -4:
@@ -307,8 +310,10 @@ func _physics_process(delta):
 				if !was_climbing:
 					$PlayerAnimation.play("Climbing")
 					
-				if $PlayerAnimation.animation != "Climbing":
+				if $PlayerAnimation.animation != "Climbing" || !$PlayerAnimation.is_playing():
 					$PlayerAnimation.play("Climbing")
+		elif $PlayerAnimation.animation == "Climbing" && !Input.is_action_pressed("down"):
+			$PlayerAnimation.pause()
 		
 		# Sword attack.
 		if Input.is_action_just_pressed("attack") && current_ability == "Weapon" && $NewDashCooldown.time_left == 0 && !dead:

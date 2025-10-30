@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://1ydef646f5s8"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectScripts/AttackDroneManager.gd" id="1_x1qy1"]
+[ext_resource type="Script" uid="uid://bajb0rmgkhjof" path="res://Scripts/ObjectScripts/AttackDroneManager.gd" id="1_x1qy1"]
 [ext_resource type="Texture2D" uid="uid://dgvalkix6ijlb" path="res://Assets/Images/Objects/Misc/CloudThing.png" id="2_6rg6k"]
 [ext_resource type="SpriteFrames" uid="uid://dvad4ka6eq5kw" path="res://Objects/StaticObjects/AttackDroneAnimations.tres" id="3_dgcyn"]
 [ext_resource type="Texture2D" uid="uid://b5t40i60nfdmm" path="res://Assets/Images/Objects/Enemy/DroneOutlineSpritesheet.png" id="4_yuunr"]
@@ -42,6 +42,13 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_0awkx"]
+colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5bk6"]
+gradient = SubResource("Gradient_0awkx")
+width = 1
+
 [sub_resource type="Gradient" id="Gradient_2j5lc"]
 offsets = PackedFloat32Array(0, 0.255208, 0.46875, 0.723958, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
@@ -63,13 +70,6 @@ linear_accel_max = 7.0
 color_ramp = SubResource("GradientTexture1D_inqbl")
 turbulence_enabled = true
 turbulence_noise_scale = 4.8
-
-[sub_resource type="Gradient" id="Gradient_0awkx"]
-colors = PackedColorArray(0.404511, 0.404511, 0.404511, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5bk6"]
-gradient = SubResource("Gradient_0awkx")
-width = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp6ji"]
 size = Vector2(4, 2)
@@ -115,11 +115,11 @@ autoplay = "Idle"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Drone"]
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_76aea")
 texture = SubResource("GradientTexture1D_q5bk6")
 lifetime = 20.0
 visibility_rect = Rect2(-5000, -5000, 10000, 10000)
 local_coords = true
+process_material = SubResource("ParticleProcessMaterial_76aea")
 
 [node name="SmallBox" type="Area2D" parent="Drone"]
 
