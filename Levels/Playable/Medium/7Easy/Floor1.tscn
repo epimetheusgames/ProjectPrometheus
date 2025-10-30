@@ -244,7 +244,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-87, 115, 980, 110, 1641, -68, 1646, -568, 1081, -721, -65, -712, 525, -845, 1862, -613, 1613, 212)
+polygon = PackedVector2Array(-87, 115, 980, 110, 1641, -68, 1646, -568, 1081, -721, -65, -712, -108, -1318, 1373, -1112, 2017, -1004, 2071, 686, -57, 572)
 
 [node name="Player" parent="." instance=ExtResource("10_8alde")]
 

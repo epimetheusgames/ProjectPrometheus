@@ -158,6 +158,8 @@ metadata/_better_terrain = {
 
 [sub_resource type="TileSet" id="TileSet_yk64r"]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
+occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qd54"]
